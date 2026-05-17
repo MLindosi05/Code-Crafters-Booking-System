@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36408.4
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Code Crafters Booking System", "Code Crafters Booking System.csproj", "{1611DA53-B07D-44DD-9FD4-B6602F0CB822}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1611DA53-B07D-44DD-9FD4-B6602F0CB822}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1611DA53-B07D-44DD-9FD4-B6602F0CB822}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1611DA53-B07D-44DD-9FD4-B6602F0CB822}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1611DA53-B07D-44DD-9FD4-B6602F0CB822}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A5DA049F-2A4C-41AA-9F2D-640775CA3A88}
+	EndGlobalSection
+EndGlobal

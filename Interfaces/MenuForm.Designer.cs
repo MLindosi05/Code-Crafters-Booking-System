@@ -1,0 +1,253 @@
+﻿namespace Code_Crafters_Interface_Prototype_1
+{
+    partial class MainMenuForm
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.tsTextBox1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.signUpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.signUpToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.LoginToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.loginToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.bookingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.makeBookingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewBookingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.restaurentBookingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.msTextBox = new System.Windows.Forms.ToolStripTextBox();
+            this.menuStrip2 = new System.Windows.Forms.MenuStrip();
+            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.contactToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ExitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.PB1 = new System.Windows.Forms.PictureBox();
+            this.menuStrip1.SuspendLayout();
+            this.menuStrip2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PB1)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.BackColor = System.Drawing.Color.LightSlateGray;
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsTextBox1,
+            this.signUpToolStripMenuItem,
+            this.LoginToolStripMenuItem,
+            this.bookingToolStripMenuItem,
+            this.logoutToolStripMenuItem,
+            this.msTextBox});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(985, 31);
+            this.menuStrip1.TabIndex = 0;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // tsTextBox1
+            // 
+            this.tsTextBox1.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.tsTextBox1.Image = global::Code_Crafters_Interface_Prototype_1.Properties.Resources.pngtree_house_with_no_background_png_image_9197435;
+            this.tsTextBox1.Name = "tsTextBox1";
+            this.tsTextBox1.Size = new System.Drawing.Size(146, 24);
+            this.tsTextBox1.Text = "Regal Inn Hotel";
+            // 
+            // signUpToolStripMenuItem
+            // 
+            this.signUpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.signUpToolStripMenuItem1});
+            this.signUpToolStripMenuItem.Image = global::Code_Crafters_Interface_Prototype_1.Properties.Resources._6478_200;
+            this.signUpToolStripMenuItem.Name = "signUpToolStripMenuItem";
+            this.signUpToolStripMenuItem.Size = new System.Drawing.Size(95, 24);
+            this.signUpToolStripMenuItem.Text = "Sign Up";
+            // 
+            // signUpToolStripMenuItem1
+            // 
+            this.signUpToolStripMenuItem1.Name = "signUpToolStripMenuItem1";
+            this.signUpToolStripMenuItem1.Size = new System.Drawing.Size(146, 26);
+            this.signUpToolStripMenuItem1.Text = "Sign up ";
+            this.signUpToolStripMenuItem1.Click += new System.EventHandler(this.signUpToolStripMenuItem1_Click);
+            // 
+            // LoginToolStripMenuItem
+            // 
+            this.LoginToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.loginToolStripMenuItem1});
+            this.LoginToolStripMenuItem.Image = global::Code_Crafters_Interface_Prototype_1.Properties.Resources.black_login_icon__0;
+            this.LoginToolStripMenuItem.Name = "LoginToolStripMenuItem";
+            this.LoginToolStripMenuItem.Size = new System.Drawing.Size(80, 24);
+            this.LoginToolStripMenuItem.Text = "Login";
+            this.LoginToolStripMenuItem.Click += new System.EventHandler(this.LoginToolStripMenuItem_Click);
+            // 
+            // loginToolStripMenuItem1
+            // 
+            this.loginToolStripMenuItem1.Name = "loginToolStripMenuItem1";
+            this.loginToolStripMenuItem1.Size = new System.Drawing.Size(129, 26);
+            this.loginToolStripMenuItem1.Text = "Login";
+            this.loginToolStripMenuItem1.Click += new System.EventHandler(this.loginToolStripMenuItem1_Click);
+            // 
+            // bookingToolStripMenuItem
+            // 
+            this.bookingToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.makeBookingToolStripMenuItem,
+            this.viewBookingsToolStripMenuItem,
+            this.restaurentBookingToolStripMenuItem});
+            this.bookingToolStripMenuItem.Enabled = false;
+            this.bookingToolStripMenuItem.Image = global::Code_Crafters_Interface_Prototype_1.Properties.Resources._1131224_200;
+            this.bookingToolStripMenuItem.Name = "bookingToolStripMenuItem";
+            this.bookingToolStripMenuItem.Size = new System.Drawing.Size(98, 24);
+            this.bookingToolStripMenuItem.Text = "Booking";
+            this.bookingToolStripMenuItem.Click += new System.EventHandler(this.bookingToolStripMenuItem_Click);
+            // 
+            // makeBookingToolStripMenuItem
+            // 
+            this.makeBookingToolStripMenuItem.Name = "makeBookingToolStripMenuItem";
+            this.makeBookingToolStripMenuItem.Size = new System.Drawing.Size(249, 26);
+            this.makeBookingToolStripMenuItem.Text = "Accomodation Booking";
+            this.makeBookingToolStripMenuItem.Click += new System.EventHandler(this.makeBookingToolStripMenuItem_Click);
+            // 
+            // viewBookingsToolStripMenuItem
+            // 
+            this.viewBookingsToolStripMenuItem.Name = "viewBookingsToolStripMenuItem";
+            this.viewBookingsToolStripMenuItem.Size = new System.Drawing.Size(249, 26);
+            this.viewBookingsToolStripMenuItem.Text = "View Bookings";
+            this.viewBookingsToolStripMenuItem.Click += new System.EventHandler(this.viewBookingsToolStripMenuItem_Click);
+            // 
+            // restaurentBookingToolStripMenuItem
+            // 
+            this.restaurentBookingToolStripMenuItem.Name = "restaurentBookingToolStripMenuItem";
+            this.restaurentBookingToolStripMenuItem.Size = new System.Drawing.Size(249, 26);
+            this.restaurentBookingToolStripMenuItem.Text = "Restaurent Booking";
+            this.restaurentBookingToolStripMenuItem.Click += new System.EventHandler(this.restaurentBookingToolStripMenuItem_Click);
+            // 
+            // logoutToolStripMenuItem
+            // 
+            this.logoutToolStripMenuItem.Enabled = false;
+            this.logoutToolStripMenuItem.Image = global::Code_Crafters_Interface_Prototype_1.Properties.Resources.logout_11551049168o9cg0mxxib;
+            this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
+            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(90, 24);
+            this.logoutToolStripMenuItem.Text = "Logout";
+            this.logoutToolStripMenuItem.Click += new System.EventHandler(this.logoutToolStripMenuItem_Click);
+            // 
+            // msTextBox
+            // 
+            this.msTextBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(1)), true);
+            this.msTextBox.ForeColor = System.Drawing.Color.Red;
+            this.msTextBox.Name = "msTextBox";
+            this.msTextBox.Size = new System.Drawing.Size(200, 27);
+            this.msTextBox.Text = "LOGGED OUT";
+            // 
+            // menuStrip2
+            // 
+            this.menuStrip2.BackColor = System.Drawing.Color.LightSlateGray;
+            this.menuStrip2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.menuStrip2.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.menuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.aboutToolStripMenuItem,
+            this.contactToolStripMenuItem,
+            this.ExitToolStripMenuItem});
+            this.menuStrip2.Location = new System.Drawing.Point(0, 566);
+            this.menuStrip2.Name = "menuStrip2";
+            this.menuStrip2.Size = new System.Drawing.Size(985, 28);
+            this.menuStrip2.TabIndex = 1;
+            this.menuStrip2.Text = "menuStrip2";
+            // 
+            // aboutToolStripMenuItem
+            // 
+            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(64, 24);
+            this.aboutToolStripMenuItem.Text = "About";
+            // 
+            // contactToolStripMenuItem
+            // 
+            this.contactToolStripMenuItem.Name = "contactToolStripMenuItem";
+            this.contactToolStripMenuItem.Size = new System.Drawing.Size(74, 24);
+            this.contactToolStripMenuItem.Text = "Contact";
+            // 
+            // ExitToolStripMenuItem
+            // 
+            this.ExitToolStripMenuItem.Image = global::Code_Crafters_Interface_Prototype_1.Properties.Resources.exit_icon_2;
+            this.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem";
+            this.ExitToolStripMenuItem.Size = new System.Drawing.Size(72, 24);
+            this.ExitToolStripMenuItem.Text = "EXIT";
+            this.ExitToolStripMenuItem.Click += new System.EventHandler(this.eXITToolStripMenuItem_Click);
+            // 
+            // PB1
+            // 
+            this.PB1.BackColor = System.Drawing.Color.LightSlateGray;
+            this.PB1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PB1.Image = global::Code_Crafters_Interface_Prototype_1.Properties.Resources.lv_0_202604131858311;
+            this.PB1.Location = new System.Drawing.Point(0, 31);
+            this.PB1.Name = "PB1";
+            this.PB1.Size = new System.Drawing.Size(985, 535);
+            this.PB1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.PB1.TabIndex = 3;
+            this.PB1.TabStop = false;
+            // 
+            // MainMenuForm
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(985, 594);
+            this.Controls.Add(this.PB1);
+            this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.menuStrip2);
+            this.IsMdiContainer = true;
+            this.MainMenuStrip = this.menuStrip1;
+            this.Name = "MainMenuForm";
+            this.Text = "MainMenuForm";
+            this.MdiChildActivate += new System.EventHandler(this.MainMenuForm_MdiChildActivate);
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
+            this.menuStrip2.ResumeLayout(false);
+            this.menuStrip2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PB1)).EndInit();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.MenuStrip menuStrip2;
+        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem contactToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem bookingToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem makeBookingToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem viewBookingsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem signUpToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem LoginToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem logoutToolStripMenuItem;
+        private System.Windows.Forms.ToolStripTextBox msTextBox;
+        private System.Windows.Forms.PictureBox PB1;
+        private System.Windows.Forms.ToolStripMenuItem signUpToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem loginToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem tsTextBox1;
+        private System.Windows.Forms.ToolStripMenuItem ExitToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem restaurentBookingToolStripMenuItem;
+    }
+}
+
