@@ -37,7 +37,7 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.button2 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btndummy = new System.Windows.Forms.Button();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.groupBox1.SuspendLayout();
@@ -140,18 +140,18 @@
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
-            // button1
+            // btndummy
             // 
-            this.button1.BackColor = System.Drawing.Color.BlanchedAlmond;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(684, 379);
-            this.button1.Margin = new System.Windows.Forms.Padding(2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(73, 33);
-            this.button1.TabIndex = 9;
-            this.button1.Text = "Dummy";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            this.btndummy.BackColor = System.Drawing.Color.BlanchedAlmond;
+            this.btndummy.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btndummy.Location = new System.Drawing.Point(684, 379);
+            this.btndummy.Margin = new System.Windows.Forms.Padding(2);
+            this.btndummy.Name = "btndummy";
+            this.btndummy.Size = new System.Drawing.Size(73, 33);
+            this.btndummy.TabIndex = 9;
+            this.btndummy.Text = "Dummy";
+            this.btndummy.UseVisualStyleBackColor = false;
+            this.btndummy.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // pictureBox3
             // 
@@ -178,7 +178,7 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1134, 580);
             this.Controls.Add(this.pictureBox3);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btndummy);
             this.Controls.Add(this.groupBox1);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "LoginForm";
@@ -202,7 +202,7 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btndummy;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
     }

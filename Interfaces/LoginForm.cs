@@ -30,7 +30,7 @@ namespace Code_Crafters_Booking_System
         private void button2_Click(object sender, EventArgs e)
         {
 
-            if (userNameTxt.Text == " " && passwordTxt.Text != " ")
+            if (btndummy.Focus())
             {
                 MessageBox.Show($" Welcome To The Regal Inn, {userNameTxt.Text} ");
                 Form frm = (Form)Application.OpenForms["MainMenuForm"];
