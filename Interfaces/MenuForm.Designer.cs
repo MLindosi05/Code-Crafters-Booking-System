@@ -46,6 +46,7 @@
             this.ExitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.PB1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             this.menuStrip2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PB1)).BeginInit();
@@ -65,7 +66,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(739, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1118, 28);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -170,10 +171,10 @@
             this.aboutToolStripMenuItem,
             this.contactToolStripMenuItem,
             this.ExitToolStripMenuItem});
-            this.menuStrip2.Location = new System.Drawing.Point(0, 455);
+            this.menuStrip2.Location = new System.Drawing.Point(0, 562);
             this.menuStrip2.Name = "menuStrip2";
             this.menuStrip2.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
-            this.menuStrip2.Size = new System.Drawing.Size(739, 28);
+            this.menuStrip2.Size = new System.Drawing.Size(1118, 28);
             this.menuStrip2.TabIndex = 1;
             this.menuStrip2.Text = "menuStrip2";
             // 
@@ -203,9 +204,9 @@
             this.PB1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PB1.Image = global::Code_Crafters_Interface_Prototype_1.Properties.Resources.lv_0_202604131858311;
             this.PB1.Location = new System.Drawing.Point(0, 28);
-            this.PB1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.PB1.Margin = new System.Windows.Forms.Padding(2);
             this.PB1.Name = "PB1";
-            this.PB1.Size = new System.Drawing.Size(739, 427);
+            this.PB1.Size = new System.Drawing.Size(1118, 534);
             this.PB1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.PB1.TabIndex = 3;
             this.PB1.TabStop = false;
@@ -218,18 +219,26 @@
             this.label1.Size = new System.Drawing.Size(0, 13);
             this.label1.TabIndex = 5;
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(875, 31);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(158, 20);
+            this.textBox1.TabIndex = 7;
+            // 
             // MainMenuForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(739, 483);
+            this.ClientSize = new System.Drawing.Size(1118, 590);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.PB1);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.menuStrip2);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "MainMenuForm";
             this.Text = "MainMenuForm";
             this.MdiChildActivate += new System.EventHandler(this.MainMenuForm_MdiChildActivate);
@@ -263,6 +272,7 @@
         private System.Windows.Forms.ToolStripMenuItem ExitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem restaurentBookingToolStripMenuItem;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
 

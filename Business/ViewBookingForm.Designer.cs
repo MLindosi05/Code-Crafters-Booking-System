@@ -32,12 +32,13 @@
             // 
             // ViewBookingForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSlateGray;
             this.BackgroundImage = global::Code_Crafters_Interface_Prototype_1.Properties.Resources.IMG_20260413_1855131;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ClientSize = new System.Drawing.Size(1012, 559);
+            this.ClientSize = new System.Drawing.Size(1118, 611);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "ViewBookingForm";
             this.Text = "ViewBookingForm";
             this.Load += new System.EventHandler(this.ViewBookingForm_Load);
