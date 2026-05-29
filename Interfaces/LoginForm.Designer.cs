@@ -48,8 +48,8 @@
             // 
             // userNameTxt
             // 
-            this.userNameTxt.Location = new System.Drawing.Point(260, 51);
-            this.userNameTxt.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.userNameTxt.Location = new System.Drawing.Point(259, 51);
+            this.userNameTxt.Margin = new System.Windows.Forms.Padding(2);
             this.userNameTxt.Name = "userNameTxt";
             this.userNameTxt.Size = new System.Drawing.Size(167, 24);
             this.userNameTxt.TabIndex = 1;
@@ -57,7 +57,7 @@
             // passwordTxt
             // 
             this.passwordTxt.Location = new System.Drawing.Point(260, 98);
-            this.passwordTxt.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.passwordTxt.Margin = new System.Windows.Forms.Padding(2);
             this.passwordTxt.Name = "passwordTxt";
             this.passwordTxt.Size = new System.Drawing.Size(167, 24);
             this.passwordTxt.TabIndex = 2;
@@ -98,9 +98,9 @@
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
             this.groupBox1.Location = new System.Drawing.Point(278, 109);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox1.Size = new System.Drawing.Size(478, 254);
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
@@ -110,7 +110,7 @@
             // 
             this.pictureBox2.Image = global::Code_Crafters_Interface_Prototype_1.Properties.Resources.download;
             this.pictureBox2.Location = new System.Drawing.Point(430, 98);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(32, 23);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -120,7 +120,7 @@
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(260, 175);
-            this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button2.Margin = new System.Windows.Forms.Padding(2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(166, 48);
             this.button2.TabIndex = 6;
@@ -132,7 +132,7 @@
             // 
             this.pictureBox1.Image = global::Code_Crafters_Interface_Prototype_1.Properties.Resources.black_login_icon__0;
             this.pictureBox1.Location = new System.Drawing.Point(23, 51);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(112, 171);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -145,7 +145,7 @@
             this.button1.BackColor = System.Drawing.Color.BlanchedAlmond;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.Location = new System.Drawing.Point(684, 379);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(73, 33);
             this.button1.TabIndex = 9;
@@ -157,7 +157,7 @@
             // 
             this.pictureBox3.Image = global::Code_Crafters_Interface_Prototype_1.Properties.Resources.IMG_20260413_185513;
             this.pictureBox3.Location = new System.Drawing.Point(29, 109);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(206, 254);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -180,7 +180,7 @@
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "LoginForm";
             this.Text = "LoginForm";
             this.Load += new System.EventHandler(this.LoginForm_Load);
