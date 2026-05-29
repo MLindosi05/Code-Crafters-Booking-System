@@ -132,7 +132,6 @@
             this.txtContactNumber.Name = "txtContactNumber";
             this.txtContactNumber.Size = new System.Drawing.Size(122, 24);
             this.txtContactNumber.TabIndex = 14;
-            this.txtContactNumber.TextChanged += new System.EventHandler(this.textBox9_TextChanged);
             // 
             // txtEmailAddress
             // 
@@ -161,7 +160,6 @@
             this.label7.Size = new System.Drawing.Size(121, 18);
             this.label7.TabIndex = 8;
             this.label7.Text = "Email Address:";
-            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // label6
             // 
@@ -237,7 +235,6 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "SignUpForm";
             this.Text = "SignUpForm";
-            this.Load += new System.EventHandler(this.SignUpForm_Load);
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.codeCraftersDS)).EndInit();

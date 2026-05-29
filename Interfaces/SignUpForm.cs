@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -15,21 +16,6 @@ namespace Code_Crafters_Booking_System
         public SignUpForm()
         {
             InitializeComponent();
-        }
-
-        private void SignUpForm_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox9_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label7_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void btnSignUp_Click(object sender, EventArgs e)
@@ -64,9 +50,18 @@ namespace Code_Crafters_Booking_System
                 return;
             }
 
-            if (!email.Contains("@") || !email.Contains("."))
+            if (!Regex.IsMatch(email, @"^[^@\s]+@[^@\s]+\.[^@\s]+$"))
             {
                 MessageBox.Show("Please enter a valid email address.",
+                    "Validation Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (!Regex.IsMatch(password, @"^(?=.*[A-Za-z])(?=.*\d).+$"))
+            {
+                MessageBox.Show("Password must contain at least one letter and one number.",
                     "Validation Error",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
@@ -89,7 +84,6 @@ namespace Code_Crafters_Booking_System
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
             }
-
         }
     }
 }
