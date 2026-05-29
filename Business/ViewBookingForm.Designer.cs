@@ -33,9 +33,6 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.txtBookingID = new System.Windows.Forms.TextBox();
             this.lblBookingID = new System.Windows.Forms.Label();
-            this.bookingBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.codeCraftersDS = new Code_Crafters_Interface_Prototype_1.codeCraftersDS();
-            this.taBookings = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTableAdapters.BookingTableAdapter();
             this.clientIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.branchIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bookingDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -43,6 +40,9 @@
             this.checkoutDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bookingTotalAmountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bookingStatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bookingBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.codeCraftersDS = new Code_Crafters_Interface_Prototype_1.codeCraftersDS();
+            this.taBookings = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTableAdapters.BookingTableAdapter();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bookingBindingSource)).BeginInit();
@@ -56,7 +56,7 @@
             this.groupBox1.Controls.Add(this.dataGridView1);
             this.groupBox1.Location = new System.Drawing.Point(55, 34);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(877, 449);
+            this.groupBox1.Size = new System.Drawing.Size(877, 457);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "View Bookings";
@@ -76,7 +76,7 @@
             this.dataGridView1.DataSource = this.bookingBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(24, 95);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(827, 330);
+            this.dataGridView1.Size = new System.Drawing.Size(827, 172);
             this.dataGridView1.TabIndex = 0;
             // 
             // txtBookingID
@@ -95,20 +95,6 @@
             this.lblBookingID.Size = new System.Drawing.Size(88, 13);
             this.lblBookingID.TabIndex = 2;
             this.lblBookingID.Text = "Enter Booking ID";
-            // 
-            // bookingBindingSource
-            // 
-            this.bookingBindingSource.DataMember = "Booking";
-            this.bookingBindingSource.DataSource = this.codeCraftersDS;
-            // 
-            // codeCraftersDS
-            // 
-            this.codeCraftersDS.DataSetName = "codeCraftersDS";
-            this.codeCraftersDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // taBookings
-            // 
-            this.taBookings.ClearBeforeFill = true;
             // 
             // clientIDDataGridViewTextBoxColumn
             // 
@@ -152,6 +138,20 @@
             this.bookingStatusDataGridViewTextBoxColumn.DataPropertyName = "Booking_Status";
             this.bookingStatusDataGridViewTextBoxColumn.HeaderText = "Status";
             this.bookingStatusDataGridViewTextBoxColumn.Name = "bookingStatusDataGridViewTextBoxColumn";
+            // 
+            // bookingBindingSource
+            // 
+            this.bookingBindingSource.DataMember = "Booking";
+            this.bookingBindingSource.DataSource = this.codeCraftersDS;
+            // 
+            // codeCraftersDS
+            // 
+            this.codeCraftersDS.DataSetName = "codeCraftersDS";
+            this.codeCraftersDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // taBookings
+            // 
+            this.taBookings.ClearBeforeFill = true;
             // 
             // ViewBookingForm
             // 

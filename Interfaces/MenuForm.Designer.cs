@@ -101,7 +101,6 @@
             this.LoginToolStripMenuItem.Name = "LoginToolStripMenuItem";
             this.LoginToolStripMenuItem.Size = new System.Drawing.Size(69, 24);
             this.LoginToolStripMenuItem.Text = "Login";
-            this.LoginToolStripMenuItem.Click += new System.EventHandler(this.LoginToolStripMenuItem_Click);
             // 
             // loginToolStripMenuItem1
             // 
@@ -121,7 +120,6 @@
             this.bookingToolStripMenuItem.Name = "bookingToolStripMenuItem";
             this.bookingToolStripMenuItem.Size = new System.Drawing.Size(83, 24);
             this.bookingToolStripMenuItem.Text = "Booking";
-            this.bookingToolStripMenuItem.Click += new System.EventHandler(this.bookingToolStripMenuItem_Click);
             // 
             // makeBookingToolStripMenuItem
             // 

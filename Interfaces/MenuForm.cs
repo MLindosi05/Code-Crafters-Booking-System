@@ -19,16 +19,25 @@ namespace Code_Crafters_Interface_Prototype_1
             InitializeComponent();
      
         }
-        public void PrepareForm(Form f)
+        public void PrepareForm(Form form)
         {
-            foreach (Form c in this.MdiChildren)
+            foreach (Form child in MdiChildren)
             {
-                c.Close();
+                child.Close();
             }
 
-            f.MdiParent = this;
-            f.WindowState = FormWindowState.Maximized;
-            f.Show();
+            if (form == null || form.IsDisposed)
+            {
+                return;
+            }
+
+            form.MdiParent = this;
+            form.StartPosition = FormStartPosition.CenterScreen;
+            form.WindowState = FormWindowState.Maximized;
+            form.FormBorderStyle = FormBorderStyle.None;
+
+            form.Show();
+            form.BringToFront();
         }
 
         private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
@@ -96,15 +105,6 @@ namespace Code_Crafters_Interface_Prototype_1
 
         }
 
-        private void LoginToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void bookingToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Code_Crafters_Interface_Prototype_1;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,56 +18,75 @@ namespace Code_Crafters_Booking_System
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void LoginForm_Load(object sender, EventArgs e)
         {
-           
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
+            this.taClient.Fill(this.codeCraftersDS.Client);
+            passwordTxt.UseSystemPasswordChar = true;
 
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
+            bool found = false;
 
-            if (btndummy.Focus())
+            foreach (codeCraftersDS.ClientRow row in codeCraftersDS.Client)
             {
-                MessageBox.Show($" Welcome To The Regal Inn, {userNameTxt.Text} ");
-                Form frm = (Form)Application.OpenForms["MainMenuForm"];
-                MenuStrip ms = (MenuStrip)frm.Controls["menuStrip1"];
-                ms.Items["bookingToolStripMenuItem"].Enabled = true;
-                ms.Items["logoutToolStripMenuItem"].Enabled = true;
-                ms.Items["LoginToolStripMenuItem"].Enabled = false;
-                ms.Items["SignUpToolStripMenuItem"].Enabled = false;
-                ToolStripTextBox tuser = (ToolStripTextBox)ms.Items["msTextBox"];
-                tuser.ForeColor = Color.Green;
-                tuser.Text = "Logged in as " + userNameTxt.Text;
-                this.Close();
-               
+                if (row.Email_Address == userNameTxt.Text &&
+                    row.Password == passwordTxt.Text)
+                {
+                    found = true;
+
+                    MessageBox.Show(
+                        $"Welcome to The Regal Inn.\n\n" +
+                        $"Guest: {row.First_Name} {row.Last_Name}\n" +
+                        $"Login successful. You may proceed to the main menu.",
+                        "Authentication Successful",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Information
+                    );
+
+                    Form frm = Application.OpenForms["MainMenuForm"];
+
+                    if (frm != null)
+                    {
+                        MenuStrip ms = frm.Controls["menuStrip1"] as MenuStrip;
+
+                        if (ms != null)
+                        {
+                            ms.Items["bookingToolStripMenuItem"].Enabled = true;
+                            ms.Items["logoutToolStripMenuItem"].Enabled = true;
+                            ms.Items["LoginToolStripMenuItem"].Enabled = false;
+                            ms.Items["SignUpToolStripMenuItem"].Enabled = false;
+
+                            ToolStripTextBox tuser = ms.Items["msTextBox"] as ToolStripTextBox;
+
+                            if (tuser != null)
+                            {
+                                tuser.ForeColor = Color.Green;
+                                tuser.Text = $"Logged in as {row.First_Name} {row.Last_Name}";
+                            }
+                        }
+                    }
+
+                    this.Close();
+                    break;
+                }
             }
 
-            else
-
+            if (!found)
             {
-                MessageBox.Show(" Provide Correct Login Details");
+                MessageBox.Show(
+                    "Invalid email address or password.\nPlease verify your credentials and try again.",
+                    "Authentication Failed",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
             }
         }
 
-        private void LoginForm_Load(object sender, EventArgs e)
+        private void pictureBox2_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-            userNameTxt.Text = "Zanenhlanhla";
-            passwordTxt.Text = "Regal112";
-        }
-
-        private void passwordTxt_TextChanged(object sender, EventArgs e)
-        {
-            passwordTxt.PasswordChar = '*';
+            passwordTxt.UseSystemPasswordChar = !passwordTxt.UseSystemPasswordChar;
         }
     }
 }
