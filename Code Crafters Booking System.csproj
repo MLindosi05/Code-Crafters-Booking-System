@@ -46,11 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Business\AccomodationBookingForm.cs">
+    <Compile Include="Business\BookingForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Business\AccomodationBookingForm.Designer.cs">
-      <DependentUpon>AccomodationBookingForm.cs</DependentUpon>
+    <Compile Include="Business\BookingForm.Designer.cs">
+      <DependentUpon>BookingForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Business\PaymentForm.cs">
       <SubType>Form</SubType>
@@ -58,17 +58,14 @@
     <Compile Include="Business\PaymentForm.Designer.cs">
       <DependentUpon>PaymentForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Business\RestaurentBookingForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Business\RestaurentBookingForm.Designer.cs">
-      <DependentUpon>RestaurentBookingForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Business\ViewBookingForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Business\ViewBookingForm.Designer.cs">
       <DependentUpon>ViewBookingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="codeCraftersDS.cs">
+      <DependentUpon>codeCraftersDS.xsd</DependentUpon>
     </Compile>
     <Compile Include="codeCraftersDS.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -95,14 +92,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Business\AccomodationBookingForm.resx">
-      <DependentUpon>AccomodationBookingForm.cs</DependentUpon>
+    <Compile Include="UserSession.cs" />
+    <EmbeddedResource Include="Business\BookingForm.resx">
+      <DependentUpon>BookingForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Business\PaymentForm.resx">
       <DependentUpon>PaymentForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Business\RestaurentBookingForm.resx">
-      <DependentUpon>RestaurentBookingForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Business\ViewBookingForm.resx">
       <DependentUpon>ViewBookingForm.cs</DependentUpon>

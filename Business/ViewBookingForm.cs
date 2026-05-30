@@ -19,33 +19,35 @@ namespace Code_Crafters_Interface_Prototype_1.Business
 
         private void ViewBookingForm_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'codeCraftersDS.Booking' table. You can move, or remove it, as needed.
-            this.taBookings.Fill(this.codeCraftersDS.Booking);
-
+            taClientBranchBooking.Fill(codeCraftersDS.ClientBranchBooking);
+               
         }
 
         private void txtBookingID_TextChanged(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtBookingID.Text))
-            {
-                taBookings.Fill(codeCraftersDS.Booking);
-            }
-            else
-            {
-                int bookingID;
+            string input = txtBookingID.Text.Trim();
 
-                if (int.TryParse(txtBookingID.Text, out bookingID) && bookingID > 0)
-                {
-                    taBookings.FillByBookingID(codeCraftersDS.Booking, bookingID);
-                }
-                else
-                {
-                    MessageBox.Show("Please enter a valid positive Booking ID.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-                    txtBookingID.Clear();
-                    taBookings.Fill(codeCraftersDS.Booking);
-                }
+            if (string.IsNullOrWhiteSpace(input))
+            {
+                taClientBranchBooking.Fill(codeCraftersDS.ClientBranchBooking);
+                return;
             }
+
+            if (!int.TryParse(input, out int bookingID) || bookingID <= 0)
+            {
+                MessageBox.Show(
+                    "No negative numbers, zero, or strings allowed.",
+                    "Invalid Input",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
+
+                txtBookingID.Clear();
+                taClientBranchBooking.Fill(codeCraftersDS.ClientBranchBooking);
+                return;
+            }
+
+            taClientBranchBooking.FillByBookingID(codeCraftersDS.ClientBranchBooking, bookingID);
         }
     }
 }

@@ -87,10 +87,10 @@ SELECT Booking_ID, Client_ID, Branch_ID, Booking_Date, Checkin_Date, Checkout_Da
               <Mapping SourceColumn="Booking_Status" DataSetColumn="Booking_Status" />
             </Mappings>
             <Sources>
-              <DbSource ConnectionRef="GroupPmb2ConnectionString (Settings)" DbObjectName="GroupPmb2.dbo.Booking" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByBookingID" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy" GeneratorSourceName="FillByBookingID" GetMethodModifier="Public" GetMethodName="GetDataBy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillByBookingID">
+              <DbSource ConnectionRef="GroupPmb2ConnectionString (Settings)" DbObjectName="GroupPmb2.dbo.Booking" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="GetBookingByID" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy" GeneratorSourceName="GetBookingByID" GetMethodModifier="Public" GetMethodName="GetDataBy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="GetBookingByID">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT        Booking_ID, Client_ID, Branch_ID, Booking_Date, Checkin_Date, Checkout_Date, Booking_Total_Amount, Booking_Status
+                    <CommandText>SELECT        Booking_ID, Booking_Total_Amount
 FROM            Booking
 WHERE        (Booking_ID = @BookingID)</CommandText>
                     <Parameters>
@@ -99,7 +99,16 @@ WHERE        (Booking_ID = @BookingID)</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="GroupPmb2ConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertBooking" Modifier="Public" Name="InsertBooking" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="InsertBooking">
+              <DbSource ConnectionRef="GroupPmb2ConnectionString (Settings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy2" GeneratorSourceName="GetLatestBookingID" Modifier="Public" Name="GetLatestBookingID" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="GetLatestBookingID">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT MAX(Booking_ID)
+FROM Booking</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="GroupPmb2ConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertNewBooking" Modifier="Public" Name="InsertNewBooking" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="InsertNewBooking">
                 <InsertCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>INSERT INTO [dbo].[Booking] ([Client_ID], [Branch_ID], [Booking_Date], [Checkin_Date], [Checkout_Date], [Booking_Total_Amount], [Booking_Status]) VALUES (@Client_ID, @Branch_ID, @Booking_Date, @Checkin_Date, @Checkout_Date, @Booking_Total_Amount, @Booking_Status);
@@ -115,6 +124,19 @@ SELECT Booking_ID, Client_ID, Branch_ID, Booking_Date, Checkin_Date, Checkout_Da
                     </Parameters>
                   </DbCommand>
                 </InsertCommand>
+              </DbSource>
+              <DbSource ConnectionRef="GroupPmb2ConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateBookingStatus" Modifier="Public" Name="UpdateBookingStatus" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="UpdateBookingStatus">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>UPDATE Booking
+SET Booking_Status = @Status
+WHERE Booking_ID = @BookingID</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="Status" ColumnName="Booking_Status" DataSourceName="GroupPmb2.dbo.Booking" DataTypeServer="varchar(50)" DbType="AnsiString" Direction="Input" ParameterName="@Status" Precision="0" ProviderType="VarChar" Scale="0" Size="50" SourceColumn="Booking_Status" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="BookingID" ColumnName="Booking_ID" DataSourceName="GroupPmb2.dbo.Booking" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@BookingID" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="Booking_ID" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
               </DbSource>
             </Sources>
           </TableAdapter>
@@ -395,7 +417,99 @@ SELECT Folio_ID, Booking_ID, Folio_Type, Folio_Status, Opening_Balance, Current_
               <Mapping SourceColumn="Payment_Status" DataSetColumn="Payment_Status" />
               <Mapping SourceColumn="Payment_Description" DataSetColumn="Payment_Description" />
             </Mappings>
-            <Sources />
+            <Sources>
+              <DbSource ConnectionRef="GroupPmb2ConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertPayment" Modifier="Public" Name="InsertPayment" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="InsertPayment">
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>INSERT INTO Folio
+(
+    Booking_ID,
+    Folio_Type,
+    Folio_Status,
+    Opening_Balance,
+    Current_Balance,
+    Credit_Limit,
+    Payment_Type,
+    Payment_Amount,
+    Payment_Date,
+    Payment_Status,
+    Payment_Description
+)
+VALUES
+(
+    @BookingID,
+    'Guest',
+    'Closed',
+    @Amount,
+    0,
+    0,
+    @PaymentType,
+    @Amount,
+    GETDATE(),
+    'Settled',
+    'Booking payment'
+)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="BookingID" ColumnName="Booking_ID" DataSourceName="GroupPmb2.dbo.Folio" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@BookingID" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="Booking_ID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Amount" ColumnName="Payment_Amount" DataSourceName="GroupPmb2.dbo.Folio" DataTypeServer="decimal(8, 2)" DbType="Decimal" Direction="Input" ParameterName="@Amount" Precision="8" ProviderType="Decimal" Scale="2" Size="5" SourceColumn="Payment_Amount" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="PaymentType" ColumnName="Payment_Type" DataSourceName="GroupPmb2.dbo.Folio" DataTypeServer="varchar(50)" DbType="AnsiString" Direction="Input" ParameterName="@PaymentType" Precision="0" ProviderType="VarChar" Scale="0" Size="50" SourceColumn="Payment_Type" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+              </DbSource>
+              <DbSource ConnectionRef="GroupPmb2ConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertWrittenOffPayment" Modifier="Public" Name="InsertWrittenOffPayment" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="InsertWrittenOffPayment">
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>INSERT INTO Folio
+(
+    Booking_ID,
+    Folio_Type,
+    Folio_Status,
+    Opening_Balance,
+    Current_Balance,
+    Credit_Limit,
+    Payment_Type,
+    Payment_Amount,
+    Payment_Date,
+    Payment_Status,
+    Payment_Description
+)
+VALUES
+(
+    @BookingID,
+    'Guest',
+    'Closed',
+    0,
+    0,
+    0,
+    'N/A',
+    0,
+    GETDATE(),
+    'Written Off',
+    'Room and Accommodation - Written Off Payment'
+)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="BookingID" ColumnName="Booking_ID" DataSourceName="GroupPmb2.dbo.Folio" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@BookingID" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="Booking_ID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+              </DbSource>
+              <DbSource ConnectionRef="GroupPmb2ConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdatePaymentDetails" Modifier="Public" Name="UpdatePaymentDetails" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="UpdatePaymentDetails">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>UPDATE Folio
+SET Payment_Status = @PaymentStatus,
+    Payment_Description = @PaymentDescription
+WHERE Booking_ID = @BookingID</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="PaymentStatus" ColumnName="Payment_Status" DataSourceName="GroupPmb2.dbo.Folio" DataTypeServer="varchar(50)" DbType="AnsiString" Direction="Input" ParameterName="@PaymentStatus" Precision="0" ProviderType="VarChar" Scale="0" Size="50" SourceColumn="Payment_Status" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="PaymentDescription" ColumnName="Payment_Description" DataSourceName="GroupPmb2.dbo.Folio" DataTypeServer="varchar(50)" DbType="AnsiString" Direction="Input" ParameterName="@PaymentDescription" Precision="0" ProviderType="VarChar" Scale="0" Size="50" SourceColumn="Payment_Description" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="BookingID" ColumnName="Booking_ID" DataSourceName="GroupPmb2.dbo.Folio" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@BookingID" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="Booking_ID" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </Sources>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Hotel_RoomTableAdapter" GeneratorDataComponentClassName="Hotel_RoomTableAdapter" Name="Hotel_Room" UserDataComponentName="Hotel_RoomTableAdapter">
             <MainSource>
@@ -547,103 +661,12 @@ SELECT Rate_ID, Hotel_Room_ID, Rate_Name, Hotel_Room_Price, Valid_Till, Table_Pr
             </Mappings>
             <Sources />
           </TableAdapter>
-          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Restuarant_TableTableAdapter" GeneratorDataComponentClassName="Restuarant_TableTableAdapter" Name="Restuarant_Table" UserDataComponentName="Restuarant_TableTableAdapter">
-            <MainSource>
-              <DbSource ConnectionRef="GroupPmb2ConnectionString (Settings)" DbObjectName="GroupPmb2.dbo.Restuarant_Table" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
-                <DeleteCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>DELETE FROM [dbo].[Restuarant_Table] WHERE (([ResturantTableID] = @Original_ResturantTableID) AND ((@IsNull_Branch_ID = 1 AND [Branch_ID] IS NULL) OR ([Branch_ID] = @Original_Branch_ID)) AND ((@IsNull_RestuarantTableNum = 1 AND [RestuarantTableNum] IS NULL) OR ([RestuarantTableNum] = @Original_RestuarantTableNum)) AND ((@IsNull_RestuarantMenuType = 1 AND [RestuarantMenuType] IS NULL) OR ([RestuarantMenuType] = @Original_RestuarantMenuType)) AND ((@IsNull_TableCapacity = 1 AND [TableCapacity] IS NULL) OR ([TableCapacity] = @Original_TableCapacity)) AND ((@IsNull_TableStatus = 1 AND [TableStatus] IS NULL) OR ([TableStatus] = @Original_TableStatus)) AND ((@IsNull_TableIsCombinable = 1 AND [TableIsCombinable] IS NULL) OR ([TableIsCombinable] = @Original_TableIsCombinable)) AND ((@IsNull_TableFeatures = 1 AND [TableFeatures] IS NULL) OR ([TableFeatures] = @Original_TableFeatures)))</CommandText>
-                    <Parameters>
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_ResturantTableID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ResturantTableID" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Branch_ID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Branch_ID" SourceColumnNullMapping="true" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_Branch_ID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Branch_ID" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_RestuarantTableNum" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="RestuarantTableNum" SourceColumnNullMapping="true" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_RestuarantTableNum" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="RestuarantTableNum" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_RestuarantMenuType" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="RestuarantMenuType" SourceColumnNullMapping="true" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_RestuarantMenuType" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="RestuarantMenuType" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_TableCapacity" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="TableCapacity" SourceColumnNullMapping="true" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_TableCapacity" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="TableCapacity" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_TableStatus" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="TableStatus" SourceColumnNullMapping="true" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_TableStatus" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="TableStatus" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_TableIsCombinable" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="TableIsCombinable" SourceColumnNullMapping="true" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_TableIsCombinable" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="TableIsCombinable" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_TableFeatures" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="TableFeatures" SourceColumnNullMapping="true" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_TableFeatures" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="TableFeatures" SourceColumnNullMapping="false" SourceVersion="Original" />
-                    </Parameters>
-                  </DbCommand>
-                </DeleteCommand>
-                <InsertCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>INSERT INTO [dbo].[Restuarant_Table] ([Branch_ID], [RestuarantTableNum], [RestuarantMenuType], [TableCapacity], [TableStatus], [TableIsCombinable], [TableFeatures]) VALUES (@Branch_ID, @RestuarantTableNum, @RestuarantMenuType, @TableCapacity, @TableStatus, @TableIsCombinable, @TableFeatures);
-SELECT ResturantTableID, Branch_ID, RestuarantTableNum, RestuarantMenuType, TableCapacity, TableStatus, TableIsCombinable, TableFeatures FROM Restuarant_Table WHERE (ResturantTableID = SCOPE_IDENTITY())</CommandText>
-                    <Parameters>
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Branch_ID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Branch_ID" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@RestuarantTableNum" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="RestuarantTableNum" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@RestuarantMenuType" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="RestuarantMenuType" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@TableCapacity" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="TableCapacity" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@TableStatus" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="TableStatus" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@TableIsCombinable" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="TableIsCombinable" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@TableFeatures" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="TableFeatures" SourceColumnNullMapping="false" SourceVersion="Current" />
-                    </Parameters>
-                  </DbCommand>
-                </InsertCommand>
-                <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT ResturantTableID, Branch_ID, RestuarantTableNum, RestuarantMenuType, TableCapacity, TableStatus, TableIsCombinable, TableFeatures FROM dbo.Restuarant_Table</CommandText>
-                    <Parameters />
-                  </DbCommand>
-                </SelectCommand>
-                <UpdateCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>UPDATE [dbo].[Restuarant_Table] SET [Branch_ID] = @Branch_ID, [RestuarantTableNum] = @RestuarantTableNum, [RestuarantMenuType] = @RestuarantMenuType, [TableCapacity] = @TableCapacity, [TableStatus] = @TableStatus, [TableIsCombinable] = @TableIsCombinable, [TableFeatures] = @TableFeatures WHERE (([ResturantTableID] = @Original_ResturantTableID) AND ((@IsNull_Branch_ID = 1 AND [Branch_ID] IS NULL) OR ([Branch_ID] = @Original_Branch_ID)) AND ((@IsNull_RestuarantTableNum = 1 AND [RestuarantTableNum] IS NULL) OR ([RestuarantTableNum] = @Original_RestuarantTableNum)) AND ((@IsNull_RestuarantMenuType = 1 AND [RestuarantMenuType] IS NULL) OR ([RestuarantMenuType] = @Original_RestuarantMenuType)) AND ((@IsNull_TableCapacity = 1 AND [TableCapacity] IS NULL) OR ([TableCapacity] = @Original_TableCapacity)) AND ((@IsNull_TableStatus = 1 AND [TableStatus] IS NULL) OR ([TableStatus] = @Original_TableStatus)) AND ((@IsNull_TableIsCombinable = 1 AND [TableIsCombinable] IS NULL) OR ([TableIsCombinable] = @Original_TableIsCombinable)) AND ((@IsNull_TableFeatures = 1 AND [TableFeatures] IS NULL) OR ([TableFeatures] = @Original_TableFeatures)));
-SELECT ResturantTableID, Branch_ID, RestuarantTableNum, RestuarantMenuType, TableCapacity, TableStatus, TableIsCombinable, TableFeatures FROM Restuarant_Table WHERE (ResturantTableID = @ResturantTableID)</CommandText>
-                    <Parameters>
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Branch_ID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Branch_ID" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@RestuarantTableNum" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="RestuarantTableNum" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@RestuarantMenuType" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="RestuarantMenuType" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@TableCapacity" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="TableCapacity" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@TableStatus" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="TableStatus" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@TableIsCombinable" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="TableIsCombinable" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@TableFeatures" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="TableFeatures" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_ResturantTableID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ResturantTableID" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Branch_ID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Branch_ID" SourceColumnNullMapping="true" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_Branch_ID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Branch_ID" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_RestuarantTableNum" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="RestuarantTableNum" SourceColumnNullMapping="true" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_RestuarantTableNum" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="RestuarantTableNum" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_RestuarantMenuType" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="RestuarantMenuType" SourceColumnNullMapping="true" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_RestuarantMenuType" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="RestuarantMenuType" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_TableCapacity" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="TableCapacity" SourceColumnNullMapping="true" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_TableCapacity" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="TableCapacity" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_TableStatus" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="TableStatus" SourceColumnNullMapping="true" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_TableStatus" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="TableStatus" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_TableIsCombinable" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="TableIsCombinable" SourceColumnNullMapping="true" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_TableIsCombinable" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="TableIsCombinable" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_TableFeatures" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="TableFeatures" SourceColumnNullMapping="true" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_TableFeatures" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="TableFeatures" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="ResturantTableID" ColumnName="ResturantTableID" DataSourceName="GroupPmb2.dbo.Restuarant_Table" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@ResturantTableID" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="ResturantTableID" SourceColumnNullMapping="false" SourceVersion="Current" />
-                    </Parameters>
-                  </DbCommand>
-                </UpdateCommand>
-              </DbSource>
-            </MainSource>
-            <Mappings>
-              <Mapping SourceColumn="ResturantTableID" DataSetColumn="ResturantTableID" />
-              <Mapping SourceColumn="Branch_ID" DataSetColumn="Branch_ID" />
-              <Mapping SourceColumn="RestuarantTableNum" DataSetColumn="RestuarantTableNum" />
-              <Mapping SourceColumn="RestuarantMenuType" DataSetColumn="RestuarantMenuType" />
-              <Mapping SourceColumn="TableCapacity" DataSetColumn="TableCapacity" />
-              <Mapping SourceColumn="TableStatus" DataSetColumn="TableStatus" />
-              <Mapping SourceColumn="TableIsCombinable" DataSetColumn="TableIsCombinable" />
-              <Mapping SourceColumn="TableFeatures" DataSetColumn="TableFeatures" />
-            </Mappings>
-            <Sources />
-          </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Room_AssignmentTableAdapter" GeneratorDataComponentClassName="Room_AssignmentTableAdapter" Name="Room_Assignment" UserDataComponentName="Room_AssignmentTableAdapter">
             <MainSource>
               <DbSource ConnectionRef="GroupPmb2ConnectionString (Settings)" DbObjectName="GroupPmb2.dbo.Room_Assignment" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>DELETE FROM [dbo].[Room_Assignment] WHERE (([Room_Assignment_ID] = @Original_Room_Assignment_ID) AND ((@IsNull_Booking_ID = 1 AND [Booking_ID] IS NULL) OR ([Booking_ID] = @Original_Booking_ID)) AND ((@IsNull_Hotel_Room_ID = 1 AND [Hotel_Room_ID] IS NULL) OR ([Hotel_Room_ID] = @Original_Hotel_Room_ID)) AND ((@IsNull_Actual_CheckIn_Time = 1 AND [Actual_CheckIn_Time] IS NULL) OR ([Actual_CheckIn_Time] = @Original_Actual_CheckIn_Time)) AND ((@IsNull_Actual_CheckOut_Time = 1 AND [Actual_CheckOut_Time] IS NULL) OR ([Actual_CheckOut_Time] = @Original_Actual_CheckOut_Time)) AND ((@IsNull_House_Keeping_Notes = 1 AND [House_Keeping_Notes] IS NULL) OR ([House_Keeping_Notes] = @Original_House_Keeping_Notes)))</CommandText>
+                    <CommandText>DELETE FROM [Room_Assignment] WHERE (([Room_Assignment_ID] = @Original_Room_Assignment_ID) AND ((@IsNull_Booking_ID = 1 AND [Booking_ID] IS NULL) OR ([Booking_ID] = @Original_Booking_ID)) AND ((@IsNull_Hotel_Room_ID = 1 AND [Hotel_Room_ID] IS NULL) OR ([Hotel_Room_ID] = @Original_Hotel_Room_ID)) AND ((@IsNull_Actual_CheckIn_Time = 1 AND [Actual_CheckIn_Time] IS NULL) OR ([Actual_CheckIn_Time] = @Original_Actual_CheckIn_Time)) AND ((@IsNull_Actual_CheckOut_Time = 1 AND [Actual_CheckOut_Time] IS NULL) OR ([Actual_CheckOut_Time] = @Original_Actual_CheckOut_Time)))</CommandText>
                     <Parameters>
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_Room_Assignment_ID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Room_Assignment_ID" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Booking_ID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Booking_ID" SourceColumnNullMapping="true" SourceVersion="Original" />
@@ -654,40 +677,36 @@ SELECT ResturantTableID, Branch_ID, RestuarantTableNum, RestuarantMenuType, Tabl
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_Actual_CheckIn_Time" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="Actual_CheckIn_Time" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Actual_CheckOut_Time" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Actual_CheckOut_Time" SourceColumnNullMapping="true" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_Actual_CheckOut_Time" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="Actual_CheckOut_Time" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_House_Keeping_Notes" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="House_Keeping_Notes" SourceColumnNullMapping="true" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_House_Keeping_Notes" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="House_Keeping_Notes" SourceColumnNullMapping="false" SourceVersion="Original" />
                     </Parameters>
                   </DbCommand>
                 </DeleteCommand>
                 <InsertCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>INSERT INTO [dbo].[Room_Assignment] ([Booking_ID], [Hotel_Room_ID], [Actual_CheckIn_Time], [Actual_CheckOut_Time], [House_Keeping_Notes]) VALUES (@Booking_ID, @Hotel_Room_ID, @Actual_CheckIn_Time, @Actual_CheckOut_Time, @House_Keeping_Notes);
-SELECT Room_Assignment_ID, Booking_ID, Hotel_Room_ID, Actual_CheckIn_Time, Actual_CheckOut_Time, House_Keeping_Notes FROM Room_Assignment WHERE (Room_Assignment_ID = SCOPE_IDENTITY())</CommandText>
+                    <CommandText>INSERT INTO [Room_Assignment] ([Booking_ID], [Hotel_Room_ID], [Actual_CheckIn_Time], [Actual_CheckOut_Time]) VALUES (@Booking_ID, @Hotel_Room_ID, @Actual_CheckIn_Time, @Actual_CheckOut_Time);
+SELECT Room_Assignment_ID, Booking_ID, Hotel_Room_ID, Actual_CheckIn_Time, Actual_CheckOut_Time FROM Room_Assignment WHERE (Room_Assignment_ID = SCOPE_IDENTITY())</CommandText>
                     <Parameters>
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Booking_ID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Booking_ID" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Hotel_Room_ID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Hotel_Room_ID" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Actual_CheckIn_Time" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="Actual_CheckIn_Time" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Actual_CheckOut_Time" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="Actual_CheckOut_Time" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@House_Keeping_Notes" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="House_Keeping_Notes" SourceColumnNullMapping="false" SourceVersion="Current" />
                     </Parameters>
                   </DbCommand>
                 </InsertCommand>
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT Room_Assignment_ID, Booking_ID, Hotel_Room_ID, Actual_CheckIn_Time, Actual_CheckOut_Time, House_Keeping_Notes FROM dbo.Room_Assignment</CommandText>
+                    <CommandText>SELECT Room_Assignment_ID, Booking_ID, Hotel_Room_ID, Actual_CheckIn_Time, Actual_CheckOut_Time FROM Room_Assignment</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
                 <UpdateCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>UPDATE [dbo].[Room_Assignment] SET [Booking_ID] = @Booking_ID, [Hotel_Room_ID] = @Hotel_Room_ID, [Actual_CheckIn_Time] = @Actual_CheckIn_Time, [Actual_CheckOut_Time] = @Actual_CheckOut_Time, [House_Keeping_Notes] = @House_Keeping_Notes WHERE (([Room_Assignment_ID] = @Original_Room_Assignment_ID) AND ((@IsNull_Booking_ID = 1 AND [Booking_ID] IS NULL) OR ([Booking_ID] = @Original_Booking_ID)) AND ((@IsNull_Hotel_Room_ID = 1 AND [Hotel_Room_ID] IS NULL) OR ([Hotel_Room_ID] = @Original_Hotel_Room_ID)) AND ((@IsNull_Actual_CheckIn_Time = 1 AND [Actual_CheckIn_Time] IS NULL) OR ([Actual_CheckIn_Time] = @Original_Actual_CheckIn_Time)) AND ((@IsNull_Actual_CheckOut_Time = 1 AND [Actual_CheckOut_Time] IS NULL) OR ([Actual_CheckOut_Time] = @Original_Actual_CheckOut_Time)) AND ((@IsNull_House_Keeping_Notes = 1 AND [House_Keeping_Notes] IS NULL) OR ([House_Keeping_Notes] = @Original_House_Keeping_Notes)));
-SELECT Room_Assignment_ID, Booking_ID, Hotel_Room_ID, Actual_CheckIn_Time, Actual_CheckOut_Time, House_Keeping_Notes FROM Room_Assignment WHERE (Room_Assignment_ID = @Room_Assignment_ID)</CommandText>
+                    <CommandText>UPDATE [Room_Assignment] SET [Booking_ID] = @Booking_ID, [Hotel_Room_ID] = @Hotel_Room_ID, [Actual_CheckIn_Time] = @Actual_CheckIn_Time, [Actual_CheckOut_Time] = @Actual_CheckOut_Time WHERE (([Room_Assignment_ID] = @Original_Room_Assignment_ID) AND ((@IsNull_Booking_ID = 1 AND [Booking_ID] IS NULL) OR ([Booking_ID] = @Original_Booking_ID)) AND ((@IsNull_Hotel_Room_ID = 1 AND [Hotel_Room_ID] IS NULL) OR ([Hotel_Room_ID] = @Original_Hotel_Room_ID)) AND ((@IsNull_Actual_CheckIn_Time = 1 AND [Actual_CheckIn_Time] IS NULL) OR ([Actual_CheckIn_Time] = @Original_Actual_CheckIn_Time)) AND ((@IsNull_Actual_CheckOut_Time = 1 AND [Actual_CheckOut_Time] IS NULL) OR ([Actual_CheckOut_Time] = @Original_Actual_CheckOut_Time)));
+SELECT Room_Assignment_ID, Booking_ID, Hotel_Room_ID, Actual_CheckIn_Time, Actual_CheckOut_Time FROM Room_Assignment WHERE (Room_Assignment_ID = @Room_Assignment_ID)</CommandText>
                     <Parameters>
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Booking_ID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Booking_ID" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Hotel_Room_ID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Hotel_Room_ID" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Actual_CheckIn_Time" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="Actual_CheckIn_Time" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Actual_CheckOut_Time" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="Actual_CheckOut_Time" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@House_Keeping_Notes" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="House_Keeping_Notes" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_Room_Assignment_ID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Room_Assignment_ID" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Booking_ID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Booking_ID" SourceColumnNullMapping="true" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_Booking_ID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Booking_ID" SourceColumnNullMapping="false" SourceVersion="Original" />
@@ -697,8 +716,6 @@ SELECT Room_Assignment_ID, Booking_ID, Hotel_Room_ID, Actual_CheckIn_Time, Actua
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_Actual_CheckIn_Time" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="Actual_CheckIn_Time" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Actual_CheckOut_Time" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Actual_CheckOut_Time" SourceColumnNullMapping="true" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_Actual_CheckOut_Time" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="Actual_CheckOut_Time" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_House_Keeping_Notes" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="House_Keeping_Notes" SourceColumnNullMapping="true" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_House_Keeping_Notes" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="House_Keeping_Notes" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="false" AutogeneratedName="Room_Assignment_ID" ColumnName="Room_Assignment_ID" DataSourceName="GroupPmb2.dbo.Room_Assignment" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@Room_Assignment_ID" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="Room_Assignment_ID" SourceColumnNullMapping="false" SourceVersion="Current" />
                     </Parameters>
                   </DbCommand>
@@ -711,9 +728,25 @@ SELECT Room_Assignment_ID, Booking_ID, Hotel_Room_ID, Actual_CheckIn_Time, Actua
               <Mapping SourceColumn="Hotel_Room_ID" DataSetColumn="Hotel_Room_ID" />
               <Mapping SourceColumn="Actual_CheckIn_Time" DataSetColumn="Actual_CheckIn_Time" />
               <Mapping SourceColumn="Actual_CheckOut_Time" DataSetColumn="Actual_CheckOut_Time" />
-              <Mapping SourceColumn="House_Keeping_Notes" DataSetColumn="House_Keeping_Notes" />
             </Mappings>
-            <Sources />
+            <Sources>
+              <DbSource ConnectionRef="GroupPmb2ConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertRoomAssignment" Modifier="Public" Name="InsertRoomAssignment" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="InsertRoomAssignment">
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>INSERT INTO Room_Assignment
+                         (Booking_ID, Hotel_Room_ID, Actual_CheckIn_Time, Actual_CheckOut_Time)
+VALUES        (@Booking_ID,@Hotel_Room_ID,@Actual_CheckIn_Time,@Actual_CheckOut_Time);   
+SELECT Room_Assignment_ID, Booking_ID, Hotel_Room_ID, Actual_CheckIn_Time, Actual_CheckOut_Time FROM Room_Assignment WHERE (Room_Assignment_ID = SCOPE_IDENTITY())</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Booking_ID" ColumnName="Booking_ID" DataSourceName="GroupPmb2.dbo.Room_Assignment" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@Booking_ID" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="Booking_ID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Hotel_Room_ID" ColumnName="Hotel_Room_ID" DataSourceName="GroupPmb2.dbo.Room_Assignment" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@Hotel_Room_ID" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="Hotel_Room_ID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Actual_CheckIn_Time" ColumnName="Actual_CheckIn_Time" DataSourceName="GroupPmb2.dbo.Room_Assignment" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="@Actual_CheckIn_Time" Precision="0" ProviderType="DateTime" Scale="0" Size="8" SourceColumn="Actual_CheckIn_Time" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Actual_CheckOut_Time" ColumnName="Actual_CheckOut_Time" DataSourceName="GroupPmb2.dbo.Room_Assignment" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="@Actual_CheckOut_Time" Precision="0" ProviderType="DateTime" Scale="0" Size="8" SourceColumn="Actual_CheckOut_Time" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+              </DbSource>
+            </Sources>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="StaffTableAdapter" GeneratorDataComponentClassName="StaffTableAdapter" Name="Staff" UserDataComponentName="StaffTableAdapter">
             <MainSource>
@@ -825,7 +858,7 @@ SELECT staff_ID, Branch_ID, staff_First_Name, staff_Surname, staff_Address, staf
               <DbSource ConnectionRef="GroupPmb2ConnectionString (Settings)" DbObjectName="GroupPmb2.dbo.Table_Allocation" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>DELETE FROM [dbo].[Table_Allocation] WHERE (([Table_Allocation_ID] = @Original_Table_Allocation_ID) AND ((@IsNull_Booking_ID = 1 AND [Booking_ID] IS NULL) OR ([Booking_ID] = @Original_Booking_ID)) AND ((@IsNull_Restuarant_Table_ID = 1 AND [Restuarant_Table_ID] IS NULL) OR ([Restuarant_Table_ID] = @Original_Restuarant_Table_ID)) AND ([Number_Of_Tables] = @Original_Number_Of_Tables) AND ((@IsNull_Assignment_Type = 1 AND [Assignment_Type] IS NULL) OR ([Assignment_Type] = @Original_Assignment_Type)) AND ([Start_Time] = @Original_Start_Time) AND ([End_Time] = @Original_End_Time) AND ([Join_ID] = @Original_Join_ID))</CommandText>
+                    <CommandText>DELETE FROM [Table_Allocation] WHERE (([Table_Allocation_ID] = @Original_Table_Allocation_ID) AND ((@IsNull_Booking_ID = 1 AND [Booking_ID] IS NULL) OR ([Booking_ID] = @Original_Booking_ID)) AND ((@IsNull_Restuarant_Table_ID = 1 AND [Restuarant_Table_ID] IS NULL) OR ([Restuarant_Table_ID] = @Original_Restuarant_Table_ID)) AND ([Number_Of_Tables] = @Original_Number_Of_Tables) AND ((@IsNull_Assignment_Type = 1 AND [Assignment_Type] IS NULL) OR ([Assignment_Type] = @Original_Assignment_Type)) AND ([Start_Time] = @Original_Start_Time) AND ([End_Time] = @Original_End_Time))</CommandText>
                     <Parameters>
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_Table_Allocation_ID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Table_Allocation_ID" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Booking_ID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Booking_ID" SourceColumnNullMapping="true" SourceVersion="Original" />
@@ -837,14 +870,13 @@ SELECT staff_ID, Branch_ID, staff_First_Name, staff_Surname, staff_Address, staf
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Assignment_Type" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Assignment_Type" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_Start_Time" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="Start_Time" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_End_Time" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="End_Time" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_Join_ID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Join_ID" SourceColumnNullMapping="false" SourceVersion="Original" />
                     </Parameters>
                   </DbCommand>
                 </DeleteCommand>
                 <InsertCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>INSERT INTO [dbo].[Table_Allocation] ([Booking_ID], [Restuarant_Table_ID], [Number_Of_Tables], [Assignment_Type], [Start_Time], [End_Time], [Join_ID]) VALUES (@Booking_ID, @Restuarant_Table_ID, @Number_Of_Tables, @Assignment_Type, @Start_Time, @End_Time, @Join_ID);
-SELECT Table_Allocation_ID, Booking_ID, Restuarant_Table_ID, Number_Of_Tables, Assignment_Type, Start_Time, End_Time, Join_ID FROM Table_Allocation WHERE (Table_Allocation_ID = SCOPE_IDENTITY())</CommandText>
+                    <CommandText>INSERT INTO [Table_Allocation] ([Booking_ID], [Restuarant_Table_ID], [Number_Of_Tables], [Assignment_Type], [Start_Time], [End_Time]) VALUES (@Booking_ID, @Restuarant_Table_ID, @Number_Of_Tables, @Assignment_Type, @Start_Time, @End_Time);
+SELECT Table_Allocation_ID, Booking_ID, Restuarant_Table_ID, Number_Of_Tables, Assignment_Type, Start_Time, End_Time FROM Table_Allocation WHERE (Table_Allocation_ID = SCOPE_IDENTITY())</CommandText>
                     <Parameters>
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Booking_ID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Booking_ID" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Restuarant_Table_ID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Restuarant_Table_ID" SourceColumnNullMapping="false" SourceVersion="Current" />
@@ -852,20 +884,19 @@ SELECT Table_Allocation_ID, Booking_ID, Restuarant_Table_ID, Number_Of_Tables, A
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Assignment_Type" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Assignment_Type" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Start_Time" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="Start_Time" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@End_Time" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="End_Time" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Join_ID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Join_ID" SourceColumnNullMapping="false" SourceVersion="Current" />
                     </Parameters>
                   </DbCommand>
                 </InsertCommand>
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT Table_Allocation_ID, Booking_ID, Restuarant_Table_ID, Number_Of_Tables, Assignment_Type, Start_Time, End_Time, Join_ID FROM dbo.Table_Allocation</CommandText>
+                    <CommandText>SELECT Table_Allocation_ID, Booking_ID, Restuarant_Table_ID, Number_Of_Tables, Assignment_Type, Start_Time, End_Time FROM Table_Allocation</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
                 <UpdateCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>UPDATE [dbo].[Table_Allocation] SET [Booking_ID] = @Booking_ID, [Restuarant_Table_ID] = @Restuarant_Table_ID, [Number_Of_Tables] = @Number_Of_Tables, [Assignment_Type] = @Assignment_Type, [Start_Time] = @Start_Time, [End_Time] = @End_Time, [Join_ID] = @Join_ID WHERE (([Table_Allocation_ID] = @Original_Table_Allocation_ID) AND ((@IsNull_Booking_ID = 1 AND [Booking_ID] IS NULL) OR ([Booking_ID] = @Original_Booking_ID)) AND ((@IsNull_Restuarant_Table_ID = 1 AND [Restuarant_Table_ID] IS NULL) OR ([Restuarant_Table_ID] = @Original_Restuarant_Table_ID)) AND ([Number_Of_Tables] = @Original_Number_Of_Tables) AND ((@IsNull_Assignment_Type = 1 AND [Assignment_Type] IS NULL) OR ([Assignment_Type] = @Original_Assignment_Type)) AND ([Start_Time] = @Original_Start_Time) AND ([End_Time] = @Original_End_Time) AND ([Join_ID] = @Original_Join_ID));
-SELECT Table_Allocation_ID, Booking_ID, Restuarant_Table_ID, Number_Of_Tables, Assignment_Type, Start_Time, End_Time, Join_ID FROM Table_Allocation WHERE (Table_Allocation_ID = @Table_Allocation_ID)</CommandText>
+                    <CommandText>UPDATE [Table_Allocation] SET [Booking_ID] = @Booking_ID, [Restuarant_Table_ID] = @Restuarant_Table_ID, [Number_Of_Tables] = @Number_Of_Tables, [Assignment_Type] = @Assignment_Type, [Start_Time] = @Start_Time, [End_Time] = @End_Time WHERE (([Table_Allocation_ID] = @Original_Table_Allocation_ID) AND ((@IsNull_Booking_ID = 1 AND [Booking_ID] IS NULL) OR ([Booking_ID] = @Original_Booking_ID)) AND ((@IsNull_Restuarant_Table_ID = 1 AND [Restuarant_Table_ID] IS NULL) OR ([Restuarant_Table_ID] = @Original_Restuarant_Table_ID)) AND ([Number_Of_Tables] = @Original_Number_Of_Tables) AND ((@IsNull_Assignment_Type = 1 AND [Assignment_Type] IS NULL) OR ([Assignment_Type] = @Original_Assignment_Type)) AND ([Start_Time] = @Original_Start_Time) AND ([End_Time] = @Original_End_Time));
+SELECT Table_Allocation_ID, Booking_ID, Restuarant_Table_ID, Number_Of_Tables, Assignment_Type, Start_Time, End_Time FROM Table_Allocation WHERE (Table_Allocation_ID = @Table_Allocation_ID)</CommandText>
                     <Parameters>
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Booking_ID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Booking_ID" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Restuarant_Table_ID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Restuarant_Table_ID" SourceColumnNullMapping="false" SourceVersion="Current" />
@@ -873,7 +904,6 @@ SELECT Table_Allocation_ID, Booking_ID, Restuarant_Table_ID, Number_Of_Tables, A
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Assignment_Type" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Assignment_Type" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Start_Time" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="Start_Time" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@End_Time" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="End_Time" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Join_ID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Join_ID" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_Table_Allocation_ID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Table_Allocation_ID" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Booking_ID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Booking_ID" SourceColumnNullMapping="true" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_Booking_ID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Booking_ID" SourceColumnNullMapping="false" SourceVersion="Original" />
@@ -884,7 +914,6 @@ SELECT Table_Allocation_ID, Booking_ID, Restuarant_Table_ID, Number_Of_Tables, A
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Assignment_Type" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Assignment_Type" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_Start_Time" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="Start_Time" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_End_Time" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="End_Time" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_Join_ID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Join_ID" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="false" AutogeneratedName="Table_Allocation_ID" ColumnName="Table_Allocation_ID" DataSourceName="GroupPmb2.dbo.Table_Allocation" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@Table_Allocation_ID" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="Table_Allocation_ID" SourceColumnNullMapping="false" SourceVersion="Current" />
                     </Parameters>
                   </DbCommand>
@@ -899,9 +928,172 @@ SELECT Table_Allocation_ID, Booking_ID, Restuarant_Table_ID, Number_Of_Tables, A
               <Mapping SourceColumn="Assignment_Type" DataSetColumn="Assignment_Type" />
               <Mapping SourceColumn="Start_Time" DataSetColumn="Start_Time" />
               <Mapping SourceColumn="End_Time" DataSetColumn="End_Time" />
-              <Mapping SourceColumn="Join_ID" DataSetColumn="Join_ID" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="GroupPmb2ConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertTableAllocation" Modifier="Public" Name="InsertTableAllocation" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="InsertTableAllocation">
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>INSERT INTO Table_Allocation
+                         (Booking_ID, Restuarant_Table_ID, Number_Of_Tables, Assignment_Type, Start_Time, End_Time)
+VALUES        (@Booking_ID,@Restuarant_Table_ID,@Number_Of_Tables,@Assignment_Type,@Start_Time,@End_Time);  
+SELECT Table_Allocation_ID, Booking_ID, Restuarant_Table_ID, Number_Of_Tables, Assignment_Type, Start_Time, End_Time FROM Table_Allocation WHERE (Table_Allocation_ID = SCOPE_IDENTITY())</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Booking_ID" ColumnName="Booking_ID" DataSourceName="GroupPmb2.dbo.Table_Allocation" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@Booking_ID" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="Booking_ID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Restuarant_Table_ID" ColumnName="Restuarant_Table_ID" DataSourceName="GroupPmb2.dbo.Table_Allocation" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@Restuarant_Table_ID" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="Restuarant_Table_ID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Number_Of_Tables" ColumnName="Number_Of_Tables" DataSourceName="GroupPmb2.dbo.Table_Allocation" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@Number_Of_Tables" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="Number_Of_Tables" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Assignment_Type" ColumnName="Assignment_Type" DataSourceName="GroupPmb2.dbo.Table_Allocation" DataTypeServer="nvarchar(50)" DbType="String" Direction="Input" ParameterName="@Assignment_Type" Precision="0" ProviderType="NVarChar" Scale="0" Size="50" SourceColumn="Assignment_Type" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Start_Time" ColumnName="Start_Time" DataSourceName="GroupPmb2.dbo.Table_Allocation" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="@Start_Time" Precision="0" ProviderType="DateTime" Scale="0" Size="8" SourceColumn="Start_Time" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="End_Time" ColumnName="End_Time" DataSourceName="GroupPmb2.dbo.Table_Allocation" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="@End_Time" Precision="0" ProviderType="DateTime" Scale="0" Size="8" SourceColumn="End_Time" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Restuarant_TableTableAdapter" GeneratorDataComponentClassName="Restuarant_TableTableAdapter" Name="Restuarant_Table" UserDataComponentName="Restuarant_TableTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="GroupPmb2ConnectionString (Settings)" DbObjectName="GroupPmb2.dbo.Restuarant_Table" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM [Restuarant_Table] WHERE (([RestaurantTableID] = @Original_RestaurantTableID) AND ((@IsNull_Branch_ID = 1 AND [Branch_ID] IS NULL) OR ([Branch_ID] = @Original_Branch_ID)) AND ((@IsNull_RestuarantTableNum = 1 AND [RestuarantTableNum] IS NULL) OR ([RestuarantTableNum] = @Original_RestuarantTableNum)) AND ((@IsNull_RestuarantMenuType = 1 AND [RestuarantMenuType] IS NULL) OR ([RestuarantMenuType] = @Original_RestuarantMenuType)) AND ((@IsNull_TableCapacity = 1 AND [TableCapacity] IS NULL) OR ([TableCapacity] = @Original_TableCapacity)) AND ((@IsNull_TableStatus = 1 AND [TableStatus] IS NULL) OR ([TableStatus] = @Original_TableStatus)) AND ((@IsNull_TableIsCombinable = 1 AND [TableIsCombinable] IS NULL) OR ([TableIsCombinable] = @Original_TableIsCombinable)) AND ((@IsNull_TableFeatures = 1 AND [TableFeatures] IS NULL) OR ([TableFeatures] = @Original_TableFeatures)))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_RestaurantTableID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="RestaurantTableID" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Branch_ID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Branch_ID" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_Branch_ID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Branch_ID" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_RestuarantTableNum" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="RestuarantTableNum" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_RestuarantTableNum" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="RestuarantTableNum" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_RestuarantMenuType" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="RestuarantMenuType" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_RestuarantMenuType" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="RestuarantMenuType" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_TableCapacity" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="TableCapacity" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_TableCapacity" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="TableCapacity" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_TableStatus" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="TableStatus" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_TableStatus" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="TableStatus" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_TableIsCombinable" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="TableIsCombinable" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_TableIsCombinable" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="TableIsCombinable" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_TableFeatures" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="TableFeatures" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_TableFeatures" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="TableFeatures" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO [Restuarant_Table] ([Branch_ID], [RestuarantTableNum], [RestuarantMenuType], [TableCapacity], [TableStatus], [TableIsCombinable], [TableFeatures]) VALUES (@Branch_ID, @RestuarantTableNum, @RestuarantMenuType, @TableCapacity, @TableStatus, @TableIsCombinable, @TableFeatures);
+SELECT RestaurantTableID, Branch_ID, RestuarantTableNum, RestuarantMenuType, TableCapacity, TableStatus, TableIsCombinable, TableFeatures FROM Restuarant_Table WHERE (RestaurantTableID = SCOPE_IDENTITY())</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Branch_ID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Branch_ID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@RestuarantTableNum" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="RestuarantTableNum" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@RestuarantMenuType" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="RestuarantMenuType" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@TableCapacity" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="TableCapacity" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@TableStatus" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="TableStatus" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@TableIsCombinable" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="TableIsCombinable" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@TableFeatures" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="TableFeatures" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        Restuarant_Table.*
+FROM            Restuarant_Table</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE [Restuarant_Table] SET [Branch_ID] = @Branch_ID, [RestuarantTableNum] = @RestuarantTableNum, [RestuarantMenuType] = @RestuarantMenuType, [TableCapacity] = @TableCapacity, [TableStatus] = @TableStatus, [TableIsCombinable] = @TableIsCombinable, [TableFeatures] = @TableFeatures WHERE (([RestaurantTableID] = @Original_RestaurantTableID) AND ((@IsNull_Branch_ID = 1 AND [Branch_ID] IS NULL) OR ([Branch_ID] = @Original_Branch_ID)) AND ((@IsNull_RestuarantTableNum = 1 AND [RestuarantTableNum] IS NULL) OR ([RestuarantTableNum] = @Original_RestuarantTableNum)) AND ((@IsNull_RestuarantMenuType = 1 AND [RestuarantMenuType] IS NULL) OR ([RestuarantMenuType] = @Original_RestuarantMenuType)) AND ((@IsNull_TableCapacity = 1 AND [TableCapacity] IS NULL) OR ([TableCapacity] = @Original_TableCapacity)) AND ((@IsNull_TableStatus = 1 AND [TableStatus] IS NULL) OR ([TableStatus] = @Original_TableStatus)) AND ((@IsNull_TableIsCombinable = 1 AND [TableIsCombinable] IS NULL) OR ([TableIsCombinable] = @Original_TableIsCombinable)) AND ((@IsNull_TableFeatures = 1 AND [TableFeatures] IS NULL) OR ([TableFeatures] = @Original_TableFeatures)));
+SELECT RestaurantTableID, Branch_ID, RestuarantTableNum, RestuarantMenuType, TableCapacity, TableStatus, TableIsCombinable, TableFeatures FROM Restuarant_Table WHERE (RestaurantTableID = @RestaurantTableID)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Branch_ID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Branch_ID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@RestuarantTableNum" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="RestuarantTableNum" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@RestuarantMenuType" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="RestuarantMenuType" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@TableCapacity" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="TableCapacity" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@TableStatus" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="TableStatus" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@TableIsCombinable" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="TableIsCombinable" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@TableFeatures" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="TableFeatures" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_RestaurantTableID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="RestaurantTableID" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Branch_ID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Branch_ID" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_Branch_ID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Branch_ID" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_RestuarantTableNum" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="RestuarantTableNum" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_RestuarantTableNum" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="RestuarantTableNum" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_RestuarantMenuType" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="RestuarantMenuType" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_RestuarantMenuType" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="RestuarantMenuType" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_TableCapacity" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="TableCapacity" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_TableCapacity" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="TableCapacity" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_TableStatus" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="TableStatus" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_TableStatus" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="TableStatus" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_TableIsCombinable" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="TableIsCombinable" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_TableIsCombinable" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="TableIsCombinable" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_TableFeatures" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="TableFeatures" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_TableFeatures" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="TableFeatures" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="RestaurantTableID" ColumnName="RestaurantTableID" DataSourceName="GroupPmb2.dbo.Restuarant_Table" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@RestaurantTableID" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="RestaurantTableID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="RestaurantTableID" DataSetColumn="RestaurantTableID" />
+              <Mapping SourceColumn="Branch_ID" DataSetColumn="Branch_ID" />
+              <Mapping SourceColumn="RestuarantTableNum" DataSetColumn="RestuarantTableNum" />
+              <Mapping SourceColumn="RestuarantMenuType" DataSetColumn="RestuarantMenuType" />
+              <Mapping SourceColumn="TableCapacity" DataSetColumn="TableCapacity" />
+              <Mapping SourceColumn="TableStatus" DataSetColumn="TableStatus" />
+              <Mapping SourceColumn="TableIsCombinable" DataSetColumn="TableIsCombinable" />
+              <Mapping SourceColumn="TableFeatures" DataSetColumn="TableFeatures" />
             </Mappings>
             <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ClientBranchBookingTableAdapter" GeneratorDataComponentClassName="ClientBranchBookingTableAdapter" Name="ClientBranchBooking" UserDataComponentName="ClientBranchBookingTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="GroupPmb2ConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        Booking.*, Client.First_Name, Client.Last_Name, Client.Email_Address, Client.Client_Address, Client.Phone_Number, Branch.Branch_Name, Branch.Branch_Address, Branch.Branch_Phone, Branch.Branch_Email, 
+                         Branch.Branch_Status
+FROM            Booking INNER JOIN
+                         Client ON Booking.Client_ID = Client.Client_ID INNER JOIN
+                         Branch ON Booking.Branch_ID = Branch.Branch_ID</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Booking_ID" DataSetColumn="Booking_ID" />
+              <Mapping SourceColumn="Client_ID" DataSetColumn="Client_ID" />
+              <Mapping SourceColumn="Branch_ID" DataSetColumn="Branch_ID" />
+              <Mapping SourceColumn="Booking_Date" DataSetColumn="Booking_Date" />
+              <Mapping SourceColumn="Checkin_Date" DataSetColumn="Checkin_Date" />
+              <Mapping SourceColumn="Checkout_Date" DataSetColumn="Checkout_Date" />
+              <Mapping SourceColumn="Booking_Total_Amount" DataSetColumn="Booking_Total_Amount" />
+              <Mapping SourceColumn="Booking_Status" DataSetColumn="Booking_Status" />
+              <Mapping SourceColumn="First_Name" DataSetColumn="First_Name" />
+              <Mapping SourceColumn="Last_Name" DataSetColumn="Last_Name" />
+              <Mapping SourceColumn="Email_Address" DataSetColumn="Email_Address" />
+              <Mapping SourceColumn="Client_Address" DataSetColumn="Client_Address" />
+              <Mapping SourceColumn="Phone_Number" DataSetColumn="Phone_Number" />
+              <Mapping SourceColumn="Branch_Name" DataSetColumn="Branch_Name" />
+              <Mapping SourceColumn="Branch_Address" DataSetColumn="Branch_Address" />
+              <Mapping SourceColumn="Branch_Phone" DataSetColumn="Branch_Phone" />
+              <Mapping SourceColumn="Branch_Email" DataSetColumn="Branch_Email" />
+              <Mapping SourceColumn="Branch_Status" DataSetColumn="Branch_Status" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="GroupPmb2ConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByBookingID" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy" GeneratorSourceName="FillByBookingID" GetMethodModifier="Public" GetMethodName="GetDataBy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillByBookingID">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        Booking.Booking_ID, Booking.Client_ID, Booking.Branch_ID, Booking.Booking_Date, Booking.Checkin_Date, Booking.Checkout_Date, Booking.Booking_Total_Amount, Booking.Booking_Status, Client.First_Name, 
+                         Client.Last_Name, Client.Email_Address, Client.Client_Address, Client.Phone_Number, Branch.Branch_Name, Branch.Branch_Address, Branch.Branch_Phone, Branch.Branch_Email, Branch.Branch_Status
+FROM            Booking INNER JOIN
+                         Client ON Booking.Client_ID = Client.Client_ID INNER JOIN
+                         Branch ON Booking.Branch_ID = Branch.Branch_ID
+WHERE        (Booking.Booking_ID = @bookingID)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="bookingID" ColumnName="Booking_ID" DataSourceName="GroupPmb2.dbo.Booking" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@bookingID" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="Booking_ID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
           </TableAdapter>
         </Tables>
         <Sources />
@@ -911,17 +1103,17 @@ SELECT Table_Allocation_ID, Booking_ID, Restuarant_Table_ID, Number_Of_Tables, A
   <xs:element name="codeCraftersDS" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="codeCraftersDS" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="codeCraftersDS">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Booking" msprop:Generator_RowClassName="BookingRow" msprop:Generator_RowEvHandlerName="BookingRowChangeEventHandler" msprop:Generator_RowDeletedName="BookingRowDeleted" msprop:Generator_RowDeletingName="BookingRowDeleting" msprop:Generator_RowEvArgName="BookingRowChangeEvent" msprop:Generator_TablePropName="Booking" msprop:Generator_RowChangedName="BookingRowChanged" msprop:Generator_UserTableName="Booking" msprop:Generator_RowChangingName="BookingRowChanging" msprop:Generator_TableClassName="BookingDataTable" msprop:Generator_TableVarName="tableBooking">
+        <xs:element name="Booking" msprop:Generator_RowEvHandlerName="BookingRowChangeEventHandler" msprop:Generator_RowDeletedName="BookingRowDeleted" msprop:Generator_RowDeletingName="BookingRowDeleting" msprop:Generator_RowEvArgName="BookingRowChangeEvent" msprop:Generator_TablePropName="Booking" msprop:Generator_RowChangedName="BookingRowChanged" msprop:Generator_UserTableName="Booking" msprop:Generator_RowChangingName="BookingRowChanging" msprop:Generator_RowClassName="BookingRow" msprop:Generator_TableClassName="BookingDataTable" msprop:Generator_TableVarName="tableBooking">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="Booking_ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_UserColumnName="Booking_ID" msprop:Generator_ColumnPropNameInTable="Booking_IDColumn" msprop:Generator_ColumnPropNameInRow="Booking_ID" msprop:Generator_ColumnVarNameInTable="columnBooking_ID" type="xs:int" />
-              <xs:element name="Client_ID" msprop:Generator_UserColumnName="Client_ID" msprop:Generator_ColumnPropNameInTable="Client_IDColumn" msprop:Generator_ColumnPropNameInRow="Client_ID" msprop:Generator_ColumnVarNameInTable="columnClient_ID" type="xs:int" minOccurs="0" />
-              <xs:element name="Branch_ID" msprop:Generator_UserColumnName="Branch_ID" msprop:Generator_ColumnPropNameInTable="Branch_IDColumn" msprop:Generator_ColumnPropNameInRow="Branch_ID" msprop:Generator_ColumnVarNameInTable="columnBranch_ID" type="xs:int" minOccurs="0" />
-              <xs:element name="Booking_Date" msprop:Generator_UserColumnName="Booking_Date" msprop:Generator_ColumnPropNameInTable="Booking_DateColumn" msprop:Generator_ColumnPropNameInRow="Booking_Date" msprop:Generator_ColumnVarNameInTable="columnBooking_Date" type="xs:dateTime" />
-              <xs:element name="Checkin_Date" msprop:Generator_UserColumnName="Checkin_Date" msprop:Generator_ColumnPropNameInTable="Checkin_DateColumn" msprop:Generator_ColumnPropNameInRow="Checkin_Date" msprop:Generator_ColumnVarNameInTable="columnCheckin_Date" type="xs:dateTime" />
-              <xs:element name="Checkout_Date" msprop:Generator_UserColumnName="Checkout_Date" msprop:Generator_ColumnPropNameInTable="Checkout_DateColumn" msprop:Generator_ColumnPropNameInRow="Checkout_Date" msprop:Generator_ColumnVarNameInTable="columnCheckout_Date" type="xs:dateTime" />
-              <xs:element name="Booking_Total_Amount" msprop:Generator_UserColumnName="Booking_Total_Amount" msprop:Generator_ColumnPropNameInTable="Booking_Total_AmountColumn" msprop:Generator_ColumnPropNameInRow="Booking_Total_Amount" msprop:Generator_ColumnVarNameInTable="columnBooking_Total_Amount" type="xs:decimal" />
-              <xs:element name="Booking_Status" msprop:Generator_UserColumnName="Booking_Status" msprop:Generator_ColumnPropNameInTable="Booking_StatusColumn" msprop:Generator_ColumnPropNameInRow="Booking_Status" msprop:Generator_ColumnVarNameInTable="columnBooking_Status">
+              <xs:element name="Booking_ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnPropNameInTable="Booking_IDColumn" msprop:Generator_ColumnPropNameInRow="Booking_ID" msprop:Generator_UserColumnName="Booking_ID" msprop:Generator_ColumnVarNameInTable="columnBooking_ID" type="xs:int" />
+              <xs:element name="Client_ID" msprop:Generator_ColumnPropNameInTable="Client_IDColumn" msprop:Generator_ColumnPropNameInRow="Client_ID" msprop:Generator_UserColumnName="Client_ID" msprop:Generator_ColumnVarNameInTable="columnClient_ID" type="xs:int" minOccurs="0" />
+              <xs:element name="Branch_ID" msprop:Generator_ColumnPropNameInTable="Branch_IDColumn" msprop:Generator_ColumnPropNameInRow="Branch_ID" msprop:Generator_UserColumnName="Branch_ID" msprop:Generator_ColumnVarNameInTable="columnBranch_ID" type="xs:int" minOccurs="0" />
+              <xs:element name="Booking_Date" msprop:Generator_ColumnPropNameInTable="Booking_DateColumn" msprop:Generator_ColumnPropNameInRow="Booking_Date" msprop:Generator_UserColumnName="Booking_Date" msprop:Generator_ColumnVarNameInTable="columnBooking_Date" type="xs:dateTime" />
+              <xs:element name="Checkin_Date" msprop:Generator_ColumnPropNameInTable="Checkin_DateColumn" msprop:Generator_ColumnPropNameInRow="Checkin_Date" msprop:Generator_UserColumnName="Checkin_Date" msprop:Generator_ColumnVarNameInTable="columnCheckin_Date" type="xs:dateTime" />
+              <xs:element name="Checkout_Date" msprop:Generator_ColumnPropNameInTable="Checkout_DateColumn" msprop:Generator_ColumnPropNameInRow="Checkout_Date" msprop:Generator_UserColumnName="Checkout_Date" msprop:Generator_ColumnVarNameInTable="columnCheckout_Date" type="xs:dateTime" />
+              <xs:element name="Booking_Total_Amount" msprop:Generator_ColumnPropNameInTable="Booking_Total_AmountColumn" msprop:Generator_ColumnPropNameInRow="Booking_Total_Amount" msprop:Generator_UserColumnName="Booking_Total_Amount" msprop:Generator_ColumnVarNameInTable="columnBooking_Total_Amount" type="xs:decimal" />
+              <xs:element name="Booking_Status" msprop:Generator_ColumnPropNameInTable="Booking_StatusColumn" msprop:Generator_ColumnPropNameInRow="Booking_Status" msprop:Generator_UserColumnName="Booking_Status" msprop:Generator_ColumnVarNameInTable="columnBooking_Status">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
@@ -931,88 +1123,39 @@ SELECT Table_Allocation_ID, Booking_ID, Restuarant_Table_ID, Number_Of_Tables, A
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Branch" msprop:Generator_RowClassName="BranchRow" msprop:Generator_RowEvHandlerName="BranchRowChangeEventHandler" msprop:Generator_RowDeletedName="BranchRowDeleted" msprop:Generator_RowDeletingName="BranchRowDeleting" msprop:Generator_RowEvArgName="BranchRowChangeEvent" msprop:Generator_TablePropName="Branch" msprop:Generator_RowChangedName="BranchRowChanged" msprop:Generator_UserTableName="Branch" msprop:Generator_RowChangingName="BranchRowChanging" msprop:Generator_TableClassName="BranchDataTable" msprop:Generator_TableVarName="tableBranch">
+        <xs:element name="Branch" msprop:Generator_RowEvHandlerName="BranchRowChangeEventHandler" msprop:Generator_RowDeletedName="BranchRowDeleted" msprop:Generator_RowDeletingName="BranchRowDeleting" msprop:Generator_RowEvArgName="BranchRowChangeEvent" msprop:Generator_TablePropName="Branch" msprop:Generator_RowChangedName="BranchRowChanged" msprop:Generator_UserTableName="Branch" msprop:Generator_RowChangingName="BranchRowChanging" msprop:Generator_RowClassName="BranchRow" msprop:Generator_TableClassName="BranchDataTable" msprop:Generator_TableVarName="tableBranch">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="Branch_ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_UserColumnName="Branch_ID" msprop:Generator_ColumnPropNameInTable="Branch_IDColumn" msprop:Generator_ColumnPropNameInRow="Branch_ID" msprop:Generator_ColumnVarNameInTable="columnBranch_ID" type="xs:int" />
-              <xs:element name="Branch_Name" msprop:Generator_UserColumnName="Branch_Name" msprop:Generator_ColumnPropNameInTable="Branch_NameColumn" msprop:Generator_ColumnPropNameInRow="Branch_Name" msprop:Generator_ColumnVarNameInTable="columnBranch_Name">
+              <xs:element name="Branch_ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnPropNameInTable="Branch_IDColumn" msprop:Generator_ColumnPropNameInRow="Branch_ID" msprop:Generator_UserColumnName="Branch_ID" msprop:Generator_ColumnVarNameInTable="columnBranch_ID" type="xs:int" />
+              <xs:element name="Branch_Name" msprop:Generator_ColumnPropNameInTable="Branch_NameColumn" msprop:Generator_ColumnPropNameInRow="Branch_Name" msprop:Generator_UserColumnName="Branch_Name" msprop:Generator_ColumnVarNameInTable="columnBranch_Name">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="100" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Branch_Address" msprop:Generator_UserColumnName="Branch_Address" msprop:Generator_ColumnPropNameInTable="Branch_AddressColumn" msprop:Generator_ColumnPropNameInRow="Branch_Address" msprop:Generator_ColumnVarNameInTable="columnBranch_Address">
+              <xs:element name="Branch_Address" msprop:Generator_ColumnPropNameInTable="Branch_AddressColumn" msprop:Generator_ColumnPropNameInRow="Branch_Address" msprop:Generator_UserColumnName="Branch_Address" msprop:Generator_ColumnVarNameInTable="columnBranch_Address">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="255" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Branch_Phone" msprop:Generator_UserColumnName="Branch_Phone" msprop:Generator_ColumnPropNameInTable="Branch_PhoneColumn" msprop:Generator_ColumnPropNameInRow="Branch_Phone" msprop:Generator_ColumnVarNameInTable="columnBranch_Phone">
+              <xs:element name="Branch_Phone" msprop:Generator_ColumnPropNameInTable="Branch_PhoneColumn" msprop:Generator_ColumnPropNameInRow="Branch_Phone" msprop:Generator_UserColumnName="Branch_Phone" msprop:Generator_ColumnVarNameInTable="columnBranch_Phone">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="20" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Branch_Email" msprop:Generator_UserColumnName="Branch_Email" msprop:Generator_ColumnPropNameInTable="Branch_EmailColumn" msprop:Generator_ColumnPropNameInRow="Branch_Email" msprop:Generator_ColumnVarNameInTable="columnBranch_Email">
+              <xs:element name="Branch_Email" msprop:Generator_ColumnPropNameInTable="Branch_EmailColumn" msprop:Generator_ColumnPropNameInRow="Branch_Email" msprop:Generator_UserColumnName="Branch_Email" msprop:Generator_ColumnVarNameInTable="columnBranch_Email">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="100" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Branch_Status" msprop:Generator_UserColumnName="Branch_Status" msprop:Generator_ColumnPropNameInTable="Branch_StatusColumn" msprop:Generator_ColumnPropNameInRow="Branch_Status" msprop:Generator_ColumnVarNameInTable="columnBranch_Status">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="20" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
-        <xs:element name="Client" msprop:Generator_RowClassName="ClientRow" msprop:Generator_RowEvHandlerName="ClientRowChangeEventHandler" msprop:Generator_RowDeletedName="ClientRowDeleted" msprop:Generator_RowDeletingName="ClientRowDeleting" msprop:Generator_RowEvArgName="ClientRowChangeEvent" msprop:Generator_TablePropName="Client" msprop:Generator_RowChangedName="ClientRowChanged" msprop:Generator_UserTableName="Client" msprop:Generator_RowChangingName="ClientRowChanging" msprop:Generator_TableClassName="ClientDataTable" msprop:Generator_TableVarName="tableClient">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element name="Client_ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_UserColumnName="Client_ID" msprop:Generator_ColumnPropNameInTable="Client_IDColumn" msprop:Generator_ColumnPropNameInRow="Client_ID" msprop:Generator_ColumnVarNameInTable="columnClient_ID" type="xs:int" />
-              <xs:element name="First_Name" msprop:Generator_UserColumnName="First_Name" msprop:Generator_ColumnPropNameInTable="First_NameColumn" msprop:Generator_ColumnPropNameInRow="First_Name" msprop:Generator_ColumnVarNameInTable="columnFirst_Name">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="50" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="Last_Name" msprop:Generator_UserColumnName="Last_Name" msprop:Generator_ColumnPropNameInTable="Last_NameColumn" msprop:Generator_ColumnPropNameInRow="Last_Name" msprop:Generator_ColumnVarNameInTable="columnLast_Name">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="50" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="Password" msprop:Generator_UserColumnName="Password" msprop:Generator_ColumnPropNameInTable="PasswordColumn" msprop:Generator_ColumnPropNameInRow="Password" msprop:Generator_ColumnVarNameInTable="columnPassword">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="255" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="Email_Address" msprop:Generator_UserColumnName="Email_Address" msprop:Generator_ColumnPropNameInTable="Email_AddressColumn" msprop:Generator_ColumnPropNameInRow="Email_Address" msprop:Generator_ColumnVarNameInTable="columnEmail_Address">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="100" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="Client_Address" msprop:Generator_UserColumnName="Client_Address" msprop:Generator_ColumnPropNameInTable="Client_AddressColumn" msprop:Generator_ColumnPropNameInRow="Client_Address" msprop:Generator_ColumnVarNameInTable="columnClient_Address" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="255" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="Phone_Number" msprop:Generator_UserColumnName="Phone_Number" msprop:Generator_ColumnPropNameInTable="Phone_NumberColumn" msprop:Generator_ColumnPropNameInRow="Phone_Number" msprop:Generator_ColumnVarNameInTable="columnPhone_Number" minOccurs="0">
+              <xs:element name="Branch_Status" msprop:Generator_ColumnPropNameInTable="Branch_StatusColumn" msprop:Generator_ColumnPropNameInRow="Branch_Status" msprop:Generator_UserColumnName="Branch_Status" msprop:Generator_ColumnVarNameInTable="columnBranch_Status">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="20" />
@@ -1022,45 +1165,94 @@ SELECT Table_Allocation_ID, Booking_ID, Restuarant_Table_ID, Number_Of_Tables, A
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Folio" msprop:Generator_RowClassName="FolioRow" msprop:Generator_RowEvHandlerName="FolioRowChangeEventHandler" msprop:Generator_RowDeletedName="FolioRowDeleted" msprop:Generator_RowDeletingName="FolioRowDeleting" msprop:Generator_RowEvArgName="FolioRowChangeEvent" msprop:Generator_TablePropName="Folio" msprop:Generator_RowChangedName="FolioRowChanged" msprop:Generator_UserTableName="Folio" msprop:Generator_RowChangingName="FolioRowChanging" msprop:Generator_TableClassName="FolioDataTable" msprop:Generator_TableVarName="tableFolio">
+        <xs:element name="Client" msprop:Generator_RowEvHandlerName="ClientRowChangeEventHandler" msprop:Generator_RowDeletedName="ClientRowDeleted" msprop:Generator_RowDeletingName="ClientRowDeleting" msprop:Generator_RowEvArgName="ClientRowChangeEvent" msprop:Generator_TablePropName="Client" msprop:Generator_RowChangedName="ClientRowChanged" msprop:Generator_UserTableName="Client" msprop:Generator_RowChangingName="ClientRowChanging" msprop:Generator_RowClassName="ClientRow" msprop:Generator_TableClassName="ClientDataTable" msprop:Generator_TableVarName="tableClient">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="Folio_ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_UserColumnName="Folio_ID" msprop:Generator_ColumnPropNameInTable="Folio_IDColumn" msprop:Generator_ColumnPropNameInRow="Folio_ID" msprop:Generator_ColumnVarNameInTable="columnFolio_ID" type="xs:int" />
-              <xs:element name="Booking_ID" msprop:Generator_UserColumnName="Booking_ID" msprop:Generator_ColumnPropNameInTable="Booking_IDColumn" msprop:Generator_ColumnPropNameInRow="Booking_ID" msprop:Generator_ColumnVarNameInTable="columnBooking_ID" type="xs:int" minOccurs="0" />
-              <xs:element name="Folio_Type" msprop:Generator_UserColumnName="Folio_Type" msprop:Generator_ColumnPropNameInTable="Folio_TypeColumn" msprop:Generator_ColumnPropNameInRow="Folio_Type" msprop:Generator_ColumnVarNameInTable="columnFolio_Type" minOccurs="0">
+              <xs:element name="Client_ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnPropNameInTable="Client_IDColumn" msprop:Generator_ColumnPropNameInRow="Client_ID" msprop:Generator_UserColumnName="Client_ID" msprop:Generator_ColumnVarNameInTable="columnClient_ID" type="xs:int" />
+              <xs:element name="First_Name" msprop:Generator_ColumnPropNameInTable="First_NameColumn" msprop:Generator_ColumnPropNameInRow="First_Name" msprop:Generator_UserColumnName="First_Name" msprop:Generator_ColumnVarNameInTable="columnFirst_Name">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Folio_Status" msprop:Generator_UserColumnName="Folio_Status" msprop:Generator_ColumnPropNameInTable="Folio_StatusColumn" msprop:Generator_ColumnPropNameInRow="Folio_Status" msprop:Generator_ColumnVarNameInTable="columnFolio_Status" minOccurs="0">
+              <xs:element name="Last_Name" msprop:Generator_ColumnPropNameInTable="Last_NameColumn" msprop:Generator_ColumnPropNameInRow="Last_Name" msprop:Generator_UserColumnName="Last_Name" msprop:Generator_ColumnVarNameInTable="columnLast_Name">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Opening_Balance" msprop:Generator_UserColumnName="Opening_Balance" msprop:Generator_ColumnPropNameInTable="Opening_BalanceColumn" msprop:Generator_ColumnPropNameInRow="Opening_Balance" msprop:Generator_ColumnVarNameInTable="columnOpening_Balance" type="xs:decimal" minOccurs="0" />
-              <xs:element name="Current_Balance" msprop:Generator_UserColumnName="Current_Balance" msprop:Generator_ColumnPropNameInTable="Current_BalanceColumn" msprop:Generator_ColumnPropNameInRow="Current_Balance" msprop:Generator_ColumnVarNameInTable="columnCurrent_Balance" type="xs:decimal" minOccurs="0" />
-              <xs:element name="Credit_Limit" msprop:Generator_UserColumnName="Credit_Limit" msprop:Generator_ColumnPropNameInTable="Credit_LimitColumn" msprop:Generator_ColumnPropNameInRow="Credit_Limit" msprop:Generator_ColumnVarNameInTable="columnCredit_Limit" type="xs:decimal" minOccurs="0" />
-              <xs:element name="Payment_Type" msprop:Generator_UserColumnName="Payment_Type" msprop:Generator_ColumnPropNameInTable="Payment_TypeColumn" msprop:Generator_ColumnPropNameInRow="Payment_Type" msprop:Generator_ColumnVarNameInTable="columnPayment_Type" minOccurs="0">
+              <xs:element name="Password" msprop:Generator_ColumnPropNameInTable="PasswordColumn" msprop:Generator_ColumnPropNameInRow="Password" msprop:Generator_UserColumnName="Password" msprop:Generator_ColumnVarNameInTable="columnPassword">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Email_Address" msprop:Generator_ColumnPropNameInTable="Email_AddressColumn" msprop:Generator_ColumnPropNameInRow="Email_Address" msprop:Generator_UserColumnName="Email_Address" msprop:Generator_ColumnVarNameInTable="columnEmail_Address">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Client_Address" msprop:Generator_ColumnPropNameInTable="Client_AddressColumn" msprop:Generator_ColumnPropNameInRow="Client_Address" msprop:Generator_UserColumnName="Client_Address" msprop:Generator_ColumnVarNameInTable="columnClient_Address" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Phone_Number" msprop:Generator_ColumnPropNameInTable="Phone_NumberColumn" msprop:Generator_ColumnPropNameInRow="Phone_Number" msprop:Generator_UserColumnName="Phone_Number" msprop:Generator_ColumnVarNameInTable="columnPhone_Number" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Folio" msprop:Generator_RowEvHandlerName="FolioRowChangeEventHandler" msprop:Generator_RowDeletedName="FolioRowDeleted" msprop:Generator_RowDeletingName="FolioRowDeleting" msprop:Generator_RowEvArgName="FolioRowChangeEvent" msprop:Generator_TablePropName="Folio" msprop:Generator_RowChangedName="FolioRowChanged" msprop:Generator_UserTableName="Folio" msprop:Generator_RowChangingName="FolioRowChanging" msprop:Generator_RowClassName="FolioRow" msprop:Generator_TableClassName="FolioDataTable" msprop:Generator_TableVarName="tableFolio">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Folio_ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnPropNameInTable="Folio_IDColumn" msprop:Generator_ColumnPropNameInRow="Folio_ID" msprop:Generator_UserColumnName="Folio_ID" msprop:Generator_ColumnVarNameInTable="columnFolio_ID" type="xs:int" />
+              <xs:element name="Booking_ID" msprop:Generator_ColumnPropNameInTable="Booking_IDColumn" msprop:Generator_ColumnPropNameInRow="Booking_ID" msprop:Generator_UserColumnName="Booking_ID" msprop:Generator_ColumnVarNameInTable="columnBooking_ID" type="xs:int" minOccurs="0" />
+              <xs:element name="Folio_Type" msprop:Generator_ColumnPropNameInTable="Folio_TypeColumn" msprop:Generator_ColumnPropNameInRow="Folio_Type" msprop:Generator_UserColumnName="Folio_Type" msprop:Generator_ColumnVarNameInTable="columnFolio_Type" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Payment_Amount" msprop:Generator_UserColumnName="Payment_Amount" msprop:Generator_ColumnPropNameInTable="Payment_AmountColumn" msprop:Generator_ColumnPropNameInRow="Payment_Amount" msprop:Generator_ColumnVarNameInTable="columnPayment_Amount" type="xs:decimal" minOccurs="0" />
-              <xs:element name="Payment_Date" msprop:Generator_UserColumnName="Payment_Date" msprop:Generator_ColumnPropNameInTable="Payment_DateColumn" msprop:Generator_ColumnPropNameInRow="Payment_Date" msprop:Generator_ColumnVarNameInTable="columnPayment_Date" type="xs:dateTime" minOccurs="0" />
-              <xs:element name="Payment_Status" msprop:Generator_UserColumnName="Payment_Status" msprop:Generator_ColumnPropNameInTable="Payment_StatusColumn" msprop:Generator_ColumnPropNameInRow="Payment_Status" msprop:Generator_ColumnVarNameInTable="columnPayment_Status" minOccurs="0">
+              <xs:element name="Folio_Status" msprop:Generator_ColumnPropNameInTable="Folio_StatusColumn" msprop:Generator_ColumnPropNameInRow="Folio_Status" msprop:Generator_UserColumnName="Folio_Status" msprop:Generator_ColumnVarNameInTable="columnFolio_Status" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Payment_Description" msprop:Generator_UserColumnName="Payment_Description" msprop:Generator_ColumnPropNameInTable="Payment_DescriptionColumn" msprop:Generator_ColumnPropNameInRow="Payment_Description" msprop:Generator_ColumnVarNameInTable="columnPayment_Description" minOccurs="0">
+              <xs:element name="Opening_Balance" msprop:Generator_ColumnPropNameInTable="Opening_BalanceColumn" msprop:Generator_ColumnPropNameInRow="Opening_Balance" msprop:Generator_UserColumnName="Opening_Balance" msprop:Generator_ColumnVarNameInTable="columnOpening_Balance" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Current_Balance" msprop:Generator_ColumnPropNameInTable="Current_BalanceColumn" msprop:Generator_ColumnPropNameInRow="Current_Balance" msprop:Generator_UserColumnName="Current_Balance" msprop:Generator_ColumnVarNameInTable="columnCurrent_Balance" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Credit_Limit" msprop:Generator_ColumnPropNameInTable="Credit_LimitColumn" msprop:Generator_ColumnPropNameInRow="Credit_Limit" msprop:Generator_UserColumnName="Credit_Limit" msprop:Generator_ColumnVarNameInTable="columnCredit_Limit" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Payment_Type" msprop:Generator_ColumnPropNameInTable="Payment_TypeColumn" msprop:Generator_ColumnPropNameInRow="Payment_Type" msprop:Generator_UserColumnName="Payment_Type" msprop:Generator_ColumnVarNameInTable="columnPayment_Type" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Payment_Amount" msprop:Generator_ColumnPropNameInTable="Payment_AmountColumn" msprop:Generator_ColumnPropNameInRow="Payment_Amount" msprop:Generator_UserColumnName="Payment_Amount" msprop:Generator_ColumnVarNameInTable="columnPayment_Amount" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Payment_Date" msprop:Generator_ColumnPropNameInTable="Payment_DateColumn" msprop:Generator_ColumnPropNameInRow="Payment_Date" msprop:Generator_UserColumnName="Payment_Date" msprop:Generator_ColumnVarNameInTable="columnPayment_Date" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Payment_Status" msprop:Generator_ColumnPropNameInTable="Payment_StatusColumn" msprop:Generator_ColumnPropNameInRow="Payment_Status" msprop:Generator_UserColumnName="Payment_Status" msprop:Generator_ColumnVarNameInTable="columnPayment_Status" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Payment_Description" msprop:Generator_ColumnPropNameInTable="Payment_DescriptionColumn" msprop:Generator_ColumnPropNameInRow="Payment_Description" msprop:Generator_UserColumnName="Payment_Description" msprop:Generator_ColumnVarNameInTable="columnPayment_Description" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
@@ -1070,165 +1262,108 @@ SELECT Table_Allocation_ID, Booking_ID, Restuarant_Table_ID, Number_Of_Tables, A
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Hotel_Room" msprop:Generator_RowClassName="Hotel_RoomRow" msprop:Generator_RowEvHandlerName="Hotel_RoomRowChangeEventHandler" msprop:Generator_RowDeletedName="Hotel_RoomRowDeleted" msprop:Generator_RowDeletingName="Hotel_RoomRowDeleting" msprop:Generator_RowEvArgName="Hotel_RoomRowChangeEvent" msprop:Generator_TablePropName="Hotel_Room" msprop:Generator_RowChangedName="Hotel_RoomRowChanged" msprop:Generator_UserTableName="Hotel_Room" msprop:Generator_RowChangingName="Hotel_RoomRowChanging" msprop:Generator_TableClassName="Hotel_RoomDataTable" msprop:Generator_TableVarName="tableHotel_Room">
+        <xs:element name="Hotel_Room" msprop:Generator_RowEvHandlerName="Hotel_RoomRowChangeEventHandler" msprop:Generator_RowDeletedName="Hotel_RoomRowDeleted" msprop:Generator_RowDeletingName="Hotel_RoomRowDeleting" msprop:Generator_RowEvArgName="Hotel_RoomRowChangeEvent" msprop:Generator_TablePropName="Hotel_Room" msprop:Generator_RowChangedName="Hotel_RoomRowChanged" msprop:Generator_UserTableName="Hotel_Room" msprop:Generator_RowChangingName="Hotel_RoomRowChanging" msprop:Generator_RowClassName="Hotel_RoomRow" msprop:Generator_TableClassName="Hotel_RoomDataTable" msprop:Generator_TableVarName="tableHotel_Room">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="Hotel_Room_ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_UserColumnName="Hotel_Room_ID" msprop:Generator_ColumnPropNameInTable="Hotel_Room_IDColumn" msprop:Generator_ColumnPropNameInRow="Hotel_Room_ID" msprop:Generator_ColumnVarNameInTable="columnHotel_Room_ID" type="xs:int" />
-              <xs:element name="Branch_ID" msprop:Generator_UserColumnName="Branch_ID" msprop:Generator_ColumnPropNameInTable="Branch_IDColumn" msprop:Generator_ColumnPropNameInRow="Branch_ID" msprop:Generator_ColumnVarNameInTable="columnBranch_ID" type="xs:int" minOccurs="0" />
-              <xs:element name="hotel_room_type_ID" msprop:Generator_UserColumnName="hotel_room_type_ID" msprop:Generator_ColumnPropNameInTable="hotel_room_type_IDColumn" msprop:Generator_ColumnPropNameInRow="hotel_room_type_ID" msprop:Generator_ColumnVarNameInTable="columnhotel_room_type_ID" type="xs:int" minOccurs="0" />
-              <xs:element name="hotel_room_number" msprop:Generator_UserColumnName="hotel_room_number" msprop:Generator_ColumnPropNameInTable="hotel_room_numberColumn" msprop:Generator_ColumnPropNameInRow="hotel_room_number" msprop:Generator_ColumnVarNameInTable="columnhotel_room_number" minOccurs="0">
+              <xs:element name="Hotel_Room_ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnPropNameInTable="Hotel_Room_IDColumn" msprop:Generator_ColumnPropNameInRow="Hotel_Room_ID" msprop:Generator_UserColumnName="Hotel_Room_ID" msprop:Generator_ColumnVarNameInTable="columnHotel_Room_ID" type="xs:int" />
+              <xs:element name="Branch_ID" msprop:Generator_ColumnPropNameInTable="Branch_IDColumn" msprop:Generator_ColumnPropNameInRow="Branch_ID" msprop:Generator_UserColumnName="Branch_ID" msprop:Generator_ColumnVarNameInTable="columnBranch_ID" type="xs:int" minOccurs="0" />
+              <xs:element name="hotel_room_type_ID" msprop:Generator_ColumnPropNameInTable="hotel_room_type_IDColumn" msprop:Generator_ColumnPropNameInRow="hotel_room_type_ID" msprop:Generator_UserColumnName="hotel_room_type_ID" msprop:Generator_ColumnVarNameInTable="columnhotel_room_type_ID" type="xs:int" minOccurs="0" />
+              <xs:element name="hotel_room_number" msprop:Generator_ColumnPropNameInTable="hotel_room_numberColumn" msprop:Generator_ColumnPropNameInRow="hotel_room_number" msprop:Generator_UserColumnName="hotel_room_number" msprop:Generator_ColumnVarNameInTable="columnhotel_room_number" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="10" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="hotel_room_status" msprop:Generator_UserColumnName="hotel_room_status" msprop:Generator_ColumnPropNameInTable="hotel_room_statusColumn" msprop:Generator_ColumnPropNameInRow="hotel_room_status" msprop:Generator_ColumnVarNameInTable="columnhotel_room_status" minOccurs="0">
+              <xs:element name="hotel_room_status" msprop:Generator_ColumnPropNameInTable="hotel_room_statusColumn" msprop:Generator_ColumnPropNameInRow="hotel_room_status" msprop:Generator_UserColumnName="hotel_room_status" msprop:Generator_ColumnVarNameInTable="columnhotel_room_status" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="20" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Hotel_Room_Price" msprop:Generator_UserColumnName="Hotel_Room_Price" msprop:Generator_ColumnPropNameInTable="Hotel_Room_PriceColumn" msprop:Generator_ColumnPropNameInRow="Hotel_Room_Price" msprop:Generator_ColumnVarNameInTable="columnHotel_Room_Price" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Hotel_Room_Price" msprop:Generator_ColumnPropNameInTable="Hotel_Room_PriceColumn" msprop:Generator_ColumnPropNameInRow="Hotel_Room_Price" msprop:Generator_UserColumnName="Hotel_Room_Price" msprop:Generator_ColumnVarNameInTable="columnHotel_Room_Price" type="xs:decimal" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Rate_Plan" msprop:Generator_RowClassName="Rate_PlanRow" msprop:Generator_RowEvHandlerName="Rate_PlanRowChangeEventHandler" msprop:Generator_RowDeletedName="Rate_PlanRowDeleted" msprop:Generator_RowDeletingName="Rate_PlanRowDeleting" msprop:Generator_RowEvArgName="Rate_PlanRowChangeEvent" msprop:Generator_TablePropName="Rate_Plan" msprop:Generator_RowChangedName="Rate_PlanRowChanged" msprop:Generator_UserTableName="Rate_Plan" msprop:Generator_RowChangingName="Rate_PlanRowChanging" msprop:Generator_TableClassName="Rate_PlanDataTable" msprop:Generator_TableVarName="tableRate_Plan">
+        <xs:element name="Rate_Plan" msprop:Generator_RowEvHandlerName="Rate_PlanRowChangeEventHandler" msprop:Generator_RowDeletedName="Rate_PlanRowDeleted" msprop:Generator_RowDeletingName="Rate_PlanRowDeleting" msprop:Generator_RowEvArgName="Rate_PlanRowChangeEvent" msprop:Generator_TablePropName="Rate_Plan" msprop:Generator_RowChangedName="Rate_PlanRowChanged" msprop:Generator_UserTableName="Rate_Plan" msprop:Generator_RowChangingName="Rate_PlanRowChanging" msprop:Generator_RowClassName="Rate_PlanRow" msprop:Generator_TableClassName="Rate_PlanDataTable" msprop:Generator_TableVarName="tableRate_Plan">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="Rate_ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_UserColumnName="Rate_ID" msprop:Generator_ColumnPropNameInTable="Rate_IDColumn" msprop:Generator_ColumnPropNameInRow="Rate_ID" msprop:Generator_ColumnVarNameInTable="columnRate_ID" type="xs:int" />
-              <xs:element name="Hotel_Room_ID" msprop:Generator_UserColumnName="Hotel_Room_ID" msprop:Generator_ColumnPropNameInTable="Hotel_Room_IDColumn" msprop:Generator_ColumnPropNameInRow="Hotel_Room_ID" msprop:Generator_ColumnVarNameInTable="columnHotel_Room_ID" type="xs:int" minOccurs="0" />
-              <xs:element name="Rate_Name" msprop:Generator_UserColumnName="Rate_Name" msprop:Generator_ColumnPropNameInTable="Rate_NameColumn" msprop:Generator_ColumnPropNameInRow="Rate_Name" msprop:Generator_ColumnVarNameInTable="columnRate_Name">
+              <xs:element name="Rate_ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnPropNameInTable="Rate_IDColumn" msprop:Generator_ColumnPropNameInRow="Rate_ID" msprop:Generator_UserColumnName="Rate_ID" msprop:Generator_ColumnVarNameInTable="columnRate_ID" type="xs:int" />
+              <xs:element name="Hotel_Room_ID" msprop:Generator_ColumnPropNameInTable="Hotel_Room_IDColumn" msprop:Generator_ColumnPropNameInRow="Hotel_Room_ID" msprop:Generator_UserColumnName="Hotel_Room_ID" msprop:Generator_ColumnVarNameInTable="columnHotel_Room_ID" type="xs:int" minOccurs="0" />
+              <xs:element name="Rate_Name" msprop:Generator_ColumnPropNameInTable="Rate_NameColumn" msprop:Generator_ColumnPropNameInRow="Rate_Name" msprop:Generator_UserColumnName="Rate_Name" msprop:Generator_ColumnVarNameInTable="columnRate_Name">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="100" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Hotel_Room_Price" msprop:Generator_UserColumnName="Hotel_Room_Price" msprop:Generator_ColumnPropNameInTable="Hotel_Room_PriceColumn" msprop:Generator_ColumnPropNameInRow="Hotel_Room_Price" msprop:Generator_ColumnVarNameInTable="columnHotel_Room_Price" type="xs:decimal" />
-              <xs:element name="Valid_Till" msprop:Generator_UserColumnName="Valid_Till" msprop:Generator_ColumnPropNameInTable="Valid_TillColumn" msprop:Generator_ColumnPropNameInRow="Valid_Till" msprop:Generator_ColumnVarNameInTable="columnValid_Till" type="xs:dateTime" minOccurs="0" />
-              <xs:element name="Table_Price" msprop:Generator_UserColumnName="Table_Price" msprop:Generator_ColumnPropNameInTable="Table_PriceColumn" msprop:Generator_ColumnPropNameInRow="Table_Price" msprop:Generator_ColumnVarNameInTable="columnTable_Price" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Hotel_Room_Price" msprop:Generator_ColumnPropNameInTable="Hotel_Room_PriceColumn" msprop:Generator_ColumnPropNameInRow="Hotel_Room_Price" msprop:Generator_UserColumnName="Hotel_Room_Price" msprop:Generator_ColumnVarNameInTable="columnHotel_Room_Price" type="xs:decimal" />
+              <xs:element name="Valid_Till" msprop:Generator_ColumnPropNameInTable="Valid_TillColumn" msprop:Generator_ColumnPropNameInRow="Valid_Till" msprop:Generator_UserColumnName="Valid_Till" msprop:Generator_ColumnVarNameInTable="columnValid_Till" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Table_Price" msprop:Generator_ColumnPropNameInTable="Table_PriceColumn" msprop:Generator_ColumnPropNameInRow="Table_Price" msprop:Generator_UserColumnName="Table_Price" msprop:Generator_ColumnVarNameInTable="columnTable_Price" type="xs:decimal" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Restuarant_Table" msprop:Generator_RowClassName="Restuarant_TableRow" msprop:Generator_RowEvHandlerName="Restuarant_TableRowChangeEventHandler" msprop:Generator_RowDeletedName="Restuarant_TableRowDeleted" msprop:Generator_RowDeletingName="Restuarant_TableRowDeleting" msprop:Generator_RowEvArgName="Restuarant_TableRowChangeEvent" msprop:Generator_TablePropName="Restuarant_Table" msprop:Generator_RowChangedName="Restuarant_TableRowChanged" msprop:Generator_UserTableName="Restuarant_Table" msprop:Generator_RowChangingName="Restuarant_TableRowChanging" msprop:Generator_TableClassName="Restuarant_TableDataTable" msprop:Generator_TableVarName="tableRestuarant_Table">
+        <xs:element name="Room_Assignment" msprop:Generator_RowEvHandlerName="Room_AssignmentRowChangeEventHandler" msprop:Generator_RowDeletedName="Room_AssignmentRowDeleted" msprop:Generator_RowDeletingName="Room_AssignmentRowDeleting" msprop:Generator_RowEvArgName="Room_AssignmentRowChangeEvent" msprop:Generator_TablePropName="Room_Assignment" msprop:Generator_RowChangedName="Room_AssignmentRowChanged" msprop:Generator_UserTableName="Room_Assignment" msprop:Generator_RowChangingName="Room_AssignmentRowChanging" msprop:Generator_RowClassName="Room_AssignmentRow" msprop:Generator_TableClassName="Room_AssignmentDataTable" msprop:Generator_TableVarName="tableRoom_Assignment">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="ResturantTableID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_UserColumnName="ResturantTableID" msprop:Generator_ColumnPropNameInTable="ResturantTableIDColumn" msprop:Generator_ColumnPropNameInRow="ResturantTableID" msprop:Generator_ColumnVarNameInTable="columnResturantTableID" type="xs:int" />
-              <xs:element name="Branch_ID" msprop:Generator_UserColumnName="Branch_ID" msprop:Generator_ColumnPropNameInTable="Branch_IDColumn" msprop:Generator_ColumnPropNameInRow="Branch_ID" msprop:Generator_ColumnVarNameInTable="columnBranch_ID" type="xs:int" minOccurs="0" />
-              <xs:element name="RestuarantTableNum" msprop:Generator_UserColumnName="RestuarantTableNum" msprop:Generator_ColumnPropNameInTable="RestuarantTableNumColumn" msprop:Generator_ColumnPropNameInRow="RestuarantTableNum" msprop:Generator_ColumnVarNameInTable="columnRestuarantTableNum" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="50" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="RestuarantMenuType" msprop:Generator_UserColumnName="RestuarantMenuType" msprop:Generator_ColumnPropNameInTable="RestuarantMenuTypeColumn" msprop:Generator_ColumnPropNameInRow="RestuarantMenuType" msprop:Generator_ColumnVarNameInTable="columnRestuarantMenuType" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="50" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="TableCapacity" msprop:Generator_UserColumnName="TableCapacity" msprop:Generator_ColumnPropNameInTable="TableCapacityColumn" msprop:Generator_ColumnPropNameInRow="TableCapacity" msprop:Generator_ColumnVarNameInTable="columnTableCapacity" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="50" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="TableStatus" msprop:Generator_UserColumnName="TableStatus" msprop:Generator_ColumnPropNameInTable="TableStatusColumn" msprop:Generator_ColumnPropNameInRow="TableStatus" msprop:Generator_ColumnVarNameInTable="columnTableStatus" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="50" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="TableIsCombinable" msprop:Generator_UserColumnName="TableIsCombinable" msprop:Generator_ColumnPropNameInTable="TableIsCombinableColumn" msprop:Generator_ColumnPropNameInRow="TableIsCombinable" msprop:Generator_ColumnVarNameInTable="columnTableIsCombinable" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="50" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="TableFeatures" msprop:Generator_UserColumnName="TableFeatures" msprop:Generator_ColumnPropNameInTable="TableFeaturesColumn" msprop:Generator_ColumnPropNameInRow="TableFeatures" msprop:Generator_ColumnVarNameInTable="columnTableFeatures" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="100" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
+              <xs:element name="Room_Assignment_ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnPropNameInTable="Room_Assignment_IDColumn" msprop:Generator_ColumnPropNameInRow="Room_Assignment_ID" msprop:Generator_UserColumnName="Room_Assignment_ID" msprop:Generator_ColumnVarNameInTable="columnRoom_Assignment_ID" type="xs:int" />
+              <xs:element name="Booking_ID" msprop:Generator_ColumnPropNameInTable="Booking_IDColumn" msprop:Generator_ColumnPropNameInRow="Booking_ID" msprop:Generator_UserColumnName="Booking_ID" msprop:Generator_ColumnVarNameInTable="columnBooking_ID" type="xs:int" minOccurs="0" />
+              <xs:element name="Hotel_Room_ID" msprop:Generator_ColumnPropNameInTable="Hotel_Room_IDColumn" msprop:Generator_ColumnPropNameInRow="Hotel_Room_ID" msprop:Generator_UserColumnName="Hotel_Room_ID" msprop:Generator_ColumnVarNameInTable="columnHotel_Room_ID" type="xs:int" minOccurs="0" />
+              <xs:element name="Actual_CheckIn_Time" msprop:Generator_ColumnPropNameInTable="Actual_CheckIn_TimeColumn" msprop:Generator_ColumnPropNameInRow="Actual_CheckIn_Time" msprop:Generator_UserColumnName="Actual_CheckIn_Time" msprop:Generator_ColumnVarNameInTable="columnActual_CheckIn_Time" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Actual_CheckOut_Time" msprop:Generator_ColumnPropNameInTable="Actual_CheckOut_TimeColumn" msprop:Generator_ColumnPropNameInRow="Actual_CheckOut_Time" msprop:Generator_UserColumnName="Actual_CheckOut_Time" msprop:Generator_ColumnVarNameInTable="columnActual_CheckOut_Time" type="xs:dateTime" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Room_Assignment" msprop:Generator_RowClassName="Room_AssignmentRow" msprop:Generator_RowEvHandlerName="Room_AssignmentRowChangeEventHandler" msprop:Generator_RowDeletedName="Room_AssignmentRowDeleted" msprop:Generator_RowDeletingName="Room_AssignmentRowDeleting" msprop:Generator_RowEvArgName="Room_AssignmentRowChangeEvent" msprop:Generator_TablePropName="Room_Assignment" msprop:Generator_RowChangedName="Room_AssignmentRowChanged" msprop:Generator_UserTableName="Room_Assignment" msprop:Generator_RowChangingName="Room_AssignmentRowChanging" msprop:Generator_TableClassName="Room_AssignmentDataTable" msprop:Generator_TableVarName="tableRoom_Assignment">
+        <xs:element name="Staff" msprop:Generator_RowEvHandlerName="StaffRowChangeEventHandler" msprop:Generator_RowDeletedName="StaffRowDeleted" msprop:Generator_RowDeletingName="StaffRowDeleting" msprop:Generator_RowEvArgName="StaffRowChangeEvent" msprop:Generator_TablePropName="Staff" msprop:Generator_RowChangedName="StaffRowChanged" msprop:Generator_UserTableName="Staff" msprop:Generator_RowChangingName="StaffRowChanging" msprop:Generator_RowClassName="StaffRow" msprop:Generator_TableClassName="StaffDataTable" msprop:Generator_TableVarName="tableStaff">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="Room_Assignment_ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_UserColumnName="Room_Assignment_ID" msprop:Generator_ColumnPropNameInTable="Room_Assignment_IDColumn" msprop:Generator_ColumnPropNameInRow="Room_Assignment_ID" msprop:Generator_ColumnVarNameInTable="columnRoom_Assignment_ID" type="xs:int" />
-              <xs:element name="Booking_ID" msprop:Generator_UserColumnName="Booking_ID" msprop:Generator_ColumnPropNameInTable="Booking_IDColumn" msprop:Generator_ColumnPropNameInRow="Booking_ID" msprop:Generator_ColumnVarNameInTable="columnBooking_ID" type="xs:int" minOccurs="0" />
-              <xs:element name="Hotel_Room_ID" msprop:Generator_UserColumnName="Hotel_Room_ID" msprop:Generator_ColumnPropNameInTable="Hotel_Room_IDColumn" msprop:Generator_ColumnPropNameInRow="Hotel_Room_ID" msprop:Generator_ColumnVarNameInTable="columnHotel_Room_ID" type="xs:int" minOccurs="0" />
-              <xs:element name="Actual_CheckIn_Time" msprop:Generator_UserColumnName="Actual_CheckIn_Time" msprop:Generator_ColumnPropNameInTable="Actual_CheckIn_TimeColumn" msprop:Generator_ColumnPropNameInRow="Actual_CheckIn_Time" msprop:Generator_ColumnVarNameInTable="columnActual_CheckIn_Time" type="xs:dateTime" minOccurs="0" />
-              <xs:element name="Actual_CheckOut_Time" msprop:Generator_UserColumnName="Actual_CheckOut_Time" msprop:Generator_ColumnPropNameInTable="Actual_CheckOut_TimeColumn" msprop:Generator_ColumnPropNameInRow="Actual_CheckOut_Time" msprop:Generator_ColumnVarNameInTable="columnActual_CheckOut_Time" type="xs:dateTime" minOccurs="0" />
-              <xs:element name="House_Keeping_Notes" msprop:Generator_UserColumnName="House_Keeping_Notes" msprop:Generator_ColumnPropNameInTable="House_Keeping_NotesColumn" msprop:Generator_ColumnPropNameInRow="House_Keeping_Notes" msprop:Generator_ColumnVarNameInTable="columnHouse_Keeping_Notes" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="255" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
-        <xs:element name="Staff" msprop:Generator_RowClassName="StaffRow" msprop:Generator_RowEvHandlerName="StaffRowChangeEventHandler" msprop:Generator_RowDeletedName="StaffRowDeleted" msprop:Generator_RowDeletingName="StaffRowDeleting" msprop:Generator_RowEvArgName="StaffRowChangeEvent" msprop:Generator_TablePropName="Staff" msprop:Generator_RowChangedName="StaffRowChanged" msprop:Generator_UserTableName="Staff" msprop:Generator_RowChangingName="StaffRowChanging" msprop:Generator_TableClassName="StaffDataTable" msprop:Generator_TableVarName="tableStaff">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element name="staff_ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_UserColumnName="staff_ID" msprop:Generator_ColumnPropNameInTable="staff_IDColumn" msprop:Generator_ColumnPropNameInRow="staff_ID" msprop:Generator_ColumnVarNameInTable="columnstaff_ID" type="xs:int" />
-              <xs:element name="Branch_ID" msprop:Generator_UserColumnName="Branch_ID" msprop:Generator_ColumnPropNameInTable="Branch_IDColumn" msprop:Generator_ColumnPropNameInRow="Branch_ID" msprop:Generator_ColumnVarNameInTable="columnBranch_ID" type="xs:int" minOccurs="0" />
-              <xs:element name="staff_First_Name" msprop:Generator_UserColumnName="staff_First_Name" msprop:Generator_ColumnPropNameInTable="staff_First_NameColumn" msprop:Generator_ColumnPropNameInRow="staff_First_Name" msprop:Generator_ColumnVarNameInTable="columnstaff_First_Name" minOccurs="0">
+              <xs:element name="staff_ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnPropNameInTable="staff_IDColumn" msprop:Generator_ColumnPropNameInRow="staff_ID" msprop:Generator_UserColumnName="staff_ID" msprop:Generator_ColumnVarNameInTable="columnstaff_ID" type="xs:int" />
+              <xs:element name="Branch_ID" msprop:Generator_ColumnPropNameInTable="Branch_IDColumn" msprop:Generator_ColumnPropNameInRow="Branch_ID" msprop:Generator_UserColumnName="Branch_ID" msprop:Generator_ColumnVarNameInTable="columnBranch_ID" type="xs:int" minOccurs="0" />
+              <xs:element name="staff_First_Name" msprop:Generator_ColumnPropNameInTable="staff_First_NameColumn" msprop:Generator_ColumnPropNameInRow="staff_First_Name" msprop:Generator_UserColumnName="staff_First_Name" msprop:Generator_ColumnVarNameInTable="columnstaff_First_Name" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="staff_Surname" msprop:Generator_UserColumnName="staff_Surname" msprop:Generator_ColumnPropNameInTable="staff_SurnameColumn" msprop:Generator_ColumnPropNameInRow="staff_Surname" msprop:Generator_ColumnVarNameInTable="columnstaff_Surname" minOccurs="0">
+              <xs:element name="staff_Surname" msprop:Generator_ColumnPropNameInTable="staff_SurnameColumn" msprop:Generator_ColumnPropNameInRow="staff_Surname" msprop:Generator_UserColumnName="staff_Surname" msprop:Generator_ColumnVarNameInTable="columnstaff_Surname" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="staff_Address" msprop:Generator_UserColumnName="staff_Address" msprop:Generator_ColumnPropNameInTable="staff_AddressColumn" msprop:Generator_ColumnPropNameInRow="staff_Address" msprop:Generator_ColumnVarNameInTable="columnstaff_Address" minOccurs="0">
+              <xs:element name="staff_Address" msprop:Generator_ColumnPropNameInTable="staff_AddressColumn" msprop:Generator_ColumnPropNameInRow="staff_Address" msprop:Generator_UserColumnName="staff_Address" msprop:Generator_ColumnVarNameInTable="columnstaff_Address" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="staff_phone_number" msprop:Generator_UserColumnName="staff_phone_number" msprop:Generator_ColumnPropNameInTable="staff_phone_numberColumn" msprop:Generator_ColumnPropNameInRow="staff_phone_number" msprop:Generator_ColumnVarNameInTable="columnstaff_phone_number" minOccurs="0">
+              <xs:element name="staff_phone_number" msprop:Generator_ColumnPropNameInTable="staff_phone_numberColumn" msprop:Generator_ColumnPropNameInRow="staff_phone_number" msprop:Generator_UserColumnName="staff_phone_number" msprop:Generator_ColumnVarNameInTable="columnstaff_phone_number" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="10" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="staff_email" msprop:Generator_UserColumnName="staff_email" msprop:Generator_ColumnPropNameInTable="staff_emailColumn" msprop:Generator_ColumnPropNameInRow="staff_email" msprop:Generator_ColumnVarNameInTable="columnstaff_email" minOccurs="0">
+              <xs:element name="staff_email" msprop:Generator_ColumnPropNameInTable="staff_emailColumn" msprop:Generator_ColumnPropNameInRow="staff_email" msprop:Generator_UserColumnName="staff_email" msprop:Generator_ColumnVarNameInTable="columnstaff_email" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="staff_role" msprop:Generator_UserColumnName="staff_role" msprop:Generator_ColumnPropNameInTable="staff_roleColumn" msprop:Generator_ColumnPropNameInRow="staff_role" msprop:Generator_ColumnVarNameInTable="columnstaff_role" minOccurs="0">
+              <xs:element name="staff_role" msprop:Generator_ColumnPropNameInTable="staff_roleColumn" msprop:Generator_ColumnPropNameInRow="staff_role" msprop:Generator_UserColumnName="staff_role" msprop:Generator_ColumnVarNameInTable="columnstaff_role" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="date_joined" msprop:Generator_UserColumnName="date_joined" msprop:Generator_ColumnPropNameInTable="date_joinedColumn" msprop:Generator_ColumnPropNameInRow="date_joined" msprop:Generator_ColumnVarNameInTable="columndate_joined" type="xs:dateTime" minOccurs="0" />
-              <xs:element name="staff_status" msprop:Generator_UserColumnName="staff_status" msprop:Generator_ColumnPropNameInTable="staff_statusColumn" msprop:Generator_ColumnPropNameInRow="staff_status" msprop:Generator_ColumnVarNameInTable="columnstaff_status" minOccurs="0">
+              <xs:element name="date_joined" msprop:Generator_ColumnPropNameInTable="date_joinedColumn" msprop:Generator_ColumnPropNameInRow="date_joined" msprop:Generator_UserColumnName="date_joined" msprop:Generator_ColumnVarNameInTable="columndate_joined" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="staff_status" msprop:Generator_ColumnPropNameInTable="staff_statusColumn" msprop:Generator_ColumnPropNameInRow="staff_status" msprop:Generator_UserColumnName="staff_status" msprop:Generator_ColumnVarNameInTable="columnstaff_status" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
@@ -1238,23 +1373,162 @@ SELECT Table_Allocation_ID, Booking_ID, Restuarant_Table_ID, Number_Of_Tables, A
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Table_Allocation" msprop:Generator_RowClassName="Table_AllocationRow" msprop:Generator_RowEvHandlerName="Table_AllocationRowChangeEventHandler" msprop:Generator_RowDeletedName="Table_AllocationRowDeleted" msprop:Generator_RowDeletingName="Table_AllocationRowDeleting" msprop:Generator_RowEvArgName="Table_AllocationRowChangeEvent" msprop:Generator_TablePropName="Table_Allocation" msprop:Generator_RowChangedName="Table_AllocationRowChanged" msprop:Generator_UserTableName="Table_Allocation" msprop:Generator_RowChangingName="Table_AllocationRowChanging" msprop:Generator_TableClassName="Table_AllocationDataTable" msprop:Generator_TableVarName="tableTable_Allocation">
+        <xs:element name="Table_Allocation" msprop:Generator_RowEvHandlerName="Table_AllocationRowChangeEventHandler" msprop:Generator_RowDeletedName="Table_AllocationRowDeleted" msprop:Generator_RowDeletingName="Table_AllocationRowDeleting" msprop:Generator_RowEvArgName="Table_AllocationRowChangeEvent" msprop:Generator_TablePropName="Table_Allocation" msprop:Generator_RowChangedName="Table_AllocationRowChanged" msprop:Generator_UserTableName="Table_Allocation" msprop:Generator_RowChangingName="Table_AllocationRowChanging" msprop:Generator_RowClassName="Table_AllocationRow" msprop:Generator_TableClassName="Table_AllocationDataTable" msprop:Generator_TableVarName="tableTable_Allocation">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="Table_Allocation_ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_UserColumnName="Table_Allocation_ID" msprop:Generator_ColumnPropNameInTable="Table_Allocation_IDColumn" msprop:Generator_ColumnPropNameInRow="Table_Allocation_ID" msprop:Generator_ColumnVarNameInTable="columnTable_Allocation_ID" type="xs:int" />
-              <xs:element name="Booking_ID" msprop:Generator_UserColumnName="Booking_ID" msprop:Generator_ColumnPropNameInTable="Booking_IDColumn" msprop:Generator_ColumnPropNameInRow="Booking_ID" msprop:Generator_ColumnVarNameInTable="columnBooking_ID" type="xs:int" minOccurs="0" />
-              <xs:element name="Restuarant_Table_ID" msprop:Generator_UserColumnName="Restuarant_Table_ID" msprop:Generator_ColumnPropNameInTable="Restuarant_Table_IDColumn" msprop:Generator_ColumnPropNameInRow="Restuarant_Table_ID" msprop:Generator_ColumnVarNameInTable="columnRestuarant_Table_ID" type="xs:int" minOccurs="0" />
-              <xs:element name="Number_Of_Tables" msprop:Generator_UserColumnName="Number_Of_Tables" msprop:Generator_ColumnPropNameInTable="Number_Of_TablesColumn" msprop:Generator_ColumnPropNameInRow="Number_Of_Tables" msprop:Generator_ColumnVarNameInTable="columnNumber_Of_Tables" type="xs:int" />
-              <xs:element name="Assignment_Type" msprop:Generator_UserColumnName="Assignment_Type" msprop:Generator_ColumnPropNameInTable="Assignment_TypeColumn" msprop:Generator_ColumnPropNameInRow="Assignment_Type" msprop:Generator_ColumnVarNameInTable="columnAssignment_Type" minOccurs="0">
+              <xs:element name="Table_Allocation_ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnPropNameInTable="Table_Allocation_IDColumn" msprop:Generator_ColumnPropNameInRow="Table_Allocation_ID" msprop:Generator_UserColumnName="Table_Allocation_ID" msprop:Generator_ColumnVarNameInTable="columnTable_Allocation_ID" type="xs:int" />
+              <xs:element name="Booking_ID" msprop:Generator_ColumnPropNameInTable="Booking_IDColumn" msprop:Generator_ColumnPropNameInRow="Booking_ID" msprop:Generator_UserColumnName="Booking_ID" msprop:Generator_ColumnVarNameInTable="columnBooking_ID" type="xs:int" minOccurs="0" />
+              <xs:element name="Restuarant_Table_ID" msprop:Generator_ColumnPropNameInTable="Restuarant_Table_IDColumn" msprop:Generator_ColumnPropNameInRow="Restuarant_Table_ID" msprop:Generator_UserColumnName="Restuarant_Table_ID" msprop:Generator_ColumnVarNameInTable="columnRestuarant_Table_ID" type="xs:int" minOccurs="0" />
+              <xs:element name="Number_Of_Tables" msprop:Generator_ColumnPropNameInTable="Number_Of_TablesColumn" msprop:Generator_ColumnPropNameInRow="Number_Of_Tables" msprop:Generator_UserColumnName="Number_Of_Tables" msprop:Generator_ColumnVarNameInTable="columnNumber_Of_Tables" type="xs:int" />
+              <xs:element name="Assignment_Type" msprop:Generator_ColumnPropNameInTable="Assignment_TypeColumn" msprop:Generator_ColumnPropNameInRow="Assignment_Type" msprop:Generator_UserColumnName="Assignment_Type" msprop:Generator_ColumnVarNameInTable="columnAssignment_Type" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Start_Time" msprop:Generator_UserColumnName="Start_Time" msprop:Generator_ColumnPropNameInTable="Start_TimeColumn" msprop:Generator_ColumnPropNameInRow="Start_Time" msprop:Generator_ColumnVarNameInTable="columnStart_Time" type="xs:dateTime" />
-              <xs:element name="End_Time" msprop:Generator_UserColumnName="End_Time" msprop:Generator_ColumnPropNameInTable="End_TimeColumn" msprop:Generator_ColumnPropNameInRow="End_Time" msprop:Generator_ColumnVarNameInTable="columnEnd_Time" type="xs:dateTime" />
-              <xs:element name="Join_ID" msprop:Generator_UserColumnName="Join_ID" msprop:Generator_ColumnPropNameInTable="Join_IDColumn" msprop:Generator_ColumnPropNameInRow="Join_ID" msprop:Generator_ColumnVarNameInTable="columnJoin_ID" type="xs:int" />
+              <xs:element name="Start_Time" msprop:Generator_ColumnPropNameInTable="Start_TimeColumn" msprop:Generator_ColumnPropNameInRow="Start_Time" msprop:Generator_UserColumnName="Start_Time" msprop:Generator_ColumnVarNameInTable="columnStart_Time" type="xs:dateTime" />
+              <xs:element name="End_Time" msprop:Generator_ColumnPropNameInTable="End_TimeColumn" msprop:Generator_ColumnPropNameInRow="End_Time" msprop:Generator_UserColumnName="End_Time" msprop:Generator_ColumnVarNameInTable="columnEnd_Time" type="xs:dateTime" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Restuarant_Table" msprop:Generator_RowEvHandlerName="Restuarant_TableRowChangeEventHandler" msprop:Generator_RowDeletedName="Restuarant_TableRowDeleted" msprop:Generator_RowDeletingName="Restuarant_TableRowDeleting" msprop:Generator_RowEvArgName="Restuarant_TableRowChangeEvent" msprop:Generator_TablePropName="Restuarant_Table" msprop:Generator_RowChangedName="Restuarant_TableRowChanged" msprop:Generator_RowChangingName="Restuarant_TableRowChanging" msprop:Generator_TableClassName="Restuarant_TableDataTable" msprop:Generator_RowClassName="Restuarant_TableRow" msprop:Generator_TableVarName="tableRestuarant_Table" msprop:Generator_UserTableName="Restuarant_Table">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="RestaurantTableID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnPropNameInRow="RestaurantTableID" msprop:Generator_ColumnPropNameInTable="RestaurantTableIDColumn" msprop:Generator_ColumnVarNameInTable="columnRestaurantTableID" msprop:Generator_UserColumnName="RestaurantTableID" type="xs:int" />
+              <xs:element name="Branch_ID" msprop:Generator_ColumnPropNameInRow="Branch_ID" msprop:Generator_ColumnPropNameInTable="Branch_IDColumn" msprop:Generator_ColumnVarNameInTable="columnBranch_ID" msprop:Generator_UserColumnName="Branch_ID" type="xs:int" minOccurs="0" />
+              <xs:element name="RestuarantTableNum" msprop:Generator_ColumnPropNameInRow="RestuarantTableNum" msprop:Generator_ColumnPropNameInTable="RestuarantTableNumColumn" msprop:Generator_ColumnVarNameInTable="columnRestuarantTableNum" msprop:Generator_UserColumnName="RestuarantTableNum" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="RestuarantMenuType" msprop:Generator_ColumnPropNameInRow="RestuarantMenuType" msprop:Generator_ColumnPropNameInTable="RestuarantMenuTypeColumn" msprop:Generator_ColumnVarNameInTable="columnRestuarantMenuType" msprop:Generator_UserColumnName="RestuarantMenuType" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TableCapacity" msprop:Generator_ColumnPropNameInRow="TableCapacity" msprop:Generator_ColumnPropNameInTable="TableCapacityColumn" msprop:Generator_ColumnVarNameInTable="columnTableCapacity" msprop:Generator_UserColumnName="TableCapacity" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TableStatus" msprop:Generator_ColumnPropNameInRow="TableStatus" msprop:Generator_ColumnPropNameInTable="TableStatusColumn" msprop:Generator_ColumnVarNameInTable="columnTableStatus" msprop:Generator_UserColumnName="TableStatus" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TableIsCombinable" msprop:Generator_ColumnPropNameInRow="TableIsCombinable" msprop:Generator_ColumnPropNameInTable="TableIsCombinableColumn" msprop:Generator_ColumnVarNameInTable="columnTableIsCombinable" msprop:Generator_UserColumnName="TableIsCombinable" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TableFeatures" msprop:Generator_ColumnPropNameInRow="TableFeatures" msprop:Generator_ColumnPropNameInTable="TableFeaturesColumn" msprop:Generator_ColumnVarNameInTable="columnTableFeatures" msprop:Generator_UserColumnName="TableFeatures" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="ClientBranchBooking" msprop:Generator_RowEvHandlerName="ClientBranchBookingRowChangeEventHandler" msprop:Generator_RowDeletedName="ClientBranchBookingRowDeleted" msprop:Generator_RowDeletingName="ClientBranchBookingRowDeleting" msprop:Generator_RowEvArgName="ClientBranchBookingRowChangeEvent" msprop:Generator_TablePropName="ClientBranchBooking" msprop:Generator_RowChangedName="ClientBranchBookingRowChanged" msprop:Generator_RowChangingName="ClientBranchBookingRowChanging" msprop:Generator_TableClassName="ClientBranchBookingDataTable" msprop:Generator_RowClassName="ClientBranchBookingRow" msprop:Generator_TableVarName="tableClientBranchBooking" msprop:Generator_UserTableName="ClientBranchBooking">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Booking_ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnPropNameInRow="Booking_ID" msprop:Generator_ColumnPropNameInTable="Booking_IDColumn" msprop:Generator_ColumnVarNameInTable="columnBooking_ID" msprop:Generator_UserColumnName="Booking_ID" type="xs:int" />
+              <xs:element name="Client_ID" msprop:Generator_ColumnPropNameInRow="Client_ID" msprop:Generator_ColumnPropNameInTable="Client_IDColumn" msprop:Generator_ColumnVarNameInTable="columnClient_ID" msprop:Generator_UserColumnName="Client_ID" type="xs:int" minOccurs="0" />
+              <xs:element name="Branch_ID" msprop:Generator_ColumnPropNameInRow="Branch_ID" msprop:Generator_ColumnPropNameInTable="Branch_IDColumn" msprop:Generator_ColumnVarNameInTable="columnBranch_ID" msprop:Generator_UserColumnName="Branch_ID" type="xs:int" minOccurs="0" />
+              <xs:element name="Booking_Date" msprop:Generator_ColumnPropNameInRow="Booking_Date" msprop:Generator_ColumnPropNameInTable="Booking_DateColumn" msprop:Generator_ColumnVarNameInTable="columnBooking_Date" msprop:Generator_UserColumnName="Booking_Date" type="xs:dateTime" />
+              <xs:element name="Checkin_Date" msprop:Generator_ColumnPropNameInRow="Checkin_Date" msprop:Generator_ColumnPropNameInTable="Checkin_DateColumn" msprop:Generator_ColumnVarNameInTable="columnCheckin_Date" msprop:Generator_UserColumnName="Checkin_Date" type="xs:dateTime" />
+              <xs:element name="Checkout_Date" msprop:Generator_ColumnPropNameInRow="Checkout_Date" msprop:Generator_ColumnPropNameInTable="Checkout_DateColumn" msprop:Generator_ColumnVarNameInTable="columnCheckout_Date" msprop:Generator_UserColumnName="Checkout_Date" type="xs:dateTime" />
+              <xs:element name="Booking_Total_Amount" msprop:Generator_ColumnPropNameInRow="Booking_Total_Amount" msprop:Generator_ColumnPropNameInTable="Booking_Total_AmountColumn" msprop:Generator_ColumnVarNameInTable="columnBooking_Total_Amount" msprop:Generator_UserColumnName="Booking_Total_Amount" type="xs:decimal" />
+              <xs:element name="Booking_Status" msprop:Generator_ColumnPropNameInRow="Booking_Status" msprop:Generator_ColumnPropNameInTable="Booking_StatusColumn" msprop:Generator_ColumnVarNameInTable="columnBooking_Status" msprop:Generator_UserColumnName="Booking_Status">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="First_Name" msprop:Generator_ColumnPropNameInRow="First_Name" msprop:Generator_ColumnPropNameInTable="First_NameColumn" msprop:Generator_ColumnVarNameInTable="columnFirst_Name" msprop:Generator_UserColumnName="First_Name">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Last_Name" msprop:Generator_ColumnPropNameInRow="Last_Name" msprop:Generator_ColumnPropNameInTable="Last_NameColumn" msprop:Generator_ColumnVarNameInTable="columnLast_Name" msprop:Generator_UserColumnName="Last_Name">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Email_Address" msprop:Generator_ColumnPropNameInRow="Email_Address" msprop:Generator_ColumnPropNameInTable="Email_AddressColumn" msprop:Generator_ColumnVarNameInTable="columnEmail_Address" msprop:Generator_UserColumnName="Email_Address">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Client_Address" msprop:Generator_ColumnPropNameInRow="Client_Address" msprop:Generator_ColumnPropNameInTable="Client_AddressColumn" msprop:Generator_ColumnVarNameInTable="columnClient_Address" msprop:Generator_UserColumnName="Client_Address" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Phone_Number" msprop:Generator_ColumnPropNameInRow="Phone_Number" msprop:Generator_ColumnPropNameInTable="Phone_NumberColumn" msprop:Generator_ColumnVarNameInTable="columnPhone_Number" msprop:Generator_UserColumnName="Phone_Number" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Branch_Name" msprop:Generator_ColumnPropNameInRow="Branch_Name" msprop:Generator_ColumnPropNameInTable="Branch_NameColumn" msprop:Generator_ColumnVarNameInTable="columnBranch_Name" msprop:Generator_UserColumnName="Branch_Name">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Branch_Address" msprop:Generator_ColumnPropNameInRow="Branch_Address" msprop:Generator_ColumnPropNameInTable="Branch_AddressColumn" msprop:Generator_ColumnVarNameInTable="columnBranch_Address" msprop:Generator_UserColumnName="Branch_Address">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Branch_Phone" msprop:Generator_ColumnPropNameInRow="Branch_Phone" msprop:Generator_ColumnPropNameInTable="Branch_PhoneColumn" msprop:Generator_ColumnVarNameInTable="columnBranch_Phone" msprop:Generator_UserColumnName="Branch_Phone">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Branch_Email" msprop:Generator_ColumnPropNameInRow="Branch_Email" msprop:Generator_ColumnPropNameInTable="Branch_EmailColumn" msprop:Generator_ColumnVarNameInTable="columnBranch_Email" msprop:Generator_UserColumnName="Branch_Email">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Branch_Status" msprop:Generator_ColumnPropNameInRow="Branch_Status" msprop:Generator_ColumnPropNameInTable="Branch_StatusColumn" msprop:Generator_ColumnVarNameInTable="columnBranch_Status" msprop:Generator_UserColumnName="Branch_Status">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -1284,10 +1558,6 @@ SELECT Table_Allocation_ID, Booking_ID, Restuarant_Table_ID, Number_Of_Tables, A
       <xs:selector xpath=".//mstns:Rate_Plan" />
       <xs:field xpath="mstns:Rate_ID" />
     </xs:unique>
-    <xs:unique name="Restuarant_Table_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
-      <xs:selector xpath=".//mstns:Restuarant_Table" />
-      <xs:field xpath="mstns:ResturantTableID" />
-    </xs:unique>
     <xs:unique name="Room_Assignment_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:Room_Assignment" />
       <xs:field xpath="mstns:Room_Assignment_ID" />
@@ -1300,11 +1570,20 @@ SELECT Table_Allocation_ID, Booking_ID, Restuarant_Table_ID, Number_Of_Tables, A
       <xs:selector xpath=".//mstns:Table_Allocation" />
       <xs:field xpath="mstns:Table_Allocation_ID" />
     </xs:unique>
+    <xs:unique name="Restuarant_Table_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Restuarant_Table" />
+      <xs:field xpath="mstns:RestaurantTableID" />
+    </xs:unique>
+    <xs:unique name="ClientBranchBooking_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:ClientBranchBooking" />
+      <xs:field xpath="mstns:Booking_ID" />
+    </xs:unique>
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="FK__Room_Assi__Booki__1C5231C2" msdata:parent="Booking" msdata:child="Room_Assignment" msdata:parentkey="Booking_ID" msdata:childkey="Booking_ID" msprop:Generator_UserParentTable="Booking" msprop:Generator_UserChildTable="Room_Assignment" msprop:Generator_RelationVarName="relationFK__Room_Assi__Booki__1C5231C2" msprop:Generator_ChildPropName="GetRoom_AssignmentRows" msprop:Generator_UserRelationName="FK__Room_Assi__Booki__1C5231C2" msprop:Generator_ParentPropName="BookingRow" />
-      <msdata:Relationship name="FK__Room_Assi__Hotel__1B5E0D89" msdata:parent="Hotel_Room" msdata:child="Room_Assignment" msdata:parentkey="Hotel_Room_ID" msdata:childkey="Hotel_Room_ID" msprop:Generator_UserParentTable="Hotel_Room" msprop:Generator_UserChildTable="Room_Assignment" msprop:Generator_RelationVarName="relationFK__Room_Assi__Hotel__1B5E0D89" msprop:Generator_ChildPropName="GetRoom_AssignmentRows" msprop:Generator_UserRelationName="FK__Room_Assi__Hotel__1B5E0D89" msprop:Generator_ParentPropName="Hotel_RoomRow" />
+      <msdata:Relationship name="FK__Room_Assi__Booki__1C5231C2" msdata:parent="Booking" msdata:child="Room_Assignment" msdata:parentkey="Booking_ID" msdata:childkey="Booking_ID" msprop:Generator_UserParentTable="Booking" msprop:Generator_UserChildTable="Room_Assignment" msprop:Generator_RelationVarName="relationFK__Room_Assi__Booki__1C5231C2" msprop:Generator_ChildPropName="GetRoom_AssignmentRows" msprop:Generator_ParentPropName="BookingRow" msprop:Generator_UserRelationName="FK__Room_Assi__Booki__1C5231C2" />
+      <msdata:Relationship name="FK__Room_Assi__Hotel__1B5E0D89" msdata:parent="Hotel_Room" msdata:child="Room_Assignment" msdata:parentkey="Hotel_Room_ID" msdata:childkey="Hotel_Room_ID" msprop:Generator_UserParentTable="Hotel_Room" msprop:Generator_UserChildTable="Room_Assignment" msprop:Generator_RelationVarName="relationFK__Room_Assi__Hotel__1B5E0D89" msprop:Generator_ChildPropName="GetRoom_AssignmentRows" msprop:Generator_ParentPropName="Hotel_RoomRow" msprop:Generator_UserRelationName="FK__Room_Assi__Hotel__1B5E0D89" />
+      <msdata:Relationship name="FK__Room_Assi__Booki__1C5231C21" msdata:parent="ClientBranchBooking" msdata:child="Room_Assignment" msdata:parentkey="Booking_ID" msdata:childkey="Booking_ID" msprop:Generator_UserParentTable="ClientBranchBooking" msprop:Generator_UserChildTable="Room_Assignment" msprop:Generator_RelationVarName="relationFK__Room_Assi__Booki__1C5231C21" msprop:Generator_UserRelationName="FK__Room_Assi__Booki__1C5231C21" msprop:Generator_ChildPropName="GetRoom_AssignmentRows" msprop:Generator_ParentPropName="ClientBranchBookingRow" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>

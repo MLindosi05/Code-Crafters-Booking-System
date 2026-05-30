@@ -36,6 +36,9 @@ namespace Code_Crafters_Booking_System
                 {
                     found = true;
 
+                    UserSession.Email = row.Email_Address;
+                    UserSession.FullName = $"{row.First_Name} {row.Last_Name}";
+
                     MessageBox.Show(
                         $"Welcome to The Regal Inn.\n\n" +
                         $"Guest: {row.First_Name} {row.Last_Name}\n" +

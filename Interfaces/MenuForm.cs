@@ -53,24 +53,8 @@ namespace Code_Crafters_Interface_Prototype_1
             msTextBox.ForeColor = Color.Red;
             signUpToolStripMenuItem.Enabled = true;
             bookingToolStripMenuItem.Enabled = false;
-        }
-
-
-
-       
-        private void makeBookingToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            AccomodationBookingForm Booking = new AccomodationBookingForm();
-            PrepareForm(Booking);
-        }
-
-       private void viewBookingsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            ViewBookingForm view = new ViewBookingForm();
-            PrepareForm(view);
-        }
-
-       
+        }      
+        
         private void MainMenuForm_MdiChildActivate(object sender, EventArgs e)
         {
             if (ActiveMdiChild != null)
@@ -93,16 +77,32 @@ namespace Code_Crafters_Interface_Prototype_1
             PrepareForm(login);
         }
 
-        private void eXITToolStripMenuItem_Click(object sender, EventArgs e)
+        private void makeBookingToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Close(); 
+            BookingForm Booking = new BookingForm();
+            PrepareForm(Booking);
         }
 
-        private void restaurentBookingToolStripMenuItem_Click(object sender, EventArgs e)
+        private void viewBookingsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            RestaurentBookingForm restaurentForm = new RestaurentBookingForm();
-            PrepareForm(restaurentForm);
-
+            if (UserSession.Email != null && UserSession.Email.EndsWith("@regalinn.co.za"))
+            {
+                ViewBookingForm view = new ViewBookingForm();
+                PrepareForm(view);
+            }
+            else
+            {
+                MessageBox.Show(
+                    "Access denied. Only staff with @regalinn.co.za email can view bookings.",
+                    "Permission Denied",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
+            }
+        }
+        private void eXITToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
 
     }
