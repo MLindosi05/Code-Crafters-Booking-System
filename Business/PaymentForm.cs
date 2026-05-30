@@ -72,7 +72,7 @@ namespace Code_Crafters_Interface_Prototype_1.Business
 
                 taFolio.UpdatePaymentDetails(
                     "Settled",
-                    "Room and Accommodation",
+                    "Room, Accommodation/Room and Accommodation",
                     bookingID);
 
                 MessageBox.Show(

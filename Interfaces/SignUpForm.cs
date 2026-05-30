@@ -18,6 +18,19 @@ namespace Code_Crafters_Booking_System
             InitializeComponent();
         }
 
+        private void ClearFields()
+        {
+            txtName.Clear();
+            txtSurname.Clear();
+            txtEmailAddress.Clear();
+            txtPhysicalAddress.Clear();
+            txtContactNumber.Clear();
+            txtPassword.Clear();
+            txtConfirmPassword.Clear();
+
+            txtName.Focus();
+        }
+
         private void btnSignUp_Click(object sender, EventArgs e)
         {
             string name = txtName.Text.Trim();
@@ -76,6 +89,8 @@ namespace Code_Crafters_Booking_System
                     "Success",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Information);
+
+                ClearFields();
             }
             catch (Exception ex)
             {
