@@ -37,6 +37,9 @@ namespace Code_Crafters_Interface_Prototype_1.Business
             taRestaurantTable.Fill(codeCraftersDS.Restuarant_Table);
             taRatePlan.Fill(codeCraftersDS.Rate_Plan);
 
+            dtpCheckInDate.ValueChanged += dtpCheckInDate_ValueChanged;
+            dtpCheckOutDate.ValueChanged += dtpCheckOutDate_ValueChanged;
+
             dtpCheckInDate.Format = DateTimePickerFormat.Custom;
             dtpCheckInDate.CustomFormat = "dd MMM yyyy HH:mm";
             dtpCheckInDate.ShowUpDown = true;
@@ -103,6 +106,51 @@ namespace Code_Crafters_Interface_Prototype_1.Business
         private void chkRestaurant_CheckedChanged(object sender, EventArgs e) => CalculateTotalAmount();
         private void txtRoomPrice_TextChanged(object sender, EventArgs e) => CalculateTotalAmount();
         private void txtTablePrice_TextChanged(object sender, EventArgs e) => CalculateTotalAmount();
+
+        private void chkRoom_CheckedChanged_1(object sender, EventArgs e)
+        {
+            CalculateTotalAmount();
+
+            if (chkRoom.Checked)
+            {
+                dtpStartTime.Enabled = true;
+                dtpEndTime.Enabled = true;
+            }
+            else if (chkRestaurant.Checked)
+            {
+                dtpStartTime.Enabled = false;
+                dtpEndTime.Enabled = false;
+            }
+        }
+
+        private void chkRestaurant_CheckedChanged_1(object sender, EventArgs e)
+        {
+            CalculateTotalAmount();
+
+            if (chkRestaurant.Checked && !chkRoom.Checked)
+            {
+                dtpStartTime.Enabled = false;
+                dtpEndTime.Enabled = false;
+
+                dtpStartTime.Value = dtpCheckInDate.Value;
+                dtpEndTime.Value = dtpCheckOutDate.Value;
+            }
+            else
+            {
+                dtpStartTime.Enabled = true;
+                dtpEndTime.Enabled = true;
+            }
+        }
+
+        private void dtpCheckInDate_ValueChanged(object sender, EventArgs e)
+        {
+            dtpStartTime.Value = dtpCheckInDate.Value;
+        }
+
+        private void dtpCheckOutDate_ValueChanged(object sender, EventArgs e)
+        {
+            dtpEndTime.Value = dtpCheckOutDate.Value;
+        }
 
         private void btnCreateBooking_Click(object sender, EventArgs e)
         {
@@ -243,5 +291,7 @@ namespace Code_Crafters_Interface_Prototype_1.Business
         {
 
         }
+
+        
     }
 }

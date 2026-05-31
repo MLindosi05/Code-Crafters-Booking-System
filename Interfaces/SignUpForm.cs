@@ -83,21 +83,51 @@ namespace Code_Crafters_Booking_System
 
             try
             {
-                int pk = (int)taClient.InsertNewClient(name, surname, password, email, physicalAddress, phoneNumber);
+                taClient.InsertNewClient(name, surname, password, email, physicalAddress, phoneNumber);
 
-                MessageBox.Show("Account created successfully!",
-                    "Success",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Information);
+                if (email.EndsWith("@regalinn.co.za", StringComparison.OrdinalIgnoreCase))
+                {
+                    Code_Crafters_Interface_Prototype_1.codeCraftersDSTableAdapters.BranchTableAdapter taBranch = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTableAdapters.BranchTableAdapter();
+                    Code_Crafters_Interface_Prototype_1.codeCraftersDSTableAdapters.StaffTableAdapter taStaff = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTableAdapters.StaffTableAdapter();
+
+                    int automatedBranchId = Convert.ToInt32(taBranch.GetFirstBranchId());
+
+                    if (automatedBranchId <= 0)
+                    {
+                        automatedBranchId = 1;
+                    }
+
+                    string automatedRole = "Receptionist";
+                    string automatedStatus = "Full Time";
+                    DateTime dateJoined = DateTime.Now;
+
+                    taStaff.Insert(
+                        automatedBranchId,
+                        name,
+                        surname,
+                        physicalAddress,
+                        phoneNumber,
+                        email,
+                        automatedRole,
+                        dateJoined,
+                        automatedStatus
+                    );
+
+                    MessageBox.Show($"Staff and Client accounts created successfully!",
+                        "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Client account created successfully!",
+                        "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
 
                 ClearFields();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("An error occurred while creating your account.\n" + ex.Message,
-                    "Database Error",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
+                MessageBox.Show("An error occurred while creating the account.\n" + ex.Message,
+                    "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

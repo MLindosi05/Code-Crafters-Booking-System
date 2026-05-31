@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.txtPhysicalAddress = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.btnSignUp = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -42,10 +44,10 @@
             this.label5 = new System.Windows.Forms.Label();
             this.txtSurname = new System.Windows.Forms.TextBox();
             this.txtName = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtPhysicalAddress = new System.Windows.Forms.TextBox();
             this.codeCraftersDS = new Code_Crafters_Interface_Prototype_1.codeCraftersDS();
             this.taClient = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTableAdapters.ClientTableAdapter();
+            this.taStaff = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTableAdapters.StaffTableAdapter();
+            this.taBranch = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTableAdapters.BranchTableAdapter();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.codeCraftersDS)).BeginInit();
             this.SuspendLayout();
@@ -69,14 +71,32 @@
             this.groupBox4.Controls.Add(this.txtSurname);
             this.groupBox4.Controls.Add(this.txtName);
             this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox4.Location = new System.Drawing.Point(53, 71);
+            this.groupBox4.Location = new System.Drawing.Point(53, 49);
             this.groupBox4.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox4.Size = new System.Drawing.Size(698, 324);
+            this.groupBox4.Size = new System.Drawing.Size(698, 350);
             this.groupBox4.TabIndex = 2;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Personal Details";
+            // 
+            // txtPhysicalAddress
+            // 
+            this.txtPhysicalAddress.Location = new System.Drawing.Point(172, 174);
+            this.txtPhysicalAddress.Margin = new System.Windows.Forms.Padding(2);
+            this.txtPhysicalAddress.Name = "txtPhysicalAddress";
+            this.txtPhysicalAddress.Size = new System.Drawing.Size(122, 24);
+            this.txtPhysicalAddress.TabIndex = 28;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(26, 177);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(142, 18);
+            this.label4.TabIndex = 27;
+            this.label4.Text = "Physical Address:";
             // 
             // btnSignUp
             // 
@@ -197,24 +217,6 @@
             this.txtName.Size = new System.Drawing.Size(122, 24);
             this.txtName.TabIndex = 0;
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(26, 177);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(142, 18);
-            this.label4.TabIndex = 27;
-            this.label4.Text = "Physical Address:";
-            // 
-            // txtPhysicalAddress
-            // 
-            this.txtPhysicalAddress.Location = new System.Drawing.Point(172, 174);
-            this.txtPhysicalAddress.Margin = new System.Windows.Forms.Padding(2);
-            this.txtPhysicalAddress.Name = "txtPhysicalAddress";
-            this.txtPhysicalAddress.Size = new System.Drawing.Size(122, 24);
-            this.txtPhysicalAddress.TabIndex = 28;
-            // 
             // codeCraftersDS
             // 
             this.codeCraftersDS.DataSetName = "codeCraftersDS";
@@ -223,6 +225,14 @@
             // taClient
             // 
             this.taClient.ClearBeforeFill = true;
+            // 
+            // taStaff
+            // 
+            this.taStaff.ClearBeforeFill = true;
+            // 
+            // taBranch
+            // 
+            this.taBranch.ClearBeforeFill = true;
             // 
             // SignUpForm
             // 
@@ -262,5 +272,7 @@
         private System.Windows.Forms.Label label4;
         private Code_Crafters_Interface_Prototype_1.codeCraftersDS codeCraftersDS;
         private Code_Crafters_Interface_Prototype_1.codeCraftersDSTableAdapters.ClientTableAdapter taClient;
+        private Code_Crafters_Interface_Prototype_1.codeCraftersDSTableAdapters.StaffTableAdapter taStaff;
+        private Code_Crafters_Interface_Prototype_1.codeCraftersDSTableAdapters.BranchTableAdapter taBranch;
     }
 }

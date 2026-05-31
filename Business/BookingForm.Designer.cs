@@ -147,6 +147,7 @@
             this.chkRestaurant.TabIndex = 27;
             this.chkRestaurant.Text = "Restaurant Booking";
             this.chkRestaurant.UseVisualStyleBackColor = true;
+            this.chkRestaurant.CheckedChanged += new System.EventHandler(this.chkRestaurant_CheckedChanged_1);
             // 
             // grpRestaurantDetails
             // 
@@ -287,6 +288,7 @@
             this.chkRoom.TabIndex = 26;
             this.chkRoom.Text = "Room Booking";
             this.chkRoom.UseVisualStyleBackColor = true;
+            this.chkRoom.CheckedChanged += new System.EventHandler(this.chkRoom_CheckedChanged_1);
             // 
             // grpBookingDetails
             // 
