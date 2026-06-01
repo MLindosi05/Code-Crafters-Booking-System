@@ -1,4 +1,5 @@
-﻿using Code_Crafters_Interface_Prototype_1.codeCraftersDSTableAdapters;
+﻿using Code_Crafters_Booking_System;
+using Code_Crafters_Interface_Prototype_1.codeCraftersDSTableAdapters;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -179,7 +180,7 @@ namespace Code_Crafters_Interface_Prototype_1.Business
                     {
                         MessageBox.Show("Sorry, this room is already booked for the selected dates/times.",
                                         "Room Unavailable", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        return; 
+                        return;
                     }
                 }
 
@@ -198,7 +199,7 @@ namespace Code_Crafters_Interface_Prototype_1.Business
                     {
                         MessageBox.Show("Sorry, this restaurant table is already reserved for the selected timeframe.",
                                         "Table Unavailable", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        return; 
+                        return;
                     }
                 }
 
@@ -238,6 +239,28 @@ namespace Code_Crafters_Interface_Prototype_1.Business
                     "\nStatus : Pending",
                     "Booking Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+                if (!string.IsNullOrEmpty(UserSession.Email))
+                {
+                    string emailSubject = $"The Regal Inn - Booking Received! Ref: #{bookingID}";
+                    string emailBody = $@"
+                <div style='font-family: Arial, sans-serif; max-width: 600px; border: 1px solid #dcdcdc; padding: 20px;'>
+                    <h2 style='color: #4A154B;'>Hello {UserSession.FullName},</h2>
+                    <p>Your booking request has been successfully created and is currently <b>Pending Payment</b>.</p>
+                    <hr style='border: 0; border-top: 1px solid #eee;' />
+                    <p><b>Booking Details:</b></p>
+                    <ul>
+                        <li><b>Booking Reference:</b> #{bookingID}</li>
+                        <li><b>Type:</b> {bookingType}</li>
+                        <li><b>Check-In:</b> {checkInDate.ToString("dd MMM yyyy HH:mm")}</li>
+                        <li><b>Total Amount:</b> R {bookingAmount:0.00}</li>
+                    </ul>
+                    <hr style='border: 0; border-top: 1px solid #eee;' />
+                    <p style='font-size: 12px; color: #888;'>This is an automated system confirmation notification. Please do not reply directly to this message.</p>
+                </div>";
+
+                    EmailService.SendEmail(UserSession.Email, emailSubject, emailBody);
+                }
+
                 ClearControls();
 
                 PaymentForm paymentForm = new PaymentForm(bookingID, bookingAmount);
@@ -248,6 +271,6 @@ namespace Code_Crafters_Interface_Prototype_1.Business
                 MessageBox.Show("An error occurred:\n\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        
+
     }
 }

@@ -11,7 +11,7 @@ namespace Code_Crafters_Booking_System
         private const string SmtpPort = "587"; 
 
         private const string SenderEmail = "mlambomlindosi@gmail.com";
-        private const string SenderPassword = "pxrepsizftkncxlo"; 
+        private const string SenderPassword = "hzlmhoybzvbayoqd\r\n"; 
 
         /// <summary>
         /// Dispatches a styled email message asynchronously in the background.

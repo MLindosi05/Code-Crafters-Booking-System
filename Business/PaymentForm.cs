@@ -1,4 +1,5 @@
-﻿using Code_Crafters_Interface_Prototype_1.codeCraftersDSTableAdapters;
+﻿using Code_Crafters_Booking_System;
+using Code_Crafters_Interface_Prototype_1.codeCraftersDSTableAdapters;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -80,6 +81,28 @@ namespace Code_Crafters_Interface_Prototype_1.Business
                     "Payment",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Information);
+
+                if (!string.IsNullOrEmpty(UserSession.Email))
+                {
+                    string emailSubject = $"The Regal Inn - Booking Confirmed! Ref: #{bookingID}";
+                    string emailBody = $@"
+                <div style='font-family: Arial, sans-serif; max-width: 600px; border: 1px solid #dcdcdc; padding: 20px;'>
+                    <h2 style='color: #2E7D32;'>Booking Confirmed, {UserSession.FullName}!</h2>
+                    <p>Thank you! We have successfully processed your payment of <b>R {amount:0.00}</b> via <b>{paymentType}</b>.</p>
+                    <hr style='border: 0; border-top: 1px solid #eee;' />
+                    <p><b>Reservation Summary:</b></p>
+                    <ul>
+                        <li><b>Booking Reference:</b> #{bookingID}</li>
+                        <li><b>Payment Status:</b> Settled / Paid</li>
+                        <li><b>Booking Status:</b> Confirmed</li>
+                    </ul>
+                    <p>We look forward to hosting you at The Regal Inn!</p>
+                    <hr style='border: 0; border-top: 1px solid #eee;' />
+                    <p style='font-size: 12px; color: #888;'>This is an automated system receipt. Please do not reply directly to this message.</p>
+                </div>";
+
+                    EmailService.SendEmail(UserSession.Email, emailSubject, emailBody);
+                }
 
                 Close();
             }

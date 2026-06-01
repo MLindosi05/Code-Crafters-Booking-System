@@ -51,14 +51,12 @@ namespace Code_Crafters_Interface_Prototype_1.Business
         {
             try
             {
-                // Double-check that a row is actually clicked/highlighted
                 if (dgvBookings.CurrentRow == null || dgvBookings.CurrentRow.Index < 0)
                 {
                     MessageBox.Show("Please select a booking from the list below first.", "Selection Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
-                // Safely grabs the value from the very first column (Column 0), avoiding naming string mismatches
                 int selectedBookingID = Convert.ToInt32(dgvBookings.CurrentRow.Cells[0].Value);
                 string newStatus = cmbStatusActions.Text;
 
@@ -68,12 +66,55 @@ namespace Code_Crafters_Interface_Prototype_1.Business
 
                 if (confirmation == DialogResult.Yes)
                 {
-                    // Fire the database modification query
                     taClientBranchBooking.UpdateStatusByID(newStatus, selectedBookingID);
 
                     MessageBox.Show($"Booking status successfully updated to '{newStatus}'.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    // Refresh visual layer to pull fresh data
+                    try
+                    {
+                        var taClientLookup = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTableAdapters.ClientTableAdapter();
+                        var clientTable = taClientLookup.GetData();
+
+                        if (dgvBookings.CurrentRow.Cells["Client_ID"].Value != null)
+                        {
+                            int selectedClientID = Convert.ToInt32(dgvBookings.CurrentRow.Cells["Client_ID"].Value);
+
+                            var matchedClientRow = clientTable.FirstOrDefault(row => row.Client_ID == selectedClientID);
+
+                            if (matchedClientRow != null)
+                            {
+                                string clientEmail = matchedClientRow.Email_Address;
+                                string clientName = matchedClientRow.First_Name;
+
+                                if (!string.IsNullOrWhiteSpace(clientEmail))
+                                {
+                                    string emailSubject = $"The Regal Inn - Booking Status Updated: Reference #{selectedBookingID}";
+                                    string emailBody = $@"
+                                <div style='font-family: Arial, sans-serif; max-width: 600px; border: 1px solid #dcdcdc; padding: 20px;'>
+                                    <h2 style='color: #4A154B;'>Hello {clientName},</h2>
+                                    <p>We are writing to let you know that the status of your reservation at <b>The Regal Inn</b> has been updated.</p>
+                                    <hr style='border: 0; border-top: 1px solid #eee;' />
+                                    <p><b>Updated Booking Summary:</b></p>
+                                    <ul>
+                                        <li><b>Booking Reference:</b> #{selectedBookingID}</li>
+                                        <li><b>New Status Update:</b> <span style='font-weight: bold; color: #2E7D32;'>{newStatus}</span></li>
+                                    </ul>
+                                    <p>If you have any queries regarding this status change, please do not hesitate to contact management.</p>
+                                    <hr style='border: 0; border-top: 1px solid #eee;' />
+                                    <p style='font-size: 12px; color: #888;'>This is an automated system administration message. Please do not reply directly to this email.</p>
+                                </div>";
+
+                                    Code_Crafters_Booking_System.EmailService.SendEmail(clientEmail, emailSubject, emailBody);
+                                }
+                            }
+                        }
+                    }
+                    catch (Exception emailEx)
+                    {
+                        MessageBox.Show("Status updated successfully, but the notification email failed to send: " + emailEx.Message,
+                                        "Mailing System Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+
                     string searchInput = txtBookingID.Text.Trim();
                     if (!string.IsNullOrWhiteSpace(searchInput) && int.TryParse(searchInput, out int searchID))
                     {
