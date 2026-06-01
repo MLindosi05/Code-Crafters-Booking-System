@@ -29,12 +29,6 @@
         private void InitializeComponent()
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.msTextBox = new System.Windows.Forms.ToolStripTextBox();
-            this.menuStrip2 = new System.Windows.Forms.MenuStrip();
-            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.contactToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.label1 = new System.Windows.Forms.Label();
-            this.PB1 = new System.Windows.Forms.PictureBox();
             this.tsTextBox1 = new System.Windows.Forms.ToolStripMenuItem();
             this.signUpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.signUpToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -44,17 +38,31 @@
             this.makeBookingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewBookingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.msTextBox = new System.Windows.Forms.ToolStripTextBox();
             this.reportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.generateReportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuStrip2 = new System.Windows.Forms.MenuStrip();
+            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.contactToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ExitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.label1 = new System.Windows.Forms.Label();
+            this.PB1 = new System.Windows.Forms.PictureBox();
+            this.btnHelp = new System.Windows.Forms.Button();
+            this.pnlHelpDrawer = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtSearchHelp = new System.Windows.Forms.TextBox();
+            this.lstHelpTopics = new System.Windows.Forms.ListBox();
+            this.btnContactSupport = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.menuStrip2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PB1)).BeginInit();
+            this.pnlHelpDrawer.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
             // 
             this.menuStrip1.BackColor = System.Drawing.Color.LightSlateGray;
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsTextBox1,
             this.signUpToolStripMenuItem,
@@ -66,67 +74,9 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(1491, 32);
+            this.menuStrip1.Size = new System.Drawing.Size(1491, 31);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
-            // 
-            // msTextBox
-            // 
-            this.msTextBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(1)), true);
-            this.msTextBox.ForeColor = System.Drawing.Color.Red;
-            this.msTextBox.Name = "msTextBox";
-            this.msTextBox.Size = new System.Drawing.Size(200, 27);
-            this.msTextBox.Text = "LOGGED OUT";
-            // 
-            // menuStrip2
-            // 
-            this.menuStrip2.BackColor = System.Drawing.Color.LightSlateGray;
-            this.menuStrip2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.menuStrip2.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.menuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.aboutToolStripMenuItem,
-            this.contactToolStripMenuItem,
-            this.ExitToolStripMenuItem});
-            this.menuStrip2.Location = new System.Drawing.Point(0, 698);
-            this.menuStrip2.Name = "menuStrip2";
-            this.menuStrip2.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-            this.menuStrip2.Size = new System.Drawing.Size(1491, 28);
-            this.menuStrip2.TabIndex = 1;
-            this.menuStrip2.Text = "menuStrip2";
-            // 
-            // aboutToolStripMenuItem
-            // 
-            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(64, 24);
-            this.aboutToolStripMenuItem.Text = "About";
-            // 
-            // contactToolStripMenuItem
-            // 
-            this.contactToolStripMenuItem.Name = "contactToolStripMenuItem";
-            this.contactToolStripMenuItem.Size = new System.Drawing.Size(74, 24);
-            this.contactToolStripMenuItem.Text = "Contact";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(829, 112);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(0, 16);
-            this.label1.TabIndex = 5;
-            // 
-            // PB1
-            // 
-            this.PB1.BackColor = System.Drawing.Color.LightSlateGray;
-            this.PB1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PB1.Image = global::Code_Crafters_Interface_Prototype_1.Properties.Resources.lv_0_202604131858311;
-            this.PB1.Location = new System.Drawing.Point(0, 32);
-            this.PB1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.PB1.Name = "PB1";
-            this.PB1.Size = new System.Drawing.Size(1491, 666);
-            this.PB1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.PB1.TabIndex = 3;
-            this.PB1.TabStop = false;
             // 
             // tsTextBox1
             // 
@@ -202,6 +152,14 @@
             this.logoutToolStripMenuItem.Text = "Logout";
             this.logoutToolStripMenuItem.Click += new System.EventHandler(this.logoutToolStripMenuItem_Click);
             // 
+            // msTextBox
+            // 
+            this.msTextBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(1)), true);
+            this.msTextBox.ForeColor = System.Drawing.Color.Red;
+            this.msTextBox.Name = "msTextBox";
+            this.msTextBox.Size = new System.Drawing.Size(200, 27);
+            this.msTextBox.Text = "LOGGED OUT";
+            // 
             // reportsToolStripMenuItem
             // 
             this.reportsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -209,16 +167,46 @@
             this.reportsToolStripMenuItem.Image = global::Code_Crafters_Interface_Prototype_1.Properties.Resources.Generate_Reports_png;
             this.reportsToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.reportsToolStripMenuItem.Name = "reportsToolStripMenuItem";
-            this.reportsToolStripMenuItem.Size = new System.Drawing.Size(90, 28);
+            this.reportsToolStripMenuItem.Size = new System.Drawing.Size(94, 27);
             this.reportsToolStripMenuItem.Text = "Reports";
             this.reportsToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // generateReportsToolStripMenuItem
             // 
             this.generateReportsToolStripMenuItem.Name = "generateReportsToolStripMenuItem";
-            this.generateReportsToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.generateReportsToolStripMenuItem.Size = new System.Drawing.Size(207, 26);
             this.generateReportsToolStripMenuItem.Text = "Generate Reports";
             this.generateReportsToolStripMenuItem.Click += new System.EventHandler(this.generateReportsToolStripMenuItem_Click);
+            // 
+            // menuStrip2
+            // 
+            this.menuStrip2.BackColor = System.Drawing.Color.LightSlateGray;
+            this.menuStrip2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.menuStrip2.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.menuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.aboutToolStripMenuItem,
+            this.contactToolStripMenuItem,
+            this.ExitToolStripMenuItem});
+            this.menuStrip2.Location = new System.Drawing.Point(0, 698);
+            this.menuStrip2.Name = "menuStrip2";
+            this.menuStrip2.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
+            this.menuStrip2.Size = new System.Drawing.Size(1491, 28);
+            this.menuStrip2.TabIndex = 1;
+            this.menuStrip2.Text = "menuStrip2";
+            // 
+            // aboutToolStripMenuItem
+            // 
+            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(64, 24);
+            this.aboutToolStripMenuItem.Text = "About";
+            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
+            // 
+            // contactToolStripMenuItem
+            // 
+            this.contactToolStripMenuItem.Name = "contactToolStripMenuItem";
+            this.contactToolStripMenuItem.Size = new System.Drawing.Size(74, 24);
+            this.contactToolStripMenuItem.Text = "Contact";
+            this.contactToolStripMenuItem.Click += new System.EventHandler(this.contactToolStripMenuItem_Click);
             // 
             // ExitToolStripMenuItem
             // 
@@ -228,11 +216,106 @@
             this.ExitToolStripMenuItem.Text = "EXIT";
             this.ExitToolStripMenuItem.Click += new System.EventHandler(this.eXITToolStripMenuItem_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(829, 112);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(0, 16);
+            this.label1.TabIndex = 5;
+            // 
+            // PB1
+            // 
+            this.PB1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.PB1.BackColor = System.Drawing.Color.LightSlateGray;
+            this.PB1.Image = global::Code_Crafters_Interface_Prototype_1.Properties.Resources.lv_0_202604131858311;
+            this.PB1.Location = new System.Drawing.Point(0, 32);
+            this.PB1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.PB1.Name = "PB1";
+            this.PB1.Size = new System.Drawing.Size(1491, 665);
+            this.PB1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.PB1.TabIndex = 3;
+            this.PB1.TabStop = false;
+            // 
+            // btnHelp
+            // 
+            this.btnHelp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnHelp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(99)))), ((int)(((byte)(235)))));
+            this.btnHelp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHelp.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHelp.ForeColor = System.Drawing.Color.White;
+            this.btnHelp.Location = new System.Drawing.Point(1407, 698);
+            this.btnHelp.Name = "btnHelp";
+            this.btnHelp.Size = new System.Drawing.Size(72, 28);
+            this.btnHelp.TabIndex = 7;
+            this.btnHelp.Text = "Help";
+            this.btnHelp.UseVisualStyleBackColor = false;
+            this.btnHelp.Click += new System.EventHandler(this.btnHelp_Click);
+            // 
+            // pnlHelpDrawer
+            // 
+            this.pnlHelpDrawer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlHelpDrawer.BackColor = System.Drawing.Color.White;
+            this.pnlHelpDrawer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlHelpDrawer.Controls.Add(this.btnContactSupport);
+            this.pnlHelpDrawer.Controls.Add(this.lstHelpTopics);
+            this.pnlHelpDrawer.Controls.Add(this.txtSearchHelp);
+            this.pnlHelpDrawer.Controls.Add(this.label2);
+            this.pnlHelpDrawer.Location = new System.Drawing.Point(1179, 364);
+            this.pnlHelpDrawer.Name = "pnlHelpDrawer";
+            this.pnlHelpDrawer.Size = new System.Drawing.Size(300, 331);
+            this.pnlHelpDrawer.TabIndex = 8;
+            this.pnlHelpDrawer.Visible = false;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Blue;
+            this.label2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(0, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(131, 16);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "How can we help?";
+            // 
+            // txtSearchHelp
+            // 
+            this.txtSearchHelp.Location = new System.Drawing.Point(3, 28);
+            this.txtSearchHelp.Name = "txtSearchHelp";
+            this.txtSearchHelp.Size = new System.Drawing.Size(128, 22);
+            this.txtSearchHelp.TabIndex = 1;
+            this.txtSearchHelp.TextChanged += new System.EventHandler(this.txtSearchHelp_TextChanged);
+            // 
+            // lstHelpTopics
+            // 
+            this.lstHelpTopics.FormattingEnabled = true;
+            this.lstHelpTopics.ItemHeight = 16;
+            this.lstHelpTopics.Location = new System.Drawing.Point(4, 87);
+            this.lstHelpTopics.Name = "lstHelpTopics";
+            this.lstHelpTopics.Size = new System.Drawing.Size(283, 164);
+            this.lstHelpTopics.TabIndex = 2;
+            this.lstHelpTopics.SelectedIndexChanged += new System.EventHandler(this.lstHelpTopics_SelectedIndexChanged);
+            // 
+            // btnContactSupport
+            // 
+            this.btnContactSupport.Location = new System.Drawing.Point(131, 267);
+            this.btnContactSupport.Name = "btnContactSupport";
+            this.btnContactSupport.Size = new System.Drawing.Size(156, 28);
+            this.btnContactSupport.TabIndex = 3;
+            this.btnContactSupport.Text = "Chat with Support";
+            this.btnContactSupport.UseVisualStyleBackColor = true;
+            this.btnContactSupport.Click += new System.EventHandler(this.btnContactSupport_Click);
+            // 
             // MainMenuForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1491, 726);
+            this.Controls.Add(this.btnHelp);
+            this.Controls.Add(this.pnlHelpDrawer);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.PB1);
             this.Controls.Add(this.menuStrip1);
@@ -249,6 +332,8 @@
             this.menuStrip2.ResumeLayout(false);
             this.menuStrip2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PB1)).EndInit();
+            this.pnlHelpDrawer.ResumeLayout(false);
+            this.pnlHelpDrawer.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -275,6 +360,12 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ToolStripMenuItem reportsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem generateReportsToolStripMenuItem;
+        private System.Windows.Forms.Button btnHelp;
+        private System.Windows.Forms.Panel pnlHelpDrawer;
+        private System.Windows.Forms.Button btnContactSupport;
+        private System.Windows.Forms.ListBox lstHelpTopics;
+        private System.Windows.Forms.TextBox txtSearchHelp;
+        private System.Windows.Forms.Label label2;
     }
 }
 
