@@ -156,42 +156,51 @@ namespace Code_Crafters_Interface_Prototype_1.Business
         {
             try
             {
-                if (cmbClient.SelectedIndex == -1)
-                {
-                    MessageBox.Show("Please select a client.");
-                    return;
-                }
-
-                if (cmbBranch.SelectedIndex == -1)
-                {
-                    MessageBox.Show("Please select a branch.");
-                    return;
-                }
-
-                if (!chkRoom.Checked && !chkRestaurant.Checked)
-                {
-                    MessageBox.Show("Please select Room Booking, Restaurant Booking or both.");
-                    return;
-                }
-
-                if (dtpCheckOutDate.Value <= dtpCheckInDate.Value)
-                {
-                    MessageBox.Show("Check-out must be after check-in (including time).");
-                    return;
-                }
-
-                if (!decimal.TryParse(txtTotalAmount.Text, out decimal bookingAmount))
-                {
-                    MessageBox.Show("Invalid booking amount.");
-                    return;
-                }
+                if (cmbClient.SelectedIndex == -1) { MessageBox.Show("Please select a client."); return; }
+                if (cmbBranch.SelectedIndex == -1) { MessageBox.Show("Please select a branch."); return; }
+                if (!chkRoom.Checked && !chkRestaurant.Checked) { MessageBox.Show("Please select Room Booking, Restaurant Booking or both."); return; }
+                if (dtpCheckOutDate.Value <= dtpCheckInDate.Value) { MessageBox.Show("Check-out must be after check-in (including time)."); return; }
+                if (!decimal.TryParse(txtTotalAmount.Text, out decimal bookingAmount)) { MessageBox.Show("Invalid booking amount."); return; }
 
                 int clientID = Convert.ToInt32(cmbClient.SelectedValue);
                 int branchID = Convert.ToInt32(cmbBranch.SelectedValue);
-
                 DateTime bookingDate = dtpBookingDate.Value;
                 DateTime checkInDate = dtpCheckInDate.Value;
                 DateTime checkOutDate = dtpCheckOutDate.Value;
+
+                if (chkRoom.Checked)
+                {
+                    if (cmbRoom.SelectedValue == null) { MessageBox.Show("Please select a room."); return; }
+                    int roomID = Convert.ToInt32(cmbRoom.SelectedValue);
+
+                    int conflictingRooms = Convert.ToInt32(taRoomAssignment.CheckRoomConflict(roomID, checkInDate, checkOutDate));
+
+                    if (conflictingRooms > 0)
+                    {
+                        MessageBox.Show("Sorry, this room is already booked for the selected dates/times.",
+                                        "Room Unavailable", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return; 
+                    }
+                }
+
+                if (chkRestaurant.Checked)
+                {
+                    if (cmbRestaurantTable.SelectedValue == null) { MessageBox.Show("Please select a restaurant table."); return; }
+                    int tableID = Convert.ToInt32(cmbRestaurantTable.SelectedValue);
+                    DateTime startTime = dtpStartTime.Value;
+                    DateTime endTime = dtpEndTime.Value;
+
+                    if (endTime <= startTime) { MessageBox.Show("Table booking end time must be after start time."); return; }
+
+                    int conflictingTables = Convert.ToInt32(taTableAllocation.CheckTableConflict(tableID, startTime, endTime));
+
+                    if (conflictingTables > 0)
+                    {
+                        MessageBox.Show("Sorry, this restaurant table is already reserved for the selected timeframe.",
+                                        "Table Unavailable", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return; 
+                    }
+                }
 
                 string bookingStatus = "Pending";
 
@@ -208,90 +217,37 @@ namespace Code_Crafters_Interface_Prototype_1.Business
 
                 if (chkRoom.Checked)
                 {
-                    if (cmbRoom.SelectedValue == null)
-                    {
-                        MessageBox.Show("Please select a room.");
-                        return;
-                    }
-
-                    TimeSpan duration = checkOutDate - checkInDate;
-
-                    if (duration.TotalHours < 1)
-                    {
-                        MessageBox.Show("Room bookings must be at least 1 hour.");
-                        return;
-                    }
-
                     int roomID = Convert.ToInt32(cmbRoom.SelectedValue);
-
-                    taRoomAssignment.InsertRoomAssignment(
-                        bookingID,
-                        roomID,
-                        checkInDate,
-                        checkOutDate);
+                    taRoomAssignment.InsertRoomAssignment(bookingID, roomID, checkInDate, checkOutDate);
                 }
 
                 if (chkRestaurant.Checked)
                 {
-                    if (cmbRestaurantTable.SelectedValue == null)
-                    {
-                        MessageBox.Show("Please select a restaurant table.");
-                        return;
-                    }
-
-                    if (dtpEndTime.Value <= dtpStartTime.Value)
-                    {
-                        MessageBox.Show("End time must be after start time.");
-                        return;
-                    }
-
                     int tableID = Convert.ToInt32(cmbRestaurantTable.SelectedValue);
-
-                    taTableAllocation.InsertTableAllocation(
-                        bookingID,
-                        tableID,
-                        1,
-                        "Restaurant Table",
-                        dtpStartTime.Value,
-                        dtpEndTime.Value);
+                    taTableAllocation.InsertTableAllocation(bookingID, tableID, 1, "Restaurant Table", dtpStartTime.Value, dtpEndTime.Value);
                 }
 
-                string bookingType =
-                    chkRoom.Checked && chkRestaurant.Checked ? "Room & Restaurant" :
-                    chkRoom.Checked ? "Room" :
-                    "Restaurant";
+                string bookingType = chkRoom.Checked && chkRestaurant.Checked ? "Room & Restaurant" : chkRoom.Checked ? "Room" : "Restaurant";
 
                 MessageBox.Show(
                     "BOOKING SUCCESSFULLY CREATED\n\n" +
                     "Booking Reference : " + bookingID +
                     "\nClient : " + cmbClient.Text +
-                    "\nBranch : " + cmbBranch.Text +
                     "\nBooking Type : " + bookingType +
                     "\nCheck-In : " + checkInDate.ToString("dd MMM yyyy HH:mm") +
-                    "\nCheck-Out : " + checkOutDate.ToString("dd MMM yyyy HH:mm") +
-                    "\nStatus : Pending" +
-                    "\nTotal Amount : R " + bookingAmount.ToString("N2"),
-                    "Booking Confirmation",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Information);
+                    "\nStatus : Pending",
+                    "Booking Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 ClearControls();
 
-                PaymentForm paymentForm = new PaymentForm(bookingID,bookingAmount);
+                PaymentForm paymentForm = new PaymentForm(bookingID, bookingAmount);
                 paymentForm.Show();
-
             }
             catch (Exception ex)
             {
-                MessageBox.Show("An error occurred:\n\n" + ex.Message);
+                MessageBox.Show("An error occurred:\n\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-        private void BookingForm_Load_1(object sender, EventArgs e)
-        {
-
-        }
-
         
     }
 }
