@@ -25,7 +25,6 @@ namespace Code_Crafters_Interface_Prototype_1.Business
             this.bookingAmount = bookingAmount;
 
             this.Load += PaymentForm_Load;
-
         }
 
         private void PaymentForm_Load(object sender, EventArgs e)
@@ -76,12 +75,6 @@ namespace Code_Crafters_Interface_Prototype_1.Business
                     "Room, Accommodation/Room and Accommodation",
                     bookingID);
 
-                MessageBox.Show(
-                    "Payment successful.\nBooking Confirmed.",
-                    "Payment",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Information);
-
                 if (!string.IsNullOrEmpty(UserSession.Email))
                 {
                     string emailSubject = $"The Regal Inn - Booking Confirmed! Ref: #{bookingID}";
@@ -104,13 +97,21 @@ namespace Code_Crafters_Interface_Prototype_1.Business
                     EmailService.SendEmail(UserSession.Email, emailSubject, emailBody);
                 }
 
+                MessageBox.Show(
+                    "An email has been sent. You are all done with your booking!",
+                    "Booking Complete",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+
                 Close();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(
-                    "Payment failed.\n\n" +
-                    ex.Message);
+                    "Payment failed.\n\n" + ex.Message,
+                    "Execution Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
             }
         }
 
