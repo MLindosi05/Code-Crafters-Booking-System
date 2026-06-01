@@ -149,6 +149,7 @@
             this.txtContactNumber.Name = "txtContactNumber";
             this.txtContactNumber.Size = new System.Drawing.Size(161, 28);
             this.txtContactNumber.TabIndex = 14;
+            this.txtContactNumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtContactNumber_KeyPress);
             // 
             // txtEmailAddress
             // 
@@ -201,6 +202,7 @@
             this.txtSurname.Name = "txtSurname";
             this.txtSurname.Size = new System.Drawing.Size(161, 28);
             this.txtSurname.TabIndex = 1;
+            this.txtSurname.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSurname_KeyPress);
             // 
             // txtName
             // 
@@ -209,6 +211,7 @@
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(161, 28);
             this.txtName.TabIndex = 0;
+            this.txtName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtName_KeyPress);
             // 
             // codeCraftersDS
             // 

@@ -108,6 +108,19 @@ FROM Booking</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
+              <DbSource ConnectionRef="GroupPmb2ConnectionString (Settings)" DbObjectName="GroupPmb2.dbo.Booking" DbObjectType="Table" GenerateMethods="Get" GenerateShortCommands="true" GeneratorGetMethodName="GetRevenueReport" GetMethodModifier="Public" GetMethodName="GetRevenueReport" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetRevenueReport" UserSourceName="GetRevenueReport">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT 
+    Booking_Status, 
+    COUNT(Booking_ID) AS TotalBookings, 
+    SUM(Booking_Total_Amount) AS TotalRevenue
+FROM Booking
+GROUP BY Booking_Status</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
               <DbSource ConnectionRef="GroupPmb2ConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertNewBooking" Modifier="Public" Name="InsertNewBooking" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="InsertNewBooking">
                 <InsertCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
@@ -1182,6 +1195,29 @@ WHERE Booking_ID = @BookingID</CommandText>
               </DbSource>
             </Sources>
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Booking1TableAdapter" GeneratorDataComponentClassName="Booking1TableAdapter" Name="Booking1" UserDataComponentName="Booking1TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="GroupPmb2ConnectionString (Settings)" DbObjectName="GroupPmb2.dbo.Booking" DbObjectType="Table" GenerateMethods="Get" GenerateShortCommands="false" GeneratorGetMethodName="GetRevenueReport" GetMethodModifier="Public" GetMethodName="GetRevenueReport" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetRevenueReport" UserSourceName="GetRevenueReport">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT 
+    Booking_Status, 
+    COUNT(Booking_ID) AS TotalBookings, 
+    SUM(Booking_Total_Amount) AS TotalRevenue
+FROM Booking
+GROUP BY Booking_Status</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Booking_Status" DataSetColumn="Booking_Status" />
+              <Mapping SourceColumn="TotalBookings" DataSetColumn="TotalBookings" />
+              <Mapping SourceColumn="TotalRevenue" DataSetColumn="TotalRevenue" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
         </Tables>
         <Sources />
       </DataSource>
@@ -1616,6 +1652,21 @@ WHERE Booking_ID = @BookingID</CommandText>
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Booking1" msprop:Generator_RowEvHandlerName="Booking1RowChangeEventHandler" msprop:Generator_RowDeletedName="Booking1RowDeleted" msprop:Generator_RowDeletingName="Booking1RowDeleting" msprop:Generator_RowEvArgName="Booking1RowChangeEvent" msprop:Generator_TablePropName="Booking1" msprop:Generator_RowChangedName="Booking1RowChanged" msprop:Generator_RowChangingName="Booking1RowChanging" msprop:Generator_TableClassName="Booking1DataTable" msprop:Generator_RowClassName="Booking1Row" msprop:Generator_TableVarName="tableBooking1" msprop:Generator_UserTableName="Booking1">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Booking_Status" msprop:Generator_ColumnPropNameInRow="Booking_Status" msprop:Generator_ColumnPropNameInTable="Booking_StatusColumn" msprop:Generator_ColumnVarNameInTable="columnBooking_Status" msprop:Generator_UserColumnName="Booking_Status">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TotalBookings" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInRow="TotalBookings" msprop:Generator_ColumnPropNameInTable="TotalBookingsColumn" msprop:Generator_ColumnVarNameInTable="columnTotalBookings" msprop:Generator_UserColumnName="TotalBookings" type="xs:int" minOccurs="0" />
+              <xs:element name="TotalRevenue" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInRow="TotalRevenue" msprop:Generator_ColumnPropNameInTable="TotalRevenueColumn" msprop:Generator_ColumnVarNameInTable="columnTotalRevenue" msprop:Generator_UserColumnName="TotalRevenue" type="xs:decimal" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

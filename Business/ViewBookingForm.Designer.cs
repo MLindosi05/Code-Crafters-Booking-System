@@ -339,7 +339,6 @@
         private codeCraftersDS codeCraftersDS;
         private System.Windows.Forms.Label lblBookingID;
         private System.Windows.Forms.TextBox txtBookingID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn passwordDataGridViewTextBoxColumn;
         private codeCraftersDSTableAdapters.ClientBranchBookingTableAdapter taClientBranchBooking;
         private System.Windows.Forms.BindingSource clientBranchBookingBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn bookingIDDataGridViewTextBoxColumn;

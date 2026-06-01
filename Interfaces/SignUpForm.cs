@@ -54,6 +54,24 @@ namespace Code_Crafters_Booking_System
                 return;
             }
 
+            if (name.Any(char.IsDigit) || surname.Any(char.IsDigit))
+            {
+                MessageBox.Show("First Name and Surname fields can only contain letters.",
+                    "Validation Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (phoneNumber.Length != 10 || !phoneNumber.All(char.IsDigit))
+            {
+                MessageBox.Show("The contact number must be exactly 10 numeric digits long (e.g., 0821234567).",
+                    "Validation Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+                return;
+            }
+
             if (password != confirmPassword)
             {
                 MessageBox.Show("Passwords do not match.",
@@ -122,12 +140,49 @@ namespace Code_Crafters_Booking_System
                         "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
+                string welcomeSubject = "Welcome to The Regal Inn - Account Created Successfully!";
+
+                string emailBody = $@"
+                    <div style='font-family: Arial, sans-serif; max-width: 600px; border: 1px solid #dcdcdc; padding: 20px;'>
+                        <h2 style='color: #4A154B;'>Welcome to The Regal Inn, {name}!</h2>
+                        <p>Thank you for signing up with Code Crafters Booking Systems.</p>
+                        <p><b>Your Username / Registered Email:</b> {email}</p>
+                        <hr style='border: 0; border-top: 1px solid #eee;' />
+                        <p style='font-size: 12px; color: #888;'>This is an automated system confirmation notification. Please do not reply directly to this message.</p>
+                    </div>";
+
+                EmailService.SendEmail(email, welcomeSubject, emailBody);
+
                 ClearFields();
             }
             catch (Exception ex)
             {
                 MessageBox.Show("An error occurred while creating the account.\n" + ex.Message,
                     "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void txtContactNumber_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != ' ')
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtSurname_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != ' ')
+            {
+                e.Handled = true;
             }
         }
     }

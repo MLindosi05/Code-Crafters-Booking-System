@@ -29,6 +29,12 @@
         private void InitializeComponent()
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.msTextBox = new System.Windows.Forms.ToolStripTextBox();
+            this.menuStrip2 = new System.Windows.Forms.MenuStrip();
+            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.contactToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.label1 = new System.Windows.Forms.Label();
+            this.PB1 = new System.Windows.Forms.PictureBox();
             this.tsTextBox1 = new System.Windows.Forms.ToolStripMenuItem();
             this.signUpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.signUpToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -38,13 +44,9 @@
             this.makeBookingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewBookingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.msTextBox = new System.Windows.Forms.ToolStripTextBox();
-            this.menuStrip2 = new System.Windows.Forms.MenuStrip();
-            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.contactToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.generateReportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ExitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.PB1 = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.menuStrip2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PB1)).BeginInit();
@@ -53,20 +55,78 @@
             // menuStrip1
             // 
             this.menuStrip1.BackColor = System.Drawing.Color.LightSlateGray;
-            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsTextBox1,
             this.signUpToolStripMenuItem,
             this.LoginToolStripMenuItem,
             this.bookingToolStripMenuItem,
             this.logoutToolStripMenuItem,
-            this.msTextBox});
+            this.msTextBox,
+            this.reportsToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(1491, 31);
+            this.menuStrip1.Size = new System.Drawing.Size(1491, 32);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
+            // 
+            // msTextBox
+            // 
+            this.msTextBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(1)), true);
+            this.msTextBox.ForeColor = System.Drawing.Color.Red;
+            this.msTextBox.Name = "msTextBox";
+            this.msTextBox.Size = new System.Drawing.Size(200, 27);
+            this.msTextBox.Text = "LOGGED OUT";
+            // 
+            // menuStrip2
+            // 
+            this.menuStrip2.BackColor = System.Drawing.Color.LightSlateGray;
+            this.menuStrip2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.menuStrip2.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.menuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.aboutToolStripMenuItem,
+            this.contactToolStripMenuItem,
+            this.ExitToolStripMenuItem});
+            this.menuStrip2.Location = new System.Drawing.Point(0, 698);
+            this.menuStrip2.Name = "menuStrip2";
+            this.menuStrip2.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
+            this.menuStrip2.Size = new System.Drawing.Size(1491, 28);
+            this.menuStrip2.TabIndex = 1;
+            this.menuStrip2.Text = "menuStrip2";
+            // 
+            // aboutToolStripMenuItem
+            // 
+            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(64, 24);
+            this.aboutToolStripMenuItem.Text = "About";
+            // 
+            // contactToolStripMenuItem
+            // 
+            this.contactToolStripMenuItem.Name = "contactToolStripMenuItem";
+            this.contactToolStripMenuItem.Size = new System.Drawing.Size(74, 24);
+            this.contactToolStripMenuItem.Text = "Contact";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(829, 112);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(0, 16);
+            this.label1.TabIndex = 5;
+            // 
+            // PB1
+            // 
+            this.PB1.BackColor = System.Drawing.Color.LightSlateGray;
+            this.PB1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PB1.Image = global::Code_Crafters_Interface_Prototype_1.Properties.Resources.lv_0_202604131858311;
+            this.PB1.Location = new System.Drawing.Point(0, 32);
+            this.PB1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.PB1.Name = "PB1";
+            this.PB1.Size = new System.Drawing.Size(1491, 666);
+            this.PB1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.PB1.TabIndex = 3;
+            this.PB1.TabStop = false;
             // 
             // tsTextBox1
             // 
@@ -142,41 +202,23 @@
             this.logoutToolStripMenuItem.Text = "Logout";
             this.logoutToolStripMenuItem.Click += new System.EventHandler(this.logoutToolStripMenuItem_Click);
             // 
-            // msTextBox
+            // reportsToolStripMenuItem
             // 
-            this.msTextBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(1)), true);
-            this.msTextBox.ForeColor = System.Drawing.Color.Red;
-            this.msTextBox.Name = "msTextBox";
-            this.msTextBox.Size = new System.Drawing.Size(200, 27);
-            this.msTextBox.Text = "LOGGED OUT";
+            this.reportsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.generateReportsToolStripMenuItem});
+            this.reportsToolStripMenuItem.Image = global::Code_Crafters_Interface_Prototype_1.Properties.Resources.Generate_Reports_png;
+            this.reportsToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.reportsToolStripMenuItem.Name = "reportsToolStripMenuItem";
+            this.reportsToolStripMenuItem.Size = new System.Drawing.Size(90, 28);
+            this.reportsToolStripMenuItem.Text = "Reports";
+            this.reportsToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // menuStrip2
+            // generateReportsToolStripMenuItem
             // 
-            this.menuStrip2.BackColor = System.Drawing.Color.LightSlateGray;
-            this.menuStrip2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.menuStrip2.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.menuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.aboutToolStripMenuItem,
-            this.contactToolStripMenuItem,
-            this.ExitToolStripMenuItem});
-            this.menuStrip2.Location = new System.Drawing.Point(0, 698);
-            this.menuStrip2.Name = "menuStrip2";
-            this.menuStrip2.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-            this.menuStrip2.Size = new System.Drawing.Size(1491, 28);
-            this.menuStrip2.TabIndex = 1;
-            this.menuStrip2.Text = "menuStrip2";
-            // 
-            // aboutToolStripMenuItem
-            // 
-            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(64, 24);
-            this.aboutToolStripMenuItem.Text = "About";
-            // 
-            // contactToolStripMenuItem
-            // 
-            this.contactToolStripMenuItem.Name = "contactToolStripMenuItem";
-            this.contactToolStripMenuItem.Size = new System.Drawing.Size(74, 24);
-            this.contactToolStripMenuItem.Text = "Contact";
+            this.generateReportsToolStripMenuItem.Name = "generateReportsToolStripMenuItem";
+            this.generateReportsToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.generateReportsToolStripMenuItem.Text = "Generate Reports";
+            this.generateReportsToolStripMenuItem.Click += new System.EventHandler(this.generateReportsToolStripMenuItem_Click);
             // 
             // ExitToolStripMenuItem
             // 
@@ -185,28 +227,6 @@
             this.ExitToolStripMenuItem.Size = new System.Drawing.Size(72, 24);
             this.ExitToolStripMenuItem.Text = "EXIT";
             this.ExitToolStripMenuItem.Click += new System.EventHandler(this.eXITToolStripMenuItem_Click);
-            // 
-            // PB1
-            // 
-            this.PB1.BackColor = System.Drawing.Color.LightSlateGray;
-            this.PB1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PB1.Image = global::Code_Crafters_Interface_Prototype_1.Properties.Resources.lv_0_202604131858311;
-            this.PB1.Location = new System.Drawing.Point(0, 31);
-            this.PB1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.PB1.Name = "PB1";
-            this.PB1.Size = new System.Drawing.Size(1491, 667);
-            this.PB1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.PB1.TabIndex = 3;
-            this.PB1.TabStop = false;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(829, 112);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(0, 16);
-            this.label1.TabIndex = 5;
             // 
             // MainMenuForm
             // 
@@ -222,6 +242,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "MainMenuForm";
             this.Text = "MainMenuForm";
+            this.Load += new System.EventHandler(this.MainMenuForm_Load);
             this.MdiChildActivate += new System.EventHandler(this.MainMenuForm_MdiChildActivate);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -252,6 +273,8 @@
         private System.Windows.Forms.ToolStripMenuItem tsTextBox1;
         private System.Windows.Forms.ToolStripMenuItem ExitToolStripMenuItem;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ToolStripMenuItem reportsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem generateReportsToolStripMenuItem;
     }
 }
 

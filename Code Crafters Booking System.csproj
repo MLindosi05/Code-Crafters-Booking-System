@@ -58,6 +58,12 @@
     <Compile Include="Business\PaymentForm.Designer.cs">
       <DependentUpon>PaymentForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Business\ReportsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Business\ReportsForm.Designer.cs">
+      <DependentUpon>ReportsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Business\ViewBookingForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -72,6 +78,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>codeCraftersDS.xsd</DependentUpon>
     </Compile>
+    <Compile Include="EmailService.cs" />
     <Compile Include="Interfaces\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -98,6 +105,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Business\PaymentForm.resx">
       <DependentUpon>PaymentForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Business\ReportsForm.resx">
+      <DependentUpon>ReportsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Business\ViewBookingForm.resx">
       <DependentUpon>ViewBookingForm.cs</DependentUpon>
@@ -249,6 +259,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\IMG_20260413_185513.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Generate Reports.png.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Generate Reports.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -22,7 +22,6 @@ namespace Code_Crafters_Booking_System
         {
             this.taClient.Fill(this.codeCraftersDS.Client);
             passwordTxt.UseSystemPasswordChar = true;
-
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -61,6 +60,24 @@ namespace Code_Crafters_Booking_System
                             ms.Items["LoginToolStripMenuItem"].Enabled = false;
                             ms.Items["SignUpToolStripMenuItem"].Enabled = false;
 
+                            
+                            string userEmail = userNameTxt.Text.Trim().ToLower();
+
+                            if (ms.Items["reportsToolStripMenuItem"] != null)
+                            {
+                                if (userEmail.EndsWith("@regalinn.co.za"))
+                                {
+                                    ms.Items["reportsToolStripMenuItem"].Visible = true;
+
+                                    MessageBox.Show("Welcome back, administrator! Access to managerial reporting dashboards has been granted.",
+                                                    "Admin Access Granted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                }
+                                else
+                                {
+                                    ms.Items["reportsToolStripMenuItem"].Visible = false;
+                                }
+                            }
+
                             ToolStripTextBox tuser = ms.Items["msTextBox"] as ToolStripTextBox;
 
                             if (tuser != null)
@@ -93,4 +110,3 @@ namespace Code_Crafters_Booking_System
         }
     }
 }
-

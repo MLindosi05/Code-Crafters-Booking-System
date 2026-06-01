@@ -17,8 +17,13 @@ namespace Code_Crafters_Interface_Prototype_1
         public MainMenuForm()
         {
             InitializeComponent();
-     
         }
+
+        private void MainMenuForm_Load(object sender, EventArgs e)
+        {
+            reportsToolStripMenuItem.Visible = false;
+        }
+
         public void PrepareForm(Form form)
         {
             foreach (Form child in MdiChildren)
@@ -42,27 +47,44 @@ namespace Code_Crafters_Interface_Prototype_1
 
         private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            foreach (Form c in this.MdiChildren)  
+            DialogResult confirmLogout = MessageBox.Show(
+                "Are you sure you want to terminate your current session?",
+                "Confirm Logout", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (confirmLogout == DialogResult.Yes)
             {
-                c.Close();
+                UserSession.Email = null;
+                UserSession.FullName = null;
+
+                foreach (Form c in this.MdiChildren)
+                {
+                    c.Close();
+                }
+
+                LoginToolStripMenuItem.Enabled = true;
+                signUpToolStripMenuItem.Enabled = true;
+                logoutToolStripMenuItem.Enabled = false;
+                bookingToolStripMenuItem.Enabled = false;
+
+                reportsToolStripMenuItem.Visible = false;
+
+                ToolStripTextBox msTextBox = (ToolStripTextBox)menuStrip1.Items["msTextBox"];
+                if (msTextBox != null)
+                {
+                    msTextBox.Text = "LOGGED OUT";
+                    msTextBox.ForeColor = Color.Red;
+                }
+
+                MessageBox.Show("You have logged out successfully.", "Session Terminated", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            LoginToolStripMenuItem.Enabled = true;
-            logoutToolStripMenuItem.Enabled = false;
-            ToolStripTextBox msTextBox  = (ToolStripTextBox)menuStrip1.Items["msTextBox"];
-            msTextBox.Text = "LOGGED OUT";
-            msTextBox.ForeColor = Color.Red;
-            signUpToolStripMenuItem.Enabled = true;
-            bookingToolStripMenuItem.Enabled = false;
-        }      
-        
+        }
+
         private void MainMenuForm_MdiChildActivate(object sender, EventArgs e)
         {
             if (ActiveMdiChild != null)
                 PB1.SendToBack();
             else
                 PB1.BringToFront();
-
-
         }
 
         private void signUpToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -85,7 +107,7 @@ namespace Code_Crafters_Interface_Prototype_1
 
         private void viewBookingsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (UserSession.Email != null && UserSession.Email.EndsWith("@regalinn.co.za"))
+            if (UserSession.Email != null && UserSession.Email.Trim().ToLower().EndsWith("@regalinn.co.za"))
             {
                 ViewBookingForm view = new ViewBookingForm();
                 PrepareForm(view);
@@ -100,12 +122,33 @@ namespace Code_Crafters_Interface_Prototype_1
                 );
             }
         }
+
         private void eXITToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
- 
-    }
+        private void generateReportsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(UserSession.Email))
+            {
+                MessageBox.Show("Access Denied. Please authenticate first.", "Unauthorized", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                return;
+            }
 
+            string currentSessionEmail = UserSession.Email.Trim().ToLower();
+
+            if (currentSessionEmail.EndsWith("@regalinn.co.za"))
+            {
+                ReportsForm analyticsDashboard = new ReportsForm();
+                PrepareForm(analyticsDashboard);
+            }
+            else
+            {
+                MessageBox.Show("Access Denied. You must be logged in with a corporate '@regalinn.co.za' account to review business analytics summaries.",
+                                "Unauthorized Access", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+            }
+        }
+
+    }
 }
