@@ -95,6 +95,7 @@
             "Confirmed",
             "Checked In",
             "Checked Out",
+            "No Show",
             "Cancelled"});
             this.cmbStatusActions.Location = new System.Drawing.Point(961, 71);
             this.cmbStatusActions.Name = "cmbStatusActions";
