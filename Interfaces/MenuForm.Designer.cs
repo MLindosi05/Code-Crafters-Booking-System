@@ -49,10 +49,10 @@
             this.PB1 = new System.Windows.Forms.PictureBox();
             this.btnHelp = new System.Windows.Forms.Button();
             this.pnlHelpDrawer = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtSearchHelp = new System.Windows.Forms.TextBox();
-            this.lstHelpTopics = new System.Windows.Forms.ListBox();
             this.btnContactSupport = new System.Windows.Forms.Button();
+            this.lstHelpTopics = new System.Windows.Forms.ListBox();
+            this.txtSearchHelp = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.menuStrip2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PB1)).BeginInit();
@@ -245,7 +245,7 @@
             this.btnHelp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnHelp.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnHelp.ForeColor = System.Drawing.Color.White;
-            this.btnHelp.Location = new System.Drawing.Point(1407, 698);
+            this.btnHelp.Location = new System.Drawing.Point(1395, 686);
             this.btnHelp.Name = "btnHelp";
             this.btnHelp.Size = new System.Drawing.Size(72, 28);
             this.btnHelp.TabIndex = 7;
@@ -262,11 +262,39 @@
             this.pnlHelpDrawer.Controls.Add(this.lstHelpTopics);
             this.pnlHelpDrawer.Controls.Add(this.txtSearchHelp);
             this.pnlHelpDrawer.Controls.Add(this.label2);
-            this.pnlHelpDrawer.Location = new System.Drawing.Point(1179, 364);
+            this.pnlHelpDrawer.Location = new System.Drawing.Point(1167, 349);
             this.pnlHelpDrawer.Name = "pnlHelpDrawer";
             this.pnlHelpDrawer.Size = new System.Drawing.Size(300, 331);
             this.pnlHelpDrawer.TabIndex = 8;
             this.pnlHelpDrawer.Visible = false;
+            // 
+            // btnContactSupport
+            // 
+            this.btnContactSupport.Location = new System.Drawing.Point(131, 267);
+            this.btnContactSupport.Name = "btnContactSupport";
+            this.btnContactSupport.Size = new System.Drawing.Size(156, 28);
+            this.btnContactSupport.TabIndex = 3;
+            this.btnContactSupport.Text = "Chat with Support";
+            this.btnContactSupport.UseVisualStyleBackColor = true;
+            this.btnContactSupport.Click += new System.EventHandler(this.btnContactSupport_Click);
+            // 
+            // lstHelpTopics
+            // 
+            this.lstHelpTopics.FormattingEnabled = true;
+            this.lstHelpTopics.ItemHeight = 16;
+            this.lstHelpTopics.Location = new System.Drawing.Point(4, 87);
+            this.lstHelpTopics.Name = "lstHelpTopics";
+            this.lstHelpTopics.Size = new System.Drawing.Size(283, 164);
+            this.lstHelpTopics.TabIndex = 2;
+            this.lstHelpTopics.SelectedIndexChanged += new System.EventHandler(this.lstHelpTopics_SelectedIndexChanged);
+            // 
+            // txtSearchHelp
+            // 
+            this.txtSearchHelp.Location = new System.Drawing.Point(3, 28);
+            this.txtSearchHelp.Name = "txtSearchHelp";
+            this.txtSearchHelp.Size = new System.Drawing.Size(128, 22);
+            this.txtSearchHelp.TabIndex = 1;
+            this.txtSearchHelp.TextChanged += new System.EventHandler(this.txtSearchHelp_TextChanged);
             // 
             // label2
             // 
@@ -280,34 +308,6 @@
             this.label2.Size = new System.Drawing.Size(131, 16);
             this.label2.TabIndex = 0;
             this.label2.Text = "How can we help?";
-            // 
-            // txtSearchHelp
-            // 
-            this.txtSearchHelp.Location = new System.Drawing.Point(3, 28);
-            this.txtSearchHelp.Name = "txtSearchHelp";
-            this.txtSearchHelp.Size = new System.Drawing.Size(128, 22);
-            this.txtSearchHelp.TabIndex = 1;
-            this.txtSearchHelp.TextChanged += new System.EventHandler(this.txtSearchHelp_TextChanged);
-            // 
-            // lstHelpTopics
-            // 
-            this.lstHelpTopics.FormattingEnabled = true;
-            this.lstHelpTopics.ItemHeight = 16;
-            this.lstHelpTopics.Location = new System.Drawing.Point(4, 87);
-            this.lstHelpTopics.Name = "lstHelpTopics";
-            this.lstHelpTopics.Size = new System.Drawing.Size(283, 164);
-            this.lstHelpTopics.TabIndex = 2;
-            this.lstHelpTopics.SelectedIndexChanged += new System.EventHandler(this.lstHelpTopics_SelectedIndexChanged);
-            // 
-            // btnContactSupport
-            // 
-            this.btnContactSupport.Location = new System.Drawing.Point(131, 267);
-            this.btnContactSupport.Name = "btnContactSupport";
-            this.btnContactSupport.Size = new System.Drawing.Size(156, 28);
-            this.btnContactSupport.TabIndex = 3;
-            this.btnContactSupport.Text = "Chat with Support";
-            this.btnContactSupport.UseVisualStyleBackColor = true;
-            this.btnContactSupport.Click += new System.EventHandler(this.btnContactSupport_Click);
             // 
             // MainMenuForm
             // 
