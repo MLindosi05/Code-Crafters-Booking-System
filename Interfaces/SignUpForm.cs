@@ -140,17 +140,27 @@ namespace Code_Crafters_Booking_System
                         "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
+                // --- STYLED SYSTEM REGISTRATION CONFIRMATION ---
                 string welcomeSubject = "Welcome to The Regal Inn - Account Created Successfully!";
-
                 string emailBody = $@"
-                    <div style='font-family: Arial, sans-serif; max-width: 600px; border: 1px solid #dcdcdc; padding: 20px;'>
-                        <h2 style='color: #4A154B;'>Welcome to The Regal Inn, {name}!</h2>
-                        <p>Thank you for signing up with Code Crafters Booking Systems.</p>
-                        <p><b>Your Username / Registered Email:</b> {email}</p>
+                <div style='font-family: Arial, sans-serif; max-width: 600px; border: 1px solid #dcdcdc; padding: 20px; border-radius: 5px;'>
+                    <div style='background-color: #1565C0; padding: 15px; border-radius: 5px 5px 0 0; text-align: center;'>
+                        <h1 style='color: white; margin: 0; font-size: 22px;'>The Regal Inn Hotels</h1>
+                    </div>
+                    <div style='padding: 20px;'>
+                        <h3 style='color: #1565C0; margin-top: 0;'>Welcome aboard, {name}!</h3>
+                        <p>Thank you for signing up with the Code Crafters Booking System. Your new customer portal account has been successfully verified.</p>
                         <hr style='border: 0; border-top: 1px solid #eee;' />
-                        <p style='font-size: 12px; color: #888;'>This is an automated system confirmation notification. Please do not reply directly to this message.</p>
-                    </div>";
+                        <p><b>Your Profile Login Username:</b> {email}</p>
+                        <hr style='border: 0; border-top: 1px solid #eee;' />
+                        <p>You can now log in anytime to quickly secure room bookings, schedule fine dining reservations, and instantly view your payment invoices.</p>
+                    </div>
+                    <p style='font-size: 11px; color: #888; text-align: center; border-top: 1px solid #eee; padding-top: 15px;'>
+                        This is an automated operational system notification. Please do not reply directly to this message.
+                    </p>
+                </div>";
 
+                // Dispatches directly to the customer, and dynamically sends a CC copy to your master account
                 EmailService.SendEmail(email, welcomeSubject, emailBody);
 
                 ClearFields();

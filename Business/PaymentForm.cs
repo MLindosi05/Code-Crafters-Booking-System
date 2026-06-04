@@ -16,13 +16,15 @@ namespace Code_Crafters_Interface_Prototype_1.Business
     {
         private int bookingID;
         private decimal bookingAmount;
+        private int clientID; // Added variable tracking matching customer identity
 
-        public PaymentForm(int bookingID, decimal bookingAmount)
+        public PaymentForm(int bookingID, decimal bookingAmount, int clientID)
         {
             InitializeComponent();
 
             this.bookingID = bookingID;
             this.bookingAmount = bookingAmount;
+            this.clientID = clientID;
 
             this.Load += PaymentForm_Load;
         }
@@ -61,40 +63,46 @@ namespace Code_Crafters_Interface_Prototype_1.Business
                     return;
                 }
 
-                taFolio.InsertPayment(
-                    bookingID,
-                    amount,
-                    paymentType);
+                taFolio.InsertPayment(bookingID, amount, paymentType);
+                taBooking.UpdateBookingStatus("Confirmed", bookingID);
+                taFolio.UpdatePaymentDetails("Settled", "Room, Accommodation/Room and Accommodation", bookingID);
 
-                taBooking.UpdateBookingStatus(
-                    "Confirmed",
-                    bookingID);
-
-                taFolio.UpdatePaymentDetails(
-                    "Settled",
-                    "Room, Accommodation/Room and Accommodation",
-                    bookingID);
-
-                if (!string.IsNullOrEmpty(UserSession.Email))
+                // FIX: Look up customer table directly to locate target client details
+                try
                 {
-                    string emailSubject = $"The Regal Inn - Booking Confirmed! Ref: #{bookingID}";
-                    string emailBody = $@"
-                <div style='font-family: Arial, sans-serif; max-width: 600px; border: 1px solid #dcdcdc; padding: 20px;'>
-                    <h2 style='color: #2E7D32;'>Booking Confirmed, {UserSession.FullName}!</h2>
-                    <p>Thank you! We have successfully processed your payment of <b>R {amount:0.00}</b> via <b>{paymentType}</b>.</p>
-                    <hr style='border: 0; border-top: 1px solid #eee;' />
-                    <p><b>Reservation Summary:</b></p>
-                    <ul>
-                        <li><b>Booking Reference:</b> #{bookingID}</li>
-                        <li><b>Payment Status:</b> Settled / Paid</li>
-                        <li><b>Booking Status:</b> Confirmed</li>
-                    </ul>
-                    <p>We look forward to hosting you at The Regal Inn!</p>
-                    <hr style='border: 0; border-top: 1px solid #eee;' />
-                    <p style='font-size: 12px; color: #888;'>This is an automated system receipt. Please do not reply directly to this message.</p>
-                </div>";
+                    var taClientLookup = new ClientTableAdapter();
+                    var clientTable = taClientLookup.GetData();
+                    var matchedClientRow = clientTable.FirstOrDefault(row => row.Client_ID == this.clientID);
 
-                    EmailService.SendEmail(UserSession.Email, emailSubject, emailBody);
+                    if (matchedClientRow != null && !string.IsNullOrWhiteSpace(matchedClientRow.Email_Address))
+                    {
+                        string clientEmail = matchedClientRow.Email_Address;
+                        string clientName = matchedClientRow.First_Name;
+
+                        string emailSubject = $"The Regal Inn - Booking Confirmed! Ref: #{bookingID}";
+                        string emailBody = $@"
+                        <div style='font-family: Arial, sans-serif; max-width: 600px; border: 1px solid #dcdcdc; padding: 20px;'>
+                            <h2 style='color: #2E7D32;'>Booking Confirmed, {clientName}!</h2>
+                            <p>Thank you! We have successfully processed your payment of <b>R {amount:0.00}</b> via <b>{paymentType}</b>.</p>
+                            <hr style='border: 0; border-top: 1px solid #eee;' />
+                            <p><b>Reservation Summary:</b></p>
+                            <ul>
+                                <li><b>Booking Reference:</b> #{bookingID}</li>
+                                <li><b>Payment Status:</b> Settled / Paid</li>
+                                <li><b>Booking Status:</b> Confirmed</li>
+                            </ul>
+                            <p>We look forward to hosting you at The Regal Inn!</p>
+                            <hr style='border: 0; border-top: 1px solid #eee;' />
+                            <p style='font-size: 12px; color: #888;'>This is an automated system receipt. Please do not reply directly to this message.</p>
+                        </div>";
+
+                        EmailService.SendEmail(clientEmail, emailSubject, emailBody);
+                    }
+                }
+                catch (Exception emailEx)
+                {
+                    MessageBox.Show("Payment updated, but receipt could not process: " + emailEx.Message,
+                                    "Mailing Alert", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
 
                 MessageBox.Show(
@@ -107,11 +115,7 @@ namespace Code_Crafters_Interface_Prototype_1.Business
             }
             catch (Exception ex)
             {
-                MessageBox.Show(
-                    "Payment failed.\n\n" + ex.Message,
-                    "Execution Error",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
+                MessageBox.Show("Payment failed.\n\n" + ex.Message, "Execution Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -127,26 +131,16 @@ namespace Code_Crafters_Interface_Prototype_1.Business
 
                 if (result == DialogResult.Yes)
                 {
-                    taBooking.UpdateBookingStatus(
-                        "Cancelled",
-                        bookingID);
+                    taBooking.UpdateBookingStatus("Cancelled", bookingID);
+                    taFolio.InsertWrittenOffPayment(bookingID);
 
-                    taFolio.InsertWrittenOffPayment(
-                        bookingID);
-
-                    MessageBox.Show(
-                        "Booking cancelled successfully.",
-                        "Cancelled",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Information);
-
+                    MessageBox.Show("Booking cancelled successfully.", "Cancelled", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     Close();
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(
-                    "Cancellation failed.\n\n" + ex.Message);
+                MessageBox.Show("Cancellation failed.\n\n" + ex.Message);
             }
         }
     }
