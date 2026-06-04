@@ -46,10 +46,7 @@ namespace Code_Crafters_Booking_System
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Information
                     );
-
-                    // --- AUTOMATED LOGIN EMAIL SYSTEM ---
-                    // This dynamically triggers an email to whatever account logged in, 
-                    // and your EmailService automatically CCs mlambomlindosi@gmail.com.
+                
                     string loginSubject = "The Regal Inn - New Account Login Detected";
                     string loginBody = $@"
                     <div style='font-family: Arial, sans-serif; max-width: 600px; border: 1px solid #dcdcdc; padding: 20px;'>
@@ -64,7 +61,6 @@ namespace Code_Crafters_Booking_System
                     </div>";
 
                     EmailService.SendEmail(row.Email_Address, loginSubject, loginBody);
-                    // ------------------------------------
 
                     Form frm = Application.OpenForms["MainMenuForm"];
 

@@ -239,7 +239,6 @@ namespace Code_Crafters_Interface_Prototype_1.Business
                     "\nStatus : Pending",
                     "Booking Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                // FIX: Extract the actual client row details instead of the staff UserSession
                 DataRowView selectedClientRow = (DataRowView)cmbClient.SelectedItem;
                 if (selectedClientRow != null && selectedClientRow.Row.Table.Columns.Contains("Email_Address"))
                 {

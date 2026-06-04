@@ -98,7 +98,7 @@
             // signUpToolStripMenuItem1
             // 
             this.signUpToolStripMenuItem1.Name = "signUpToolStripMenuItem1";
-            this.signUpToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.signUpToolStripMenuItem1.Size = new System.Drawing.Size(117, 22);
             this.signUpToolStripMenuItem1.Text = "Sign up ";
             this.signUpToolStripMenuItem1.Click += new System.EventHandler(this.signUpToolStripMenuItem1_Click);
             // 

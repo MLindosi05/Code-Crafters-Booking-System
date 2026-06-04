@@ -9,7 +9,6 @@ namespace Code_Crafters_Booking_System
     {
         private const string SmtpHost = "smtp.gmail.com";
 
-        // Port 587 is the universal standard for modern secure TLS submission.
         private const string SmtpPort = "587";
 
         private const string SenderEmail = "mlambomlindosi@gmail.com";
@@ -40,9 +39,6 @@ namespace Code_Crafters_Booking_System
                     smtp.Credentials = new NetworkCredential(SenderEmail, SenderPassword);
                     smtp.EnableSsl = true;
 
-                    // NETWORK BYPASS FIX FOR VPNs:
-                    // Tells the operating system to send directly via the external interface 
-                    // and drops local authentication credential caching which GlobalProtect interferes with.
                     smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
                     smtp.UseDefaultCredentials = false;
 
@@ -51,7 +47,6 @@ namespace Code_Crafters_Booking_System
             }
             catch (Exception ex)
             {
-                // We are using ex.ToString() here so you can read the complete inner technical reason!
                 MessageBox.Show("Operational confirmation email failed to dispatch automatically:\n\n" + ex.ToString(),
                                 "Mailing System Notice", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }

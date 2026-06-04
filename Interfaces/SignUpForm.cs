@@ -140,7 +140,6 @@ namespace Code_Crafters_Booking_System
                         "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
-                // --- STYLED SYSTEM REGISTRATION CONFIRMATION ---
                 string welcomeSubject = "Welcome to The Regal Inn - Account Created Successfully!";
                 string emailBody = $@"
                 <div style='font-family: Arial, sans-serif; max-width: 600px; border: 1px solid #dcdcdc; padding: 20px; border-radius: 5px;'>
@@ -160,7 +159,6 @@ namespace Code_Crafters_Booking_System
                     </p>
                 </div>";
 
-                // Dispatches directly to the customer, and dynamically sends a CC copy to your master account
                 EmailService.SendEmail(email, welcomeSubject, emailBody);
 
                 ClearFields();

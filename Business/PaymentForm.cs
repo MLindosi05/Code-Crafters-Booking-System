@@ -16,7 +16,7 @@ namespace Code_Crafters_Interface_Prototype_1.Business
     {
         private int bookingID;
         private decimal bookingAmount;
-        private int clientID; // Added variable tracking matching customer identity
+        private int clientID;
 
         public PaymentForm(int bookingID, decimal bookingAmount, int clientID)
         {
@@ -67,7 +67,6 @@ namespace Code_Crafters_Interface_Prototype_1.Business
                 taBooking.UpdateBookingStatus("Confirmed", bookingID);
                 taFolio.UpdatePaymentDetails("Settled", "Room, Accommodation/Room and Accommodation", bookingID);
 
-                // FIX: Look up customer table directly to locate target client details
                 try
                 {
                     var taClientLookup = new ClientTableAdapter();
