@@ -39,11 +39,18 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.codeCraftersDS1 = new Code_Crafters_Interface_Prototype_1.codeCraftersDS();
             this.taStaff = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTableAdapters.StaffTableAdapter();
+            this.btnHelp = new System.Windows.Forms.Button();
+            this.pnlHelpDrawer = new System.Windows.Forms.Panel();
+            this.btnContactSupport = new System.Windows.Forms.Button();
+            this.lstHelpTopics = new System.Windows.Forms.ListBox();
+            this.txtSearchHelp = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.codeCraftersDS1)).BeginInit();
+            this.pnlHelpDrawer.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -87,7 +94,7 @@
             this.button2.TabIndex = 6;
             this.button2.Text = "LOGIN";
             this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.button2.Click += new System.EventHandler(this.login_Click);
             // 
             // pictureBox1
             // 
@@ -158,22 +165,104 @@
             // 
             this.taStaff.ClearBeforeFill = true;
             // 
+            // btnHelp
+            // 
+            this.btnHelp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnHelp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(99)))), ((int)(((byte)(235)))));
+            this.btnHelp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHelp.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHelp.ForeColor = System.Drawing.Color.White;
+            this.btnHelp.Location = new System.Drawing.Point(853, 11);
+            this.btnHelp.Margin = new System.Windows.Forms.Padding(2);
+            this.btnHelp.Name = "btnHelp";
+            this.btnHelp.Size = new System.Drawing.Size(64, 27);
+            this.btnHelp.TabIndex = 10;
+            this.btnHelp.Text = "Help";
+            this.btnHelp.UseVisualStyleBackColor = false;
+            this.btnHelp.Click += new System.EventHandler(this.btnHelp_Click);
+            // 
+            // pnlHelpDrawer
+            // 
+            this.pnlHelpDrawer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlHelpDrawer.BackColor = System.Drawing.Color.White;
+            this.pnlHelpDrawer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlHelpDrawer.Controls.Add(this.btnContactSupport);
+            this.pnlHelpDrawer.Controls.Add(this.lstHelpTopics);
+            this.pnlHelpDrawer.Controls.Add(this.txtSearchHelp);
+            this.pnlHelpDrawer.Controls.Add(this.label3);
+            this.pnlHelpDrawer.Location = new System.Drawing.Point(853, 42);
+            this.pnlHelpDrawer.Margin = new System.Windows.Forms.Padding(2);
+            this.pnlHelpDrawer.Name = "pnlHelpDrawer";
+            this.pnlHelpDrawer.Size = new System.Drawing.Size(226, 269);
+            this.pnlHelpDrawer.TabIndex = 11;
+            this.pnlHelpDrawer.Visible = false;
+            this.pnlHelpDrawer.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlHelpDrawer_Paint);
+            // 
+            // btnContactSupport
+            // 
+            this.btnContactSupport.Location = new System.Drawing.Point(98, 217);
+            this.btnContactSupport.Margin = new System.Windows.Forms.Padding(2);
+            this.btnContactSupport.Name = "btnContactSupport";
+            this.btnContactSupport.Size = new System.Drawing.Size(117, 23);
+            this.btnContactSupport.TabIndex = 3;
+            this.btnContactSupport.Text = "Chat with Support";
+            this.btnContactSupport.UseVisualStyleBackColor = true;
+            this.btnContactSupport.Click += new System.EventHandler(this.btnContactSupport_Click);
+            // 
+            // lstHelpTopics
+            // 
+            this.lstHelpTopics.FormattingEnabled = true;
+            this.lstHelpTopics.Location = new System.Drawing.Point(3, 71);
+            this.lstHelpTopics.Margin = new System.Windows.Forms.Padding(2);
+            this.lstHelpTopics.Name = "lstHelpTopics";
+            this.lstHelpTopics.Size = new System.Drawing.Size(213, 134);
+            this.lstHelpTopics.TabIndex = 2;
+            this.lstHelpTopics.SelectedIndexChanged += new System.EventHandler(this.lstHelpTopics_SelectedIndexChanged);
+            // 
+            // txtSearchHelp
+            // 
+            this.txtSearchHelp.Location = new System.Drawing.Point(2, 23);
+            this.txtSearchHelp.Margin = new System.Windows.Forms.Padding(2);
+            this.txtSearchHelp.Name = "txtSearchHelp";
+            this.txtSearchHelp.Size = new System.Drawing.Size(97, 20);
+            this.txtSearchHelp.TabIndex = 1;
+            this.txtSearchHelp.TextChanged += new System.EventHandler(this.txtSearchHelp_TextChanged);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Blue;
+            this.label3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(0, 0);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(112, 13);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "How can we help?";
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1152, 600);
+            this.Controls.Add(this.pnlHelpDrawer);
+            this.Controls.Add(this.btnHelp);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.groupBox1);
             this.Name = "Login";
             this.Text = "Login";
             this.Load += new System.EventHandler(this.Login_Load);
+            this.Click += new System.EventHandler(this.btnContactSupport_Click);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.codeCraftersDS1)).EndInit();
+            this.pnlHelpDrawer.ResumeLayout(false);
+            this.pnlHelpDrawer.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -191,5 +280,11 @@
         private System.Windows.Forms.PictureBox pictureBox3;
         private codeCraftersDS codeCraftersDS1;
         private codeCraftersDSTableAdapters.StaffTableAdapter taStaff;
+        private System.Windows.Forms.Button btnHelp;
+        private System.Windows.Forms.Panel pnlHelpDrawer;
+        private System.Windows.Forms.Button btnContactSupport;
+        private System.Windows.Forms.ListBox lstHelpTopics;
+        private System.Windows.Forms.TextBox txtSearchHelp;
+        private System.Windows.Forms.Label label3;
     }
 }

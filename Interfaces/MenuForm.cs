@@ -25,26 +25,6 @@ namespace Code_Crafters_Interface_Prototype_1
             reportsToolStripMenuItem.Visible = false;
         }
 
-        public void PrepareForm(Form form)
-        {
-            foreach (Form child in MdiChildren)
-            {
-                child.Close();
-            }
-
-            if (form == null || form.IsDisposed)
-            {
-                return;
-            }
-
-            form.MdiParent = this;
-            form.StartPosition = FormStartPosition.CenterScreen;
-            form.WindowState = FormWindowState.Maximized;
-            form.FormBorderStyle = FormBorderStyle.None;
-
-            form.Show();
-            form.BringToFront();
-        }
 
         private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -87,23 +67,21 @@ namespace Code_Crafters_Interface_Prototype_1
             else
                 PB1.BringToFront();
 
-            if (pnlHelpDrawer.Visible)
-            {
-                pnlHelpDrawer.BringToFront();
-            }
+            //if (pnlHelpDrawer.Visible)
+            //{
+                //pnlHelpDrawer.BringToFront();
+            //}
         }
 
         private void signUpToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             SignUpForm signup = new SignUpForm();
-            PrepareForm(signup);
         }
 
 
         private void makeBookingToolStripMenuItem_Click(object sender, EventArgs e)
         {
             BookingForm Booking = new BookingForm();
-            PrepareForm(Booking);
         }
 
         private void viewBookingsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -111,7 +89,6 @@ namespace Code_Crafters_Interface_Prototype_1
             if (UserSession.Email != null && UserSession.Email.Trim().ToLower().EndsWith("@regalinn.co.za"))
             {
                 ViewBookingForm view = new ViewBookingForm();
-                PrepareForm(view);
             }
             else
             {
@@ -129,205 +106,20 @@ namespace Code_Crafters_Interface_Prototype_1
             this.Close();
         }
 
-        private void generateReportsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (string.IsNullOrEmpty(UserSession.Email))
-            {
-                MessageBox.Show("Access Denied. Please authenticate first.", "Unauthorized", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-                return;
-            }
-
-            string currentSessionEmail = UserSession.Email.Trim().ToLower();
-
-            if (currentSessionEmail.EndsWith("@regalinn.co.za"))
-            {
-                ReportsForm analyticsDashboard = new ReportsForm();
-                PrepareForm(analyticsDashboard);
-            }
-            else
-            {
-                MessageBox.Show("Access Denied. You must be logged in with a corporate '@regalinn.co.za' account to review business analytics summaries.",
-                                "Unauthorized Access", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-            }
-        }
-
-        private Dictionary<string, string> helpDatabase = new Dictionary<string, string>()
-        {
-            { "How to make a booking?", "Navigate to Booking -> Make Booking on the top menu to open the registration wizard." },
-            { "Staff access to view bookings", "Only corporate staff accounts registered with a '@regalinn.co.za' email can view active bookings." },
-            { "Generating hotel analytics reports", "Go to Reports -> Generate Reports. You must be a corporate user to view these metrics." },
-            { "How do users change accounts?", "Click 'Logout' from the menu bar to safely terminate your current session and switch profiles." }
-        };
-
-        private void btnHelp_Click(object sender, EventArgs e)
-        {
-            pnlHelpDrawer.Visible = !pnlHelpDrawer.Visible;
-
-            if (pnlHelpDrawer.Visible)
-            {
-                pnlHelpDrawer.BringToFront();
-
-                if (lstHelpTopics.Items.Count == 0)
-                {
-                    ResetHelpTopics();
-                }
-            }
-        }
-
-        private void ResetHelpTopics()
-        {
-            lstHelpTopics.Items.Clear();
-            foreach (var topic in helpDatabase.Keys)
-            {
-                lstHelpTopics.Items.Add(topic);
-            }
-        }
-
-        private void txtSearchHelp_TextChanged(object sender, EventArgs e)
-        {
-            string keyword = txtSearchHelp.Text.Trim().ToLower();
-
-            if (string.IsNullOrEmpty(keyword))
-            {
-                ResetHelpTopics();
-                return;
-            }
-
-            lstHelpTopics.Items.Clear();
-            foreach (var topic in helpDatabase.Keys)
-            {
-                if (topic.ToLower().Contains(keyword))
-                {
-                    lstHelpTopics.Items.Add(topic);
-                }
-            }
-        }
-
-        private void lstHelpTopics_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (lstHelpTopics.SelectedItem != null)
-            {
-                string selectedTopic = lstHelpTopics.SelectedItem.ToString();
-                string solutionText = helpDatabase[selectedTopic];
-
-                MessageBox.Show(solutionText, selectedTopic, MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-        }
-
-        private void btnContactSupport_Click(object sender, EventArgs e)
-        {
-            string helpdeskUrl = "https://www.regalinn.co.za/support";
-
-            try
-            {
-                System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo
-                {
-                    FileName = helpdeskUrl,
-                    UseShellExecute = true
-                });
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Could not open the website automatically. Please visit: {helpdeskUrl}",
-                                "Open Link Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            string aboutMessage =
-                "Regal Inn Hotel Booking System\n" +
-                "Version 1.0.0\n\n" +
-                "Developed by Code Crafters\n" +
-                "Copyright © 2026. All Rights Reserved.";
-
-            MessageBox.Show(
-                aboutMessage,
-                "About Code Crafters Booking System",
-                MessageBoxButtons.OK,
-                MessageBoxIcon.Information
-            );
-        }
-
-        private void contactToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            string contactDetails =
-                "Regal Inn Hotels Support Desk\n\n" +
-                "📞 Phone: +27 (0) 33 123 4567\n" +
-                "✉️ Email: support@regalinn.co.za\n" +
-                "📍 Address: 123 Central Street, Pietermaritzburg, South Africa\n\n" +
-                "Hours: Monday - Sunday (24/7 Front Desk)";
-
-            MessageBox.Show(
-                contactDetails,
-                "Contact Regal Inn Support",
-                MessageBoxButtons.OK,
-                MessageBoxIcon.Information
-            );
-        }
-
-        private void PB1_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void reportsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void msTextBox_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void cddcvToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            string aboutMessage =
-               "Regal Inn Hotel Booking System\n" +
-               "Version 1.0.0\n\n" +
-               "Developed by Code Crafters\n" +
-               "Copyright © 2026. All Rights Reserved.";
-
-            MessageBox.Show(
-                aboutMessage,
-                "About Code Crafters Booking System",
-                MessageBoxButtons.OK,
-                MessageBoxIcon.Information
-            );
-        }
-
-        private void conctactToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            string contactDetails =
-                "Regal Inn Hotels Support Desk\n\n" +
-                "📞 Phone: +27 (0) 33 123 4567\n" +
-                "✉️ Email: support@regalinn.co.za\n" +
-                "📍 Address: 123 Central Street, Pietermaritzburg, South Africa\n\n" +
-                "Hours: Monday - Sunday (24/7 Front Desk)";
-
-            MessageBox.Show(
-                contactDetails,
-                "Contact Regal Inn Support",
-                MessageBoxButtons.OK,
-                MessageBoxIcon.Information
-            );
-        }
-
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void msTextBox_Click_1(object sender, EventArgs e)
-        {
-        }
-
-        private void LoginToolStripMenuItem_Click(object sender, EventArgs e)
-        {
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             HomePage form = new HomePage();
             form.Show();
+        }
+
+        private void btnHelp_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
