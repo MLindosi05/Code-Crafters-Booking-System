@@ -1,13 +1,15 @@
-﻿using System;
+﻿using Code_Crafters_Interface_Prototype_1.codeCraftersDSTableAdapters;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Code_Crafters_Interface_Prototype_1.codeCraftersDSTableAdapters;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TreeView;
 
 namespace Code_Crafters_Interface_Prototype_1.Business
 {
@@ -20,46 +22,31 @@ namespace Code_Crafters_Interface_Prototype_1.Business
 
         private void ReportsForm_Load(object sender, EventArgs e)
         {
-            CalculateBusinessMetrics();
+            taBookingReport.Fill(codeCraftersDS.Booking);
+            taClientReport.Fill(codeCraftersDS.Client);
+            taBranchReport.Fill(codeCraftersDS.Branch);
+            taFolioReport.Fill(codeCraftersDS.Folio);
+            taRoomAssignmentReport.Fill(codeCraftersDS.Room_Assignment);
+            taHotelRoomReport.Fill(codeCraftersDS.Hotel_Room);
+
         }
 
-        private void CalculateBusinessMetrics()
+        private void btnRevenueReport_Click(object sender, EventArgs e)
         {
-            try
-            {
-                using (var dynamicQueriesAdapter = new Booking1TableAdapter())
-                {
-                    DataTable reportData = dynamicQueriesAdapter.GetRevenueReport();
+            rptRevenueAnalysis rpt = new rptRevenueAnalysis();
+            rpt.SetDataSource(codeCraftersDS);
+            crystalReportViewerRegalInn.ReportSource = rpt;
+            crystalReportViewerRegalInn.Refresh();
 
-                    dgvReportSummary.DataSource = reportData;
-                    dgvReportSummary.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+        }
 
-                    decimal grandTotalRevenue = 0;
+        private void btnRoomReport_Click(object sender, EventArgs e)
+        {
+            rptOccupancyReport rpt = new rptOccupancyReport();
+            rpt.SetDataSource(codeCraftersDS);
+            crystalReportViewerRegalInn.ReportSource = rpt;
+            crystalReportViewerRegalInn.Refresh();
 
-                    foreach (DataRow row in reportData.Rows)
-                    {
-                        if (row[0] != DBNull.Value)
-                        {
-                            string status = row[0].ToString().Trim().ToLower();
-
-                            if (status == "confirmed" || status == "checked in" || status == "checked out")
-                            {
-                                if (row[2] != DBNull.Value)
-                                {
-                                    grandTotalRevenue += Convert.ToDecimal(row[2]);
-                                }
-                            }
-                        }
-                    }
-
-                    txtTotalEnterpriseRevenue.Text = grandTotalRevenue.ToString("C2");
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Analytical report computation failed:\n\n" + ex.Message,
-                                "Reporting Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
         }
     }
 }

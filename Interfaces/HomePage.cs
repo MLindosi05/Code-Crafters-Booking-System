@@ -17,6 +17,26 @@ namespace Code_Crafters_Interface_Prototype_1.Interfaces
             InitializeComponent();
         }
 
+        public void PrepareForm(Form form)
+        {
+            foreach (Form child in MdiChildren)
+            {
+                child.Close();
+            }
+
+            if (form == null || form.IsDisposed)
+            {
+                return;
+            }
+
+            form.MdiParent = this;
+            form.StartPosition = FormStartPosition.CenterScreen;
+            form.WindowState = FormWindowState.Maximized;
+            form.FormBorderStyle = FormBorderStyle.None;
+
+            form.Show();
+            form.BringToFront();
+        }
 
         private void label6_MouseEnter(object sender, EventArgs e)
         {
@@ -66,9 +86,10 @@ namespace Code_Crafters_Interface_Prototype_1.Interfaces
             );
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void HomePageLogin_Click(object sender, EventArgs e)
         {
-
+            Login login = new Login();
+            PrepareForm(login);
         }
 
         private void button3_Click(object sender, EventArgs e)
