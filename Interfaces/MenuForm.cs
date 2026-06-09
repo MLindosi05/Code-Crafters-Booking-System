@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Code_Crafters_Interface_Prototype_1.Interfaces;
 
 namespace Code_Crafters_Interface_Prototype_1
 {
@@ -73,7 +74,6 @@ namespace Code_Crafters_Interface_Prototype_1
                 {
                     msTextBox.Text = "LOGGED OUT";
                     msTextBox.ForeColor = Color.Red;
-                    
                 }
 
                 MessageBox.Show("You have logged out successfully.", "Session Terminated", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -99,13 +99,6 @@ namespace Code_Crafters_Interface_Prototype_1
             PrepareForm(signup);
         }
 
-        private void loginToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            LoginForm login = new LoginForm();
-            PrepareForm(login);
-            
-
-        }
 
         private void makeBookingToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -230,7 +223,7 @@ namespace Code_Crafters_Interface_Prototype_1
                 System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo
                 {
                     FileName = helpdeskUrl,
-                    UseShellExecute = true 
+                    UseShellExecute = true
                 });
             }
             catch (Exception ex)
@@ -275,17 +268,14 @@ namespace Code_Crafters_Interface_Prototype_1
 
         private void PB1_Click(object sender, EventArgs e)
         {
-
         }
 
         private void reportsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
         }
 
         private void msTextBox_Click(object sender, EventArgs e)
         {
-
         }
 
         private void cddcvToolStripMenuItem_Click(object sender, EventArgs e)
@@ -328,12 +318,16 @@ namespace Code_Crafters_Interface_Prototype_1
 
         private void msTextBox_Click_1(object sender, EventArgs e)
         {
-
         }
 
         private void LoginToolStripMenuItem_Click(object sender, EventArgs e)
         {
+        }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            HomePage form = new HomePage();
+            form.Show();
         }
     }
 }
