@@ -315,5 +315,11 @@
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
     <None Include="Resources\Ballito.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Umhlanga.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Umhlanga1.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
