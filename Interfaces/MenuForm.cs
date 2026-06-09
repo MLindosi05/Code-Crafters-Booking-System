@@ -73,6 +73,7 @@ namespace Code_Crafters_Interface_Prototype_1
                 {
                     msTextBox.Text = "LOGGED OUT";
                     msTextBox.ForeColor = Color.Red;
+                    
                 }
 
                 MessageBox.Show("You have logged out successfully.", "Session Terminated", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -102,6 +103,8 @@ namespace Code_Crafters_Interface_Prototype_1
         {
             LoginForm login = new LoginForm();
             PrepareForm(login);
+            
+
         }
 
         private void makeBookingToolStripMenuItem_Click(object sender, EventArgs e)
@@ -268,6 +271,69 @@ namespace Code_Crafters_Interface_Prototype_1
                 MessageBoxButtons.OK,
                 MessageBoxIcon.Information
             );
+        }
+
+        private void PB1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void reportsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void msTextBox_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cddcvToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string aboutMessage =
+               "Regal Inn Hotel Booking System\n" +
+               "Version 1.0.0\n\n" +
+               "Developed by Code Crafters\n" +
+               "Copyright © 2026. All Rights Reserved.";
+
+            MessageBox.Show(
+                aboutMessage,
+                "About Code Crafters Booking System",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Information
+            );
+        }
+
+        private void conctactToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string contactDetails =
+                "Regal Inn Hotels Support Desk\n\n" +
+                "📞 Phone: +27 (0) 33 123 4567\n" +
+                "✉️ Email: support@regalinn.co.za\n" +
+                "📍 Address: 123 Central Street, Pietermaritzburg, South Africa\n\n" +
+                "Hours: Monday - Sunday (24/7 Front Desk)";
+
+            MessageBox.Show(
+                contactDetails,
+                "Contact Regal Inn Support",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Information
+            );
+        }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void msTextBox_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LoginToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

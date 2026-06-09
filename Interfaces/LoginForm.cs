@@ -44,9 +44,10 @@ namespace Code_Crafters_Booking_System
                         $"Login successful. You may proceed to the main menu.",
                         "Authentication Successful",
                         MessageBoxButtons.OK,
-                        MessageBoxIcon.Information
-                    );
-                
+                        MessageBoxIcon.Information);
+
+                    
+
                     string loginSubject = "The Regal Inn - New Account Login Detected";
                     string loginBody = $@"
                     <div style='font-family: Arial, sans-serif; max-width: 600px; border: 1px solid #dcdcdc; padding: 20px;'>
