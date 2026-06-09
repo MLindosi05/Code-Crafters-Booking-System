@@ -103,6 +103,16 @@ namespace Code_Crafters_Interface_Prototype_1.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Ballito {
+            get {
+                object obj = ResourceManager.GetObject("Ballito", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap black_login_icon__0 {
             get {
                 object obj = ResourceManager.GetObject("black-login-icon--0", resourceCulture);
