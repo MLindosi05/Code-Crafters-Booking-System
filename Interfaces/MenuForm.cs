@@ -25,7 +25,6 @@ namespace Code_Crafters_Interface_Prototype_1
             reportsToolStripMenuItem.Visible = false;
         }
 
-
         private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             DialogResult confirmLogout = MessageBox.Show(
@@ -69,7 +68,7 @@ namespace Code_Crafters_Interface_Prototype_1
 
             //if (pnlHelpDrawer.Visible)
             //{
-                //pnlHelpDrawer.BringToFront();
+            //pnlHelpDrawer.BringToFront();
             //}
         }
 
@@ -77,11 +76,6 @@ namespace Code_Crafters_Interface_Prototype_1
         {
             SignUpForm signup = new SignUpForm();
         }
-
-<<<<<<< HEAD
-
-=======
->>>>>>> 3e11dbf829df907585c1b1a9566d8d4d8da11d25
 
         private void makeBookingToolStripMenuItem_Click(object sender, EventArgs e)
         {

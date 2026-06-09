@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HomePage));
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -136,7 +135,6 @@
             // 
             // pictureBox5
             // 
-            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
             this.pictureBox5.Location = new System.Drawing.Point(293, 292);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(194, 134);
@@ -146,7 +144,6 @@
             // 
             // pictureBox4
             // 
-            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
             this.pictureBox4.Location = new System.Drawing.Point(42, 292);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(194, 134);
@@ -166,7 +163,6 @@
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
             this.pictureBox2.Location = new System.Drawing.Point(293, 56);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(194, 160);
@@ -207,15 +203,6 @@
             // 
             // btnLogin
             // 
-<<<<<<< HEAD
-            this.button3.Location = new System.Drawing.Point(992, 9);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(90, 36);
-            this.button3.TabIndex = 5;
-            this.button3.Text = "LOG IN";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-=======
             this.btnLogin.Location = new System.Drawing.Point(992, 12);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(90, 36);
@@ -223,7 +210,6 @@
             this.btnLogin.Text = "LOG IN";
             this.btnLogin.UseVisualStyleBackColor = true;
             this.btnLogin.Click += new System.EventHandler(this.HomePageLogin_Click);
->>>>>>> 3e11dbf829df907585c1b1a9566d8d4d8da11d25
             // 
             // button4
             // 
@@ -246,6 +232,7 @@
             this.Controls.Add(this.label6);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox1);
+            this.IsMdiContainer = true;
             this.Name = "HomePage";
             this.Text = "HomePage";
             this.groupBox1.ResumeLayout(false);

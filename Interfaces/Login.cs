@@ -23,6 +23,8 @@ namespace Code_Crafters_Interface_Prototype_1.Interfaces
 
         private void Login_Load(object sender, EventArgs e)
         {
+            // Fills the dataset with client data from the database
+            this.taClient.Fill(this.codeCraftersDS1.Client);
             passwordTxt.UseSystemPasswordChar = true;
         }
 
@@ -115,7 +117,6 @@ namespace Code_Crafters_Interface_Prototype_1.Interfaces
 
         private void login_Click(object sender, EventArgs e)
         {
-
             bool found = false;
 
             foreach (codeCraftersDS.ClientRow row in codeCraftersDS1.Client)
@@ -135,8 +136,6 @@ namespace Code_Crafters_Interface_Prototype_1.Interfaces
                         "Authentication Successful",
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Information);
-
-
 
                     string loginSubject = "The Regal Inn - New Account Login Detected";
                     string loginBody = $@"
@@ -169,12 +168,10 @@ namespace Code_Crafters_Interface_Prototype_1.Interfaces
                             string userEmail = userNameTxt.Text.Trim().ToLower();
 
                             if (ms.Items["reportsToolStripMenuItem"] != null)
-
                             {
                                 if (userEmail.EndsWith("@regalinn.co.za"))
                                 {
                                     //ms.Items["reportsToolStripMenuItem"].Visible = true;
-                                    
 
                                     MessageBox.Show("Welcome back, administrator! Access to managerial reporting dashboards has been granted.",
                                                     "Admin Access Granted", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -211,15 +208,9 @@ namespace Code_Crafters_Interface_Prototype_1.Interfaces
             }
         }
 
-<<<<<<< HEAD
-        private void Login_Load(object sender, EventArgs e)
-        {
-            this.taClient.Fill(this.codeCraftersDS1.Client);
-            passwordTxt.UseSystemPasswordChar = true;
-        }
-
         private void pictureBox2_Click(object sender, EventArgs e)
         {
+            // Toggles between showing plain text and masking password characters
             passwordTxt.UseSystemPasswordChar = !passwordTxt.UseSystemPasswordChar;
         }
 
@@ -229,8 +220,5 @@ namespace Code_Crafters_Interface_Prototype_1.Interfaces
             homePage.Show();
             this.Hide();
         }
-=======
-     
->>>>>>> 3e11dbf829df907585c1b1a9566d8d4d8da11d25
     }
 }
