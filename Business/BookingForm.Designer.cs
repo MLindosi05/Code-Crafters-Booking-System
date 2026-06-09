@@ -83,10 +83,10 @@
             // 
             this.btnCreateBooking.BackColor = System.Drawing.Color.BlanchedAlmond;
             this.btnCreateBooking.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCreateBooking.Location = new System.Drawing.Point(1291, 1166);
-            this.btnCreateBooking.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnCreateBooking.Location = new System.Drawing.Point(968, 947);
+            this.btnCreateBooking.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnCreateBooking.Name = "btnCreateBooking";
-            this.btnCreateBooking.Size = new System.Drawing.Size(189, 38);
+            this.btnCreateBooking.Size = new System.Drawing.Size(142, 31);
             this.btnCreateBooking.TabIndex = 20;
             this.btnCreateBooking.Text = "Make a Booking";
             this.btnCreateBooking.UseVisualStyleBackColor = false;
@@ -96,10 +96,9 @@
             // 
             this.pnlBooking.Controls.Add(this.groupBox4);
             this.pnlBooking.Controls.Add(this.btnCreateBooking);
-            this.pnlBooking.Location = new System.Drawing.Point(16, 15);
-            this.pnlBooking.Margin = new System.Windows.Forms.Padding(4);
+            this.pnlBooking.Location = new System.Drawing.Point(12, 12);
             this.pnlBooking.Name = "pnlBooking";
-            this.pnlBooking.Size = new System.Drawing.Size(1511, 1250);
+            this.pnlBooking.Size = new System.Drawing.Size(1133, 1016);
             this.pnlBooking.TabIndex = 24;
             // 
             // groupBox4
@@ -114,11 +113,11 @@
             this.groupBox4.Controls.Add(this.grpBookingDetails);
             this.groupBox4.Controls.Add(this.grpClientDetails);
             this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox4.Location = new System.Drawing.Point(16, 16);
-            this.groupBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox4.Location = new System.Drawing.Point(12, 13);
+            this.groupBox4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox4.Size = new System.Drawing.Size(1464, 1130);
+            this.groupBox4.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox4.Size = new System.Drawing.Size(1098, 918);
             this.groupBox4.TabIndex = 24;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Make Booking";
@@ -126,28 +125,25 @@
             // lblTotalAmount
             // 
             this.lblTotalAmount.AutoSize = true;
-            this.lblTotalAmount.Location = new System.Drawing.Point(1020, 1089);
-            this.lblTotalAmount.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTotalAmount.Location = new System.Drawing.Point(765, 885);
             this.lblTotalAmount.Name = "lblTotalAmount";
-            this.lblTotalAmount.Size = new System.Drawing.Size(140, 22);
+            this.lblTotalAmount.Size = new System.Drawing.Size(119, 18);
             this.lblTotalAmount.TabIndex = 29;
             this.lblTotalAmount.Text = "Booking Price:";
             // 
             // txtTotalAmount
             // 
-            this.txtTotalAmount.Location = new System.Drawing.Point(1187, 1086);
-            this.txtTotalAmount.Margin = new System.Windows.Forms.Padding(4);
+            this.txtTotalAmount.Location = new System.Drawing.Point(890, 882);
             this.txtTotalAmount.Name = "txtTotalAmount";
-            this.txtTotalAmount.Size = new System.Drawing.Size(171, 28);
+            this.txtTotalAmount.Size = new System.Drawing.Size(129, 24);
             this.txtTotalAmount.TabIndex = 28;
             // 
             // chkRestaurant
             // 
             this.chkRestaurant.AutoSize = true;
-            this.chkRestaurant.Location = new System.Drawing.Point(109, 732);
-            this.chkRestaurant.Margin = new System.Windows.Forms.Padding(4);
+            this.chkRestaurant.Location = new System.Drawing.Point(82, 595);
             this.chkRestaurant.Name = "chkRestaurant";
-            this.chkRestaurant.Size = new System.Drawing.Size(208, 26);
+            this.chkRestaurant.Size = new System.Drawing.Size(176, 22);
             this.chkRestaurant.TabIndex = 27;
             this.chkRestaurant.Text = "Restaurant Booking";
             this.chkRestaurant.UseVisualStyleBackColor = true;
@@ -163,85 +159,77 @@
             this.grpRestaurantDetails.Controls.Add(this.lblStartTime);
             this.grpRestaurantDetails.Controls.Add(this.lblTablePrice);
             this.grpRestaurantDetails.Controls.Add(this.lblRestaurantTable);
-            this.grpRestaurantDetails.Location = new System.Drawing.Point(109, 785);
-            this.grpRestaurantDetails.Margin = new System.Windows.Forms.Padding(4);
+            this.grpRestaurantDetails.Location = new System.Drawing.Point(82, 638);
             this.grpRestaurantDetails.Name = "grpRestaurantDetails";
-            this.grpRestaurantDetails.Padding = new System.Windows.Forms.Padding(4);
-            this.grpRestaurantDetails.Size = new System.Drawing.Size(1249, 282);
+            this.grpRestaurantDetails.Size = new System.Drawing.Size(937, 229);
             this.grpRestaurantDetails.TabIndex = 25;
             this.grpRestaurantDetails.TabStop = false;
             this.grpRestaurantDetails.Text = "Restaurant Details";
             // 
             // dtpEndTime
             // 
-            this.dtpEndTime.Location = new System.Drawing.Point(247, 214);
-            this.dtpEndTime.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dtpEndTime.Location = new System.Drawing.Point(185, 174);
+            this.dtpEndTime.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dtpEndTime.Name = "dtpEndTime";
-            this.dtpEndTime.Size = new System.Drawing.Size(359, 28);
+            this.dtpEndTime.Size = new System.Drawing.Size(270, 24);
             this.dtpEndTime.TabIndex = 28;
             // 
             // dtpStartTime
             // 
-            this.dtpStartTime.Location = new System.Drawing.Point(247, 160);
-            this.dtpStartTime.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dtpStartTime.Location = new System.Drawing.Point(185, 130);
+            this.dtpStartTime.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dtpStartTime.Name = "dtpStartTime";
-            this.dtpStartTime.Size = new System.Drawing.Size(359, 28);
+            this.dtpStartTime.Size = new System.Drawing.Size(270, 24);
             this.dtpStartTime.TabIndex = 27;
             // 
             // txtTablePrice
             // 
-            this.txtTablePrice.Location = new System.Drawing.Point(247, 116);
-            this.txtTablePrice.Margin = new System.Windows.Forms.Padding(4);
+            this.txtTablePrice.Location = new System.Drawing.Point(185, 94);
             this.txtTablePrice.Name = "txtTablePrice";
-            this.txtTablePrice.Size = new System.Drawing.Size(160, 28);
+            this.txtTablePrice.Size = new System.Drawing.Size(121, 24);
             this.txtTablePrice.TabIndex = 5;
             // 
             // cmbRestaurantTable
             // 
             this.cmbRestaurantTable.FormattingEnabled = true;
-            this.cmbRestaurantTable.Location = new System.Drawing.Point(247, 63);
-            this.cmbRestaurantTable.Margin = new System.Windows.Forms.Padding(4);
+            this.cmbRestaurantTable.Location = new System.Drawing.Point(185, 51);
             this.cmbRestaurantTable.Name = "cmbRestaurantTable";
-            this.cmbRestaurantTable.Size = new System.Drawing.Size(160, 30);
+            this.cmbRestaurantTable.Size = new System.Drawing.Size(121, 25);
             this.cmbRestaurantTable.TabIndex = 4;
             // 
             // lblEndTime
             // 
             this.lblEndTime.AutoSize = true;
-            this.lblEndTime.Location = new System.Drawing.Point(51, 214);
-            this.lblEndTime.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblEndTime.Location = new System.Drawing.Point(38, 174);
             this.lblEndTime.Name = "lblEndTime";
-            this.lblEndTime.Size = new System.Drawing.Size(101, 22);
+            this.lblEndTime.Size = new System.Drawing.Size(84, 18);
             this.lblEndTime.TabIndex = 3;
             this.lblEndTime.Text = "End Time:";
             // 
             // lblStartTime
             // 
             this.lblStartTime.AutoSize = true;
-            this.lblStartTime.Location = new System.Drawing.Point(51, 160);
-            this.lblStartTime.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblStartTime.Location = new System.Drawing.Point(38, 130);
             this.lblStartTime.Name = "lblStartTime";
-            this.lblStartTime.Size = new System.Drawing.Size(109, 22);
+            this.lblStartTime.Size = new System.Drawing.Size(91, 18);
             this.lblStartTime.TabIndex = 2;
             this.lblStartTime.Text = "Start Time:";
             // 
             // lblTablePrice
             // 
             this.lblTablePrice.AutoSize = true;
-            this.lblTablePrice.Location = new System.Drawing.Point(51, 119);
-            this.lblTablePrice.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTablePrice.Location = new System.Drawing.Point(38, 97);
             this.lblTablePrice.Name = "lblTablePrice";
-            this.lblTablePrice.Size = new System.Drawing.Size(119, 22);
+            this.lblTablePrice.Size = new System.Drawing.Size(98, 18);
             this.lblTablePrice.TabIndex = 1;
             this.lblTablePrice.Text = "Table Price:";
             // 
             // lblRestaurantTable
             // 
             this.lblRestaurantTable.AutoSize = true;
-            this.lblRestaurantTable.Location = new System.Drawing.Point(51, 66);
-            this.lblRestaurantTable.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblRestaurantTable.Location = new System.Drawing.Point(38, 54);
             this.lblRestaurantTable.Name = "lblRestaurantTable";
-            this.lblRestaurantTable.Size = new System.Drawing.Size(171, 22);
+            this.lblRestaurantTable.Size = new System.Drawing.Size(141, 18);
             this.lblRestaurantTable.TabIndex = 0;
             this.lblRestaurantTable.Text = "Restaurant Table:";
             // 
@@ -251,59 +239,52 @@
             this.grpRoomDetails.Controls.Add(this.cmbRoom);
             this.grpRoomDetails.Controls.Add(this.lblRoomPrice);
             this.grpRoomDetails.Controls.Add(this.lblRoom);
-            this.grpRoomDetails.Location = new System.Drawing.Point(109, 537);
-            this.grpRoomDetails.Margin = new System.Windows.Forms.Padding(4);
+            this.grpRoomDetails.Location = new System.Drawing.Point(82, 436);
             this.grpRoomDetails.Name = "grpRoomDetails";
-            this.grpRoomDetails.Padding = new System.Windows.Forms.Padding(4);
-            this.grpRoomDetails.Size = new System.Drawing.Size(1249, 165);
+            this.grpRoomDetails.Size = new System.Drawing.Size(937, 134);
             this.grpRoomDetails.TabIndex = 24;
             this.grpRoomDetails.TabStop = false;
             this.grpRoomDetails.Text = "Room Details";
             // 
             // txtRoomPrice
             // 
-            this.txtRoomPrice.Location = new System.Drawing.Point(192, 101);
-            this.txtRoomPrice.Margin = new System.Windows.Forms.Padding(4);
+            this.txtRoomPrice.Location = new System.Drawing.Point(144, 82);
             this.txtRoomPrice.Name = "txtRoomPrice";
-            this.txtRoomPrice.Size = new System.Drawing.Size(160, 28);
+            this.txtRoomPrice.Size = new System.Drawing.Size(121, 24);
             this.txtRoomPrice.TabIndex = 3;
             // 
             // cmbRoom
             // 
             this.cmbRoom.FormattingEnabled = true;
-            this.cmbRoom.Location = new System.Drawing.Point(192, 48);
-            this.cmbRoom.Margin = new System.Windows.Forms.Padding(4);
+            this.cmbRoom.Location = new System.Drawing.Point(144, 39);
             this.cmbRoom.Name = "cmbRoom";
-            this.cmbRoom.Size = new System.Drawing.Size(160, 30);
+            this.cmbRoom.Size = new System.Drawing.Size(121, 25);
             this.cmbRoom.TabIndex = 2;
             // 
             // lblRoomPrice
             // 
             this.lblRoomPrice.AutoSize = true;
-            this.lblRoomPrice.Location = new System.Drawing.Point(43, 101);
-            this.lblRoomPrice.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblRoomPrice.Location = new System.Drawing.Point(32, 82);
             this.lblRoomPrice.Name = "lblRoomPrice";
-            this.lblRoomPrice.Size = new System.Drawing.Size(119, 22);
+            this.lblRoomPrice.Size = new System.Drawing.Size(103, 18);
             this.lblRoomPrice.TabIndex = 1;
             this.lblRoomPrice.Text = "Room Price:";
             // 
             // lblRoom
             // 
             this.lblRoom.AutoSize = true;
-            this.lblRoom.Location = new System.Drawing.Point(43, 52);
-            this.lblRoom.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblRoom.Location = new System.Drawing.Point(32, 42);
             this.lblRoom.Name = "lblRoom";
-            this.lblRoom.Size = new System.Drawing.Size(67, 22);
+            this.lblRoom.Size = new System.Drawing.Size(59, 18);
             this.lblRoom.TabIndex = 0;
             this.lblRoom.Text = "Room:";
             // 
             // chkRoom
             // 
             this.chkRoom.AutoSize = true;
-            this.chkRoom.Location = new System.Drawing.Point(109, 484);
-            this.chkRoom.Margin = new System.Windows.Forms.Padding(4);
+            this.chkRoom.Location = new System.Drawing.Point(82, 393);
             this.chkRoom.Name = "chkRoom";
-            this.chkRoom.Size = new System.Drawing.Size(161, 26);
+            this.chkRoom.Size = new System.Drawing.Size(140, 22);
             this.chkRoom.TabIndex = 26;
             this.chkRoom.Text = "Room Booking";
             this.chkRoom.UseVisualStyleBackColor = true;
@@ -317,67 +298,62 @@
             this.grpBookingDetails.Controls.Add(this.lblCheckInDate);
             this.grpBookingDetails.Controls.Add(this.lblBookingDate);
             this.grpBookingDetails.Controls.Add(this.dtpBookingDate);
-            this.grpBookingDetails.Location = new System.Drawing.Point(109, 218);
-            this.grpBookingDetails.Margin = new System.Windows.Forms.Padding(4);
+            this.grpBookingDetails.Location = new System.Drawing.Point(82, 177);
             this.grpBookingDetails.Name = "grpBookingDetails";
-            this.grpBookingDetails.Padding = new System.Windows.Forms.Padding(4);
-            this.grpBookingDetails.Size = new System.Drawing.Size(1249, 231);
+            this.grpBookingDetails.Size = new System.Drawing.Size(937, 188);
             this.grpBookingDetails.TabIndex = 23;
             this.grpBookingDetails.TabStop = false;
             this.grpBookingDetails.Text = "Booking Details";
             // 
             // dtpCheckInDate
             // 
-            this.dtpCheckInDate.Location = new System.Drawing.Point(224, 112);
-            this.dtpCheckInDate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dtpCheckInDate.Location = new System.Drawing.Point(168, 91);
+            this.dtpCheckInDate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dtpCheckInDate.Name = "dtpCheckInDate";
-            this.dtpCheckInDate.Size = new System.Drawing.Size(359, 28);
+            this.dtpCheckInDate.Size = new System.Drawing.Size(270, 24);
             this.dtpCheckInDate.TabIndex = 26;
             // 
             // dtpCheckOutDate
             // 
-            this.dtpCheckOutDate.Location = new System.Drawing.Point(224, 164);
-            this.dtpCheckOutDate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dtpCheckOutDate.Location = new System.Drawing.Point(168, 133);
+            this.dtpCheckOutDate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dtpCheckOutDate.Name = "dtpCheckOutDate";
-            this.dtpCheckOutDate.Size = new System.Drawing.Size(359, 28);
+            this.dtpCheckOutDate.Size = new System.Drawing.Size(270, 24);
             this.dtpCheckOutDate.TabIndex = 25;
             // 
             // lblCheckOutDate
             // 
             this.lblCheckOutDate.AutoSize = true;
-            this.lblCheckOutDate.Location = new System.Drawing.Point(39, 164);
-            this.lblCheckOutDate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblCheckOutDate.Location = new System.Drawing.Point(29, 133);
             this.lblCheckOutDate.Name = "lblCheckOutDate";
-            this.lblCheckOutDate.Size = new System.Drawing.Size(159, 22);
+            this.lblCheckOutDate.Size = new System.Drawing.Size(134, 18);
             this.lblCheckOutDate.TabIndex = 24;
             this.lblCheckOutDate.Text = "Check-Out Date:";
             // 
             // lblCheckInDate
             // 
             this.lblCheckInDate.AutoSize = true;
-            this.lblCheckInDate.Location = new System.Drawing.Point(39, 112);
-            this.lblCheckInDate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblCheckInDate.Location = new System.Drawing.Point(29, 91);
             this.lblCheckInDate.Name = "lblCheckInDate";
-            this.lblCheckInDate.Size = new System.Drawing.Size(143, 22);
+            this.lblCheckInDate.Size = new System.Drawing.Size(120, 18);
             this.lblCheckInDate.TabIndex = 23;
             this.lblCheckInDate.Text = "Check-In Date:";
             // 
             // lblBookingDate
             // 
             this.lblBookingDate.AutoSize = true;
-            this.lblBookingDate.Location = new System.Drawing.Point(39, 54);
-            this.lblBookingDate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblBookingDate.Location = new System.Drawing.Point(29, 44);
             this.lblBookingDate.Name = "lblBookingDate";
-            this.lblBookingDate.Size = new System.Drawing.Size(136, 22);
+            this.lblBookingDate.Size = new System.Drawing.Size(115, 18);
             this.lblBookingDate.TabIndex = 22;
             this.lblBookingDate.Text = "Booking Date:";
             // 
             // dtpBookingDate
             // 
-            this.dtpBookingDate.Location = new System.Drawing.Point(224, 54);
-            this.dtpBookingDate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dtpBookingDate.Location = new System.Drawing.Point(168, 44);
+            this.dtpBookingDate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dtpBookingDate.Name = "dtpBookingDate";
-            this.dtpBookingDate.Size = new System.Drawing.Size(359, 28);
+            this.dtpBookingDate.Size = new System.Drawing.Size(270, 24);
             this.dtpBookingDate.TabIndex = 21;
             // 
             // grpClientDetails
@@ -386,11 +362,9 @@
             this.grpClientDetails.Controls.Add(this.cmbClient);
             this.grpClientDetails.Controls.Add(this.lblBranch);
             this.grpClientDetails.Controls.Add(this.lblClient);
-            this.grpClientDetails.Location = new System.Drawing.Point(113, 47);
-            this.grpClientDetails.Margin = new System.Windows.Forms.Padding(4);
+            this.grpClientDetails.Location = new System.Drawing.Point(85, 38);
             this.grpClientDetails.Name = "grpClientDetails";
-            this.grpClientDetails.Padding = new System.Windows.Forms.Padding(4);
-            this.grpClientDetails.Size = new System.Drawing.Size(1245, 150);
+            this.grpClientDetails.Size = new System.Drawing.Size(934, 122);
             this.grpClientDetails.TabIndex = 22;
             this.grpClientDetails.TabStop = false;
             this.grpClientDetails.Text = "Client Details";
@@ -398,38 +372,34 @@
             // cmbBranch
             // 
             this.cmbBranch.FormattingEnabled = true;
-            this.cmbBranch.Location = new System.Drawing.Point(141, 91);
-            this.cmbBranch.Margin = new System.Windows.Forms.Padding(4);
+            this.cmbBranch.Location = new System.Drawing.Point(106, 74);
             this.cmbBranch.Name = "cmbBranch";
-            this.cmbBranch.Size = new System.Drawing.Size(160, 30);
+            this.cmbBranch.Size = new System.Drawing.Size(121, 25);
             this.cmbBranch.TabIndex = 3;
             // 
             // cmbClient
             // 
             this.cmbClient.FormattingEnabled = true;
-            this.cmbClient.Location = new System.Drawing.Point(141, 42);
-            this.cmbClient.Margin = new System.Windows.Forms.Padding(4);
+            this.cmbClient.Location = new System.Drawing.Point(106, 34);
             this.cmbClient.Name = "cmbClient";
-            this.cmbClient.Size = new System.Drawing.Size(160, 30);
+            this.cmbClient.Size = new System.Drawing.Size(121, 25);
             this.cmbClient.TabIndex = 2;
             // 
             // lblBranch
             // 
             this.lblBranch.AutoSize = true;
-            this.lblBranch.Location = new System.Drawing.Point(31, 95);
-            this.lblBranch.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblBranch.Location = new System.Drawing.Point(23, 77);
             this.lblBranch.Name = "lblBranch";
-            this.lblBranch.Size = new System.Drawing.Size(79, 22);
+            this.lblBranch.Size = new System.Drawing.Size(66, 18);
             this.lblBranch.TabIndex = 1;
             this.lblBranch.Text = "Branch:";
             // 
             // lblClient
             // 
             this.lblClient.AutoSize = true;
-            this.lblClient.Location = new System.Drawing.Point(31, 46);
-            this.lblClient.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblClient.Location = new System.Drawing.Point(23, 37);
             this.lblClient.Name = "lblClient";
-            this.lblClient.Size = new System.Drawing.Size(68, 22);
+            this.lblClient.Size = new System.Drawing.Size(56, 18);
             this.lblClient.TabIndex = 0;
             this.lblClient.Text = "Client:";
             // 
@@ -472,13 +442,13 @@
             // 
             // BookingForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSlateGray;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1543, 1055);
+            this.ClientSize = new System.Drawing.Size(1157, 991);
             this.Controls.Add(this.pnlBooking);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "BookingForm";
             this.Text = "MakeBookingForm";
             this.pnlBooking.ResumeLayout(false);

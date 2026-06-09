@@ -79,6 +79,18 @@
       <DependentUpon>codeCraftersDS.xsd</DependentUpon>
     </Compile>
     <Compile Include="EmailService.cs" />
+    <Compile Include="Interfaces\HomePage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interfaces\HomePage.Designer.cs">
+      <DependentUpon>HomePage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Interfaces\Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interfaces\Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
     <Compile Include="Interfaces\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -111,6 +123,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Business\ViewBookingForm.resx">
       <DependentUpon>ViewBookingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Interfaces\HomePage.resx">
+      <DependentUpon>HomePage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Interfaces\Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Interfaces\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
@@ -265,6 +283,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Generate Reports.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ballito.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

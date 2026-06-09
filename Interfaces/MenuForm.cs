@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Code_Crafters_Interface_Prototype_1.Interfaces;
 
 namespace Code_Crafters_Interface_Prototype_1
 {
@@ -22,6 +23,7 @@ namespace Code_Crafters_Interface_Prototype_1
         private void MainMenuForm_Load(object sender, EventArgs e)
         {
             reportsToolStripMenuItem.Visible = false;
+            
         }
 
         public void PrepareForm(Form form)
@@ -275,7 +277,7 @@ namespace Code_Crafters_Interface_Prototype_1
 
         private void PB1_Click(object sender, EventArgs e)
         {
-
+           
         }
 
         private void reportsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -334,6 +336,12 @@ namespace Code_Crafters_Interface_Prototype_1
         private void LoginToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            HomePage form = new HomePage();
+            form.Show();
         }
     }
 }
