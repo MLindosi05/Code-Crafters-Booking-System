@@ -46,21 +46,6 @@ namespace Code_Crafters_Booking_System
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Information
                     );
-                
-                    string loginSubject = "The Regal Inn - New Account Login Detected";
-                    string loginBody = $@"
-                    <div style='font-family: Arial, sans-serif; max-width: 600px; border: 1px solid #dcdcdc; padding: 20px;'>
-                        <h2 style='color: #1976D2;'>New Account Login Detected</h2>
-                        <p>Hello {row.First_Name} {row.Last_Name},</p>
-                        <p>We detected a successful security session sign-in to your Regal Inn profile associated with this account.</p>
-                        <hr style='border: 0; border-top: 1px solid #eee;' />
-                        <p><b>Account Email Address:</b> {row.Email_Address}</p>
-                        <p><b>Login Date & Time:</b> {DateTime.Now.ToString("dd MMM yyyy HH:mm:ss")}</p>
-                        <hr style='border: 0; border-top: 1px solid #eee;' />
-                        <p style='font-size: 12px; color: #888;'>This is an automated system application security notice. No direct reply is required.</p>
-                    </div>";
-
-                    EmailService.SendEmail(row.Email_Address, loginSubject, loginBody);
 
                     Form frm = Application.OpenForms["MainMenuForm"];
 

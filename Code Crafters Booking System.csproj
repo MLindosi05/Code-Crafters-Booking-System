@@ -33,8 +33,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -78,6 +84,18 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>codeCraftersDS.xsd</DependentUpon>
     </Compile>
+    <Compile Include="rptOccupancyReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptOccupancyReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rptRevenueAnalysis.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptRevenueAnalysis.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="EmailService.cs" />
     <Compile Include="Interfaces\LoginForm.cs">
       <SubType>Form</SubType>
@@ -111,6 +129,14 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Business\ViewBookingForm.resx">
       <DependentUpon>ViewBookingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rptOccupancyReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptOccupancyReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rptRevenueAnalysis.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptRevenueAnalysis.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Interfaces\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
@@ -265,6 +291,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Generate Reports.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
