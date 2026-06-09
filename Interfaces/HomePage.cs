@@ -70,5 +70,11 @@ namespace Code_Crafters_Interface_Prototype_1.Interfaces
         {
 
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Login Logn = new Login();
+            Logn.Show();
+        }
     }
 }

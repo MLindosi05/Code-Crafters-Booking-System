@@ -101,13 +101,7 @@ namespace Code_Crafters_Interface_Prototype_1
             PrepareForm(signup);
         }
 
-        private void loginToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            LoginForm login = new LoginForm();
-            PrepareForm(login);
-            
 
-        }
 
         private void makeBookingToolStripMenuItem_Click(object sender, EventArgs e)
         {

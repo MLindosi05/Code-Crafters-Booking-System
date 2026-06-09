@@ -14,7 +14,7 @@ namespace Code_Crafters_Interface_Prototype_1.Interfaces
     public partial class Login : Form
     {
         // Add this field to your Login class to hold a reference to the dataset
-        private codeCraftersDS codeCraftersDS = new codeCraftersDS();
+        //private codeCraftersDS codeCraftersDS = new codeCraftersDS();
 
         public Login()
         {
@@ -25,7 +25,7 @@ namespace Code_Crafters_Interface_Prototype_1.Interfaces
         {
             bool found = false;
 
-            foreach (var row in codeCraftersDS.Client)
+            foreach (codeCraftersDS.ClientRow row in codeCraftersDS1.Client)
             {
                 if (row.Email_Address == userNameTxt.Text &&
                     row.Password == passwordTxt.Text)
@@ -76,10 +76,12 @@ namespace Code_Crafters_Interface_Prototype_1.Interfaces
                             string userEmail = userNameTxt.Text.Trim().ToLower();
 
                             if (ms.Items["reportsToolStripMenuItem"] != null)
+
                             {
                                 if (userEmail.EndsWith("@regalinn.co.za"))
                                 {
-                                    ms.Items["reportsToolStripMenuItem"].Visible = true;
+                                    //ms.Items["reportsToolStripMenuItem"].Visible = true;
+                                    
 
                                     MessageBox.Show("Welcome back, administrator! Access to managerial reporting dashboards has been granted.",
                                                     "Admin Access Granted", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -118,8 +120,20 @@ namespace Code_Crafters_Interface_Prototype_1.Interfaces
 
         private void Login_Load(object sender, EventArgs e)
         {
-            //this.taStaff.Fill(this.codeCraftersDS.Client);
+            this.taClient.Fill(this.codeCraftersDS1.Client);
             passwordTxt.UseSystemPasswordChar = true;
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            passwordTxt.UseSystemPasswordChar = !passwordTxt.UseSystemPasswordChar;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            HomePage homePage = new HomePage();
+            homePage.Show();
+            this.Hide();
         }
     }
 }

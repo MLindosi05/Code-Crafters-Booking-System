@@ -91,11 +91,11 @@
     <Compile Include="Interfaces\Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="Interfaces\LoginForm.cs">
+    <Compile Include="Interfaces\ManagerMenuForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Interfaces\LoginForm.Designer.cs">
-      <DependentUpon>LoginForm.cs</DependentUpon>
+    <Compile Include="Interfaces\ManagerMenuForm.Designer.cs">
+      <DependentUpon>ManagerMenuForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Interfaces\SignUpForm.cs">
       <SubType>Form</SubType>
@@ -130,8 +130,8 @@
     <EmbeddedResource Include="Interfaces\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Interfaces\LoginForm.resx">
-      <DependentUpon>LoginForm.cs</DependentUpon>
+    <EmbeddedResource Include="Interfaces\ManagerMenuForm.resx">
+      <DependentUpon>ManagerMenuForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Interfaces\SignUpForm.resx">
       <DependentUpon>SignUpForm.cs</DependentUpon>

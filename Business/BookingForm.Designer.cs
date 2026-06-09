@@ -84,7 +84,7 @@
             this.btnCreateBooking.BackColor = System.Drawing.Color.BlanchedAlmond;
             this.btnCreateBooking.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCreateBooking.Location = new System.Drawing.Point(968, 947);
-            this.btnCreateBooking.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnCreateBooking.Margin = new System.Windows.Forms.Padding(2);
             this.btnCreateBooking.Name = "btnCreateBooking";
             this.btnCreateBooking.Size = new System.Drawing.Size(142, 31);
             this.btnCreateBooking.TabIndex = 20;
@@ -114,9 +114,9 @@
             this.groupBox4.Controls.Add(this.grpClientDetails);
             this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox4.Location = new System.Drawing.Point(12, 13);
-            this.groupBox4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox4.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox4.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox4.Size = new System.Drawing.Size(1098, 918);
             this.groupBox4.TabIndex = 24;
             this.groupBox4.TabStop = false;
@@ -169,7 +169,7 @@
             // dtpEndTime
             // 
             this.dtpEndTime.Location = new System.Drawing.Point(185, 174);
-            this.dtpEndTime.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtpEndTime.Margin = new System.Windows.Forms.Padding(2);
             this.dtpEndTime.Name = "dtpEndTime";
             this.dtpEndTime.Size = new System.Drawing.Size(270, 24);
             this.dtpEndTime.TabIndex = 28;
@@ -177,7 +177,7 @@
             // dtpStartTime
             // 
             this.dtpStartTime.Location = new System.Drawing.Point(185, 130);
-            this.dtpStartTime.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtpStartTime.Margin = new System.Windows.Forms.Padding(2);
             this.dtpStartTime.Name = "dtpStartTime";
             this.dtpStartTime.Size = new System.Drawing.Size(270, 24);
             this.dtpStartTime.TabIndex = 27;
@@ -308,7 +308,7 @@
             // dtpCheckInDate
             // 
             this.dtpCheckInDate.Location = new System.Drawing.Point(168, 91);
-            this.dtpCheckInDate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtpCheckInDate.Margin = new System.Windows.Forms.Padding(2);
             this.dtpCheckInDate.Name = "dtpCheckInDate";
             this.dtpCheckInDate.Size = new System.Drawing.Size(270, 24);
             this.dtpCheckInDate.TabIndex = 26;
@@ -316,7 +316,7 @@
             // dtpCheckOutDate
             // 
             this.dtpCheckOutDate.Location = new System.Drawing.Point(168, 133);
-            this.dtpCheckOutDate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtpCheckOutDate.Margin = new System.Windows.Forms.Padding(2);
             this.dtpCheckOutDate.Name = "dtpCheckOutDate";
             this.dtpCheckOutDate.Size = new System.Drawing.Size(270, 24);
             this.dtpCheckOutDate.TabIndex = 25;
@@ -351,7 +351,7 @@
             // dtpBookingDate
             // 
             this.dtpBookingDate.Location = new System.Drawing.Point(168, 44);
-            this.dtpBookingDate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtpBookingDate.Margin = new System.Windows.Forms.Padding(2);
             this.dtpBookingDate.Name = "dtpBookingDate";
             this.dtpBookingDate.Size = new System.Drawing.Size(270, 24);
             this.dtpBookingDate.TabIndex = 21;
@@ -448,7 +448,7 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1157, 991);
             this.Controls.Add(this.pnlBooking);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "BookingForm";
             this.Text = "MakeBookingForm";
             this.pnlBooking.ResumeLayout(false);
