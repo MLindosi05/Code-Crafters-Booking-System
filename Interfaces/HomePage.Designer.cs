@@ -238,7 +238,6 @@
             this.Controls.Add(this.label6);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox1);
-            this.IsMdiContainer = true;
             this.Name = "HomePage";
             this.Text = "HomePage";
             this.groupBox1.ResumeLayout(false);
