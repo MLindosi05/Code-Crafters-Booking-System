@@ -28,8 +28,13 @@ namespace Code_Crafters_Interface_Prototype_1.Business
             taFolioReport.Fill(codeCraftersDS.Folio);
             taRoomAssignmentReport.Fill(codeCraftersDS.Room_Assignment);
             taHotelRoomReport.Fill(codeCraftersDS.Hotel_Room);
-
+            btnRevenueReport.BackColor = ColorTranslator.FromHtml("#C99A2E");
+            btnRevenueReport.ForeColor = Color.White;
+            btnRoomReport.BackColor = ColorTranslator.FromHtml("#C99A2E");
+            btnRoomReport.ForeColor = Color.White;
+            this.BackColor = ColorTranslator.FromHtml("#F9EED8");
         }
+
 
         private void btnRevenueReport_Click(object sender, EventArgs e)
         {

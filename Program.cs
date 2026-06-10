@@ -18,7 +18,7 @@ namespace Code_Crafters_Booking_System
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ViewBookingForm());//Code_Crafters_Interface_Prototype_1.Interfaces.HomePage());
+            Application.Run(new ReportsForm());//Code_Crafters_Interface_Prototype_1.Interfaces.HomePage());
         }
     }
 }
