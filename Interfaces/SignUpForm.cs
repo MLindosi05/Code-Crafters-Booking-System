@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Code_Crafters_Interface_Prototype_1.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,6 +9,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 
 namespace Code_Crafters_Booking_System
 {
@@ -171,5 +173,27 @@ namespace Code_Crafters_Booking_System
             if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != ' ')
                 e.Handled = true;
         }
+
+        private void SignUpForm_Load(object sender, EventArgs e)
+        {
+            this.BackColor = ColorTranslator.FromHtml("#F9EED8");
+            panel1.BackColor = ColorTranslator.FromHtml("#F8F5F0");
+            button1.BackColor = ColorTranslator.FromHtml("#C99A2E");
+            button1.ForeColor = Color.White;
+            btnSignUp.BackColor = ColorTranslator.FromHtml("#C99A2E");
+            btnSignUp.ForeColor = Color.White;
+            panel2.BackColor = ColorTranslator.FromHtml("#F8F5F0");
+            groupBox4.BackColor = ColorTranslator.FromHtml("#966919");
+            
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            HomePage homePage = new HomePage();
+            homePage.Show();
+            this.Close();
+        }
+
+
     }
 }

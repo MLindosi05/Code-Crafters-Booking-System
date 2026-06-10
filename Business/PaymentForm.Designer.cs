@@ -50,10 +50,12 @@
             this.taFolio = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTableAdapters.FolioTableAdapter();
             this.codeCraftersDS = new Code_Crafters_Interface_Prototype_1.codeCraftersDS();
             this.taBooking = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTableAdapters.BookingTableAdapter();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.grbPayments.SuspendLayout();
             this.grpSummary.SuspendLayout();
             this.grpPayment.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.codeCraftersDS)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // grbPayments
@@ -65,11 +67,11 @@
             this.grbPayments.Controls.Add(this.btnCancel);
             this.grbPayments.Controls.Add(this.grpPayment);
             this.grbPayments.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grbPayments.Location = new System.Drawing.Point(39, 39);
+            this.grbPayments.Location = new System.Drawing.Point(56, 33);
             this.grbPayments.Margin = new System.Windows.Forms.Padding(2);
             this.grbPayments.Name = "grbPayments";
             this.grbPayments.Padding = new System.Windows.Forms.Padding(2);
-            this.grbPayments.Size = new System.Drawing.Size(775, 464);
+            this.grbPayments.Size = new System.Drawing.Size(942, 496);
             this.grbPayments.TabIndex = 0;
             this.grbPayments.TabStop = false;
             this.grbPayments.Text = "MAKE PAYMENT";
@@ -123,7 +125,7 @@
             // 
             // txtTotalPrice
             // 
-            this.txtTotalPrice.Location = new System.Drawing.Point(144, 195);
+            this.txtTotalPrice.Location = new System.Drawing.Point(214, 199);
             this.txtTotalPrice.Name = "txtTotalPrice";
             this.txtTotalPrice.ReadOnly = true;
             this.txtTotalPrice.Size = new System.Drawing.Size(271, 29);
@@ -140,26 +142,26 @@
             // 
             // txtPhysicalAddress
             // 
-            this.txtPhysicalAddress.Location = new System.Drawing.Point(201, 161);
+            this.txtPhysicalAddress.Location = new System.Drawing.Point(214, 156);
             this.txtPhysicalAddress.Name = "txtPhysicalAddress";
             this.txtPhysicalAddress.ReadOnly = true;
-            this.txtPhysicalAddress.Size = new System.Drawing.Size(214, 29);
+            this.txtPhysicalAddress.Size = new System.Drawing.Size(271, 29);
             this.txtPhysicalAddress.TabIndex = 18;
             // 
             // txtEmailAddress
             // 
-            this.txtEmailAddress.Location = new System.Drawing.Point(170, 121);
+            this.txtEmailAddress.Location = new System.Drawing.Point(214, 116);
             this.txtEmailAddress.Name = "txtEmailAddress";
             this.txtEmailAddress.ReadOnly = true;
-            this.txtEmailAddress.Size = new System.Drawing.Size(245, 29);
+            this.txtEmailAddress.Size = new System.Drawing.Size(271, 29);
             this.txtEmailAddress.TabIndex = 17;
             // 
             // txtGuestName
             // 
-            this.txtGuestName.Location = new System.Drawing.Point(152, 81);
+            this.txtGuestName.Location = new System.Drawing.Point(214, 76);
             this.txtGuestName.Name = "txtGuestName";
             this.txtGuestName.ReadOnly = true;
-            this.txtGuestName.Size = new System.Drawing.Size(263, 29);
+            this.txtGuestName.Size = new System.Drawing.Size(271, 29);
             this.txtGuestName.TabIndex = 16;
             // 
             // txtBookingID
@@ -167,7 +169,7 @@
             this.txtBookingID.Location = new System.Drawing.Point(214, 38);
             this.txtBookingID.Name = "txtBookingID";
             this.txtBookingID.ReadOnly = true;
-            this.txtBookingID.Size = new System.Drawing.Size(201, 29);
+            this.txtBookingID.Size = new System.Drawing.Size(271, 29);
             this.txtBookingID.TabIndex = 15;
             // 
             // lblPhysicalAddress
@@ -245,7 +247,7 @@
             this.cmbPaymentMethod.Items.AddRange(new object[] {
             "CASH ",
             "CREDIT/DEBIT CARD"});
-            this.cmbPaymentMethod.Location = new System.Drawing.Point(194, 40);
+            this.cmbPaymentMethod.Location = new System.Drawing.Point(214, 33);
             this.cmbPaymentMethod.Name = "cmbPaymentMethod";
             this.cmbPaymentMethod.Size = new System.Drawing.Size(216, 29);
             this.cmbPaymentMethod.TabIndex = 1;
@@ -272,13 +274,22 @@
             // 
             this.taBooking.ClearBeforeFill = true;
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.grbPayments);
+            this.panel1.Location = new System.Drawing.Point(277, 70);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1062, 555);
+            this.panel1.TabIndex = 1;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
             // PaymentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSlateGray;
-            this.ClientSize = new System.Drawing.Size(1147, 630);
-            this.Controls.Add(this.grbPayments);
+            this.ClientSize = new System.Drawing.Size(1531, 683);
+            this.Controls.Add(this.panel1);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "PaymentForm";
             this.Text = "REGAL INN MAKE PAYMENTS";
@@ -288,6 +299,7 @@
             this.grpPayment.ResumeLayout(false);
             this.grpPayment.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.codeCraftersDS)).EndInit();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -316,5 +328,6 @@
         private System.Windows.Forms.Button btnReset;
         private System.Windows.Forms.TextBox txtTotalPrice;
         private System.Windows.Forms.Label lblTotalPrice;
+        private System.Windows.Forms.Panel panel1;
     }
 }

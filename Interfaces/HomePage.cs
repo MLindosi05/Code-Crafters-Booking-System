@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Code_Crafters_Booking_System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -76,7 +77,7 @@ namespace Code_Crafters_Interface_Prototype_1.Interfaces
         private void HomePage_Load(object sender, EventArgs e)
         {
 
-            this.BackColor = ColorTranslator.FromHtml("#F6F4F1");
+            this.BackColor = ColorTranslator.FromHtml("#F9EED8");
             btnLogin.BackColor = ColorTranslator.FromHtml("#C99A2E");
             btnLogin.ForeColor = Color.White;
             
@@ -102,6 +103,7 @@ namespace Code_Crafters_Interface_Prototype_1.Interfaces
             panel12.BackColor = ColorTranslator.FromHtml("#F6F4F1");
             panel13.BackColor = ColorTranslator.FromHtml("#F6F4F1");
             panel15.BackColor = ColorTranslator.FromHtml("#F6F4F1");
+            panel5.BackColor = ColorTranslator.FromHtml("#F8F5F0");
 
 
             DateTime now = DateTime.Now;
@@ -110,6 +112,48 @@ namespace Code_Crafters_Interface_Prototype_1.Interfaces
             label8.Text = "Time: " + now.ToString("h:mm tt") + " " + localZone.StandardName;
         
     }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            SignUpForm SignUp = new SignUpForm();
+            SignUp.Show();
+            this.Hide();
+        }
+
+        private void pictureBox6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel8_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel7_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel4_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel5_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 
 }
