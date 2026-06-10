@@ -50,23 +50,24 @@
             this.panel7 = new System.Windows.Forms.Panel();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.panel8 = new System.Windows.Forms.Panel();
-            this.panel9 = new System.Windows.Forms.Panel();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel11 = new System.Windows.Forms.Panel();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.panel12 = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.panel13 = new System.Windows.Forms.Panel();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
             this.panel14 = new System.Windows.Forms.Panel();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.label12 = new System.Windows.Forms.Label();
             this.panel15 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -77,16 +78,17 @@
             this.panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             this.panel8.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel11.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.panel12.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel13.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.panel14.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.panel15.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
@@ -140,17 +142,18 @@
             this.button4.TabIndex = 6;
             this.button4.Text = "SIGN UP";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // panel1
             // 
             this.panel1.Controls.Add(this.panel6);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.pictureBox6);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Location = new System.Drawing.Point(114, 42);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1297, 295);
             this.panel1.TabIndex = 7;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // panel6
             // 
@@ -201,23 +204,26 @@
             this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox6.TabIndex = 0;
             this.pictureBox6.TabStop = false;
+            this.pictureBox6.Click += new System.EventHandler(this.pictureBox6_Click);
             // 
             // panel3
             // 
             this.panel3.Controls.Add(this.button1);
             this.panel3.Controls.Add(this.button2);
-            this.panel3.Location = new System.Drawing.Point(0, 720);
+            this.panel3.Location = new System.Drawing.Point(114, 762);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1297, 40);
             this.panel3.TabIndex = 8;
+            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
             // panel4
             // 
             this.panel4.Controls.Add(this.pictureBox8);
-            this.panel4.Location = new System.Drawing.Point(977, 308);
+            this.panel4.Location = new System.Drawing.Point(1091, 350);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(317, 386);
             this.panel4.TabIndex = 9;
+            this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panel4_Paint);
             // 
             // pictureBox8
             // 
@@ -272,10 +278,11 @@
             // panel7
             // 
             this.panel7.Controls.Add(this.pictureBox7);
-            this.panel7.Location = new System.Drawing.Point(672, 308);
+            this.panel7.Location = new System.Drawing.Point(786, 350);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(309, 388);
             this.panel7.TabIndex = 11;
+            this.panel7.Paint += new System.Windows.Forms.PaintEventHandler(this.panel7_Paint);
             // 
             // pictureBox7
             // 
@@ -296,89 +303,21 @@
             this.panel8.Controls.Add(this.panel15);
             this.panel8.Controls.Add(this.panel9);
             this.panel8.Controls.Add(this.label6);
-            this.panel8.Location = new System.Drawing.Point(0, 308);
+            this.panel8.Location = new System.Drawing.Point(114, 350);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(666, 409);
             this.panel8.TabIndex = 12;
+            this.panel8.Paint += new System.Windows.Forms.PaintEventHandler(this.panel8_Paint);
             // 
-            // panel9
+            // panel11
             // 
-            this.panel9.Location = new System.Drawing.Point(245, 53);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(200, 3);
-            this.panel9.TabIndex = 17;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.label13.Location = new System.Drawing.Point(94, 100);
-            this.label13.Name = "label13";
-            this.label13.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label13.Size = new System.Drawing.Size(92, 13);
-            this.label13.TabIndex = 16;
-            this.label13.Text = "Pietermaritzburg";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Segoe UI", 8F);
-            this.label12.Location = new System.Drawing.Point(10, 113);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(244, 13);
-            this.label12.TabIndex = 15;
-            this.label12.Text = "208 Coubrough Rd, Noordwyk, Midrand, 1687";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Segoe UI", 8F);
-            this.label11.Location = new System.Drawing.Point(8, 115);
-            this.label11.Name = "label11";
-            this.label11.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label11.Size = new System.Drawing.Size(289, 13);
-            this.label11.TabIndex = 14;
-            this.label11.Text = "34 Umhlanga Ridge Blvd, Prestondale, uMhlanga, 4319";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Segoe UI", 8F);
-            this.label10.Location = new System.Drawing.Point(73, 127);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(152, 13);
-            this.label10.TabIndex = 13;
-            this.label10.Text = "Saayman Close, Ballito, 4420";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Segoe UI", 8F);
-            this.label9.Location = new System.Drawing.Point(-10, 113);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(277, 13);
-            this.label9.TabIndex = 12;
-            this.label9.Text = "47 Alan Paton Ave, Scottsville, Pietermaritzburg, 3201";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(-7, 128);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(245, 13);
-            this.label3.TabIndex = 11;
-            this.label3.Text = "41 KE Masinga Road, North Beach, Durban, 4001";
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Image = global::Code_Crafters_Interface_Prototype_1.Properties.Resources._175976581;
-            this.pictureBox4.Location = new System.Drawing.Point(76, 6);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(126, 94);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox4.TabIndex = 10;
-            this.pictureBox4.TabStop = false;
+            this.panel11.Controls.Add(this.pictureBox5);
+            this.panel11.Controls.Add(this.label5);
+            this.panel11.Controls.Add(this.label3);
+            this.panel11.Location = new System.Drawing.Point(3, 3);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(236, 173);
+            this.panel11.TabIndex = 4;
             // 
             // pictureBox5
             // 
@@ -390,15 +329,25 @@
             this.pictureBox5.TabIndex = 4;
             this.pictureBox5.TabStop = false;
             // 
-            // pictureBox3
+            // label3
             // 
-            this.pictureBox3.Image = global::Code_Crafters_Interface_Prototype_1.Properties.Resources.Regal_pic;
-            this.pictureBox3.Location = new System.Drawing.Point(77, 3);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(126, 94);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 2;
-            this.pictureBox3.TabStop = false;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(-7, 128);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(245, 13);
+            this.label3.TabIndex = 11;
+            this.label3.Text = "41 KE Masinga Road, North Beach, Durban, 4001";
+            // 
+            // panel12
+            // 
+            this.panel12.Controls.Add(this.pictureBox2);
+            this.panel12.Controls.Add(this.label2);
+            this.panel12.Controls.Add(this.label11);
+            this.panel12.Location = new System.Drawing.Point(10, 271);
+            this.panel12.Name = "panel12";
+            this.panel12.Size = new System.Drawing.Size(301, 135);
+            this.panel12.TabIndex = 4;
             // 
             // pictureBox2
             // 
@@ -412,35 +361,16 @@
             this.pictureBox2.TabIndex = 1;
             this.pictureBox2.TabStop = false;
             // 
-            // pictureBox1
+            // label11
             // 
-            this.pictureBox1.Image = global::Code_Crafters_Interface_Prototype_1.Properties.Resources.Ballito;
-            this.pictureBox1.Location = new System.Drawing.Point(76, 14);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(126, 94);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
-            // panel11
-            // 
-            this.panel11.Controls.Add(this.pictureBox5);
-            this.panel11.Controls.Add(this.label5);
-            this.panel11.Controls.Add(this.label3);
-            this.panel11.Location = new System.Drawing.Point(3, 3);
-            this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(236, 173);
-            this.panel11.TabIndex = 4;
-            // 
-            // panel12
-            // 
-            this.panel12.Controls.Add(this.pictureBox2);
-            this.panel12.Controls.Add(this.label2);
-            this.panel12.Controls.Add(this.label11);
-            this.panel12.Location = new System.Drawing.Point(10, 271);
-            this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(301, 135);
-            this.panel12.TabIndex = 4;
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.label11.Location = new System.Drawing.Point(8, 115);
+            this.label11.Name = "label11";
+            this.label11.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.label11.Size = new System.Drawing.Size(289, 13);
+            this.label11.TabIndex = 14;
+            this.label11.Text = "34 Umhlanga Ridge Blvd, Prestondale, uMhlanga, 4319";
             // 
             // panel13
             // 
@@ -452,6 +382,37 @@
             this.panel13.Size = new System.Drawing.Size(277, 136);
             this.panel13.TabIndex = 4;
             // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = global::Code_Crafters_Interface_Prototype_1.Properties.Resources.Regal_pic;
+            this.pictureBox3.Location = new System.Drawing.Point(77, 3);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(126, 94);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 2;
+            this.pictureBox3.TabStop = false;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.label9.Location = new System.Drawing.Point(-10, 113);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(277, 13);
+            this.label9.TabIndex = 12;
+            this.label9.Text = "47 Alan Paton Ave, Scottsville, Pietermaritzburg, 3201";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.label13.Location = new System.Drawing.Point(94, 100);
+            this.label13.Name = "label13";
+            this.label13.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.label13.Size = new System.Drawing.Size(92, 13);
+            this.label13.TabIndex = 16;
+            this.label13.Text = "Pietermaritzburg";
+            // 
             // panel14
             // 
             this.panel14.Controls.Add(this.pictureBox4);
@@ -461,6 +422,26 @@
             this.panel14.Name = "panel14";
             this.panel14.Size = new System.Drawing.Size(257, 144);
             this.panel14.TabIndex = 4;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = global::Code_Crafters_Interface_Prototype_1.Properties.Resources._175976581;
+            this.pictureBox4.Location = new System.Drawing.Point(76, 6);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(126, 94);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox4.TabIndex = 10;
+            this.pictureBox4.TabStop = false;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.label12.Location = new System.Drawing.Point(10, 113);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(244, 13);
+            this.label12.TabIndex = 15;
+            this.label12.Text = "208 Coubrough Rd, Noordwyk, Midrand, 1687";
             // 
             // panel15
             // 
@@ -472,17 +453,53 @@
             this.panel15.Size = new System.Drawing.Size(241, 152);
             this.panel15.TabIndex = 4;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Code_Crafters_Interface_Prototype_1.Properties.Resources.Ballito;
+            this.pictureBox1.Location = new System.Drawing.Point(76, 14);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(126, 94);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.label10.Location = new System.Drawing.Point(73, 127);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(152, 13);
+            this.label10.TabIndex = 13;
+            this.label10.Text = "Saayman Close, Ballito, 4420";
+            // 
+            // panel9
+            // 
+            this.panel9.Location = new System.Drawing.Point(245, 53);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(200, 3);
+            this.panel9.TabIndex = 17;
+            // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.panel8);
+            this.panel5.Controls.Add(this.panel1);
+            this.panel5.Controls.Add(this.panel7);
+            this.panel5.Controls.Add(this.panel3);
+            this.panel5.Controls.Add(this.panel4);
+            this.panel5.Location = new System.Drawing.Point(154, 94);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(1530, 836);
+            this.panel5.TabIndex = 13;
+            this.panel5.Paint += new System.Windows.Forms.PaintEventHandler(this.panel5_Paint);
+            // 
             // HomePage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.HighlightText;
-            this.ClientSize = new System.Drawing.Size(1297, 757);
-            this.Controls.Add(this.panel8);
-            this.Controls.Add(this.panel7);
-            this.Controls.Add(this.panel4);
-            this.Controls.Add(this.panel3);
-            this.Controls.Add(this.panel1);
+            this.ClientSize = new System.Drawing.Size(1804, 927);
+            this.Controls.Add(this.panel5);
             this.Name = "HomePage";
             this.Text = "REGAL INN HOME PAGE";
             this.Load += new System.EventHandler(this.HomePage_Load);
@@ -498,21 +515,22 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel11.ResumeLayout(false);
             this.panel11.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.panel12.ResumeLayout(false);
             this.panel12.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel13.ResumeLayout(false);
             this.panel13.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.panel14.ResumeLayout(false);
             this.panel14.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.panel15.ResumeLayout(false);
             this.panel15.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panel5.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -556,5 +574,6 @@
         private System.Windows.Forms.Panel panel13;
         private System.Windows.Forms.Panel panel14;
         private System.Windows.Forms.Panel panel15;
+        private System.Windows.Forms.Panel panel5;
     }
 }

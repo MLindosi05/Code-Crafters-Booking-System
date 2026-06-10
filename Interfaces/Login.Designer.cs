@@ -64,6 +64,7 @@
             this.txtSearchHelp = new System.Windows.Forms.TextBox();
             this.labelHelpHeader = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.panel7 = new System.Windows.Forms.Panel();
             this.groupBox1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
@@ -77,6 +78,7 @@
             this.panel1.SuspendLayout();
             this.pnlHelpDrawer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            this.panel7.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -122,14 +124,14 @@
             this.panel2.Controls.Add(this.passwordTxt);
             this.panel2.Location = new System.Drawing.Point(42, 22);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(409, 601);
+            this.panel2.Size = new System.Drawing.Size(449, 601);
             this.panel2.TabIndex = 10;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // pictureBox8
             // 
             this.pictureBox8.Image = global::Code_Crafters_Interface_Prototype_1.Properties.Resources._0c6801fe_8b78_4a87_a500_0632c277ccc3;
-            this.pictureBox8.Location = new System.Drawing.Point(34, 556);
+            this.pictureBox8.Location = new System.Drawing.Point(50, 563);
             this.pictureBox8.Name = "pictureBox8";
             this.pictureBox8.Size = new System.Drawing.Size(51, 27);
             this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -139,7 +141,7 @@
             // pictureBox7
             // 
             this.pictureBox7.Image = global::Code_Crafters_Interface_Prototype_1.Properties.Resources.e3b71229_047b_49c4_bc19_11ca0886cc2b1;
-            this.pictureBox7.Location = new System.Drawing.Point(34, 514);
+            this.pictureBox7.Location = new System.Drawing.Point(50, 521);
             this.pictureBox7.Name = "pictureBox7";
             this.pictureBox7.Size = new System.Drawing.Size(51, 26);
             this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -148,7 +150,7 @@
             // 
             // panel6
             // 
-            this.panel6.Location = new System.Drawing.Point(158, 494);
+            this.panel6.Location = new System.Drawing.Point(174, 501);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(100, 3);
             this.panel6.TabIndex = 21;
@@ -157,7 +159,7 @@
             // 
             this.button3.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.Location = new System.Drawing.Point(107, 514);
+            this.button3.Location = new System.Drawing.Point(123, 521);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(146, 28);
             this.button3.TabIndex = 20;
@@ -172,7 +174,7 @@
             this.btnHelp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnHelp.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnHelp.ForeColor = System.Drawing.Color.White;
-            this.btnHelp.Location = new System.Drawing.Point(107, 556);
+            this.btnHelp.Location = new System.Drawing.Point(163, 563);
             this.btnHelp.Margin = new System.Windows.Forms.Padding(2);
             this.btnHelp.Name = "btnHelp";
             this.btnHelp.Size = new System.Drawing.Size(64, 27);
@@ -186,7 +188,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.label6.Location = new System.Drawing.Point(201, 478);
+            this.label6.Location = new System.Drawing.Point(217, 485);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(19, 13);
             this.label6.TabIndex = 12;
@@ -194,7 +196,7 @@
             // 
             // panel5
             // 
-            this.panel5.Location = new System.Drawing.Point(119, 212);
+            this.panel5.Location = new System.Drawing.Point(135, 219);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(200, 3);
             this.panel5.TabIndex = 19;
@@ -204,7 +206,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.label5.Location = new System.Drawing.Point(140, 185);
+            this.label5.Location = new System.Drawing.Point(156, 192);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(148, 21);
             this.label5.TabIndex = 16;
@@ -212,14 +214,14 @@
             // 
             // panel4
             // 
-            this.panel4.Location = new System.Drawing.Point(119, 209);
+            this.panel4.Location = new System.Drawing.Point(135, 216);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(200, 3);
             this.panel4.TabIndex = 18;
             // 
             // panel3
             // 
-            this.panel3.Location = new System.Drawing.Point(93, 159);
+            this.panel3.Location = new System.Drawing.Point(109, 166);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(250, 3);
             this.panel3.TabIndex = 17;
@@ -228,7 +230,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(106, 119);
+            this.label4.Location = new System.Drawing.Point(122, 126);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(237, 37);
             this.label4.TabIndex = 15;
@@ -237,7 +239,7 @@
             // pictureBox6
             // 
             this.pictureBox6.Image = global::Code_Crafters_Interface_Prototype_1.Properties.Resources.ChatGPT_Image_Jun_10__2026__02_31_04_PM;
-            this.pictureBox6.Location = new System.Drawing.Point(34, 318);
+            this.pictureBox6.Location = new System.Drawing.Point(50, 325);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(51, 41);
             this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -247,7 +249,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::Code_Crafters_Interface_Prototype_1.Properties.Resources.Untitled_design__2_;
-            this.pictureBox1.Location = new System.Drawing.Point(89, 11);
+            this.pictureBox1.Location = new System.Drawing.Point(105, 18);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(254, 105);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -257,7 +259,7 @@
             // pictureBox5
             // 
             this.pictureBox5.Image = global::Code_Crafters_Interface_Prototype_1.Properties.Resources.d6506a42_ea8e_4021_b641_917f358b90d1;
-            this.pictureBox5.Location = new System.Drawing.Point(34, 379);
+            this.pictureBox5.Location = new System.Drawing.Point(50, 386);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(51, 44);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -268,7 +270,7 @@
             // 
             this.button2.BackColor = System.Drawing.Color.White;
             this.button2.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(105, 439);
+            this.button2.Location = new System.Drawing.Point(121, 446);
             this.button2.Margin = new System.Windows.Forms.Padding(2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(214, 28);
@@ -280,7 +282,7 @@
             // pictureBox4
             // 
             this.pictureBox4.Image = global::Code_Crafters_Interface_Prototype_1.Properties.Resources._814a004f_7c4e_419a_aa23_4d7fc559bf7d;
-            this.pictureBox4.Location = new System.Drawing.Point(34, 261);
+            this.pictureBox4.Location = new System.Drawing.Point(50, 268);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(51, 41);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -293,7 +295,7 @@
             this.comboBox1.Items.AddRange(new object[] {
             "Manager",
             "Receptionist"});
-            this.comboBox1.Location = new System.Drawing.Point(105, 398);
+            this.comboBox1.Location = new System.Drawing.Point(121, 405);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(123, 25);
             this.comboBox1.TabIndex = 8;
@@ -301,7 +303,7 @@
             // userNameTxt
             // 
             this.userNameTxt.ForeColor = System.Drawing.Color.Gray;
-            this.userNameTxt.Location = new System.Drawing.Point(107, 271);
+            this.userNameTxt.Location = new System.Drawing.Point(123, 278);
             this.userNameTxt.Margin = new System.Windows.Forms.Padding(2);
             this.userNameTxt.Name = "userNameTxt";
             this.userNameTxt.Size = new System.Drawing.Size(167, 24);
@@ -314,7 +316,7 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = global::Code_Crafters_Interface_Prototype_1.Properties.Resources.download;
-            this.pictureBox2.Location = new System.Drawing.Point(287, 339);
+            this.pictureBox2.Location = new System.Drawing.Point(303, 346);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(32, 23);
@@ -327,7 +329,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(102, 251);
+            this.label1.Location = new System.Drawing.Point(118, 258);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(95, 18);
@@ -338,7 +340,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(104, 377);
+            this.label3.Location = new System.Drawing.Point(120, 384);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(53, 18);
@@ -349,7 +351,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(104, 318);
+            this.label2.Location = new System.Drawing.Point(120, 325);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(93, 18);
@@ -360,7 +362,7 @@
             // 
             this.passwordTxt.BackColor = System.Drawing.SystemColors.Window;
             this.passwordTxt.ForeColor = System.Drawing.Color.Gray;
-            this.passwordTxt.Location = new System.Drawing.Point(105, 338);
+            this.passwordTxt.Location = new System.Drawing.Point(121, 345);
             this.passwordTxt.Margin = new System.Windows.Forms.Padding(2);
             this.passwordTxt.Name = "passwordTxt";
             this.passwordTxt.Size = new System.Drawing.Size(167, 24);
@@ -384,9 +386,9 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(12, 12);
+            this.button1.Location = new System.Drawing.Point(70, 14);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(88, 34);
+            this.button1.Size = new System.Drawing.Size(82, 34);
             this.button1.TabIndex = 10;
             this.button1.Text = "Home";
             this.button1.UseVisualStyleBackColor = true;
@@ -397,9 +399,9 @@
             this.panel1.Controls.Add(this.pnlHelpDrawer);
             this.panel1.Controls.Add(this.groupBox1);
             this.panel1.Controls.Add(this.pictureBox3);
-            this.panel1.Location = new System.Drawing.Point(12, 52);
+            this.panel1.Location = new System.Drawing.Point(70, 54);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1040, 664);
+            this.panel1.Size = new System.Drawing.Size(1034, 647);
             this.panel1.TabIndex = 11;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
@@ -412,7 +414,7 @@
             this.pnlHelpDrawer.Controls.Add(this.lstHelpTopics);
             this.pnlHelpDrawer.Controls.Add(this.txtSearchHelp);
             this.pnlHelpDrawer.Controls.Add(this.labelHelpHeader);
-            this.pnlHelpDrawer.Location = new System.Drawing.Point(120, 324);
+            this.pnlHelpDrawer.Location = new System.Drawing.Point(114, 307);
             this.pnlHelpDrawer.Margin = new System.Windows.Forms.Padding(2);
             this.pnlHelpDrawer.Name = "pnlHelpDrawer";
             this.pnlHelpDrawer.Size = new System.Drawing.Size(238, 269);
@@ -475,13 +477,22 @@
             this.pictureBox3.TabIndex = 9;
             this.pictureBox3.TabStop = false;
             // 
+            // panel7
+            // 
+            this.panel7.Controls.Add(this.button1);
+            this.panel7.Controls.Add(this.panel1);
+            this.panel7.Location = new System.Drawing.Point(332, 118);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(1191, 726);
+            this.panel7.TabIndex = 12;
+            this.panel7.Paint += new System.Windows.Forms.PaintEventHandler(this.panel7_Paint);
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1415, 750);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(1774, 907);
+            this.Controls.Add(this.panel7);
             this.Name = "Login";
             this.Text = "REGAL INN LOGIN  ";
             this.Load += new System.EventHandler(this.Login_Load);
@@ -500,6 +511,7 @@
             this.pnlHelpDrawer.ResumeLayout(false);
             this.pnlHelpDrawer.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            this.panel7.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -542,5 +554,6 @@
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.PictureBox pictureBox7;
         private System.Windows.Forms.PictureBox pictureBox8;
+        private System.Windows.Forms.Panel panel7;
     }
 }

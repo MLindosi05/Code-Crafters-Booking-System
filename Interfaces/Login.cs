@@ -30,7 +30,7 @@ namespace Code_Crafters_Interface_Prototype_1.Interfaces
             this.taClient.Fill(this.codeCraftersDS1.Client);
             passwordTxt.UseSystemPasswordChar = true;
             //main background color soft ivory 
-            this.BackColor = ColorTranslator.FromHtml("#F6F4F1");
+            this.BackColor = ColorTranslator.FromHtml("#F9EED8");
             panel1.BackColor = ColorTranslator.FromHtml("#F8F5F0");
             button2.BackColor = ColorTranslator.FromHtml("#C99A2E");
             button2.ForeColor = Color.White;
@@ -42,6 +42,7 @@ namespace Code_Crafters_Interface_Prototype_1.Interfaces
             panel4.BackColor = Color.Black;
             button3.BackColor = ColorTranslator.FromHtml("#C99A2E");
             groupBox1.BackColor = ColorTranslator.FromHtml("#966919");
+            panel7.BackColor = ColorTranslator.FromHtml("#F8F5F0");
         }
 
         private Dictionary<string, string> helpDatabase = new Dictionary<string, string>()
@@ -297,6 +298,11 @@ namespace Code_Crafters_Interface_Prototype_1.Interfaces
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel7_Paint(object sender, PaintEventArgs e)
         {
 
         }

@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 
 namespace Code_Crafters_Interface_Prototype_1.Business
 {
@@ -177,6 +178,17 @@ namespace Code_Crafters_Interface_Prototype_1.Business
 
             dgvInvoice.DataSource = codeCraftersDS.Invoice;
             UpdateInvoiceTotal();
+        }
+
+        private void BookingForm_Load_1(object sender, EventArgs e)
+        {
+            this.BackColor = ColorTranslator.FromHtml("#F9EED8");
+            groupBox4.BackColor = ColorTranslator.FromHtml("#966919");
+            grpClientDetails.BackColor = ColorTranslator.FromHtml("#F8F5F0");
+            grpBookingDetails.BackColor = ColorTranslator.FromHtml("#F8F5F0");
+            btnCreateBooking.BackColor = ColorTranslator.FromHtml("#C99A2E");
+            btnCreateBooking.ForeColor = Color.White;
+            panel1.BackColor = ColorTranslator.FromHtml("#F8F5F0");
         }
     }
 }

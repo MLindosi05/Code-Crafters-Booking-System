@@ -150,6 +150,24 @@ namespace Code_Crafters_Interface_Prototype_1.Business
 
         private void PaymentForm_Load_1(object sender, EventArgs e)
         {
+            this.BackColor = ColorTranslator.FromHtml("#F9EED8");
+            panel1.BackColor = ColorTranslator.FromHtml("#F8F5F0");
+            grpSummary.BackColor = ColorTranslator.FromHtml("#F8F5F0");
+            grpPayment.BackColor = ColorTranslator.FromHtml("#F8F5F0");
+            grbPayments.BackColor = ColorTranslator.FromHtml("#966919");
+
+            btnReset.BackColor = ColorTranslator.FromHtml("#C99A2E");
+            btnReset.ForeColor = Color.White;
+
+           btnCancel.BackColor = ColorTranslator.FromHtml("#C99A2E");
+           btnCancel.ForeColor = Color.White;
+
+            btnDone.BackColor = ColorTranslator.FromHtml("#C99A2E");
+           btnDone.ForeColor = Color.White;
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
 
         }
     }

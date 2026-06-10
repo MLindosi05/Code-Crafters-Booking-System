@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Code_Crafters_Interface_Prototype_1.codeCraftersDSTableAdapters;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Code_Crafters_Interface_Prototype_1.codeCraftersDSTableAdapters;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 
 namespace Code_Crafters_Interface_Prototype_1.Business
 {
@@ -24,6 +25,11 @@ namespace Code_Crafters_Interface_Prototype_1.Business
 
             if (cmbStatusActions.Items.Count > 0)
                 cmbStatusActions.SelectedIndex = 0;
+            panel1.BackColor = ColorTranslator.FromHtml("#F8F5F0");
+            groupBox1.BackColor = ColorTranslator.FromHtml("#966919");
+            this.BackColor = ColorTranslator.FromHtml("#F9EED8");
+            btnUpdateStatus.BackColor = ColorTranslator.FromHtml("#C99A2E");
+            btnUpdateStatus.ForeColor = Color.White;
         }
 
         private void txtBookingID_TextChanged(object sender, EventArgs e)
