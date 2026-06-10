@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Code_Crafters_Booking_System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -110,6 +111,13 @@ namespace Code_Crafters_Interface_Prototype_1.Interfaces
             label8.Text = "Time: " + now.ToString("h:mm tt") + " " + localZone.StandardName;
         
     }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            SignUpForm SignUp = new SignUpForm();
+            SignUp.Show();
+            this.Hide();
+        }
     }
 
 }
