@@ -63,6 +63,16 @@ namespace Code_Crafters_Interface_Prototype_1.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _0c6801fe_8b78_4a87_a500_0632c277ccc3 {
+            get {
+                object obj = ResourceManager.GetObject("0c6801fe-8b78-4a87-a500-0632c277ccc3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _1131224_200 {
             get {
                 object obj = ResourceManager.GetObject("1131224-200", resourceCulture);
@@ -154,6 +164,16 @@ namespace Code_Crafters_Interface_Prototype_1.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _814a004f_7c4e_419a_aa23_4d7fc559bf7d {
+            get {
+                object obj = ResourceManager.GetObject("814a004f-7c4e-419a-aa23-4d7fc559bf7d", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Ballito {
             get {
                 object obj = ResourceManager.GetObject("Ballito", resourceCulture);
@@ -167,6 +187,16 @@ namespace Code_Crafters_Interface_Prototype_1.Properties {
         internal static System.Drawing.Bitmap black_login_icon__0 {
             get {
                 object obj = ResourceManager.GetObject("black-login-icon--0", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ChatGPT_Image_Jun_10__2026__02_31_04_PM {
+            get {
+                object obj = ResourceManager.GetObject("ChatGPT Image Jun 10, 2026, 02_31_04 PM", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -204,9 +234,39 @@ namespace Code_Crafters_Interface_Prototype_1.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap d6506a42_ea8e_4021_b641_917f358b90d1 {
+            get {
+                object obj = ResourceManager.GetObject("d6506a42-ea8e-4021-b641-917f358b90d1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap download {
             get {
                 object obj = ResourceManager.GetObject("download", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap e3b71229_047b_49c4_bc19_11ca0886cc2b {
+            get {
+                object obj = ResourceManager.GetObject("e3b71229-047b-49c4-bc19-11ca0886cc2b", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap e3b71229_047b_49c4_bc19_11ca0886cc2b1 {
+            get {
+                object obj = ResourceManager.GetObject("e3b71229-047b-49c4-bc19-11ca0886cc2b1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

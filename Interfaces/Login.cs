@@ -21,7 +21,7 @@ namespace Code_Crafters_Interface_Prototype_1.Interfaces
             InitializeComponent();
             passwordTxt.Enabled = false;
 
-            textBox1.BackColor= groupBox1.BackColor;
+            
         }
 
         private void Login_Load(object sender, EventArgs e)
@@ -29,6 +29,18 @@ namespace Code_Crafters_Interface_Prototype_1.Interfaces
             // Fills the dataset with client data from the database
             this.taClient.Fill(this.codeCraftersDS1.Client);
             passwordTxt.UseSystemPasswordChar = true;
+            //main background color soft ivory 
+            this.BackColor = ColorTranslator.FromHtml("#F6F4F1");
+            panel1.BackColor = ColorTranslator.FromHtml("#F8F5F0");
+            button2.BackColor = ColorTranslator.FromHtml("#C99A2E");
+            button2.ForeColor = Color.White;
+            button3.ForeColor = Color.White;
+        
+            button1.BackColor = ColorTranslator.FromHtml("#C99A2E");
+            button1.ForeColor = Color.White;
+            panel3.BackColor = Color.Black;
+            panel4.BackColor = Color.Black;
+            button3.BackColor = ColorTranslator.FromHtml("#C99A2E");
         }
 
         private Dictionary<string, string> helpDatabase = new Dictionary<string, string>()
@@ -271,6 +283,16 @@ namespace Code_Crafters_Interface_Prototype_1.Interfaces
             {
                passwordTxt.Enabled = false;
             }
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
