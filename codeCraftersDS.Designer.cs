@@ -835,7 +835,7 @@ namespace Code_Crafters_Interface_Prototype_1 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public BookingRow AddBookingRow(int Client_ID, int Branch_ID, System.DateTime Booking_Date, System.DateTime Checkin_Date, System.DateTime Checkout_Date, decimal Booking_Total_Amount, string Booking_Status) {
+            public BookingRow AddBookingRow(int Client_ID, string Branch_ID, System.DateTime Booking_Date, System.DateTime Checkin_Date, System.DateTime Checkout_Date, decimal Booking_Total_Amount, string Booking_Status) {
                 BookingRow rowBookingRow = ((BookingRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -892,7 +892,7 @@ namespace Code_Crafters_Interface_Prototype_1 {
                 base.Columns.Add(this.columnBooking_ID);
                 this.columnClient_ID = new global::System.Data.DataColumn("Client_ID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnClient_ID);
-                this.columnBranch_ID = new global::System.Data.DataColumn("Branch_ID", typeof(int), null, global::System.Data.MappingType.Element);
+                this.columnBranch_ID = new global::System.Data.DataColumn("Branch_ID", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnBranch_ID);
                 this.columnBooking_Date = new global::System.Data.DataColumn("Booking_Date", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnBooking_Date);
@@ -1181,10 +1181,10 @@ namespace Code_Crafters_Interface_Prototype_1 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public BranchRow AddBranchRow(string Branch_Name, string Branch_Address, string Branch_Phone, string Branch_Email, string Branch_Status) {
+            public BranchRow AddBranchRow(string Branch_ID, string Branch_Name, string Branch_Address, string Branch_Phone, string Branch_Email, string Branch_Status) {
                 BranchRow rowBranchRow = ((BranchRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        null,
+                        Branch_ID,
                         Branch_Name,
                         Branch_Address,
                         Branch_Phone,
@@ -1197,7 +1197,7 @@ namespace Code_Crafters_Interface_Prototype_1 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public BranchRow FindByBranch_ID(int Branch_ID) {
+            public BranchRow FindByBranch_ID(string Branch_ID) {
                 return ((BranchRow)(this.Rows.Find(new object[] {
                             Branch_ID})));
             }
@@ -1230,7 +1230,7 @@ namespace Code_Crafters_Interface_Prototype_1 {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             private void InitClass() {
-                this.columnBranch_ID = new global::System.Data.DataColumn("Branch_ID", typeof(int), null, global::System.Data.MappingType.Element);
+                this.columnBranch_ID = new global::System.Data.DataColumn("Branch_ID", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnBranch_ID);
                 this.columnBranch_Name = new global::System.Data.DataColumn("Branch_Name", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnBranch_Name);
@@ -1244,7 +1244,6 @@ namespace Code_Crafters_Interface_Prototype_1 {
                 base.Columns.Add(this.columnBranch_Status);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnBranch_ID}, true));
-                this.columnBranch_ID.AutoIncrement = true;
                 this.columnBranch_ID.AutoIncrementSeed = -1;
                 this.columnBranch_ID.AutoIncrementStep = -1;
                 this.columnBranch_ID.AllowDBNull = false;
@@ -2300,7 +2299,7 @@ namespace Code_Crafters_Interface_Prototype_1 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public Hotel_RoomRow AddHotel_RoomRow(int Branch_ID, int hotel_room_type_ID, string hotel_room_number, string hotel_room_status, decimal Hotel_Room_Price) {
+            public Hotel_RoomRow AddHotel_RoomRow(string Branch_ID, int hotel_room_type_ID, string hotel_room_number, string hotel_room_status, decimal Hotel_Room_Price) {
                 Hotel_RoomRow rowHotel_RoomRow = ((Hotel_RoomRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -2351,7 +2350,7 @@ namespace Code_Crafters_Interface_Prototype_1 {
             private void InitClass() {
                 this.columnHotel_Room_ID = new global::System.Data.DataColumn("Hotel_Room_ID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnHotel_Room_ID);
-                this.columnBranch_ID = new global::System.Data.DataColumn("Branch_ID", typeof(int), null, global::System.Data.MappingType.Element);
+                this.columnBranch_ID = new global::System.Data.DataColumn("Branch_ID", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnBranch_ID);
                 this.columnhotel_room_type_ID = new global::System.Data.DataColumn("hotel_room_type_ID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnhotel_room_type_ID);
@@ -3333,7 +3332,7 @@ namespace Code_Crafters_Interface_Prototype_1 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public StaffRow AddStaffRow(int Branch_ID, string staff_First_Name, string staff_Surname, string staff_Address, string staff_phone_number, string staff_email, string staff_role, System.DateTime date_joined, string staff_status) {
+            public StaffRow AddStaffRow(string Branch_ID, string staff_First_Name, string staff_Surname, string staff_Address, string staff_phone_number, string staff_email, string staff_role, System.DateTime date_joined, string staff_status) {
                 StaffRow rowStaffRow = ((StaffRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -3392,7 +3391,7 @@ namespace Code_Crafters_Interface_Prototype_1 {
             private void InitClass() {
                 this.columnstaff_ID = new global::System.Data.DataColumn("staff_ID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnstaff_ID);
-                this.columnBranch_ID = new global::System.Data.DataColumn("Branch_ID", typeof(int), null, global::System.Data.MappingType.Element);
+                this.columnBranch_ID = new global::System.Data.DataColumn("Branch_ID", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnBranch_ID);
                 this.columnstaff_First_Name = new global::System.Data.DataColumn("staff_First_Name", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnstaff_First_Name);
@@ -3924,6 +3923,8 @@ namespace Code_Crafters_Interface_Prototype_1 {
             
             private global::System.Data.DataColumn columnTableFeatures;
             
+            private global::System.Data.DataColumn columnTablePrice;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public Restuarant_TableDataTable() {
@@ -4023,6 +4024,14 @@ namespace Code_Crafters_Interface_Prototype_1 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn TablePriceColumn {
+                get {
+                    return this.columnTablePrice;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -4058,7 +4067,7 @@ namespace Code_Crafters_Interface_Prototype_1 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public Restuarant_TableRow AddRestuarant_TableRow(int Branch_ID, string RestuarantTableNum, string RestuarantMenuType, string TableCapacity, string TableStatus, string TableIsCombinable, string TableFeatures) {
+            public Restuarant_TableRow AddRestuarant_TableRow(string Branch_ID, string RestuarantTableNum, string RestuarantMenuType, string TableCapacity, string TableStatus, string TableIsCombinable, string TableFeatures, string TablePrice) {
                 Restuarant_TableRow rowRestuarant_TableRow = ((Restuarant_TableRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -4068,7 +4077,8 @@ namespace Code_Crafters_Interface_Prototype_1 {
                         TableCapacity,
                         TableStatus,
                         TableIsCombinable,
-                        TableFeatures};
+                        TableFeatures,
+                        TablePrice};
                 rowRestuarant_TableRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowRestuarant_TableRow);
                 return rowRestuarant_TableRow;
@@ -4106,6 +4116,7 @@ namespace Code_Crafters_Interface_Prototype_1 {
                 this.columnTableStatus = base.Columns["TableStatus"];
                 this.columnTableIsCombinable = base.Columns["TableIsCombinable"];
                 this.columnTableFeatures = base.Columns["TableFeatures"];
+                this.columnTablePrice = base.Columns["TablePrice"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4113,7 +4124,7 @@ namespace Code_Crafters_Interface_Prototype_1 {
             private void InitClass() {
                 this.columnRestaurantTableID = new global::System.Data.DataColumn("RestaurantTableID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnRestaurantTableID);
-                this.columnBranch_ID = new global::System.Data.DataColumn("Branch_ID", typeof(int), null, global::System.Data.MappingType.Element);
+                this.columnBranch_ID = new global::System.Data.DataColumn("Branch_ID", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnBranch_ID);
                 this.columnRestuarantTableNum = new global::System.Data.DataColumn("RestuarantTableNum", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnRestuarantTableNum);
@@ -4127,6 +4138,8 @@ namespace Code_Crafters_Interface_Prototype_1 {
                 base.Columns.Add(this.columnTableIsCombinable);
                 this.columnTableFeatures = new global::System.Data.DataColumn("TableFeatures", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTableFeatures);
+                this.columnTablePrice = new global::System.Data.DataColumn("TablePrice", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTablePrice);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnRestaurantTableID}, true));
                 this.columnRestaurantTableID.AutoIncrement = true;
@@ -4526,7 +4539,7 @@ namespace Code_Crafters_Interface_Prototype_1 {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public ClientBranchBookingRow AddClientBranchBookingRow(
                         int Client_ID, 
-                        int Branch_ID, 
+                        string Branch_ID, 
                         System.DateTime Booking_Date, 
                         System.DateTime Checkin_Date, 
                         System.DateTime Checkout_Date, 
@@ -4618,7 +4631,7 @@ namespace Code_Crafters_Interface_Prototype_1 {
                 base.Columns.Add(this.columnBooking_ID);
                 this.columnClient_ID = new global::System.Data.DataColumn("Client_ID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnClient_ID);
-                this.columnBranch_ID = new global::System.Data.DataColumn("Branch_ID", typeof(int), null, global::System.Data.MappingType.Element);
+                this.columnBranch_ID = new global::System.Data.DataColumn("Branch_ID", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnBranch_ID);
                 this.columnBooking_Date = new global::System.Data.DataColumn("Booking_Date", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnBooking_Date);
@@ -5168,10 +5181,10 @@ namespace Code_Crafters_Interface_Prototype_1 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int Branch_ID {
+            public string Branch_ID {
                 get {
                     try {
-                        return ((int)(this[this.tableBooking.Branch_IDColumn]));
+                        return ((string)(this[this.tableBooking.Branch_IDColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'Branch_ID\' in table \'Booking\' is DBNull.", e);
@@ -5289,9 +5302,9 @@ namespace Code_Crafters_Interface_Prototype_1 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int Branch_ID {
+            public string Branch_ID {
                 get {
-                    return ((int)(this[this.tableBranch.Branch_IDColumn]));
+                    return ((string)(this[this.tableBranch.Branch_IDColumn]));
                 }
                 set {
                     this[this.tableBranch.Branch_IDColumn] = value;
@@ -5841,10 +5854,10 @@ namespace Code_Crafters_Interface_Prototype_1 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int Branch_ID {
+            public string Branch_ID {
                 get {
                     try {
-                        return ((int)(this[this.tableHotel_Room.Branch_IDColumn]));
+                        return ((string)(this[this.tableHotel_Room.Branch_IDColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'Branch_ID\' in table \'Hotel_Room\' is DBNull.", e);
@@ -6322,10 +6335,10 @@ namespace Code_Crafters_Interface_Prototype_1 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int Branch_ID {
+            public string Branch_ID {
                 get {
                     try {
-                        return ((int)(this[this.tableStaff.Branch_IDColumn]));
+                        return ((string)(this[this.tableStaff.Branch_IDColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'Branch_ID\' in table \'Staff\' is DBNull.", e);
@@ -6744,10 +6757,10 @@ namespace Code_Crafters_Interface_Prototype_1 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int Branch_ID {
+            public string Branch_ID {
                 get {
                     try {
-                        return ((int)(this[this.tableRestuarant_Table.Branch_IDColumn]));
+                        return ((string)(this[this.tableRestuarant_Table.Branch_IDColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'Branch_ID\' in table \'Restuarant_Table\' is DBNull.", e);
@@ -6856,6 +6869,22 @@ namespace Code_Crafters_Interface_Prototype_1 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string TablePrice {
+                get {
+                    try {
+                        return ((string)(this[this.tableRestuarant_Table.TablePriceColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'TablePrice\' in table \'Restuarant_Table\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRestuarant_Table.TablePriceColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsBranch_IDNull() {
                 return this.IsNull(this.tableRestuarant_Table.Branch_IDColumn);
             }
@@ -6937,6 +6966,18 @@ namespace Code_Crafters_Interface_Prototype_1 {
             public void SetTableFeaturesNull() {
                 this[this.tableRestuarant_Table.TableFeaturesColumn] = global::System.Convert.DBNull;
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsTablePriceNull() {
+                return this.IsNull(this.tableRestuarant_Table.TablePriceColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetTablePriceNull() {
+                this[this.tableRestuarant_Table.TablePriceColumn] = global::System.Convert.DBNull;
+            }
         }
         
         /// <summary>
@@ -6982,10 +7023,10 @@ namespace Code_Crafters_Interface_Prototype_1 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int Branch_ID {
+            public string Branch_ID {
                 get {
                     try {
-                        return ((int)(this[this.tableClientBranchBooking.Branch_IDColumn]));
+                        return ((string)(this[this.tableClientBranchBooking.Branch_IDColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'Branch_ID\' in table \'ClientBranchBooking\' is DBNull.", e);
@@ -8044,7 +8085,7 @@ SELECT Booking_ID, Client_ID, Branch_ID, Booking_Date, Checkin_Date, Checkout_Da
 SELECT Booking_ID, Client_ID, Branch_ID, Booking_Date, Checkin_Date, Checkout_Date, Booking_Total_Amount, Booking_Status FROM Booking WHERE (Booking_ID = SCOPE_IDENTITY())";
             this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Client_ID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Client_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Branch_ID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Branch_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Branch_ID", global::System.Data.SqlDbType.VarChar, 10, global::System.Data.ParameterDirection.Input, 0, 0, "Branch_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Booking_Date", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Booking_Date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Checkin_Date", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Checkin_Date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Checkout_Date", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Checkout_Date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -8372,7 +8413,7 @@ SELECT Booking_ID, Client_ID, Branch_ID, Booking_Date, Checkin_Date, Checkout_Da
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
-        public virtual object InsertNewBooking(global::System.Nullable<int> Client_ID, global::System.Nullable<int> Branch_ID, string Booking_Date, string Checkin_Date, string Checkout_Date, decimal Booking_Total_Amount, string Booking_Status) {
+        public virtual object InsertNewBooking(global::System.Nullable<int> Client_ID, string Branch_ID, string Booking_Date, string Checkin_Date, string Checkout_Date, decimal Booking_Total_Amount, string Booking_Status) {
             global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[4];
             if ((Client_ID.HasValue == true)) {
                 command.Parameters[0].Value = ((int)(Client_ID.Value));
@@ -8380,11 +8421,11 @@ SELECT Booking_ID, Client_ID, Branch_ID, Booking_Date, Checkin_Date, Checkout_Da
             else {
                 command.Parameters[0].Value = global::System.DBNull.Value;
             }
-            if ((Branch_ID.HasValue == true)) {
-                command.Parameters[1].Value = ((int)(Branch_ID.Value));
+            if ((Branch_ID == null)) {
+                command.Parameters[1].Value = global::System.DBNull.Value;
             }
             else {
-                command.Parameters[1].Value = global::System.DBNull.Value;
+                command.Parameters[1].Value = ((string)(Branch_ID));
             }
             if ((Booking_Date == null)) {
                 throw new global::System.ArgumentNullException("Booking_Date");
@@ -9146,7 +9187,7 @@ SELECT Client_ID, First_Name, Last_Name, Password, Email_Address, Client_Address
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[4];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT Client_ID, First_Name, Last_Name, Password, Email_Address, Client_Address," +
@@ -9154,15 +9195,25 @@ SELECT Client_ID, First_Name, Last_Name, Password, Email_Address, Client_Address
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = @"INSERT INTO [dbo].[Client] ([First_Name], [Last_Name], [Password], [Email_Address], [Client_Address], [Phone_Number]) VALUES (@First_Name, @Last_Name, @Password, @Email_Address, @Client_Address, @Phone_Number);
-SELECT Client_ID, First_Name, Last_Name, Password, Email_Address, Client_Address, Phone_Number FROM Client WHERE (Client_ID = SCOPE_IDENTITY())";
+            this._commandCollection[1].CommandText = "SELECT COUNT(*)\r\nFROM Client\r\nWHERE Email_Address = @Email";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@First_Name", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "First_Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Last_Name", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Last_Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Password", global::System.Data.SqlDbType.VarChar, 255, global::System.Data.ParameterDirection.Input, 0, 0, "Password", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Email_Address", global::System.Data.SqlDbType.VarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "Email_Address", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Client_Address", global::System.Data.SqlDbType.VarChar, 255, global::System.Data.ParameterDirection.Input, 0, 0, "Client_Address", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Phone_Number", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "Phone_Number", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Email", global::System.Data.SqlDbType.VarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "Email_Address", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = "SELECT COUNT(*) FROM Client WHERE Phone_Number = @Phone";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Phone", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "Phone_Number", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[3].Connection = this.Connection;
+            this._commandCollection[3].CommandText = @"INSERT INTO [dbo].[Client] ([First_Name], [Last_Name], [Password], [Email_Address], [Client_Address], [Phone_Number]) VALUES (@First_Name, @Last_Name, @Password, @Email_Address, @Client_Address, @Phone_Number);
+SELECT Client_ID, First_Name, Last_Name, Password, Email_Address, Client_Address, Phone_Number FROM Client WHERE (Client_ID = SCOPE_IDENTITY())";
+            this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@First_Name", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "First_Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Last_Name", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Last_Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Password", global::System.Data.SqlDbType.VarChar, 255, global::System.Data.ParameterDirection.Input, 0, 0, "Password", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Email_Address", global::System.Data.SqlDbType.VarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "Email_Address", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Client_Address", global::System.Data.SqlDbType.VarChar, 255, global::System.Data.ParameterDirection.Input, 0, 0, "Client_Address", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Phone_Number", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "Phone_Number", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -9447,9 +9498,77 @@ SELECT Client_ID, First_Name, Last_Name, Password, Email_Address, Client_Address
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual global::System.Nullable<int> CheckEmailExists(string Email) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[1];
+            if ((Email == null)) {
+                throw new global::System.ArgumentNullException("Email");
+            }
+            else {
+                command.Parameters[0].Value = ((string)(Email));
+            }
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            object returnValue;
+            try {
+                returnValue = command.ExecuteScalar();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            if (((returnValue == null) 
+                        || (returnValue.GetType() == typeof(global::System.DBNull)))) {
+                return new global::System.Nullable<int>();
+            }
+            else {
+                return new global::System.Nullable<int>(((int)(returnValue)));
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual global::System.Nullable<int> CheckPhoneExists(string Phone) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[2];
+            if ((Phone == null)) {
+                command.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[0].Value = ((string)(Phone));
+            }
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            object returnValue;
+            try {
+                returnValue = command.ExecuteScalar();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            if (((returnValue == null) 
+                        || (returnValue.GetType() == typeof(global::System.DBNull)))) {
+                return new global::System.Nullable<int>();
+            }
+            else {
+                return new global::System.Nullable<int>(((int)(returnValue)));
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
         public virtual object InsertNewClient(string First_Name, string Last_Name, string Password, string Email_Address, string Client_Address, string Phone_Number) {
-            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[1];
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[3];
             if ((First_Name == null)) {
                 throw new global::System.ArgumentNullException("First_Name");
             }
@@ -13402,18 +13521,23 @@ SELECT RestaurantTableID, Branch_ID, RestuarantTableNum, RestuarantMenuType, Tab
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[3];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT        Restuarant_Table.*\r\nFROM            Restuarant_Table";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT        RestaurantTableID, Branch_ID, RestuarantTableNum, RestuarantMenuTyp" +
-                "e, TableCapacity, TableStatus, TableIsCombinable, TableFeatures\r\nFROM           " +
-                " Restuarant_Table\r\nWHERE        (RestaurantTableID = @restaurantTableID)";
+            this._commandCollection[1].CommandText = "SELECT        Restuarant_Table.*\r\nFROM            Restuarant_Table";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@restaurantTableID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "RestaurantTableID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = "SELECT        RestaurantTableID, Branch_ID, RestuarantTableNum, RestuarantMenuTyp" +
+                "e, TableCapacity, TableStatus, TableIsCombinable, TableFeatures, TablePrice\r\nFRO" +
+                "M            Restuarant_Table\r\nWHERE        (RestaurantTableID = @restaurantTabl" +
+                "eID)";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@restaurantTableID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "RestaurantTableID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -13444,8 +13568,32 @@ SELECT RestaurantTableID, Branch_ID, RestuarantTableNum, RestuarantMenuType, Tab
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillByRestaurantTableID(codeCraftersDS.Restuarant_TableDataTable dataTable, int restaurantTableID) {
+        public virtual int FillBy(codeCraftersDS.Restuarant_TableDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual codeCraftersDS.Restuarant_TableDataTable GetDataBy1() {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            codeCraftersDS.Restuarant_TableDataTable dataTable = new codeCraftersDS.Restuarant_TableDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByRestaurantTableID(codeCraftersDS.Restuarant_TableDataTable dataTable, int restaurantTableID) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(restaurantTableID));
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -13459,7 +13607,7 @@ SELECT RestaurantTableID, Branch_ID, RestuarantTableNum, RestuarantMenuType, Tab
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual codeCraftersDS.Restuarant_TableDataTable GetDataBy(int restaurantTableID) {
-            this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand = this.CommandCollection[2];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(restaurantTableID));
             codeCraftersDS.Restuarant_TableDataTable dataTable = new codeCraftersDS.Restuarant_TableDataTable();
             this.Adapter.Fill(dataTable);

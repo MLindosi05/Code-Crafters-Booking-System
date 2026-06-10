@@ -13,3 +13,10 @@
         }
     }
 }
+
+namespace Code_Crafters_Interface_Prototype_1.codeCraftersDSTableAdapters {
+    
+    
+    public partial class Restuarant_TableTableAdapter {
+    }
+}

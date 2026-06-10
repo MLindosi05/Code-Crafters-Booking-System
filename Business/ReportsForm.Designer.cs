@@ -36,13 +36,13 @@
             this.txtTotalEnterpriseRevenue = new System.Windows.Forms.TextBox();
             this.taBookingReport = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTableAdapters.BookingTableAdapter();
             this.taClientReport = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTableAdapters.ClientTableAdapter();
-            this.taBranchReport = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTableAdapters.BranchTableAdapter();
             this.taFolioReport = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTableAdapters.FolioTableAdapter();
             this.codeCraftersDS = new Code_Crafters_Interface_Prototype_1.codeCraftersDS();
             this.pnlTop = new System.Windows.Forms.Panel();
             this.crystalReportViewerRegalInn = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
             this.taRoomAssignmentReport = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTableAdapters.Room_AssignmentTableAdapter();
             this.taHotelRoomReport = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTableAdapters.Hotel_RoomTableAdapter();
+            this.taBranchReport = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTableAdapters.BranchTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReportSummary)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.codeCraftersDS)).BeginInit();
             this.pnlTop.SuspendLayout();
@@ -121,10 +121,6 @@
             // 
             this.taClientReport.ClearBeforeFill = true;
             // 
-            // taBranchReport
-            // 
-            this.taBranchReport.ClearBeforeFill = true;
-            // 
             // taFolioReport
             // 
             this.taFolioReport.ClearBeforeFill = true;
@@ -164,6 +160,10 @@
             // 
             this.taHotelRoomReport.ClearBeforeFill = true;
             // 
+            // taBranchReport
+            // 
+            this.taBranchReport.ClearBeforeFill = true;
+            // 
             // ReportsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -198,12 +198,12 @@
         private System.Windows.Forms.TextBox txtTotalEnterpriseRevenue;
         private codeCraftersDSTableAdapters.BookingTableAdapter taBookingReport;
         private codeCraftersDSTableAdapters.ClientTableAdapter taClientReport;
-        private codeCraftersDSTableAdapters.BranchTableAdapter taBranchReport;
         private codeCraftersDSTableAdapters.FolioTableAdapter taFolioReport;
         private codeCraftersDS codeCraftersDS;
         private System.Windows.Forms.Panel pnlTop;
         private CrystalDecisions.Windows.Forms.CrystalReportViewer crystalReportViewerRegalInn;
         private codeCraftersDSTableAdapters.Room_AssignmentTableAdapter taRoomAssignmentReport;
         private codeCraftersDSTableAdapters.Hotel_RoomTableAdapter taHotelRoomReport;
+        private codeCraftersDSTableAdapters.BranchTableAdapter taBranchReport;
     }
 }
