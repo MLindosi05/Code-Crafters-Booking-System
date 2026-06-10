@@ -19,6 +19,9 @@ namespace Code_Crafters_Interface_Prototype_1.Interfaces
         public Login()
         {
             InitializeComponent();
+            passwordTxt.Enabled = false;
+
+            textBox1.BackColor= groupBox1.BackColor;
         }
 
         private void Login_Load(object sender, EventArgs e)
@@ -219,6 +222,55 @@ namespace Code_Crafters_Interface_Prototype_1.Interfaces
             HomePage homePage = new HomePage();
             homePage.Show();
             this.Hide();
+        }
+
+        private void userNameTxt_MouseEnter(object sender, EventArgs e)
+        {
+            if (userNameTxt.Text == "Username")
+            {
+                userNameTxt.Text = "";
+                userNameTxt.ForeColor = System.Drawing.Color.Black;
+            }
+        }
+
+        private void userNameTxt_MouseLeave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(userNameTxt.Text))
+            {
+                userNameTxt.Text = "Username";
+                userNameTxt.ForeColor = System.Drawing.Color.Gray;
+            }
+        }
+
+        private void passwordTxt_MouseEnter(object sender, EventArgs e)
+        {
+            if (passwordTxt.Text =="Password")
+            {
+                passwordTxt.Text = "";
+                userNameTxt.ForeColor = System.Drawing.Color.Black;
+            }
+        }
+
+        private void passwordTxt_MouseLeave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(passwordTxt.Text))
+            {
+                passwordTxt.Text = "Password";
+                passwordTxt.ForeColor = System.Drawing.Color.Gray;
+            }
+        }
+
+        private void userNameTxt_TextChanged(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(userNameTxt.Text) && userNameTxt.Text != "Username")
+            {
+                
+                passwordTxt.Enabled = true;
+            }
+            else
+            {
+               passwordTxt.Enabled = false;
+            }
         }
     }
 }

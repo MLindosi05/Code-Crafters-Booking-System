@@ -321,5 +321,47 @@
   <ItemGroup>
     <None Include="Resources\Umhlanga1.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Untitled design.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Untitled design %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Untitled design %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\6478-2001.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\png-clipart-black-padlock-illustration-login-computer-icons-iconfinder-website-login-key-icon-lock-locked-login-miscellaneous-user-thumbnail.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\images1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\its-a-padlock-forgot-password-vector-icon-11553450739ggbzcdw4uv.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\232-2323521_key-silhouette-security-tool-interface-symbol-of-password-password-key-icon-png.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\200-2005429_password-icon-png-transparent-png.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\200-2005429_password-icon-png-transparent-png1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\154-1547969_password-icon-password-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ChatGPT Image Jun 10, 2026, 12_39_07 PM.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ChatGPT Image Jun 10, 2026, 12_51_34 PM.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ChatGPT Image Jun 10, 2026, 12_54_41 PM.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

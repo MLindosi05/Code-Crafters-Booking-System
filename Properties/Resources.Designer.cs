@@ -73,6 +73,47 @@ namespace Code_Crafters_Interface_Prototype_1.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _154_1547969_password_icon_password_icon {
+            get {
+                object obj = ResourceManager.GetObject("154-1547969_password-icon-password-icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _200_2005429_password_icon_png_transparent_png {
+            get {
+                object obj = ResourceManager.GetObject("200-2005429_password-icon-png-transparent-png", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _200_2005429_password_icon_png_transparent_png1 {
+            get {
+                object obj = ResourceManager.GetObject("200-2005429_password-icon-png-transparent-png1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _232_2323521_key_silhouette_security_tool_interface_symbol_of_password_password_key_icon_png {
+            get {
+                object obj = ResourceManager.GetObject("232-2323521_key-silhouette-security-tool-interface-symbol-of-password-password-ke" +
+                        "y-icon-png", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _265653123 {
             get {
                 object obj = ResourceManager.GetObject("265653123", resourceCulture);
@@ -103,6 +144,16 @@ namespace Code_Crafters_Interface_Prototype_1.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _6478_2001 {
+            get {
+                object obj = ResourceManager.GetObject("6478-2001", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Ballito {
             get {
                 object obj = ResourceManager.GetObject("Ballito", resourceCulture);
@@ -116,6 +167,36 @@ namespace Code_Crafters_Interface_Prototype_1.Properties {
         internal static System.Drawing.Bitmap black_login_icon__0 {
             get {
                 object obj = ResourceManager.GetObject("black-login-icon--0", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ChatGPT_Image_Jun_10__2026__12_39_07_PM {
+            get {
+                object obj = ResourceManager.GetObject("ChatGPT Image Jun 10, 2026, 12_39_07 PM", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ChatGPT_Image_Jun_10__2026__12_51_34_PM {
+            get {
+                object obj = ResourceManager.GetObject("ChatGPT Image Jun 10, 2026, 12_51_34 PM", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ChatGPT_Image_Jun_10__2026__12_54_41_PM {
+            get {
+                object obj = ResourceManager.GetObject("ChatGPT Image Jun 10, 2026, 12_54_41 PM", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -196,6 +277,16 @@ namespace Code_Crafters_Interface_Prototype_1.Properties {
         internal static System.Drawing.Bitmap images1 {
             get {
                 object obj = ResourceManager.GetObject("images1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap images2 {
+            get {
+                object obj = ResourceManager.GetObject("images2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -303,6 +394,16 @@ namespace Code_Crafters_Interface_Prototype_1.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap its_a_padlock_forgot_password_vector_icon_11553450739ggbzcdw4uv {
+            get {
+                object obj = ResourceManager.GetObject("its-a-padlock-forgot-password-vector-icon-11553450739ggbzcdw4uv", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap logout_11551049168o9cg0mxxib {
             get {
                 object obj = ResourceManager.GetObject("logout-11551049168o9cg0mxxib", resourceCulture);
@@ -393,6 +494,17 @@ namespace Code_Crafters_Interface_Prototype_1.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap png_clipart_black_padlock_illustration_login_computer_icons_iconfinder_website_login_key_icon_lock_locked_login_miscellaneous_user_thumbnail {
+            get {
+                object obj = ResourceManager.GetObject("png-clipart-black-padlock-illustration-login-computer-icons-iconfinder-website-lo" +
+                        "gin-key-icon-lock-locked-login-miscellaneous-user-thumbnail", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap pngtree_avatar_icon_profile_icon_member_login_vector_isolated_png_image_1978396 {
             get {
                 object obj = ResourceManager.GetObject("pngtree-avatar-icon-profile-icon-member-login-vector-isolated-png-image_1978396", resourceCulture);
@@ -466,6 +578,36 @@ namespace Code_Crafters_Interface_Prototype_1.Properties {
         internal static System.Drawing.Bitmap Umhlanga1 {
             get {
                 object obj = ResourceManager.GetObject("Umhlanga1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Untitled_design {
+            get {
+                object obj = ResourceManager.GetObject("Untitled design", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Untitled_design__1_ {
+            get {
+                object obj = ResourceManager.GetObject("Untitled design (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Untitled_design__2_ {
+            get {
+                object obj = ResourceManager.GetObject("Untitled design (2)", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
