@@ -317,7 +317,7 @@ SELECT Client_ID, First_Name, Last_Name, Password, Email_Address, Client_Address
               <Mapping SourceColumn="Phone_Number" DataSetColumn="Phone_Number" />
             </Mappings>
             <Sources>
-              <DbSource ConnectionRef="GroupPmb2ConnectionString (Settings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="CheckEmailExists" Modifier="Public" Name="CheckEmailExists" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="CheckEmailExists">
+              <DbSource ConnectionRef="GroupPmb2ConnectionString (Settings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="CheckEmailExists" Modifier="Public" Name="CheckEmailExists" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="CheckEmailExists">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT COUNT(*)
@@ -329,7 +329,7 @@ WHERE Email_Address = @Email</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="GroupPmb2ConnectionString (Settings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="CheckPhoneExists" Modifier="Public" Name="CheckPhoneExists" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="CheckPhoneExists">
+              <DbSource ConnectionRef="GroupPmb2ConnectionString (Settings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="CheckPhoneExists" Modifier="Public" Name="CheckPhoneExists" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="CheckPhoneExists">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT COUNT(*) FROM Client WHERE Phone_Number = @Phone</CommandText>
@@ -339,7 +339,7 @@ WHERE Email_Address = @Email</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="GroupPmb2ConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertNewClient" Modifier="Public" Name="InsertNewClient" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="InsertNewClient">
+              <DbSource ConnectionRef="GroupPmb2ConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertNewClient" Modifier="Public" Name="InsertNewClient" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="InsertNewClient">
                 <InsertCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>INSERT INTO [dbo].[Client] ([First_Name], [Last_Name], [Password], [Email_Address], [Client_Address], [Phone_Number]) VALUES (@First_Name, @Last_Name, @Password, @Email_Address, @Client_Address, @Phone_Number);
@@ -362,21 +362,11 @@ SELECT Client_ID, First_Name, Last_Name, Password, Email_Address, Client_Address
               <DbSource ConnectionRef="GroupPmb2ConnectionString (Settings)" DbObjectName="GroupPmb2.dbo.Folio" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>DELETE FROM [dbo].[Folio] WHERE (([Folio_ID] = @Original_Folio_ID) AND ((@IsNull_Booking_ID = 1 AND [Booking_ID] IS NULL) OR ([Booking_ID] = @Original_Booking_ID)) AND ((@IsNull_Folio_Type = 1 AND [Folio_Type] IS NULL) OR ([Folio_Type] = @Original_Folio_Type)) AND ((@IsNull_Folio_Status = 1 AND [Folio_Status] IS NULL) OR ([Folio_Status] = @Original_Folio_Status)) AND ((@IsNull_Opening_Balance = 1 AND [Opening_Balance] IS NULL) OR ([Opening_Balance] = @Original_Opening_Balance)) AND ((@IsNull_Current_Balance = 1 AND [Current_Balance] IS NULL) OR ([Current_Balance] = @Original_Current_Balance)) AND ((@IsNull_Credit_Limit = 1 AND [Credit_Limit] IS NULL) OR ([Credit_Limit] = @Original_Credit_Limit)) AND ((@IsNull_Payment_Type = 1 AND [Payment_Type] IS NULL) OR ([Payment_Type] = @Original_Payment_Type)) AND ((@IsNull_Payment_Amount = 1 AND [Payment_Amount] IS NULL) OR ([Payment_Amount] = @Original_Payment_Amount)) AND ((@IsNull_Payment_Date = 1 AND [Payment_Date] IS NULL) OR ([Payment_Date] = @Original_Payment_Date)) AND ((@IsNull_Payment_Status = 1 AND [Payment_Status] IS NULL) OR ([Payment_Status] = @Original_Payment_Status)) AND ((@IsNull_Payment_Description = 1 AND [Payment_Description] IS NULL) OR ([Payment_Description] = @Original_Payment_Description)))</CommandText>
+                    <CommandText>DELETE FROM [Folio] WHERE (([Folio_ID] = @Original_Folio_ID) AND ((@IsNull_Booking_ID = 1 AND [Booking_ID] IS NULL) OR ([Booking_ID] = @Original_Booking_ID)) AND ((@IsNull_Payment_Type = 1 AND [Payment_Type] IS NULL) OR ([Payment_Type] = @Original_Payment_Type)) AND ((@IsNull_Payment_Amount = 1 AND [Payment_Amount] IS NULL) OR ([Payment_Amount] = @Original_Payment_Amount)) AND ((@IsNull_Payment_Date = 1 AND [Payment_Date] IS NULL) OR ([Payment_Date] = @Original_Payment_Date)) AND ((@IsNull_Payment_Status = 1 AND [Payment_Status] IS NULL) OR ([Payment_Status] = @Original_Payment_Status)) AND ((@IsNull_Payment_Description = 1 AND [Payment_Description] IS NULL) OR ([Payment_Description] = @Original_Payment_Description)))</CommandText>
                     <Parameters>
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_Folio_ID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Folio_ID" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Booking_ID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Booking_ID" SourceColumnNullMapping="true" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_Booking_ID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Booking_ID" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Folio_Type" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Folio_Type" SourceColumnNullMapping="true" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_Folio_Type" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Folio_Type" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Folio_Status" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Folio_Status" SourceColumnNullMapping="true" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_Folio_Status" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Folio_Status" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Opening_Balance" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Opening_Balance" SourceColumnNullMapping="true" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_Opening_Balance" Precision="8" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="Opening_Balance" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Current_Balance" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Current_Balance" SourceColumnNullMapping="true" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_Current_Balance" Precision="8" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="Current_Balance" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Credit_Limit" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Credit_Limit" SourceColumnNullMapping="true" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_Credit_Limit" Precision="8" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="Credit_Limit" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Payment_Type" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Payment_Type" SourceColumnNullMapping="true" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_Payment_Type" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Payment_Type" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Payment_Amount" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Payment_Amount" SourceColumnNullMapping="true" SourceVersion="Original" />
@@ -392,15 +382,10 @@ SELECT Client_ID, First_Name, Last_Name, Password, Email_Address, Client_Address
                 </DeleteCommand>
                 <InsertCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>INSERT INTO [dbo].[Folio] ([Booking_ID], [Folio_Type], [Folio_Status], [Opening_Balance], [Current_Balance], [Credit_Limit], [Payment_Type], [Payment_Amount], [Payment_Date], [Payment_Status], [Payment_Description]) VALUES (@Booking_ID, @Folio_Type, @Folio_Status, @Opening_Balance, @Current_Balance, @Credit_Limit, @Payment_Type, @Payment_Amount, @Payment_Date, @Payment_Status, @Payment_Description);
-SELECT Folio_ID, Booking_ID, Folio_Type, Folio_Status, Opening_Balance, Current_Balance, Credit_Limit, Payment_Type, Payment_Amount, Payment_Date, Payment_Status, Payment_Description FROM Folio WHERE (Folio_ID = SCOPE_IDENTITY())</CommandText>
+                    <CommandText>INSERT INTO [Folio] ([Booking_ID], [Payment_Type], [Payment_Amount], [Payment_Date], [Payment_Status], [Payment_Description]) VALUES (@Booking_ID, @Payment_Type, @Payment_Amount, @Payment_Date, @Payment_Status, @Payment_Description);
+SELECT Folio_ID, Booking_ID, Payment_Type, Payment_Amount, Payment_Date, Payment_Status, Payment_Description FROM Folio WHERE (Folio_ID = SCOPE_IDENTITY())</CommandText>
                     <Parameters>
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Booking_ID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Booking_ID" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Folio_Type" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Folio_Type" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Folio_Status" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Folio_Status" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Opening_Balance" Precision="8" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="Opening_Balance" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Current_Balance" Precision="8" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="Current_Balance" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Credit_Limit" Precision="8" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="Credit_Limit" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Payment_Type" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Payment_Type" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Payment_Amount" Precision="8" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="Payment_Amount" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Payment_Date" Precision="0" ProviderType="SmallDateTime" Scale="0" Size="0" SourceColumn="Payment_Date" SourceColumnNullMapping="false" SourceVersion="Current" />
@@ -410,22 +395,18 @@ SELECT Folio_ID, Booking_ID, Folio_Type, Folio_Status, Opening_Balance, Current_
                   </DbCommand>
                 </InsertCommand>
                 <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT Folio_ID, Booking_ID, Folio_Type, Folio_Status, Opening_Balance, Current_Balance, Credit_Limit, Payment_Type, Payment_Amount, Payment_Date, Payment_Status, Payment_Description FROM dbo.Folio</CommandText>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        Folio_ID, Booking_ID, Payment_Type, Payment_Amount, Payment_Date, Payment_Status, Payment_Description
+FROM            Folio</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
                 <UpdateCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>UPDATE [dbo].[Folio] SET [Booking_ID] = @Booking_ID, [Folio_Type] = @Folio_Type, [Folio_Status] = @Folio_Status, [Opening_Balance] = @Opening_Balance, [Current_Balance] = @Current_Balance, [Credit_Limit] = @Credit_Limit, [Payment_Type] = @Payment_Type, [Payment_Amount] = @Payment_Amount, [Payment_Date] = @Payment_Date, [Payment_Status] = @Payment_Status, [Payment_Description] = @Payment_Description WHERE (([Folio_ID] = @Original_Folio_ID) AND ((@IsNull_Booking_ID = 1 AND [Booking_ID] IS NULL) OR ([Booking_ID] = @Original_Booking_ID)) AND ((@IsNull_Folio_Type = 1 AND [Folio_Type] IS NULL) OR ([Folio_Type] = @Original_Folio_Type)) AND ((@IsNull_Folio_Status = 1 AND [Folio_Status] IS NULL) OR ([Folio_Status] = @Original_Folio_Status)) AND ((@IsNull_Opening_Balance = 1 AND [Opening_Balance] IS NULL) OR ([Opening_Balance] = @Original_Opening_Balance)) AND ((@IsNull_Current_Balance = 1 AND [Current_Balance] IS NULL) OR ([Current_Balance] = @Original_Current_Balance)) AND ((@IsNull_Credit_Limit = 1 AND [Credit_Limit] IS NULL) OR ([Credit_Limit] = @Original_Credit_Limit)) AND ((@IsNull_Payment_Type = 1 AND [Payment_Type] IS NULL) OR ([Payment_Type] = @Original_Payment_Type)) AND ((@IsNull_Payment_Amount = 1 AND [Payment_Amount] IS NULL) OR ([Payment_Amount] = @Original_Payment_Amount)) AND ((@IsNull_Payment_Date = 1 AND [Payment_Date] IS NULL) OR ([Payment_Date] = @Original_Payment_Date)) AND ((@IsNull_Payment_Status = 1 AND [Payment_Status] IS NULL) OR ([Payment_Status] = @Original_Payment_Status)) AND ((@IsNull_Payment_Description = 1 AND [Payment_Description] IS NULL) OR ([Payment_Description] = @Original_Payment_Description)));
-SELECT Folio_ID, Booking_ID, Folio_Type, Folio_Status, Opening_Balance, Current_Balance, Credit_Limit, Payment_Type, Payment_Amount, Payment_Date, Payment_Status, Payment_Description FROM Folio WHERE (Folio_ID = @Folio_ID)</CommandText>
+                    <CommandText>UPDATE [Folio] SET [Booking_ID] = @Booking_ID, [Payment_Type] = @Payment_Type, [Payment_Amount] = @Payment_Amount, [Payment_Date] = @Payment_Date, [Payment_Status] = @Payment_Status, [Payment_Description] = @Payment_Description WHERE (([Folio_ID] = @Original_Folio_ID) AND ((@IsNull_Booking_ID = 1 AND [Booking_ID] IS NULL) OR ([Booking_ID] = @Original_Booking_ID)) AND ((@IsNull_Payment_Type = 1 AND [Payment_Type] IS NULL) OR ([Payment_Type] = @Original_Payment_Type)) AND ((@IsNull_Payment_Amount = 1 AND [Payment_Amount] IS NULL) OR ([Payment_Amount] = @Original_Payment_Amount)) AND ((@IsNull_Payment_Date = 1 AND [Payment_Date] IS NULL) OR ([Payment_Date] = @Original_Payment_Date)) AND ((@IsNull_Payment_Status = 1 AND [Payment_Status] IS NULL) OR ([Payment_Status] = @Original_Payment_Status)) AND ((@IsNull_Payment_Description = 1 AND [Payment_Description] IS NULL) OR ([Payment_Description] = @Original_Payment_Description)));
+SELECT Folio_ID, Booking_ID, Payment_Type, Payment_Amount, Payment_Date, Payment_Status, Payment_Description FROM Folio WHERE (Folio_ID = @Folio_ID)</CommandText>
                     <Parameters>
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Booking_ID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Booking_ID" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Folio_Type" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Folio_Type" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Folio_Status" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Folio_Status" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Opening_Balance" Precision="8" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="Opening_Balance" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Current_Balance" Precision="8" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="Current_Balance" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Credit_Limit" Precision="8" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="Credit_Limit" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Payment_Type" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Payment_Type" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Payment_Amount" Precision="8" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="Payment_Amount" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Payment_Date" Precision="0" ProviderType="SmallDateTime" Scale="0" Size="0" SourceColumn="Payment_Date" SourceColumnNullMapping="false" SourceVersion="Current" />
@@ -434,16 +415,6 @@ SELECT Folio_ID, Booking_ID, Folio_Type, Folio_Status, Opening_Balance, Current_
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_Folio_ID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Folio_ID" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Booking_ID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Booking_ID" SourceColumnNullMapping="true" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_Booking_ID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Booking_ID" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Folio_Type" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Folio_Type" SourceColumnNullMapping="true" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_Folio_Type" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Folio_Type" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Folio_Status" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Folio_Status" SourceColumnNullMapping="true" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_Folio_Status" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Folio_Status" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Opening_Balance" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Opening_Balance" SourceColumnNullMapping="true" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_Opening_Balance" Precision="8" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="Opening_Balance" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Current_Balance" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Current_Balance" SourceColumnNullMapping="true" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_Current_Balance" Precision="8" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="Current_Balance" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Credit_Limit" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Credit_Limit" SourceColumnNullMapping="true" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_Credit_Limit" Precision="8" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="Credit_Limit" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Payment_Type" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Payment_Type" SourceColumnNullMapping="true" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_Payment_Type" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Payment_Type" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Payment_Amount" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Payment_Amount" SourceColumnNullMapping="true" SourceVersion="Original" />
@@ -463,11 +434,6 @@ SELECT Folio_ID, Booking_ID, Folio_Type, Folio_Status, Opening_Balance, Current_
             <Mappings>
               <Mapping SourceColumn="Folio_ID" DataSetColumn="Folio_ID" />
               <Mapping SourceColumn="Booking_ID" DataSetColumn="Booking_ID" />
-              <Mapping SourceColumn="Folio_Type" DataSetColumn="Folio_Type" />
-              <Mapping SourceColumn="Folio_Status" DataSetColumn="Folio_Status" />
-              <Mapping SourceColumn="Opening_Balance" DataSetColumn="Opening_Balance" />
-              <Mapping SourceColumn="Current_Balance" DataSetColumn="Current_Balance" />
-              <Mapping SourceColumn="Credit_Limit" DataSetColumn="Credit_Limit" />
               <Mapping SourceColumn="Payment_Type" DataSetColumn="Payment_Type" />
               <Mapping SourceColumn="Payment_Amount" DataSetColumn="Payment_Amount" />
               <Mapping SourceColumn="Payment_Date" DataSetColumn="Payment_Date" />
@@ -475,41 +441,20 @@ SELECT Folio_ID, Booking_ID, Folio_Type, Folio_Status, Opening_Balance, Current_
               <Mapping SourceColumn="Payment_Description" DataSetColumn="Payment_Description" />
             </Mappings>
             <Sources>
-              <DbSource ConnectionRef="GroupPmb2ConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertPayment" Modifier="Public" Name="InsertPayment" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="InsertPayment">
+              <DbSource ConnectionRef="GroupPmb2ConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertNewPayment" Modifier="Public" Name="InsertNewPayment" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="InsertNewPayment">
                 <InsertCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>INSERT INTO Folio
-(
-    Booking_ID,
-    Folio_Type,
-    Folio_Status,
-    Opening_Balance,
-    Current_Balance,
-    Credit_Limit,
-    Payment_Type,
-    Payment_Amount,
-    Payment_Date,
-    Payment_Status,
-    Payment_Description
-)
-VALUES
-(
-    @BookingID,
-    'Guest',
-    'Closed',
-    @Amount,
-    0,
-    0,
-    @PaymentType,
-    @Amount,
-    GETDATE(),
-    'Settled',
-    'Booking payment'
-)</CommandText>
+                         (Booking_ID, Payment_Type, Payment_Amount, Payment_Date, Payment_Status, Payment_Description)
+VALUES        (@Booking_ID,@Payment_Type,@Payment_Amount,@Payment_Date,@Payment_Status,@Payment_Description); 
+SELECT Folio_ID, Booking_ID, Payment_Type, Payment_Amount, Payment_Date, Payment_Status, Payment_Description FROM Folio WHERE (Folio_ID = SCOPE_IDENTITY())</CommandText>
                     <Parameters>
-                      <Parameter AllowDbNull="true" AutogeneratedName="BookingID" ColumnName="Booking_ID" DataSourceName="GroupPmb2.dbo.Folio" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@BookingID" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="Booking_ID" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="Amount" ColumnName="Payment_Amount" DataSourceName="GroupPmb2.dbo.Folio" DataTypeServer="decimal(8, 2)" DbType="Decimal" Direction="Input" ParameterName="@Amount" Precision="8" ProviderType="Decimal" Scale="2" Size="5" SourceColumn="Payment_Amount" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="PaymentType" ColumnName="Payment_Type" DataSourceName="GroupPmb2.dbo.Folio" DataTypeServer="varchar(50)" DbType="AnsiString" Direction="Input" ParameterName="@PaymentType" Precision="0" ProviderType="VarChar" Scale="0" Size="50" SourceColumn="Payment_Type" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Booking_ID" ColumnName="Booking_ID" DataSourceName="GroupPmb2.dbo.Folio" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@Booking_ID" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="Booking_ID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Payment_Type" ColumnName="Payment_Type" DataSourceName="GroupPmb2.dbo.Folio" DataTypeServer="varchar(50)" DbType="AnsiString" Direction="Input" ParameterName="@Payment_Type" Precision="0" ProviderType="VarChar" Scale="0" Size="50" SourceColumn="Payment_Type" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Payment_Amount" ColumnName="Payment_Amount" DataSourceName="GroupPmb2.dbo.Folio" DataTypeServer="decimal(8, 2)" DbType="Decimal" Direction="Input" ParameterName="@Payment_Amount" Precision="8" ProviderType="Decimal" Scale="2" Size="5" SourceColumn="Payment_Amount" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Payment_Date" ColumnName="Payment_Date" DataSourceName="GroupPmb2.dbo.Folio" DataTypeServer="smalldatetime" DbType="DateTime" Direction="Input" ParameterName="@Payment_Date" Precision="0" ProviderType="SmallDateTime" Scale="0" Size="4" SourceColumn="Payment_Date" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Payment_Status" ColumnName="Payment_Status" DataSourceName="GroupPmb2.dbo.Folio" DataTypeServer="varchar(50)" DbType="AnsiString" Direction="Input" ParameterName="@Payment_Status" Precision="0" ProviderType="VarChar" Scale="0" Size="50" SourceColumn="Payment_Status" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Payment_Description" ColumnName="Payment_Description" DataSourceName="GroupPmb2.dbo.Folio" DataTypeServer="varchar(50)" DbType="AnsiString" Direction="Input" ParameterName="@Payment_Description" Precision="0" ProviderType="VarChar" Scale="0" Size="50" SourceColumn="Payment_Description" SourceColumnNullMapping="false" SourceVersion="Current" />
                     </Parameters>
                   </DbCommand>
                 </InsertCommand>
@@ -550,21 +495,6 @@ VALUES
                     </Parameters>
                   </DbCommand>
                 </InsertCommand>
-              </DbSource>
-              <DbSource ConnectionRef="GroupPmb2ConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdatePaymentDetails" Modifier="Public" Name="UpdatePaymentDetails" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="UpdatePaymentDetails">
-                <UpdateCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>UPDATE Folio
-SET Payment_Status = @PaymentStatus,
-    Payment_Description = @PaymentDescription
-WHERE Booking_ID = @BookingID</CommandText>
-                    <Parameters>
-                      <Parameter AllowDbNull="true" AutogeneratedName="PaymentStatus" ColumnName="Payment_Status" DataSourceName="GroupPmb2.dbo.Folio" DataTypeServer="varchar(50)" DbType="AnsiString" Direction="Input" ParameterName="@PaymentStatus" Precision="0" ProviderType="VarChar" Scale="0" Size="50" SourceColumn="Payment_Status" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="PaymentDescription" ColumnName="Payment_Description" DataSourceName="GroupPmb2.dbo.Folio" DataTypeServer="varchar(50)" DbType="AnsiString" Direction="Input" ParameterName="@PaymentDescription" Precision="0" ProviderType="VarChar" Scale="0" Size="50" SourceColumn="Payment_Description" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="BookingID" ColumnName="Booking_ID" DataSourceName="GroupPmb2.dbo.Folio" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@BookingID" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="Booking_ID" SourceColumnNullMapping="false" SourceVersion="Original" />
-                    </Parameters>
-                  </DbCommand>
-                </UpdateCommand>
               </DbSource>
             </Sources>
           </TableAdapter>
@@ -944,7 +874,7 @@ SELECT staff_ID, Branch_ID, staff_First_Name, staff_Surname, staff_Address, staf
                     <CommandText>INSERT INTO [dbo].[Staff] ([Branch_ID], [staff_First_Name], [staff_Surname], [staff_Address], [staff_phone_number], [staff_email], [staff_role], [date_joined], [staff_status]) VALUES (@Branch_ID, @staff_First_Name, @staff_Surname, @staff_Address, @staff_phone_number, @staff_email, @staff_role, @date_joined, @staff_status);
 SELECT staff_ID, Branch_ID, staff_First_Name, staff_Surname, staff_Address, staff_phone_number, staff_email, staff_role, date_joined, staff_status FROM Staff WHERE (staff_ID = SCOPE_IDENTITY())</CommandText>
                     <Parameters>
-                      <Parameter AllowDbNull="true" AutogeneratedName="Branch_ID" ColumnName="Branch_ID" DataSourceName="GroupPmb2.dbo.Staff" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@Branch_ID" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="Branch_ID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Branch_ID" ColumnName="Branch_ID" DataSourceName="GroupPmb2.dbo.Staff" DataTypeServer="varchar(10)" DbType="AnsiString" Direction="Input" ParameterName="@Branch_ID" Precision="0" ProviderType="VarChar" Scale="0" Size="10" SourceColumn="Branch_ID" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="staff_First_Name" ColumnName="staff_First_Name" DataSourceName="GroupPmb2.dbo.Staff" DataTypeServer="varchar(50)" DbType="AnsiString" Direction="Input" ParameterName="@staff_First_Name" Precision="0" ProviderType="VarChar" Scale="0" Size="50" SourceColumn="staff_First_Name" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="staff_Surname" ColumnName="staff_Surname" DataSourceName="GroupPmb2.dbo.Staff" DataTypeServer="varchar(50)" DbType="AnsiString" Direction="Input" ParameterName="@staff_Surname" Precision="0" ProviderType="VarChar" Scale="0" Size="50" SourceColumn="staff_Surname" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="staff_Address" ColumnName="staff_Address" DataSourceName="GroupPmb2.dbo.Staff" DataTypeServer="varchar(50)" DbType="AnsiString" Direction="Input" ParameterName="@staff_Address" Precision="0" ProviderType="VarChar" Scale="0" Size="50" SourceColumn="staff_Address" SourceColumnNullMapping="false" SourceVersion="Current" />
@@ -1376,23 +1306,6 @@ WHERE Booking_ID = @BookingID</CommandText>
             <xs:sequence>
               <xs:element name="Folio_ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnPropNameInTable="Folio_IDColumn" msprop:Generator_ColumnPropNameInRow="Folio_ID" msprop:Generator_UserColumnName="Folio_ID" msprop:Generator_ColumnVarNameInTable="columnFolio_ID" type="xs:int" />
               <xs:element name="Booking_ID" msprop:Generator_ColumnPropNameInTable="Booking_IDColumn" msprop:Generator_ColumnPropNameInRow="Booking_ID" msprop:Generator_UserColumnName="Booking_ID" msprop:Generator_ColumnVarNameInTable="columnBooking_ID" type="xs:int" minOccurs="0" />
-              <xs:element name="Folio_Type" msprop:Generator_ColumnPropNameInTable="Folio_TypeColumn" msprop:Generator_ColumnPropNameInRow="Folio_Type" msprop:Generator_UserColumnName="Folio_Type" msprop:Generator_ColumnVarNameInTable="columnFolio_Type" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="50" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="Folio_Status" msprop:Generator_ColumnPropNameInTable="Folio_StatusColumn" msprop:Generator_ColumnPropNameInRow="Folio_Status" msprop:Generator_UserColumnName="Folio_Status" msprop:Generator_ColumnVarNameInTable="columnFolio_Status" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="50" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="Opening_Balance" msprop:Generator_ColumnPropNameInTable="Opening_BalanceColumn" msprop:Generator_ColumnPropNameInRow="Opening_Balance" msprop:Generator_UserColumnName="Opening_Balance" msprop:Generator_ColumnVarNameInTable="columnOpening_Balance" type="xs:decimal" minOccurs="0" />
-              <xs:element name="Current_Balance" msprop:Generator_ColumnPropNameInTable="Current_BalanceColumn" msprop:Generator_ColumnPropNameInRow="Current_Balance" msprop:Generator_UserColumnName="Current_Balance" msprop:Generator_ColumnVarNameInTable="columnCurrent_Balance" type="xs:decimal" minOccurs="0" />
-              <xs:element name="Credit_Limit" msprop:Generator_ColumnPropNameInTable="Credit_LimitColumn" msprop:Generator_ColumnPropNameInRow="Credit_Limit" msprop:Generator_UserColumnName="Credit_Limit" msprop:Generator_ColumnVarNameInTable="columnCredit_Limit" type="xs:decimal" minOccurs="0" />
               <xs:element name="Payment_Type" msprop:Generator_ColumnPropNameInTable="Payment_TypeColumn" msprop:Generator_ColumnPropNameInRow="Payment_Type" msprop:Generator_UserColumnName="Payment_Type" msprop:Generator_ColumnVarNameInTable="columnPayment_Type" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
@@ -1409,13 +1322,7 @@ WHERE Booking_ID = @BookingID</CommandText>
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Payment_Description" msprop:Generator_ColumnPropNameInTable="Payment_DescriptionColumn" msprop:Generator_ColumnPropNameInRow="Payment_Description" msprop:Generator_UserColumnName="Payment_Description" msprop:Generator_ColumnVarNameInTable="columnPayment_Description" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="50" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
+              <xs:element name="Payment_Description" msprop:Generator_ColumnPropNameInRow="Payment_Description" msprop:Generator_ColumnPropNameInTable="Payment_DescriptionColumn" msprop:Generator_ColumnVarNameInTable="columnPayment_Description" msprop:Generator_UserColumnName="Payment_Description" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -1425,13 +1332,7 @@ WHERE Booking_ID = @BookingID</CommandText>
               <xs:element name="Hotel_Room_ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnPropNameInTable="Hotel_Room_IDColumn" msprop:Generator_ColumnPropNameInRow="Hotel_Room_ID" msprop:Generator_UserColumnName="Hotel_Room_ID" msprop:Generator_ColumnVarNameInTable="columnHotel_Room_ID" type="xs:int" />
               <xs:element name="Branch_ID" msprop:Generator_ColumnPropNameInTable="Branch_IDColumn" msprop:Generator_ColumnPropNameInRow="Branch_ID" msprop:Generator_UserColumnName="Branch_ID" msprop:Generator_ColumnVarNameInTable="columnBranch_ID" type="xs:string" minOccurs="0" />
               <xs:element name="hotel_room_type_ID" msprop:Generator_ColumnPropNameInTable="hotel_room_type_IDColumn" msprop:Generator_ColumnPropNameInRow="hotel_room_type_ID" msprop:Generator_UserColumnName="hotel_room_type_ID" msprop:Generator_ColumnVarNameInTable="columnhotel_room_type_ID" type="xs:int" minOccurs="0" />
-              <xs:element name="hotel_room_number" msprop:Generator_ColumnPropNameInTable="hotel_room_numberColumn" msprop:Generator_ColumnPropNameInRow="hotel_room_number" msprop:Generator_UserColumnName="hotel_room_number" msprop:Generator_ColumnVarNameInTable="columnhotel_room_number" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="10" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
+              <xs:element name="hotel_room_number" msprop:Generator_ColumnPropNameInTable="hotel_room_numberColumn" msprop:Generator_ColumnPropNameInRow="hotel_room_number" msprop:Generator_UserColumnName="hotel_room_number" msprop:Generator_ColumnVarNameInTable="columnhotel_room_number" type="xs:int" minOccurs="0" />
               <xs:element name="hotel_room_status" msprop:Generator_ColumnPropNameInTable="hotel_room_statusColumn" msprop:Generator_ColumnPropNameInRow="hotel_room_status" msprop:Generator_UserColumnName="hotel_room_status" msprop:Generator_ColumnVarNameInTable="columnhotel_room_status" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
@@ -1686,19 +1587,19 @@ WHERE Booking_ID = @BookingID</CommandText>
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="TablePrice" msprop:Generator_ColumnPropNameInRow="TablePrice" msprop:Generator_ColumnPropNameInTable="TablePriceColumn" msprop:Generator_ColumnVarNameInTable="columnTablePrice" msprop:Generator_UserColumnName="TablePrice" type="xs:string" minOccurs="0" />
+              <xs:element name="TablePrice" msprop:Generator_UserColumnName="TablePrice" msprop:Generator_ColumnPropNameInTable="TablePriceColumn" msprop:Generator_ColumnPropNameInRow="TablePrice" msprop:Generator_ColumnVarNameInTable="columnTablePrice" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Invoice" msprop:Generator_RowEvHandlerName="InvoiceRowChangeEventHandler" msprop:Generator_RowDeletedName="InvoiceRowDeleted" msprop:Generator_RowDeletingName="InvoiceRowDeleting" msprop:Generator_RowEvArgName="InvoiceRowChangeEvent" msprop:Generator_TablePropName="Invoice" msprop:Generator_RowChangedName="InvoiceRowChanged" msprop:Generator_RowChangingName="InvoiceRowChanging" msprop:Generator_TableClassName="InvoiceDataTable" msprop:Generator_RowClassName="InvoiceRow" msprop:Generator_TableVarName="tableInvoice" msprop:Generator_UserTableName="Invoice">
+        <xs:element name="Invoice" msprop:Generator_RowClassName="InvoiceRow" msprop:Generator_RowEvHandlerName="InvoiceRowChangeEventHandler" msprop:Generator_RowDeletedName="InvoiceRowDeleted" msprop:Generator_RowDeletingName="InvoiceRowDeleting" msprop:Generator_RowEvArgName="InvoiceRowChangeEvent" msprop:Generator_TablePropName="Invoice" msprop:Generator_RowChangedName="InvoiceRowChanged" msprop:Generator_UserTableName="Invoice" msprop:Generator_RowChangingName="InvoiceRowChanging" msprop:Generator_TableClassName="InvoiceDataTable" msprop:Generator_TableVarName="tableInvoice">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="Hotel_Room_ID" msprop:Generator_ColumnPropNameInRow="Hotel_Room_ID" msprop:Generator_ColumnPropNameInTable="Hotel_Room_IDColumn" msprop:Generator_ColumnVarNameInTable="columnHotel_Room_ID" msprop:Generator_UserColumnName="Hotel_Room_ID" type="xs:string" minOccurs="0" />
-              <xs:element name="Hotel_room_number" msprop:Generator_ColumnPropNameInRow="Hotel_room_number" msprop:Generator_ColumnPropNameInTable="Hotel_room_numberColumn" msprop:Generator_ColumnVarNameInTable="columnHotel_room_number" msprop:Generator_UserColumnName="Hotel_room_number" type="xs:string" minOccurs="0" />
-              <xs:element name="Hotel_Room_Price" msprop:Generator_ColumnPropNameInRow="Hotel_Room_Price" msprop:Generator_ColumnPropNameInTable="Hotel_Room_PriceColumn" msprop:Generator_ColumnVarNameInTable="columnHotel_Room_Price" msprop:Generator_UserColumnName="Hotel_Room_Price" type="xs:string" minOccurs="0" />
-              <xs:element name="RestaurantTable_ID" msprop:Generator_ColumnPropNameInRow="RestaurantTable_ID" msprop:Generator_ColumnPropNameInTable="RestaurantTable_IDColumn" msprop:Generator_ColumnVarNameInTable="columnRestaurantTable_ID" msprop:Generator_UserColumnName="RestaurantTable_ID" type="xs:string" minOccurs="0" />
-              <xs:element name="RestaurantTableNum" msprop:Generator_ColumnPropNameInRow="RestaurantTableNum" msprop:Generator_ColumnPropNameInTable="RestaurantTableNumColumn" msprop:Generator_ColumnVarNameInTable="columnRestaurantTableNum" msprop:Generator_UserColumnName="RestaurantTableNum" type="xs:string" minOccurs="0" />
-              <xs:element name="RestaurantTablePrice" msprop:Generator_ColumnPropNameInRow="RestaurantTablePrice" msprop:Generator_ColumnPropNameInTable="RestaurantTablePriceColumn" msprop:Generator_ColumnVarNameInTable="columnRestaurantTablePrice" msprop:Generator_UserColumnName="RestaurantTablePrice" type="xs:string" minOccurs="0" />
+              <xs:element name="Hotel_Room_ID" msprop:Generator_UserColumnName="Hotel_Room_ID" msprop:Generator_ColumnPropNameInTable="Hotel_Room_IDColumn" msprop:Generator_ColumnPropNameInRow="Hotel_Room_ID" msprop:Generator_ColumnVarNameInTable="columnHotel_Room_ID" type="xs:string" minOccurs="0" />
+              <xs:element name="Hotel_room_number" msprop:Generator_UserColumnName="Hotel_room_number" msprop:Generator_ColumnPropNameInTable="Hotel_room_numberColumn" msprop:Generator_ColumnPropNameInRow="Hotel_room_number" msprop:Generator_ColumnVarNameInTable="columnHotel_room_number" type="xs:string" minOccurs="0" />
+              <xs:element name="Hotel_Room_Price" msprop:Generator_UserColumnName="Hotel_Room_Price" msprop:Generator_ColumnPropNameInTable="Hotel_Room_PriceColumn" msprop:Generator_ColumnPropNameInRow="Hotel_Room_Price" msprop:Generator_ColumnVarNameInTable="columnHotel_Room_Price" type="xs:string" minOccurs="0" />
+              <xs:element name="RestaurantTable_ID" msprop:Generator_UserColumnName="RestaurantTable_ID" msprop:Generator_ColumnPropNameInTable="RestaurantTable_IDColumn" msprop:Generator_ColumnPropNameInRow="RestaurantTable_ID" msprop:Generator_ColumnVarNameInTable="columnRestaurantTable_ID" type="xs:string" minOccurs="0" />
+              <xs:element name="RestaurantTableNum" msprop:Generator_UserColumnName="RestaurantTableNum" msprop:Generator_ColumnPropNameInTable="RestaurantTableNumColumn" msprop:Generator_ColumnPropNameInRow="RestaurantTableNum" msprop:Generator_ColumnVarNameInTable="columnRestaurantTableNum" type="xs:string" minOccurs="0" />
+              <xs:element name="RestaurantTablePrice" msprop:Generator_UserColumnName="RestaurantTablePrice" msprop:Generator_ColumnPropNameInTable="RestaurantTablePriceColumn" msprop:Generator_ColumnPropNameInRow="RestaurantTablePrice" msprop:Generator_ColumnVarNameInTable="columnRestaurantTablePrice" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -1751,9 +1652,9 @@ WHERE Booking_ID = @BookingID</CommandText>
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="FK__Room_Assi__Booki__1C5231C2" msdata:parent="Booking" msdata:child="Room_Assignment" msdata:parentkey="Booking_ID" msdata:childkey="Booking_ID" msprop:Generator_UserParentTable="Booking" msprop:Generator_UserChildTable="Room_Assignment" msprop:Generator_RelationVarName="relationFK__Room_Assi__Booki__1C5231C2" msprop:Generator_ChildPropName="GetRoom_AssignmentRows" msprop:Generator_ParentPropName="BookingRow" msprop:Generator_UserRelationName="FK__Room_Assi__Booki__1C5231C2" />
-      <msdata:Relationship name="FK__Room_Assi__Hotel__1B5E0D89" msdata:parent="Hotel_Room" msdata:child="Room_Assignment" msdata:parentkey="Hotel_Room_ID" msdata:childkey="Hotel_Room_ID" msprop:Generator_UserParentTable="Hotel_Room" msprop:Generator_UserChildTable="Room_Assignment" msprop:Generator_RelationVarName="relationFK__Room_Assi__Hotel__1B5E0D89" msprop:Generator_ChildPropName="GetRoom_AssignmentRows" msprop:Generator_ParentPropName="Hotel_RoomRow" msprop:Generator_UserRelationName="FK__Room_Assi__Hotel__1B5E0D89" />
-      <msdata:Relationship name="FK__Room_Assi__Booki__1C5231C21" msdata:parent="ClientBranchBooking" msdata:child="Room_Assignment" msdata:parentkey="Booking_ID" msdata:childkey="Booking_ID" msprop:Generator_UserParentTable="ClientBranchBooking" msprop:Generator_UserChildTable="Room_Assignment" msprop:Generator_RelationVarName="relationFK__Room_Assi__Booki__1C5231C21" msprop:Generator_ChildPropName="GetRoom_AssignmentRows" msprop:Generator_UserRelationName="FK__Room_Assi__Booki__1C5231C21" msprop:Generator_ParentPropName="ClientBranchBookingRow" />
+      <msdata:Relationship name="FK__Room_Assi__Booki__1C5231C2" msdata:parent="Booking" msdata:child="Room_Assignment" msdata:parentkey="Booking_ID" msdata:childkey="Booking_ID" msprop:Generator_UserParentTable="Booking" msprop:Generator_UserChildTable="Room_Assignment" msprop:Generator_RelationVarName="relationFK__Room_Assi__Booki__1C5231C2" msprop:Generator_ChildPropName="GetRoom_AssignmentRows" msprop:Generator_UserRelationName="FK__Room_Assi__Booki__1C5231C2" msprop:Generator_ParentPropName="BookingRow" />
+      <msdata:Relationship name="FK__Room_Assi__Hotel__1B5E0D89" msdata:parent="Hotel_Room" msdata:child="Room_Assignment" msdata:parentkey="Hotel_Room_ID" msdata:childkey="Hotel_Room_ID" msprop:Generator_UserParentTable="Hotel_Room" msprop:Generator_UserChildTable="Room_Assignment" msprop:Generator_RelationVarName="relationFK__Room_Assi__Hotel__1B5E0D89" msprop:Generator_ChildPropName="GetRoom_AssignmentRows" msprop:Generator_UserRelationName="FK__Room_Assi__Hotel__1B5E0D89" msprop:Generator_ParentPropName="Hotel_RoomRow" />
+      <msdata:Relationship name="FK__Room_Assi__Booki__1C5231C21" msdata:parent="ClientBranchBooking" msdata:child="Room_Assignment" msdata:parentkey="Booking_ID" msdata:childkey="Booking_ID" msprop:Generator_UserParentTable="ClientBranchBooking" msprop:Generator_UserChildTable="Room_Assignment" msprop:Generator_RelationVarName="relationFK__Room_Assi__Booki__1C5231C21" msprop:Generator_ChildPropName="GetRoom_AssignmentRows" msprop:Generator_ParentPropName="ClientBranchBookingRow" msprop:Generator_UserRelationName="FK__Room_Assi__Booki__1C5231C21" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>

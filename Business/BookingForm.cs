@@ -42,20 +42,42 @@ namespace Code_Crafters_Interface_Prototype_1.Business
 
         private void btnCreateBooking_Click(object sender, EventArgs e)
         {
-            int clientBookingID = UserSession.ClientID;
-            int pk = (int)taBooking.InsertNewBooking(clientBookingID, cmbBranchID.SelectedItem.ToString(), DateTime.Now.ToString(), mclCheckIn.SelectionStart.ToShortDateString(),
-                                                     mclCheckOut.SelectionStart.ToShortDateString(), Convert.ToDecimal(txtTotalAmount.Text.Replace("R", "").Trim()), "Pending");
-            UserSession.BookingID = pk;
+            string targetEmail = txtEmailAddress.Text.Trim();
 
+            DataRow clientRow = codeCraftersDS.Client.AsEnumerable()
+                .FirstOrDefault(row => row.Field<string>("Email_Address")
+                .Equals(targetEmail, StringComparison.OrdinalIgnoreCase));
+
+            if (clientRow == null)
+            {
+                MessageBox.Show("No client record found matching that email address. Please verify or register first.",
+                                "Client Not Found", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            int clientBookingID = Convert.ToInt32(clientRow["Client_ID"]);
+
+            UserSession.ClientID = clientBookingID;
+
+            int pk = (int)taBooking.InsertNewBooking(
+                clientBookingID,
+                cmbBranchID.SelectedItem.ToString(),
+                DateTime.Now.ToString(),
+                mclCheckIn.SelectionStart.ToShortDateString(),
+                mclCheckOut.SelectionStart.ToShortDateString(),
+                Convert.ToDecimal(txtTotalAmount.Text.Replace("R", "").Trim()),
+                "Pending"
+            );
+
+            UserSession.BookingID = pk;
             UserSession.BookingReference = $"BR" + pk;
             UserSession.GuestName = txtFullName.Text;
-            UserSession.EmailAddress = txtEmailAddress.Text;
+            UserSession.EmailAddress = targetEmail;
             UserSession.PhysicalAddress = txtAddress.Text;
             UserSession.TotalPrice = txtTotalAmount.Text;
 
             PaymentForm paymentForm = new PaymentForm();
             paymentForm.Show();
-
         }
 
         private void txtHotelRoomAvailable_TextChanged(object sender, EventArgs e)
@@ -161,7 +183,7 @@ namespace Code_Crafters_Interface_Prototype_1.Business
             if (dgvRestaurantTableAvailable.CurrentRow == null) return;
 
             int tableID = Convert.ToInt32(dgvRestaurantTableAvailable.CurrentRow.Cells[0].Value);
-            int tableNumber = Convert.ToInt32(dgvRestaurantTableAvailable.CurrentRow.Cells[2].Value);
+            string tableNumber = dgvRestaurantTableAvailable.CurrentRow.Cells[2].Value.ToString();
             decimal tablePrice = Convert.ToDecimal(dgvRestaurantTableAvailable.CurrentRow.Cells[8].Value);
 
             DataRow row = GetOrCreateCurrentInvoiceRow();

@@ -145,7 +145,6 @@
             this.txtPhysicalAddress.ReadOnly = true;
             this.txtPhysicalAddress.Size = new System.Drawing.Size(214, 29);
             this.txtPhysicalAddress.TabIndex = 18;
-            this.txtPhysicalAddress.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
             // 
             // txtEmailAddress
             // 
@@ -170,7 +169,6 @@
             this.txtBookingID.ReadOnly = true;
             this.txtBookingID.Size = new System.Drawing.Size(201, 29);
             this.txtBookingID.TabIndex = 15;
-            this.txtBookingID.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // lblPhysicalAddress
             // 
@@ -240,7 +238,6 @@
             this.grpPayment.TabIndex = 14;
             this.grpPayment.TabStop = false;
             this.grpPayment.Text = "PAYMENT";
-            this.grpPayment.Enter += new System.EventHandler(this.grpPayment_Enter);
             // 
             // cmbPaymentMethod
             // 
@@ -285,7 +282,6 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "PaymentForm";
             this.Text = "REGAL INN MAKE PAYMENTS";
-            this.Load += new System.EventHandler(this.PaymentForm_Load_1);
             this.grbPayments.ResumeLayout(false);
             this.grpSummary.ResumeLayout(false);
             this.grpSummary.PerformLayout();

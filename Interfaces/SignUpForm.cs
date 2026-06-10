@@ -41,142 +41,116 @@ namespace Code_Crafters_Booking_System
             string password = txtPassword.Text;
             string confirmPassword = txtConfirmPassword.Text;
 
+            // 1. Validation Checks
             if (string.IsNullOrWhiteSpace(name) ||
                 string.IsNullOrWhiteSpace(surname) ||
                 string.IsNullOrWhiteSpace(email) ||
                 string.IsNullOrWhiteSpace(phoneNumber) ||
                 string.IsNullOrWhiteSpace(password))
             {
-                MessageBox.Show("Please fill in all required fields.",
-                    "Validation Error",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning);
+                MessageBox.Show("Please fill in all required fields.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             if (name.Any(char.IsDigit) || surname.Any(char.IsDigit))
             {
-                MessageBox.Show("First Name and Surname can only contain letters.",
-                    "Validation Error",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning);
+                MessageBox.Show("First Name and Surname can only contain letters.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             if (phoneNumber.Length != 10 || !phoneNumber.All(char.IsDigit))
             {
-                MessageBox.Show("Contact number must be exactly 10 digits.",
-                    "Validation Error",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning);
+                MessageBox.Show("Contact number must be exactly 10 digits.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             if (!Regex.IsMatch(email, @"^[^@\s]+@[^@\s]+\.[^@\s]+$"))
             {
-                MessageBox.Show("Invalid email format.",
-                    "Validation Error",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning);
+                MessageBox.Show("Invalid email format.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             if (password != confirmPassword)
             {
-                MessageBox.Show("Passwords do not match.",
-                    "Validation Error",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning);
+                MessageBox.Show("Passwords do not match.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             if (!Regex.IsMatch(password, @"^(?=.*[A-Za-z])(?=.*\d).+$"))
             {
-                MessageBox.Show("Password must contain at least one letter and one number.",
-                    "Validation Error",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning);
+                MessageBox.Show("Password must contain at least one letter and one number.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             try
             {
-
+                // 2. Duplicate Checks
                 int emailExists = Convert.ToInt32(taClient.CheckEmailExists(email));
                 if (emailExists > 0)
                 {
-                    MessageBox.Show("Email address already exists!",
-                        "Duplicate Error",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Warning);
+                    MessageBox.Show("Email address already exists!", "Duplicate Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
                 int phoneExists = Convert.ToInt32(taClient.CheckPhoneExists(phoneNumber));
                 if (phoneExists > 0)
                 {
-                    MessageBox.Show("Phone number already exists!",
-                        "Duplicate Error",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Warning);
+                    MessageBox.Show("Phone number already exists!", "Duplicate Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
+                // 3. Insert into Client Table (Happens for EVERYONE)
                 int pk = Convert.ToInt32(taClient.InsertNewClient(name, surname, password, email, physicalAddress, phoneNumber));
                 UserSession.ClientID = pk;
 
+                // 4. Double Insert Condition (If Staff Email)
                 if (email.EndsWith("@regalinn.co.za", StringComparison.OrdinalIgnoreCase))
                 {
-                    var taBranch = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTableAdapters.BranchTableAdapter();
                     var taStaff = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTableAdapters.StaffTableAdapter();
 
-                    int branchId = Convert.ToInt32(taBranch.GetFirstBranchId());
-                    if (branchId <= 0) branchId = 1;
+                    // Setup the available branches array
+                    string[] branches = { "BR01", "BR02", "BR03", "BR04", "BR05" };
 
-                    taStaff.Insert(
+                    // Generate a random index between 0 and 4
+                    Random rand = new Random();
+                    int randomIndex = rand.Next(0, branches.Length);
+                    string branchId = branches[randomIndex];
+
+                    // Insert into Staff Table with the randomly assigned branch
+                    taStaff.InsertNewStaff(
                         branchId,
                         name,
                         surname,
                         physicalAddress,
                         phoneNumber,
                         email,
-                        "Receptionist",
+                        "Admin",
                         DateTime.Now,
                         "Full Time"
                     );
 
-                    MessageBox.Show("Staff and Client accounts created successfully!",
-                        "Success",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Information);
+                    MessageBox.Show($"Staff and Client accounts created successfully!\nAssigned to Branch: {branchId}", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
-                    MessageBox.Show("Client account created successfully!",
-                        "Success",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Information);
+                    MessageBox.Show("Client account created successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
+                // 5. Send Confirmation Email
                 string subject = "Welcome to The Regal Inn";
-
                 string body = $@"
-                <div style='font-family: Arial; max-width:600px; padding:20px; border:1px solid #ccc;'>
-                    <h2>Welcome {name}</h2>
-                    <p>Your account has been created successfully.</p>
-                    <p><b>Login Email:</b> {email}</p>
-                </div>";
+        <div style='font-family: Arial; max-width:600px; padding:20px; border:1px solid #ccc;'>
+            <h2>Welcome {name}</h2>
+            <p>Your account has been created successfully.</p>
+            <p><b>Login Email:</b> {email}</p>
+        </div>";
 
                 EmailService.SendEmail(email, subject, body);
-
                 ClearFields();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error creating account:\n" + ex.Message,
-                    "Database Error",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
+                MessageBox.Show("Error creating account:\n" + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

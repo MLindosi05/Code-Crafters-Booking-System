@@ -14,9 +14,12 @@
     }
 }
 
-namespace Code_Crafters_Interface_Prototype_1.codeCraftersDSTableAdapters {
-    
-    
+namespace Code_Crafters_Interface_Prototype_1.codeCraftersDSTableAdapters
+{
+    partial class FolioTableAdapter
+    {
+    }
+
     public partial class Restuarant_TableTableAdapter {
     }
 }
