@@ -188,6 +188,7 @@ namespace Code_Crafters_Interface_Prototype_1.Business
             grpBookingDetails.BackColor = ColorTranslator.FromHtml("#F8F5F0");
             btnCreateBooking.BackColor = ColorTranslator.FromHtml("#C99A2E");
             btnCreateBooking.ForeColor = Color.White;
+            panel1.BackColor = ColorTranslator.FromHtml("#F8F5F0");
         }
     }
 }

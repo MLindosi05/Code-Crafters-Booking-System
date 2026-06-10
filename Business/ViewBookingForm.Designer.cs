@@ -56,10 +56,12 @@
             this.clientBranchBookingBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.codeCraftersDS = new Code_Crafters_Interface_Prototype_1.codeCraftersDS();
             this.taClientBranchBooking = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTableAdapters.ClientBranchBookingTableAdapter();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBookings)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientBranchBookingBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.codeCraftersDS)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -69,7 +71,8 @@
             this.groupBox1.Controls.Add(this.lblBookingID);
             this.groupBox1.Controls.Add(this.txtBookingID);
             this.groupBox1.Controls.Add(this.dgvBookings);
-            this.groupBox1.Location = new System.Drawing.Point(55, 34);
+            this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold);
+            this.groupBox1.Location = new System.Drawing.Point(30, 17);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(1014, 485);
             this.groupBox1.TabIndex = 0;
@@ -78,8 +81,9 @@
             // 
             // btnUpdateStatus
             // 
+            this.btnUpdateStatus.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold);
             this.btnUpdateStatus.Location = new System.Drawing.Point(884, 51);
-            this.btnUpdateStatus.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnUpdateStatus.Margin = new System.Windows.Forms.Padding(2);
             this.btnUpdateStatus.Name = "btnUpdateStatus";
             this.btnUpdateStatus.Size = new System.Drawing.Size(110, 31);
             this.btnUpdateStatus.TabIndex = 4;
@@ -97,7 +101,7 @@
             "No Show",
             "Cancelled"});
             this.cmbStatusActions.Location = new System.Drawing.Point(721, 58);
-            this.cmbStatusActions.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmbStatusActions.Margin = new System.Windows.Forms.Padding(2);
             this.cmbStatusActions.Name = "cmbStatusActions";
             this.cmbStatusActions.Size = new System.Drawing.Size(144, 21);
             this.cmbStatusActions.TabIndex = 3;
@@ -105,9 +109,10 @@
             // lblBookingID
             // 
             this.lblBookingID.AutoSize = true;
+            this.lblBookingID.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold);
             this.lblBookingID.Location = new System.Drawing.Point(24, 39);
             this.lblBookingID.Name = "lblBookingID";
-            this.lblBookingID.Size = new System.Drawing.Size(88, 13);
+            this.lblBookingID.Size = new System.Drawing.Size(95, 13);
             this.lblBookingID.TabIndex = 2;
             this.lblBookingID.Text = "Enter Booking ID";
             // 
@@ -115,7 +120,7 @@
             // 
             this.txtBookingID.Location = new System.Drawing.Point(24, 58);
             this.txtBookingID.Name = "txtBookingID";
-            this.txtBookingID.Size = new System.Drawing.Size(255, 20);
+            this.txtBookingID.Size = new System.Drawing.Size(255, 22);
             this.txtBookingID.TabIndex = 1;
             this.txtBookingID.TextChanged += new System.EventHandler(this.txtBookingID_TextChanged);
             // 
@@ -308,15 +313,23 @@
             // 
             this.taClientBranchBooking.ClearBeforeFill = true;
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.groupBox1);
+            this.panel1.Location = new System.Drawing.Point(47, 22);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1059, 512);
+            this.panel1.TabIndex = 1;
+            // 
             // ViewBookingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSlateGray;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ClientSize = new System.Drawing.Size(1118, 536);
-            this.Controls.Add(this.groupBox1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ClientSize = new System.Drawing.Size(1118, 586);
+            this.Controls.Add(this.panel1);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ViewBookingForm";
             this.Text = "REGAL INN VIEW BOOKING";
             this.Load += new System.EventHandler(this.ViewBookingForm_Load);
@@ -325,6 +338,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvBookings)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientBranchBookingBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.codeCraftersDS)).EndInit();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -358,5 +372,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn branchStatusDataGridViewTextBoxColumn;
         private System.Windows.Forms.Button btnUpdateStatus;
         private System.Windows.Forms.ComboBox cmbStatusActions;
+        private System.Windows.Forms.Panel panel1;
     }
 }

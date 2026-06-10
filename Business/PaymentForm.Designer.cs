@@ -50,10 +50,12 @@
             this.taFolio = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTableAdapters.FolioTableAdapter();
             this.codeCraftersDS = new Code_Crafters_Interface_Prototype_1.codeCraftersDS();
             this.taBooking = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTableAdapters.BookingTableAdapter();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.grbPayments.SuspendLayout();
             this.grpSummary.SuspendLayout();
             this.grpPayment.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.codeCraftersDS)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // grbPayments
@@ -65,11 +67,11 @@
             this.grbPayments.Controls.Add(this.btnCancel);
             this.grbPayments.Controls.Add(this.grpPayment);
             this.grbPayments.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grbPayments.Location = new System.Drawing.Point(39, 39);
+            this.grbPayments.Location = new System.Drawing.Point(74, 28);
             this.grbPayments.Margin = new System.Windows.Forms.Padding(2);
             this.grbPayments.Name = "grbPayments";
             this.grbPayments.Padding = new System.Windows.Forms.Padding(2);
-            this.grbPayments.Size = new System.Drawing.Size(775, 464);
+            this.grbPayments.Size = new System.Drawing.Size(942, 496);
             this.grbPayments.TabIndex = 0;
             this.grbPayments.TabStop = false;
             this.grbPayments.Text = "MAKE PAYMENT";
@@ -275,13 +277,22 @@
             // 
             this.taBooking.ClearBeforeFill = true;
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.grbPayments);
+            this.panel1.Location = new System.Drawing.Point(39, 45);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1062, 555);
+            this.panel1.TabIndex = 1;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
             // PaymentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSlateGray;
             this.ClientSize = new System.Drawing.Size(1147, 630);
-            this.Controls.Add(this.grbPayments);
+            this.Controls.Add(this.panel1);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "PaymentForm";
             this.Text = "REGAL INN MAKE PAYMENTS";
@@ -292,6 +303,7 @@
             this.grpPayment.ResumeLayout(false);
             this.grpPayment.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.codeCraftersDS)).EndInit();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -320,5 +332,6 @@
         private System.Windows.Forms.Button btnReset;
         private System.Windows.Forms.TextBox txtTotalPrice;
         private System.Windows.Forms.Label lblTotalPrice;
+        private System.Windows.Forms.Panel panel1;
     }
 }
