@@ -41,6 +41,7 @@ namespace Code_Crafters_Interface_Prototype_1.Interfaces
             panel3.BackColor = Color.Black;
             panel4.BackColor = Color.Black;
             button3.BackColor = ColorTranslator.FromHtml("#C99A2E");
+            groupBox1.BackColor = ColorTranslator.FromHtml("#A55D35");
         }
 
         private Dictionary<string, string> helpDatabase = new Dictionary<string, string>()
