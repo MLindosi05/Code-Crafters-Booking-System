@@ -64,7 +64,7 @@
             this.txtSearchHelp = new System.Windows.Forms.TextBox();
             this.labelHelpHeader = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.panel7 = new System.Windows.Forms.Panel();
+            this.pnlLogin = new System.Windows.Forms.Panel();
             this.groupBox1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
@@ -78,7 +78,7 @@
             this.panel1.SuspendLayout();
             this.pnlHelpDrawer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            this.panel7.SuspendLayout();
+            this.pnlLogin.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -475,21 +475,23 @@
             this.pictureBox3.TabIndex = 9;
             this.pictureBox3.TabStop = false;
             // 
-            // panel7
+            // pnlLogin
             // 
-            this.panel7.Controls.Add(this.button1);
-            this.panel7.Controls.Add(this.panel1);
-            this.panel7.Location = new System.Drawing.Point(332, 118);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(1191, 726);
-            this.panel7.TabIndex = 12;
+            this.pnlLogin.AutoScroll = true;
+            this.pnlLogin.Controls.Add(this.button1);
+            this.pnlLogin.Controls.Add(this.panel1);
+            this.pnlLogin.Location = new System.Drawing.Point(284, 101);
+            this.pnlLogin.Name = "pnlLogin";
+            this.pnlLogin.Size = new System.Drawing.Size(1191, 726);
+            this.pnlLogin.TabIndex = 12;
             // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1774, 907);
-            this.Controls.Add(this.panel7);
+            this.Controls.Add(this.pnlLogin);
             this.Name = "Login";
             this.Text = "REGAL INN LOGIN  ";
             this.Load += new System.EventHandler(this.Login_Load);
@@ -508,7 +510,7 @@
             this.pnlHelpDrawer.ResumeLayout(false);
             this.pnlHelpDrawer.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            this.panel7.ResumeLayout(false);
+            this.pnlLogin.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -551,6 +553,6 @@
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.PictureBox pictureBox7;
         private System.Windows.Forms.PictureBox pictureBox8;
-        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Panel pnlLogin;
     }
 }

@@ -23,32 +23,12 @@ namespace Code_Crafters_Interface_Prototype_1.Business
         {
             try
             {
-                // Fill datasets
                 taClient.Fill(codeCraftersDS.Client);
-                taBranch.Fill(codeCraftersDS.Branch);
-
-                // Set up UI container behaviors safely
-                if (pnlBooking != null)
-                {
-                    pnlBooking.Dock = DockStyle.Fill;
-                    pnlBooking.AutoScroll = true;
-                }
-
-                // Apply interface style elements
-                this.BackColor = ColorTranslator.FromHtml("#F9EED8");
-                if (groupBox4 != null) groupBox4.BackColor = ColorTranslator.FromHtml("#966919");
-                if (grpClientDetails != null) grpClientDetails.BackColor = ColorTranslator.FromHtml("#F8F5F0");
-                if (grpBookingDetails != null) grpBookingDetails.BackColor = ColorTranslator.FromHtml("#F8F5F0");
-                if (btnCreateBooking != null)
-                {
-                    btnCreateBooking.BackColor = ColorTranslator.FromHtml("#C99A2E");
-                    btnCreateBooking.ForeColor = Color.White;
-                }
-                if (panel1 != null) panel1.BackColor = ColorTranslator.FromHtml("#F8F5F0");
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error initializing data components: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Error pulling client data from database: {ex.Message}",
+                                "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -61,56 +41,33 @@ namespace Code_Crafters_Interface_Prototype_1.Business
             txtHotelRoomAvailable.Clear();
             txtRestaurantTableAvailable.Clear();
             txtTotalAmount.Clear();
+
             cmbBranchID.SelectedIndex = -1;
+
             codeCraftersDS.Invoice.Clear();
+            codeCraftersDS.Hotel_Room.Clear();
+            codeCraftersDS.Restuarant_Table.Clear();
+
+            mclCheckIn.TodayDate = DateTime.Today;
+            mclCheckIn.SelectionStart = DateTime.Today;
+            mclCheckOut.TodayDate = DateTime.Today;
+            mclCheckOut.SelectionStart = DateTime.Today;
+
+            UserSession.BookingID = 0;
+            UserSession.ClientID = 0;
+            UserSession.BookingReference = string.Empty;
+            UserSession.GuestName = string.Empty;
+            UserSession.EmailAddress = string.Empty;
+            UserSession.PhysicalAddress = string.Empty;
+            UserSession.TotalPrice = string.Empty;
         }
 
-        private void btnCreateBooking_Click(object sender, EventArgs e)
+        public void ResetBookingFormData()
         {
-            string targetEmail = txtEmailAddress.Text.Trim();
-
-            DataRow clientRow = codeCraftersDS.Client.AsEnumerable()
-                .FirstOrDefault(row => row.Field<string>("Email_Address")
-                .Equals(targetEmail, StringComparison.OrdinalIgnoreCase));
-
-            if (clientRow == null)
-            {
-                MessageBox.Show("No client record found matching that email address. Please verify or register first.",
-                                "Client Not Found", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            int clientBookingID = Convert.ToInt32(clientRow["Client_ID"]);
-            UserSession.ClientID = clientBookingID;
-
-            if (cmbBranchID.SelectedItem == null)
-            {
-                MessageBox.Show("Please select a branch first.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            int pk = (int)taBooking.InsertNewBooking(
-                clientBookingID,
-                cmbBranchID.SelectedItem.ToString(),
-                DateTime.Now.ToString(),
-                mclCheckIn.SelectionStart.ToShortDateString(),
-                mclCheckOut.SelectionStart.ToShortDateString(),
-                Convert.ToDecimal(txtTotalAmount.Text.Replace("R", "").Trim()),
-                "Pending"
-            );
-
-            UserSession.BookingID = pk;
-            UserSession.BookingReference = $"BR" + pk;
-            UserSession.GuestName = txtFullName.Text;
-            UserSession.EmailAddress = targetEmail;
-            UserSession.PhysicalAddress = txtAddress.Text;
-            UserSession.TotalPrice = txtTotalAmount.Text;
-
-            PaymentForm paymentForm = new PaymentForm();
-            paymentForm.Show();
+            ClearControls();
         }
 
-        private void txtHotelRoomAvailable_TextChanged(object sender, EventArgs e)
+        private void txtHotelRoomAvailable_TextChanged_1(object sender, EventArgs e)
         {
             string input = txtHotelRoomAvailable.Text.Trim();
             if (string.IsNullOrEmpty(input))
@@ -130,7 +87,7 @@ namespace Code_Crafters_Interface_Prototype_1.Business
             taHotelRoom.FillByHotelRoomID(codeCraftersDS.Hotel_Room, roomId);
         }
 
-        private void txtRestaurantTableAvailable_TextChanged(object sender, EventArgs e)
+        private void txtRestaurantTableAvailable_TextChanged_1(object sender, EventArgs e)
         {
             string input = txtRestaurantTableAvailable.Text.Trim();
             if (string.IsNullOrEmpty(input))
@@ -223,84 +180,50 @@ namespace Code_Crafters_Interface_Prototype_1.Business
             dgvInvoice.DataSource = codeCraftersDS.Invoice;
             UpdateInvoiceTotal();
         }
+
+        private void btnCreateBooking_Click(object sender, EventArgs e)
+        {
+            string targetEmail = txtEmailAddress.Text.Trim();
+
+            DataRow clientRow = codeCraftersDS.Client.AsEnumerable()
+                .FirstOrDefault(row => row.Field<string>("Email_Address")
+                .Equals(targetEmail, StringComparison.OrdinalIgnoreCase));
+
+            if (clientRow == null)
+            {
+                MessageBox.Show("No client record found matching that email address. Please verify or register first.",
+                                "Client Not Found", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            int clientBookingID = Convert.ToInt32(clientRow["Client_ID"]);
+            UserSession.ClientID = clientBookingID;
+
+            if (cmbBranchID.SelectedItem == null)
+            {
+                MessageBox.Show("Please select a branch first.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            int pk = (int)taBooking.InsertNewBooking(
+                clientBookingID,
+                cmbBranchID.SelectedItem.ToString(),
+                DateTime.Now.ToString(),
+                mclCheckIn.SelectionStart.ToShortDateString(),
+                mclCheckOut.SelectionStart.ToShortDateString(),
+                Convert.ToDecimal(txtTotalAmount.Text.Replace("R", "").Trim()),
+                "Pending"
+            );
+
+            UserSession.BookingID = pk;
+            UserSession.BookingReference = $"BR" + pk;
+            UserSession.GuestName = txtFullName.Text;
+            UserSession.EmailAddress = targetEmail;
+            UserSession.PhysicalAddress = txtAddress.Text;
+            UserSession.TotalPrice = txtTotalAmount.Text;
+
+            PaymentForm paymentForm = new PaymentForm(this);
+            paymentForm.Show();
+        }
     }
 }
-//try
-//{
-
-
-//    if (true)
-//    {
-//        if (true) { 
-
-//        if (true)
-//        {
-//            MessageBox.Show("Sorry, this room is already booked for the selected dates/times.",
-//                            "Room Unavailable", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-//            return;
-//        }
-//    }
-
-//    if (true)
-//    {
-
-
-//        if (true)
-//        {
-//            MessageBox.Show("Sorry, this restaurant table is already reserved for the selected timeframe.",
-//                            "Table Unavailable", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-//            return;
-//        }
-//    }
-
-
-
-
-
-//MessageBox.Show(
-//    "BOOKING SUCCESSFULLY CREATED\n\n" +
-//    "Booking Reference : " 
-//    "\nClient : " 
-//    "\nBooking Type : " 
-//    "\nCheck-In : "
-//    "\nStatus : Pending",
-//    "Booking Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-//DataRowView selectedClientRow = (DataRowView)cmbClient.SelectedItem;
-//if (selectedClientRow != null && selectedClientRow.Row.Table.Columns.Contains("Email_Address"))
-//{
-//    string clientEmail = selectedClientRow["Email_Address"].ToString();
-//    string clientName = selectedClientRow["First_Name"].ToString();
-
-//    if (!string.IsNullOrEmpty(clientEmail))
-//    {
-//        string emailSubject = $"The Regal Inn - Booking Received! Ref: #{bookingID}";
-//        string emailBody = $@"
-//        <div style='font-family: Arial, sans-serif; max-width: 600px; border: 1px solid #dcdcdc; padding: 20px;'>
-//            <h2 style='color: #4A154B;'>Hello {clientName},</h2>
-//            <p>Your booking request has been successfully created and is currently <b>Pending Payment</b>.</p>
-//            <hr style='border: 0; border-top: 1px solid #eee;' />
-//            <p><b>Booking Details:</b></p>
-//            <ul>
-//                <li><b>Booking Reference:</b> #{bookingID}</li>
-//                <li><b>Type:</b> {bookingType}</li>
-//                <li><b>Check-In:</b> {checkInDate.ToString("dd MMM yyyy HH:mm")}</li>
-//                <li><b>Total Amount:</b> R {bookingAmount:0.00}</li>
-//            </ul>
-//            <hr style='border: 0; border-top: 1px solid #eee;' />
-//            <p style='font-size: 12px; color: #888;'>This is an automated system confirmation notification. Please do not reply directly to this message.</p>
-//        </div>";
-
-//        EmailService.SendEmail(clientEmail, emailSubject, emailBody);
-//    }
-//}
-
-//        ClearControls();
-
-//        PaymentForm paymentForm = new PaymentForm(bookingID, bookingAmount, clientID);
-//        paymentForm.Show();
-//    }
-//    catch (Exception ex)
-//    {
-//        MessageBox.Show("An error occurred:\n\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-//    }

@@ -25,7 +25,7 @@ namespace Code_Crafters_Interface_Prototype_1.Business
 
             if (cmbStatusActions.Items.Count > 0)
                 cmbStatusActions.SelectedIndex = 0;
-            panel1.BackColor = ColorTranslator.FromHtml("#F8F5F0");
+            pnlViewBookings.BackColor = ColorTranslator.FromHtml("#F8F5F0");
             groupBox1.BackColor = ColorTranslator.FromHtml("#966919");
             this.BackColor = ColorTranslator.FromHtml("#F9EED8");
             btnUpdateStatus.BackColor = ColorTranslator.FromHtml("#C99A2E");

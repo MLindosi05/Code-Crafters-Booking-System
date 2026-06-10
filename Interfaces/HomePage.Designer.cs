@@ -67,7 +67,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label10 = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
-            this.panel5 = new System.Windows.Forms.Panel();
+            this.pnlHomePage = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -88,7 +88,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.panel15.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.panel5.SuspendLayout();
+            this.pnlHomePage.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
@@ -480,26 +480,28 @@
             this.panel9.Size = new System.Drawing.Size(200, 3);
             this.panel9.TabIndex = 17;
             // 
-            // panel5
+            // pnlHomePage
             // 
-            this.panel5.Controls.Add(this.panel8);
-            this.panel5.Controls.Add(this.panel1);
-            this.panel5.Controls.Add(this.panel7);
-            this.panel5.Controls.Add(this.panel3);
-            this.panel5.Controls.Add(this.panel4);
-            this.panel5.Location = new System.Drawing.Point(154, 94);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1530, 836);
-            this.panel5.TabIndex = 13;
-            this.panel5.Paint += new System.Windows.Forms.PaintEventHandler(this.panel5_Paint);
+            this.pnlHomePage.AutoScroll = true;
+            this.pnlHomePage.Controls.Add(this.panel8);
+            this.pnlHomePage.Controls.Add(this.panel1);
+            this.pnlHomePage.Controls.Add(this.panel7);
+            this.pnlHomePage.Controls.Add(this.panel3);
+            this.pnlHomePage.Controls.Add(this.panel4);
+            this.pnlHomePage.Location = new System.Drawing.Point(154, 94);
+            this.pnlHomePage.Name = "pnlHomePage";
+            this.pnlHomePage.Size = new System.Drawing.Size(1530, 836);
+            this.pnlHomePage.TabIndex = 13;
+            this.pnlHomePage.Paint += new System.Windows.Forms.PaintEventHandler(this.panel5_Paint);
             // 
             // HomePage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.BackColor = System.Drawing.SystemColors.HighlightText;
             this.ClientSize = new System.Drawing.Size(1804, 927);
-            this.Controls.Add(this.panel5);
+            this.Controls.Add(this.pnlHomePage);
             this.Name = "HomePage";
             this.Text = "REGAL INN HOME PAGE";
             this.Load += new System.EventHandler(this.HomePage_Load);
@@ -530,7 +532,7 @@
             this.panel15.ResumeLayout(false);
             this.panel15.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.panel5.ResumeLayout(false);
+            this.pnlHomePage.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -574,6 +576,6 @@
         private System.Windows.Forms.Panel panel13;
         private System.Windows.Forms.Panel panel14;
         private System.Windows.Forms.Panel panel15;
-        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Panel pnlHomePage;
     }
 }

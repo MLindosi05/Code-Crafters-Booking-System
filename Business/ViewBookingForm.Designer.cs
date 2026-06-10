@@ -56,12 +56,12 @@
             this.clientBranchBookingBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.codeCraftersDS = new Code_Crafters_Interface_Prototype_1.codeCraftersDS();
             this.taClientBranchBooking = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTableAdapters.ClientBranchBookingTableAdapter();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.pnlViewBookings = new System.Windows.Forms.Panel();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBookings)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientBranchBookingBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.codeCraftersDS)).BeginInit();
-            this.panel1.SuspendLayout();
+            this.pnlViewBookings.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -313,22 +313,24 @@
             // 
             this.taClientBranchBooking.ClearBeforeFill = true;
             // 
-            // panel1
+            // pnlViewBookings
             // 
-            this.panel1.Controls.Add(this.groupBox1);
-            this.panel1.Location = new System.Drawing.Point(21, 85);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1833, 634);
-            this.panel1.TabIndex = 1;
+            this.pnlViewBookings.AutoScroll = true;
+            this.pnlViewBookings.Controls.Add(this.groupBox1);
+            this.pnlViewBookings.Location = new System.Drawing.Point(21, 85);
+            this.pnlViewBookings.Name = "pnlViewBookings";
+            this.pnlViewBookings.Size = new System.Drawing.Size(1833, 634);
+            this.pnlViewBookings.TabIndex = 1;
             // 
             // ViewBookingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.LightSlateGray;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(1843, 688);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.pnlViewBookings);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ViewBookingForm";
             this.Text = "REGAL INN VIEW BOOKING";
@@ -338,7 +340,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvBookings)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientBranchBookingBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.codeCraftersDS)).EndInit();
-            this.panel1.ResumeLayout(false);
+            this.pnlViewBookings.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -372,6 +374,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn branchStatusDataGridViewTextBoxColumn;
         private System.Windows.Forms.Button btnUpdateStatus;
         private System.Windows.Forms.ComboBox cmbStatusActions;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel pnlViewBookings;
     }
 }

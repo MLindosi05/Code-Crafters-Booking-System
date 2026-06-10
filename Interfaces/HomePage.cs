@@ -103,7 +103,7 @@ namespace Code_Crafters_Interface_Prototype_1.Interfaces
             panel12.BackColor = ColorTranslator.FromHtml("#F6F4F1");
             panel13.BackColor = ColorTranslator.FromHtml("#F6F4F1");
             panel15.BackColor = ColorTranslator.FromHtml("#F6F4F1");
-            panel5.BackColor = ColorTranslator.FromHtml("#F8F5F0");
+            pnlHomePage.BackColor = ColorTranslator.FromHtml("#F8F5F0");
 
 
             DateTime now = DateTime.Now;

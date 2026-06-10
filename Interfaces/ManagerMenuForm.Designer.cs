@@ -129,27 +129,43 @@
             this.lOGGEDINASToolStripMenuItem.Size = new System.Drawing.Size(136, 20);
             this.lOGGEDINASToolStripMenuItem.Text = "GUEST REGISTRATION";
             // 
-            // panel1
+            // lOGGEDINASToolStripMenuItem
             // 
-            this.panel1.BackColor = System.Drawing.Color.Gainsboro;
-            this.panel1.Controls.Add(this.panel19);
-            this.panel1.Controls.Add(this.panel17);
-            this.panel1.Controls.Add(this.panel16);
-            this.panel1.Controls.Add(this.panel13);
-            this.panel1.Controls.Add(this.panel12);
-            this.panel1.Controls.Add(this.panel11);
-            this.panel1.Controls.Add(this.panel9);
-            this.panel1.Controls.Add(this.panel8);
-            this.panel1.Controls.Add(this.panel7);
-            this.panel1.Controls.Add(this.panel6);
-            this.panel1.Controls.Add(this.panel5);
-            this.panel1.Controls.Add(this.panel4);
-            this.panel1.Controls.Add(this.panel3);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel1.Location = new System.Drawing.Point(0, 24);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(210, 768);
-            this.panel1.TabIndex = 4;
+            this.lOGGEDINASToolStripMenuItem.Name = "lOGGEDINASToolStripMenuItem";
+            this.lOGGEDINASToolStripMenuItem.Size = new System.Drawing.Size(96, 20);
+            this.lOGGEDINASToolStripMenuItem.Text = "LOGGED IN AS";
+            // 
+            // pnlManagerMenu
+            // 
+            this.pnlManagerMenu.AutoScroll = true;
+            this.pnlManagerMenu.BackColor = System.Drawing.Color.Gainsboro;
+            this.pnlManagerMenu.Controls.Add(this.panel19);
+            this.pnlManagerMenu.Controls.Add(this.panel17);
+            this.pnlManagerMenu.Controls.Add(this.panel16);
+            this.pnlManagerMenu.Controls.Add(this.panel13);
+            this.pnlManagerMenu.Controls.Add(this.panel12);
+            this.pnlManagerMenu.Controls.Add(this.panel11);
+            this.pnlManagerMenu.Controls.Add(this.panel9);
+            this.pnlManagerMenu.Controls.Add(this.panel8);
+            this.pnlManagerMenu.Controls.Add(this.panel7);
+            this.pnlManagerMenu.Controls.Add(this.panel6);
+            this.pnlManagerMenu.Controls.Add(this.panel5);
+            this.pnlManagerMenu.Controls.Add(this.panel4);
+            this.pnlManagerMenu.Controls.Add(this.panel3);
+            this.pnlManagerMenu.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pnlManagerMenu.Location = new System.Drawing.Point(0, 24);
+            this.pnlManagerMenu.Name = "pnlManagerMenu";
+            this.pnlManagerMenu.Size = new System.Drawing.Size(210, 768);
+            this.pnlManagerMenu.TabIndex = 4;
+            // 
+            // panel19
+            // 
+            this.panel19.BackColor = System.Drawing.Color.DarkGray;
+            this.panel19.Controls.Add(this.panel2);
+            this.panel19.Location = new System.Drawing.Point(3, 3);
+            this.panel19.Name = "panel19";
+            this.panel19.Size = new System.Drawing.Size(207, 79);
+            this.panel19.TabIndex = 5;
             // 
             // panel19
             // 
@@ -299,6 +315,41 @@
             this.panel15.Location = new System.Drawing.Point(82, 0);
             this.panel15.Name = "panel15";
             this.panel15.Size = new System.Drawing.Size(128, 66);
+            this.panel15.TabIndex = 4;
+            // 
+            // pictureBox7
+            // 
+            this.pictureBox7.Image = global::Code_Crafters_Interface_Prototype_1.Properties.Resources.Generate_Reports;
+            this.pictureBox7.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(73, 66);
+            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox7.TabIndex = 6;
+            this.pictureBox7.TabStop = false;
+            // 
+            // panel8
+            // 
+            this.panel8.Controls.Add(this.pictureBox6);
+            this.panel8.Controls.Add(this.panel15);
+            this.panel8.Location = new System.Drawing.Point(0, 513);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(210, 66);
+            this.panel8.TabIndex = 6;
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(73, 66);
+            this.pictureBox6.TabIndex = 6;
+            this.pictureBox6.TabStop = false;
+            // 
+            // panel15
+            // 
+            this.panel15.Controls.Add(this.label7);
+            this.panel15.Location = new System.Drawing.Point(76, 0);
+            this.panel15.Name = "panel15";
+            this.panel15.Size = new System.Drawing.Size(134, 66);
             this.panel15.TabIndex = 4;
             // 
             // label7
@@ -473,16 +524,13 @@
             this.pictureBox3.TabIndex = 6;
             this.pictureBox3.TabStop = false;
             // 
-            // pictureBox2
+            // panel6
             // 
-            this.pictureBox2.BackColor = System.Drawing.Color.DarkGray;
-            this.pictureBox2.Image = global::Code_Crafters_Interface_Prototype_1.Properties.Resources._6478_200;
-            this.pictureBox2.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(82, 66);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 6;
-            this.pictureBox2.TabStop = false;
+            this.panel6.Controls.Add(this.pictureBox4);
+            this.panel6.Location = new System.Drawing.Point(0, 344);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(210, 66);
+            this.panel6.TabIndex = 4;
             // 
             // pictureBox1
             // 
@@ -559,10 +607,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1070, 792);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.pnlManagerMenu);
             this.Controls.Add(this.msManager);
-            this.IsMdiContainer = true;
             this.MainMenuStrip = this.msManager;
             this.Name = "ManagerMenuForm";
             this.Text = "REGAL INN MANEGER MENU ";
@@ -608,7 +656,7 @@
         private System.Windows.Forms.ToolStripMenuItem rEPORTSToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem vIEWREPORTSToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem lOGGEDINASToolStripMenuItem;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel pnlManagerMenu;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel9;

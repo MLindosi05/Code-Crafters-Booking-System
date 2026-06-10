@@ -18,9 +18,12 @@ namespace Code_Crafters_Interface_Prototype_1.Business
         private decimal bookingAmount;
         private int clientID;
 
-        public PaymentForm()
+        private BookingForm mainBookingFormInstance;
+
+        public PaymentForm(BookingForm callingForm = null)
         {
             InitializeComponent();
+            this.mainBookingFormInstance = callingForm;
             this.Load += PaymentForm_Load;
         }
 
@@ -41,20 +44,18 @@ namespace Code_Crafters_Interface_Prototype_1.Business
             try
             {
                 decimal amount;
-
                 string cleanPrice = txtTotalPrice.Text.Replace("R", "").Trim();
 
                 if (!decimal.TryParse(cleanPrice, out amount))
                 {
-                    MessageBox.Show("Invalid payment amount.");
+                    MessageBox.Show("Invalid payment amount.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
                 string paymentType = cmbPaymentMethod.Text;
-
                 if (string.IsNullOrWhiteSpace(paymentType))
                 {
-                    MessageBox.Show("Please select a payment method.");
+                    MessageBox.Show("Please select a payment method.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
@@ -63,15 +64,24 @@ namespace Code_Crafters_Interface_Prototype_1.Business
 
                 try
                 {
-                    var taClientLookup = new ClientTableAdapter();
-                    var clientTable = taClientLookup.GetData();
-                    var matchedClientRow = clientTable.FirstOrDefault(row => row.Client_ID == this.clientID);
+                    string clientEmail = UserSession.EmailAddress?.Trim();
+                    string clientName = UserSession.GuestName?.Trim();
 
-                    if (matchedClientRow != null && !string.IsNullOrWhiteSpace(matchedClientRow.Email_Address))
+                    if (string.IsNullOrWhiteSpace(clientEmail))
                     {
-                        string clientEmail = matchedClientRow.Email_Address;
-                        string clientName = matchedClientRow.First_Name;
+                        var taClientLookup = new ClientTableAdapter();
+                        var clientTable = taClientLookup.GetData();
+                        var matchedClientRow = clientTable.FirstOrDefault(row => Convert.ToInt32(row["Client_ID"]) == this.clientID);
 
+                        if (matchedClientRow != null)
+                        {
+                            clientEmail = matchedClientRow["Email_Address"]?.ToString().Trim();
+                            clientName = matchedClientRow["First_Name"]?.ToString().Trim();
+                        }
+                    }
+
+                    if (!string.IsNullOrWhiteSpace(clientEmail))
+                    {
                         string emailSubject = $"The Regal Inn - Booking Confirmed! Ref: #{bookingID}";
                         string emailBody = $@"
                         <div style='font-family: Arial, sans-serif; max-width: 600px; border: 1px solid #dcdcdc; padding: 20px;'>
@@ -90,19 +100,24 @@ namespace Code_Crafters_Interface_Prototype_1.Business
                         </div>";
 
                         EmailService.SendEmail(clientEmail, emailSubject, emailBody);
+
+                        MessageBox.Show(
+                            $"An email has been sent successfully to {clientEmail}!",
+                            "Booking Complete",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show($"Payment updated, but email skipped: Could not resolve email address for Client ID: {this.clientID}.",
+                                        "Mailing Failure", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                 }
                 catch (Exception emailEx)
                 {
-                    MessageBox.Show("Payment updated, but receipt could not process: " + emailEx.Message,
+                    MessageBox.Show("Payment updated, but mailing engine broke: " + emailEx.Message,
                                     "Mailing Alert", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
-
-                MessageBox.Show(
-                    "An email has been sent. You are all done with your booking!",
-                    "Booking Complete",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Information);
 
                 Close();
             }
@@ -125,7 +140,9 @@ namespace Code_Crafters_Interface_Prototype_1.Business
                 if (result == DialogResult.Yes)
                 {
                     taBooking.UpdateBookingStatus("Cancelled", bookingID);
-                    taFolio.InsertWrittenOffPayment(bookingID);
+
+                    decimal zeroAmount = 0;
+                    taFolio.InsertNewPayment(bookingID, "N/A", zeroAmount, DateTime.Now, "Written-Off", "Booking Cancelled/No Charge");
 
                     MessageBox.Show("Booking cancelled successfully.", "Cancelled", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     Close();
@@ -133,8 +150,41 @@ namespace Code_Crafters_Interface_Prototype_1.Business
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Cancellation failed.\n\n" + ex.Message);
+                MessageBox.Show("Cancellation failed.\n\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (this.bookingID > 0)
+                {
+                    taBooking.DeleteBooking(this.bookingID);
+                }
+            }
+            catch (Exception dbEx)
+            {
+                MessageBox.Show("UI resetting, but could not remove database record: " + dbEx.Message,
+                                "Database Notice", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
+            cmbPaymentMethod.SelectedIndex = -1;
+            txtBookingID.Clear();
+            txtGuestName.Clear();
+            txtEmailAddress.Clear();
+            txtPhysicalAddress.Clear();
+            txtTotalPrice.Clear();
+
+            if (mainBookingFormInstance != null && !mainBookingFormInstance.IsDisposed)
+            {
+                mainBookingFormInstance.ResetBookingFormData();
+            }
+
+            MessageBox.Show("All input controls and temporary database entries have been successfully deleted.",
+                            "System Reset Complete", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            this.Close();
         }
     }
 }
