@@ -93,6 +93,16 @@ namespace Code_Crafters_Interface_Prototype_1.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _175976581 {
+            get {
+                object obj = ResourceManager.GetObject("175976581", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _200_2005429_password_icon_png_transparent_png {
             get {
                 object obj = ResourceManager.GetObject("200-2005429_password-icon-png-transparent-png", resourceCulture);
@@ -144,6 +154,36 @@ namespace Code_Crafters_Interface_Prototype_1.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _395b41a8_c4da_4279_a3a4_02128a376ae9 {
+            get {
+                object obj = ResourceManager.GetObject("395b41a8-c4da-4279-a3a4-02128a376ae9", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _395b41a8_c4da_4279_a3a4_02128a376ae91 {
+            get {
+                object obj = ResourceManager.GetObject("395b41a8-c4da-4279-a3a4-02128a376ae91", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _6099819f_da37_4af2_9d6b_2cf91c21da80 {
+            get {
+                object obj = ResourceManager.GetObject("6099819f-da37-4af2-9d6b-2cf91c21da80", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _6478_200 {
             get {
                 object obj = ResourceManager.GetObject("6478-200", resourceCulture);
@@ -174,6 +214,16 @@ namespace Code_Crafters_Interface_Prototype_1.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _89b00eaa_12c7_4938_bf62_3fc43f19e898 {
+            get {
+                object obj = ResourceManager.GetObject("89b00eaa-12c7-4938-bf62-3fc43f19e898", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Ballito {
             get {
                 object obj = ResourceManager.GetObject("Ballito", resourceCulture);
@@ -184,9 +234,29 @@ namespace Code_Crafters_Interface_Prototype_1.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap bf7941f4_def8_492b_b2e1_38c8550ebd38 {
+            get {
+                object obj = ResourceManager.GetObject("bf7941f4-def8-492b-b2e1-38c8550ebd38", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap black_login_icon__0 {
             get {
                 object obj = ResourceManager.GetObject("black-login-icon--0", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap c3c22da5_2a49_45ef_a028_06c321edcf88 {
+            get {
+                object obj = ResourceManager.GetObject("c3c22da5-2a49-45ef-a028-06c321edcf88", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -244,6 +314,16 @@ namespace Code_Crafters_Interface_Prototype_1.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap dc2783d2_dae4_4480_ad6f_0beab3bbd767 {
+            get {
+                object obj = ResourceManager.GetObject("dc2783d2-dae4-4480-ad6f-0beab3bbd767", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap download {
             get {
                 object obj = ResourceManager.GetObject("download", resourceCulture);
@@ -267,6 +347,26 @@ namespace Code_Crafters_Interface_Prototype_1.Properties {
         internal static System.Drawing.Bitmap e3b71229_047b_49c4_bc19_11ca0886cc2b1 {
             get {
                 object obj = ResourceManager.GetObject("e3b71229-047b-49c4-bc19-11ca0886cc2b1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap eb5ad774_4f14_4345_8a42_11010a4d3e02 {
+            get {
+                object obj = ResourceManager.GetObject("eb5ad774-4f14-4345-8a42-11010a4d3e02", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap eec44f9f_382a_4860_aa8d_b031be32312f {
+            get {
+                object obj = ResourceManager.GetObject("eec44f9f-382a-4860-aa8d-b031be32312f", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -618,6 +718,16 @@ namespace Code_Crafters_Interface_Prototype_1.Properties {
         internal static System.Drawing.Bitmap Regal_pic {
             get {
                 object obj = ResourceManager.GetObject("Regal pic", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap transparent_hd_settings_black_outline_icon_701751694974644tikif03lxa {
+            get {
+                object obj = ResourceManager.GetObject("transparent-hd-settings-black-outline-icon-701751694974644tikif03lxa", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

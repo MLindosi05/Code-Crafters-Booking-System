@@ -381,5 +381,35 @@
   <ItemGroup>
     <None Include="Resources\0c6801fe-8b78-4a87-a500-0632c277ccc3.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\c3c22da5-2a49-45ef-a028-06c321edcf88.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\175976581.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\6099819f-da37-4af2-9d6b-2cf91c21da80.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\transparent-hd-settings-black-outline-icon-701751694974644tikif03lxa.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eb5ad774-4f14-4345-8a42-11010a4d3e02.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eec44f9f-382a-4860-aa8d-b031be32312f.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\89b00eaa-12c7-4938-bf62-3fc43f19e898.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dc2783d2-dae4-4480-ad6f-0beab3bbd767.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\395b41a8-c4da-4279-a3a4-02128a376ae9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\395b41a8-c4da-4279-a3a4-02128a376ae91.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

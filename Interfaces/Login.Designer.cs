@@ -85,11 +85,11 @@
             this.groupBox1.Controls.Add(this.panel2);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.groupBox1.Location = new System.Drawing.Point(492, 2);
+            this.groupBox1.Location = new System.Drawing.Point(503, 2);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox1.Size = new System.Drawing.Size(525, 660);
+            this.groupBox1.Size = new System.Drawing.Size(547, 660);
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "LOGIN DETAILS";
@@ -122,7 +122,7 @@
             this.panel2.Controls.Add(this.passwordTxt);
             this.panel2.Location = new System.Drawing.Point(42, 22);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(466, 601);
+            this.panel2.Size = new System.Drawing.Size(409, 601);
             this.panel2.TabIndex = 10;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
@@ -399,8 +399,9 @@
             this.panel1.Controls.Add(this.pictureBox3);
             this.panel1.Location = new System.Drawing.Point(12, 52);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1170, 664);
+            this.panel1.Size = new System.Drawing.Size(1040, 664);
             this.panel1.TabIndex = 11;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // pnlHelpDrawer
             // 
@@ -411,7 +412,7 @@
             this.pnlHelpDrawer.Controls.Add(this.lstHelpTopics);
             this.pnlHelpDrawer.Controls.Add(this.txtSearchHelp);
             this.pnlHelpDrawer.Controls.Add(this.labelHelpHeader);
-            this.pnlHelpDrawer.Location = new System.Drawing.Point(250, 324);
+            this.pnlHelpDrawer.Location = new System.Drawing.Point(120, 324);
             this.pnlHelpDrawer.Margin = new System.Windows.Forms.Padding(2);
             this.pnlHelpDrawer.Name = "pnlHelpDrawer";
             this.pnlHelpDrawer.Size = new System.Drawing.Size(238, 269);
