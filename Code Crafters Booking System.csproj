@@ -84,6 +84,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>codeCraftersDS.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Interfaces\ReceptionistMenuForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interfaces\ReceptionistMenuForm.Designer.cs">
+      <DependentUpon>ReceptionistMenuForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="rptOccupancyReport.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -141,6 +147,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Business\ViewBookingForm.resx">
       <DependentUpon>ViewBookingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Interfaces\ReceptionistMenuForm.resx">
+      <DependentUpon>ReceptionistMenuForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="rptOccupancyReport.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -410,6 +419,54 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\395b41a8-c4da-4279-a3a4-02128a376ae91.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HOME 4.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HOME ICON.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HOME 3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MAKE BOOKING.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MAKE BOOKING 1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MAKE BOOKING 2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MAKE BOOKING 3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\calendar 2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\calendar1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\calendar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bed 4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\calendar2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Credit card 1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Credit card 2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Credit card 3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Credit card 4.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
