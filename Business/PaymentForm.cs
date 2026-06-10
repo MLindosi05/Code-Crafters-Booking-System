@@ -41,20 +41,18 @@ namespace Code_Crafters_Interface_Prototype_1.Business
             try
             {
                 decimal amount;
-
                 string cleanPrice = txtTotalPrice.Text.Replace("R", "").Trim();
 
                 if (!decimal.TryParse(cleanPrice, out amount))
                 {
-                    MessageBox.Show("Invalid payment amount.");
+                    MessageBox.Show("Invalid payment amount.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
                 string paymentType = cmbPaymentMethod.Text;
-
                 if (string.IsNullOrWhiteSpace(paymentType))
                 {
-                    MessageBox.Show("Please select a payment method.");
+                    MessageBox.Show("Please select a payment method.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
@@ -63,46 +61,60 @@ namespace Code_Crafters_Interface_Prototype_1.Business
 
                 try
                 {
-                    var taClientLookup = new ClientTableAdapter();
-                    var clientTable = taClientLookup.GetData();
-                    var matchedClientRow = clientTable.FirstOrDefault(row => row.Client_ID == this.clientID);
+                    string clientEmail = UserSession.EmailAddress?.Trim();
+                    string clientName = UserSession.GuestName?.Trim();
 
-                    if (matchedClientRow != null && !string.IsNullOrWhiteSpace(matchedClientRow.Email_Address))
+                    if (string.IsNullOrWhiteSpace(clientEmail))
                     {
-                        string clientEmail = matchedClientRow.Email_Address;
-                        string clientName = matchedClientRow.First_Name;
+                        var taClientLookup = new ClientTableAdapter();
+                        var clientTable = taClientLookup.GetData();
+                        var matchedClientRow = clientTable.FirstOrDefault(row => Convert.ToInt32(row["Client_ID"]) == this.clientID);
 
+                        if (matchedClientRow != null)
+                        {
+                            clientEmail = matchedClientRow["Email_Address"]?.ToString().Trim();
+                            clientName = matchedClientRow["First_Name"]?.ToString().Trim();
+                        }
+                    }
+
+                    if (!string.IsNullOrWhiteSpace(clientEmail))
+                    {
                         string emailSubject = $"The Regal Inn - Booking Confirmed! Ref: #{bookingID}";
                         string emailBody = $@"
-                        <div style='font-family: Arial, sans-serif; max-width: 600px; border: 1px solid #dcdcdc; padding: 20px;'>
-                            <h2 style='color: #2E7D32;'>Booking Confirmed, {clientName}!</h2>
-                            <p>Thank you! We have successfully processed your payment of <b>R {amount:0.00}</b> via <b>{paymentType}</b>.</p>
-                            <hr style='border: 0; border-top: 1px solid #eee;' />
-                            <p><b>Reservation Summary:</b></p>
-                            <ul>
-                                <li><b>Booking Reference:</b> #{bookingID}</li>
-                                <li><b>Payment Status:</b> Settled / Paid</li>
-                                <li><b>Booking Status:</b> Confirmed</li>
-                            </ul>
-                            <p>We look forward to hosting you at The Regal Inn!</p>
-                            <hr style='border: 0; border-top: 1px solid #eee;' />
-                            <p style='font-size: 12px; color: #888;'>This is an automated system receipt. Please do not reply directly to this message.</p>
-                        </div>";
+                <div style='font-family: Arial, sans-serif; max-width: 600px; border: 1px solid #dcdcdc; padding: 20px;'>
+                    <h2 style='color: #2E7D32;'>Booking Confirmed, {clientName}!</h2>
+                    <p>Thank you! We have successfully processed your payment of <b>R {amount:0.00}</b> via <b>{paymentType}</b>.</p>
+                    <hr style='border: 0; border-top: 1px solid #eee;' />
+                    <p><b>Reservation Summary:</b></p>
+                    <ul>
+                        <li><b>Booking Reference:</b> #{bookingID}</li>
+                        <li><b>Payment Status:</b> Settled / Paid</li>
+                        <li><b>Booking Status:</b> Confirmed</li>
+                    </ul>
+                    <p>We look forward to hosting you at The Regal Inn!</p>
+                    <hr style='border: 0; border-top: 1px solid #eee;' />
+                    <p style='font-size: 12px; color: #888;'>This is an automated system receipt. Please do not reply directly to this message.</p>
+                </div>";
 
                         EmailService.SendEmail(clientEmail, emailSubject, emailBody);
+
+                        MessageBox.Show(
+                            $"An email has been sent successfully to {clientEmail}!",
+                            "Booking Complete",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show($"Payment updated, but email skipped: Could not resolve email address for Client ID: {this.clientID}.",
+                                        "Mailing Failure", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                 }
                 catch (Exception emailEx)
                 {
-                    MessageBox.Show("Payment updated, but receipt could not process: " + emailEx.Message,
+                    MessageBox.Show("Payment updated, but mailing engine broke: " + emailEx.Message,
                                     "Mailing Alert", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
-
-                MessageBox.Show(
-                    "An email has been sent. You are all done with your booking!",
-                    "Booking Complete",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Information);
 
                 Close();
             }
@@ -133,7 +145,7 @@ namespace Code_Crafters_Interface_Prototype_1.Business
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Cancellation failed.\n\n" + ex.Message);
+                MessageBox.Show("Cancellation failed.\n\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

@@ -121,12 +121,6 @@
     <Compile Include="Interfaces\SignUpForm.Designer.cs">
       <DependentUpon>SignUpForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Interfaces\MenuForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Interfaces\MenuForm.Designer.cs">
-      <DependentUpon>MenuForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserSession.cs" />
@@ -162,9 +156,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Interfaces\SignUpForm.resx">
       <DependentUpon>SignUpForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Interfaces\MenuForm.resx">
-      <DependentUpon>MenuForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

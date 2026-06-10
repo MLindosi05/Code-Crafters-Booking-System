@@ -42,7 +42,7 @@ namespace Code_Crafters_Interface_Prototype_1.Interfaces
             panel4.BackColor = Color.Black;
             button3.BackColor = ColorTranslator.FromHtml("#C99A2E");
             groupBox1.BackColor = ColorTranslator.FromHtml("#966919");
-            panel7.BackColor = ColorTranslator.FromHtml("#F8F5F0");
+            pnlLogin.BackColor = ColorTranslator.FromHtml("#F8F5F0");
         }
 
         private Dictionary<string, string> helpDatabase = new Dictionary<string, string>()

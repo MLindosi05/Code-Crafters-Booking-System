@@ -177,7 +177,7 @@ namespace Code_Crafters_Booking_System
         private void SignUpForm_Load(object sender, EventArgs e)
         {
             this.BackColor = ColorTranslator.FromHtml("#F9EED8");
-            panel1.BackColor = ColorTranslator.FromHtml("#F8F5F0");
+            pnlSignUp.BackColor = ColorTranslator.FromHtml("#F8F5F0");
             button1.BackColor = ColorTranslator.FromHtml("#C99A2E");
             button1.ForeColor = Color.White;
             btnSignUp.BackColor = ColorTranslator.FromHtml("#C99A2E");
