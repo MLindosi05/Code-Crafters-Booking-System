@@ -33,11 +33,6 @@ namespace Code_Crafters_Interface_Prototype_1.Business
         {
             taClient.Fill(codeCraftersDS.Client);
             taBranch.Fill(codeCraftersDS.Branch);
-            taHotelRoom.Fill(codeCraftersDS.Hotel_Room);
-            taRestaurantTable.Fill(codeCraftersDS.Restuarant_Table);
-            taRatePlan.Fill(codeCraftersDS.Rate_Plan);
-
-            
         }
 
         private void ClearControls()
@@ -45,130 +40,223 @@ namespace Code_Crafters_Interface_Prototype_1.Business
             
         }
 
-        private void CalculateTotalAmount()
-        {
-           
-        }
-
-
-
         private void btnCreateBooking_Click(object sender, EventArgs e)
         {
-            //try
-            //{
-              
+            int clientBookingID = UserSession.ClientID;
+            int pk = (int)taBooking.InsertNewBooking(clientBookingID, cmbBranchID.SelectedItem.ToString(), DateTime.Now.ToString(), mclCheckIn.SelectionStart.ToShortDateString(),
+                                                     mclCheckOut.SelectionStart.ToShortDateString(), Convert.ToDecimal(txtTotalAmount.Text.Replace("R", "").Trim()), "Pending");
+            UserSession.BookingID = pk;
 
-            //    if (true)
-            //    {
-            //        if (true) { 
+            UserSession.BookingReference = $"BR" + pk;
+            UserSession.GuestName = txtFullName.Text;
+            UserSession.EmailAddress = txtEmailAddress.Text;
+            UserSession.PhysicalAddress = txtAddress.Text;
+            UserSession.TotalPrice = txtTotalAmount.Text;
 
-            //        if (true)
-            //        {
-            //            MessageBox.Show("Sorry, this room is already booked for the selected dates/times.",
-            //                            "Room Unavailable", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            //            return;
-            //        }
-            //    }
+            PaymentForm paymentForm = new PaymentForm();
+            paymentForm.Show();
 
-            //    if (true)
-            //    {
-                    
-
-            //        if (true)
-            //        {
-            //            MessageBox.Show("Sorry, this restaurant table is already reserved for the selected timeframe.",
-            //                            "Table Unavailable", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            //            return;
-            //        }
-            //    }
-
-       
-         
-              
-
-                //MessageBox.Show(
-                //    "BOOKING SUCCESSFULLY CREATED\n\n" +
-                //    "Booking Reference : " 
-                //    "\nClient : " 
-                //    "\nBooking Type : " 
-                //    "\nCheck-In : "
-                //    "\nStatus : Pending",
-                //    "Booking Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                //DataRowView selectedClientRow = (DataRowView)cmbClient.SelectedItem;
-                //if (selectedClientRow != null && selectedClientRow.Row.Table.Columns.Contains("Email_Address"))
-                //{
-                //    string clientEmail = selectedClientRow["Email_Address"].ToString();
-                //    string clientName = selectedClientRow["First_Name"].ToString();
-
-                //    if (!string.IsNullOrEmpty(clientEmail))
-                //    {
-                //        string emailSubject = $"The Regal Inn - Booking Received! Ref: #{bookingID}";
-                //        string emailBody = $@"
-                //        <div style='font-family: Arial, sans-serif; max-width: 600px; border: 1px solid #dcdcdc; padding: 20px;'>
-                //            <h2 style='color: #4A154B;'>Hello {clientName},</h2>
-                //            <p>Your booking request has been successfully created and is currently <b>Pending Payment</b>.</p>
-                //            <hr style='border: 0; border-top: 1px solid #eee;' />
-                //            <p><b>Booking Details:</b></p>
-                //            <ul>
-                //                <li><b>Booking Reference:</b> #{bookingID}</li>
-                //                <li><b>Type:</b> {bookingType}</li>
-                //                <li><b>Check-In:</b> {checkInDate.ToString("dd MMM yyyy HH:mm")}</li>
-                //                <li><b>Total Amount:</b> R {bookingAmount:0.00}</li>
-                //            </ul>
-                //            <hr style='border: 0; border-top: 1px solid #eee;' />
-                //            <p style='font-size: 12px; color: #888;'>This is an automated system confirmation notification. Please do not reply directly to this message.</p>
-                //        </div>";
-
-                //        EmailService.SendEmail(clientEmail, emailSubject, emailBody);
-                //    }
-                //}
-
-        //        ClearControls();
-
-        //        PaymentForm paymentForm = new PaymentForm(bookingID, bookingAmount, clientID);
-        //        paymentForm.Show();
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show("An error occurred:\n\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //    }
         }
-       
+
         private void txtHotelRoomAvailable_TextChanged(object sender, EventArgs e)
         {
-            taHotelRoom.FillByHotelRoomID(codeCraftersDS.Hotel_Room, Convert.ToInt32(txtHotelRoomAvailable.Text));
+            string input = txtHotelRoomAvailable.Text.Trim();
 
+            if (string.IsNullOrEmpty(input))
+            {
+                codeCraftersDS.Hotel_Room.Clear();
+                return;
+            }
+
+            if (!int.TryParse(input, out int roomId) || roomId < 0)
+            {
+                MessageBox.Show("Only positive integer input required.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtHotelRoomAvailable.Clear(); 
+                codeCraftersDS.Hotel_Room.Clear();
+                return;
+            }
+
+            taHotelRoom.FillByHotelRoomID(codeCraftersDS.Hotel_Room, roomId);
         }
 
         private void txtRestaurantTableAvailable_TextChanged(object sender, EventArgs e)
         {
-            taRestaurantTable.FillByRestaurantTableID(codeCraftersDS.Restuarant_Table, Convert.ToInt32(txtRestaurantTableAvailable.Text));
+            string input = txtRestaurantTableAvailable.Text.Trim();
+
+            if (string.IsNullOrEmpty(input))
+            {
+                codeCraftersDS.Restuarant_Table.Clear();
+                return;
+            }
+
+            if (!int.TryParse(input, out int tableId) || tableId < 0)
+            {
+                MessageBox.Show("Only positive integer input required.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtRestaurantTableAvailable.Clear(); 
+                codeCraftersDS.Restuarant_Table.Clear();
+                return;
+            }
+
+            taRestaurantTable.FillByRestaurantTableID(codeCraftersDS.Restuarant_Table, tableId);
+        }
+
+        private DataRow GetOrCreateCurrentInvoiceRow()
+        {
+            if (codeCraftersDS.Invoice.Rows.Count == 0)
+            {
+                return codeCraftersDS.Invoice.NewRow();
+            }
+
+            DataRow lastRow = codeCraftersDS.Invoice.Rows[codeCraftersDS.Invoice.Rows.Count - 1];
+
+            if (lastRow[0] != DBNull.Value && lastRow[3] != DBNull.Value)
+            {
+                return codeCraftersDS.Invoice.NewRow();
+            }
+
+            return lastRow;
+        }
+
+        private void UpdateInvoiceTotal()
+        {
+            decimal totalBookingAmount = 0;
+
+            foreach (DataRow row in codeCraftersDS.Invoice.Rows)
+            {
+                if (row[2] != DBNull.Value)
+                    totalBookingAmount += Convert.ToDecimal(row[2]);
+
+                if (row[5] != DBNull.Value)
+                    totalBookingAmount += Convert.ToDecimal(row[5]);
+            }
+
+            txtTotalAmount.Text = totalBookingAmount.ToString("C2");
         }
 
         private void dgvHotelRoomAvailable_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            totalBookingRoomAmount = 0;
+            if (dgvHotelRoomAvailable.CurrentRow == null) return;
 
-            int roomID = Convert.ToInt32(dgvHotelRoomAvailable.CurrentRow.Cells[0]);
+            int roomID = Convert.ToInt32(dgvHotelRoomAvailable.CurrentRow.Cells[0].Value);
             int roomNumber = Convert.ToInt32(dgvHotelRoomAvailable.CurrentRow.Cells[3].Value);
             decimal roomPrice = Convert.ToDecimal(dgvHotelRoomAvailable.CurrentRow.Cells[5].Value);
 
-         
+            DataRow row = GetOrCreateCurrentInvoiceRow();
 
-            codeCraftersDS.Invoice.Rows.Add(roomID, roomNumber, roomPrice);
-            dgvInvoice.DataSource = codeCraftersDS.Invoice;
+            row[0] = roomID;
+            row[1] = roomNumber;
+            row[2] = roomPrice;
 
-            for (int i = 0; i < dgvHotelRoomAvailable.Rows.Count - 1; i++)
+            if (row.RowState == DataRowState.Detached)
             {
-                totalBookingRoomAmount += Convert.ToDecimal(dgvHotelRoomAvailable.Rows[i].Cells[5].Value);
+                codeCraftersDS.Invoice.Rows.Add(row);
             }
-            txtTotalAmount.Text += totalBookingRoomAmount.ToString("C2");
+
+            dgvInvoice.DataSource = codeCraftersDS.Invoice;
+            UpdateInvoiceTotal();
         }
 
         private void dgvRestaurantTableAvailable_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
+            if (dgvRestaurantTableAvailable.CurrentRow == null) return;
 
+            int tableID = Convert.ToInt32(dgvRestaurantTableAvailable.CurrentRow.Cells[0].Value);
+            int tableNumber = Convert.ToInt32(dgvRestaurantTableAvailable.CurrentRow.Cells[2].Value);
+            decimal tablePrice = Convert.ToDecimal(dgvRestaurantTableAvailable.CurrentRow.Cells[8].Value);
+
+            DataRow row = GetOrCreateCurrentInvoiceRow();
+
+            row[3] = tableID;
+            row[4] = tableNumber;
+            row[5] = tablePrice;
+
+            if (row.RowState == DataRowState.Detached)
+            {
+                codeCraftersDS.Invoice.Rows.Add(row);
+            }
+
+            dgvInvoice.DataSource = codeCraftersDS.Invoice;
+            UpdateInvoiceTotal();
         }
     }
 }
+
+//try
+//{
+
+
+//    if (true)
+//    {
+//        if (true) { 
+
+//        if (true)
+//        {
+//            MessageBox.Show("Sorry, this room is already booked for the selected dates/times.",
+//                            "Room Unavailable", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+//            return;
+//        }
+//    }
+
+//    if (true)
+//    {
+
+
+//        if (true)
+//        {
+//            MessageBox.Show("Sorry, this restaurant table is already reserved for the selected timeframe.",
+//                            "Table Unavailable", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+//            return;
+//        }
+//    }
+
+
+
+
+
+//MessageBox.Show(
+//    "BOOKING SUCCESSFULLY CREATED\n\n" +
+//    "Booking Reference : " 
+//    "\nClient : " 
+//    "\nBooking Type : " 
+//    "\nCheck-In : "
+//    "\nStatus : Pending",
+//    "Booking Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+//DataRowView selectedClientRow = (DataRowView)cmbClient.SelectedItem;
+//if (selectedClientRow != null && selectedClientRow.Row.Table.Columns.Contains("Email_Address"))
+//{
+//    string clientEmail = selectedClientRow["Email_Address"].ToString();
+//    string clientName = selectedClientRow["First_Name"].ToString();
+
+//    if (!string.IsNullOrEmpty(clientEmail))
+//    {
+//        string emailSubject = $"The Regal Inn - Booking Received! Ref: #{bookingID}";
+//        string emailBody = $@"
+//        <div style='font-family: Arial, sans-serif; max-width: 600px; border: 1px solid #dcdcdc; padding: 20px;'>
+//            <h2 style='color: #4A154B;'>Hello {clientName},</h2>
+//            <p>Your booking request has been successfully created and is currently <b>Pending Payment</b>.</p>
+//            <hr style='border: 0; border-top: 1px solid #eee;' />
+//            <p><b>Booking Details:</b></p>
+//            <ul>
+//                <li><b>Booking Reference:</b> #{bookingID}</li>
+//                <li><b>Type:</b> {bookingType}</li>
+//                <li><b>Check-In:</b> {checkInDate.ToString("dd MMM yyyy HH:mm")}</li>
+//                <li><b>Total Amount:</b> R {bookingAmount:0.00}</li>
+//            </ul>
+//            <hr style='border: 0; border-top: 1px solid #eee;' />
+//            <p style='font-size: 12px; color: #888;'>This is an automated system confirmation notification. Please do not reply directly to this message.</p>
+//        </div>";
+
+//        EmailService.SendEmail(clientEmail, emailSubject, emailBody);
+//    }
+//}
+
+//        ClearControls();
+
+//        PaymentForm paymentForm = new PaymentForm(bookingID, bookingAmount, clientID);
+//        paymentForm.Show();
+//    }
+//    catch (Exception ex)
+//    {
+//        MessageBox.Show("An error occurred:\n\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+//    }

@@ -58,7 +58,7 @@ namespace Code_Crafters_Booking_System
 
             if (name.Any(char.IsDigit) || surname.Any(char.IsDigit))
             {
-                MessageBox.Show("First Name and Surname fields can only contain letters.",
+                MessageBox.Show("First Name and Surname can only contain letters.",
                     "Validation Error",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
@@ -67,7 +67,16 @@ namespace Code_Crafters_Booking_System
 
             if (phoneNumber.Length != 10 || !phoneNumber.All(char.IsDigit))
             {
-                MessageBox.Show("The contact number must be exactly 10 numeric digits long (e.g., 0821234567).",
+                MessageBox.Show("Contact number must be exactly 10 digits.",
+                    "Validation Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (!Regex.IsMatch(email, @"^[^@\s]+@[^@\s]+\.[^@\s]+$"))
+            {
+                MessageBox.Show("Invalid email format.",
                     "Validation Error",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
@@ -77,15 +86,6 @@ namespace Code_Crafters_Booking_System
             if (password != confirmPassword)
             {
                 MessageBox.Show("Passwords do not match.",
-                    "Validation Error",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning);
-                return;
-            }
-
-            if (!Regex.IsMatch(email, @"^[^@\s]+@[^@\s]+\.[^@\s]+$"))
-            {
-                MessageBox.Show("Please enter a valid email address.",
                     "Validation Error",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
@@ -103,97 +103,101 @@ namespace Code_Crafters_Booking_System
 
             try
             {
-                taClient.InsertNewClient(name, surname, password, email, physicalAddress, phoneNumber);
+
+                int emailExists = Convert.ToInt32(taClient.CheckEmailExists(email));
+                if (emailExists > 0)
+                {
+                    MessageBox.Show("Email address already exists!",
+                        "Duplicate Error",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning);
+                    return;
+                }
+
+                int phoneExists = Convert.ToInt32(taClient.CheckPhoneExists(phoneNumber));
+                if (phoneExists > 0)
+                {
+                    MessageBox.Show("Phone number already exists!",
+                        "Duplicate Error",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning);
+                    return;
+                }
+
+                int pk = Convert.ToInt32(taClient.InsertNewClient(name, surname, password, email, physicalAddress, phoneNumber));
+                UserSession.ClientID = pk;
 
                 if (email.EndsWith("@regalinn.co.za", StringComparison.OrdinalIgnoreCase))
                 {
-                    Code_Crafters_Interface_Prototype_1.codeCraftersDSTableAdapters.BranchTableAdapter taBranch = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTableAdapters.BranchTableAdapter();
-                    Code_Crafters_Interface_Prototype_1.codeCraftersDSTableAdapters.StaffTableAdapter taStaff = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTableAdapters.StaffTableAdapter();
+                    var taBranch = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTableAdapters.BranchTableAdapter();
+                    var taStaff = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTableAdapters.StaffTableAdapter();
 
-                    int automatedBranchId = Convert.ToInt32(taBranch.GetFirstBranchId());
-
-                    if (automatedBranchId <= 0)
-                    {
-                        automatedBranchId = 1;
-                    }
-
-                    string automatedRole = "Receptionist";
-                    string automatedStatus = "Full Time";
-                    DateTime dateJoined = DateTime.Now;
+                    int branchId = Convert.ToInt32(taBranch.GetFirstBranchId());
+                    if (branchId <= 0) branchId = 1;
 
                     taStaff.Insert(
-                        automatedBranchId,
+                        branchId,
                         name,
                         surname,
                         physicalAddress,
                         phoneNumber,
                         email,
-                        automatedRole,
-                        dateJoined,
-                        automatedStatus
+                        "Receptionist",
+                        DateTime.Now,
+                        "Full Time"
                     );
 
-                    MessageBox.Show($"Staff and Client accounts created successfully!",
-                        "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Staff and Client accounts created successfully!",
+                        "Success",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
                 }
                 else
                 {
                     MessageBox.Show("Client account created successfully!",
-                        "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        "Success",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
                 }
 
-                string welcomeSubject = "Welcome to The Regal Inn - Account Created Successfully!";
-                string emailBody = $@"
-                <div style='font-family: Arial, sans-serif; max-width: 600px; border: 1px solid #dcdcdc; padding: 20px; border-radius: 5px;'>
-                    <div style='background-color: #1565C0; padding: 15px; border-radius: 5px 5px 0 0; text-align: center;'>
-                        <h1 style='color: white; margin: 0; font-size: 22px;'>The Regal Inn Hotels</h1>
-                    </div>
-                    <div style='padding: 20px;'>
-                        <h3 style='color: #1565C0; margin-top: 0;'>Welcome aboard, {name}!</h3>
-                        <p>Thank you for signing up with the Code Crafters Booking System. Your new customer portal account has been successfully verified.</p>
-                        <hr style='border: 0; border-top: 1px solid #eee;' />
-                        <p><b>Your Profile Login Username:</b> {email}</p>
-                        <hr style='border: 0; border-top: 1px solid #eee;' />
-                        <p>You can now log in anytime to quickly secure room bookings, schedule fine dining reservations, and instantly view your payment invoices.</p>
-                    </div>
-                    <p style='font-size: 11px; color: #888; text-align: center; border-top: 1px solid #eee; padding-top: 15px;'>
-                        This is an automated operational system notification. Please do not reply directly to this message.
-                    </p>
+                string subject = "Welcome to The Regal Inn";
+
+                string body = $@"
+                <div style='font-family: Arial; max-width:600px; padding:20px; border:1px solid #ccc;'>
+                    <h2>Welcome {name}</h2>
+                    <p>Your account has been created successfully.</p>
+                    <p><b>Login Email:</b> {email}</p>
                 </div>";
 
-                EmailService.SendEmail(email, welcomeSubject, emailBody);
+                EmailService.SendEmail(email, subject, body);
 
                 ClearFields();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("An error occurred while creating the account.\n" + ex.Message,
-                    "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error creating account:\n" + ex.Message,
+                    "Database Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
             }
         }
 
         private void txtContactNumber_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
-            {
                 e.Handled = true;
-            }
         }
 
         private void txtName_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != ' ')
-            {
                 e.Handled = true;
-            }
         }
 
         private void txtSurname_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != ' ')
-            {
                 e.Handled = true;
-            }
         }
 
         private void SignUpForm_Load(object sender, EventArgs e)
