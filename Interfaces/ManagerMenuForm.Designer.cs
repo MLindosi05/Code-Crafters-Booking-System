@@ -70,8 +70,9 @@
             // vIEWREPORTSToolStripMenuItem1
             // 
             this.vIEWREPORTSToolStripMenuItem1.Name = "vIEWREPORTSToolStripMenuItem1";
-            this.vIEWREPORTSToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.vIEWREPORTSToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.vIEWREPORTSToolStripMenuItem1.Text = "VIEW REPORTS";
+            this.vIEWREPORTSToolStripMenuItem1.Click += new System.EventHandler(this.vIEWREPORTSToolStripMenuItem1_Click);
             // 
             // lOGGEDINASToolStripMenuItem
             // 
@@ -98,9 +99,12 @@
             this.ClientSize = new System.Drawing.Size(1070, 595);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.msManager);
+            this.IsMdiContainer = true;
             this.MainMenuStrip = this.msManager;
             this.Name = "ManagerMenuForm";
             this.Text = "REGAL INN MANEGER MENU ";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.ManagerMenuForm_Load);
             this.msManager.ResumeLayout(false);
             this.msManager.PerformLayout();
             this.ResumeLayout(false);
