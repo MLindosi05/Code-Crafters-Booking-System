@@ -450,7 +450,7 @@
             this.Controls.Add(this.pnlBooking);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "BookingForm";
-            this.Text = "MakeBookingForm";
+            this.Text = "REGAL INN MAKE BOOKINGS";
             this.pnlBooking.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();

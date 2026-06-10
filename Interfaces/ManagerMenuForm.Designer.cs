@@ -100,7 +100,7 @@
             this.Controls.Add(this.msManager);
             this.MainMenuStrip = this.msManager;
             this.Name = "ManagerMenuForm";
-            this.Text = "ManagerMenuForm";
+            this.Text = "REGAL INN MANEGER MENU ";
             this.msManager.ResumeLayout(false);
             this.msManager.PerformLayout();
             this.ResumeLayout(false);

@@ -69,20 +69,19 @@
             this.groupBox1.Controls.Add(this.lblBookingID);
             this.groupBox1.Controls.Add(this.txtBookingID);
             this.groupBox1.Controls.Add(this.dgvBookings);
-            this.groupBox1.Location = new System.Drawing.Point(73, 42);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.groupBox1.Location = new System.Drawing.Point(55, 34);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox1.Size = new System.Drawing.Size(1352, 597);
+            this.groupBox1.Size = new System.Drawing.Size(1014, 485);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "View Bookings";
             // 
             // btnUpdateStatus
             // 
-            this.btnUpdateStatus.Location = new System.Drawing.Point(1179, 63);
+            this.btnUpdateStatus.Location = new System.Drawing.Point(884, 51);
+            this.btnUpdateStatus.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnUpdateStatus.Name = "btnUpdateStatus";
-            this.btnUpdateStatus.Size = new System.Drawing.Size(146, 38);
+            this.btnUpdateStatus.Size = new System.Drawing.Size(110, 31);
             this.btnUpdateStatus.TabIndex = 4;
             this.btnUpdateStatus.Text = "UPDATE Status";
             this.btnUpdateStatus.UseVisualStyleBackColor = true;
@@ -97,27 +96,26 @@
             "Checked Out",
             "No Show",
             "Cancelled"});
-            this.cmbStatusActions.Location = new System.Drawing.Point(961, 71);
+            this.cmbStatusActions.Location = new System.Drawing.Point(721, 58);
+            this.cmbStatusActions.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cmbStatusActions.Name = "cmbStatusActions";
-            this.cmbStatusActions.Size = new System.Drawing.Size(191, 24);
+            this.cmbStatusActions.Size = new System.Drawing.Size(144, 21);
             this.cmbStatusActions.TabIndex = 3;
             // 
             // lblBookingID
             // 
             this.lblBookingID.AutoSize = true;
-            this.lblBookingID.Location = new System.Drawing.Point(32, 48);
-            this.lblBookingID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblBookingID.Location = new System.Drawing.Point(24, 39);
             this.lblBookingID.Name = "lblBookingID";
-            this.lblBookingID.Size = new System.Drawing.Size(107, 16);
+            this.lblBookingID.Size = new System.Drawing.Size(88, 13);
             this.lblBookingID.TabIndex = 2;
             this.lblBookingID.Text = "Enter Booking ID";
             // 
             // txtBookingID
             // 
-            this.txtBookingID.Location = new System.Drawing.Point(32, 71);
-            this.txtBookingID.Margin = new System.Windows.Forms.Padding(4);
+            this.txtBookingID.Location = new System.Drawing.Point(24, 58);
             this.txtBookingID.Name = "txtBookingID";
-            this.txtBookingID.Size = new System.Drawing.Size(339, 22);
+            this.txtBookingID.Size = new System.Drawing.Size(255, 20);
             this.txtBookingID.TabIndex = 1;
             this.txtBookingID.TextChanged += new System.EventHandler(this.txtBookingID_TextChanged);
             // 
@@ -145,11 +143,10 @@
             this.branchEmailDataGridViewTextBoxColumn,
             this.branchStatusDataGridViewTextBoxColumn});
             this.dgvBookings.DataSource = this.clientBranchBookingBindingSource;
-            this.dgvBookings.Location = new System.Drawing.Point(32, 114);
-            this.dgvBookings.Margin = new System.Windows.Forms.Padding(4);
+            this.dgvBookings.Location = new System.Drawing.Point(24, 93);
             this.dgvBookings.Name = "dgvBookings";
             this.dgvBookings.RowHeadersWidth = 51;
-            this.dgvBookings.Size = new System.Drawing.Size(1293, 442);
+            this.dgvBookings.Size = new System.Drawing.Size(970, 359);
             this.dgvBookings.TabIndex = 0;
             // 
             // bookingIDDataGridViewTextBoxColumn
@@ -313,15 +310,15 @@
             // 
             // ViewBookingForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSlateGray;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ClientSize = new System.Drawing.Size(1491, 660);
+            this.ClientSize = new System.Drawing.Size(1118, 536);
             this.Controls.Add(this.groupBox1);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "ViewBookingForm";
-            this.Text = "ViewBookingForm";
+            this.Text = "REGAL INN VIEW BOOKING";
             this.Load += new System.EventHandler(this.ViewBookingForm_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

@@ -36,15 +36,15 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.btnLogin = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
+            this.btnLogin = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -134,46 +134,6 @@
             this.label1.TabIndex = 5;
             this.label1.Text = "BALLITO";
             // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(30, 32);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(105, 13);
-            this.label6.TabIndex = 3;
-            this.label6.Text = "HOTEL BRANCHES";
-            this.label6.MouseEnter += new System.EventHandler(this.label6_MouseEnter);
-            this.label6.MouseLeave += new System.EventHandler(this.label6_MouseLeave);
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(189, 609);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(90, 36);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "Contact Us";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // btnLogin
-            // 
-            this.btnLogin.Location = new System.Drawing.Point(992, 12);
-            this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(90, 36);
-            this.btnLogin.TabIndex = 5;
-            this.btnLogin.Text = "LOG IN";
-            this.btnLogin.UseVisualStyleBackColor = true;
-            this.btnLogin.Click += new System.EventHandler(this.HomePageLogin_Click);
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(896, 12);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(90, 36);
-            this.button4.TabIndex = 6;
-            this.button4.Text = "SIGN UP";
-            this.button4.UseVisualStyleBackColor = true;
-            // 
             // pictureBox5
             // 
             this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
@@ -226,6 +186,46 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(30, 32);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(105, 13);
+            this.label6.TabIndex = 3;
+            this.label6.Text = "HOTEL BRANCHES";
+            this.label6.MouseEnter += new System.EventHandler(this.label6_MouseEnter);
+            this.label6.MouseLeave += new System.EventHandler(this.label6_MouseLeave);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(189, 609);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(90, 36);
+            this.button2.TabIndex = 4;
+            this.button2.Text = "Contact Us";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // btnLogin
+            // 
+            this.btnLogin.Location = new System.Drawing.Point(992, 12);
+            this.btnLogin.Name = "btnLogin";
+            this.btnLogin.Size = new System.Drawing.Size(90, 36);
+            this.btnLogin.TabIndex = 5;
+            this.btnLogin.Text = "LOG IN";
+            this.btnLogin.UseVisualStyleBackColor = true;
+            this.btnLogin.Click += new System.EventHandler(this.HomePageLogin_Click);
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(896, 12);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(90, 36);
+            this.button4.TabIndex = 6;
+            this.button4.Text = "SIGN UP";
+            this.button4.UseVisualStyleBackColor = true;
+            // 
             // HomePage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -239,7 +239,7 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox1);
             this.Name = "HomePage";
-            this.Text = "HomePage";
+            this.Text = "REGAL INN HOME PAGE";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();

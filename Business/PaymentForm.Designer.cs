@@ -310,7 +310,7 @@
             this.Controls.Add(this.groupBox1);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "PaymentForm";
-            this.Text = "PaymentForm";
+            this.Text = "REGAL INN MAKE PAYMENTS";
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox4.ResumeLayout(false);

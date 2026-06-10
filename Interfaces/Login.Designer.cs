@@ -225,6 +225,7 @@
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(123, 25);
             this.comboBox1.TabIndex = 8;
+            this.comboBox1.Text = "LOGIN FORM";
             // 
             // button2
             // 
@@ -367,7 +368,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.button1);
             this.Name = "Login";
-            this.Text = "Login";
+            this.Text = "REGAL INN LOGIN  ";
             this.Load += new System.EventHandler(this.Login_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
