@@ -482,7 +482,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.button1);
             this.Name = "Login";
-            this.Text = "Login";
+            this.Text = "REGAL INN LOGIN  ";
             this.Load += new System.EventHandler(this.Login_Load);
             this.groupBox1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);

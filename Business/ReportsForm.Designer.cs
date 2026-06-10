@@ -96,7 +96,7 @@
             this.dgvReportSummary.BackgroundColor = System.Drawing.Color.LightBlue;
             this.dgvReportSummary.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvReportSummary.Location = new System.Drawing.Point(56, 94);
-            this.dgvReportSummary.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvReportSummary.Margin = new System.Windows.Forms.Padding(2);
             this.dgvReportSummary.Name = "dgvReportSummary";
             this.dgvReportSummary.RowHeadersWidth = 51;
             this.dgvReportSummary.RowTemplate.Height = 24;
@@ -107,7 +107,7 @@
             // 
             this.txtTotalEnterpriseRevenue.BackColor = System.Drawing.Color.Gray;
             this.txtTotalEnterpriseRevenue.Location = new System.Drawing.Point(56, 291);
-            this.txtTotalEnterpriseRevenue.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtTotalEnterpriseRevenue.Margin = new System.Windows.Forms.Padding(2);
             this.txtTotalEnterpriseRevenue.Name = "txtTotalEnterpriseRevenue";
             this.txtTotalEnterpriseRevenue.ReadOnly = true;
             this.txtTotalEnterpriseRevenue.Size = new System.Drawing.Size(134, 20);
@@ -177,7 +177,7 @@
             this.Controls.Add(this.lblReport);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ReportsForm";
-            this.Text = "ReportsForm";
+            this.Text = "REGAL INN REPORTS";
             this.Load += new System.EventHandler(this.ReportsForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvReportSummary)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.codeCraftersDS)).EndInit();

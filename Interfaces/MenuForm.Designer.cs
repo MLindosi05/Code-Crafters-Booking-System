@@ -316,7 +316,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "MainMenuForm";
-            this.Text = "MainMenuForm";
+            this.Text = "REGAL INN MAIN MENU ";
             this.Load += new System.EventHandler(this.MainMenuForm_Load);
             this.MdiChildActivate += new System.EventHandler(this.MainMenuForm_MdiChildActivate);
             this.menuStrip1.ResumeLayout(false);
