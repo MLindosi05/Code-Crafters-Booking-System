@@ -18,9 +18,12 @@ namespace Code_Crafters_Interface_Prototype_1.Business
         private decimal bookingAmount;
         private int clientID;
 
-        public PaymentForm()
+        private BookingForm mainBookingFormInstance;
+
+        public PaymentForm(BookingForm callingForm = null)
         {
             InitializeComponent();
+            this.mainBookingFormInstance = callingForm;
             this.Load += PaymentForm_Load;
         }
 
@@ -81,20 +84,20 @@ namespace Code_Crafters_Interface_Prototype_1.Business
                     {
                         string emailSubject = $"The Regal Inn - Booking Confirmed! Ref: #{bookingID}";
                         string emailBody = $@"
-                <div style='font-family: Arial, sans-serif; max-width: 600px; border: 1px solid #dcdcdc; padding: 20px;'>
-                    <h2 style='color: #2E7D32;'>Booking Confirmed, {clientName}!</h2>
-                    <p>Thank you! We have successfully processed your payment of <b>R {amount:0.00}</b> via <b>{paymentType}</b>.</p>
-                    <hr style='border: 0; border-top: 1px solid #eee;' />
-                    <p><b>Reservation Summary:</b></p>
-                    <ul>
-                        <li><b>Booking Reference:</b> #{bookingID}</li>
-                        <li><b>Payment Status:</b> Settled / Paid</li>
-                        <li><b>Booking Status:</b> Confirmed</li>
-                    </ul>
-                    <p>We look forward to hosting you at The Regal Inn!</p>
-                    <hr style='border: 0; border-top: 1px solid #eee;' />
-                    <p style='font-size: 12px; color: #888;'>This is an automated system receipt. Please do not reply directly to this message.</p>
-                </div>";
+                        <div style='font-family: Arial, sans-serif; max-width: 600px; border: 1px solid #dcdcdc; padding: 20px;'>
+                            <h2 style='color: #2E7D32;'>Booking Confirmed, {clientName}!</h2>
+                            <p>Thank you! We have successfully processed your payment of <b>R {amount:0.00}</b> via <b>{paymentType}</b>.</p>
+                            <hr style='border: 0; border-top: 1px solid #eee;' />
+                            <p><b>Reservation Summary:</b></p>
+                            <ul>
+                                <li><b>Booking Reference:</b> #{bookingID}</li>
+                                <li><b>Payment Status:</b> Settled / Paid</li>
+                                <li><b>Booking Status:</b> Confirmed</li>
+                            </ul>
+                            <p>We look forward to hosting you at The Regal Inn!</p>
+                            <hr style='border: 0; border-top: 1px solid #eee;' />
+                            <p style='font-size: 12px; color: #888;'>This is an automated system receipt. Please do not reply directly to this message.</p>
+                        </div>";
 
                         EmailService.SendEmail(clientEmail, emailSubject, emailBody);
 
@@ -137,7 +140,9 @@ namespace Code_Crafters_Interface_Prototype_1.Business
                 if (result == DialogResult.Yes)
                 {
                     taBooking.UpdateBookingStatus("Cancelled", bookingID);
-                    taFolio.InsertWrittenOffPayment(bookingID);
+
+                    decimal zeroAmount = 0;
+                    taFolio.InsertNewPayment(bookingID, "N/A", zeroAmount, DateTime.Now, "Written-Off", "Booking Cancelled/No Charge");
 
                     MessageBox.Show("Booking cancelled successfully.", "Cancelled", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     Close();
@@ -147,6 +152,39 @@ namespace Code_Crafters_Interface_Prototype_1.Business
             {
                 MessageBox.Show("Cancellation failed.\n\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (this.bookingID > 0)
+                {
+                    taBooking.DeleteBooking(this.bookingID);
+                }
+            }
+            catch (Exception dbEx)
+            {
+                MessageBox.Show("UI resetting, but could not remove database record: " + dbEx.Message,
+                                "Database Notice", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
+            cmbPaymentMethod.SelectedIndex = -1;
+            txtBookingID.Clear();
+            txtGuestName.Clear();
+            txtEmailAddress.Clear();
+            txtPhysicalAddress.Clear();
+            txtTotalPrice.Clear();
+
+            if (mainBookingFormInstance != null && !mainBookingFormInstance.IsDisposed)
+            {
+                mainBookingFormInstance.ResetBookingFormData();
+            }
+
+            MessageBox.Show("All input controls and temporary database entries have been successfully deleted.",
+                            "System Reset Complete", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            this.Close();
         }
     }
 }

@@ -41,8 +41,30 @@ namespace Code_Crafters_Interface_Prototype_1.Business
             txtHotelRoomAvailable.Clear();
             txtRestaurantTableAvailable.Clear();
             txtTotalAmount.Clear();
+
             cmbBranchID.SelectedIndex = -1;
+
             codeCraftersDS.Invoice.Clear();
+            codeCraftersDS.Hotel_Room.Clear();
+            codeCraftersDS.Restuarant_Table.Clear();
+
+            mclCheckIn.TodayDate = DateTime.Today;
+            mclCheckIn.SelectionStart = DateTime.Today;
+            mclCheckOut.TodayDate = DateTime.Today;
+            mclCheckOut.SelectionStart = DateTime.Today;
+
+            UserSession.BookingID = 0;
+            UserSession.ClientID = 0;
+            UserSession.BookingReference = string.Empty;
+            UserSession.GuestName = string.Empty;
+            UserSession.EmailAddress = string.Empty;
+            UserSession.PhysicalAddress = string.Empty;
+            UserSession.TotalPrice = string.Empty;
+        }
+
+        public void ResetBookingFormData()
+        {
+            ClearControls();
         }
 
         private void txtHotelRoomAvailable_TextChanged_1(object sender, EventArgs e)
@@ -200,7 +222,7 @@ namespace Code_Crafters_Interface_Prototype_1.Business
             UserSession.PhysicalAddress = txtAddress.Text;
             UserSession.TotalPrice = txtTotalAmount.Text;
 
-            PaymentForm paymentForm = new PaymentForm();
+            PaymentForm paymentForm = new PaymentForm(this);
             paymentForm.Show();
         }
     }
