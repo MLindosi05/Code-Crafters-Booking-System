@@ -40,6 +40,10 @@ namespace Code_Crafters_Interface_Prototype_1.Interfaces
             ReportsForm reportsForm = new ReportsForm();
             PrepareForm(reportsForm);
         }
-        
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

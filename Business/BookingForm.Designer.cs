@@ -54,6 +54,8 @@
             this.btnCreateBooking = new System.Windows.Forms.Button();
             this.pnlBooking = new System.Windows.Forms.Panel();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.cmbBranchID = new System.Windows.Forms.ComboBox();
+            this.lblBranchID = new System.Windows.Forms.Label();
             this.lblTotalAmount = new System.Windows.Forms.Label();
             this.txtTotalAmount = new System.Windows.Forms.TextBox();
             this.grpBookingDetails = new System.Windows.Forms.GroupBox();
@@ -111,8 +113,6 @@
             this.taRoomAssignment = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTableAdapters.Room_AssignmentTableAdapter();
             this.taTableAllocation = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTableAdapters.Table_AllocationTableAdapter();
             this.taRestaurantTable = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTableAdapters.Restuarant_TableTableAdapter();
-            this.lblBranchID = new System.Windows.Forms.Label();
-            this.cmbBranchID = new System.Windows.Forms.ComboBox();
             this.pnlBooking.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.grpBookingDetails.SuspendLayout();
@@ -166,6 +166,31 @@
             this.groupBox4.TabIndex = 24;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "REGAL INN BOOKING";
+            // 
+            // cmbBranchID
+            // 
+            this.cmbBranchID.FormattingEnabled = true;
+            this.cmbBranchID.Items.AddRange(new object[] {
+            "BR01",
+            "BR02",
+            "BR03",
+            "BR04",
+            "BR05"});
+            this.cmbBranchID.Location = new System.Drawing.Point(276, 36);
+            this.cmbBranchID.Name = "cmbBranchID";
+            this.cmbBranchID.Size = new System.Drawing.Size(121, 29);
+            this.cmbBranchID.TabIndex = 31;
+            // 
+            // lblBranchID
+            // 
+            this.lblBranchID.AutoSize = true;
+            this.lblBranchID.BackColor = System.Drawing.Color.BlanchedAlmond;
+            this.lblBranchID.ForeColor = System.Drawing.Color.SandyBrown;
+            this.lblBranchID.Location = new System.Drawing.Point(85, 39);
+            this.lblBranchID.Name = "lblBranchID";
+            this.lblBranchID.Size = new System.Drawing.Size(189, 21);
+            this.lblBranchID.TabIndex = 30;
+            this.lblBranchID.Text = "REGAL INN BRANCH ID:";
             // 
             // lblTotalAmount
             // 
@@ -666,31 +691,6 @@
             // taRestaurantTable
             // 
             this.taRestaurantTable.ClearBeforeFill = true;
-            // 
-            // lblBranchID
-            // 
-            this.lblBranchID.AutoSize = true;
-            this.lblBranchID.BackColor = System.Drawing.Color.BlanchedAlmond;
-            this.lblBranchID.ForeColor = System.Drawing.Color.SandyBrown;
-            this.lblBranchID.Location = new System.Drawing.Point(85, 39);
-            this.lblBranchID.Name = "lblBranchID";
-            this.lblBranchID.Size = new System.Drawing.Size(189, 21);
-            this.lblBranchID.TabIndex = 30;
-            this.lblBranchID.Text = "REGAL INN BRANCH ID:";
-            // 
-            // cmbBranchID
-            // 
-            this.cmbBranchID.FormattingEnabled = true;
-            this.cmbBranchID.Items.AddRange(new object[] {
-            "BR01",
-            "BR02",
-            "BR03",
-            "BR04",
-            "BR05"});
-            this.cmbBranchID.Location = new System.Drawing.Point(276, 36);
-            this.cmbBranchID.Name = "cmbBranchID";
-            this.cmbBranchID.Size = new System.Drawing.Size(121, 29);
-            this.cmbBranchID.TabIndex = 31;
             // 
             // BookingForm
             // 
