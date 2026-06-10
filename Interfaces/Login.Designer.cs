@@ -483,7 +483,6 @@
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(1191, 726);
             this.panel7.TabIndex = 12;
-            this.panel7.Paint += new System.Windows.Forms.PaintEventHandler(this.panel7_Paint);
             // 
             // Login
             // 

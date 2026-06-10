@@ -1,15 +1,10 @@
 ﻿using Code_Crafters_Booking_System;
 using Code_Crafters_Interface_Prototype_1.codeCraftersDSTableAdapters;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 
 namespace Code_Crafters_Interface_Prototype_1.Business
 {
@@ -18,27 +13,56 @@ namespace Code_Crafters_Interface_Prototype_1.Business
         decimal totalBookingRoomAmount = 0;
         decimal totalBookingRestaurantTableAmount = 0;
 
-
         public BookingForm()
         {
             InitializeComponent();
-
             this.Load += BookingForm_Load;
-
-
-            pnlBooking.Dock = DockStyle.Fill;
-            pnlBooking.AutoScroll = true;
         }
 
         private void BookingForm_Load(object sender, EventArgs e)
         {
-            taClient.Fill(codeCraftersDS.Client);
-            taBranch.Fill(codeCraftersDS.Branch);
+            try
+            {
+                // Fill datasets
+                taClient.Fill(codeCraftersDS.Client);
+                taBranch.Fill(codeCraftersDS.Branch);
+
+                // Set up UI container behaviors safely
+                if (pnlBooking != null)
+                {
+                    pnlBooking.Dock = DockStyle.Fill;
+                    pnlBooking.AutoScroll = true;
+                }
+
+                // Apply interface style elements
+                this.BackColor = ColorTranslator.FromHtml("#F9EED8");
+                if (groupBox4 != null) groupBox4.BackColor = ColorTranslator.FromHtml("#966919");
+                if (grpClientDetails != null) grpClientDetails.BackColor = ColorTranslator.FromHtml("#F8F5F0");
+                if (grpBookingDetails != null) grpBookingDetails.BackColor = ColorTranslator.FromHtml("#F8F5F0");
+                if (btnCreateBooking != null)
+                {
+                    btnCreateBooking.BackColor = ColorTranslator.FromHtml("#C99A2E");
+                    btnCreateBooking.ForeColor = Color.White;
+                }
+                if (panel1 != null) panel1.BackColor = ColorTranslator.FromHtml("#F8F5F0");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error initializing data components: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void ClearControls()
         {
-            
+            txtFullName.Clear();
+            txtEmailAddress.Clear();
+            txtPhoneNumber.Clear();
+            txtAddress.Clear();
+            txtHotelRoomAvailable.Clear();
+            txtRestaurantTableAvailable.Clear();
+            txtTotalAmount.Clear();
+            cmbBranchID.SelectedIndex = -1;
+            codeCraftersDS.Invoice.Clear();
         }
 
         private void btnCreateBooking_Click(object sender, EventArgs e)
@@ -57,8 +81,13 @@ namespace Code_Crafters_Interface_Prototype_1.Business
             }
 
             int clientBookingID = Convert.ToInt32(clientRow["Client_ID"]);
-
             UserSession.ClientID = clientBookingID;
+
+            if (cmbBranchID.SelectedItem == null)
+            {
+                MessageBox.Show("Please select a branch first.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
             int pk = (int)taBooking.InsertNewBooking(
                 clientBookingID,
@@ -84,7 +113,6 @@ namespace Code_Crafters_Interface_Prototype_1.Business
         private void txtHotelRoomAvailable_TextChanged(object sender, EventArgs e)
         {
             string input = txtHotelRoomAvailable.Text.Trim();
-
             if (string.IsNullOrEmpty(input))
             {
                 codeCraftersDS.Hotel_Room.Clear();
@@ -94,7 +122,7 @@ namespace Code_Crafters_Interface_Prototype_1.Business
             if (!int.TryParse(input, out int roomId) || roomId < 0)
             {
                 MessageBox.Show("Only positive integer input required.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtHotelRoomAvailable.Clear(); 
+                txtHotelRoomAvailable.Clear();
                 codeCraftersDS.Hotel_Room.Clear();
                 return;
             }
@@ -105,7 +133,6 @@ namespace Code_Crafters_Interface_Prototype_1.Business
         private void txtRestaurantTableAvailable_TextChanged(object sender, EventArgs e)
         {
             string input = txtRestaurantTableAvailable.Text.Trim();
-
             if (string.IsNullOrEmpty(input))
             {
                 codeCraftersDS.Restuarant_Table.Clear();
@@ -115,7 +142,7 @@ namespace Code_Crafters_Interface_Prototype_1.Business
             if (!int.TryParse(input, out int tableId) || tableId < 0)
             {
                 MessageBox.Show("Only positive integer input required.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtRestaurantTableAvailable.Clear(); 
+                txtRestaurantTableAvailable.Clear();
                 codeCraftersDS.Restuarant_Table.Clear();
                 return;
             }
@@ -131,7 +158,6 @@ namespace Code_Crafters_Interface_Prototype_1.Business
             }
 
             DataRow lastRow = codeCraftersDS.Invoice.Rows[codeCraftersDS.Invoice.Rows.Count - 1];
-
             if (lastRow[0] != DBNull.Value && lastRow[3] != DBNull.Value)
             {
                 return codeCraftersDS.Invoice.NewRow();
@@ -143,7 +169,6 @@ namespace Code_Crafters_Interface_Prototype_1.Business
         private void UpdateInvoiceTotal()
         {
             decimal totalBookingAmount = 0;
-
             foreach (DataRow row in codeCraftersDS.Invoice.Rows)
             {
                 if (row[2] != DBNull.Value)
@@ -152,7 +177,6 @@ namespace Code_Crafters_Interface_Prototype_1.Business
                 if (row[5] != DBNull.Value)
                     totalBookingAmount += Convert.ToDecimal(row[5]);
             }
-
             txtTotalAmount.Text = totalBookingAmount.ToString("C2");
         }
 
@@ -165,7 +189,6 @@ namespace Code_Crafters_Interface_Prototype_1.Business
             decimal roomPrice = Convert.ToDecimal(dgvHotelRoomAvailable.CurrentRow.Cells[5].Value);
 
             DataRow row = GetOrCreateCurrentInvoiceRow();
-
             row[0] = roomID;
             row[1] = roomNumber;
             row[2] = roomPrice;
@@ -188,7 +211,6 @@ namespace Code_Crafters_Interface_Prototype_1.Business
             decimal tablePrice = Convert.ToDecimal(dgvRestaurantTableAvailable.CurrentRow.Cells[8].Value);
 
             DataRow row = GetOrCreateCurrentInvoiceRow();
-
             row[3] = tableID;
             row[4] = tableNumber;
             row[5] = tablePrice;
@@ -201,20 +223,8 @@ namespace Code_Crafters_Interface_Prototype_1.Business
             dgvInvoice.DataSource = codeCraftersDS.Invoice;
             UpdateInvoiceTotal();
         }
-
-        private void BookingForm_Load_1(object sender, EventArgs e)
-        {
-            this.BackColor = ColorTranslator.FromHtml("#F9EED8");
-            groupBox4.BackColor = ColorTranslator.FromHtml("#966919");
-            grpClientDetails.BackColor = ColorTranslator.FromHtml("#F8F5F0");
-            grpBookingDetails.BackColor = ColorTranslator.FromHtml("#F8F5F0");
-            btnCreateBooking.BackColor = ColorTranslator.FromHtml("#C99A2E");
-            btnCreateBooking.ForeColor = Color.White;
-            panel1.BackColor = ColorTranslator.FromHtml("#F8F5F0");
-        }
     }
 }
-
 //try
 //{
 
