@@ -125,7 +125,7 @@
             // 
             // txtTotalPrice
             // 
-            this.txtTotalPrice.Location = new System.Drawing.Point(144, 195);
+            this.txtTotalPrice.Location = new System.Drawing.Point(214, 199);
             this.txtTotalPrice.Name = "txtTotalPrice";
             this.txtTotalPrice.ReadOnly = true;
             this.txtTotalPrice.Size = new System.Drawing.Size(271, 29);
@@ -142,27 +142,27 @@
             // 
             // txtPhysicalAddress
             // 
-            this.txtPhysicalAddress.Location = new System.Drawing.Point(201, 161);
+            this.txtPhysicalAddress.Location = new System.Drawing.Point(214, 156);
             this.txtPhysicalAddress.Name = "txtPhysicalAddress";
             this.txtPhysicalAddress.ReadOnly = true;
-            this.txtPhysicalAddress.Size = new System.Drawing.Size(214, 29);
+            this.txtPhysicalAddress.Size = new System.Drawing.Size(271, 29);
             this.txtPhysicalAddress.TabIndex = 18;
             this.txtPhysicalAddress.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
             // 
             // txtEmailAddress
             // 
-            this.txtEmailAddress.Location = new System.Drawing.Point(170, 121);
+            this.txtEmailAddress.Location = new System.Drawing.Point(214, 116);
             this.txtEmailAddress.Name = "txtEmailAddress";
             this.txtEmailAddress.ReadOnly = true;
-            this.txtEmailAddress.Size = new System.Drawing.Size(245, 29);
+            this.txtEmailAddress.Size = new System.Drawing.Size(271, 29);
             this.txtEmailAddress.TabIndex = 17;
             // 
             // txtGuestName
             // 
-            this.txtGuestName.Location = new System.Drawing.Point(152, 81);
+            this.txtGuestName.Location = new System.Drawing.Point(214, 76);
             this.txtGuestName.Name = "txtGuestName";
             this.txtGuestName.ReadOnly = true;
-            this.txtGuestName.Size = new System.Drawing.Size(263, 29);
+            this.txtGuestName.Size = new System.Drawing.Size(271, 29);
             this.txtGuestName.TabIndex = 16;
             // 
             // txtBookingID
@@ -170,7 +170,7 @@
             this.txtBookingID.Location = new System.Drawing.Point(214, 38);
             this.txtBookingID.Name = "txtBookingID";
             this.txtBookingID.ReadOnly = true;
-            this.txtBookingID.Size = new System.Drawing.Size(201, 29);
+            this.txtBookingID.Size = new System.Drawing.Size(271, 29);
             this.txtBookingID.TabIndex = 15;
             this.txtBookingID.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
@@ -250,7 +250,7 @@
             this.cmbPaymentMethod.Items.AddRange(new object[] {
             "CASH ",
             "CREDIT/DEBIT CARD"});
-            this.cmbPaymentMethod.Location = new System.Drawing.Point(194, 40);
+            this.cmbPaymentMethod.Location = new System.Drawing.Point(214, 33);
             this.cmbPaymentMethod.Name = "cmbPaymentMethod";
             this.cmbPaymentMethod.Size = new System.Drawing.Size(216, 29);
             this.cmbPaymentMethod.TabIndex = 1;
