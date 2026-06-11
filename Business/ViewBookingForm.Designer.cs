@@ -30,7 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnUpdateStatus = new System.Windows.Forms.Button();
             this.cmbStatusActions = new System.Windows.Forms.ComboBox();
             this.lblBookingID = new System.Windows.Forms.Label();
             this.txtBookingID = new System.Windows.Forms.TextBox();
@@ -66,7 +65,6 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.btnUpdateStatus);
             this.groupBox1.Controls.Add(this.cmbStatusActions);
             this.groupBox1.Controls.Add(this.lblBookingID);
             this.groupBox1.Controls.Add(this.txtBookingID);
@@ -78,18 +76,6 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "View Bookings";
-            // 
-            // btnUpdateStatus
-            // 
-            this.btnUpdateStatus.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold);
-            this.btnUpdateStatus.Location = new System.Drawing.Point(504, 58);
-            this.btnUpdateStatus.Margin = new System.Windows.Forms.Padding(2);
-            this.btnUpdateStatus.Name = "btnUpdateStatus";
-            this.btnUpdateStatus.Size = new System.Drawing.Size(114, 20);
-            this.btnUpdateStatus.TabIndex = 4;
-            this.btnUpdateStatus.Text = "UPDATE Status";
-            this.btnUpdateStatus.UseVisualStyleBackColor = true;
-            this.btnUpdateStatus.Click += new System.EventHandler(this.btnUpdateStatus_Click);
             // 
             // cmbStatusActions
             // 
@@ -317,7 +303,7 @@
             // 
             this.pnlViewBookings.AutoScroll = true;
             this.pnlViewBookings.Controls.Add(this.groupBox1);
-            this.pnlViewBookings.Location = new System.Drawing.Point(21, 85);
+            this.pnlViewBookings.Location = new System.Drawing.Point(12, 40);
             this.pnlViewBookings.Name = "pnlViewBookings";
             this.pnlViewBookings.Size = new System.Drawing.Size(1833, 634);
             this.pnlViewBookings.TabIndex = 1;
@@ -372,7 +358,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn branchPhoneDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn branchEmailDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn branchStatusDataGridViewTextBoxColumn;
-        private System.Windows.Forms.Button btnUpdateStatus;
         private System.Windows.Forms.ComboBox cmbStatusActions;
         private System.Windows.Forms.Panel pnlViewBookings;
     }

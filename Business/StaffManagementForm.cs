@@ -21,6 +21,22 @@ namespace Code_Crafters_Interface_Prototype_1.Business
         private void StaffManagementForm_Load(object sender, EventArgs e)
         {
             taStaff.Fill(codeCraftersDS.Staff);
+            this.BackColor = ColorTranslator.FromHtml("#F9EED8");
+            panel1.BackColor = ColorTranslator.FromHtml("#F8F5F0");
+            panel3.BackColor = ColorTranslator.FromHtml("#966919");
+
+            btnStaffAdd.BackColor = ColorTranslator.FromHtml("#C99A2E");
+            btnStaffAdd.ForeColor = Color.White;
+
+           btnStaffClear.BackColor = ColorTranslator.FromHtml("#C99A2E");
+            btnStaffClear.ForeColor = Color.White;
+
+            btnStaffDelete.BackColor = ColorTranslator.FromHtml("#C99A2E");
+           btnStaffDelete.ForeColor = Color.White;
+
+            btnStaffUpdate.BackColor = ColorTranslator.FromHtml("#C99A2E");
+            btnStaffUpdate.ForeColor = Color.White;
+
         }
 
         private void cmbStaffRole_SelectedIndexChanged(object sender, EventArgs e)

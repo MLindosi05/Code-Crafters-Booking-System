@@ -29,23 +29,18 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-
             this.panel1 = new System.Windows.Forms.Panel();
-            this.dgvStaffManagement = new System.Windows.Forms.DataGridView();
-            this.staffBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.codeCraftersDS = new Code_Crafters_Interface_Prototype_1.codeCraftersDS();
-            this.lblStaffManagement = new System.Windows.Forms.Label();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.txtEmailAddress = new System.Windows.Forms.TextBox();
+            this.txtStaffAddress = new System.Windows.Forms.TextBox();
+            this.cmbBranchID = new System.Windows.Forms.ComboBox();
+            this.lblEmailAddress = new System.Windows.Forms.Label();
+            this.lblStaffAddress = new System.Windows.Forms.Label();
+            this.lblBranchID = new System.Windows.Forms.Label();
             this.btnStaffUpdate = new System.Windows.Forms.Button();
             this.btnStaffClear = new System.Windows.Forms.Button();
             this.btnStaffDelete = new System.Windows.Forms.Button();
@@ -58,7 +53,7 @@
             this.txtStaffFullName = new System.Windows.Forms.TextBox();
             this.cmbStaffRole = new System.Windows.Forms.ComboBox();
             this.lblStaffFullName = new System.Windows.Forms.Label();
-            this.taStaff = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTableAdapters.StaffTableAdapter();
+            this.dgvStaffManagement = new System.Windows.Forms.DataGridView();
             this.staffIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.branchIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.staffFirstNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -69,21 +64,18 @@
             this.staffroleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.datejoinedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.staffstatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lblBranchID = new System.Windows.Forms.Label();
-            this.lblStaffAddress = new System.Windows.Forms.Label();
-            this.lblEmailAddress = new System.Windows.Forms.Label();
-            this.cmbBranchID = new System.Windows.Forms.ComboBox();
-            this.txtStaffAddress = new System.Windows.Forms.TextBox();
-            this.txtEmailAddress = new System.Windows.Forms.TextBox();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
-
+            this.staffBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.codeCraftersDS = new Code_Crafters_Interface_Prototype_1.codeCraftersDS();
+            this.lblStaffManagement = new System.Windows.Forms.Label();
+            this.taStaff = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTableAdapters.StaffTableAdapter();
             this.panel1.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStaffManagement)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.staffBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.codeCraftersDS)).BeginInit();
-            this.panel2.SuspendLayout();
-            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -91,117 +83,52 @@
             this.panel1.Controls.Add(this.panel4);
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.lblStaffManagement);
-            this.panel1.Location = new System.Drawing.Point(119, 13);
+            this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1202, 733);
+            this.panel1.Size = new System.Drawing.Size(1202, 781);
             this.panel1.TabIndex = 1;
             // 
-            // dgvStaffManagement
+            // panel4
             // 
-            this.dgvStaffManagement.AutoGenerateColumns = false;
-            this.dgvStaffManagement.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvStaffManagement.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.staffIDDataGridViewTextBoxColumn,
-            this.branchIDDataGridViewTextBoxColumn,
-            this.staffFirstNameDataGridViewTextBoxColumn,
-            this.staffSurnameDataGridViewTextBoxColumn,
-            this.staffAddressDataGridViewTextBoxColumn,
-            this.staffphonenumberDataGridViewTextBoxColumn,
-            this.staffemailDataGridViewTextBoxColumn,
-            this.staffroleDataGridViewTextBoxColumn,
-            this.datejoinedDataGridViewTextBoxColumn,
-            this.staffstatusDataGridViewTextBoxColumn});
-            this.dgvStaffManagement.DataSource = this.staffBindingSource;
-            this.dgvStaffManagement.Location = new System.Drawing.Point(71, 414);
-            this.dgvStaffManagement.Name = "dgvStaffManagement";
-            this.dgvStaffManagement.Size = new System.Drawing.Size(1046, 240);
-            this.dgvStaffManagement.TabIndex = 3;
+            this.panel4.BackColor = System.Drawing.Color.Black;
+            this.panel4.Location = new System.Drawing.Point(497, 41);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(230, 3);
+            this.panel4.TabIndex = 5;
             // 
-            // staffIDDataGridViewTextBoxColumn
+            // panel3
             // 
-            this.staffIDDataGridViewTextBoxColumn.DataPropertyName = "staff_ID";
-            this.staffIDDataGridViewTextBoxColumn.HeaderText = "staff_ID";
-            this.staffIDDataGridViewTextBoxColumn.Name = "staffIDDataGridViewTextBoxColumn";
-            this.staffIDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.panel3.Controls.Add(this.panel5);
+            this.panel3.Controls.Add(this.panel2);
+            this.panel3.Controls.Add(this.dgvStaffManagement);
+            this.panel3.Location = new System.Drawing.Point(20, 50);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(1145, 673);
+            this.panel3.TabIndex = 4;
             // 
-            // branchIDDataGridViewTextBoxColumn
+            // panel5
             // 
-            this.branchIDDataGridViewTextBoxColumn.DataPropertyName = "Branch_ID";
-            this.branchIDDataGridViewTextBoxColumn.HeaderText = "Branch_ID";
-            this.branchIDDataGridViewTextBoxColumn.Name = "branchIDDataGridViewTextBoxColumn";
+            this.panel5.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel5.Controls.Add(this.pictureBox1);
+            this.panel5.Location = new System.Drawing.Point(721, 78);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(396, 317);
+            this.panel5.TabIndex = 4;
             // 
-            // staffFirstNameDataGridViewTextBoxColumn
+            // pictureBox1
             // 
-            this.staffFirstNameDataGridViewTextBoxColumn.DataPropertyName = "staff_First_Name";
-            this.staffFirstNameDataGridViewTextBoxColumn.HeaderText = "staff_First_Name";
-            this.staffFirstNameDataGridViewTextBoxColumn.Name = "staffFirstNameDataGridViewTextBoxColumn";
-            // 
-            // staffSurnameDataGridViewTextBoxColumn
-            // 
-            this.staffSurnameDataGridViewTextBoxColumn.DataPropertyName = "staff_Surname";
-            this.staffSurnameDataGridViewTextBoxColumn.HeaderText = "staff_Surname";
-            this.staffSurnameDataGridViewTextBoxColumn.Name = "staffSurnameDataGridViewTextBoxColumn";
-            // 
-            // staffAddressDataGridViewTextBoxColumn
-            // 
-            this.staffAddressDataGridViewTextBoxColumn.DataPropertyName = "staff_Address";
-            this.staffAddressDataGridViewTextBoxColumn.HeaderText = "staff_Address";
-            this.staffAddressDataGridViewTextBoxColumn.Name = "staffAddressDataGridViewTextBoxColumn";
-            // 
-            // staffphonenumberDataGridViewTextBoxColumn
-            // 
-            this.staffphonenumberDataGridViewTextBoxColumn.DataPropertyName = "staff_phone_number";
-            this.staffphonenumberDataGridViewTextBoxColumn.HeaderText = "staff_phone_number";
-            this.staffphonenumberDataGridViewTextBoxColumn.Name = "staffphonenumberDataGridViewTextBoxColumn";
-            // 
-            // staffemailDataGridViewTextBoxColumn
-            // 
-            this.staffemailDataGridViewTextBoxColumn.DataPropertyName = "staff_email";
-            this.staffemailDataGridViewTextBoxColumn.HeaderText = "staff_email";
-            this.staffemailDataGridViewTextBoxColumn.Name = "staffemailDataGridViewTextBoxColumn";
-            // 
-            // staffroleDataGridViewTextBoxColumn
-            // 
-            this.staffroleDataGridViewTextBoxColumn.DataPropertyName = "staff_role";
-            this.staffroleDataGridViewTextBoxColumn.HeaderText = "staff_role";
-            this.staffroleDataGridViewTextBoxColumn.Name = "staffroleDataGridViewTextBoxColumn";
-            // 
-            // datejoinedDataGridViewTextBoxColumn
-            // 
-            this.datejoinedDataGridViewTextBoxColumn.DataPropertyName = "date_joined";
-            this.datejoinedDataGridViewTextBoxColumn.HeaderText = "date_joined";
-            this.datejoinedDataGridViewTextBoxColumn.Name = "datejoinedDataGridViewTextBoxColumn";
-            // 
-            // staffstatusDataGridViewTextBoxColumn
-            // 
-            this.staffstatusDataGridViewTextBoxColumn.DataPropertyName = "staff_status";
-            this.staffstatusDataGridViewTextBoxColumn.HeaderText = "staff_status";
-            this.staffstatusDataGridViewTextBoxColumn.Name = "staffstatusDataGridViewTextBoxColumn";
-            // 
-            // staffBindingSource
-            // 
-            this.staffBindingSource.DataMember = "Staff";
-            this.staffBindingSource.DataSource = this.codeCraftersDS;
-            // 
-            // codeCraftersDS
-            // 
-            this.codeCraftersDS.DataSetName = "codeCraftersDS";
-            this.codeCraftersDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // lblStaffManagement
-            // 
-            this.lblStaffManagement.AutoSize = true;
-            this.lblStaffManagement.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
-            this.lblStaffManagement.Location = new System.Drawing.Point(510, 30);
-            this.lblStaffManagement.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblStaffManagement.Name = "lblStaffManagement";
-            this.lblStaffManagement.Size = new System.Drawing.Size(208, 25);
-            this.lblStaffManagement.TabIndex = 2;
-            this.lblStaffManagement.Text = "STAFF MANAGEMENT";
+            this.pictureBox1.Image = global::Code_Crafters_Interface_Prototype_1.Properties.Resources.lp2_powerful_reservation_img;
+            this.pictureBox1.Location = new System.Drawing.Point(20, 20);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(359, 283);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 4;
+            this.pictureBox1.TabStop = false;
             // 
             // panel2
             // 
+            this.panel2.BackColor = System.Drawing.Color.WhiteSmoke;
             this.panel2.Controls.Add(this.txtEmailAddress);
             this.panel2.Controls.Add(this.txtStaffAddress);
             this.panel2.Controls.Add(this.cmbBranchID);
@@ -227,6 +154,63 @@
             this.panel2.Size = new System.Drawing.Size(627, 317);
             this.panel2.TabIndex = 0;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
+            // 
+            // txtEmailAddress
+            // 
+            this.txtEmailAddress.Location = new System.Drawing.Point(250, 161);
+            this.txtEmailAddress.Name = "txtEmailAddress";
+            this.txtEmailAddress.Size = new System.Drawing.Size(221, 25);
+            this.txtEmailAddress.TabIndex = 18;
+            // 
+            // txtStaffAddress
+            // 
+            this.txtStaffAddress.Location = new System.Drawing.Point(250, 95);
+            this.txtStaffAddress.Name = "txtStaffAddress";
+            this.txtStaffAddress.Size = new System.Drawing.Size(221, 25);
+            this.txtStaffAddress.TabIndex = 17;
+            // 
+            // cmbBranchID
+            // 
+            this.cmbBranchID.FormattingEnabled = true;
+            this.cmbBranchID.Items.AddRange(new object[] {
+            "BR01",
+            "BR02",
+            "BR03",
+            "BR04",
+            "BR05"});
+            this.cmbBranchID.Location = new System.Drawing.Point(250, 20);
+            this.cmbBranchID.Name = "cmbBranchID";
+            this.cmbBranchID.Size = new System.Drawing.Size(110, 25);
+            this.cmbBranchID.TabIndex = 15;
+            // 
+            // lblEmailAddress
+            // 
+            this.lblEmailAddress.AutoSize = true;
+            this.lblEmailAddress.Location = new System.Drawing.Point(32, 164);
+            this.lblEmailAddress.Name = "lblEmailAddress";
+            this.lblEmailAddress.Size = new System.Drawing.Size(109, 17);
+            this.lblEmailAddress.TabIndex = 14;
+            this.lblEmailAddress.Text = "EMAIL ADDRESS";
+            // 
+            // lblStaffAddress
+            // 
+            this.lblStaffAddress.AutoSize = true;
+            this.lblStaffAddress.Location = new System.Drawing.Point(32, 98);
+            this.lblStaffAddress.Name = "lblStaffAddress";
+            this.lblStaffAddress.Size = new System.Drawing.Size(111, 17);
+            this.lblStaffAddress.TabIndex = 13;
+            this.lblStaffAddress.Text = "STAFF ADDRESS:";
+            // 
+            // lblBranchID
+            // 
+            this.lblBranchID.AutoSize = true;
+            this.lblBranchID.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBranchID.ForeColor = System.Drawing.Color.Black;
+            this.lblBranchID.Location = new System.Drawing.Point(33, 20);
+            this.lblBranchID.Name = "lblBranchID";
+            this.lblBranchID.Size = new System.Drawing.Size(83, 17);
+            this.lblBranchID.TabIndex = 12;
+            this.lblBranchID.Text = "BRANCH ID:";
             // 
             // btnStaffUpdate
             // 
@@ -335,82 +319,112 @@
             this.lblStaffFullName.TabIndex = 0;
             this.lblStaffFullName.Text = "FULL NAME:";
             // 
+            // dgvStaffManagement
+            // 
+            this.dgvStaffManagement.AutoGenerateColumns = false;
+            this.dgvStaffManagement.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvStaffManagement.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.staffIDDataGridViewTextBoxColumn,
+            this.branchIDDataGridViewTextBoxColumn,
+            this.staffFirstNameDataGridViewTextBoxColumn,
+            this.staffSurnameDataGridViewTextBoxColumn,
+            this.staffAddressDataGridViewTextBoxColumn,
+            this.staffphonenumberDataGridViewTextBoxColumn,
+            this.staffemailDataGridViewTextBoxColumn,
+            this.staffroleDataGridViewTextBoxColumn,
+            this.datejoinedDataGridViewTextBoxColumn,
+            this.staffstatusDataGridViewTextBoxColumn});
+            this.dgvStaffManagement.DataSource = this.staffBindingSource;
+            this.dgvStaffManagement.Location = new System.Drawing.Point(71, 414);
+            this.dgvStaffManagement.Name = "dgvStaffManagement";
+            this.dgvStaffManagement.Size = new System.Drawing.Size(1046, 240);
+            this.dgvStaffManagement.TabIndex = 3;
+            // 
+            // staffIDDataGridViewTextBoxColumn
+            // 
+            this.staffIDDataGridViewTextBoxColumn.DataPropertyName = "staff_ID";
+            this.staffIDDataGridViewTextBoxColumn.HeaderText = "staff_ID";
+            this.staffIDDataGridViewTextBoxColumn.Name = "staffIDDataGridViewTextBoxColumn";
+            this.staffIDDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // branchIDDataGridViewTextBoxColumn
+            // 
+            this.branchIDDataGridViewTextBoxColumn.DataPropertyName = "Branch_ID";
+            this.branchIDDataGridViewTextBoxColumn.HeaderText = "Branch_ID";
+            this.branchIDDataGridViewTextBoxColumn.Name = "branchIDDataGridViewTextBoxColumn";
+            // 
+            // staffFirstNameDataGridViewTextBoxColumn
+            // 
+            this.staffFirstNameDataGridViewTextBoxColumn.DataPropertyName = "staff_First_Name";
+            this.staffFirstNameDataGridViewTextBoxColumn.HeaderText = "staff_First_Name";
+            this.staffFirstNameDataGridViewTextBoxColumn.Name = "staffFirstNameDataGridViewTextBoxColumn";
+            // 
+            // staffSurnameDataGridViewTextBoxColumn
+            // 
+            this.staffSurnameDataGridViewTextBoxColumn.DataPropertyName = "staff_Surname";
+            this.staffSurnameDataGridViewTextBoxColumn.HeaderText = "staff_Surname";
+            this.staffSurnameDataGridViewTextBoxColumn.Name = "staffSurnameDataGridViewTextBoxColumn";
+            // 
+            // staffAddressDataGridViewTextBoxColumn
+            // 
+            this.staffAddressDataGridViewTextBoxColumn.DataPropertyName = "staff_Address";
+            this.staffAddressDataGridViewTextBoxColumn.HeaderText = "staff_Address";
+            this.staffAddressDataGridViewTextBoxColumn.Name = "staffAddressDataGridViewTextBoxColumn";
+            // 
+            // staffphonenumberDataGridViewTextBoxColumn
+            // 
+            this.staffphonenumberDataGridViewTextBoxColumn.DataPropertyName = "staff_phone_number";
+            this.staffphonenumberDataGridViewTextBoxColumn.HeaderText = "staff_phone_number";
+            this.staffphonenumberDataGridViewTextBoxColumn.Name = "staffphonenumberDataGridViewTextBoxColumn";
+            // 
+            // staffemailDataGridViewTextBoxColumn
+            // 
+            this.staffemailDataGridViewTextBoxColumn.DataPropertyName = "staff_email";
+            this.staffemailDataGridViewTextBoxColumn.HeaderText = "staff_email";
+            this.staffemailDataGridViewTextBoxColumn.Name = "staffemailDataGridViewTextBoxColumn";
+            // 
+            // staffroleDataGridViewTextBoxColumn
+            // 
+            this.staffroleDataGridViewTextBoxColumn.DataPropertyName = "staff_role";
+            this.staffroleDataGridViewTextBoxColumn.HeaderText = "staff_role";
+            this.staffroleDataGridViewTextBoxColumn.Name = "staffroleDataGridViewTextBoxColumn";
+            // 
+            // datejoinedDataGridViewTextBoxColumn
+            // 
+            this.datejoinedDataGridViewTextBoxColumn.DataPropertyName = "date_joined";
+            this.datejoinedDataGridViewTextBoxColumn.HeaderText = "date_joined";
+            this.datejoinedDataGridViewTextBoxColumn.Name = "datejoinedDataGridViewTextBoxColumn";
+            // 
+            // staffstatusDataGridViewTextBoxColumn
+            // 
+            this.staffstatusDataGridViewTextBoxColumn.DataPropertyName = "staff_status";
+            this.staffstatusDataGridViewTextBoxColumn.HeaderText = "staff_status";
+            this.staffstatusDataGridViewTextBoxColumn.Name = "staffstatusDataGridViewTextBoxColumn";
+            // 
+            // staffBindingSource
+            // 
+            this.staffBindingSource.DataMember = "Staff";
+            this.staffBindingSource.DataSource = this.codeCraftersDS;
+            // 
+            // codeCraftersDS
+            // 
+            this.codeCraftersDS.DataSetName = "codeCraftersDS";
+            this.codeCraftersDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // lblStaffManagement
+            // 
+            this.lblStaffManagement.AutoSize = true;
+            this.lblStaffManagement.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
+            this.lblStaffManagement.Location = new System.Drawing.Point(510, 13);
+            this.lblStaffManagement.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblStaffManagement.Name = "lblStaffManagement";
+            this.lblStaffManagement.Size = new System.Drawing.Size(208, 25);
+            this.lblStaffManagement.TabIndex = 2;
+            this.lblStaffManagement.Text = "STAFF MANAGEMENT";
+            // 
             // taStaff
             // 
             this.taStaff.ClearBeforeFill = true;
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.panel2);
-            this.panel3.Controls.Add(this.dgvStaffManagement);
-            this.panel3.Location = new System.Drawing.Point(50, 74);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1200, 666);
-            this.panel3.TabIndex = 4;
-            // 
-            // panel4
-            // 
-            this.panel4.BackColor = System.Drawing.Color.Black;
-            this.panel4.Location = new System.Drawing.Point(508, 58);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(210, 3);
-            this.panel4.TabIndex = 5;
-            // 
-            // lblBranchID
-            // 
-            this.lblBranchID.AutoSize = true;
-            this.lblBranchID.ForeColor = System.Drawing.Color.DarkOrange;
-            this.lblBranchID.Location = new System.Drawing.Point(33, 20);
-            this.lblBranchID.Name = "lblBranchID";
-            this.lblBranchID.Size = new System.Drawing.Size(83, 17);
-            this.lblBranchID.TabIndex = 12;
-            this.lblBranchID.Text = "BRANCH ID:";
-            // 
-            // lblStaffAddress
-            // 
-            this.lblStaffAddress.AutoSize = true;
-            this.lblStaffAddress.Location = new System.Drawing.Point(32, 98);
-            this.lblStaffAddress.Name = "lblStaffAddress";
-            this.lblStaffAddress.Size = new System.Drawing.Size(111, 17);
-            this.lblStaffAddress.TabIndex = 13;
-            this.lblStaffAddress.Text = "STAFF ADDRESS:";
-            // 
-            // lblEmailAddress
-            // 
-            this.lblEmailAddress.AutoSize = true;
-            this.lblEmailAddress.Location = new System.Drawing.Point(32, 164);
-            this.lblEmailAddress.Name = "lblEmailAddress";
-            this.lblEmailAddress.Size = new System.Drawing.Size(109, 17);
-            this.lblEmailAddress.TabIndex = 14;
-            this.lblEmailAddress.Text = "EMAIL ADDRESS";
-            // 
-            // cmbBranchID
-            // 
-            this.cmbBranchID.FormattingEnabled = true;
-            this.cmbBranchID.Items.AddRange(new object[] {
-            "BR01",
-            "BR02",
-            "BR03",
-            "BR04",
-            "BR05"});
-            this.cmbBranchID.Location = new System.Drawing.Point(250, 20);
-            this.cmbBranchID.Name = "cmbBranchID";
-            this.cmbBranchID.Size = new System.Drawing.Size(110, 25);
-            this.cmbBranchID.TabIndex = 15;
-            // 
-            // txtStaffAddress
-            // 
-            this.txtStaffAddress.Location = new System.Drawing.Point(250, 95);
-            this.txtStaffAddress.Name = "txtStaffAddress";
-            this.txtStaffAddress.Size = new System.Drawing.Size(221, 25);
-            this.txtStaffAddress.TabIndex = 17;
-            // 
-            // txtEmailAddress
-            // 
-            this.txtEmailAddress.Location = new System.Drawing.Point(250, 161);
-            this.txtEmailAddress.Name = "txtEmailAddress";
-            this.txtEmailAddress.Size = new System.Drawing.Size(221, 25);
-            this.txtEmailAddress.TabIndex = 18;
             // 
             // StaffManagementForm
             // 
@@ -424,12 +438,14 @@
             this.Load += new System.EventHandler(this.StaffManagementForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStaffManagement)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.staffBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.codeCraftersDS)).EndInit();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -473,5 +489,7 @@
         private System.Windows.Forms.TextBox txtStaffAddress;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Panel panel5;
     }
 }

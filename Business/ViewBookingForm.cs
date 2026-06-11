@@ -28,8 +28,7 @@ namespace Code_Crafters_Interface_Prototype_1.Business
             pnlViewBookings.BackColor = ColorTranslator.FromHtml("#F8F5F0");
             groupBox1.BackColor = ColorTranslator.FromHtml("#966919");
             this.BackColor = ColorTranslator.FromHtml("#F9EED8");
-            btnUpdateStatus.BackColor = ColorTranslator.FromHtml("#C99A2E");
-            btnUpdateStatus.ForeColor = Color.White;
+
         }
 
         private void txtBookingID_TextChanged(object sender, EventArgs e)

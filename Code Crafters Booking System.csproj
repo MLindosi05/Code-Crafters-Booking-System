@@ -507,5 +507,20 @@
   <ItemGroup>
     <None Include="Resources\GROUP 4.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lp2-powerful-reservation-img.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\images1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\istockphoto-2206124093-612x612.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\images2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lp2-powerful-reservation-img1.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
