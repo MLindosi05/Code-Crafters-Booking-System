@@ -139,7 +139,7 @@ namespace Code_Crafters_Interface_Prototype_1.Interfaces
             foreach (codeCraftersDS.StaffRow row in codeCraftersDS1.Staff)
             {
                 string databaseUsername =
-                    (row.staff_First_Name + " " + row.staff_Surname);
+                    (row.staff_email);
 
                 string databasePassword = row.staff_Password.Trim();
                 string databaseRole = row.staff_role.Trim();
@@ -151,7 +151,7 @@ namespace Code_Crafters_Interface_Prototype_1.Interfaces
                     found = true;
 
                     MessageBox.Show($"Welcome to The Regal Inn.\n\n" +
-                    $"Staff Member: {row.staff_First_Name} {row.staff_Surname}\n" +
+                    $"Staff Member: {row.staff_email} \n" +
                     $"Role: {row.staff_role}\n\n" +
                     $"Login successful. You may proceed.",
                     "Authentication Successful",
