@@ -77,6 +77,7 @@
             // 
             // panel2
             // 
+            this.panel2.BackColor = System.Drawing.Color.White;
             this.panel2.Controls.Add(this.pictureBox2);
             this.panel2.Controls.Add(this.btnSignUp);
             this.panel2.Controls.Add(this.label5);
