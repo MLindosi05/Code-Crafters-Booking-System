@@ -39,6 +39,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+
             this.panel1 = new System.Windows.Forms.Panel();
             this.dgvStaffManagement = new System.Windows.Forms.DataGridView();
             this.staffBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -74,8 +75,11 @@
             this.cmbBranchID = new System.Windows.Forms.ComboBox();
             this.txtStaffAddress = new System.Windows.Forms.TextBox();
             this.txtEmailAddress = new System.Windows.Forms.TextBox();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
+
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvStaffManagement)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.staffBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.codeCraftersDS)).BeginInit();
             this.panel2.SuspendLayout();
@@ -86,7 +90,7 @@
             // 
             this.panel1.Controls.Add(this.panel4);
             this.panel1.Controls.Add(this.panel3);
-            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.lblStaffManagement);
             this.panel1.Location = new System.Drawing.Point(119, 13);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
@@ -185,29 +189,14 @@
             this.codeCraftersDS.DataSetName = "codeCraftersDS";
             this.codeCraftersDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(510, 30);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(208, 25);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "STAFF MANAGEMENT";
-            // 
-            // codeCraftersDS1
-            // 
-            this.codeCraftersDS1.DataSetName = "codeCraftersDS";
-            this.codeCraftersDS1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // lblStaffManagement
             // 
             this.lblStaffManagement.AutoSize = true;
-            this.lblStaffManagement.Location = new System.Drawing.Point(556, 48);
+            this.lblStaffManagement.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
+            this.lblStaffManagement.Location = new System.Drawing.Point(510, 30);
             this.lblStaffManagement.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblStaffManagement.Name = "lblStaffManagement";
-            this.lblStaffManagement.Size = new System.Drawing.Size(142, 17);
+            this.lblStaffManagement.Size = new System.Drawing.Size(208, 25);
             this.lblStaffManagement.TabIndex = 2;
             this.lblStaffManagement.Text = "STAFF MANAGEMENT";
             // 
@@ -353,7 +342,7 @@
             // panel3
             // 
             this.panel3.Controls.Add(this.panel2);
-            this.panel3.Controls.Add(this.dataGridView1);
+            this.panel3.Controls.Add(this.dgvStaffManagement);
             this.panel3.Location = new System.Drawing.Point(50, 74);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1200, 666);
@@ -435,7 +424,7 @@
             this.Load += new System.EventHandler(this.StaffManagementForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvStaffManagement)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.staffBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.codeCraftersDS)).EndInit();
             this.panel2.ResumeLayout(false);
@@ -482,5 +471,7 @@
         private System.Windows.Forms.ComboBox cmbBranchID;
         private System.Windows.Forms.TextBox txtEmailAddress;
         private System.Windows.Forms.TextBox txtStaffAddress;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panel4;
     }
 }
