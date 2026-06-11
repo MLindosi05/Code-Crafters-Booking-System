@@ -241,7 +241,6 @@
             // 
             // pictureBox3
             // 
-            this.pictureBox3.Image = global::Code_Crafters_Interface_Prototype_1.Properties.Resources.lp2_powerful_reservation_img1;
             this.pictureBox3.Location = new System.Drawing.Point(43, 32);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(925, 573);

@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Code_Crafters_Interface_Prototype_1.Business
@@ -19,36 +14,154 @@ namespace Code_Crafters_Interface_Prototype_1.Business
 
         private void RoomManagementForm_Load(object sender, EventArgs e)
         {
-            taHotelRoom.Fill(codeCraftersDS.Hotel_Room);
             this.BackColor = ColorTranslator.FromHtml("#F9EED8");
             panel1.BackColor = ColorTranslator.FromHtml("#F8F5F0");
             panel2.BackColor = ColorTranslator.FromHtml("#966919");
 
-            btnAddRoom.BackColor = ColorTranslator.FromHtml("#C99A2E");
-           btnAddRoom.ForeColor = Color.White;
-
-           btnClearRoom.BackColor = ColorTranslator.FromHtml("#C99A2E");
-            btnClearRoom.ForeColor = Color.White;
-
-           btnDeleteRoom.BackColor = ColorTranslator.FromHtml("#C99A2E");
-            btnDeleteRoom.ForeColor = Color.White;
-
-           btnUpdateRoom.BackColor = ColorTranslator.FromHtml("#C99A2E");
-            btnUpdateRoom.ForeColor = Color.White;
+            StyleButton(btnAddRoom);
+            StyleButton(btnClearRoom);
+            StyleButton(btnDeleteRoom);
+            StyleButton(btnUpdateRoom);
         }
 
-            if (!ValidateRoomInputs()) return;
+        private void StyleButton(Button btn)
+        {
+            btn.BackColor = ColorTranslator.FromHtml("#C99A2E");
+            btn.ForeColor = Color.White;
+        }
+
+        private void dgvHotelRoomManagement_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dgvHotelRoomManagement.CurrentRow == null || dgvHotelRoomManagement.CurrentRow.DataBoundItem == null) return;
+
+            var row = dgvHotelRoomManagement.CurrentRow;
+
+            cmbBranchID.Text = row.Cells["branchIDDataGridViewTextBoxColumn"].Value?.ToString() ?? "";
+            cmbRoomTypeID.Text = row.Cells["hotelroomtypeIDDataGridViewTextBoxColumn"].Value?.ToString() ?? "";
+            txtRoomNumber.Text = row.Cells["hotelroomnumberDataGridViewTextBoxColumn"].Value?.ToString() ?? "";
+            cmbRoomStatus.Text = row.Cells["hotelroomstatusDataGridViewTextBoxColumn"].Value?.ToString() ?? "";
+            txtRoomPrice.Text = row.Cells["hotelroomPriceDataGridViewTextBoxColumn"].Value?.ToString() ?? "";
+        }
+
+        private bool ValidateRoomInputs(bool isUpdating = false)
+        {
+            if (string.IsNullOrWhiteSpace(txtRoomNumber.Text) || string.IsNullOrWhiteSpace(txtRoomPrice.Text))
+            {
+                MessageBox.Show("Fill all required fields.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+            if (!int.TryParse(txtRoomNumber.Text.Trim(), out int targetRoomNumber))
+            {
+                MessageBox.Show("Room number must be a valid whole number.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+            if (!isUpdating && codeCraftersDS?.Hotel_Room != null)
+            {
+                taHotelRoom.Fill(codeCraftersDS.Hotel_Room);
+
+                foreach (DataRow row in codeCraftersDS.Hotel_Room.Rows)
+                {
+                    if (row.RowState != DataRowState.Deleted &&
+                        row["Hotel_Room_Number"] != DBNull.Value &&
+                        Convert.ToInt32(row["Hotel_Room_Number"]) == targetRoomNumber)
+                    {
+                        MessageBox.Show($"Room No: {targetRoomNumber} already exists in the system. Please use a unique room number.",
+                                        "Duplicate Room Number", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return false;
+                    }
+                }
+            }
+
+            return true;
+        }
+
+        private void btnRoomAdd_Click(object sender, EventArgs e)
+        {
+            if (!ValidateRoomInputs(isUpdating: false)) return;
 
             try
             {
-                int roomID = Convert.ToInt32(dgvHotelRoomManagement.CurrentRow.Cells["hotelRoomIDDataGridViewTextBoxColumn"].Value);
+                string branchID = cmbBranchID.Text.Trim();
+                int roomTypeID = Convert.ToInt32(cmbRoomTypeID.Text);
+                int roomNumber = Convert.ToInt32(txtRoomNumber.Text.Trim());
+                string roomStatus = cmbRoomStatus.Text.Trim();
                 decimal roomPrice = Convert.ToDecimal(txtRoomPrice.Text.Trim());
 
-                DialogResult result = MessageBox.Show($"Are you sure you want to update Room ID {roomID}?", "Confirm Update", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DialogResult result = MessageBox.Show(
+                    $"Are you sure you want to add Room No: {roomNumber}?",
+                    "Confirm Add Room",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question
+                );
+
                 if (result == DialogResult.Yes)
                 {
-                    int roomTypeID = Convert.ToInt32(cmbRoomTypeID.Text);
+                    taHotelRoom.InsertNewRoom(branchID, roomTypeID, roomNumber, roomStatus, roomPrice);
+                    dgvHotelRoomManagement.SelectionChanged -= dgvHotelRoomManagement_SelectionChanged;
 
+                    taHotelRoom.Fill(codeCraftersDS.Hotel_Room);
+                    dgvHotelRoomManagement.SelectionChanged += dgvHotelRoomManagement_SelectionChanged;
+
+                    MessageBox.Show("Room added successfully.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error adding room: " + ex.Message);
+            }
+        }
+
+        private void ClearInputControls()
+        {
+            txtRoomNumber.Clear();
+            txtRoomID.Clear();
+            txtRoomPrice.Clear();
+
+            cmbBranchID.SelectedIndex = -1;
+            cmbRoomTypeID.SelectedIndex = -1;
+            cmbRoomStatus.SelectedIndex = -1;
+
+            cmbBranchID.Text = "";
+            cmbRoomTypeID.Text = "";
+            cmbRoomStatus.Text = "";
+        }
+
+        private void btnRoomClear_Click(object sender, EventArgs e)
+        {
+            ClearInputControls();
+
+            if (codeCraftersDS?.Hotel_Room != null)
+            {
+                codeCraftersDS.Hotel_Room.Clear();
+            }
+        }
+
+        private void btnRoomUpdate_Click(object sender, EventArgs e)
+        {
+            if (!ValidateRoomInputs(isUpdating: true)) return;
+
+            try
+            {
+                if (dgvHotelRoomManagement.CurrentRow == null) return;
+
+                int roomID = Convert.ToInt32(
+                    dgvHotelRoomManagement.CurrentRow.Cells["hotelRoomIDDataGridViewTextBoxColumn"].Value
+                );
+
+                decimal roomPrice = Convert.ToDecimal(txtRoomPrice.Text.Trim());
+                int roomTypeID = Convert.ToInt32(cmbRoomTypeID.Text);
+
+                DialogResult result = MessageBox.Show(
+                    $"Are you sure you want to update Room ID {roomID}?",
+                    "Confirm Update",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question
+                );
+
+                if (result == DialogResult.Yes)
+                {
                     taHotelRoom.UpdateRoom(
                         cmbBranchID.Text,
                         roomTypeID,
@@ -57,94 +170,76 @@ namespace Code_Crafters_Interface_Prototype_1.Business
                         roomPrice,
                         roomID
                     );
-
-                    MessageBox.Show("Room details updated successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    taHotelRoom.Fill(codeCraftersDS.Hotel_Room);
+                    MessageBox.Show("Room updated successfully.");
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"An error occurred while updating: {ex.Message}", "Update Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Update error: " + ex.Message);
             }
         }
 
-        private void btnDeleteRoom_Click(object sender, EventArgs e)
+        private void btnRoomDelete_Click(object sender, EventArgs e)
         {
             if (dgvHotelRoomManagement.CurrentRow == null || dgvHotelRoomManagement.CurrentRow.IsNewRow)
             {
-                MessageBox.Show("Please select a room record from the grid to delete.", "Selection Missing", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Select a room first.");
                 return;
             }
 
             try
             {
-                int roomID = Convert.ToInt32(dgvHotelRoomManagement.CurrentRow.Cells["hotelRoomIDDataGridViewTextBoxColumn"].Value);
+                int roomID = Convert.ToInt32(
+                    dgvHotelRoomManagement.CurrentRow.Cells["hotelRoomIDDataGridViewTextBoxColumn"].Value
+                );
+
                 string roomNo = dgvHotelRoomManagement.CurrentRow.Cells["hotelroomnumberDataGridViewTextBoxColumn"].Value.ToString();
 
-                DialogResult result = MessageBox.Show($"Are you sure you want to permanently delete Room No: {roomNo} (ID: {roomID})?",
-                                                      "Confirm Deletion", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                DialogResult result = MessageBox.Show(
+                    $"Delete Room No: {roomNo}?",
+                    "Confirm Delete",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Warning
+                );
 
                 if (result == DialogResult.Yes)
                 {
                     taHotelRoom.DeleteRoomQuery(roomID);
-                    MessageBox.Show("Room removed successfully.", "Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    btnClearRoom_Click(this, EventArgs.Empty);
-                    taHotelRoom.Fill(codeCraftersDS.Hotel_Room);
+                    ClearInputControls();
+
+                    if (codeCraftersDS?.Hotel_Room != null)
+                    {
+                        codeCraftersDS.Hotel_Room.Clear();
+                    }
+
+                    MessageBox.Show("Room deleted successfully.");
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"An error occurred while deleting: {ex.Message}", "Delete Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Delete error: " + ex.Message);
             }
         }
 
-        private void btnClearRoom_Click(object sender, EventArgs e)
+        private void txtRoomID_TextChanged_1(object sender, EventArgs e)
         {
-            txtRoomNumber.Clear();
-            txtRoomPrice.Clear();
-            txtRoomID.Clear();
+            string input = txtRoomID.Text.Trim();
 
-            cmbBranchID.SelectedIndex = -1;
-            cmbRoomTypeID.SelectedIndex = -1;
-            cmbRoomStatus.SelectedIndex = -1;
-
-            codeCraftersDS.Hotel_Room.Clear();
-        }
-
-        private void txtRoomID_TextChanged(object sender, EventArgs e)
-        {
-            string InputText = txtRoomID.Text.Trim();
-
-            if (string.IsNullOrWhiteSpace(InputText))
+            if (string.IsNullOrWhiteSpace(input))
             {
                 codeCraftersDS.Hotel_Room.Clear();
                 return;
             }
 
-            if (!int.TryParse(InputText, out int parsedRoomID))
+            if (int.TryParse(input, out int roomID))
             {
-                codeCraftersDS.Hotel_Room.Clear();
-                MessageBox.Show("Please enter a valid numeric Room ID. Special characters, symbols ('-'), and letters are not allowed.",
-                                "Invalid Search Format", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                taHotelRoom.FillByHotelRoomID(codeCraftersDS.Hotel_Room, roomID);
             }
             else
             {
-                taHotelRoom.FillByHotelRoomID(codeCraftersDS.Hotel_Room, parsedRoomID);
-            }
-        }
-
-        private void dgvHotelRoomManagement_SelectionChanged(object sender, EventArgs e)
-        {
-            if (dgvHotelRoomManagement.CurrentRow != null && !dgvHotelRoomManagement.CurrentRow.IsNewRow)
-            {
-                var row = dgvHotelRoomManagement.CurrentRow;
-
-                cmbBranchID.Text = row.Cells["branchIDDataGridViewTextBoxColumn"].Value?.ToString() ?? "";
-                cmbRoomTypeID.Text = row.Cells["hotelroomtypeIDDataGridViewTextBoxColumn"].Value?.ToString() ?? "";
-                txtRoomNumber.Text = row.Cells["hotelroomnumberDataGridViewTextBoxColumn"].Value?.ToString() ?? "";
-                cmbRoomStatus.Text = row.Cells["hotelroomstatusDataGridViewTextBoxColumn"].Value?.ToString() ?? "";
-                txtRoomPrice.Text = row.Cells["hotelroomPriceDataGridViewTextBoxColumn"].Value?.ToString() ?? "";
+                MessageBox.Show("Invalid Room ID format.");
+                codeCraftersDS.Hotel_Room.Clear();
             }
         }
     }

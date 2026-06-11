@@ -20,7 +20,6 @@ namespace Code_Crafters_Interface_Prototype_1.Business
 
         private void StaffManagementForm_Load(object sender, EventArgs e)
         {
-            taStaff.Fill(codeCraftersDS.Staff);
             this.BackColor = ColorTranslator.FromHtml("#F9EED8");
             panel1.BackColor = ColorTranslator.FromHtml("#F8F5F0");
             panel3.BackColor = ColorTranslator.FromHtml("#966919");
@@ -28,11 +27,11 @@ namespace Code_Crafters_Interface_Prototype_1.Business
             btnStaffAdd.BackColor = ColorTranslator.FromHtml("#C99A2E");
             btnStaffAdd.ForeColor = Color.White;
 
-           btnStaffClear.BackColor = ColorTranslator.FromHtml("#C99A2E");
+            btnStaffClear.BackColor = ColorTranslator.FromHtml("#C99A2E");
             btnStaffClear.ForeColor = Color.White;
 
             btnStaffDelete.BackColor = ColorTranslator.FromHtml("#C99A2E");
-           btnStaffDelete.ForeColor = Color.White;
+            btnStaffDelete.ForeColor = Color.White;
 
             btnStaffUpdate.BackColor = ColorTranslator.FromHtml("#C99A2E");
             btnStaffUpdate.ForeColor = Color.White;
@@ -101,7 +100,26 @@ namespace Code_Crafters_Interface_Prototype_1.Business
 
             try
             {
-                taStaff.InsertNewStaff(
+                taStaffs.Fill(codeCraftersDS.Staff);
+
+                string inputPhone = Regex.Replace(txtPhoneNumber.Text.Trim(), @"\s+", "");
+                string inputEmail = txtEmailAddress.Text.Trim();
+
+                bool duplicateExists = codeCraftersDS.Staff.AsEnumerable().Any(row =>
+                    string.Equals(Regex.Replace(row.Field<string>("staff_phone_number") ?? "", @"\s+", ""), inputPhone, StringComparison.OrdinalIgnoreCase) ||
+                    string.Equals(row.Field<string>("staff_email") ?? "", inputEmail, StringComparison.OrdinalIgnoreCase)
+                );
+
+                if (duplicateExists)
+                {
+                    MessageBox.Show("A staff member with this phone number or email address already exists.",
+                                    "Duplicate Record Found",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Warning);
+                    return; 
+                }
+
+                taStaffs.InsertNewStaff(
                     cmbBranchID.Text,
                     txtStaffName.Text,
                     txtStaffSurname.Text,
@@ -114,7 +132,7 @@ namespace Code_Crafters_Interface_Prototype_1.Business
                     txtStaffPassword.Text
                 );
 
-                taClient.InsertNewClient(
+                taClients.InsertNewClient(
                     txtStaffName.Text,
                     txtStaffSurname.Text,
                     txtStaffPassword.Text,
@@ -125,8 +143,8 @@ namespace Code_Crafters_Interface_Prototype_1.Business
 
                 MessageBox.Show("New staff member added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                taStaff.Fill(codeCraftersDS.Staff);
-                taClient.Fill(codeCraftersDS.Client);
+                taStaffs.Fill(codeCraftersDS.Staff);
+                taClients.Fill(codeCraftersDS.Client);
             }
             catch (Exception ex)
             {
@@ -170,7 +188,7 @@ namespace Code_Crafters_Interface_Prototype_1.Business
             {
                 try
                 {
-                    taStaff.UpdateStaff(
+                    taStaffs.UpdateStaff(
                         cmbBranchID.Text,
                         txtStaffName.Text,
                         txtStaffSurname.Text,
@@ -185,7 +203,7 @@ namespace Code_Crafters_Interface_Prototype_1.Business
 
                     MessageBox.Show("Staff record updated successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    taStaff.Fill(codeCraftersDS.Staff);
+                    taStaffs.Fill(codeCraftersDS.Staff);
                 }
                 catch (Exception ex)
                 {
@@ -211,12 +229,12 @@ namespace Code_Crafters_Interface_Prototype_1.Business
             {
                 try
                 {
-                    taStaff.DeleteQuery(staffID);
+                    taStaffs.DeleteQuery(staffID);
 
                     MessageBox.Show("Staff record deleted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     txtStaffID.Clear();
-                    taStaff.Fill(codeCraftersDS.Staff);
+                    taStaffs.Fill(codeCraftersDS.Staff);
                 }
                 catch (Exception ex)
                 {
@@ -227,36 +245,67 @@ namespace Code_Crafters_Interface_Prototype_1.Business
 
         private void txtStaffID_TextChanged(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtStaffID.Text))
+            string input = txtStaffID.Text.Trim();
+
+            if (string.IsNullOrWhiteSpace(input))
             {
+                ClearInputFieldsValuesOnly();
                 codeCraftersDS.Staff.Clear();
                 return;
             }
 
-            if (int.TryParse(txtStaffID.Text, out int staffID))
+            if (!int.TryParse(input, out int staffID))
             {
-                taStaff.FillByStaffID(codeCraftersDS.Staff, staffID);
+                return;
+            }
+
+            try
+            {
+                taStaffs.FillByStaffID(codeCraftersDS.Staff, staffID);
 
                 if (codeCraftersDS.Staff.Rows.Count > 0)
                 {
-                    var staffRow = codeCraftersDS.Staff[0];
+                    DataRow row = codeCraftersDS.Staff.Rows[0];
 
-                    cmbBranchID.Text = staffRow["Branch_ID"] == DBNull.Value ? "" : staffRow["Branch_ID"].ToString();
-                    txtStaffName.Text = staffRow["staff_First_Name"] == DBNull.Value ? "" : staffRow["staff_First_Name"].ToString();
-                    txtStaffSurname.Text = staffRow["staff_Surname"] == DBNull.Value ? "" : staffRow["staff_Surname"].ToString();
-                    txtStaffAddress.Text = staffRow["staff_Address"] == DBNull.Value ? "" : staffRow["staff_Address"].ToString();
-                    txtPhoneNumber.Text = staffRow["staff_phone_number"] == DBNull.Value ? "" : staffRow["staff_phone_number"].ToString();
-                    txtEmailAddress.Text = staffRow["staff_email"] == DBNull.Value ? "" : staffRow["staff_email"].ToString();
-                    cmbStaffRole.Text = staffRow["staff_role"] == DBNull.Value ? "" : staffRow["staff_role"].ToString();
-                    cmbStaffStatus.Text = staffRow["staff_status"] == DBNull.Value ? "" : staffRow["staff_status"].ToString();
-                    txtStaffPassword.Text = staffRow["staff_Password"] == DBNull.Value ? "" : staffRow["staff_Password"].ToString();
+                    cmbBranchID.Text = row["Branch_ID"]?.ToString() ?? "";
+                    txtStaffName.Text = row["staff_First_Name"]?.ToString() ?? "";
+                    txtStaffSurname.Text = row["staff_Surname"]?.ToString() ?? "";
+                    txtStaffAddress.Text = row["staff_Address"]?.ToString() ?? "";
+                    txtPhoneNumber.Text = row["staff_phone_number"]?.ToString() ?? "";
+                    txtEmailAddress.Text = row["staff_email"]?.ToString() ?? "";
+                    cmbStaffRole.Text = row["staff_role"]?.ToString() ?? "";
+                    cmbStaffStatus.Text = row["staff_status"]?.ToString() ?? "";
+                    txtStaffPassword.Text = row["staff_Password"]?.ToString() ?? "";
+                }
+                else
+                {
+                    ClearInputFieldsValuesOnly();
                 }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Please enter a valid numeric Staff ID.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtStaffID.Clear();
+                MessageBox.Show("Search Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void ClearInputFieldsValuesOnly()
+        {
+            txtStaffName.Clear();
+            txtStaffSurname.Clear();
+            txtStaffAddress.Clear();
+            txtPhoneNumber.Clear();
+            txtStaffPassword.Clear();
+            txtEmailAddress.Clear();
+
+            cmbBranchID.SelectedIndex = -1;
+            cmbStaffRole.SelectedIndex = -1;
+            cmbStaffStatus.SelectedIndex = -1;
+
+            cmbBranchID.Text = "";
+            cmbStaffRole.Text = "";
+            cmbStaffStatus.Text = "";
+        }
+
+
     }
 }
