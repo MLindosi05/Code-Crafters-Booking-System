@@ -70,6 +70,18 @@
     <Compile Include="Business\ReportsForm.Designer.cs">
       <DependentUpon>ReportsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Business\RoomManagementForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Business\RoomManagementForm.Designer.cs">
+      <DependentUpon>RoomManagementForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Business\StaffManagementForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Business\StaffManagementForm.Designer.cs">
+      <DependentUpon>StaffManagementForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Business\ViewBookingForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -83,6 +95,18 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>codeCraftersDS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Interfaces\AdminMenuForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interfaces\AdminMenuForm.Designer.cs">
+      <DependentUpon>AdminMenuForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Interfaces\ManagerMenuForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interfaces\ManagerMenuForm.Designer.cs">
+      <DependentUpon>ManagerMenuForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Interfaces\ReceptionistMenuForm.cs">
       <SubType>Form</SubType>
@@ -115,12 +139,6 @@
     <Compile Include="Interfaces\Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="Interfaces\ManagerMenuForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Interfaces\ManagerMenuForm.Designer.cs">
-      <DependentUpon>ManagerMenuForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Interfaces\SignUpForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -139,8 +157,20 @@
     <EmbeddedResource Include="Business\ReportsForm.resx">
       <DependentUpon>ReportsForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Business\RoomManagementForm.resx">
+      <DependentUpon>RoomManagementForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Business\StaffManagementForm.resx">
+      <DependentUpon>StaffManagementForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Business\ViewBookingForm.resx">
       <DependentUpon>ViewBookingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Interfaces\AdminMenuForm.resx">
+      <DependentUpon>AdminMenuForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Interfaces\ManagerMenuForm.resx">
+      <DependentUpon>ManagerMenuForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Interfaces\ReceptionistMenuForm.resx">
       <DependentUpon>ReceptionistMenuForm.cs</DependentUpon>
@@ -159,9 +189,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Interfaces\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Interfaces\ManagerMenuForm.resx">
-      <DependentUpon>ManagerMenuForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Interfaces\SignUpForm.resx">
       <DependentUpon>SignUpForm.cs</DependentUpon>
@@ -458,6 +485,27 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Credit card 4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\STAFF.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\STAFF 3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\STAFF 1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GROUP 2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GROUP.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GROUP 3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GROUP 4.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

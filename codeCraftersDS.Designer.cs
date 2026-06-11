@@ -3108,6 +3108,8 @@ namespace Code_Crafters_Interface_Prototype_1 {
             
             private global::System.Data.DataColumn columnstaff_status;
             
+            private global::System.Data.DataColumn columnstaff_Password;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public StaffDataTable() {
@@ -3223,6 +3225,14 @@ namespace Code_Crafters_Interface_Prototype_1 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn staff_PasswordColumn {
+                get {
+                    return this.columnstaff_Password;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -3258,7 +3268,7 @@ namespace Code_Crafters_Interface_Prototype_1 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public StaffRow AddStaffRow(string Branch_ID, string staff_First_Name, string staff_Surname, string staff_Address, string staff_phone_number, string staff_email, string staff_role, System.DateTime date_joined, string staff_status) {
+            public StaffRow AddStaffRow(string Branch_ID, string staff_First_Name, string staff_Surname, string staff_Address, string staff_phone_number, string staff_email, string staff_role, System.DateTime date_joined, string staff_status, string staff_Password) {
                 StaffRow rowStaffRow = ((StaffRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -3270,7 +3280,8 @@ namespace Code_Crafters_Interface_Prototype_1 {
                         staff_email,
                         staff_role,
                         date_joined,
-                        staff_status};
+                        staff_status,
+                        staff_Password};
                 rowStaffRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowStaffRow);
                 return rowStaffRow;
@@ -3310,6 +3321,7 @@ namespace Code_Crafters_Interface_Prototype_1 {
                 this.columnstaff_role = base.Columns["staff_role"];
                 this.columndate_joined = base.Columns["date_joined"];
                 this.columnstaff_status = base.Columns["staff_status"];
+                this.columnstaff_Password = base.Columns["staff_Password"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3335,6 +3347,8 @@ namespace Code_Crafters_Interface_Prototype_1 {
                 base.Columns.Add(this.columndate_joined);
                 this.columnstaff_status = new global::System.Data.DataColumn("staff_status", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnstaff_status);
+                this.columnstaff_Password = new global::System.Data.DataColumn("staff_Password", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnstaff_Password);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnstaff_ID}, true));
                 this.columnstaff_ID.AutoIncrement = true;
@@ -3350,6 +3364,8 @@ namespace Code_Crafters_Interface_Prototype_1 {
                 this.columnstaff_email.MaxLength = 50;
                 this.columnstaff_role.MaxLength = 50;
                 this.columnstaff_status.MaxLength = 50;
+                this.columnstaff_Password.AllowDBNull = false;
+                this.columnstaff_Password.MaxLength = 50;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6265,6 +6281,17 @@ namespace Code_Crafters_Interface_Prototype_1 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string staff_Password {
+                get {
+                    return ((string)(this[this.tableStaff.staff_PasswordColumn]));
+                }
+                set {
+                    this[this.tableStaff.staff_PasswordColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsBranch_IDNull() {
                 return this.IsNull(this.tableStaff.Branch_IDColumn);
             }
@@ -7938,7 +7965,7 @@ SELECT Booking_ID, Client_ID, Branch_ID, Booking_Date, Checkin_Date, Checkout_Da
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual codeCraftersDS.BookingDataTable GetDataBy(int BookingID) {
+        public virtual codeCraftersDS.BookingDataTable GetDataBy1(int BookingID) {
             this.Adapter.SelectCommand = this.CommandCollection[2];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(BookingID));
             codeCraftersDS.BookingDataTable dataTable = new codeCraftersDS.BookingDataTable();
@@ -11624,18 +11651,20 @@ SELECT Room_Assignment_ID, Booking_ID, Hotel_Room_ID, Actual_CheckIn_Time, Actua
             tableMapping.ColumnMappings.Add("staff_role", "staff_role");
             tableMapping.ColumnMappings.Add("date_joined", "date_joined");
             tableMapping.ColumnMappings.Add("staff_status", "staff_status");
+            tableMapping.ColumnMappings.Add("staff_Password", "staff_Password");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Staff] WHERE (([staff_ID] = @Original_staff_ID) AND ((@IsNull_Branch_ID = 1 AND [Branch_ID] IS NULL) OR ([Branch_ID] = @Original_Branch_ID)) AND ((@IsNull_staff_First_Name = 1 AND [staff_First_Name] IS NULL) OR ([staff_First_Name] = @Original_staff_First_Name)) AND ((@IsNull_staff_Surname = 1 AND [staff_Surname] IS NULL) OR ([staff_Surname] = @Original_staff_Surname)) AND ((@IsNull_staff_Address = 1 AND [staff_Address] IS NULL) OR ([staff_Address] = @Original_staff_Address)) AND ((@IsNull_staff_phone_number = 1 AND [staff_phone_number] IS NULL) OR ([staff_phone_number] = @Original_staff_phone_number)) AND ((@IsNull_staff_email = 1 AND [staff_email] IS NULL) OR ([staff_email] = @Original_staff_email)) AND ((@IsNull_staff_role = 1 AND [staff_role] IS NULL) OR ([staff_role] = @Original_staff_role)) AND ((@IsNull_date_joined = 1 AND [date_joined] IS NULL) OR ([date_joined] = @Original_date_joined)) AND ((@IsNull_staff_status = 1 AND [staff_status] IS NULL) OR ([staff_status] = @Original_staff_status)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [Staff] WHERE (([staff_ID] = @Original_staff_ID) AND ((@IsNull_Branch_ID = 1 AND [Branch_ID] IS NULL) OR ([Branch_ID] = @Original_Branch_ID)) AND ((@IsNull_staff_First_Name = 1 AND [staff_First_Name] IS NULL) OR ([staff_First_Name] = @Original_staff_First_Name)) AND ((@IsNull_staff_Surname = 1 AND [staff_Surname] IS NULL) OR ([staff_Surname] = @Original_staff_Surname)) AND ([staff_Password] = @Original_staff_Password) AND ((@IsNull_staff_Address = 1 AND [staff_Address] IS NULL) OR ([staff_Address] = @Original_staff_Address)) AND ((@IsNull_staff_phone_number = 1 AND [staff_phone_number] IS NULL) OR ([staff_phone_number] = @Original_staff_phone_number)) AND ((@IsNull_staff_email = 1 AND [staff_email] IS NULL) OR ([staff_email] = @Original_staff_email)) AND ((@IsNull_staff_role = 1 AND [staff_role] IS NULL) OR ([staff_role] = @Original_staff_role)) AND ((@IsNull_date_joined = 1 AND [date_joined] IS NULL) OR ([date_joined] = @Original_date_joined)) AND ((@IsNull_staff_status = 1 AND [staff_status] IS NULL) OR ([staff_status] = @Original_staff_status)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_staff_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "staff_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Branch_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Branch_ID", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Branch_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Branch_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Branch_ID", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Branch_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_staff_First_Name", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "staff_First_Name", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_staff_First_Name", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "staff_First_Name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_staff_Surname", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "staff_Surname", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_staff_Surname", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "staff_Surname", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_staff_Password", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "staff_Password", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_staff_Address", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "staff_Address", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_staff_Address", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "staff_Address", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_staff_phone_number", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "staff_phone_number", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -11650,12 +11679,13 @@ SELECT Room_Assignment_ID, Booking_ID, Hotel_Room_ID, Actual_CheckIn_Time, Actua
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_staff_status", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "staff_status", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Staff] ([Branch_ID], [staff_First_Name], [staff_Surname], [staff_Address], [staff_phone_number], [staff_email], [staff_role], [date_joined], [staff_status]) VALUES (@Branch_ID, @staff_First_Name, @staff_Surname, @staff_Address, @staff_phone_number, @staff_email, @staff_role, @date_joined, @staff_status);
-SELECT staff_ID, Branch_ID, staff_First_Name, staff_Surname, staff_Address, staff_phone_number, staff_email, staff_role, date_joined, staff_status FROM Staff WHERE (staff_ID = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [Staff] ([Branch_ID], [staff_First_Name], [staff_Surname], [staff_Password], [staff_Address], [staff_phone_number], [staff_email], [staff_role], [date_joined], [staff_status]) VALUES (@Branch_ID, @staff_First_Name, @staff_Surname, @staff_Password, @staff_Address, @staff_phone_number, @staff_email, @staff_role, @date_joined, @staff_status);
+SELECT staff_ID, Branch_ID, staff_First_Name, staff_Surname, staff_Password, staff_Address, staff_phone_number, staff_email, staff_role, date_joined, staff_status FROM Staff WHERE (staff_ID = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Branch_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Branch_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Branch_ID", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Branch_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@staff_First_Name", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "staff_First_Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@staff_Surname", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "staff_Surname", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@staff_Password", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "staff_Password", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@staff_Address", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "staff_Address", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@staff_phone_number", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "staff_phone_number", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@staff_email", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "staff_email", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -11664,15 +11694,16 @@ SELECT staff_ID, Branch_ID, staff_First_Name, staff_Surname, staff_Address, staf
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@staff_status", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "staff_status", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[Staff] SET [Branch_ID] = @Branch_ID, [staff_First_Name] = @staff_Fi" +
-                "rst_Name, [staff_Surname] = @staff_Surname, [staff_Address] = @staff_Address, [s" +
-                "taff_phone_number] = @staff_phone_number, [staff_email] = @staff_email, [staff_r" +
-                "ole] = @staff_role, [date_joined] = @date_joined, [staff_status] = @staff_status" +
-                " WHERE (([staff_ID] = @Original_staff_ID) AND ((@IsNull_Branch_ID = 1 AND [Branc" +
-                "h_ID] IS NULL) OR ([Branch_ID] = @Original_Branch_ID)) AND ((@IsNull_staff_First" +
-                "_Name = 1 AND [staff_First_Name] IS NULL) OR ([staff_First_Name] = @Original_sta" +
-                "ff_First_Name)) AND ((@IsNull_staff_Surname = 1 AND [staff_Surname] IS NULL) OR " +
-                "([staff_Surname] = @Original_staff_Surname)) AND ((@IsNull_staff_Address = 1 AND" +
+            this._adapter.UpdateCommand.CommandText = "UPDATE [Staff] SET [Branch_ID] = @Branch_ID, [staff_First_Name] = @staff_First_Na" +
+                "me, [staff_Surname] = @staff_Surname, [staff_Password] = @staff_Password, [staff" +
+                "_Address] = @staff_Address, [staff_phone_number] = @staff_phone_number, [staff_e" +
+                "mail] = @staff_email, [staff_role] = @staff_role, [date_joined] = @date_joined, " +
+                "[staff_status] = @staff_status WHERE (([staff_ID] = @Original_staff_ID) AND ((@I" +
+                "sNull_Branch_ID = 1 AND [Branch_ID] IS NULL) OR ([Branch_ID] = @Original_Branch_" +
+                "ID)) AND ((@IsNull_staff_First_Name = 1 AND [staff_First_Name] IS NULL) OR ([sta" +
+                "ff_First_Name] = @Original_staff_First_Name)) AND ((@IsNull_staff_Surname = 1 AN" +
+                "D [staff_Surname] IS NULL) OR ([staff_Surname] = @Original_staff_Surname)) AND (" +
+                "[staff_Password] = @Original_staff_Password) AND ((@IsNull_staff_Address = 1 AND" +
                 " [staff_Address] IS NULL) OR ([staff_Address] = @Original_staff_Address)) AND ((" +
                 "@IsNull_staff_phone_number = 1 AND [staff_phone_number] IS NULL) OR ([staff_phon" +
                 "e_number] = @Original_staff_phone_number)) AND ((@IsNull_staff_email = 1 AND [st" +
@@ -11681,12 +11712,14 @@ SELECT staff_ID, Branch_ID, staff_First_Name, staff_Surname, staff_Address, staf
                 " AND ((@IsNull_date_joined = 1 AND [date_joined] IS NULL) OR ([date_joined] = @O" +
                 "riginal_date_joined)) AND ((@IsNull_staff_status = 1 AND [staff_status] IS NULL)" +
                 " OR ([staff_status] = @Original_staff_status)));\r\nSELECT staff_ID, Branch_ID, st" +
-                "aff_First_Name, staff_Surname, staff_Address, staff_phone_number, staff_email, s" +
-                "taff_role, date_joined, staff_status FROM Staff WHERE (staff_ID = @staff_ID)";
+                "aff_First_Name, staff_Surname, staff_Password, staff_Address, staff_phone_number" +
+                ", staff_email, staff_role, date_joined, staff_status FROM Staff WHERE (staff_ID " +
+                "= @staff_ID)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Branch_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Branch_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Branch_ID", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Branch_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@staff_First_Name", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "staff_First_Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@staff_Surname", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "staff_Surname", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@staff_Password", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "staff_Password", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@staff_Address", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "staff_Address", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@staff_phone_number", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "staff_phone_number", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@staff_email", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "staff_email", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -11695,11 +11728,12 @@ SELECT staff_ID, Branch_ID, staff_First_Name, staff_Surname, staff_Address, staf
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@staff_status", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "staff_status", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_staff_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "staff_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Branch_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Branch_ID", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Branch_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Branch_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Branch_ID", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Branch_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_staff_First_Name", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "staff_First_Name", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_staff_First_Name", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "staff_First_Name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_staff_Surname", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "staff_Surname", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_staff_Surname", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "staff_Surname", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_staff_Password", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "staff_Password", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_staff_Address", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "staff_Address", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_staff_Address", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "staff_Address", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_staff_phone_number", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "staff_phone_number", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -11728,9 +11762,9 @@ SELECT staff_ID, Branch_ID, staff_First_Name, staff_Surname, staff_Address, staf
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT staff_ID, Branch_ID, staff_First_Name, staff_Surname, staff_Address, staff" +
-                "_phone_number, staff_email, staff_role, date_joined, staff_status FROM dbo.Staff" +
-                "";
+            this._commandCollection[0].CommandText = "SELECT        staff_ID, Branch_ID, staff_First_Name, staff_Surname, staff_Passwor" +
+                "d, staff_Address, staff_phone_number, staff_email, staff_role, date_joined, staf" +
+                "f_status\r\nFROM            Staff";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
@@ -11805,15 +11839,15 @@ SELECT staff_ID, Branch_ID, staff_First_Name, staff_Surname, staff_Address, staf
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_staff_ID, global::System.Nullable<int> Original_Branch_ID, string Original_staff_First_Name, string Original_staff_Surname, string Original_staff_Address, string Original_staff_phone_number, string Original_staff_email, string Original_staff_role, global::System.Nullable<global::System.DateTime> Original_date_joined, string Original_staff_status) {
+        public virtual int Delete(int Original_staff_ID, string Original_Branch_ID, string Original_staff_First_Name, string Original_staff_Surname, string Original_staff_Password, string Original_staff_Address, string Original_staff_phone_number, string Original_staff_email, string Original_staff_role, global::System.Nullable<global::System.DateTime> Original_date_joined, string Original_staff_status) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_staff_ID));
-            if ((Original_Branch_ID.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_Branch_ID.Value));
-            }
-            else {
+            if ((Original_Branch_ID == null)) {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_Branch_ID));
             }
             if ((Original_staff_First_Name == null)) {
                 this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
@@ -11831,53 +11865,59 @@ SELECT staff_ID, Branch_ID, staff_First_Name, staff_Surname, staff_Address, staf
                 this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
                 this.Adapter.DeleteCommand.Parameters[6].Value = ((string)(Original_staff_Surname));
             }
-            if ((Original_staff_Address == null)) {
-                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[8].Value = global::System.DBNull.Value;
+            if ((Original_staff_Password == null)) {
+                throw new global::System.ArgumentNullException("Original_staff_Password");
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[8].Value = ((string)(Original_staff_Address));
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((string)(Original_staff_Password));
+            }
+            if ((Original_staff_Address == null)) {
+                this.Adapter.DeleteCommand.Parameters[8].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[9].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[8].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[9].Value = ((string)(Original_staff_Address));
             }
             if ((Original_staff_phone_number == null)) {
-                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[10].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[10].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[11].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[10].Value = ((string)(Original_staff_phone_number));
+                this.Adapter.DeleteCommand.Parameters[10].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[11].Value = ((string)(Original_staff_phone_number));
             }
             if ((Original_staff_email == null)) {
-                this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[12].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[12].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[13].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[12].Value = ((string)(Original_staff_email));
+                this.Adapter.DeleteCommand.Parameters[12].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[13].Value = ((string)(Original_staff_email));
             }
             if ((Original_staff_role == null)) {
-                this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[14].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[14].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[15].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[14].Value = ((string)(Original_staff_role));
+                this.Adapter.DeleteCommand.Parameters[14].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[15].Value = ((string)(Original_staff_role));
             }
             if ((Original_date_joined.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[15].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[16].Value = ((System.DateTime)(Original_date_joined.Value));
+                this.Adapter.DeleteCommand.Parameters[16].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[17].Value = ((System.DateTime)(Original_date_joined.Value));
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[15].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[16].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[16].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[17].Value = global::System.DBNull.Value;
             }
             if ((Original_staff_status == null)) {
-                this.Adapter.DeleteCommand.Parameters[17].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[18].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[18].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[19].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[17].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[18].Value = ((string)(Original_staff_status));
+                this.Adapter.DeleteCommand.Parameters[18].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[19].Value = ((string)(Original_staff_status));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -11899,12 +11939,12 @@ SELECT staff_ID, Branch_ID, staff_First_Name, staff_Surname, staff_Address, staf
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(global::System.Nullable<int> Branch_ID, string staff_First_Name, string staff_Surname, string staff_Address, string staff_phone_number, string staff_email, string staff_role, global::System.Nullable<global::System.DateTime> date_joined, string staff_status) {
-            if ((Branch_ID.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((int)(Branch_ID.Value));
+        public virtual int Insert(string Branch_ID, string staff_First_Name, string staff_Surname, string staff_Password, string staff_Address, string staff_phone_number, string staff_email, string staff_role, global::System.Nullable<global::System.DateTime> date_joined, string staff_status) {
+            if ((Branch_ID == null)) {
+                this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
+                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(Branch_ID));
             }
             if ((staff_First_Name == null)) {
                 this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
@@ -11918,41 +11958,47 @@ SELECT staff_ID, Branch_ID, staff_First_Name, staff_Surname, staff_Address, staf
             else {
                 this.Adapter.InsertCommand.Parameters[2].Value = ((string)(staff_Surname));
             }
-            if ((staff_Address == null)) {
-                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
+            if ((staff_Password == null)) {
+                throw new global::System.ArgumentNullException("staff_Password");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(staff_Address));
+                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(staff_Password));
             }
-            if ((staff_phone_number == null)) {
+            if ((staff_Address == null)) {
                 this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(staff_phone_number));
+                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(staff_Address));
             }
-            if ((staff_email == null)) {
+            if ((staff_phone_number == null)) {
                 this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(staff_email));
+                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(staff_phone_number));
             }
-            if ((staff_role == null)) {
+            if ((staff_email == null)) {
                 this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[6].Value = ((string)(staff_role));
+                this.Adapter.InsertCommand.Parameters[6].Value = ((string)(staff_email));
             }
-            if ((date_joined.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[7].Value = ((System.DateTime)(date_joined.Value));
-            }
-            else {
+            if ((staff_role == null)) {
                 this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
-            if ((staff_status == null)) {
-                this.Adapter.InsertCommand.Parameters[8].Value = global::System.DBNull.Value;
+            else {
+                this.Adapter.InsertCommand.Parameters[7].Value = ((string)(staff_role));
+            }
+            if ((date_joined.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[8].Value = ((System.DateTime)(date_joined.Value));
             }
             else {
-                this.Adapter.InsertCommand.Parameters[8].Value = ((string)(staff_status));
+                this.Adapter.InsertCommand.Parameters[8].Value = global::System.DBNull.Value;
+            }
+            if ((staff_status == null)) {
+                this.Adapter.InsertCommand.Parameters[9].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[9].Value = ((string)(staff_status));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -11975,9 +12021,10 @@ SELECT staff_ID, Branch_ID, staff_First_Name, staff_Surname, staff_Address, staf
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
         public virtual int Update(
-                    global::System.Nullable<int> Branch_ID, 
+                    string Branch_ID, 
                     string staff_First_Name, 
                     string staff_Surname, 
+                    string staff_Password, 
                     string staff_Address, 
                     string staff_phone_number, 
                     string staff_email, 
@@ -11985,9 +12032,10 @@ SELECT staff_ID, Branch_ID, staff_First_Name, staff_Surname, staff_Address, staf
                     global::System.Nullable<global::System.DateTime> date_joined, 
                     string staff_status, 
                     int Original_staff_ID, 
-                    global::System.Nullable<int> Original_Branch_ID, 
+                    string Original_Branch_ID, 
                     string Original_staff_First_Name, 
                     string Original_staff_Surname, 
+                    string Original_staff_Password, 
                     string Original_staff_Address, 
                     string Original_staff_phone_number, 
                     string Original_staff_email, 
@@ -11995,11 +12043,11 @@ SELECT staff_ID, Branch_ID, staff_First_Name, staff_Surname, staff_Address, staf
                     global::System.Nullable<global::System.DateTime> Original_date_joined, 
                     string Original_staff_status, 
                     int staff_ID) {
-            if ((Branch_ID.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(Branch_ID.Value));
+            if ((Branch_ID == null)) {
+                this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(Branch_ID));
             }
             if ((staff_First_Name == null)) {
                 this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
@@ -12013,116 +12061,128 @@ SELECT staff_ID, Branch_ID, staff_First_Name, staff_Surname, staff_Address, staf
             else {
                 this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(staff_Surname));
             }
-            if ((staff_Address == null)) {
-                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
+            if ((staff_Password == null)) {
+                throw new global::System.ArgumentNullException("staff_Password");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(staff_Address));
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(staff_Password));
             }
-            if ((staff_phone_number == null)) {
+            if ((staff_Address == null)) {
                 this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(staff_phone_number));
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(staff_Address));
             }
-            if ((staff_email == null)) {
+            if ((staff_phone_number == null)) {
                 this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(staff_email));
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(staff_phone_number));
             }
-            if ((staff_role == null)) {
+            if ((staff_email == null)) {
                 this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(staff_role));
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(staff_email));
             }
-            if ((date_joined.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((System.DateTime)(date_joined.Value));
-            }
-            else {
+            if ((staff_role == null)) {
                 this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
-            if ((staff_status == null)) {
+            else {
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(staff_role));
+            }
+            if ((date_joined.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((System.DateTime)(date_joined.Value));
+            }
+            else {
                 this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(staff_status));
-            }
-            this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(Original_staff_ID));
-            if ((Original_Branch_ID.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((int)(Original_Branch_ID.Value));
+            if ((staff_status == null)) {
+                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(staff_status));
+            }
+            this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(Original_staff_ID));
+            if ((Original_Branch_ID == null)) {
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(Original_Branch_ID));
             }
             if ((Original_staff_First_Name == null)) {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(Original_staff_First_Name));
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((string)(Original_staff_First_Name));
             }
             if ((Original_staff_Surname == null)) {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(Original_staff_Surname));
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((string)(Original_staff_Surname));
+            }
+            if ((Original_staff_Password == null)) {
+                throw new global::System.ArgumentNullException("Original_staff_Password");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((string)(Original_staff_Password));
             }
             if ((Original_staff_Address == null)) {
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[17].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((string)(Original_staff_Address));
-            }
-            if ((Original_staff_phone_number == null)) {
                 this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[19].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((string)(Original_staff_phone_number));
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((string)(Original_staff_Address));
             }
-            if ((Original_staff_email == null)) {
+            if ((Original_staff_phone_number == null)) {
                 this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[21].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[21].Value = ((string)(Original_staff_email));
+                this.Adapter.UpdateCommand.Parameters[21].Value = ((string)(Original_staff_phone_number));
             }
-            if ((Original_staff_role == null)) {
+            if ((Original_staff_email == null)) {
                 this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[23].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[23].Value = ((string)(Original_staff_role));
+                this.Adapter.UpdateCommand.Parameters[23].Value = ((string)(Original_staff_email));
             }
-            if ((Original_date_joined.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[25].Value = ((System.DateTime)(Original_date_joined.Value));
-            }
-            else {
+            if ((Original_staff_role == null)) {
                 this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[25].Value = global::System.DBNull.Value;
             }
-            if ((Original_staff_status == null)) {
+            else {
+                this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[25].Value = ((string)(Original_staff_role));
+            }
+            if ((Original_date_joined.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[26].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[27].Value = ((System.DateTime)(Original_date_joined.Value));
+            }
+            else {
                 this.Adapter.UpdateCommand.Parameters[26].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[27].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.UpdateCommand.Parameters[26].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[27].Value = ((string)(Original_staff_status));
+            if ((Original_staff_status == null)) {
+                this.Adapter.UpdateCommand.Parameters[28].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[29].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[28].Value = ((int)(staff_ID));
+            else {
+                this.Adapter.UpdateCommand.Parameters[28].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[29].Value = ((string)(Original_staff_status));
+            }
+            this.Adapter.UpdateCommand.Parameters[30].Value = ((int)(staff_ID));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -12144,9 +12204,10 @@ SELECT staff_ID, Branch_ID, staff_First_Name, staff_Surname, staff_Address, staf
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
         public virtual int Update(
-                    global::System.Nullable<int> Branch_ID, 
+                    string Branch_ID, 
                     string staff_First_Name, 
                     string staff_Surname, 
+                    string staff_Password, 
                     string staff_Address, 
                     string staff_phone_number, 
                     string staff_email, 
@@ -12154,16 +12215,17 @@ SELECT staff_ID, Branch_ID, staff_First_Name, staff_Surname, staff_Address, staf
                     global::System.Nullable<global::System.DateTime> date_joined, 
                     string staff_status, 
                     int Original_staff_ID, 
-                    global::System.Nullable<int> Original_Branch_ID, 
+                    string Original_Branch_ID, 
                     string Original_staff_First_Name, 
                     string Original_staff_Surname, 
+                    string Original_staff_Password, 
                     string Original_staff_Address, 
                     string Original_staff_phone_number, 
                     string Original_staff_email, 
                     string Original_staff_role, 
                     global::System.Nullable<global::System.DateTime> Original_date_joined, 
                     string Original_staff_status) {
-            return this.Update(Branch_ID, staff_First_Name, staff_Surname, staff_Address, staff_phone_number, staff_email, staff_role, date_joined, staff_status, Original_staff_ID, Original_Branch_ID, Original_staff_First_Name, Original_staff_Surname, Original_staff_Address, Original_staff_phone_number, Original_staff_email, Original_staff_role, Original_date_joined, Original_staff_status, Original_staff_ID);
+            return this.Update(Branch_ID, staff_First_Name, staff_Surname, staff_Password, staff_Address, staff_phone_number, staff_email, staff_role, date_joined, staff_status, Original_staff_ID, Original_Branch_ID, Original_staff_First_Name, Original_staff_Surname, Original_staff_Password, Original_staff_Address, Original_staff_phone_number, Original_staff_email, Original_staff_role, Original_date_joined, Original_staff_status, Original_staff_ID);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

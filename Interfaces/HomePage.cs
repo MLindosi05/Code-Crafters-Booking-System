@@ -82,8 +82,6 @@ namespace Code_Crafters_Interface_Prototype_1.Interfaces
             btnLogin.ForeColor = Color.White;
             
 
-            button4.BackColor = ColorTranslator.FromHtml("#C99A2E");
-            button4.ForeColor = Color.White;
 
             button1.BackColor= ColorTranslator.FromHtml("#C99A2E");
             button1.ForeColor = Color.White;

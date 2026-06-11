@@ -30,11 +30,9 @@
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.panel6 = new System.Windows.Forms.Panel();
             this.button3 = new System.Windows.Forms.Button();
-            this.btnHelp = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
@@ -53,6 +51,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.passwordTxt = new System.Windows.Forms.TextBox();
+            this.pictureBox8 = new System.Windows.Forms.PictureBox();
+            this.btnHelp = new System.Windows.Forms.Button();
             this.taStaff = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTableAdapters.StaffTableAdapter();
             this.taClient = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTableAdapters.ClientTableAdapter();
             this.codeCraftersDS1 = new Code_Crafters_Interface_Prototype_1.codeCraftersDS();
@@ -67,13 +67,13 @@
             this.pnlLogin = new System.Windows.Forms.Panel();
             this.groupBox1.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.codeCraftersDS1)).BeginInit();
             this.panel1.SuspendLayout();
             this.pnlHelpDrawer.SuspendLayout();
@@ -99,11 +99,9 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.panel2.Controls.Add(this.pictureBox8);
             this.panel2.Controls.Add(this.pictureBox7);
             this.panel2.Controls.Add(this.panel6);
             this.panel2.Controls.Add(this.button3);
-            this.panel2.Controls.Add(this.btnHelp);
             this.panel2.Controls.Add(this.label6);
             this.panel2.Controls.Add(this.panel5);
             this.panel2.Controls.Add(this.label5);
@@ -126,16 +124,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(449, 601);
             this.panel2.TabIndex = 10;
-            // 
-            // pictureBox8
-            // 
-            this.pictureBox8.Image = global::Code_Crafters_Interface_Prototype_1.Properties.Resources._0c6801fe_8b78_4a87_a500_0632c277ccc3;
-            this.pictureBox8.Location = new System.Drawing.Point(50, 563);
-            this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(51, 27);
-            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox8.TabIndex = 23;
-            this.pictureBox8.TabStop = false;
             // 
             // pictureBox7
             // 
@@ -165,22 +153,6 @@
             this.button3.Text = "Forgot Password ?";
             this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button3.UseVisualStyleBackColor = true;
-            // 
-            // btnHelp
-            // 
-            this.btnHelp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnHelp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(99)))), ((int)(((byte)(235)))));
-            this.btnHelp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnHelp.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnHelp.ForeColor = System.Drawing.Color.White;
-            this.btnHelp.Location = new System.Drawing.Point(163, 563);
-            this.btnHelp.Margin = new System.Windows.Forms.Padding(2);
-            this.btnHelp.Name = "btnHelp";
-            this.btnHelp.Size = new System.Drawing.Size(64, 27);
-            this.btnHelp.TabIndex = 10;
-            this.btnHelp.Text = "Help";
-            this.btnHelp.UseVisualStyleBackColor = false;
-            this.btnHelp.Click += new System.EventHandler(this.btnHelp_Click);
             // 
             // label6
             // 
@@ -292,6 +264,7 @@
             // 
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
+            "Admin",
             "Manager",
             "Receptionist"});
             this.comboBox1.Location = new System.Drawing.Point(121, 405);
@@ -370,6 +343,32 @@
             this.passwordTxt.MouseEnter += new System.EventHandler(this.passwordTxt_MouseEnter);
             this.passwordTxt.MouseLeave += new System.EventHandler(this.passwordTxt_MouseLeave);
             // 
+            // pictureBox8
+            // 
+            this.pictureBox8.Image = global::Code_Crafters_Interface_Prototype_1.Properties.Resources._0c6801fe_8b78_4a87_a500_0632c277ccc3;
+            this.pictureBox8.Location = new System.Drawing.Point(1053, 17);
+            this.pictureBox8.Name = "pictureBox8";
+            this.pictureBox8.Size = new System.Drawing.Size(51, 34);
+            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox8.TabIndex = 23;
+            this.pictureBox8.TabStop = false;
+            // 
+            // btnHelp
+            // 
+            this.btnHelp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnHelp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(99)))), ((int)(((byte)(235)))));
+            this.btnHelp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHelp.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHelp.ForeColor = System.Drawing.Color.White;
+            this.btnHelp.Location = new System.Drawing.Point(318, 14);
+            this.btnHelp.Margin = new System.Windows.Forms.Padding(2);
+            this.btnHelp.Name = "btnHelp";
+            this.btnHelp.Size = new System.Drawing.Size(75, 34);
+            this.btnHelp.TabIndex = 10;
+            this.btnHelp.Text = "Help";
+            this.btnHelp.UseVisualStyleBackColor = false;
+            this.btnHelp.Click += new System.EventHandler(this.btnHelp_Click);
+            // 
             // taStaff
             // 
             this.taStaff.ClearBeforeFill = true;
@@ -406,13 +405,13 @@
             // pnlHelpDrawer
             // 
             this.pnlHelpDrawer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlHelpDrawer.BackColor = System.Drawing.Color.White;
+            this.pnlHelpDrawer.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.pnlHelpDrawer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlHelpDrawer.Controls.Add(this.btnContactSupport);
             this.pnlHelpDrawer.Controls.Add(this.lstHelpTopics);
             this.pnlHelpDrawer.Controls.Add(this.txtSearchHelp);
             this.pnlHelpDrawer.Controls.Add(this.labelHelpHeader);
-            this.pnlHelpDrawer.Location = new System.Drawing.Point(114, 307);
+            this.pnlHelpDrawer.Location = new System.Drawing.Point(248, 2);
             this.pnlHelpDrawer.Margin = new System.Windows.Forms.Padding(2);
             this.pnlHelpDrawer.Name = "pnlHelpDrawer";
             this.pnlHelpDrawer.Size = new System.Drawing.Size(238, 269);
@@ -478,8 +477,10 @@
             // pnlLogin
             // 
             this.pnlLogin.AutoScroll = true;
+            this.pnlLogin.Controls.Add(this.pictureBox8);
             this.pnlLogin.Controls.Add(this.button1);
             this.pnlLogin.Controls.Add(this.panel1);
+            this.pnlLogin.Controls.Add(this.btnHelp);
             this.pnlLogin.Location = new System.Drawing.Point(284, 101);
             this.pnlLogin.Name = "pnlLogin";
             this.pnlLogin.Size = new System.Drawing.Size(1191, 726);
@@ -498,13 +499,13 @@
             this.groupBox1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.codeCraftersDS1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.pnlHelpDrawer.ResumeLayout(false);

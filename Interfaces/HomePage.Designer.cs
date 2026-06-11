@@ -33,7 +33,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.btnLogin = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
@@ -127,22 +126,11 @@
             // 
             this.btnLogin.Location = new System.Drawing.Point(3, 3);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(90, 36);
+            this.btnLogin.Size = new System.Drawing.Size(185, 36);
             this.btnLogin.TabIndex = 5;
             this.btnLogin.Text = "LOG IN";
             this.btnLogin.UseVisualStyleBackColor = true;
             this.btnLogin.Click += new System.EventHandler(this.HomePageLogin_Click);
-            // 
-            // button4
-            // 
-            this.button4.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.button4.Location = new System.Drawing.Point(99, 3);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(90, 36);
-            this.button4.TabIndex = 6;
-            this.button4.Text = "SIGN UP";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // panel1
             // 
@@ -189,7 +177,6 @@
             // 
             this.panel2.BackColor = System.Drawing.Color.Transparent;
             this.panel2.Controls.Add(this.btnLogin);
-            this.panel2.Controls.Add(this.button4);
             this.panel2.Location = new System.Drawing.Point(1097, 12);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(188, 42);
@@ -542,7 +529,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button btnLogin;
-        private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.Panel panel2;

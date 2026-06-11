@@ -136,19 +136,19 @@ namespace Code_Crafters_Interface_Prototype_1.Interfaces
         {
             bool found = false;
 
-            foreach (codeCraftersDS.ClientRow row in codeCraftersDS1.Client)
+            foreach (codeCraftersDS.StaffRow row in codeCraftersDS1.Staff)
             {
-                if (row.Email_Address == userNameTxt.Text &&
-                    row.Password == passwordTxt.Text)
+                if (row.staff_email == userNameTxt.Text &&
+                    row.staff_Password == passwordTxt.Text)
                 {
                     found = true;
 
-                    UserSession.Email = row.Email_Address;
-                    UserSession.FullName = $"{row.First_Name} {row.Last_Name}";
+                    UserSession.Email = row.staff_email;
+                    UserSession.FullName = $"{row.staff_First_Name} {row.staff_Surname}";
 
                     MessageBox.Show(
                         $"Welcome to The Regal Inn.\n\n" +
-                        $"Guest: {row.First_Name} {row.Last_Name}\n" +
+                        $"Guest: {row.staff_First_Name} {row.staff_Surname}\n" +
                         $"Login successful. You may proceed to the main menu.",
                         "Authentication Successful",
                         MessageBoxButtons.OK,
@@ -158,16 +158,20 @@ namespace Code_Crafters_Interface_Prototype_1.Interfaces
                     string loginBody = $@"
                     <div style='font-family: Arial, sans-serif; max-width: 600px; border: 1px solid #dcdcdc; padding: 20px;'>
                         <h2 style='color: #1976D2;'>New Account Login Detected</h2>
-                        <p>Hello {row.First_Name} {row.Last_Name},</p>
+                        <p>Hello {row.staff_First_Name} {row.staff_Surname},</p>
                         <p>We detected a successful security session sign-in to your Regal Inn profile associated with this account.</p>
                         <hr style='border: 0; border-top: 1px solid #eee;' />
-                        <p><b>Account Email Address:</b> {row.Email_Address}</p>
+                        <p><b>Account Email Address:</b> {row.staff_email}</p>
                         <p><b>Login Date & Time:</b> {DateTime.Now.ToString("dd MMM yyyy HH:mm:ss")}</p>
                         <hr style='border: 0; border-top: 1px solid #eee;' />
                         <p style='font-size: 12px; color: #888;'>This is an automated system application security notice. No direct reply is required.</p>
                     </div>";
 
-                    EmailService.SendEmail(row.Email_Address, loginSubject, loginBody);
+                    EmailService.SendEmail(row.staff_email, loginSubject, loginBody);
+
+
+
+
 
                     Form frm = Application.OpenForms["MainMenuForm"];
 
@@ -204,7 +208,7 @@ namespace Code_Crafters_Interface_Prototype_1.Interfaces
                             if (tuser != null)
                             {
                                 tuser.ForeColor = Color.Green;
-                                tuser.Text = $"Logged in as {row.First_Name} {row.Last_Name}";
+                                tuser.Text = $"Logged in as {row.staff_First_Name} {row.staff_Surname}";
                             }
                         }
                     }

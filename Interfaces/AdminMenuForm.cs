@@ -12,49 +12,49 @@ using System.Windows.Forms;
 
 namespace Code_Crafters_Interface_Prototype_1.Interfaces
 {
-    public partial class ManagerMenuForm : Form
+    public partial class AdminMenuForm : Form
     {
-        public ManagerMenuForm()
+        public AdminMenuForm()
         {
             InitializeComponent();
         }
 
+
         private void LoadFormIntoPanel(Form form)
         {
+            
+            adminPanel.Controls.Clear();
 
-            ManagerPanel.Controls.Clear();
+            
+            form.TopLevel = false;                
+            form.FormBorderStyle = FormBorderStyle.None;  
+            form.Dock = DockStyle.Fill;            
 
-
-            form.TopLevel = false;
-            form.FormBorderStyle = FormBorderStyle.None;
-            form.Dock = DockStyle.Fill;
-
-
-            ManagerPanel.Controls.Add(form);
+            
+            adminPanel.Controls.Add(form);
             form.Show();
-        }
-
-        private void ManagerMenuForm_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            if (ManagerPanel.Controls.Count > 0)
-            {
-
-                foreach (Control ctrl in ManagerPanel.Controls)
-                {
-                    ctrl.Dispose();
-                }
-                ManagerPanel.Controls.Clear();
-            }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             LoadFormIntoPanel(new SignUpForm());
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            {
+
+                if (adminPanel.Controls.Count > 0)
+                {
+
+                    foreach (Control ctrl in adminPanel.Controls)
+                    {
+                        ctrl.Dispose();
+                    }
+                    adminPanel.Controls.Clear();
+                }
+
+            } 
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -72,11 +72,6 @@ namespace Code_Crafters_Interface_Prototype_1.Interfaces
             LoadFormIntoPanel(new PaymentForm());
         }
 
-        private void button9_Click(object sender, EventArgs e)
-        {
-            LoadFormIntoPanel(new Login());
-        }
-
         private void button6_Click(object sender, EventArgs e)
         {
             LoadFormIntoPanel(new ReportsForm());
@@ -85,6 +80,16 @@ namespace Code_Crafters_Interface_Prototype_1.Interfaces
         private void button7_Click(object sender, EventArgs e)
         {
             LoadFormIntoPanel(new RoomManagementForm());
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            LoadFormIntoPanel(new StaffManagementForm());
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            LoadFormIntoPanel(new Login());
         }
     }
 }

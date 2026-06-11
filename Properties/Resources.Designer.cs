@@ -504,6 +504,46 @@ namespace Code_Crafters_Interface_Prototype_1.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap GROUP {
+            get {
+                object obj = ResourceManager.GetObject("GROUP", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap GROUP_2 {
+            get {
+                object obj = ResourceManager.GetObject("GROUP 2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap GROUP_3 {
+            get {
+                object obj = ResourceManager.GetObject("GROUP 3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap GROUP_4 {
+            get {
+                object obj = ResourceManager.GetObject("GROUP 4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap HOME_3 {
             get {
                 object obj = ResourceManager.GetObject("HOME 3", resourceCulture);
@@ -878,6 +918,36 @@ namespace Code_Crafters_Interface_Prototype_1.Properties {
         internal static System.Drawing.Bitmap Regal_pic {
             get {
                 object obj = ResourceManager.GetObject("Regal pic", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap STAFF {
+            get {
+                object obj = ResourceManager.GetObject("STAFF", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap STAFF_1 {
+            get {
+                object obj = ResourceManager.GetObject("STAFF 1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap STAFF_3 {
+            get {
+                object obj = ResourceManager.GetObject("STAFF 3", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
