@@ -42,7 +42,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.dgvStaffManagement = new System.Windows.Forms.DataGridView();
             this.staffBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.codeCraftersDS1 = new Code_Crafters_Interface_Prototype_1.codeCraftersDS();
+            this.codeCraftersDS = new Code_Crafters_Interface_Prototype_1.codeCraftersDS();
             this.lblStaffManagement = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnStaffUpdate = new System.Windows.Forms.Button();
@@ -54,9 +54,9 @@
             this.lblStaffRole = new System.Windows.Forms.Label();
             this.txtPhoneNumber = new System.Windows.Forms.TextBox();
             this.cmbStaffStatus = new System.Windows.Forms.ComboBox();
-            this.txtStaffName = new System.Windows.Forms.TextBox();
+            this.txtStaffFullName = new System.Windows.Forms.TextBox();
             this.cmbStaffRole = new System.Windows.Forms.ComboBox();
-            this.lblStaffName = new System.Windows.Forms.Label();
+            this.lblStaffFullName = new System.Windows.Forms.Label();
             this.taStaff = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTableAdapters.StaffTableAdapter();
             this.staffIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.branchIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -68,10 +68,16 @@
             this.staffroleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.datejoinedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.staffstatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblBranchID = new System.Windows.Forms.Label();
+            this.lblStaffAddress = new System.Windows.Forms.Label();
+            this.lblEmailAddress = new System.Windows.Forms.Label();
+            this.cmbBranchID = new System.Windows.Forms.ComboBox();
+            this.txtStaffAddress = new System.Windows.Forms.TextBox();
+            this.txtEmailAddress = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStaffManagement)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.staffBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.codeCraftersDS1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.codeCraftersDS)).BeginInit();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -84,7 +90,7 @@
             this.panel1.Location = new System.Drawing.Point(119, 13);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1235, 733);
+            this.panel1.Size = new System.Drawing.Size(1202, 733);
             this.panel1.TabIndex = 1;
             // 
             // dgvStaffManagement
@@ -103,20 +109,20 @@
             this.datejoinedDataGridViewTextBoxColumn,
             this.staffstatusDataGridViewTextBoxColumn});
             this.dgvStaffManagement.DataSource = this.staffBindingSource;
-            this.dgvStaffManagement.Location = new System.Drawing.Point(71, 447);
+            this.dgvStaffManagement.Location = new System.Drawing.Point(71, 414);
             this.dgvStaffManagement.Name = "dgvStaffManagement";
-            this.dgvStaffManagement.Size = new System.Drawing.Size(1044, 240);
+            this.dgvStaffManagement.Size = new System.Drawing.Size(1046, 240);
             this.dgvStaffManagement.TabIndex = 3;
             // 
             // staffBindingSource
             // 
             this.staffBindingSource.DataMember = "Staff";
-            this.staffBindingSource.DataSource = this.codeCraftersDS1;
+            this.staffBindingSource.DataSource = this.codeCraftersDS;
             // 
-            // codeCraftersDS1
+            // codeCraftersDS
             // 
-            this.codeCraftersDS1.DataSetName = "codeCraftersDS";
-            this.codeCraftersDS1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.codeCraftersDS.DataSetName = "codeCraftersDS";
+            this.codeCraftersDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // lblStaffManagement
             // 
@@ -130,6 +136,12 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.txtEmailAddress);
+            this.panel2.Controls.Add(this.txtStaffAddress);
+            this.panel2.Controls.Add(this.cmbBranchID);
+            this.panel2.Controls.Add(this.lblEmailAddress);
+            this.panel2.Controls.Add(this.lblStaffAddress);
+            this.panel2.Controls.Add(this.lblBranchID);
             this.panel2.Controls.Add(this.btnStaffUpdate);
             this.panel2.Controls.Add(this.btnStaffClear);
             this.panel2.Controls.Add(this.btnStaffDelete);
@@ -139,20 +151,21 @@
             this.panel2.Controls.Add(this.lblStaffRole);
             this.panel2.Controls.Add(this.txtPhoneNumber);
             this.panel2.Controls.Add(this.cmbStaffStatus);
-            this.panel2.Controls.Add(this.txtStaffName);
+            this.panel2.Controls.Add(this.txtStaffFullName);
             this.panel2.Controls.Add(this.cmbStaffRole);
-            this.panel2.Controls.Add(this.lblStaffName);
+            this.panel2.Controls.Add(this.lblStaffFullName);
             this.panel2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel2.Location = new System.Drawing.Point(71, 90);
+            this.panel2.Location = new System.Drawing.Point(71, 78);
             this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(627, 317);
             this.panel2.TabIndex = 0;
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // btnStaffUpdate
             // 
             this.btnStaffUpdate.BackColor = System.Drawing.Color.DarkGray;
-            this.btnStaffUpdate.Location = new System.Drawing.Point(205, 256);
+            this.btnStaffUpdate.Location = new System.Drawing.Point(204, 270);
             this.btnStaffUpdate.Name = "btnStaffUpdate";
             this.btnStaffUpdate.Size = new System.Drawing.Size(91, 33);
             this.btnStaffUpdate.TabIndex = 11;
@@ -162,7 +175,7 @@
             // btnStaffClear
             // 
             this.btnStaffClear.BackColor = System.Drawing.Color.DarkGray;
-            this.btnStaffClear.Location = new System.Drawing.Point(35, 256);
+            this.btnStaffClear.Location = new System.Drawing.Point(35, 270);
             this.btnStaffClear.Name = "btnStaffClear";
             this.btnStaffClear.Size = new System.Drawing.Size(75, 33);
             this.btnStaffClear.TabIndex = 10;
@@ -172,7 +185,7 @@
             // btnStaffDelete
             // 
             this.btnStaffDelete.BackColor = System.Drawing.Color.DarkGray;
-            this.btnStaffDelete.Location = new System.Drawing.Point(379, 256);
+            this.btnStaffDelete.Location = new System.Drawing.Point(380, 270);
             this.btnStaffDelete.Name = "btnStaffDelete";
             this.btnStaffDelete.Size = new System.Drawing.Size(75, 33);
             this.btnStaffDelete.TabIndex = 9;
@@ -182,7 +195,7 @@
             // btnStaffAdd
             // 
             this.btnStaffAdd.BackColor = System.Drawing.Color.DarkGray;
-            this.btnStaffAdd.Location = new System.Drawing.Point(523, 256);
+            this.btnStaffAdd.Location = new System.Drawing.Point(528, 270);
             this.btnStaffAdd.Name = "btnStaffAdd";
             this.btnStaffAdd.Size = new System.Drawing.Size(75, 33);
             this.btnStaffAdd.TabIndex = 8;
@@ -192,7 +205,7 @@
             // lblStaffStatus
             // 
             this.lblStaffStatus.AutoSize = true;
-            this.lblStaffStatus.Location = new System.Drawing.Point(32, 195);
+            this.lblStaffStatus.Location = new System.Drawing.Point(32, 228);
             this.lblStaffStatus.Name = "lblStaffStatus";
             this.lblStaffStatus.Size = new System.Drawing.Size(54, 17);
             this.lblStaffStatus.TabIndex = 7;
@@ -201,7 +214,7 @@
             // lblStaffPhoneNumber
             // 
             this.lblStaffPhoneNumber.AutoSize = true;
-            this.lblStaffPhoneNumber.Location = new System.Drawing.Point(32, 149);
+            this.lblStaffPhoneNumber.Location = new System.Drawing.Point(32, 130);
             this.lblStaffPhoneNumber.Name = "lblStaffPhoneNumber";
             this.lblStaffPhoneNumber.Size = new System.Drawing.Size(111, 17);
             this.lblStaffPhoneNumber.TabIndex = 6;
@@ -210,15 +223,15 @@
             // lblStaffRole
             // 
             this.lblStaffRole.AutoSize = true;
-            this.lblStaffRole.Location = new System.Drawing.Point(32, 93);
+            this.lblStaffRole.Location = new System.Drawing.Point(32, 194);
             this.lblStaffRole.Name = "lblStaffRole";
-            this.lblStaffRole.Size = new System.Drawing.Size(40, 17);
+            this.lblStaffRole.Size = new System.Drawing.Size(85, 17);
             this.lblStaffRole.TabIndex = 5;
-            this.lblStaffRole.Text = "ROLE";
+            this.lblStaffRole.Text = "STAFF ROLE:";
             // 
             // txtPhoneNumber
             // 
-            this.txtPhoneNumber.Location = new System.Drawing.Point(250, 146);
+            this.txtPhoneNumber.Location = new System.Drawing.Point(250, 127);
             this.txtPhoneNumber.Name = "txtPhoneNumber";
             this.txtPhoneNumber.Size = new System.Drawing.Size(221, 25);
             this.txtPhoneNumber.TabIndex = 4;
@@ -226,34 +239,35 @@
             // cmbStaffStatus
             // 
             this.cmbStaffStatus.FormattingEnabled = true;
-            this.cmbStaffStatus.Location = new System.Drawing.Point(250, 192);
+            this.cmbStaffStatus.Location = new System.Drawing.Point(250, 225);
             this.cmbStaffStatus.Name = "cmbStaffStatus";
             this.cmbStaffStatus.Size = new System.Drawing.Size(156, 25);
             this.cmbStaffStatus.TabIndex = 3;
             // 
-            // txtStaffName
+            // txtStaffFullName
             // 
-            this.txtStaffName.Location = new System.Drawing.Point(250, 30);
-            this.txtStaffName.Name = "txtStaffName";
-            this.txtStaffName.Size = new System.Drawing.Size(221, 25);
-            this.txtStaffName.TabIndex = 2;
+            this.txtStaffFullName.Location = new System.Drawing.Point(250, 64);
+            this.txtStaffFullName.Name = "txtStaffFullName";
+            this.txtStaffFullName.Size = new System.Drawing.Size(221, 25);
+            this.txtStaffFullName.TabIndex = 2;
             // 
             // cmbStaffRole
             // 
             this.cmbStaffRole.FormattingEnabled = true;
-            this.cmbStaffRole.Location = new System.Drawing.Point(250, 90);
+            this.cmbStaffRole.Location = new System.Drawing.Point(250, 194);
             this.cmbStaffRole.Name = "cmbStaffRole";
             this.cmbStaffRole.Size = new System.Drawing.Size(156, 25);
             this.cmbStaffRole.TabIndex = 1;
+            this.cmbStaffRole.SelectedIndexChanged += new System.EventHandler(this.cmbStaffRole_SelectedIndexChanged);
             // 
-            // lblStaffName
+            // lblStaffFullName
             // 
-            this.lblStaffName.AutoSize = true;
-            this.lblStaffName.Location = new System.Drawing.Point(32, 33);
-            this.lblStaffName.Name = "lblStaffName";
-            this.lblStaffName.Size = new System.Drawing.Size(50, 17);
-            this.lblStaffName.TabIndex = 0;
-            this.lblStaffName.Text = "NAME:";
+            this.lblStaffFullName.AutoSize = true;
+            this.lblStaffFullName.Location = new System.Drawing.Point(33, 67);
+            this.lblStaffFullName.Name = "lblStaffFullName";
+            this.lblStaffFullName.Size = new System.Drawing.Size(84, 17);
+            this.lblStaffFullName.TabIndex = 0;
+            this.lblStaffFullName.Text = "FULL NAME:";
             // 
             // taStaff
             // 
@@ -349,6 +363,62 @@
             this.staffstatusDataGridViewTextBoxColumn.Name = "staffstatusDataGridViewTextBoxColumn";
             this.staffstatusDataGridViewTextBoxColumn.Width = 150;
             // 
+            // lblBranchID
+            // 
+            this.lblBranchID.AutoSize = true;
+            this.lblBranchID.ForeColor = System.Drawing.Color.DarkOrange;
+            this.lblBranchID.Location = new System.Drawing.Point(33, 20);
+            this.lblBranchID.Name = "lblBranchID";
+            this.lblBranchID.Size = new System.Drawing.Size(83, 17);
+            this.lblBranchID.TabIndex = 12;
+            this.lblBranchID.Text = "BRANCH ID:";
+            // 
+            // lblStaffAddress
+            // 
+            this.lblStaffAddress.AutoSize = true;
+            this.lblStaffAddress.Location = new System.Drawing.Point(32, 98);
+            this.lblStaffAddress.Name = "lblStaffAddress";
+            this.lblStaffAddress.Size = new System.Drawing.Size(111, 17);
+            this.lblStaffAddress.TabIndex = 13;
+            this.lblStaffAddress.Text = "STAFF ADDRESS:";
+            // 
+            // lblEmailAddress
+            // 
+            this.lblEmailAddress.AutoSize = true;
+            this.lblEmailAddress.Location = new System.Drawing.Point(32, 164);
+            this.lblEmailAddress.Name = "lblEmailAddress";
+            this.lblEmailAddress.Size = new System.Drawing.Size(109, 17);
+            this.lblEmailAddress.TabIndex = 14;
+            this.lblEmailAddress.Text = "EMAIL ADDRESS";
+            // 
+            // cmbBranchID
+            // 
+            this.cmbBranchID.FormattingEnabled = true;
+            this.cmbBranchID.Items.AddRange(new object[] {
+            "BR01",
+            "BR02",
+            "BR03",
+            "BR04",
+            "BR05"});
+            this.cmbBranchID.Location = new System.Drawing.Point(250, 20);
+            this.cmbBranchID.Name = "cmbBranchID";
+            this.cmbBranchID.Size = new System.Drawing.Size(110, 25);
+            this.cmbBranchID.TabIndex = 15;
+            // 
+            // txtStaffAddress
+            // 
+            this.txtStaffAddress.Location = new System.Drawing.Point(250, 95);
+            this.txtStaffAddress.Name = "txtStaffAddress";
+            this.txtStaffAddress.Size = new System.Drawing.Size(221, 25);
+            this.txtStaffAddress.TabIndex = 17;
+            // 
+            // txtEmailAddress
+            // 
+            this.txtEmailAddress.Location = new System.Drawing.Point(250, 161);
+            this.txtEmailAddress.Name = "txtEmailAddress";
+            this.txtEmailAddress.Size = new System.Drawing.Size(221, 25);
+            this.txtEmailAddress.TabIndex = 18;
+            // 
             // StaffManagementForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -363,7 +433,7 @@
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStaffManagement)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.staffBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.codeCraftersDS1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.codeCraftersDS)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.ResumeLayout(false);
@@ -375,7 +445,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.DataGridView dgvStaffManagement;
         private System.Windows.Forms.BindingSource staffBindingSource;
-        private codeCraftersDS codeCraftersDS1;
+        private codeCraftersDS codeCraftersDS;
         private System.Windows.Forms.Label lblStaffManagement;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnStaffUpdate;
@@ -387,9 +457,9 @@
         private System.Windows.Forms.Label lblStaffRole;
         private System.Windows.Forms.TextBox txtPhoneNumber;
         private System.Windows.Forms.ComboBox cmbStaffStatus;
-        private System.Windows.Forms.TextBox txtStaffName;
+        private System.Windows.Forms.TextBox txtStaffFullName;
         private System.Windows.Forms.ComboBox cmbStaffRole;
-        private System.Windows.Forms.Label lblStaffName;
+        private System.Windows.Forms.Label lblStaffFullName;
         private codeCraftersDSTableAdapters.StaffTableAdapter taStaff;
         private System.Windows.Forms.DataGridViewTextBoxColumn staffIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn branchIDDataGridViewTextBoxColumn;
@@ -401,5 +471,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn staffroleDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn datejoinedDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn staffstatusDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Label lblBranchID;
+        private System.Windows.Forms.Label lblEmailAddress;
+        private System.Windows.Forms.Label lblStaffAddress;
+        private System.Windows.Forms.ComboBox cmbBranchID;
+        private System.Windows.Forms.TextBox txtEmailAddress;
+        private System.Windows.Forms.TextBox txtStaffAddress;
     }
 }

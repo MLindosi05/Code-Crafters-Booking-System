@@ -19,10 +19,12 @@ namespace Code_Crafters_Interface_Prototype_1.Business
 
         private void RoomManagementForm_Load(object sender, EventArgs e)
         {
-            taHotelRoom.Fill(codeCraftersDS1.Hotel_Room);
+            taHotelRoom.Fill(codeCraftersDS.Hotel_Room);
         }
 
-       
+        private void cmbRoomTypeID_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
+        }
     }
 }

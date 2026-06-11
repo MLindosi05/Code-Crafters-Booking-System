@@ -19,7 +19,17 @@ namespace Code_Crafters_Interface_Prototype_1.Business
 
         private void StaffManagementForm_Load(object sender, EventArgs e)
         {
-            taStaff.Fill(codeCraftersDS1.Staff);
+            taStaff.Fill(codeCraftersDS.Staff);
+        }
+
+        private void cmbStaffRole_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

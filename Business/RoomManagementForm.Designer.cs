@@ -44,7 +44,7 @@
             this.hotelroomstatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.hotelRoomPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.hotelRoomBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.codeCraftersDS1 = new Code_Crafters_Interface_Prototype_1.codeCraftersDS();
+            this.codeCraftersDS = new Code_Crafters_Interface_Prototype_1.codeCraftersDS();
             this.lblRoomManagement = new System.Windows.Forms.Label();
             this.pnlRoomManagement = new System.Windows.Forms.Panel();
             this.btnUpdateRoom = new System.Windows.Forms.Button();
@@ -56,14 +56,16 @@
             this.lblRoomTypeID = new System.Windows.Forms.Label();
             this.txtRoomPrice = new System.Windows.Forms.TextBox();
             this.cmbRoomStatus = new System.Windows.Forms.ComboBox();
-            this.txtRoomID = new System.Windows.Forms.TextBox();
             this.cmbRoomTypeID = new System.Windows.Forms.ComboBox();
-            this.lblRoomID = new System.Windows.Forms.Label();
             this.taHotelRoom = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTableAdapters.Hotel_RoomTableAdapter();
+            this.lblBranchID = new System.Windows.Forms.Label();
+            this.cmbBranchID = new System.Windows.Forms.ComboBox();
+            this.lblRoomNumber = new System.Windows.Forms.Label();
+            this.txtRoomNumber = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHotelRoomManagement)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.hotelRoomBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.codeCraftersDS1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.codeCraftersDS)).BeginInit();
             this.pnlRoomManagement.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -153,12 +155,12 @@
             // hotelRoomBindingSource
             // 
             this.hotelRoomBindingSource.DataMember = "Hotel_Room";
-            this.hotelRoomBindingSource.DataSource = this.codeCraftersDS1;
+            this.hotelRoomBindingSource.DataSource = this.codeCraftersDS;
             // 
-            // codeCraftersDS1
+            // codeCraftersDS
             // 
-            this.codeCraftersDS1.DataSetName = "codeCraftersDS";
-            this.codeCraftersDS1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.codeCraftersDS.DataSetName = "codeCraftersDS";
+            this.codeCraftersDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // lblRoomManagement
             // 
@@ -172,6 +174,10 @@
             // 
             // pnlRoomManagement
             // 
+            this.pnlRoomManagement.Controls.Add(this.txtRoomNumber);
+            this.pnlRoomManagement.Controls.Add(this.lblRoomNumber);
+            this.pnlRoomManagement.Controls.Add(this.cmbBranchID);
+            this.pnlRoomManagement.Controls.Add(this.lblBranchID);
             this.pnlRoomManagement.Controls.Add(this.btnUpdateRoom);
             this.pnlRoomManagement.Controls.Add(this.btnClearRoom);
             this.pnlRoomManagement.Controls.Add(this.btnDeleteRoom);
@@ -181,9 +187,7 @@
             this.pnlRoomManagement.Controls.Add(this.lblRoomTypeID);
             this.pnlRoomManagement.Controls.Add(this.txtRoomPrice);
             this.pnlRoomManagement.Controls.Add(this.cmbRoomStatus);
-            this.pnlRoomManagement.Controls.Add(this.txtRoomID);
             this.pnlRoomManagement.Controls.Add(this.cmbRoomTypeID);
-            this.pnlRoomManagement.Controls.Add(this.lblRoomID);
             this.pnlRoomManagement.Location = new System.Drawing.Point(71, 90);
             this.pnlRoomManagement.Margin = new System.Windows.Forms.Padding(4);
             this.pnlRoomManagement.Name = "pnlRoomManagement";
@@ -233,33 +237,33 @@
             // lblRoomStatus
             // 
             this.lblRoomStatus.AutoSize = true;
-            this.lblRoomStatus.Location = new System.Drawing.Point(32, 195);
+            this.lblRoomStatus.Location = new System.Drawing.Point(32, 161);
             this.lblRoomStatus.Name = "lblRoomStatus";
-            this.lblRoomStatus.Size = new System.Drawing.Size(68, 16);
+            this.lblRoomStatus.Size = new System.Drawing.Size(121, 16);
             this.lblRoomStatus.TabIndex = 7;
-            this.lblRoomStatus.Text = "STATUS";
+            this.lblRoomStatus.Text = "ROOM STATUS:";
             // 
             // lblRoomPrice
             // 
             this.lblRoomPrice.AutoSize = true;
-            this.lblRoomPrice.Location = new System.Drawing.Point(32, 149);
+            this.lblRoomPrice.Location = new System.Drawing.Point(32, 198);
             this.lblRoomPrice.Name = "lblRoomPrice";
-            this.lblRoomPrice.Size = new System.Drawing.Size(52, 16);
+            this.lblRoomPrice.Size = new System.Drawing.Size(105, 16);
             this.lblRoomPrice.TabIndex = 6;
-            this.lblRoomPrice.Text = "PRICE";
+            this.lblRoomPrice.Text = "ROOM PRICE:";
             // 
             // lblRoomTypeID
             // 
             this.lblRoomTypeID.AutoSize = true;
-            this.lblRoomTypeID.Location = new System.Drawing.Point(32, 93);
+            this.lblRoomTypeID.Location = new System.Drawing.Point(32, 91);
             this.lblRoomTypeID.Name = "lblRoomTypeID";
-            this.lblRoomTypeID.Size = new System.Drawing.Size(115, 16);
+            this.lblRoomTypeID.Size = new System.Drawing.Size(119, 16);
             this.lblRoomTypeID.TabIndex = 5;
-            this.lblRoomTypeID.Text = "ROOM TYPE ID";
+            this.lblRoomTypeID.Text = "ROOM TYPE ID:";
             // 
             // txtRoomPrice
             // 
-            this.txtRoomPrice.Location = new System.Drawing.Point(250, 146);
+            this.txtRoomPrice.Location = new System.Drawing.Point(250, 195);
             this.txtRoomPrice.Name = "txtRoomPrice";
             this.txtRoomPrice.Size = new System.Drawing.Size(221, 22);
             this.txtRoomPrice.TabIndex = 4;
@@ -267,38 +271,63 @@
             // cmbRoomStatus
             // 
             this.cmbRoomStatus.FormattingEnabled = true;
-            this.cmbRoomStatus.Location = new System.Drawing.Point(250, 192);
+            this.cmbRoomStatus.Location = new System.Drawing.Point(250, 158);
             this.cmbRoomStatus.Name = "cmbRoomStatus";
             this.cmbRoomStatus.Size = new System.Drawing.Size(156, 24);
             this.cmbRoomStatus.TabIndex = 3;
             // 
-            // txtRoomID
-            // 
-            this.txtRoomID.Location = new System.Drawing.Point(250, 30);
-            this.txtRoomID.Name = "txtRoomID";
-            this.txtRoomID.Size = new System.Drawing.Size(221, 22);
-            this.txtRoomID.TabIndex = 2;
-            // 
             // cmbRoomTypeID
             // 
             this.cmbRoomTypeID.FormattingEnabled = true;
-            this.cmbRoomTypeID.Location = new System.Drawing.Point(250, 90);
+            this.cmbRoomTypeID.Location = new System.Drawing.Point(250, 88);
             this.cmbRoomTypeID.Name = "cmbRoomTypeID";
             this.cmbRoomTypeID.Size = new System.Drawing.Size(156, 24);
             this.cmbRoomTypeID.TabIndex = 1;
-            // 
-            // lblRoomID
-            // 
-            this.lblRoomID.AutoSize = true;
-            this.lblRoomID.Location = new System.Drawing.Point(32, 33);
-            this.lblRoomID.Name = "lblRoomID";
-            this.lblRoomID.Size = new System.Drawing.Size(75, 16);
-            this.lblRoomID.TabIndex = 0;
-            this.lblRoomID.Text = "ROOM ID:";
+            this.cmbRoomTypeID.SelectedIndexChanged += new System.EventHandler(this.cmbRoomTypeID_SelectedIndexChanged);
             // 
             // taHotelRoom
             // 
             this.taHotelRoom.ClearBeforeFill = true;
+            // 
+            // lblBranchID
+            // 
+            this.lblBranchID.AutoSize = true;
+            this.lblBranchID.ForeColor = System.Drawing.Color.DarkOrange;
+            this.lblBranchID.Location = new System.Drawing.Point(32, 32);
+            this.lblBranchID.Name = "lblBranchID";
+            this.lblBranchID.Size = new System.Drawing.Size(93, 16);
+            this.lblBranchID.TabIndex = 12;
+            this.lblBranchID.Text = "BRANCH ID:";
+            // 
+            // cmbBranchID
+            // 
+            this.cmbBranchID.FormattingEnabled = true;
+            this.cmbBranchID.Items.AddRange(new object[] {
+            "BR01",
+            "BR02",
+            "BR03",
+            "BR04",
+            "BR05"});
+            this.cmbBranchID.Location = new System.Drawing.Point(250, 29);
+            this.cmbBranchID.Name = "cmbBranchID";
+            this.cmbBranchID.Size = new System.Drawing.Size(108, 24);
+            this.cmbBranchID.TabIndex = 13;
+            // 
+            // lblRoomNumber
+            // 
+            this.lblRoomNumber.AutoSize = true;
+            this.lblRoomNumber.Location = new System.Drawing.Point(32, 126);
+            this.lblRoomNumber.Name = "lblRoomNumber";
+            this.lblRoomNumber.Size = new System.Drawing.Size(82, 16);
+            this.lblRoomNumber.TabIndex = 14;
+            this.lblRoomNumber.Text = "ROOM NO:";
+            // 
+            // txtRoomNumber
+            // 
+            this.txtRoomNumber.Location = new System.Drawing.Point(250, 123);
+            this.txtRoomNumber.Name = "txtRoomNumber";
+            this.txtRoomNumber.Size = new System.Drawing.Size(221, 22);
+            this.txtRoomNumber.TabIndex = 15;
             // 
             // RoomManagementForm
             // 
@@ -316,7 +345,7 @@
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHotelRoomManagement)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.hotelRoomBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.codeCraftersDS1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.codeCraftersDS)).EndInit();
             this.pnlRoomManagement.ResumeLayout(false);
             this.pnlRoomManagement.PerformLayout();
             this.ResumeLayout(false);
@@ -338,11 +367,9 @@
         private System.Windows.Forms.Label lblRoomTypeID;
         private System.Windows.Forms.TextBox txtRoomPrice;
         private System.Windows.Forms.ComboBox cmbRoomStatus;
-        private System.Windows.Forms.TextBox txtRoomID;
         private System.Windows.Forms.ComboBox cmbRoomTypeID;
-        private System.Windows.Forms.Label lblRoomID;
         private System.Windows.Forms.BindingSource hotelRoomBindingSource;
-        private codeCraftersDS codeCraftersDS1;
+        private codeCraftersDS codeCraftersDS;
         private codeCraftersDSTableAdapters.Hotel_RoomTableAdapter taHotelRoom;
         private System.Windows.Forms.DataGridViewTextBoxColumn hotelRoomIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn branchIDDataGridViewTextBoxColumn;
@@ -350,5 +377,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn hotelroomnumberDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn hotelroomstatusDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn hotelRoomPriceDataGridViewTextBoxColumn;
+        private System.Windows.Forms.ComboBox cmbBranchID;
+        private System.Windows.Forms.Label lblBranchID;
+        private System.Windows.Forms.TextBox txtRoomNumber;
+        private System.Windows.Forms.Label lblRoomNumber;
     }
 }
