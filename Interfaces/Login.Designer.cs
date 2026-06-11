@@ -360,7 +360,7 @@
             this.btnHelp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnHelp.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnHelp.ForeColor = System.Drawing.Color.White;
-            this.btnHelp.Location = new System.Drawing.Point(318, 14);
+            this.btnHelp.Location = new System.Drawing.Point(318, 18);
             this.btnHelp.Margin = new System.Windows.Forms.Padding(2);
             this.btnHelp.Name = "btnHelp";
             this.btnHelp.Size = new System.Drawing.Size(75, 34);
@@ -417,7 +417,6 @@
             this.pnlHelpDrawer.Size = new System.Drawing.Size(238, 269);
             this.pnlHelpDrawer.TabIndex = 11;
             this.pnlHelpDrawer.Visible = false;
-            this.pnlHelpDrawer.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlHelpDrawer_Paint);
             // 
             // btnContactSupport
             // 
@@ -481,9 +480,9 @@
             this.pnlLogin.Controls.Add(this.button1);
             this.pnlLogin.Controls.Add(this.panel1);
             this.pnlLogin.Controls.Add(this.btnHelp);
-            this.pnlLogin.Location = new System.Drawing.Point(284, 101);
+            this.pnlLogin.Location = new System.Drawing.Point(122, 32);
             this.pnlLogin.Name = "pnlLogin";
-            this.pnlLogin.Size = new System.Drawing.Size(1191, 726);
+            this.pnlLogin.Size = new System.Drawing.Size(1171, 755);
             this.pnlLogin.TabIndex = 12;
             // 
             // Login
@@ -491,7 +490,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1774, 907);
+            this.ClientSize = new System.Drawing.Size(1430, 907);
             this.Controls.Add(this.pnlLogin);
             this.Name = "Login";
             this.Text = "REGAL INN LOGIN  ";
