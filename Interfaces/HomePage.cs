@@ -18,22 +18,6 @@ namespace Code_Crafters_Interface_Prototype_1.Interfaces
         {
             InitializeComponent();
         }
-
-        //private void label6_MouseEnter(object sender, EventArgs e)
-        //{
-        //    groupBox1.Visible = true;
-        //}
-
-        //private void label6_MouseLeave(object sender, EventArgs e)
-        //{
-        //    groupBox1.Visible = false;
-        //}
-
-        //private void groupBox1_MouseHover(object sender, EventArgs e)
-        //{
-        //    groupBox1.Visible = true;
-        //}
-
         private void button1_Click(object sender, EventArgs e)
         {
             string aboutMessage =
@@ -92,7 +76,6 @@ namespace Code_Crafters_Interface_Prototype_1.Interfaces
             panel7.BackColor = ColorTranslator.FromHtml("#966919");
            
             panel4.BackColor = ColorTranslator.FromHtml("#966919");
-           // panel5.BackColor = ColorTranslator.FromHtml("#F6F4F1");
             panel3.BackColor = ColorTranslator.FromHtml("#966919");
             panel14.BackColor = ColorTranslator.FromHtml("#F6F4F1");
             panel9.BackColor = ColorTranslator.FromHtml("#F6F4F1");
@@ -106,8 +89,8 @@ namespace Code_Crafters_Interface_Prototype_1.Interfaces
 
             DateTime now = DateTime.Now;
             TimeZoneInfo localZone = TimeZoneInfo.Local;
-            label7.Text = "Date: " + now.ToString("MMMM dd, yyyy");
-            label8.Text = "Time: " + now.ToString("h:mm tt") + " " + localZone.StandardName;
+            label7.Text += now.ToString("MMMM dd, yyyy");
+            label8.Text += now.ToString("h:mm tt") + " " + localZone.StandardName;
         
     }
 
@@ -116,41 +99,6 @@ namespace Code_Crafters_Interface_Prototype_1.Interfaces
             SignUpForm SignUp = new SignUpForm();
             SignUp.Show();
             this.Hide();
-        }
-
-        private void pictureBox6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel8_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panel7_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panel4_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panel3_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panel5_Paint(object sender, PaintEventArgs e)
-        {
-
         }
     }
 

@@ -141,37 +141,36 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1297, 295);
             this.panel1.TabIndex = 7;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.Color.Transparent;
             this.panel6.Controls.Add(this.label8);
             this.panel6.Controls.Add(this.label7);
-            this.panel6.Location = new System.Drawing.Point(1042, 251);
+            this.panel6.Location = new System.Drawing.Point(999, 242);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(252, 41);
+            this.panel6.Size = new System.Drawing.Size(295, 50);
             this.panel6.TabIndex = 2;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.label8.Location = new System.Drawing.Point(3, 28);
+            this.label8.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(3, 32);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(38, 13);
+            this.label8.Size = new System.Drawing.Size(89, 13);
             this.label8.TabIndex = 1;
-            this.label8.Text = "label8";
+            this.label8.Text = "CURRENT TIME:";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.label7.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(3, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(38, 13);
+            this.label7.Size = new System.Drawing.Size(90, 13);
             this.label7.TabIndex = 0;
-            this.label7.Text = "label7";
+            this.label7.Text = "CURRENT DATE:";
             // 
             // panel2
             // 
@@ -191,7 +190,6 @@
             this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox6.TabIndex = 0;
             this.pictureBox6.TabStop = false;
-            this.pictureBox6.Click += new System.EventHandler(this.pictureBox6_Click);
             // 
             // panel3
             // 
@@ -201,7 +199,6 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1297, 40);
             this.panel3.TabIndex = 8;
-            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
             // panel4
             // 
@@ -210,7 +207,6 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(317, 386);
             this.panel4.TabIndex = 9;
-            this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panel4_Paint);
             // 
             // pictureBox8
             // 
@@ -269,7 +265,6 @@
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(309, 388);
             this.panel7.TabIndex = 11;
-            this.panel7.Paint += new System.Windows.Forms.PaintEventHandler(this.panel7_Paint);
             // 
             // pictureBox7
             // 
@@ -294,7 +289,6 @@
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(666, 409);
             this.panel8.TabIndex = 12;
-            this.panel8.Paint += new System.Windows.Forms.PaintEventHandler(this.panel8_Paint);
             // 
             // panel11
             // 
@@ -479,7 +473,6 @@
             this.pnlHomePage.Name = "pnlHomePage";
             this.pnlHomePage.Size = new System.Drawing.Size(1530, 836);
             this.pnlHomePage.TabIndex = 13;
-            this.pnlHomePage.Paint += new System.Windows.Forms.PaintEventHandler(this.panel5_Paint);
             // 
             // HomePage
             // 
