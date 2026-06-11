@@ -264,6 +264,26 @@ namespace Code_Crafters_Interface_Prototype_1.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap booking_hotel {
+            get {
+                object obj = ResourceManager.GetObject("booking hotel", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap booking_hotel_1 {
+            get {
+                object obj = ResourceManager.GetObject("booking hotel 1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap c3c22da5_2a49_45ef_a028_06c321edcf88 {
             get {
                 object obj = ResourceManager.GetObject("c3c22da5-2a49-45ef-a028-06c321edcf88", resourceCulture);

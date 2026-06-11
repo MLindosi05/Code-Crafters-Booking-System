@@ -79,6 +79,25 @@ namespace Code_Crafters_Interface_Prototype_1.Interfaces
 
         private void ReceptionistMenuForm_Load(object sender, EventArgs e)
         {
+            panel1.BackColor = ColorTranslator.FromHtml("#966919");
+        }
+
+        private void ReceptionistMenuForm_MdiChildActivate(object sender, EventArgs e)
+        {
+            if (ActiveMdiChild != null)
+            {
+                pictureBox1.SendToBack();
+            }
+            else
+            {
+                pictureBox1.BringToFront();
+            }
+
+
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
 
         }
     }
