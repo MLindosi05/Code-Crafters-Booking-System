@@ -44,10 +44,11 @@
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.pictureBox11 = new System.Windows.Forms.PictureBox();
             this.ReceptionistPanel = new System.Windows.Forms.Panel();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.panel4 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -57,8 +58,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
             this.ReceptionistPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -246,6 +247,7 @@
             // ReceptionistPanel
             // 
             this.ReceptionistPanel.BackColor = System.Drawing.Color.Bisque;
+            this.ReceptionistPanel.Controls.Add(this.panel4);
             this.ReceptionistPanel.Controls.Add(this.panel2);
             this.ReceptionistPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ReceptionistPanel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -253,17 +255,15 @@
             this.ReceptionistPanel.Name = "ReceptionistPanel";
             this.ReceptionistPanel.Size = new System.Drawing.Size(1261, 769);
             this.ReceptionistPanel.TabIndex = 10;
+            this.ReceptionistPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.ReceptionistPanel_Paint);
             // 
-            // pictureBox3
+            // panel4
             // 
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(119, 56);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(883, 481);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 0;
-            this.pictureBox3.TabStop = false;
-            this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel4.Location = new System.Drawing.Point(0, 722);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(1261, 47);
+            this.panel4.TabIndex = 3;
             // 
             // panel2
             // 
@@ -276,6 +276,15 @@
             this.panel2.Size = new System.Drawing.Size(1109, 609);
             this.panel2.TabIndex = 1;
             // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.Black;
+            this.panel3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.panel3.Location = new System.Drawing.Point(426, 40);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(225, 3);
+            this.panel3.TabIndex = 2;
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -286,14 +295,16 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "WELCOME RECEPTIONIST";
             // 
-            // panel3
+            // pictureBox3
             // 
-            this.panel3.BackColor = System.Drawing.Color.Black;
-            this.panel3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.panel3.Location = new System.Drawing.Point(426, 40);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(225, 3);
-            this.panel3.TabIndex = 2;
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(62, 56);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(940, 509);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 0;
+            this.pictureBox3.TabStop = false;
+            this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
             // 
             // ReceptionistMenuForm
             // 
@@ -316,9 +327,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
             this.ReceptionistPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -344,5 +355,6 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel panel4;
     }
 }

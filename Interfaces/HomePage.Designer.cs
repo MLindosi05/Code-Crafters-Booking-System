@@ -213,7 +213,7 @@
             this.pictureBox8.Image = global::Code_Crafters_Interface_Prototype_1.Properties.Resources._395b41a8_c4da_4279_a3a4_02128a376ae91;
             this.pictureBox8.Location = new System.Drawing.Point(3, 0);
             this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(314, 255);
+            this.pictureBox8.Size = new System.Drawing.Size(314, 388);
             this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox8.TabIndex = 0;
             this.pictureBox8.TabStop = false;

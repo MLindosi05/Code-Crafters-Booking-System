@@ -80,6 +80,7 @@ namespace Code_Crafters_Interface_Prototype_1.Interfaces
         private void ReceptionistMenuForm_Load(object sender, EventArgs e)
         {
             panel1.BackColor = ColorTranslator.FromHtml("#966919");
+            panel4.BackColor = ColorTranslator.FromHtml("#966919");
         }
 
         private void ReceptionistMenuForm_MdiChildActivate(object sender, EventArgs e)
@@ -99,6 +100,31 @@ namespace Code_Crafters_Interface_Prototype_1.Interfaces
         private void pictureBox3_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void ReceptionistPanel_Paint(object sender, PaintEventArgs e)
+        {
+            button1.BackColor = ColorTranslator.FromHtml("#C99A2E");
+            button1.ForeColor = Color.White;
+
+            button2.BackColor = ColorTranslator.FromHtml("#C99A2E");
+            button2.ForeColor = Color.White;
+
+            button3.BackColor = ColorTranslator.FromHtml("#C99A2E");
+            button3.ForeColor = Color.White;
+
+            button4.BackColor = ColorTranslator.FromHtml("#C99A2E");
+            button4.ForeColor = Color.White;
+
+            button5.BackColor = ColorTranslator.FromHtml("#C99A2E");
+            button5.ForeColor = Color.White;
+
+           
+
+
+
+            button9.BackColor = ColorTranslator.FromHtml("#C99A2E");
+            button9.ForeColor = Color.White;
         }
     }
 }

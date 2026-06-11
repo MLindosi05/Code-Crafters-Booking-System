@@ -33,21 +33,20 @@
             this.codeCraftersDS = new Code_Crafters_Interface_Prototype_1.codeCraftersDS();
             this.taClientBranchBooking = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTableAdapters.ClientBranchBookingTableAdapter();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.dgvBookings = new System.Windows.Forms.DataGridView();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.txtBookingID = new System.Windows.Forms.TextBox();
-            this.lblBookingID = new System.Windows.Forms.Label();
-            this.cmbStatusActions = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.btnUpdateStatus = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.pnlViewBookings = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pnlViewBookings = new System.Windows.Forms.Panel();
+            this.btnUpdateStatus = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.cmbStatusActions = new System.Windows.Forms.ComboBox();
+            this.lblBookingID = new System.Windows.Forms.Label();
+            this.txtBookingID = new System.Windows.Forms.TextBox();
+            this.dgvBookings = new System.Windows.Forms.DataGridView();
             this.bookingIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clientIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.branchIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bookingDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.checkinDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.checkoutDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -66,11 +65,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.clientBranchBookingBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.codeCraftersDS)).BeginInit();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvBookings)).BeginInit();
-            this.panel2.SuspendLayout();
+            this.pnlViewBookings.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.pnlViewBookings.SuspendLayout();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBookings)).BeginInit();
             this.SuspendLayout();
             // 
             // clientBranchBookingBindingSource
@@ -93,20 +92,10 @@
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.pnlViewBookings);
-            this.panel1.Location = new System.Drawing.Point(146, 56);
+            this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1263, 581);
             this.panel1.TabIndex = 2;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(570, 25);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(136, 25);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "View Booking";
             // 
             // panel3
             // 
@@ -116,6 +105,117 @@
             this.panel3.Size = new System.Drawing.Size(160, 3);
             this.panel3.TabIndex = 3;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(561, 25);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(152, 25);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "VIEW BOOKING";
+            // 
+            // pnlViewBookings
+            // 
+            this.pnlViewBookings.AutoScroll = true;
+            this.pnlViewBookings.Controls.Add(this.panel4);
+            this.pnlViewBookings.Controls.Add(this.btnUpdateStatus);
+            this.pnlViewBookings.Controls.Add(this.panel2);
+            this.pnlViewBookings.Controls.Add(this.dgvBookings);
+            this.pnlViewBookings.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pnlViewBookings.Location = new System.Drawing.Point(92, 64);
+            this.pnlViewBookings.Name = "pnlViewBookings";
+            this.pnlViewBookings.Size = new System.Drawing.Size(1076, 449);
+            this.pnlViewBookings.TabIndex = 1;
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel4.Controls.Add(this.pictureBox1);
+            this.panel4.Location = new System.Drawing.Point(74, 31);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(275, 193);
+            this.panel4.TabIndex = 8;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Code_Crafters_Interface_Prototype_1.Properties.Resources.booking_hotel;
+            this.pictureBox1.Location = new System.Drawing.Point(18, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(239, 168);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 6;
+            this.pictureBox1.TabStop = false;
+            // 
+            // btnUpdateStatus
+            // 
+            this.btnUpdateStatus.BackColor = System.Drawing.Color.BurlyWood;
+            this.btnUpdateStatus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUpdateStatus.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold);
+            this.btnUpdateStatus.Location = new System.Drawing.Point(805, 171);
+            this.btnUpdateStatus.Margin = new System.Windows.Forms.Padding(2);
+            this.btnUpdateStatus.Name = "btnUpdateStatus";
+            this.btnUpdateStatus.Size = new System.Drawing.Size(137, 53);
+            this.btnUpdateStatus.TabIndex = 4;
+            this.btnUpdateStatus.Text = "UPDATE STATUS";
+            this.btnUpdateStatus.UseVisualStyleBackColor = false;
+            this.btnUpdateStatus.Click += new System.EventHandler(this.btnUpdateStatus_Click);
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel2.Controls.Add(this.label1);
+            this.panel2.Controls.Add(this.cmbStatusActions);
+            this.panel2.Controls.Add(this.lblBookingID);
+            this.panel2.Controls.Add(this.txtBookingID);
+            this.panel2.Location = new System.Drawing.Point(449, 31);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(306, 193);
+            this.panel2.TabIndex = 7;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(22, 69);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(64, 17);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "STATUS :";
+            // 
+            // cmbStatusActions
+            // 
+            this.cmbStatusActions.FormattingEnabled = true;
+            this.cmbStatusActions.Items.AddRange(new object[] {
+            "Confirmed",
+            "Checked In",
+            "Checked Out",
+            "No Show",
+            "Cancelled"});
+            this.cmbStatusActions.Location = new System.Drawing.Point(125, 65);
+            this.cmbStatusActions.Margin = new System.Windows.Forms.Padding(2);
+            this.cmbStatusActions.Name = "cmbStatusActions";
+            this.cmbStatusActions.Size = new System.Drawing.Size(164, 25);
+            this.cmbStatusActions.TabIndex = 3;
+            // 
+            // lblBookingID
+            // 
+            this.lblBookingID.AutoSize = true;
+            this.lblBookingID.Font = new System.Drawing.Font("Segoe UI", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBookingID.Location = new System.Drawing.Point(12, 21);
+            this.lblBookingID.Name = "lblBookingID";
+            this.lblBookingID.Size = new System.Drawing.Size(97, 17);
+            this.lblBookingID.TabIndex = 2;
+            this.lblBookingID.Text = " BOOKING ID :";
+            // 
+            // txtBookingID
+            // 
+            this.txtBookingID.Location = new System.Drawing.Point(126, 21);
+            this.txtBookingID.Name = "txtBookingID";
+            this.txtBookingID.Size = new System.Drawing.Size(163, 25);
+            this.txtBookingID.TabIndex = 1;
+            this.txtBookingID.TextChanged += new System.EventHandler(this.txtBookingID_TextChanged);
+            // 
             // dgvBookings
             // 
             this.dgvBookings.AutoGenerateColumns = false;
@@ -124,7 +224,6 @@
             this.dgvBookings.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.bookingIDDataGridViewTextBoxColumn,
             this.clientIDDataGridViewTextBoxColumn,
-            this.branchIDDataGridViewTextBoxColumn,
             this.bookingDateDataGridViewTextBoxColumn,
             this.checkinDateDataGridViewTextBoxColumn,
             this.checkoutDateDataGridViewTextBoxColumn,
@@ -147,107 +246,6 @@
             this.dgvBookings.Size = new System.Drawing.Size(868, 168);
             this.dgvBookings.TabIndex = 0;
             // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.panel2.Controls.Add(this.label1);
-            this.panel2.Controls.Add(this.cmbStatusActions);
-            this.panel2.Controls.Add(this.lblBookingID);
-            this.panel2.Controls.Add(this.txtBookingID);
-            this.panel2.Location = new System.Drawing.Point(449, 31);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(306, 193);
-            this.panel2.TabIndex = 7;
-            // 
-            // txtBookingID
-            // 
-            this.txtBookingID.Location = new System.Drawing.Point(126, 21);
-            this.txtBookingID.Name = "txtBookingID";
-            this.txtBookingID.Size = new System.Drawing.Size(163, 25);
-            this.txtBookingID.TabIndex = 1;
-            this.txtBookingID.TextChanged += new System.EventHandler(this.txtBookingID_TextChanged);
-            // 
-            // lblBookingID
-            // 
-            this.lblBookingID.AutoSize = true;
-            this.lblBookingID.Font = new System.Drawing.Font("Segoe UI", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBookingID.Location = new System.Drawing.Point(12, 21);
-            this.lblBookingID.Name = "lblBookingID";
-            this.lblBookingID.Size = new System.Drawing.Size(97, 17);
-            this.lblBookingID.TabIndex = 2;
-            this.lblBookingID.Text = " BOOKING ID :";
-            // 
-            // cmbStatusActions
-            // 
-            this.cmbStatusActions.FormattingEnabled = true;
-            this.cmbStatusActions.Items.AddRange(new object[] {
-            "Confirmed",
-            "Checked In",
-            "Checked Out",
-            "No Show",
-            "Cancelled"});
-            this.cmbStatusActions.Location = new System.Drawing.Point(125, 65);
-            this.cmbStatusActions.Margin = new System.Windows.Forms.Padding(2);
-            this.cmbStatusActions.Name = "cmbStatusActions";
-            this.cmbStatusActions.Size = new System.Drawing.Size(164, 25);
-            this.cmbStatusActions.TabIndex = 3;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(22, 69);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(64, 17);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "STATUS :";
-            // 
-            // btnUpdateStatus
-            // 
-            this.btnUpdateStatus.BackColor = System.Drawing.Color.BurlyWood;
-            this.btnUpdateStatus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUpdateStatus.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold);
-            this.btnUpdateStatus.Location = new System.Drawing.Point(805, 171);
-            this.btnUpdateStatus.Margin = new System.Windows.Forms.Padding(2);
-            this.btnUpdateStatus.Name = "btnUpdateStatus";
-            this.btnUpdateStatus.Size = new System.Drawing.Size(137, 53);
-            this.btnUpdateStatus.TabIndex = 4;
-            this.btnUpdateStatus.Text = "UPDATE STATUS";
-            this.btnUpdateStatus.UseVisualStyleBackColor = false;
-            this.btnUpdateStatus.Click += new System.EventHandler(this.btnUpdateStatus_Click);
-            // 
-            // panel4
-            // 
-            this.panel4.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.panel4.Controls.Add(this.pictureBox1);
-            this.panel4.Location = new System.Drawing.Point(74, 31);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(275, 193);
-            this.panel4.TabIndex = 8;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::Code_Crafters_Interface_Prototype_1.Properties.Resources.booking_hotel;
-            this.pictureBox1.Location = new System.Drawing.Point(18, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(239, 168);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 6;
-            this.pictureBox1.TabStop = false;
-            // 
-            // pnlViewBookings
-            // 
-            this.pnlViewBookings.AutoScroll = true;
-            this.pnlViewBookings.Controls.Add(this.panel4);
-            this.pnlViewBookings.Controls.Add(this.btnUpdateStatus);
-            this.pnlViewBookings.Controls.Add(this.panel2);
-            this.pnlViewBookings.Controls.Add(this.dgvBookings);
-            this.pnlViewBookings.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pnlViewBookings.Location = new System.Drawing.Point(92, 64);
-            this.pnlViewBookings.Name = "pnlViewBookings";
-            this.pnlViewBookings.Size = new System.Drawing.Size(1076, 449);
-            this.pnlViewBookings.TabIndex = 1;
-            // 
             // bookingIDDataGridViewTextBoxColumn
             // 
             this.bookingIDDataGridViewTextBoxColumn.DataPropertyName = "Booking_ID";
@@ -263,14 +261,6 @@
             this.clientIDDataGridViewTextBoxColumn.HeaderText = "CLIENT ID";
             this.clientIDDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.clientIDDataGridViewTextBoxColumn.Name = "clientIDDataGridViewTextBoxColumn";
-            // 
-            // branchIDDataGridViewTextBoxColumn
-            // 
-            this.branchIDDataGridViewTextBoxColumn.DataPropertyName = "BRANCH ID";
-            this.branchIDDataGridViewTextBoxColumn.HeaderText = "BRANCH ID";
-            this.branchIDDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.branchIDDataGridViewTextBoxColumn.Name = "branchIDDataGridViewTextBoxColumn";
-            this.branchIDDataGridViewTextBoxColumn.Width = 110;
             // 
             // bookingDateDataGridViewTextBoxColumn
             // 
@@ -409,12 +399,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.codeCraftersDS)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvBookings)).EndInit();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
+            this.pnlViewBookings.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.pnlViewBookings.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBookings)).EndInit();
             this.ResumeLayout(false);
 
         }

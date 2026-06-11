@@ -154,6 +154,26 @@ namespace Code_Crafters_Interface_Prototype_1.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _360_F_1071326094_tjUmhPv6z93aSEtnCx7jEXRkPH2XhFh7 {
+            get {
+                object obj = ResourceManager.GetObject("360_F_1071326094_tjUmhPv6z93aSEtnCx7jEXRkPH2XhFh7", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _360_F_2029401947_Z9Veo6Yk2CBRBzutfKuxqefqeZ4wS0Fr {
+            get {
+                object obj = ResourceManager.GetObject("360_F_2029401947_Z9Veo6Yk2CBRBzutfKuxqefqeZ4wS0Fr", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _395b41a8_c4da_4279_a3a4_02128a376ae9 {
             get {
                 object obj = ResourceManager.GetObject("395b41a8-c4da-4279-a3a4-02128a376ae9", resourceCulture);
@@ -214,9 +234,39 @@ namespace Code_Crafters_Interface_Prototype_1.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _8607cf68_a6fa_41b5_86b3_dc588d3fd22f {
+            get {
+                object obj = ResourceManager.GetObject("8607cf68-a6fa-41b5-86b3-dc588d3fd22f", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _8607cf68_a6fa_41b5_86b3_dc588d3fd22f1 {
+            get {
+                object obj = ResourceManager.GetObject("8607cf68-a6fa-41b5-86b3-dc588d3fd22f1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _89b00eaa_12c7_4938_bf62_3fc43f19e898 {
             get {
                 object obj = ResourceManager.GetObject("89b00eaa-12c7-4938-bf62-3fc43f19e898", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _8cdd64e2_93d5_4a29_b819_dc7645849901 {
+            get {
+                object obj = ResourceManager.GetObject("8cdd64e2-93d5-4a29-b819-dc7645849901", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -444,16 +494,6 @@ namespace Code_Crafters_Interface_Prototype_1.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap e3b71229_047b_49c4_bc19_11ca0886cc2b {
-            get {
-                object obj = ResourceManager.GetObject("e3b71229-047b-49c4-bc19-11ca0886cc2b", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap e3b71229_047b_49c4_bc19_11ca0886cc2b1 {
             get {
                 object obj = ResourceManager.GetObject("e3b71229-047b-49c4-bc19-11ca0886cc2b1", resourceCulture);
@@ -634,26 +674,6 @@ namespace Code_Crafters_Interface_Prototype_1.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap images3 {
-            get {
-                object obj = ResourceManager.GetObject("images3", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap images4 {
-            get {
-                object obj = ResourceManager.GetObject("images4", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap IMG_20260413_185400 {
             get {
                 object obj = ResourceManager.GetObject("IMG_20260413_185400", resourceCulture);
@@ -754,6 +774,16 @@ namespace Code_Crafters_Interface_Prototype_1.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Insights_into_hotel_management_salary_and_requirements_1 {
+            get {
+                object obj = ResourceManager.GetObject("Insights-into-hotel-management-salary-and-requirements-1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap istockphoto_2206124093_612x612 {
             get {
                 object obj = ResourceManager.GetObject("istockphoto-2206124093-612x612", resourceCulture);
@@ -797,16 +827,6 @@ namespace Code_Crafters_Interface_Prototype_1.Properties {
         internal static System.Drawing.Bitmap lp2_powerful_reservation_img {
             get {
                 object obj = ResourceManager.GetObject("lp2-powerful-reservation-img", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap lp2_powerful_reservation_img1 {
-            get {
-                object obj = ResourceManager.GetObject("lp2-powerful-reservation-img1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

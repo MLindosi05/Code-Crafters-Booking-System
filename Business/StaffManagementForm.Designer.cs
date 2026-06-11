@@ -36,7 +36,6 @@
             this.lblStaffID = new System.Windows.Forms.Label();
             this.btnStaffClear = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.lblStaffPassword = new System.Windows.Forms.Label();
             this.lblPhoneNumber = new System.Windows.Forms.Label();
@@ -46,7 +45,6 @@
             this.cmbBranchID = new System.Windows.Forms.ComboBox();
             this.lblStaffAddress = new System.Windows.Forms.Label();
             this.lblBranchID = new System.Windows.Forms.Label();
-            this.btnStaffDelete = new System.Windows.Forms.Button();
             this.lblStaffStatus = new System.Windows.Forms.Label();
             this.lblStaffRole = new System.Windows.Forms.Label();
             this.txtPhoneNumber = new System.Windows.Forms.TextBox();
@@ -71,18 +69,20 @@
             this.staffBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.codeCraftersDS = new Code_Crafters_Interface_Prototype_1.codeCraftersDS();
             this.txtStaffID = new System.Windows.Forms.TextBox();
+            this.btnStaffDelete = new System.Windows.Forms.Button();
             this.btnStaffAdd = new System.Windows.Forms.Button();
             this.lblStaffManagement = new System.Windows.Forms.Label();
             this.taStaffs = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTableAdapters.StaffTableAdapter();
             this.taClients = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTableAdapters.ClientTableAdapter();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStaffManagement)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.staffBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.codeCraftersDS)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -91,7 +91,7 @@
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.lblStaffManagement);
             this.panel1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel1.Location = new System.Drawing.Point(24, 32);
+            this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1202, 824);
             this.panel1.TabIndex = 1;
@@ -153,19 +153,10 @@
             // 
             this.panel5.BackColor = System.Drawing.Color.WhiteSmoke;
             this.panel5.Controls.Add(this.pictureBox1);
-            this.panel5.Location = new System.Drawing.Point(721, 78);
+            this.panel5.Location = new System.Drawing.Point(721, 34);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(396, 317);
+            this.panel5.Size = new System.Drawing.Size(396, 361);
             this.panel5.TabIndex = 4;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(20, 20);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(359, 283);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 4;
-            this.pictureBox1.TabStop = false;
             // 
             // panel2
             // 
@@ -266,16 +257,6 @@
             this.lblBranchID.Size = new System.Drawing.Size(83, 17);
             this.lblBranchID.TabIndex = 12;
             this.lblBranchID.Text = "BRANCH ID:";
-            // 
-            // btnStaffDelete
-            // 
-            this.btnStaffDelete.Location = new System.Drawing.Point(316, 688);
-            this.btnStaffDelete.Name = "btnStaffDelete";
-            this.btnStaffDelete.Size = new System.Drawing.Size(75, 33);
-            this.btnStaffDelete.TabIndex = 9;
-            this.btnStaffDelete.Text = "DELETE";
-            this.btnStaffDelete.UseVisualStyleBackColor = false;
-            this.btnStaffDelete.Click += new System.EventHandler(this.btnStaffDelete_Click);
             // 
             // lblStaffStatus
             // 
@@ -474,6 +455,16 @@
             this.txtStaffID.Click += new System.EventHandler(this.txtStaffID_TextChanged);
             this.txtStaffID.TextChanged += new System.EventHandler(this.txtStaffID_TextChanged);
             // 
+            // btnStaffDelete
+            // 
+            this.btnStaffDelete.Location = new System.Drawing.Point(316, 688);
+            this.btnStaffDelete.Name = "btnStaffDelete";
+            this.btnStaffDelete.Size = new System.Drawing.Size(75, 33);
+            this.btnStaffDelete.TabIndex = 9;
+            this.btnStaffDelete.Text = "DELETE";
+            this.btnStaffDelete.UseVisualStyleBackColor = false;
+            this.btnStaffDelete.Click += new System.EventHandler(this.btnStaffDelete_Click);
+            // 
             // btnStaffAdd
             // 
             this.btnStaffAdd.Location = new System.Drawing.Point(439, 688);
@@ -502,6 +493,16 @@
             // 
             this.taClients.ClearBeforeFill = true;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Code_Crafters_Interface_Prototype_1.Properties.Resources._360_F_1071326094_tjUmhPv6z93aSEtnCx7jEXRkPH2XhFh7;
+            this.pictureBox1.Location = new System.Drawing.Point(20, 20);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(359, 317);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 4;
+            this.pictureBox1.TabStop = false;
+            // 
             // StaffManagementForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -516,12 +517,12 @@
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel5.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStaffManagement)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.staffBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.codeCraftersDS)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
