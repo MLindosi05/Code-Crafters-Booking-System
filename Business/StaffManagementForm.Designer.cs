@@ -75,18 +75,18 @@
             this.txtStaffAddress = new System.Windows.Forms.TextBox();
             this.txtEmailAddress = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvStaffManagement)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.staffBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.codeCraftersDS)).BeginInit();
             this.panel2.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.dgvStaffManagement);
-            this.panel1.Controls.Add(this.lblStaffManagement);
-            this.panel1.Controls.Add(this.panel2);
-            this.panel1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel1.Controls.Add(this.panel4);
+            this.panel1.Controls.Add(this.panel3);
+            this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(119, 13);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
@@ -114,6 +114,67 @@
             this.dgvStaffManagement.Size = new System.Drawing.Size(1046, 240);
             this.dgvStaffManagement.TabIndex = 3;
             // 
+            // staffIDDataGridViewTextBoxColumn
+            // 
+            this.staffIDDataGridViewTextBoxColumn.DataPropertyName = "staff_ID";
+            this.staffIDDataGridViewTextBoxColumn.HeaderText = "staff_ID";
+            this.staffIDDataGridViewTextBoxColumn.Name = "staffIDDataGridViewTextBoxColumn";
+            this.staffIDDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // branchIDDataGridViewTextBoxColumn
+            // 
+            this.branchIDDataGridViewTextBoxColumn.DataPropertyName = "Branch_ID";
+            this.branchIDDataGridViewTextBoxColumn.HeaderText = "Branch_ID";
+            this.branchIDDataGridViewTextBoxColumn.Name = "branchIDDataGridViewTextBoxColumn";
+            // 
+            // staffFirstNameDataGridViewTextBoxColumn
+            // 
+            this.staffFirstNameDataGridViewTextBoxColumn.DataPropertyName = "staff_First_Name";
+            this.staffFirstNameDataGridViewTextBoxColumn.HeaderText = "staff_First_Name";
+            this.staffFirstNameDataGridViewTextBoxColumn.Name = "staffFirstNameDataGridViewTextBoxColumn";
+            // 
+            // staffSurnameDataGridViewTextBoxColumn
+            // 
+            this.staffSurnameDataGridViewTextBoxColumn.DataPropertyName = "staff_Surname";
+            this.staffSurnameDataGridViewTextBoxColumn.HeaderText = "staff_Surname";
+            this.staffSurnameDataGridViewTextBoxColumn.Name = "staffSurnameDataGridViewTextBoxColumn";
+            // 
+            // staffAddressDataGridViewTextBoxColumn
+            // 
+            this.staffAddressDataGridViewTextBoxColumn.DataPropertyName = "staff_Address";
+            this.staffAddressDataGridViewTextBoxColumn.HeaderText = "staff_Address";
+            this.staffAddressDataGridViewTextBoxColumn.Name = "staffAddressDataGridViewTextBoxColumn";
+            // 
+            // staffphonenumberDataGridViewTextBoxColumn
+            // 
+            this.staffphonenumberDataGridViewTextBoxColumn.DataPropertyName = "staff_phone_number";
+            this.staffphonenumberDataGridViewTextBoxColumn.HeaderText = "staff_phone_number";
+            this.staffphonenumberDataGridViewTextBoxColumn.Name = "staffphonenumberDataGridViewTextBoxColumn";
+            // 
+            // staffemailDataGridViewTextBoxColumn
+            // 
+            this.staffemailDataGridViewTextBoxColumn.DataPropertyName = "staff_email";
+            this.staffemailDataGridViewTextBoxColumn.HeaderText = "staff_email";
+            this.staffemailDataGridViewTextBoxColumn.Name = "staffemailDataGridViewTextBoxColumn";
+            // 
+            // staffroleDataGridViewTextBoxColumn
+            // 
+            this.staffroleDataGridViewTextBoxColumn.DataPropertyName = "staff_role";
+            this.staffroleDataGridViewTextBoxColumn.HeaderText = "staff_role";
+            this.staffroleDataGridViewTextBoxColumn.Name = "staffroleDataGridViewTextBoxColumn";
+            // 
+            // datejoinedDataGridViewTextBoxColumn
+            // 
+            this.datejoinedDataGridViewTextBoxColumn.DataPropertyName = "date_joined";
+            this.datejoinedDataGridViewTextBoxColumn.HeaderText = "date_joined";
+            this.datejoinedDataGridViewTextBoxColumn.Name = "datejoinedDataGridViewTextBoxColumn";
+            // 
+            // staffstatusDataGridViewTextBoxColumn
+            // 
+            this.staffstatusDataGridViewTextBoxColumn.DataPropertyName = "staff_status";
+            this.staffstatusDataGridViewTextBoxColumn.HeaderText = "staff_status";
+            this.staffstatusDataGridViewTextBoxColumn.Name = "staffstatusDataGridViewTextBoxColumn";
+            // 
             // staffBindingSource
             // 
             this.staffBindingSource.DataMember = "Staff";
@@ -123,6 +184,22 @@
             // 
             this.codeCraftersDS.DataSetName = "codeCraftersDS";
             this.codeCraftersDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
+            this.label1.Location = new System.Drawing.Point(510, 30);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(208, 25);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "STAFF MANAGEMENT";
+            // 
+            // codeCraftersDS1
+            // 
+            this.codeCraftersDS1.DataSetName = "codeCraftersDS";
+            this.codeCraftersDS1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // lblStaffManagement
             // 
@@ -273,95 +350,22 @@
             // 
             this.taStaff.ClearBeforeFill = true;
             // 
-            // staffIDDataGridViewTextBoxColumn
+            // panel3
             // 
-            this.staffIDDataGridViewTextBoxColumn.DataPropertyName = "staff_ID";
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.staffIDDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
-            this.staffIDDataGridViewTextBoxColumn.HeaderText = "STAFF ID";
-            this.staffIDDataGridViewTextBoxColumn.Name = "staffIDDataGridViewTextBoxColumn";
-            this.staffIDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.panel3.Controls.Add(this.panel2);
+            this.panel3.Controls.Add(this.dataGridView1);
+            this.panel3.Location = new System.Drawing.Point(50, 74);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(1200, 666);
+            this.panel3.TabIndex = 4;
             // 
-            // branchIDDataGridViewTextBoxColumn
+            // panel4
             // 
-            this.branchIDDataGridViewTextBoxColumn.DataPropertyName = "Branch_ID";
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.branchIDDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
-            this.branchIDDataGridViewTextBoxColumn.HeaderText = "BRANCH ID";
-            this.branchIDDataGridViewTextBoxColumn.Name = "branchIDDataGridViewTextBoxColumn";
-            this.branchIDDataGridViewTextBoxColumn.Width = 130;
-            // 
-            // staffFirstNameDataGridViewTextBoxColumn
-            // 
-            this.staffFirstNameDataGridViewTextBoxColumn.DataPropertyName = "staff_First_Name";
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.staffFirstNameDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
-            this.staffFirstNameDataGridViewTextBoxColumn.HeaderText = "FIRST NAME";
-            this.staffFirstNameDataGridViewTextBoxColumn.Name = "staffFirstNameDataGridViewTextBoxColumn";
-            this.staffFirstNameDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // staffSurnameDataGridViewTextBoxColumn
-            // 
-            this.staffSurnameDataGridViewTextBoxColumn.DataPropertyName = "staff_Surname";
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.staffSurnameDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle4;
-            this.staffSurnameDataGridViewTextBoxColumn.HeaderText = "SURNAME";
-            this.staffSurnameDataGridViewTextBoxColumn.Name = "staffSurnameDataGridViewTextBoxColumn";
-            this.staffSurnameDataGridViewTextBoxColumn.Width = 130;
-            // 
-            // staffAddressDataGridViewTextBoxColumn
-            // 
-            this.staffAddressDataGridViewTextBoxColumn.DataPropertyName = "staff_Address";
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.staffAddressDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle5;
-            this.staffAddressDataGridViewTextBoxColumn.HeaderText = "STAFF ADDRESS";
-            this.staffAddressDataGridViewTextBoxColumn.Name = "staffAddressDataGridViewTextBoxColumn";
-            this.staffAddressDataGridViewTextBoxColumn.Width = 180;
-            // 
-            // staffphonenumberDataGridViewTextBoxColumn
-            // 
-            this.staffphonenumberDataGridViewTextBoxColumn.DataPropertyName = "staff_phone_number";
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.staffphonenumberDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle6;
-            this.staffphonenumberDataGridViewTextBoxColumn.HeaderText = "PHONE NO.";
-            this.staffphonenumberDataGridViewTextBoxColumn.Name = "staffphonenumberDataGridViewTextBoxColumn";
-            this.staffphonenumberDataGridViewTextBoxColumn.Width = 130;
-            // 
-            // staffemailDataGridViewTextBoxColumn
-            // 
-            this.staffemailDataGridViewTextBoxColumn.DataPropertyName = "staff_email";
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.staffemailDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle7;
-            this.staffemailDataGridViewTextBoxColumn.HeaderText = "EMAIL ADDRESS";
-            this.staffemailDataGridViewTextBoxColumn.Name = "staffemailDataGridViewTextBoxColumn";
-            this.staffemailDataGridViewTextBoxColumn.Width = 180;
-            // 
-            // staffroleDataGridViewTextBoxColumn
-            // 
-            this.staffroleDataGridViewTextBoxColumn.DataPropertyName = "staff_role";
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.staffroleDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle8;
-            this.staffroleDataGridViewTextBoxColumn.HeaderText = "STAFF ROLE";
-            this.staffroleDataGridViewTextBoxColumn.Name = "staffroleDataGridViewTextBoxColumn";
-            this.staffroleDataGridViewTextBoxColumn.Width = 130;
-            // 
-            // datejoinedDataGridViewTextBoxColumn
-            // 
-            this.datejoinedDataGridViewTextBoxColumn.DataPropertyName = "date_joined";
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.datejoinedDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle9;
-            this.datejoinedDataGridViewTextBoxColumn.HeaderText = "DATE JOINED";
-            this.datejoinedDataGridViewTextBoxColumn.Name = "datejoinedDataGridViewTextBoxColumn";
-            this.datejoinedDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // staffstatusDataGridViewTextBoxColumn
-            // 
-            this.staffstatusDataGridViewTextBoxColumn.DataPropertyName = "staff_status";
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.staffstatusDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle10;
-            this.staffstatusDataGridViewTextBoxColumn.HeaderText = "STAFF STATUS";
-            this.staffstatusDataGridViewTextBoxColumn.Name = "staffstatusDataGridViewTextBoxColumn";
-            this.staffstatusDataGridViewTextBoxColumn.Width = 150;
+            this.panel4.BackColor = System.Drawing.Color.Black;
+            this.panel4.Location = new System.Drawing.Point(508, 58);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(210, 3);
+            this.panel4.TabIndex = 5;
             // 
             // lblBranchID
             // 
@@ -431,11 +435,12 @@
             this.Load += new System.EventHandler(this.StaffManagementForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvStaffManagement)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.staffBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.codeCraftersDS)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

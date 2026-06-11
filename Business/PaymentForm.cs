@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 
 namespace Code_Crafters_Interface_Prototype_1.Business
 {
@@ -185,6 +186,21 @@ namespace Code_Crafters_Interface_Prototype_1.Business
                             "System Reset Complete", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             this.Close();
+        }
+
+        private void PaymentForm_Load_1(object sender, EventArgs e)
+        {
+            this.BackColor = ColorTranslator.FromHtml("#F9EED8");
+            grbPayments.BackColor = ColorTranslator.FromHtml("#966919");
+            pnlPayments.BackColor = ColorTranslator.FromHtml("#F8F5F0");
+           btnReset.BackColor = ColorTranslator.FromHtml("#C99A2E");
+            btnReset.ForeColor = Color.White;
+
+            btnCancel.BackColor = ColorTranslator.FromHtml("#C99A2E");
+            btnCancel.ForeColor = Color.White;
+
+            btnDone.BackColor = ColorTranslator.FromHtml("#C99A2E");
+            btnDone.ForeColor = Color.White;
         }
     }
 }
