@@ -29,6 +29,16 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.staffIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -76,14 +86,14 @@
             this.panel1.Location = new System.Drawing.Point(119, 13);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1302, 758);
+            this.panel1.Size = new System.Drawing.Size(1235, 733);
             this.panel1.TabIndex = 1;
             // 
-            // dataGridView1
+            // dgvStaffManagement
             // 
-            this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvStaffManagement.AutoGenerateColumns = false;
+            this.dgvStaffManagement.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvStaffManagement.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.staffIDDataGridViewTextBoxColumn,
             this.branchIDDataGridViewTextBoxColumn,
             this.staffFirstNameDataGridViewTextBoxColumn,
@@ -182,6 +192,21 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "STAFF MANAGEMENT";
             // 
+            // codeCraftersDS1
+            // 
+            this.codeCraftersDS1.DataSetName = "codeCraftersDS";
+            this.codeCraftersDS1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // lblStaffManagement
+            // 
+            this.lblStaffManagement.AutoSize = true;
+            this.lblStaffManagement.Location = new System.Drawing.Point(556, 48);
+            this.lblStaffManagement.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblStaffManagement.Name = "lblStaffManagement";
+            this.lblStaffManagement.Size = new System.Drawing.Size(142, 17);
+            this.lblStaffManagement.TabIndex = 2;
+            this.lblStaffManagement.Text = "STAFF MANAGEMENT";
+            // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.WhiteSmoke;
@@ -203,111 +228,102 @@
             this.panel2.Size = new System.Drawing.Size(627, 317);
             this.panel2.TabIndex = 0;
             // 
-            // button4
+            // btnStaffUpdate
             // 
-            this.button4.BackColor = System.Drawing.Color.DarkGray;
-            this.button4.Location = new System.Drawing.Point(205, 256);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(91, 33);
-            this.button4.TabIndex = 11;
-            this.button4.Text = "UPDATE";
-            this.button4.UseVisualStyleBackColor = false;
+            this.btnStaffUpdate.BackColor = System.Drawing.Color.DarkGray;
+            this.btnStaffUpdate.Location = new System.Drawing.Point(205, 256);
+            this.btnStaffUpdate.Name = "btnStaffUpdate";
+            this.btnStaffUpdate.Size = new System.Drawing.Size(91, 33);
+            this.btnStaffUpdate.TabIndex = 11;
+            this.btnStaffUpdate.Text = "UPDATE";
+            this.btnStaffUpdate.UseVisualStyleBackColor = false;
             // 
-            // button3
+            // btnStaffClear
             // 
-            this.button3.BackColor = System.Drawing.Color.DarkGray;
-            this.button3.Location = new System.Drawing.Point(35, 256);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 33);
-            this.button3.TabIndex = 10;
-            this.button3.Text = "CLEAR";
-            this.button3.UseVisualStyleBackColor = false;
+            this.btnStaffClear.BackColor = System.Drawing.Color.DarkGray;
+            this.btnStaffClear.Location = new System.Drawing.Point(35, 256);
+            this.btnStaffClear.Name = "btnStaffClear";
+            this.btnStaffClear.Size = new System.Drawing.Size(75, 33);
+            this.btnStaffClear.TabIndex = 10;
+            this.btnStaffClear.Text = "CLEAR";
+            this.btnStaffClear.UseVisualStyleBackColor = false;
             // 
-            // button2
+            // btnStaffDelete
             // 
-            this.button2.BackColor = System.Drawing.Color.DarkGray;
-            this.button2.Location = new System.Drawing.Point(379, 256);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 33);
-            this.button2.TabIndex = 9;
-            this.button2.Text = "DELETE";
-            this.button2.UseVisualStyleBackColor = false;
+            this.btnStaffDelete.BackColor = System.Drawing.Color.DarkGray;
+            this.btnStaffDelete.Location = new System.Drawing.Point(379, 256);
+            this.btnStaffDelete.Name = "btnStaffDelete";
+            this.btnStaffDelete.Size = new System.Drawing.Size(75, 33);
+            this.btnStaffDelete.TabIndex = 9;
+            this.btnStaffDelete.Text = "DELETE";
+            this.btnStaffDelete.UseVisualStyleBackColor = false;
             // 
-            // button1
+            // btnStaffAdd
             // 
-            this.button1.BackColor = System.Drawing.Color.DarkGray;
-            this.button1.Location = new System.Drawing.Point(523, 256);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 33);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "ADD";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnStaffAdd.BackColor = System.Drawing.Color.DarkGray;
+            this.btnStaffAdd.Location = new System.Drawing.Point(523, 256);
+            this.btnStaffAdd.Name = "btnStaffAdd";
+            this.btnStaffAdd.Size = new System.Drawing.Size(75, 33);
+            this.btnStaffAdd.TabIndex = 8;
+            this.btnStaffAdd.Text = "ADD";
+            this.btnStaffAdd.UseVisualStyleBackColor = false;
             // 
-            // label5
+            // lblStaffStatus
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(32, 195);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(50, 13);
-            this.label5.TabIndex = 7;
-            this.label5.Text = "STATUS";
+            this.lblStaffStatus.AutoSize = true;
+            this.lblStaffStatus.Location = new System.Drawing.Point(32, 195);
+            this.lblStaffStatus.Name = "lblStaffStatus";
+            this.lblStaffStatus.Size = new System.Drawing.Size(54, 17);
+            this.lblStaffStatus.TabIndex = 7;
+            this.lblStaffStatus.Text = "STATUS";
             // 
-            // label4
+            // lblStaffPhoneNumber
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(32, 149);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(95, 13);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "PHONE NUMBER";
+            this.lblStaffPhoneNumber.AutoSize = true;
+            this.lblStaffPhoneNumber.Location = new System.Drawing.Point(32, 149);
+            this.lblStaffPhoneNumber.Name = "lblStaffPhoneNumber";
+            this.lblStaffPhoneNumber.Size = new System.Drawing.Size(111, 17);
+            this.lblStaffPhoneNumber.TabIndex = 6;
+            this.lblStaffPhoneNumber.Text = "PHONE NUMBER";
             // 
-            // label3
+            // lblStaffRole
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(32, 93);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(36, 13);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "ROLE";
+            this.lblStaffRole.AutoSize = true;
+            this.lblStaffRole.Location = new System.Drawing.Point(32, 93);
+            this.lblStaffRole.Name = "lblStaffRole";
+            this.lblStaffRole.Size = new System.Drawing.Size(40, 17);
+            this.lblStaffRole.TabIndex = 5;
+            this.lblStaffRole.Text = "ROLE";
             // 
-            // textBox2
+            // txtPhoneNumber
             // 
-            this.textBox2.Location = new System.Drawing.Point(250, 146);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(221, 20);
-            this.textBox2.TabIndex = 4;
+            this.txtPhoneNumber.Location = new System.Drawing.Point(250, 146);
+            this.txtPhoneNumber.Name = "txtPhoneNumber";
+            this.txtPhoneNumber.Size = new System.Drawing.Size(221, 25);
+            this.txtPhoneNumber.TabIndex = 4;
             // 
-            // comboBox2
+            // cmbStaffStatus
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(250, 192);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(156, 21);
-            this.comboBox2.TabIndex = 3;
+            this.cmbStaffStatus.FormattingEnabled = true;
+            this.cmbStaffStatus.Location = new System.Drawing.Point(250, 192);
+            this.cmbStaffStatus.Name = "cmbStaffStatus";
+            this.cmbStaffStatus.Size = new System.Drawing.Size(156, 25);
+            this.cmbStaffStatus.TabIndex = 3;
             // 
-            // textBox1
+            // txtStaffName
             // 
-            this.textBox1.Location = new System.Drawing.Point(250, 30);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(221, 20);
-            this.textBox1.TabIndex = 2;
+            this.txtStaffName.Location = new System.Drawing.Point(250, 30);
+            this.txtStaffName.Name = "txtStaffName";
+            this.txtStaffName.Size = new System.Drawing.Size(221, 25);
+            this.txtStaffName.TabIndex = 2;
             // 
-            // comboBox1
+            // cmbStaffRole
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(250, 90);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(156, 21);
-            this.comboBox1.TabIndex = 1;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(32, 33);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(41, 13);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "NAME:";
+            this.cmbStaffRole.FormattingEnabled = true;
+            this.cmbStaffRole.Location = new System.Drawing.Point(250, 90);
+            this.cmbStaffRole.Name = "cmbStaffRole";
+            this.cmbStaffRole.Size = new System.Drawing.Size(156, 25);
+            this.cmbStaffRole.TabIndex = 1;
             // 
             // taStaff
             // 
@@ -334,10 +350,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.PeachPuff;
             this.ClientSize = new System.Drawing.Size(1434, 866);
             this.Controls.Add(this.panel1);
             this.Name = "StaffManagementForm";
-            this.Text = "StaffManagementForm";
+            this.Text = "REGAL INN STAFF MANAGEMENT";
             this.Load += new System.EventHandler(this.StaffManagementForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -354,7 +371,24 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvStaffManagement;
+        private System.Windows.Forms.BindingSource staffBindingSource;
+        private codeCraftersDS codeCraftersDS1;
+        private System.Windows.Forms.Label lblStaffManagement;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Button btnStaffUpdate;
+        private System.Windows.Forms.Button btnStaffClear;
+        private System.Windows.Forms.Button btnStaffDelete;
+        private System.Windows.Forms.Button btnStaffAdd;
+        private System.Windows.Forms.Label lblStaffStatus;
+        private System.Windows.Forms.Label lblStaffPhoneNumber;
+        private System.Windows.Forms.Label lblStaffRole;
+        private System.Windows.Forms.TextBox txtPhoneNumber;
+        private System.Windows.Forms.ComboBox cmbStaffStatus;
+        private System.Windows.Forms.TextBox txtStaffName;
+        private System.Windows.Forms.ComboBox cmbStaffRole;
+        private System.Windows.Forms.Label lblStaffName;
+        private codeCraftersDSTableAdapters.StaffTableAdapter taStaff;
         private System.Windows.Forms.DataGridViewTextBoxColumn staffIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn branchIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn staffFirstNameDataGridViewTextBoxColumn;
