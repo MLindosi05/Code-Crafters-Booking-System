@@ -329,7 +329,7 @@
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.LightSlateGray;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ClientSize = new System.Drawing.Size(1843, 688);
+            this.ClientSize = new System.Drawing.Size(1843, 755);
             this.Controls.Add(this.pnlViewBookings);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ViewBookingForm";

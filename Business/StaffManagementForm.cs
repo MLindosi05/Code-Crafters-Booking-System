@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 
 namespace Code_Crafters_Interface_Prototype_1.Business
 {
@@ -20,6 +21,7 @@ namespace Code_Crafters_Interface_Prototype_1.Business
         private void StaffManagementForm_Load(object sender, EventArgs e)
         {
             taStaff.Fill(codeCraftersDS1.Staff);
+           
         }
     }
 }

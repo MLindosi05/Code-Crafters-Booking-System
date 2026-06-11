@@ -225,5 +225,19 @@ namespace Code_Crafters_Interface_Prototype_1.Business
             PaymentForm paymentForm = new PaymentForm(this);
             paymentForm.Show();
         }
+
+        private void BookingForm_Load_1(object sender, EventArgs e)
+        {
+            this.BackColor = ColorTranslator.FromHtml("#F9EED8");
+            pnlBooking.BackColor = ColorTranslator.FromHtml("#966919");
+            btnCreateBooking.BackColor = ColorTranslator.FromHtml("#C99A2E");
+            btnCreateBooking.ForeColor = Color.White;
+            grpBookingDetails.BackColor = ColorTranslator.FromHtml("#F8F5F0");
+        }
+
+        private void grpRegalInnBooking_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -102,7 +102,7 @@
             // 
             // grpSummary
             // 
-            this.grpSummary.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.grpSummary.BackColor = System.Drawing.Color.WhiteSmoke;
             this.grpSummary.Controls.Add(this.txtTotalPrice);
             this.grpSummary.Controls.Add(this.lblTotalPrice);
             this.grpSummary.Controls.Add(this.txtPhysicalAddress);
@@ -232,7 +232,7 @@
             // 
             // grpPayment
             // 
-            this.grpPayment.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.grpPayment.BackColor = System.Drawing.Color.WhiteSmoke;
             this.grpPayment.Controls.Add(this.cmbPaymentMethod);
             this.grpPayment.Controls.Add(this.label6);
             this.grpPayment.Location = new System.Drawing.Point(29, 301);
@@ -295,6 +295,7 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "PaymentForm";
             this.Text = "REGAL INN MAKE PAYMENTS";
+            this.Load += new System.EventHandler(this.PaymentForm_Load_1);
             this.grbPayments.ResumeLayout(false);
             this.grpSummary.ResumeLayout(false);
             this.grpSummary.PerformLayout();
