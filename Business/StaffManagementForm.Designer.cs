@@ -50,7 +50,7 @@
             this.lblStaffRole = new System.Windows.Forms.Label();
             this.txtPhoneNumber = new System.Windows.Forms.TextBox();
             this.cmbStaffStatus = new System.Windows.Forms.ComboBox();
-            this.txtStaffFullName = new System.Windows.Forms.TextBox();
+            this.txtStaffName = new System.Windows.Forms.TextBox();
             this.cmbStaffRole = new System.Windows.Forms.ComboBox();
             this.lblStaffFullName = new System.Windows.Forms.Label();
             this.dgvStaffManagement = new System.Windows.Forms.DataGridView();
@@ -215,47 +215,51 @@
             // btnStaffUpdate
             // 
             this.btnStaffUpdate.BackColor = System.Drawing.Color.DarkGray;
-            this.btnStaffUpdate.Location = new System.Drawing.Point(204, 270);
+            this.btnStaffUpdate.Location = new System.Drawing.Point(227, 573);
             this.btnStaffUpdate.Name = "btnStaffUpdate";
             this.btnStaffUpdate.Size = new System.Drawing.Size(91, 33);
             this.btnStaffUpdate.TabIndex = 11;
             this.btnStaffUpdate.Text = "UPDATE";
             this.btnStaffUpdate.UseVisualStyleBackColor = false;
+            this.btnStaffUpdate.Click += new System.EventHandler(this.btnStaffUpdate_Click);
             // 
             // btnStaffClear
             // 
             this.btnStaffClear.BackColor = System.Drawing.Color.DarkGray;
-            this.btnStaffClear.Location = new System.Drawing.Point(35, 270);
+            this.btnStaffClear.Location = new System.Drawing.Point(71, 573);
             this.btnStaffClear.Name = "btnStaffClear";
             this.btnStaffClear.Size = new System.Drawing.Size(75, 33);
             this.btnStaffClear.TabIndex = 10;
             this.btnStaffClear.Text = "CLEAR";
             this.btnStaffClear.UseVisualStyleBackColor = false;
+            this.btnStaffClear.Click += new System.EventHandler(this.btnStaffClear_Click);
             // 
             // btnStaffDelete
             // 
             this.btnStaffDelete.BackColor = System.Drawing.Color.DarkGray;
-            this.btnStaffDelete.Location = new System.Drawing.Point(380, 270);
+            this.btnStaffDelete.Location = new System.Drawing.Point(397, 573);
             this.btnStaffDelete.Name = "btnStaffDelete";
             this.btnStaffDelete.Size = new System.Drawing.Size(75, 33);
             this.btnStaffDelete.TabIndex = 9;
             this.btnStaffDelete.Text = "DELETE";
             this.btnStaffDelete.UseVisualStyleBackColor = false;
+            this.btnStaffDelete.Click += new System.EventHandler(this.btnStaffDelete_Click);
             // 
             // btnStaffAdd
             // 
             this.btnStaffAdd.BackColor = System.Drawing.Color.DarkGray;
-            this.btnStaffAdd.Location = new System.Drawing.Point(528, 270);
+            this.btnStaffAdd.Location = new System.Drawing.Point(548, 573);
             this.btnStaffAdd.Name = "btnStaffAdd";
             this.btnStaffAdd.Size = new System.Drawing.Size(75, 33);
             this.btnStaffAdd.TabIndex = 8;
             this.btnStaffAdd.Text = "ADD";
             this.btnStaffAdd.UseVisualStyleBackColor = false;
+            this.btnStaffAdd.Click += new System.EventHandler(this.btnStaffAdd_Click);
             // 
             // lblStaffStatus
             // 
             this.lblStaffStatus.AutoSize = true;
-            this.lblStaffStatus.Location = new System.Drawing.Point(32, 228);
+            this.lblStaffStatus.Location = new System.Drawing.Point(27, 287);
             this.lblStaffStatus.Name = "lblStaffStatus";
             this.lblStaffStatus.Size = new System.Drawing.Size(54, 17);
             this.lblStaffStatus.TabIndex = 7;
@@ -264,7 +268,7 @@
             // lblStaffPhoneNumber
             // 
             this.lblStaffPhoneNumber.AutoSize = true;
-            this.lblStaffPhoneNumber.Location = new System.Drawing.Point(32, 130);
+            this.lblStaffPhoneNumber.Location = new System.Drawing.Point(27, 162);
             this.lblStaffPhoneNumber.Name = "lblStaffPhoneNumber";
             this.lblStaffPhoneNumber.Size = new System.Drawing.Size(111, 17);
             this.lblStaffPhoneNumber.TabIndex = 6;
@@ -273,7 +277,7 @@
             // lblStaffRole
             // 
             this.lblStaffRole.AutoSize = true;
-            this.lblStaffRole.Location = new System.Drawing.Point(32, 194);
+            this.lblStaffRole.Location = new System.Drawing.Point(27, 253);
             this.lblStaffRole.Name = "lblStaffRole";
             this.lblStaffRole.Size = new System.Drawing.Size(85, 17);
             this.lblStaffRole.TabIndex = 5;
@@ -281,7 +285,7 @@
             // 
             // txtPhoneNumber
             // 
-            this.txtPhoneNumber.Location = new System.Drawing.Point(250, 127);
+            this.txtPhoneNumber.Location = new System.Drawing.Point(245, 159);
             this.txtPhoneNumber.Name = "txtPhoneNumber";
             this.txtPhoneNumber.Size = new System.Drawing.Size(221, 25);
             this.txtPhoneNumber.TabIndex = 4;
@@ -289,35 +293,137 @@
             // cmbStaffStatus
             // 
             this.cmbStaffStatus.FormattingEnabled = true;
-            this.cmbStaffStatus.Location = new System.Drawing.Point(250, 225);
+            this.cmbStaffStatus.Items.AddRange(new object[] {
+            "Full Time",
+            "Part Time"});
+            this.cmbStaffStatus.Location = new System.Drawing.Point(245, 284);
             this.cmbStaffStatus.Name = "cmbStaffStatus";
             this.cmbStaffStatus.Size = new System.Drawing.Size(156, 25);
             this.cmbStaffStatus.TabIndex = 3;
             // 
-            // txtStaffFullName
+            // txtStaffName
             // 
-            this.txtStaffFullName.Location = new System.Drawing.Point(250, 64);
-            this.txtStaffFullName.Name = "txtStaffFullName";
-            this.txtStaffFullName.Size = new System.Drawing.Size(221, 25);
-            this.txtStaffFullName.TabIndex = 2;
+            this.txtStaffName.Location = new System.Drawing.Point(245, 69);
+            this.txtStaffName.Name = "txtStaffName";
+            this.txtStaffName.Size = new System.Drawing.Size(221, 25);
+            this.txtStaffName.TabIndex = 2;
             // 
             // cmbStaffRole
             // 
             this.cmbStaffRole.FormattingEnabled = true;
-            this.cmbStaffRole.Location = new System.Drawing.Point(250, 194);
+            this.cmbStaffRole.Items.AddRange(new object[] {
+            "Admin",
+            "Receptionist",
+            "Manager"});
+            this.cmbStaffRole.Location = new System.Drawing.Point(245, 253);
             this.cmbStaffRole.Name = "cmbStaffRole";
             this.cmbStaffRole.Size = new System.Drawing.Size(156, 25);
             this.cmbStaffRole.TabIndex = 1;
-            this.cmbStaffRole.SelectedIndexChanged += new System.EventHandler(this.cmbStaffRole_SelectedIndexChanged);
             // 
             // lblStaffFullName
             // 
             this.lblStaffFullName.AutoSize = true;
-            this.lblStaffFullName.Location = new System.Drawing.Point(33, 67);
+            this.lblStaffFullName.Location = new System.Drawing.Point(27, 72);
             this.lblStaffFullName.Name = "lblStaffFullName";
-            this.lblStaffFullName.Size = new System.Drawing.Size(84, 17);
+            this.lblStaffFullName.Size = new System.Drawing.Size(88, 17);
             this.lblStaffFullName.TabIndex = 0;
-            this.lblStaffFullName.Text = "FULL NAME:";
+            this.lblStaffFullName.Text = "FIRST NAME:";
+            // 
+            // dgvStaffManagement
+            // 
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvStaffManagement.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvStaffManagement.AutoGenerateColumns = false;
+            this.dgvStaffManagement.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvStaffManagement.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.staffIDDataGridViewTextBoxColumn,
+            this.branchIDDataGridViewTextBoxColumn,
+            this.staffFirstNameDataGridViewTextBoxColumn,
+            this.staffSurnameDataGridViewTextBoxColumn,
+            this.staffAddressDataGridViewTextBoxColumn,
+            this.staffphonenumberDataGridViewTextBoxColumn,
+            this.staffemailDataGridViewTextBoxColumn,
+            this.staffroleDataGridViewTextBoxColumn,
+            this.datejoinedDataGridViewTextBoxColumn,
+            this.staffstatusDataGridViewTextBoxColumn});
+            this.dgvStaffManagement.DataSource = this.staffBindingSource;
+            this.dgvStaffManagement.Location = new System.Drawing.Point(71, 409);
+            this.dgvStaffManagement.Name = "dgvStaffManagement";
+            this.dgvStaffManagement.Size = new System.Drawing.Size(1055, 144);
+            this.dgvStaffManagement.TabIndex = 3;
+            // 
+            // staffIDDataGridViewTextBoxColumn
+            // 
+            this.staffIDDataGridViewTextBoxColumn.DataPropertyName = "staff_ID";
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.staffIDDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
+            this.staffIDDataGridViewTextBoxColumn.HeaderText = "STAFF ID";
+            this.staffIDDataGridViewTextBoxColumn.Name = "staffIDDataGridViewTextBoxColumn";
+            this.staffIDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.staffIDDataGridViewTextBoxColumn.Width = 105;
+            // 
+            // branchIDDataGridViewTextBoxColumn
+            // 
+            this.branchIDDataGridViewTextBoxColumn.DataPropertyName = "Branch_ID";
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.branchIDDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
+            this.branchIDDataGridViewTextBoxColumn.HeaderText = "BRANCH ID";
+            this.branchIDDataGridViewTextBoxColumn.Name = "branchIDDataGridViewTextBoxColumn";
+            this.branchIDDataGridViewTextBoxColumn.Width = 115;
+            // 
+            // staffFirstNameDataGridViewTextBoxColumn
+            // 
+            this.staffFirstNameDataGridViewTextBoxColumn.DataPropertyName = "staff_First_Name";
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.staffFirstNameDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle4;
+            this.staffFirstNameDataGridViewTextBoxColumn.HeaderText = "FIRST NAME";
+            this.staffFirstNameDataGridViewTextBoxColumn.Name = "staffFirstNameDataGridViewTextBoxColumn";
+            this.staffFirstNameDataGridViewTextBoxColumn.Width = 130;
+            // 
+            // staffSurnameDataGridViewTextBoxColumn
+            // 
+            this.staffSurnameDataGridViewTextBoxColumn.DataPropertyName = "staff_Surname";
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.staffSurnameDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle5;
+            this.staffSurnameDataGridViewTextBoxColumn.HeaderText = "SURNAME";
+            this.staffSurnameDataGridViewTextBoxColumn.Name = "staffSurnameDataGridViewTextBoxColumn";
+            this.staffSurnameDataGridViewTextBoxColumn.Width = 120;
+            // 
+            // staffAddressDataGridViewTextBoxColumn
+            // 
+            this.staffAddressDataGridViewTextBoxColumn.DataPropertyName = "staff_Address";
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.staffAddressDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle6;
+            this.staffAddressDataGridViewTextBoxColumn.HeaderText = "STAFF ADDRESS";
+            this.staffAddressDataGridViewTextBoxColumn.Name = "staffAddressDataGridViewTextBoxColumn";
+            this.staffAddressDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // staffphonenumberDataGridViewTextBoxColumn
+            // 
+            this.staffphonenumberDataGridViewTextBoxColumn.DataPropertyName = "staff_phone_number";
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.staffphonenumberDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle7;
+            this.staffphonenumberDataGridViewTextBoxColumn.HeaderText = "PHONE NO.";
+            this.staffphonenumberDataGridViewTextBoxColumn.Name = "staffphonenumberDataGridViewTextBoxColumn";
+            this.staffphonenumberDataGridViewTextBoxColumn.Width = 120;
+            // 
+            // staffemailDataGridViewTextBoxColumn
+            // 
+            this.staffemailDataGridViewTextBoxColumn.DataPropertyName = "staff_email";
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.staffemailDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle8;
+            this.staffemailDataGridViewTextBoxColumn.HeaderText = "EMAIL ADDRESS";
+            this.staffemailDataGridViewTextBoxColumn.Name = "staffemailDataGridViewTextBoxColumn";
+            this.staffemailDataGridViewTextBoxColumn.Width = 140;
+            // 
+            // staffroleDataGridViewTextBoxColumn
+            // 
+            this.staffroleDataGridViewTextBoxColumn.DataPropertyName = "staff_role";
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.staffroleDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle9;
+            this.staffroleDataGridViewTextBoxColumn.HeaderText = "STAFF ROLE";
+            this.staffroleDataGridViewTextBoxColumn.Name = "staffroleDataGridViewTextBoxColumn";
+            this.staffroleDataGridViewTextBoxColumn.Width = 130;
             // 
             // dgvStaffManagement
             // 
@@ -467,10 +573,20 @@
         private System.Windows.Forms.Label lblStaffRole;
         private System.Windows.Forms.TextBox txtPhoneNumber;
         private System.Windows.Forms.ComboBox cmbStaffStatus;
-        private System.Windows.Forms.TextBox txtStaffFullName;
+        private System.Windows.Forms.TextBox txtStaffName;
         private System.Windows.Forms.ComboBox cmbStaffRole;
         private System.Windows.Forms.Label lblStaffFullName;
         private codeCraftersDSTableAdapters.StaffTableAdapter taStaff;
+        private System.Windows.Forms.Label lblBranchID;
+        private System.Windows.Forms.Label lblEmailAddress;
+        private System.Windows.Forms.Label lblStaffAddress;
+        private System.Windows.Forms.ComboBox cmbBranchID;
+        private System.Windows.Forms.TextBox txtEmailAddress;
+        private System.Windows.Forms.TextBox txtStaffAddress;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panel4;
+        private codeCraftersDSTableAdapters.ClientTableAdapter taClient;
+        private System.Windows.Forms.Label lblSurname;
         private System.Windows.Forms.DataGridViewTextBoxColumn staffIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn branchIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn staffFirstNameDataGridViewTextBoxColumn;

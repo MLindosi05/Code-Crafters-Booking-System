@@ -140,6 +140,7 @@
             this.dgvHotelRoomManagement.Name = "dgvHotelRoomManagement";
             this.dgvHotelRoomManagement.Size = new System.Drawing.Size(982, 172);
             this.dgvHotelRoomManagement.TabIndex = 3;
+            this.dgvHotelRoomManagement.SelectionChanged += new System.EventHandler(this.dgvHotelRoomManagement_SelectionChanged);
             // 
             // hotelRoomIDDataGridViewTextBoxColumn
             // 
@@ -213,10 +214,6 @@
             this.pnlRoomManagement.Controls.Add(this.lblRoomNumber);
             this.pnlRoomManagement.Controls.Add(this.cmbBranchID);
             this.pnlRoomManagement.Controls.Add(this.lblBranchID);
-            this.pnlRoomManagement.Controls.Add(this.btnUpdateRoom);
-            this.pnlRoomManagement.Controls.Add(this.btnClearRoom);
-            this.pnlRoomManagement.Controls.Add(this.btnDeleteRoom);
-            this.pnlRoomManagement.Controls.Add(this.btnAddRoom);
             this.pnlRoomManagement.Controls.Add(this.lblRoomStatus);
             this.pnlRoomManagement.Controls.Add(this.lblRoomPrice);
             this.pnlRoomManagement.Controls.Add(this.lblRoomTypeID);
@@ -272,42 +269,46 @@
             // btnUpdateRoom
             // 
             this.btnUpdateRoom.BackColor = System.Drawing.Color.DarkGray;
-            this.btnUpdateRoom.Location = new System.Drawing.Point(205, 256);
+            this.btnUpdateRoom.Location = new System.Drawing.Point(234, 573);
             this.btnUpdateRoom.Name = "btnUpdateRoom";
             this.btnUpdateRoom.Size = new System.Drawing.Size(91, 33);
             this.btnUpdateRoom.TabIndex = 11;
             this.btnUpdateRoom.Text = "UPDATE";
             this.btnUpdateRoom.UseVisualStyleBackColor = false;
+            this.btnUpdateRoom.Click += new System.EventHandler(this.btnUpdateRoom_Click);
             // 
             // btnClearRoom
             // 
             this.btnClearRoom.BackColor = System.Drawing.Color.DarkGray;
-            this.btnClearRoom.Location = new System.Drawing.Point(35, 256);
+            this.btnClearRoom.Location = new System.Drawing.Point(69, 573);
             this.btnClearRoom.Name = "btnClearRoom";
             this.btnClearRoom.Size = new System.Drawing.Size(75, 33);
             this.btnClearRoom.TabIndex = 10;
             this.btnClearRoom.Text = "CLEAR";
             this.btnClearRoom.UseVisualStyleBackColor = false;
+            this.btnClearRoom.Click += new System.EventHandler(this.btnClearRoom_Click);
             // 
             // btnDeleteRoom
             // 
             this.btnDeleteRoom.BackColor = System.Drawing.Color.DarkGray;
-            this.btnDeleteRoom.Location = new System.Drawing.Point(379, 256);
+            this.btnDeleteRoom.Location = new System.Drawing.Point(409, 573);
             this.btnDeleteRoom.Name = "btnDeleteRoom";
             this.btnDeleteRoom.Size = new System.Drawing.Size(75, 33);
             this.btnDeleteRoom.TabIndex = 9;
             this.btnDeleteRoom.Text = "DELETE";
             this.btnDeleteRoom.UseVisualStyleBackColor = false;
+            this.btnDeleteRoom.Click += new System.EventHandler(this.btnDeleteRoom_Click);
             // 
             // btnAddRoom
             // 
             this.btnAddRoom.BackColor = System.Drawing.Color.DarkGray;
-            this.btnAddRoom.Location = new System.Drawing.Point(523, 256);
+            this.btnAddRoom.Location = new System.Drawing.Point(573, 573);
             this.btnAddRoom.Name = "btnAddRoom";
             this.btnAddRoom.Size = new System.Drawing.Size(75, 33);
             this.btnAddRoom.TabIndex = 8;
             this.btnAddRoom.Text = "ADD";
             this.btnAddRoom.UseVisualStyleBackColor = false;
+            this.btnAddRoom.Click += new System.EventHandler(this.btnAddRoom_Click);
             // 
             // lblRoomStatus
             // 
@@ -346,6 +347,10 @@
             // cmbRoomStatus
             // 
             this.cmbRoomStatus.FormattingEnabled = true;
+            this.cmbRoomStatus.Items.AddRange(new object[] {
+            "Available",
+            "Occupied",
+            "Maintenance"});
             this.cmbRoomStatus.Location = new System.Drawing.Point(250, 158);
             this.cmbRoomStatus.Name = "cmbRoomStatus";
             this.cmbRoomStatus.Size = new System.Drawing.Size(156, 24);
@@ -354,11 +359,16 @@
             // cmbRoomTypeID
             // 
             this.cmbRoomTypeID.FormattingEnabled = true;
+            this.cmbRoomTypeID.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5"});
             this.cmbRoomTypeID.Location = new System.Drawing.Point(250, 88);
             this.cmbRoomTypeID.Name = "cmbRoomTypeID";
             this.cmbRoomTypeID.Size = new System.Drawing.Size(156, 24);
             this.cmbRoomTypeID.TabIndex = 1;
-            this.cmbRoomTypeID.SelectedIndexChanged += new System.EventHandler(this.cmbRoomTypeID_SelectedIndexChanged);
             // 
             // lblRoomManagement
             // 
