@@ -481,7 +481,7 @@
             this.pnlLogin.Controls.Add(this.button1);
             this.pnlLogin.Controls.Add(this.panel1);
             this.pnlLogin.Controls.Add(this.btnHelp);
-            this.pnlLogin.Location = new System.Drawing.Point(284, 101);
+            this.pnlLogin.Location = new System.Drawing.Point(42, 12);
             this.pnlLogin.Name = "pnlLogin";
             this.pnlLogin.Size = new System.Drawing.Size(1191, 726);
             this.pnlLogin.TabIndex = 12;

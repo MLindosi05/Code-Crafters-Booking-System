@@ -475,7 +475,7 @@
             this.pnlHomePage.Controls.Add(this.panel7);
             this.pnlHomePage.Controls.Add(this.panel3);
             this.pnlHomePage.Controls.Add(this.panel4);
-            this.pnlHomePage.Location = new System.Drawing.Point(154, 94);
+            this.pnlHomePage.Location = new System.Drawing.Point(28, 12);
             this.pnlHomePage.Name = "pnlHomePage";
             this.pnlHomePage.Size = new System.Drawing.Size(1530, 836);
             this.pnlHomePage.TabIndex = 13;

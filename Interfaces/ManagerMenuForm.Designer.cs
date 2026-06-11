@@ -311,7 +311,7 @@
             this.Controls.Add(this.panel1);
             this.IsMdiContainer = true;
             this.Name = "ManagerMenuForm";
-            this.Text = "ManagerMenuForm";
+            this.Text = "REGAL INN MANEGER MENU";
             this.Load += new System.EventHandler(this.ManagerMenuForm_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

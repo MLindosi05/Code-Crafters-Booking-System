@@ -304,7 +304,7 @@
             this.Controls.Add(this.panel1);
             this.IsMdiContainer = true;
             this.Name = "ReceptionistMenuForm";
-            this.Text = "ReceptionistMenuForm";
+            this.Text = "REGAL INN RECEPTIONIST MENU";
             this.Load += new System.EventHandler(this.ReceptionistMenuForm_Load);
             this.MdiChildActivate += new System.EventHandler(this.ReceptionistMenuForm_MdiChildActivate);
             this.panel1.ResumeLayout(false);

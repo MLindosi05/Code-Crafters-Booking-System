@@ -403,7 +403,7 @@
             this.Controls.Add(this.panel1);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ViewBookingForm";
-            this.Text = "REGAL INN VIEW BOOKING";
+            this.Text = "REGAL INN VIEW BOOKINGS";
             this.Load += new System.EventHandler(this.ViewBookingForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.clientBranchBookingBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.codeCraftersDS)).EndInit();

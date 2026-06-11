@@ -634,6 +634,26 @@ namespace Code_Crafters_Interface_Prototype_1.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap images3 {
+            get {
+                object obj = ResourceManager.GetObject("images3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap images4 {
+            get {
+                object obj = ResourceManager.GetObject("images4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap IMG_20260413_185400 {
             get {
                 object obj = ResourceManager.GetObject("IMG_20260413_185400", resourceCulture);
@@ -734,6 +754,16 @@ namespace Code_Crafters_Interface_Prototype_1.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap istockphoto_2206124093_612x612 {
+            get {
+                object obj = ResourceManager.GetObject("istockphoto-2206124093-612x612", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap its_a_padlock_forgot_password_vector_icon_11553450739ggbzcdw4uv {
             get {
                 object obj = ResourceManager.GetObject("its-a-padlock-forgot-password-vector-icon-11553450739ggbzcdw4uv", resourceCulture);
@@ -757,6 +787,26 @@ namespace Code_Crafters_Interface_Prototype_1.Properties {
         internal static System.Drawing.Bitmap logout_icon_png_transparent_login_logout_icon_11562923416nzkie6fbka {
             get {
                 object obj = ResourceManager.GetObject("logout-icon-png-transparent-login-logout-icon-11562923416nzkie6fbka", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap lp2_powerful_reservation_img {
+            get {
+                object obj = ResourceManager.GetObject("lp2-powerful-reservation-img", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap lp2_powerful_reservation_img1 {
+            get {
+                object obj = ResourceManager.GetObject("lp2-powerful-reservation-img1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
