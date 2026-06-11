@@ -279,7 +279,7 @@
             // 
             this.pnlPayments.AutoScroll = true;
             this.pnlPayments.Controls.Add(this.grbPayments);
-            this.pnlPayments.Location = new System.Drawing.Point(168, 72);
+            this.pnlPayments.Location = new System.Drawing.Point(12, 12);
             this.pnlPayments.Name = "pnlPayments";
             this.pnlPayments.Size = new System.Drawing.Size(1062, 555);
             this.pnlPayments.TabIndex = 1;

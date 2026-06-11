@@ -21,15 +21,18 @@ namespace Code_Crafters_Interface_Prototype_1.Business
 
         private void ViewBookingForm_Load(object sender, EventArgs e)
         {
-            taClientBranchBooking.Fill(codeCraftersDS.ClientBranchBooking);
+            taClientBranchBooking.Fill(codeCraftersDS.ClientBranchBooking); 
+
+            
 
             if (cmbStatusActions.Items.Count > 0)
                 cmbStatusActions.SelectedIndex = 0;
-            pnlViewBookings.BackColor = ColorTranslator.FromHtml("#F8F5F0");
-            groupBox1.BackColor = ColorTranslator.FromHtml("#966919");
+            pnlViewBookings.BackColor = ColorTranslator.FromHtml("#966919");
+           // groupBox1.BackColor = ColorTranslator.FromHtml("#966919");
             this.BackColor = ColorTranslator.FromHtml("#F9EED8");
             btnUpdateStatus.BackColor = ColorTranslator.FromHtml("#C99A2E");
             btnUpdateStatus.ForeColor = Color.White;
+            panel1.BackColor = ColorTranslator.FromHtml("#F8F5F0");
         }
 
         private void txtBookingID_TextChanged(object sender, EventArgs e)

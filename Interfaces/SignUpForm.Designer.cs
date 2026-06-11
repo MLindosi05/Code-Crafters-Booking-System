@@ -288,7 +288,7 @@
             this.pnlSignUp.Controls.Add(this.pictureBox1);
             this.pnlSignUp.Controls.Add(this.button1);
             this.pnlSignUp.Controls.Add(this.groupBox4);
-            this.pnlSignUp.Location = new System.Drawing.Point(206, 151);
+            this.pnlSignUp.Location = new System.Drawing.Point(22, 12);
             this.pnlSignUp.Name = "pnlSignUp";
             this.pnlSignUp.Size = new System.Drawing.Size(1255, 426);
             this.pnlSignUp.TabIndex = 12;
