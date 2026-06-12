@@ -37,11 +37,10 @@ namespace Code_Crafters_Interface_Prototype_1.Interfaces
         private void ManagerMenuForm_Load(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Maximized;
-            lblLoggedIn.Text += Environment.NewLine + UserSession.Username;
+            lblLoggedIn.Text = UserSession.Username;
 
             panel1.BackColor = ColorTranslator.FromHtml("#966919");
             panel3.BackColor = ColorTranslator.FromHtml("#966919");
-            //panel2.BackColor = ColorTranslator.FromHtml("#966919");
             ManagerPanel.BackColor = ColorTranslator.FromHtml("#F9EED8");
             button2.BackColor = ColorTranslator.FromHtml("#C99A2E");
             button2.ForeColor = Color.White;

@@ -276,6 +276,88 @@ namespace Code_Crafters_Interface_Prototype_1.Interfaces
 
            
         }
-    
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            string enteredEmail = userNameTxt.Text.Trim();
+
+            if (string.IsNullOrEmpty(enteredEmail) || enteredEmail == "Username")
+            {
+                MessageBox.Show("Please enter your staff email address in the username field first to verify your identity.",
+                                "Email Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                userNameTxt.Focus();
+                return;
+            }
+
+            codeCraftersDS.StaffRow staffRow = codeCraftersDS1.Staff.AsEnumerable()
+                .FirstOrDefault(row => row.staff_email.Equals(enteredEmail, StringComparison.OrdinalIgnoreCase));
+
+            if (staffRow == null)
+            {
+                MessageBox.Show("No registered staff account matches that email address. Please verify your username entry.",
+                                "Account Not Found", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            string enteredIDString = Microsoft.VisualBasic.Interaction.InputBox(
+                $"Security Verification for: {staffRow.staff_email}\n\nPlease enter your numeric Staff ID to confirm ownership of this account:",
+                "Identity Verification Required",
+                "");
+
+            if (string.IsNullOrWhiteSpace(enteredIDString))
+            {
+                return;
+            }
+
+            if (!int.TryParse(enteredIDString.Trim(), out int enteredID) || enteredID != staffRow.staff_ID)
+            {
+                MessageBox.Show("Verification Failed! The Staff ID provided does not match our corporate records for this account.",
+                                "Access Denied", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                return;
+            }
+
+            string newPassword = Microsoft.VisualBasic.Interaction.InputBox(
+                "Identity Verified Successfully!\n\nPlease enter your new security password below:",
+                "Account Password Reset Manager",
+                "");
+
+            if (string.IsNullOrWhiteSpace(newPassword))
+            {
+                return;
+            }
+
+            if (newPassword.Length < 4)
+            {
+                MessageBox.Show("For security purposes, your password must contain at least 4 characters.",
+                                "Weak Password", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            try
+            {
+                staffRow.staff_Password = newPassword.Trim();
+
+                int rowsAffected = taStaff.Update(codeCraftersDS1.Staff);
+
+                if (rowsAffected > 0)
+                {
+                    MessageBox.Show("Your account credentials have been updated successfully! You can now log in with your new password.",
+                                    "Password Reset Complete", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    passwordTxt.Text = newPassword;
+                    passwordTxt.UseSystemPasswordChar = true;
+                }
+                else
+                {
+                    MessageBox.Show("The system could not save the password back to the database. Please try again.",
+                                    "Save Failure", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An unexpected database exception occurred while updating credentials:\n\n{ex.Message}",
+                                "Database Synchronization Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

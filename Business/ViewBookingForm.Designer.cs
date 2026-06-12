@@ -240,10 +240,10 @@
             this.branchEmailDataGridViewTextBoxColumn,
             this.branchStatusDataGridViewTextBoxColumn});
             this.dgvBookings.DataSource = this.clientBranchBookingBindingSource;
-            this.dgvBookings.Location = new System.Drawing.Point(74, 263);
+            this.dgvBookings.Location = new System.Drawing.Point(74, 246);
             this.dgvBookings.Name = "dgvBookings";
             this.dgvBookings.RowHeadersWidth = 51;
-            this.dgvBookings.Size = new System.Drawing.Size(868, 168);
+            this.dgvBookings.Size = new System.Drawing.Size(999, 168);
             this.dgvBookings.TabIndex = 0;
             // 
             // bookingIDDataGridViewTextBoxColumn
@@ -268,7 +268,7 @@
             this.bookingDateDataGridViewTextBoxColumn.HeaderText = "BOOKING DATE";
             this.bookingDateDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.bookingDateDataGridViewTextBoxColumn.Name = "bookingDateDataGridViewTextBoxColumn";
-            this.bookingDateDataGridViewTextBoxColumn.Width = 125;
+            this.bookingDateDataGridViewTextBoxColumn.Width = 160;
             // 
             // checkinDateDataGridViewTextBoxColumn
             // 
@@ -276,7 +276,7 @@
             this.checkinDateDataGridViewTextBoxColumn.HeaderText = "CHECKIN DATE";
             this.checkinDateDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.checkinDateDataGridViewTextBoxColumn.Name = "checkinDateDataGridViewTextBoxColumn";
-            this.checkinDateDataGridViewTextBoxColumn.Width = 125;
+            this.checkinDateDataGridViewTextBoxColumn.Width = 160;
             // 
             // checkoutDateDataGridViewTextBoxColumn
             // 
@@ -284,7 +284,7 @@
             this.checkoutDateDataGridViewTextBoxColumn.HeaderText = "CHECKOUT DATE";
             this.checkoutDateDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.checkoutDateDataGridViewTextBoxColumn.Name = "checkoutDateDataGridViewTextBoxColumn";
-            this.checkoutDateDataGridViewTextBoxColumn.Width = 120;
+            this.checkoutDateDataGridViewTextBoxColumn.Width = 160;
             // 
             // bookingTotalAmountDataGridViewTextBoxColumn
             // 
@@ -340,7 +340,7 @@
             this.phoneNumberDataGridViewTextBoxColumn.HeaderText = "PHONE NUMBER";
             this.phoneNumberDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.phoneNumberDataGridViewTextBoxColumn.Name = "phoneNumberDataGridViewTextBoxColumn";
-            this.phoneNumberDataGridViewTextBoxColumn.Width = 120;
+            this.phoneNumberDataGridViewTextBoxColumn.Width = 160;
             // 
             // branchNameDataGridViewTextBoxColumn
             // 
@@ -364,7 +364,7 @@
             this.branchPhoneDataGridViewTextBoxColumn.HeaderText = "BRANCH PHONE NUMBER";
             this.branchPhoneDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.branchPhoneDataGridViewTextBoxColumn.Name = "branchPhoneDataGridViewTextBoxColumn";
-            this.branchPhoneDataGridViewTextBoxColumn.Width = 150;
+            this.branchPhoneDataGridViewTextBoxColumn.Width = 200;
             // 
             // branchEmailDataGridViewTextBoxColumn
             // 
@@ -380,7 +380,7 @@
             this.branchStatusDataGridViewTextBoxColumn.HeaderText = "BRANCH STATUS";
             this.branchStatusDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.branchStatusDataGridViewTextBoxColumn.Name = "branchStatusDataGridViewTextBoxColumn";
-            this.branchStatusDataGridViewTextBoxColumn.Width = 120;
+            this.branchStatusDataGridViewTextBoxColumn.Width = 160;
             // 
             // ViewBookingForm
             // 
@@ -426,9 +426,9 @@
         private System.Windows.Forms.Label lblBookingID;
         private System.Windows.Forms.TextBox txtBookingID;
         private System.Windows.Forms.DataGridView dgvBookings;
+        private System.Windows.Forms.DataGridViewTextBoxColumn branchIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn bookingIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn clientIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn branchIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn bookingDateDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn checkinDateDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn checkoutDateDataGridViewTextBoxColumn;

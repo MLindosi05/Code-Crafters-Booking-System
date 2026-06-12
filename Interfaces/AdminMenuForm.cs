@@ -138,7 +138,7 @@ namespace Code_Crafters_Interface_Prototype_1.Interfaces
         private void AdminMenuForm_Load(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Maximized;
-            lblLoggedIn.Text += Environment.NewLine + UserSession.Username;
+            lblLoggedIn.Text = UserSession.Username;
 
             panel1.BackColor = ColorTranslator.FromHtml("#966919");
             panel2.BackColor = ColorTranslator.FromHtml("#966919");
@@ -171,10 +171,6 @@ namespace Code_Crafters_Interface_Prototype_1.Interfaces
             button9.ForeColor = Color.White;
 
             LoadFormIntoPanel(new AdminHomeForm());
-
-            lblLoggedIn.Text = $"Logged in as: {UserSession.Email}";
-            lblLoggedIn.Text = $"Logged in as: {UserSession.EmailAddress}";
-            lblLoggedIn.Refresh();
 
         }
 

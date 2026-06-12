@@ -36,6 +36,7 @@
             this.lblStaffID = new System.Windows.Forms.Label();
             this.btnStaffClear = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.lblStaffPassword = new System.Windows.Forms.Label();
             this.lblPhoneNumber = new System.Windows.Forms.Label();
@@ -56,6 +57,14 @@
             this.txtStaffSurname = new System.Windows.Forms.TextBox();
             this.txtStaffPassword = new System.Windows.Forms.TextBox();
             this.dgvStaffManagement = new System.Windows.Forms.DataGridView();
+            this.staffBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.codeCraftersDS = new Code_Crafters_Interface_Prototype_1.codeCraftersDS();
+            this.txtStaffID = new System.Windows.Forms.TextBox();
+            this.btnStaffDelete = new System.Windows.Forms.Button();
+            this.btnStaffAdd = new System.Windows.Forms.Button();
+            this.lblStaffManagement = new System.Windows.Forms.Label();
+            this.taStaffs = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTableAdapters.StaffTableAdapter();
+            this.taClients = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTableAdapters.ClientTableAdapter();
             this.staffIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.branchIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.staffFirstNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -66,23 +75,14 @@
             this.staffroleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.datejoinedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.staffstatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.staffBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.codeCraftersDS = new Code_Crafters_Interface_Prototype_1.codeCraftersDS();
-            this.txtStaffID = new System.Windows.Forms.TextBox();
-            this.btnStaffDelete = new System.Windows.Forms.Button();
-            this.btnStaffAdd = new System.Windows.Forms.Button();
-            this.lblStaffManagement = new System.Windows.Forms.Label();
-            this.taStaffs = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTableAdapters.StaffTableAdapter();
-            this.taClients = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTableAdapters.ClientTableAdapter();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStaffManagement)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.staffBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.codeCraftersDS)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -157,6 +157,16 @@
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(396, 361);
             this.panel5.TabIndex = 4;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Code_Crafters_Interface_Prototype_1.Properties.Resources._360_F_1071326094_tjUmhPv6z93aSEtnCx7jEXRkPH2XhFh7;
+            this.pictureBox1.Location = new System.Drawing.Point(20, 20);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(359, 317);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 4;
+            this.pictureBox1.TabStop = false;
             // 
             // panel2
             // 
@@ -364,8 +374,65 @@
             this.dgvStaffManagement.DataSource = this.staffBindingSource;
             this.dgvStaffManagement.Location = new System.Drawing.Point(71, 440);
             this.dgvStaffManagement.Name = "dgvStaffManagement";
-            this.dgvStaffManagement.Size = new System.Drawing.Size(1046, 225);
+            this.dgvStaffManagement.Size = new System.Drawing.Size(1056, 225);
             this.dgvStaffManagement.TabIndex = 3;
+            // 
+            // staffBindingSource
+            // 
+            this.staffBindingSource.DataMember = "Staff";
+            this.staffBindingSource.DataSource = this.codeCraftersDS;
+            // 
+            // codeCraftersDS
+            // 
+            this.codeCraftersDS.DataSetName = "codeCraftersDS";
+            this.codeCraftersDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // txtStaffID
+            // 
+            this.txtStaffID.Location = new System.Drawing.Point(185, 409);
+            this.txtStaffID.Name = "txtStaffID";
+            this.txtStaffID.Size = new System.Drawing.Size(91, 25);
+            this.txtStaffID.TabIndex = 21;
+            this.txtStaffID.Click += new System.EventHandler(this.txtStaffID_TextChanged);
+            this.txtStaffID.TextChanged += new System.EventHandler(this.txtStaffID_TextChanged);
+            // 
+            // btnStaffDelete
+            // 
+            this.btnStaffDelete.Location = new System.Drawing.Point(316, 688);
+            this.btnStaffDelete.Name = "btnStaffDelete";
+            this.btnStaffDelete.Size = new System.Drawing.Size(75, 33);
+            this.btnStaffDelete.TabIndex = 9;
+            this.btnStaffDelete.Text = "DELETE";
+            this.btnStaffDelete.UseVisualStyleBackColor = false;
+            this.btnStaffDelete.Click += new System.EventHandler(this.btnStaffDelete_Click);
+            // 
+            // btnStaffAdd
+            // 
+            this.btnStaffAdd.Location = new System.Drawing.Point(439, 688);
+            this.btnStaffAdd.Name = "btnStaffAdd";
+            this.btnStaffAdd.Size = new System.Drawing.Size(75, 33);
+            this.btnStaffAdd.TabIndex = 8;
+            this.btnStaffAdd.Text = "ADD";
+            this.btnStaffAdd.UseVisualStyleBackColor = false;
+            this.btnStaffAdd.Click += new System.EventHandler(this.btnStaffAdd_Click);
+            // 
+            // lblStaffManagement
+            // 
+            this.lblStaffManagement.AutoSize = true;
+            this.lblStaffManagement.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
+            this.lblStaffManagement.Location = new System.Drawing.Point(510, 13);
+            this.lblStaffManagement.Name = "lblStaffManagement";
+            this.lblStaffManagement.Size = new System.Drawing.Size(208, 25);
+            this.lblStaffManagement.TabIndex = 2;
+            this.lblStaffManagement.Text = "STAFF MANAGEMENT";
+            // 
+            // taStaffs
+            // 
+            this.taStaffs.ClearBeforeFill = true;
+            // 
+            // taClients
+            // 
+            this.taClients.ClearBeforeFill = true;
             // 
             // staffIDDataGridViewTextBoxColumn
             // 
@@ -429,79 +496,14 @@
             this.datejoinedDataGridViewTextBoxColumn.DataPropertyName = "date_joined";
             this.datejoinedDataGridViewTextBoxColumn.HeaderText = "DATE JOINED";
             this.datejoinedDataGridViewTextBoxColumn.Name = "datejoinedDataGridViewTextBoxColumn";
+            this.datejoinedDataGridViewTextBoxColumn.Width = 160;
             // 
             // staffstatusDataGridViewTextBoxColumn
             // 
             this.staffstatusDataGridViewTextBoxColumn.DataPropertyName = "staff_status";
             this.staffstatusDataGridViewTextBoxColumn.HeaderText = "STAFF STATUS";
             this.staffstatusDataGridViewTextBoxColumn.Name = "staffstatusDataGridViewTextBoxColumn";
-            // 
-            // staffBindingSource
-            // 
-            this.staffBindingSource.DataMember = "Staff";
-            this.staffBindingSource.DataSource = this.codeCraftersDS;
-            // 
-            // codeCraftersDS
-            // 
-            this.codeCraftersDS.DataSetName = "codeCraftersDS";
-            this.codeCraftersDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // txtStaffID
-            // 
-            this.txtStaffID.Location = new System.Drawing.Point(185, 409);
-            this.txtStaffID.Name = "txtStaffID";
-            this.txtStaffID.Size = new System.Drawing.Size(91, 25);
-            this.txtStaffID.TabIndex = 21;
-            this.txtStaffID.Click += new System.EventHandler(this.txtStaffID_TextChanged);
-            this.txtStaffID.TextChanged += new System.EventHandler(this.txtStaffID_TextChanged);
-            // 
-            // btnStaffDelete
-            // 
-            this.btnStaffDelete.Location = new System.Drawing.Point(316, 688);
-            this.btnStaffDelete.Name = "btnStaffDelete";
-            this.btnStaffDelete.Size = new System.Drawing.Size(75, 33);
-            this.btnStaffDelete.TabIndex = 9;
-            this.btnStaffDelete.Text = "DELETE";
-            this.btnStaffDelete.UseVisualStyleBackColor = false;
-            this.btnStaffDelete.Click += new System.EventHandler(this.btnStaffDelete_Click);
-            // 
-            // btnStaffAdd
-            // 
-            this.btnStaffAdd.Location = new System.Drawing.Point(439, 688);
-            this.btnStaffAdd.Name = "btnStaffAdd";
-            this.btnStaffAdd.Size = new System.Drawing.Size(75, 33);
-            this.btnStaffAdd.TabIndex = 8;
-            this.btnStaffAdd.Text = "ADD";
-            this.btnStaffAdd.UseVisualStyleBackColor = false;
-            this.btnStaffAdd.Click += new System.EventHandler(this.btnStaffAdd_Click);
-            // 
-            // lblStaffManagement
-            // 
-            this.lblStaffManagement.AutoSize = true;
-            this.lblStaffManagement.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
-            this.lblStaffManagement.Location = new System.Drawing.Point(510, 13);
-            this.lblStaffManagement.Name = "lblStaffManagement";
-            this.lblStaffManagement.Size = new System.Drawing.Size(208, 25);
-            this.lblStaffManagement.TabIndex = 2;
-            this.lblStaffManagement.Text = "STAFF MANAGEMENT";
-            // 
-            // taStaffs
-            // 
-            this.taStaffs.ClearBeforeFill = true;
-            // 
-            // taClients
-            // 
-            this.taClients.ClearBeforeFill = true;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::Code_Crafters_Interface_Prototype_1.Properties.Resources._360_F_1071326094_tjUmhPv6z93aSEtnCx7jEXRkPH2XhFh7;
-            this.pictureBox1.Location = new System.Drawing.Point(20, 20);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(359, 317);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 4;
-            this.pictureBox1.TabStop = false;
+            this.staffstatusDataGridViewTextBoxColumn.Width = 160;
             // 
             // StaffManagementForm
             // 
@@ -517,12 +519,12 @@
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStaffManagement)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.staffBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.codeCraftersDS)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -556,16 +558,6 @@
         private System.Windows.Forms.Panel panel4;
         private codeCraftersDSTableAdapters.ClientTableAdapter taClient;
         private System.Windows.Forms.Label lblSurname;
-        private System.Windows.Forms.DataGridViewTextBoxColumn staffIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn branchIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn staffFirstNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn staffSurnameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn staffAddressDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn staffphonenumberDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn staffemailDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn staffroleDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn datejoinedDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn staffstatusDataGridViewTextBoxColumn;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel5;
 
@@ -579,5 +571,15 @@
         private System.Windows.Forms.Button btnStaffUpdate;
         private codeCraftersDSTableAdapters.StaffTableAdapter taStaffs;
         private codeCraftersDSTableAdapters.ClientTableAdapter taClients;
+        private System.Windows.Forms.DataGridViewTextBoxColumn staffIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn branchIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn staffFirstNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn staffSurnameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn staffAddressDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn staffphonenumberDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn staffemailDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn staffroleDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn datejoinedDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn staffstatusDataGridViewTextBoxColumn;
     }
 }

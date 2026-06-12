@@ -65,8 +65,7 @@ namespace Code_Crafters_Interface_Prototype_1.Interfaces
         }
 
         private void button9_Click(object sender, EventArgs e)
-        {
-            
+        {         
 
              DialogResult result = MessageBox.Show(
              "Are you sure you want to log out?",
@@ -91,7 +90,7 @@ namespace Code_Crafters_Interface_Prototype_1.Interfaces
         private void ReceptionistMenuForm_Load(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Maximized;
-            lblLoggedIn.Text += Environment.NewLine + UserSession.Username;
+            lblLoggedIn.Text = UserSession.Username;
 
             panel1.BackColor = ColorTranslator.FromHtml("#966919");
             panel4.BackColor = ColorTranslator.FromHtml("#966919");

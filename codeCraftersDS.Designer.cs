@@ -10234,7 +10234,7 @@ SELECT Hotel_Room_ID, Branch_ID, hotel_room_type_ID, hotel_room_number, hotel_ro
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[5];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[6];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT Hotel_Room_ID, Branch_ID, hotel_room_type_ID, hotel_room_number, hotel_roo" +
@@ -10280,6 +10280,12 @@ WHERE
             this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@hotel_room_status", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "hotel_room_status", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@hotel_room_Price", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 10, 2, "Hotel_Room_Price", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Hotel_Room_ID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Hotel_Room_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._commandCollection[5] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[5].Connection = this.Connection;
+            this._commandCollection[5].CommandText = "UPDATE Hotel_Room SET hotel_room_status = @status WHERE Hotel_Room_ID = @id";
+            this._commandCollection[5].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@status", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "hotel_room_status", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Hotel_Room_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -10324,7 +10330,7 @@ WHERE
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual codeCraftersDS.Hotel_RoomDataTable GetDataBy(int hotelRoomID) {
+        public virtual codeCraftersDS.Hotel_RoomDataTable GetDataBy1(int hotelRoomID) {
             this.Adapter.SelectCommand = this.CommandCollection[2];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(hotelRoomID));
             codeCraftersDS.Hotel_RoomDataTable dataTable = new codeCraftersDS.Hotel_RoomDataTable();
@@ -10695,6 +10701,36 @@ WHERE
                 command.Parameters[4].Value = global::System.DBNull.Value;
             }
             command.Parameters[5].Value = ((int)(Hotel_Room_ID));
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            int returnValue;
+            try {
+                returnValue = command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
+        public virtual int UpdateRoomStatus(string status, int id) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[5];
+            if ((status == null)) {
+                command.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[0].Value = ((string)(status));
+            }
+            command.Parameters[1].Value = ((int)(id));
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -11340,15 +11376,13 @@ SELECT Room_Assignment_ID, Booking_ID, Hotel_Room_ID, Actual_CheckIn_Time, Actua
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NewCheckOut", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "Actual_CheckIn_Time", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = @"INSERT INTO Room_Assignment
-                         (Booking_ID, Hotel_Room_ID, Actual_CheckIn_Time, Actual_CheckOut_Time)
-VALUES        (@Booking_ID,@Hotel_Room_ID,@Actual_CheckIn_Time,@Actual_CheckOut_Time);   
+            this._commandCollection[2].CommandText = @"INSERT INTO [Room_Assignment] ([Booking_ID], [Hotel_Room_ID], [Actual_CheckIn_Time], [Actual_CheckOut_Time]) VALUES (@Booking_ID, @Hotel_Room_ID, @Actual_CheckIn_Time, @Actual_CheckOut_Time);
 SELECT Room_Assignment_ID, Booking_ID, Hotel_Room_ID, Actual_CheckIn_Time, Actual_CheckOut_Time FROM Room_Assignment WHERE (Room_Assignment_ID = SCOPE_IDENTITY())";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Booking_ID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Booking_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Hotel_Room_ID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Hotel_Room_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Actual_CheckIn_Time", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "Actual_CheckIn_Time", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Actual_CheckOut_Time", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "Actual_CheckOut_Time", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Actual_CheckIn_Time", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Actual_CheckIn_Time", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Actual_CheckOut_Time", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Actual_CheckOut_Time", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -11640,7 +11674,7 @@ SELECT Room_Assignment_ID, Booking_ID, Hotel_Room_ID, Actual_CheckIn_Time, Actua
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
-        public virtual object InsertRoomAssignment(global::System.Nullable<int> Booking_ID, global::System.Nullable<int> Hotel_Room_ID, global::System.Nullable<global::System.DateTime> Actual_CheckIn_Time, global::System.Nullable<global::System.DateTime> Actual_CheckOut_Time) {
+        public virtual object InsertRoomAssignment(global::System.Nullable<int> Booking_ID, global::System.Nullable<int> Hotel_Room_ID, string Actual_CheckIn_Time, string Actual_CheckOut_Time) {
             global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[2];
             if ((Booking_ID.HasValue == true)) {
                 command.Parameters[0].Value = ((int)(Booking_ID.Value));
@@ -11654,17 +11688,17 @@ SELECT Room_Assignment_ID, Booking_ID, Hotel_Room_ID, Actual_CheckIn_Time, Actua
             else {
                 command.Parameters[1].Value = global::System.DBNull.Value;
             }
-            if ((Actual_CheckIn_Time.HasValue == true)) {
-                command.Parameters[2].Value = ((System.DateTime)(Actual_CheckIn_Time.Value));
-            }
-            else {
+            if ((Actual_CheckIn_Time == null)) {
                 command.Parameters[2].Value = global::System.DBNull.Value;
             }
-            if ((Actual_CheckOut_Time.HasValue == true)) {
-                command.Parameters[3].Value = ((System.DateTime)(Actual_CheckOut_Time.Value));
+            else {
+                command.Parameters[2].Value = ((string)(Actual_CheckIn_Time));
+            }
+            if ((Actual_CheckOut_Time == null)) {
+                command.Parameters[3].Value = global::System.DBNull.Value;
             }
             else {
-                command.Parameters[3].Value = global::System.DBNull.Value;
+                command.Parameters[3].Value = ((string)(Actual_CheckOut_Time));
             }
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -12870,15 +12904,15 @@ SELECT Table_Allocation_ID, Booking_ID, Restuarant_Table_ID, Number_Of_Tables, A
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NewEndTime", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "Start_Time", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = @"INSERT INTO Table_Allocation
-                         (Booking_ID, Restuarant_Table_ID, Number_Of_Tables, Assignment_Type, Start_Time, End_Time)
-VALUES        (@Booking_ID,@Restuarant_Table_ID,@Number_Of_Tables,@Assignment_Type,@Start_Time,@End_Time);  
-SELECT Table_Allocation_ID, Booking_ID, Restuarant_Table_ID, Number_Of_Tables, Assignment_Type, Start_Time, End_Time FROM Table_Allocation WHERE (Table_Allocation_ID = SCOPE_IDENTITY())";
+            this._commandCollection[2].CommandText = @"INSERT INTO [Table_Allocation] ([Booking_ID], [Restuarant_Table_ID], [Start_Time], [End_Time]) 
+VALUES (@Booking_ID, @Restuarant_Table_ID, @Start_Time, @End_Time);
+
+SELECT Table_Allocation_ID, Booking_ID, Restuarant_Table_ID, Start_Time, End_Time 
+FROM Table_Allocation 
+WHERE (Table_Allocation_ID = SCOPE_IDENTITY());";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Booking_ID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Booking_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Restuarant_Table_ID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Restuarant_Table_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Number_Of_Tables", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Number_Of_Tables", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Assignment_Type", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Assignment_Type", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Start_Time", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "Start_Time", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@End_Time", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "End_Time", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
@@ -13146,7 +13180,7 @@ SELECT Table_Allocation_ID, Booking_ID, Restuarant_Table_ID, Number_Of_Tables, A
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
-        public virtual object InsertTableAllocation(global::System.Nullable<int> Booking_ID, global::System.Nullable<int> Restuarant_Table_ID, int Number_Of_Tables, string Assignment_Type, System.DateTime Start_Time, System.DateTime End_Time) {
+        public virtual object InsertTableAllocation(global::System.Nullable<int> Booking_ID, global::System.Nullable<int> Restuarant_Table_ID, System.DateTime Start_Time, System.DateTime End_Time) {
             global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[2];
             if ((Booking_ID.HasValue == true)) {
                 command.Parameters[0].Value = ((int)(Booking_ID.Value));
@@ -13160,15 +13194,8 @@ SELECT Table_Allocation_ID, Booking_ID, Restuarant_Table_ID, Number_Of_Tables, A
             else {
                 command.Parameters[1].Value = global::System.DBNull.Value;
             }
-            command.Parameters[2].Value = ((int)(Number_Of_Tables));
-            if ((Assignment_Type == null)) {
-                command.Parameters[3].Value = global::System.DBNull.Value;
-            }
-            else {
-                command.Parameters[3].Value = ((string)(Assignment_Type));
-            }
-            command.Parameters[4].Value = ((System.DateTime)(Start_Time));
-            command.Parameters[5].Value = ((System.DateTime)(End_Time));
+            command.Parameters[2].Value = ((System.DateTime)(Start_Time));
+            command.Parameters[3].Value = ((System.DateTime)(End_Time));
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -13394,7 +13421,7 @@ SELECT RestaurantTableID, Branch_ID, RestuarantTableNum, RestuarantMenuType, Tab
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[3];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[4];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT        Restuarant_Table.*\r\nFROM            Restuarant_Table";
@@ -13411,6 +13438,12 @@ SELECT RestaurantTableID, Branch_ID, RestuarantTableNum, RestuarantMenuType, Tab
                 "eID)";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@restaurantTableID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "RestaurantTableID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[3].Connection = this.Connection;
+            this._commandCollection[3].CommandText = "UPDATE Restuarant_Table SET TableStatus = @status WHERE RestaurantTableID = @id";
+            this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@status", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "TableStatus", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "RestaurantTableID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -13800,6 +13833,36 @@ SELECT RestaurantTableID, Branch_ID, RestuarantTableNum, RestuarantMenuType, Tab
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
         public virtual int Update(global::System.Nullable<int> Branch_ID, string RestuarantTableNum, string RestuarantMenuType, string TableCapacity, string TableStatus, string TableIsCombinable, string TableFeatures, int Original_RestaurantTableID, global::System.Nullable<int> Original_Branch_ID, string Original_RestuarantTableNum, string Original_RestuarantMenuType, string Original_TableCapacity, string Original_TableStatus, string Original_TableIsCombinable, string Original_TableFeatures) {
             return this.Update(Branch_ID, RestuarantTableNum, RestuarantMenuType, TableCapacity, TableStatus, TableIsCombinable, TableFeatures, Original_RestaurantTableID, Original_Branch_ID, Original_RestuarantTableNum, Original_RestuarantMenuType, Original_TableCapacity, Original_TableStatus, Original_TableIsCombinable, Original_TableFeatures, Original_RestaurantTableID);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
+        public virtual int UpdateTableStatus(string status, int id) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[3];
+            if ((status == null)) {
+                command.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[0].Value = ((string)(status));
+            }
+            command.Parameters[1].Value = ((int)(id));
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            int returnValue;
+            try {
+                returnValue = command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            return returnValue;
         }
     }
     
