@@ -123,7 +123,7 @@
             // 
             this.txtRoomID.Location = new System.Drawing.Point(163, 374);
             this.txtRoomID.Name = "txtRoomID";
-            this.txtRoomID.Size = new System.Drawing.Size(106, 25);
+            this.txtRoomID.Size = new System.Drawing.Size(106, 29);
             this.txtRoomID.TabIndex = 10;
             this.txtRoomID.TextChanged += new System.EventHandler(this.txtRoomID_TextChanged_1);
             // 
@@ -132,7 +132,7 @@
             this.lblSearchRoomID.AutoSize = true;
             this.lblSearchRoomID.Location = new System.Drawing.Point(43, 377);
             this.lblSearchRoomID.Name = "lblSearchRoomID";
-            this.lblSearchRoomID.Size = new System.Drawing.Size(114, 17);
+            this.lblSearchRoomID.Size = new System.Drawing.Size(148, 23);
             this.lblSearchRoomID.TabIndex = 9;
             this.lblSearchRoomID.Text = "ENTER ROOM ID:";
             // 
@@ -209,6 +209,7 @@
             this.dgvHotelRoomManagement.DataSource = this.hotelRoomBindingSource;
             this.dgvHotelRoomManagement.Location = new System.Drawing.Point(38, 402);
             this.dgvHotelRoomManagement.Name = "dgvHotelRoomManagement";
+            this.dgvHotelRoomManagement.RowHeadersWidth = 51;
             this.dgvHotelRoomManagement.Size = new System.Drawing.Size(873, 175);
             this.dgvHotelRoomManagement.TabIndex = 3;
             this.dgvHotelRoomManagement.SelectionChanged += new System.EventHandler(this.dgvHotelRoomManagement_SelectionChanged);
@@ -219,6 +220,7 @@
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.hotelRoomIDDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
             this.hotelRoomIDDataGridViewTextBoxColumn.HeaderText = "ROOM ID";
+            this.hotelRoomIDDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.hotelRoomIDDataGridViewTextBoxColumn.Name = "hotelRoomIDDataGridViewTextBoxColumn";
             this.hotelRoomIDDataGridViewTextBoxColumn.ReadOnly = true;
             this.hotelRoomIDDataGridViewTextBoxColumn.Width = 105;
@@ -229,6 +231,7 @@
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.branchIDDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
             this.branchIDDataGridViewTextBoxColumn.HeaderText = "BRANCH ID";
+            this.branchIDDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.branchIDDataGridViewTextBoxColumn.Name = "branchIDDataGridViewTextBoxColumn";
             this.branchIDDataGridViewTextBoxColumn.Width = 120;
             // 
@@ -238,6 +241,7 @@
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.hotelroomtypeIDDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
             this.hotelroomtypeIDDataGridViewTextBoxColumn.HeaderText = "ROOM TYPE ID";
+            this.hotelroomtypeIDDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.hotelroomtypeIDDataGridViewTextBoxColumn.Name = "hotelroomtypeIDDataGridViewTextBoxColumn";
             this.hotelroomtypeIDDataGridViewTextBoxColumn.Width = 150;
             // 
@@ -247,6 +251,7 @@
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.hotelroomnumberDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle4;
             this.hotelroomnumberDataGridViewTextBoxColumn.HeaderText = "ROOM NO.";
+            this.hotelroomnumberDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.hotelroomnumberDataGridViewTextBoxColumn.Name = "hotelroomnumberDataGridViewTextBoxColumn";
             this.hotelroomnumberDataGridViewTextBoxColumn.Width = 120;
             // 
@@ -256,6 +261,7 @@
             dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.hotelroomstatusDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle5;
             this.hotelroomstatusDataGridViewTextBoxColumn.HeaderText = "ROOOM STATUS";
+            this.hotelroomstatusDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.hotelroomstatusDataGridViewTextBoxColumn.Name = "hotelroomstatusDataGridViewTextBoxColumn";
             this.hotelroomstatusDataGridViewTextBoxColumn.Width = 160;
             // 
@@ -265,6 +271,7 @@
             dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.hotelRoomPriceDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle6;
             this.hotelRoomPriceDataGridViewTextBoxColumn.HeaderText = "ROOM PRICE";
+            this.hotelRoomPriceDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.hotelRoomPriceDataGridViewTextBoxColumn.Name = "hotelRoomPriceDataGridViewTextBoxColumn";
             this.hotelRoomPriceDataGridViewTextBoxColumn.Width = 150;
             // 
@@ -301,7 +308,7 @@
             // 
             this.txtRoomNumber.Location = new System.Drawing.Point(222, 131);
             this.txtRoomNumber.Name = "txtRoomNumber";
-            this.txtRoomNumber.Size = new System.Drawing.Size(197, 25);
+            this.txtRoomNumber.Size = new System.Drawing.Size(197, 29);
             this.txtRoomNumber.TabIndex = 15;
             // 
             // lblRoomNumber
@@ -309,7 +316,7 @@
             this.lblRoomNumber.AutoSize = true;
             this.lblRoomNumber.Location = new System.Drawing.Point(28, 134);
             this.lblRoomNumber.Name = "lblRoomNumber";
-            this.lblRoomNumber.Size = new System.Drawing.Size(76, 17);
+            this.lblRoomNumber.Size = new System.Drawing.Size(99, 23);
             this.lblRoomNumber.TabIndex = 14;
             this.lblRoomNumber.Text = "ROOM NO:";
             // 
@@ -324,7 +331,7 @@
             "BR05"});
             this.cmbBranchID.Location = new System.Drawing.Point(222, 31);
             this.cmbBranchID.Name = "cmbBranchID";
-            this.cmbBranchID.Size = new System.Drawing.Size(96, 25);
+            this.cmbBranchID.Size = new System.Drawing.Size(96, 29);
             this.cmbBranchID.TabIndex = 13;
             // 
             // lblBranchID
@@ -333,7 +340,7 @@
             this.lblBranchID.ForeColor = System.Drawing.Color.Black;
             this.lblBranchID.Location = new System.Drawing.Point(28, 34);
             this.lblBranchID.Name = "lblBranchID";
-            this.lblBranchID.Size = new System.Drawing.Size(83, 17);
+            this.lblBranchID.Size = new System.Drawing.Size(109, 23);
             this.lblBranchID.TabIndex = 12;
             this.lblBranchID.Text = "BRANCH ID:";
             // 
@@ -342,7 +349,7 @@
             this.lblRoomStatus.AutoSize = true;
             this.lblRoomStatus.Location = new System.Drawing.Point(28, 171);
             this.lblRoomStatus.Name = "lblRoomStatus";
-            this.lblRoomStatus.Size = new System.Drawing.Size(102, 17);
+            this.lblRoomStatus.Size = new System.Drawing.Size(135, 23);
             this.lblRoomStatus.TabIndex = 7;
             this.lblRoomStatus.Text = "ROOM STATUS:";
             // 
@@ -351,7 +358,7 @@
             this.lblRoomPrice.AutoSize = true;
             this.lblRoomPrice.Location = new System.Drawing.Point(28, 210);
             this.lblRoomPrice.Name = "lblRoomPrice";
-            this.lblRoomPrice.Size = new System.Drawing.Size(91, 17);
+            this.lblRoomPrice.Size = new System.Drawing.Size(119, 23);
             this.lblRoomPrice.TabIndex = 6;
             this.lblRoomPrice.Text = "ROOM PRICE:";
             // 
@@ -360,7 +367,7 @@
             this.lblRoomTypeID.AutoSize = true;
             this.lblRoomTypeID.Location = new System.Drawing.Point(28, 97);
             this.lblRoomTypeID.Name = "lblRoomTypeID";
-            this.lblRoomTypeID.Size = new System.Drawing.Size(105, 17);
+            this.lblRoomTypeID.Size = new System.Drawing.Size(135, 23);
             this.lblRoomTypeID.TabIndex = 5;
             this.lblRoomTypeID.Text = "ROOM TYPE ID:";
             // 
@@ -368,7 +375,7 @@
             // 
             this.txtRoomPrice.Location = new System.Drawing.Point(222, 207);
             this.txtRoomPrice.Name = "txtRoomPrice";
-            this.txtRoomPrice.Size = new System.Drawing.Size(197, 25);
+            this.txtRoomPrice.Size = new System.Drawing.Size(197, 29);
             this.txtRoomPrice.TabIndex = 4;
             // 
             // cmbRoomStatus
@@ -380,7 +387,7 @@
             "Maintenance"});
             this.cmbRoomStatus.Location = new System.Drawing.Point(222, 168);
             this.cmbRoomStatus.Name = "cmbRoomStatus";
-            this.cmbRoomStatus.Size = new System.Drawing.Size(139, 25);
+            this.cmbRoomStatus.Size = new System.Drawing.Size(139, 29);
             this.cmbRoomStatus.TabIndex = 3;
             // 
             // cmbRoomTypeID
@@ -394,17 +401,17 @@
             "5"});
             this.cmbRoomTypeID.Location = new System.Drawing.Point(222, 94);
             this.cmbRoomTypeID.Name = "cmbRoomTypeID";
-            this.cmbRoomTypeID.Size = new System.Drawing.Size(139, 25);
+            this.cmbRoomTypeID.Size = new System.Drawing.Size(139, 29);
             this.cmbRoomTypeID.TabIndex = 1;
             // 
             // lblRoomManagement
             // 
             this.lblRoomManagement.AutoSize = true;
             this.lblRoomManagement.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
-            this.lblRoomManagement.Location = new System.Drawing.Point(407, 34);
+            this.lblRoomManagement.Location = new System.Drawing.Point(367, 29);
             this.lblRoomManagement.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblRoomManagement.Name = "lblRoomManagement";
-            this.lblRoomManagement.Size = new System.Drawing.Size(212, 25);
+            this.lblRoomManagement.Size = new System.Drawing.Size(271, 32);
             this.lblRoomManagement.TabIndex = 2;
             this.lblRoomManagement.Text = "ROOM MANAGEMENT";
             // 
@@ -454,7 +461,7 @@
             // 
             // RoomManagementForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.PeachPuff;
             this.ClientSize = new System.Drawing.Size(1318, 944);

@@ -17,7 +17,7 @@ namespace Code_Crafters_Booking_System
         public static String TotalPrice;
 
 
-
+        public static string Username { get; set; }
         public static string Email { get; set; }
         public static string FullName { get; set; }
     }

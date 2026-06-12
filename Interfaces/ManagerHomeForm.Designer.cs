@@ -47,16 +47,18 @@
             this.ManagerPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ManagerPanel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ManagerPanel.Location = new System.Drawing.Point(0, 0);
+            this.ManagerPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ManagerPanel.Name = "ManagerPanel";
-            this.ManagerPanel.Size = new System.Drawing.Size(1456, 655);
+            this.ManagerPanel.Size = new System.Drawing.Size(1924, 806);
             this.ManagerPanel.TabIndex = 12;
             // 
             // panel3
             // 
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(0, 616);
+            this.panel3.Location = new System.Drawing.Point(0, 758);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1456, 39);
+            this.panel3.Size = new System.Drawing.Size(1924, 48);
             this.panel3.TabIndex = 1;
             // 
             // panel2
@@ -65,46 +67,51 @@
             this.panel2.Controls.Add(this.panel4);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.pictureBox3);
-            this.panel2.Location = new System.Drawing.Point(34, 53);
+            this.panel2.Location = new System.Drawing.Point(45, 65);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(982, 646);
+            this.panel2.Size = new System.Drawing.Size(1309, 795);
             this.panel2.TabIndex = 0;
             // 
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.Black;
-            this.panel4.Location = new System.Drawing.Point(383, 33);
+            this.panel4.Location = new System.Drawing.Point(511, 41);
+            this.panel4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(220, 3);
+            this.panel4.Size = new System.Drawing.Size(293, 4);
             this.panel4.TabIndex = 6;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(410, 5);
+            this.label1.Location = new System.Drawing.Point(521, 5);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(178, 25);
+            this.label1.Size = new System.Drawing.Size(260, 32);
             this.label1.TabIndex = 5;
-            this.label1.Text = "Welcome Manager";
+            this.label1.Text = "WELCOME MANAGER";
             this.label1.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             // 
             // pictureBox3
             // 
             this.pictureBox3.Image = global::Code_Crafters_Interface_Prototype_1.Properties.Resources._8607cf68_a6fa_41b5_86b3_dc588d3fd22f1;
-            this.pictureBox3.Location = new System.Drawing.Point(41, 42);
+            this.pictureBox3.Location = new System.Drawing.Point(55, 52);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(901, 594);
+            this.pictureBox3.Size = new System.Drawing.Size(1201, 731);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox3.TabIndex = 0;
             this.pictureBox3.TabStop = false;
             // 
             // ManagerHomeForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1456, 655);
+            this.ClientSize = new System.Drawing.Size(1924, 806);
             this.Controls.Add(this.ManagerPanel);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "ManagerHomeForm";
             this.Text = "ManagerHomeForm";
             this.Load += new System.EventHandler(this.ManagerHomeForm_Load);

@@ -139,6 +139,7 @@ namespace Code_Crafters_Interface_Prototype_1.Interfaces
         {
             string enteredUsername = userNameTxt.Text.Trim();
 
+
             string enteredPassword = passwordTxt.Text.Trim();
             string selectedRole = comboBox1.Text.Trim();
 
@@ -158,6 +159,7 @@ namespace Code_Crafters_Interface_Prototype_1.Interfaces
                 {
                     found = true;
 
+                    UserSession.Username = enteredUsername;  
                     UserSession.Email = row.staff_email;
                     UserSession.EmailAddress = row.staff_email;
 

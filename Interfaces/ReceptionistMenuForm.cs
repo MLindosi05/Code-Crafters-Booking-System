@@ -91,6 +91,7 @@ namespace Code_Crafters_Interface_Prototype_1.Interfaces
         private void ReceptionistMenuForm_Load(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Maximized;
+            lblLoggedIn.Text += Environment.NewLine + UserSession.Username;
 
             panel1.BackColor = ColorTranslator.FromHtml("#966919");
             panel4.BackColor = ColorTranslator.FromHtml("#966919");
@@ -140,6 +141,11 @@ namespace Code_Crafters_Interface_Prototype_1.Interfaces
 
             button9.BackColor = ColorTranslator.FromHtml("#C99A2E");
             button9.ForeColor = Color.White;
+        }
+
+        private void lblLoggedIn_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

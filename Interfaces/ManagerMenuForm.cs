@@ -37,6 +37,7 @@ namespace Code_Crafters_Interface_Prototype_1.Interfaces
         private void ManagerMenuForm_Load(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Maximized;
+            lblLoggedIn.Text += Environment.NewLine + UserSession.Username;
 
             panel1.BackColor = ColorTranslator.FromHtml("#966919");
             panel3.BackColor = ColorTranslator.FromHtml("#966919");
@@ -134,6 +135,11 @@ namespace Code_Crafters_Interface_Prototype_1.Interfaces
         }
 
         private void pictureBox15_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblLoggedIn_Click(object sender, EventArgs e)
         {
 
         }
