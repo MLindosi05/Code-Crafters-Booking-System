@@ -531,5 +531,35 @@
   <ItemGroup>
     <None Include="Resources\8cdd64e2-93d5-4a29-b819-dc7645849901.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hide pass.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hide password.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\show password 1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\show password.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hide.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hide pass.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hide %281%29.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hide %281%291.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\show 1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\show.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -13,8 +13,7 @@ namespace Code_Crafters_Interface_Prototype_1.Interfaces
 {
     public partial class Login : Form
     {
-        // Add this field to your Login class to hold a reference to the dataset
-        //private codeCraftersDS codeCraftersDS = new codeCraftersDS();
+        
 
         public Login()
         {
@@ -26,10 +25,16 @@ namespace Code_Crafters_Interface_Prototype_1.Interfaces
 
         private void Login_Load(object sender, EventArgs e)
         {
-            // Fills the dataset with client data from the database
-            this.taStaff.Fill(this.codeCraftersDS1.Staff);
+
             passwordTxt.UseSystemPasswordChar = true;
-            //main background color soft ivory 
+
+            pictureBox9.Visible = false;
+            pictureBox2.Visible = true;
+
+            this.WindowState = FormWindowState.Maximized;
+
+            this.taStaff.Fill(this.codeCraftersDS1.Staff);
+
             this.BackColor = ColorTranslator.FromHtml("#F9EED8");
             panel1.BackColor = ColorTranslator.FromHtml("#F8F5F0");
             button2.BackColor = ColorTranslator.FromHtml("#C99A2E");
@@ -38,9 +43,12 @@ namespace Code_Crafters_Interface_Prototype_1.Interfaces
         
             button1.BackColor = ColorTranslator.FromHtml("#C99A2E");
             button1.ForeColor = Color.White;
+
             panel3.BackColor = Color.Black;
             panel4.BackColor = Color.Black;
+
             button3.BackColor = ColorTranslator.FromHtml("#C99A2E");
+
             groupBox1.BackColor = ColorTranslator.FromHtml("#966919");
             pnlLogin.BackColor = ColorTranslator.FromHtml("#F8F5F0");
         }
@@ -191,8 +199,10 @@ namespace Code_Crafters_Interface_Prototype_1.Interfaces
         }
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            // Toggles between showing plain text and masking password characters
-            passwordTxt.UseSystemPasswordChar = !passwordTxt.UseSystemPasswordChar;
+            passwordTxt.UseSystemPasswordChar = false;
+
+            pictureBox9.Visible = true;
+            pictureBox2.Visible = false;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -251,5 +261,15 @@ namespace Code_Crafters_Interface_Prototype_1.Interfaces
             }
         }
 
+        private void pictureBox9_Click(object sender, EventArgs e)
+        {
+            passwordTxt.UseSystemPasswordChar = true;
+
+            pictureBox9.Visible = false;
+            pictureBox2.Visible = true;
+
+           
+        }
+    
     }
 }

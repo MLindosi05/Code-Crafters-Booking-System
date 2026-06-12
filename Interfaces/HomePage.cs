@@ -61,12 +61,19 @@ namespace Code_Crafters_Interface_Prototype_1.Interfaces
         private void HomePage_Load(object sender, EventArgs e)
         {
 
+            this.WindowState = FormWindowState.Maximized; //load full page
+
+            timer1.Interval = 1000;
+            timer1.Tick += timer1_Tick;
+            timer1.Start();
+
+            UpdateClock();
+
+
             this.BackColor = ColorTranslator.FromHtml("#F9EED8");
             btnLogin.BackColor = ColorTranslator.FromHtml("#C99A2E");
             btnLogin.ForeColor = Color.White;
             
-
-
             button1.BackColor= ColorTranslator.FromHtml("#C99A2E");
             button1.ForeColor = Color.White;
 
@@ -74,7 +81,10 @@ namespace Code_Crafters_Interface_Prototype_1.Interfaces
             button2.ForeColor = Color.White;
             panel8.BackColor = ColorTranslator.FromHtml("#966919");
             panel7.BackColor = ColorTranslator.FromHtml("#966919");
-           
+
+            panel6.BackColor = ColorTranslator.FromHtml("#966919");
+
+
             panel4.BackColor = ColorTranslator.FromHtml("#966919");
             panel3.BackColor = ColorTranslator.FromHtml("#966919");
             panel14.BackColor = ColorTranslator.FromHtml("#F6F4F1");
@@ -87,18 +97,41 @@ namespace Code_Crafters_Interface_Prototype_1.Interfaces
             pnlHomePage.BackColor = ColorTranslator.FromHtml("#F8F5F0");
 
 
-            DateTime now = DateTime.Now;
-            TimeZoneInfo localZone = TimeZoneInfo.Local;
-            label7.Text += now.ToString("MMMM dd, yyyy");
-            label8.Text += now.ToString("h:mm tt") + " " + localZone.StandardName;
+           // DateTime now = DateTime.Now;
+            //TimeZoneInfo localZone = TimeZoneInfo.Local;
+           // label7.Text += " "  + now.ToString("MMMM dd, yyyy");
+           // label8.Text += " " + now.ToString("h:mm tt") + " " + localZone.StandardName;
         
     }
+
+
+        private void UpdateClock()
+        {
+            label7.Text = DateTime.Now.ToString("dd/MM/yyyy");
+            label8.Text = DateTime.Now.ToString("HH:mm:ss");
+            
+        }
 
         private void button4_Click(object sender, EventArgs e)
         {
             SignUpForm SignUp = new SignUpForm();
             SignUp.Show();
             this.Hide();
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label12_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            UpdateClock();
         }
     }
 

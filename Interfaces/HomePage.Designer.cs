@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HomePage));
             this.button1 = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
@@ -67,6 +68,7 @@
             this.label10 = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
             this.pnlHomePage = new System.Windows.Forms.Panel();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -93,9 +95,9 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.button1.Location = new System.Drawing.Point(12, 10);
+            this.button1.Location = new System.Drawing.Point(10, 3);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(69, 22);
+            this.button1.Size = new System.Drawing.Size(85, 34);
             this.button1.TabIndex = 0;
             this.button1.Text = "About";
             this.button1.UseVisualStyleBackColor = true;
@@ -114,9 +116,9 @@
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.button2.Location = new System.Drawing.Point(87, 10);
+            this.button2.Location = new System.Drawing.Point(115, 3);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(59, 21);
+            this.button2.Size = new System.Drawing.Size(90, 34);
             this.button2.TabIndex = 4;
             this.button2.Text = "Contact Us";
             this.button2.UseVisualStyleBackColor = true;
@@ -124,6 +126,7 @@
             // 
             // btnLogin
             // 
+            this.btnLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogin.Location = new System.Drawing.Point(3, 3);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(185, 36);
@@ -155,22 +158,23 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(3, 32);
+            this.label8.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(156, 17);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(89, 13);
+            this.label8.Size = new System.Drawing.Size(49, 20);
             this.label8.TabIndex = 1;
-            this.label8.Text = "CURRENT TIME:";
+            this.label8.Text = "TIME:";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(3, 0);
+            this.label7.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(23, 17);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(90, 13);
+            this.label7.Size = new System.Drawing.Size(51, 20);
             this.label7.TabIndex = 0;
-            this.label7.Text = "CURRENT DATE:";
+            this.label7.Text = "DATE:";
+            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // panel2
             // 
@@ -221,40 +225,40 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.label1.Location = new System.Drawing.Point(128, 113);
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(124, 110);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(47, 13);
+            this.label1.Size = new System.Drawing.Size(61, 17);
             this.label1.TabIndex = 5;
             this.label1.Text = "BALLITO";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(65, 100);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(62, 15);
+            this.label2.Size = new System.Drawing.Size(71, 17);
             this.label2.TabIndex = 6;
             this.label2.Text = "UMhlanga";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(114, 100);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(51, 13);
+            this.label4.Size = new System.Drawing.Size(60, 17);
             this.label4.TabIndex = 8;
             this.label4.Text = "Midrand";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(59, 112);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(73, 15);
+            this.label5.Size = new System.Drawing.Size(84, 17);
             this.label5.TabIndex = 9;
             this.label5.Text = "North Beach";
             // 
@@ -386,11 +390,11 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.label13.Location = new System.Drawing.Point(94, 100);
+            this.label13.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(94, 96);
             this.label13.Name = "label13";
             this.label13.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label13.Size = new System.Drawing.Size(92, 13);
+            this.label13.Size = new System.Drawing.Size(112, 17);
             this.label13.TabIndex = 16;
             this.label13.Text = "Pietermaritzburg";
             // 
@@ -418,11 +422,12 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Segoe UI", 8F);
-            this.label12.Location = new System.Drawing.Point(10, 113);
+            this.label12.Location = new System.Drawing.Point(10, 118);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(244, 13);
             this.label12.TabIndex = 15;
             this.label12.Text = "208 Coubrough Rd, Noordwyk, Midrand, 1687";
+            this.label12.Click += new System.EventHandler(this.label12_Click);
             // 
             // panel15
             // 
@@ -474,13 +479,19 @@
             this.pnlHomePage.Size = new System.Drawing.Size(1530, 836);
             this.pnlHomePage.TabIndex = 13;
             // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // HomePage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.SystemColors.HighlightText;
-            this.ClientSize = new System.Drawing.Size(1804, 927);
+            this.ClientSize = new System.Drawing.Size(1621, 880);
             this.Controls.Add(this.pnlHomePage);
             this.Name = "HomePage";
             this.Text = "REGAL INN HOME PAGE";
@@ -556,5 +567,6 @@
         private System.Windows.Forms.Panel panel14;
         private System.Windows.Forms.Panel panel15;
         private System.Windows.Forms.Panel pnlHomePage;
+        private System.Windows.Forms.Timer timer1;
     }
 }
