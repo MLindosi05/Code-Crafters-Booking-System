@@ -36,6 +36,8 @@ namespace Code_Crafters_Interface_Prototype_1.Interfaces
 
         private void ManagerMenuForm_Load(object sender, EventArgs e)
         {
+            this.WindowState = FormWindowState.Maximized;
+
             panel1.BackColor = ColorTranslator.FromHtml("#966919");
             panel3.BackColor = ColorTranslator.FromHtml("#966919");
             //panel2.BackColor = ColorTranslator.FromHtml("#966919");
@@ -59,23 +61,20 @@ namespace Code_Crafters_Interface_Prototype_1.Interfaces
             button7.BackColor = ColorTranslator.FromHtml("#C99A2E");
             button7.ForeColor = Color.White;
 
+            button8.BackColor = ColorTranslator.FromHtml("#C99A2E");
+            button8.ForeColor = Color.White;
+
 
 
             button9.BackColor = ColorTranslator.FromHtml("#C99A2E");
             button9.ForeColor = Color.White;
+
+            LoadFormIntoPanel(new ManagerHomeForm());
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (ManagerPanel.Controls.Count > 0)
-            {
-
-                foreach (Control ctrl in ManagerPanel.Controls)
-                {
-                    ctrl.Dispose();
-                }
-                ManagerPanel.Controls.Clear();
-            }
+            LoadFormIntoPanel(new ManagerHomeForm());
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -100,7 +99,23 @@ namespace Code_Crafters_Interface_Prototype_1.Interfaces
 
         private void button9_Click(object sender, EventArgs e)
         {
-            LoadFormIntoPanel(new Login());
+            DialogResult result = MessageBox.Show(
+             "Are you sure you want to log out?",
+             "Confirm Logout",
+             MessageBoxButtons.YesNo,
+             MessageBoxIcon.Question,
+             MessageBoxDefaultButton.Button2);
+
+            if (result == DialogResult.Yes)
+            {
+
+                Login login = new Login();
+                login.Show();
+
+
+                this.Hide();
+            }
+
         }
 
         private void button6_Click(object sender, EventArgs e)

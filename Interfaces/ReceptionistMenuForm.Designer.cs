@@ -81,7 +81,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(210, 769);
+            this.panel1.Size = new System.Drawing.Size(210, 735);
             this.panel1.TabIndex = 8;
             // 
             // pictureBox1
@@ -253,16 +253,16 @@
             this.ReceptionistPanel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ReceptionistPanel.Location = new System.Drawing.Point(210, 0);
             this.ReceptionistPanel.Name = "ReceptionistPanel";
-            this.ReceptionistPanel.Size = new System.Drawing.Size(1261, 769);
+            this.ReceptionistPanel.Size = new System.Drawing.Size(1211, 735);
             this.ReceptionistPanel.TabIndex = 10;
             this.ReceptionistPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.ReceptionistPanel_Paint);
             // 
             // panel4
             // 
             this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel4.Location = new System.Drawing.Point(0, 722);
+            this.panel4.Location = new System.Drawing.Point(0, 688);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1261, 47);
+            this.panel4.Size = new System.Drawing.Size(1211, 47);
             this.panel4.TabIndex = 3;
             // 
             // panel2
@@ -271,7 +271,7 @@
             this.panel2.Controls.Add(this.panel3);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.pictureBox3);
-            this.panel2.Location = new System.Drawing.Point(88, 78);
+            this.panel2.Location = new System.Drawing.Point(48, 39);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1109, 609);
             this.panel2.TabIndex = 1;
@@ -310,7 +310,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1471, 769);
+            this.ClientSize = new System.Drawing.Size(1421, 735);
             this.Controls.Add(this.ReceptionistPanel);
             this.Controls.Add(this.panel1);
             this.IsMdiContainer = true;

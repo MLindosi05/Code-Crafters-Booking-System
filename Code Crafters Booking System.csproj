@@ -96,17 +96,35 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>codeCraftersDS.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Interfaces\AdminHomeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interfaces\AdminHomeForm.Designer.cs">
+      <DependentUpon>AdminHomeForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Interfaces\AdminMenuForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Interfaces\AdminMenuForm.Designer.cs">
       <DependentUpon>AdminMenuForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Interfaces\ManagerHomeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interfaces\ManagerHomeForm.Designer.cs">
+      <DependentUpon>ManagerHomeForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Interfaces\ManagerMenuForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Interfaces\ManagerMenuForm.Designer.cs">
       <DependentUpon>ManagerMenuForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Interfaces\ReceptionistHomeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interfaces\ReceptionistHomeForm.Designer.cs">
+      <DependentUpon>ReceptionistHomeForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Interfaces\ReceptionistMenuForm.cs">
       <SubType>Form</SubType>
@@ -166,11 +184,20 @@
     <EmbeddedResource Include="Business\ViewBookingForm.resx">
       <DependentUpon>ViewBookingForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Interfaces\AdminHomeForm.resx">
+      <DependentUpon>AdminHomeForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Interfaces\AdminMenuForm.resx">
       <DependentUpon>AdminMenuForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Interfaces\ManagerHomeForm.resx">
+      <DependentUpon>ManagerHomeForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Interfaces\ManagerMenuForm.resx">
       <DependentUpon>ManagerMenuForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Interfaces\ReceptionistHomeForm.resx">
+      <DependentUpon>ReceptionistHomeForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Interfaces\ReceptionistMenuForm.resx">
       <DependentUpon>ReceptionistMenuForm.cs</DependentUpon>

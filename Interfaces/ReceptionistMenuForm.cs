@@ -21,15 +21,7 @@ namespace Code_Crafters_Interface_Prototype_1.Interfaces
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (ReceptionistPanel.Controls.Count > 0)
-            {
-
-                foreach (Control ctrl in ReceptionistPanel.Controls)
-                {
-                    ctrl.Dispose();
-                }
-                ReceptionistPanel.Controls.Clear();
-            }
+            LoadFormIntoPanel(new ReceptionistHomeForm());
         }
 
         private void LoadFormIntoPanel(Form form)
@@ -74,13 +66,36 @@ namespace Code_Crafters_Interface_Prototype_1.Interfaces
 
         private void button9_Click(object sender, EventArgs e)
         {
-            LoadFormIntoPanel(new Login());
+            
+
+             DialogResult result = MessageBox.Show(
+             "Are you sure you want to log out?",
+             "Confirm Logout",
+             MessageBoxButtons.YesNo,
+             MessageBoxIcon.Question,
+             MessageBoxDefaultButton.Button2); 
+
+            if (result == DialogResult.Yes)
+            {
+                    
+                Login login = new Login();
+                login.Show();
+
+                    
+                this.Hide();
+            }
+                
+            
         }
 
         private void ReceptionistMenuForm_Load(object sender, EventArgs e)
         {
+            this.WindowState = FormWindowState.Maximized;
+
             panel1.BackColor = ColorTranslator.FromHtml("#966919");
             panel4.BackColor = ColorTranslator.FromHtml("#966919");
+
+            LoadFormIntoPanel(new ReceptionistHomeForm());
         }
 
         private void ReceptionistMenuForm_MdiChildActivate(object sender, EventArgs e)

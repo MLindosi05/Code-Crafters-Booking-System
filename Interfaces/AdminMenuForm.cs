@@ -44,16 +44,7 @@ namespace Code_Crafters_Interface_Prototype_1.Interfaces
         {
             {
 
-                if (adminPanel.Controls.Count > 0)
-                {
-
-                    foreach (Control ctrl in adminPanel.Controls)
-                    {
-                        ctrl.Dispose();
-                    }
-                    adminPanel.Controls.Clear();
-                }
-               // MdiChildren.Close(); ;
+                LoadFormIntoPanel(new AdminHomeForm());
             } 
         }
 
@@ -89,7 +80,23 @@ namespace Code_Crafters_Interface_Prototype_1.Interfaces
 
         private void button9_Click(object sender, EventArgs e)
         {
-            LoadFormIntoPanel(new Login());
+            DialogResult result = MessageBox.Show(
+             "Are you sure you want to log out?",
+             "Confirm Logout",
+             MessageBoxButtons.YesNo,
+             MessageBoxIcon.Question,
+             MessageBoxDefaultButton.Button2);
+
+            if (result == DialogResult.Yes)
+            {
+
+                Login login = new Login();
+                login.Show();
+
+
+                this.Hide();
+            }
+
         }
 
         private void adminPanel_Paint(object sender, PaintEventArgs e)
@@ -130,6 +137,8 @@ namespace Code_Crafters_Interface_Prototype_1.Interfaces
 
         private void AdminMenuForm_Load(object sender, EventArgs e)
         {
+            this.WindowState = FormWindowState.Maximized;
+
             panel1.BackColor = ColorTranslator.FromHtml("#966919");
             panel2.BackColor = ColorTranslator.FromHtml("#966919");
             adminPanel.BackColor = ColorTranslator.FromHtml("#F9EED8");
@@ -160,6 +169,7 @@ namespace Code_Crafters_Interface_Prototype_1.Interfaces
             button9.BackColor = ColorTranslator.FromHtml("#C99A2E");
             button9.ForeColor = Color.White;
 
+            LoadFormIntoPanel(new AdminHomeForm());
 
         }
     }
