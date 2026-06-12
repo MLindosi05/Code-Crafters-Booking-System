@@ -441,7 +441,6 @@ namespace Code_Crafters_Interface_Prototype_1.Business
             UserSession.TotalPrice = txtTotalAmount.Text;
 
             MessageBox.Show("Booking successfully created with all selected accommodations!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            ClearControls();
         }
     }
 }

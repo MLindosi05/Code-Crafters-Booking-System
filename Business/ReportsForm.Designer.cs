@@ -34,21 +34,24 @@
             this.btnRoomReport = new System.Windows.Forms.Button();
             this.dgvReportSummary = new System.Windows.Forms.DataGridView();
             this.txtTotalEnterpriseRevenue = new System.Windows.Forms.TextBox();
+            this.pnlTop = new System.Windows.Forms.Panel();
+            this.btnTableReport = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.crystalReportViewerRegalInn = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
             this.taBookingReport = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTableAdapters.BookingTableAdapter();
             this.taClientReport = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTableAdapters.ClientTableAdapter();
             this.taFolioReport = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTableAdapters.FolioTableAdapter();
             this.codeCraftersDS = new Code_Crafters_Interface_Prototype_1.codeCraftersDS();
-            this.pnlTop = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.crystalReportViewerRegalInn = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
             this.taRoomAssignmentReport = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTableAdapters.Room_AssignmentTableAdapter();
             this.taHotelRoomReport = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTableAdapters.Hotel_RoomTableAdapter();
             this.taBranchReport = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTableAdapters.BranchTableAdapter();
+            this.taTable = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTableAdapters.Restuarant_TableTableAdapter();
+            this.taTableAllocation = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTableAdapters.Table_AllocationTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReportSummary)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.codeCraftersDS)).BeginInit();
             this.pnlTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.codeCraftersDS)).BeginInit();
             this.SuspendLayout();
             // 
             // lblTitle
@@ -116,26 +119,10 @@
             this.txtTotalEnterpriseRevenue.Size = new System.Drawing.Size(134, 20);
             this.txtTotalEnterpriseRevenue.TabIndex = 3;
             // 
-            // taBookingReport
-            // 
-            this.taBookingReport.ClearBeforeFill = true;
-            // 
-            // taClientReport
-            // 
-            this.taClientReport.ClearBeforeFill = true;
-            // 
-            // taFolioReport
-            // 
-            this.taFolioReport.ClearBeforeFill = true;
-            // 
-            // codeCraftersDS
-            // 
-            this.codeCraftersDS.DataSetName = "codeCraftersDS";
-            this.codeCraftersDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // pnlTop
             // 
             this.pnlTop.AutoScroll = true;
+            this.pnlTop.Controls.Add(this.btnTableReport);
             this.pnlTop.Controls.Add(this.pictureBox1);
             this.pnlTop.Controls.Add(this.panel1);
             this.pnlTop.Controls.Add(this.lblTitle);
@@ -144,13 +131,25 @@
             this.pnlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlTop.Location = new System.Drawing.Point(0, 0);
             this.pnlTop.Name = "pnlTop";
-            this.pnlTop.Size = new System.Drawing.Size(986, 90);
+            this.pnlTop.Size = new System.Drawing.Size(1124, 90);
             this.pnlTop.TabIndex = 5;
+            // 
+            // btnTableReport
+            // 
+            this.btnTableReport.BackColor = System.Drawing.Color.Transparent;
+            this.btnTableReport.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTableReport.Location = new System.Drawing.Point(627, 46);
+            this.btnTableReport.Name = "btnTableReport";
+            this.btnTableReport.Size = new System.Drawing.Size(172, 36);
+            this.btnTableReport.TabIndex = 6;
+            this.btnTableReport.Text = "TABLE OCCUPANCY REPORT";
+            this.btnTableReport.UseVisualStyleBackColor = false;
+            this.btnTableReport.Click += new System.EventHandler(this.btnTableReport_Click);
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::Code_Crafters_Interface_Prototype_1.Properties.Resources.Generate_Reports;
-            this.pictureBox1.Location = new System.Drawing.Point(635, 9);
+            this.pictureBox1.Location = new System.Drawing.Point(885, 9);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(168, 73);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -173,8 +172,25 @@
             this.crystalReportViewerRegalInn.Dock = System.Windows.Forms.DockStyle.Fill;
             this.crystalReportViewerRegalInn.Location = new System.Drawing.Point(0, 90);
             this.crystalReportViewerRegalInn.Name = "crystalReportViewerRegalInn";
-            this.crystalReportViewerRegalInn.Size = new System.Drawing.Size(986, 430);
+            this.crystalReportViewerRegalInn.Size = new System.Drawing.Size(1124, 430);
             this.crystalReportViewerRegalInn.TabIndex = 4;
+            // 
+            // taBookingReport
+            // 
+            this.taBookingReport.ClearBeforeFill = true;
+            // 
+            // taClientReport
+            // 
+            this.taClientReport.ClearBeforeFill = true;
+            // 
+            // taFolioReport
+            // 
+            this.taFolioReport.ClearBeforeFill = true;
+            // 
+            // codeCraftersDS
+            // 
+            this.codeCraftersDS.DataSetName = "codeCraftersDS";
+            this.codeCraftersDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // taRoomAssignmentReport
             // 
@@ -188,13 +204,21 @@
             // 
             this.taBranchReport.ClearBeforeFill = true;
             // 
+            // taTable
+            // 
+            this.taTable.ClearBeforeFill = true;
+            // 
+            // taTableAllocation
+            // 
+            this.taTableAllocation.ClearBeforeFill = true;
+            // 
             // ReportsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.SystemColors.Info;
-            this.ClientSize = new System.Drawing.Size(986, 520);
+            this.ClientSize = new System.Drawing.Size(1124, 520);
             this.Controls.Add(this.crystalReportViewerRegalInn);
             this.Controls.Add(this.pnlTop);
             this.Controls.Add(this.txtTotalEnterpriseRevenue);
@@ -205,10 +229,10 @@
             this.Text = "REGAL INN REPORTS";
             this.Load += new System.EventHandler(this.ReportsForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvReportSummary)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.codeCraftersDS)).EndInit();
             this.pnlTop.ResumeLayout(false);
             this.pnlTop.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.codeCraftersDS)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -233,5 +257,8 @@
         private codeCraftersDSTableAdapters.BranchTableAdapter taBranchReport;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button btnTableReport;
+        private codeCraftersDSTableAdapters.Restuarant_TableTableAdapter taTable;
+        private codeCraftersDSTableAdapters.Table_AllocationTableAdapter taTableAllocation;
     }
 }

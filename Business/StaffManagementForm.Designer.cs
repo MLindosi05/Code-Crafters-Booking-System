@@ -57,14 +57,6 @@
             this.txtStaffSurname = new System.Windows.Forms.TextBox();
             this.txtStaffPassword = new System.Windows.Forms.TextBox();
             this.dgvStaffManagement = new System.Windows.Forms.DataGridView();
-            this.staffBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.codeCraftersDS = new Code_Crafters_Interface_Prototype_1.codeCraftersDS();
-            this.txtStaffID = new System.Windows.Forms.TextBox();
-            this.btnStaffDelete = new System.Windows.Forms.Button();
-            this.btnStaffAdd = new System.Windows.Forms.Button();
-            this.lblStaffManagement = new System.Windows.Forms.Label();
-            this.taStaffs = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTableAdapters.StaffTableAdapter();
-            this.taClients = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTableAdapters.ClientTableAdapter();
             this.staffIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.branchIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.staffFirstNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -75,6 +67,14 @@
             this.staffroleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.datejoinedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.staffstatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.staffBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.codeCraftersDS = new Code_Crafters_Interface_Prototype_1.codeCraftersDS();
+            this.txtStaffID = new System.Windows.Forms.TextBox();
+            this.btnStaffDelete = new System.Windows.Forms.Button();
+            this.btnStaffAdd = new System.Windows.Forms.Button();
+            this.lblStaffManagement = new System.Windows.Forms.Label();
+            this.taStaffs = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTableAdapters.StaffTableAdapter();
+            this.taClients = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTableAdapters.ClientTableAdapter();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -377,63 +377,6 @@
             this.dgvStaffManagement.Size = new System.Drawing.Size(1056, 225);
             this.dgvStaffManagement.TabIndex = 3;
             // 
-            // staffBindingSource
-            // 
-            this.staffBindingSource.DataMember = "Staff";
-            this.staffBindingSource.DataSource = this.codeCraftersDS;
-            // 
-            // codeCraftersDS
-            // 
-            this.codeCraftersDS.DataSetName = "codeCraftersDS";
-            this.codeCraftersDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // txtStaffID
-            // 
-            this.txtStaffID.Location = new System.Drawing.Point(185, 409);
-            this.txtStaffID.Name = "txtStaffID";
-            this.txtStaffID.Size = new System.Drawing.Size(91, 25);
-            this.txtStaffID.TabIndex = 21;
-            this.txtStaffID.Click += new System.EventHandler(this.txtStaffID_TextChanged);
-            this.txtStaffID.TextChanged += new System.EventHandler(this.txtStaffID_TextChanged);
-            // 
-            // btnStaffDelete
-            // 
-            this.btnStaffDelete.Location = new System.Drawing.Point(316, 688);
-            this.btnStaffDelete.Name = "btnStaffDelete";
-            this.btnStaffDelete.Size = new System.Drawing.Size(75, 33);
-            this.btnStaffDelete.TabIndex = 9;
-            this.btnStaffDelete.Text = "DELETE";
-            this.btnStaffDelete.UseVisualStyleBackColor = false;
-            this.btnStaffDelete.Click += new System.EventHandler(this.btnStaffDelete_Click);
-            // 
-            // btnStaffAdd
-            // 
-            this.btnStaffAdd.Location = new System.Drawing.Point(439, 688);
-            this.btnStaffAdd.Name = "btnStaffAdd";
-            this.btnStaffAdd.Size = new System.Drawing.Size(75, 33);
-            this.btnStaffAdd.TabIndex = 8;
-            this.btnStaffAdd.Text = "ADD";
-            this.btnStaffAdd.UseVisualStyleBackColor = false;
-            this.btnStaffAdd.Click += new System.EventHandler(this.btnStaffAdd_Click);
-            // 
-            // lblStaffManagement
-            // 
-            this.lblStaffManagement.AutoSize = true;
-            this.lblStaffManagement.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
-            this.lblStaffManagement.Location = new System.Drawing.Point(510, 13);
-            this.lblStaffManagement.Name = "lblStaffManagement";
-            this.lblStaffManagement.Size = new System.Drawing.Size(208, 25);
-            this.lblStaffManagement.TabIndex = 2;
-            this.lblStaffManagement.Text = "STAFF MANAGEMENT";
-            // 
-            // taStaffs
-            // 
-            this.taStaffs.ClearBeforeFill = true;
-            // 
-            // taClients
-            // 
-            this.taClients.ClearBeforeFill = true;
-            // 
             // staffIDDataGridViewTextBoxColumn
             // 
             this.staffIDDataGridViewTextBoxColumn.DataPropertyName = "staff_ID";
@@ -504,6 +447,63 @@
             this.staffstatusDataGridViewTextBoxColumn.HeaderText = "STAFF STATUS";
             this.staffstatusDataGridViewTextBoxColumn.Name = "staffstatusDataGridViewTextBoxColumn";
             this.staffstatusDataGridViewTextBoxColumn.Width = 160;
+            // 
+            // staffBindingSource
+            // 
+            this.staffBindingSource.DataMember = "Staff";
+            this.staffBindingSource.DataSource = this.codeCraftersDS;
+            // 
+            // codeCraftersDS
+            // 
+            this.codeCraftersDS.DataSetName = "codeCraftersDS";
+            this.codeCraftersDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // txtStaffID
+            // 
+            this.txtStaffID.Location = new System.Drawing.Point(185, 409);
+            this.txtStaffID.Name = "txtStaffID";
+            this.txtStaffID.Size = new System.Drawing.Size(91, 25);
+            this.txtStaffID.TabIndex = 21;
+            this.txtStaffID.Click += new System.EventHandler(this.txtStaffID_TextChanged);
+            this.txtStaffID.TextChanged += new System.EventHandler(this.txtStaffID_TextChanged);
+            // 
+            // btnStaffDelete
+            // 
+            this.btnStaffDelete.Location = new System.Drawing.Point(316, 688);
+            this.btnStaffDelete.Name = "btnStaffDelete";
+            this.btnStaffDelete.Size = new System.Drawing.Size(75, 33);
+            this.btnStaffDelete.TabIndex = 9;
+            this.btnStaffDelete.Text = "DELETE";
+            this.btnStaffDelete.UseVisualStyleBackColor = false;
+            this.btnStaffDelete.Click += new System.EventHandler(this.btnStaffDelete_Click);
+            // 
+            // btnStaffAdd
+            // 
+            this.btnStaffAdd.Location = new System.Drawing.Point(439, 688);
+            this.btnStaffAdd.Name = "btnStaffAdd";
+            this.btnStaffAdd.Size = new System.Drawing.Size(75, 33);
+            this.btnStaffAdd.TabIndex = 8;
+            this.btnStaffAdd.Text = "ADD";
+            this.btnStaffAdd.UseVisualStyleBackColor = false;
+            this.btnStaffAdd.Click += new System.EventHandler(this.btnStaffAdd_Click);
+            // 
+            // lblStaffManagement
+            // 
+            this.lblStaffManagement.AutoSize = true;
+            this.lblStaffManagement.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
+            this.lblStaffManagement.Location = new System.Drawing.Point(510, 13);
+            this.lblStaffManagement.Name = "lblStaffManagement";
+            this.lblStaffManagement.Size = new System.Drawing.Size(208, 25);
+            this.lblStaffManagement.TabIndex = 2;
+            this.lblStaffManagement.Text = "STAFF MANAGEMENT";
+            // 
+            // taStaffs
+            // 
+            this.taStaffs.ClearBeforeFill = true;
+            // 
+            // taClients
+            // 
+            this.taClients.ClearBeforeFill = true;
             // 
             // StaffManagementForm
             // 

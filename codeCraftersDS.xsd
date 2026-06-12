@@ -349,7 +349,7 @@ WHERE Email_Address = @Email</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="GroupPmb2ConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="DeleteClient" Modifier="Public" Name="DeleteClient" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy5" UserSourceName="DeleteClient">
+              <DbSource ConnectionRef="GroupPmb2ConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="DeleteClient" Modifier="Public" Name="DeleteClient" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="DeleteClient">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>DELETE FROM Client
@@ -372,7 +372,7 @@ WHERE        (Client_ID = @clientID)</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="GroupPmb2ConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertNewClient" Modifier="Public" Name="InsertNewClient" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="InsertNewClient">
+              <DbSource ConnectionRef="GroupPmb2ConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertNewClient" Modifier="Public" Name="InsertNewClient" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy4" UserSourceName="InsertNewClient">
                 <InsertCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>INSERT INTO [dbo].[Client] ([First_Name], [Last_Name], [Password], [Email_Address], [Client_Address], [Phone_Number]) VALUES (@First_Name, @Last_Name, @Password, @Email_Address, @Client_Address, @Phone_Number);
@@ -388,7 +388,7 @@ SELECT Client_ID, First_Name, Last_Name, Password, Email_Address, Client_Address
                   </DbCommand>
                 </InsertCommand>
               </DbSource>
-              <DbSource ConnectionRef="GroupPmb2ConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateClient" Modifier="Public" Name="UpdateClient" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy4" UserSourceName="UpdateClient">
+              <DbSource ConnectionRef="GroupPmb2ConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateClient" Modifier="Public" Name="UpdateClient" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy5" UserSourceName="UpdateClient">
                 <UpdateCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>UPDATE Client
@@ -1044,16 +1044,13 @@ WHERE staff_ID = @Original_staff_ID</CommandText>
               <DbSource ConnectionRef="GroupPmb2ConnectionString (Settings)" DbObjectName="GroupPmb2.dbo.Table_Allocation" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>DELETE FROM [Table_Allocation] WHERE (([Table_Allocation_ID] = @Original_Table_Allocation_ID) AND ((@IsNull_Booking_ID = 1 AND [Booking_ID] IS NULL) OR ([Booking_ID] = @Original_Booking_ID)) AND ((@IsNull_Restuarant_Table_ID = 1 AND [Restuarant_Table_ID] IS NULL) OR ([Restuarant_Table_ID] = @Original_Restuarant_Table_ID)) AND ([Number_Of_Tables] = @Original_Number_Of_Tables) AND ((@IsNull_Assignment_Type = 1 AND [Assignment_Type] IS NULL) OR ([Assignment_Type] = @Original_Assignment_Type)) AND ([Start_Time] = @Original_Start_Time) AND ([End_Time] = @Original_End_Time))</CommandText>
+                    <CommandText>DELETE FROM [Table_Allocation] WHERE (([Table_Allocation_ID] = @Original_Table_Allocation_ID) AND ((@IsNull_Booking_ID = 1 AND [Booking_ID] IS NULL) OR ([Booking_ID] = @Original_Booking_ID)) AND ((@IsNull_Restuarant_Table_ID = 1 AND [Restuarant_Table_ID] IS NULL) OR ([Restuarant_Table_ID] = @Original_Restuarant_Table_ID)) AND ([Start_Time] = @Original_Start_Time) AND ([End_Time] = @Original_End_Time))</CommandText>
                     <Parameters>
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_Table_Allocation_ID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Table_Allocation_ID" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Booking_ID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Booking_ID" SourceColumnNullMapping="true" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_Booking_ID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Booking_ID" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Restuarant_Table_ID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Restuarant_Table_ID" SourceColumnNullMapping="true" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_Restuarant_Table_ID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Restuarant_Table_ID" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_Number_Of_Tables" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Number_Of_Tables" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Assignment_Type" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Assignment_Type" SourceColumnNullMapping="true" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Assignment_Type" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Assignment_Type" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_Start_Time" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="Start_Time" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_End_Time" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="End_Time" SourceColumnNullMapping="false" SourceVersion="Original" />
                     </Parameters>
@@ -1061,33 +1058,30 @@ WHERE staff_ID = @Original_staff_ID</CommandText>
                 </DeleteCommand>
                 <InsertCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>INSERT INTO [Table_Allocation] ([Booking_ID], [Restuarant_Table_ID], [Number_Of_Tables], [Assignment_Type], [Start_Time], [End_Time]) VALUES (@Booking_ID, @Restuarant_Table_ID, @Number_Of_Tables, @Assignment_Type, @Start_Time, @End_Time);
-SELECT Table_Allocation_ID, Booking_ID, Restuarant_Table_ID, Number_Of_Tables, Assignment_Type, Start_Time, End_Time FROM Table_Allocation WHERE (Table_Allocation_ID = SCOPE_IDENTITY())</CommandText>
+                    <CommandText>INSERT INTO [Table_Allocation] ([Booking_ID], [Restuarant_Table_ID], [Start_Time], [End_Time]) VALUES (@Booking_ID, @Restuarant_Table_ID, @Start_Time, @End_Time);
+SELECT Table_Allocation_ID, Booking_ID, Restuarant_Table_ID, Start_Time, End_Time FROM Table_Allocation WHERE (Table_Allocation_ID = SCOPE_IDENTITY())</CommandText>
                     <Parameters>
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Booking_ID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Booking_ID" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Restuarant_Table_ID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Restuarant_Table_ID" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Number_Of_Tables" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Number_Of_Tables" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Assignment_Type" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Assignment_Type" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Start_Time" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="Start_Time" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@End_Time" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="End_Time" SourceColumnNullMapping="false" SourceVersion="Current" />
                     </Parameters>
                   </DbCommand>
                 </InsertCommand>
                 <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT Table_Allocation_ID, Booking_ID, Restuarant_Table_ID, Number_Of_Tables, Assignment_Type, Start_Time, End_Time FROM Table_Allocation</CommandText>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        Table_Allocation_ID, Booking_ID, Restuarant_Table_ID, Start_Time, End_Time
+FROM            Table_Allocation</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
                 <UpdateCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>UPDATE [Table_Allocation] SET [Booking_ID] = @Booking_ID, [Restuarant_Table_ID] = @Restuarant_Table_ID, [Number_Of_Tables] = @Number_Of_Tables, [Assignment_Type] = @Assignment_Type, [Start_Time] = @Start_Time, [End_Time] = @End_Time WHERE (([Table_Allocation_ID] = @Original_Table_Allocation_ID) AND ((@IsNull_Booking_ID = 1 AND [Booking_ID] IS NULL) OR ([Booking_ID] = @Original_Booking_ID)) AND ((@IsNull_Restuarant_Table_ID = 1 AND [Restuarant_Table_ID] IS NULL) OR ([Restuarant_Table_ID] = @Original_Restuarant_Table_ID)) AND ([Number_Of_Tables] = @Original_Number_Of_Tables) AND ((@IsNull_Assignment_Type = 1 AND [Assignment_Type] IS NULL) OR ([Assignment_Type] = @Original_Assignment_Type)) AND ([Start_Time] = @Original_Start_Time) AND ([End_Time] = @Original_End_Time));
-SELECT Table_Allocation_ID, Booking_ID, Restuarant_Table_ID, Number_Of_Tables, Assignment_Type, Start_Time, End_Time FROM Table_Allocation WHERE (Table_Allocation_ID = @Table_Allocation_ID)</CommandText>
+                    <CommandText>UPDATE [Table_Allocation] SET [Booking_ID] = @Booking_ID, [Restuarant_Table_ID] = @Restuarant_Table_ID, [Start_Time] = @Start_Time, [End_Time] = @End_Time WHERE (([Table_Allocation_ID] = @Original_Table_Allocation_ID) AND ((@IsNull_Booking_ID = 1 AND [Booking_ID] IS NULL) OR ([Booking_ID] = @Original_Booking_ID)) AND ((@IsNull_Restuarant_Table_ID = 1 AND [Restuarant_Table_ID] IS NULL) OR ([Restuarant_Table_ID] = @Original_Restuarant_Table_ID)) AND ([Start_Time] = @Original_Start_Time) AND ([End_Time] = @Original_End_Time));
+SELECT Table_Allocation_ID, Booking_ID, Restuarant_Table_ID, Start_Time, End_Time FROM Table_Allocation WHERE (Table_Allocation_ID = @Table_Allocation_ID)</CommandText>
                     <Parameters>
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Booking_ID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Booking_ID" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Restuarant_Table_ID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Restuarant_Table_ID" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Number_Of_Tables" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Number_Of_Tables" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Assignment_Type" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Assignment_Type" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Start_Time" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="Start_Time" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@End_Time" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="End_Time" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_Table_Allocation_ID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Table_Allocation_ID" SourceColumnNullMapping="false" SourceVersion="Original" />
@@ -1095,9 +1089,6 @@ SELECT Table_Allocation_ID, Booking_ID, Restuarant_Table_ID, Number_Of_Tables, A
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_Booking_ID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Booking_ID" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Restuarant_Table_ID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Restuarant_Table_ID" SourceColumnNullMapping="true" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_Restuarant_Table_ID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Restuarant_Table_ID" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_Number_Of_Tables" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Number_Of_Tables" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Assignment_Type" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Assignment_Type" SourceColumnNullMapping="true" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Assignment_Type" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Assignment_Type" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_Start_Time" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="Start_Time" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_End_Time" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="End_Time" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="false" AutogeneratedName="Table_Allocation_ID" ColumnName="Table_Allocation_ID" DataSourceName="GroupPmb2.dbo.Table_Allocation" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@Table_Allocation_ID" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="Table_Allocation_ID" SourceColumnNullMapping="false" SourceVersion="Current" />
@@ -1110,8 +1101,6 @@ SELECT Table_Allocation_ID, Booking_ID, Restuarant_Table_ID, Number_Of_Tables, A
               <Mapping SourceColumn="Table_Allocation_ID" DataSetColumn="Table_Allocation_ID" />
               <Mapping SourceColumn="Booking_ID" DataSetColumn="Booking_ID" />
               <Mapping SourceColumn="Restuarant_Table_ID" DataSetColumn="Restuarant_Table_ID" />
-              <Mapping SourceColumn="Number_Of_Tables" DataSetColumn="Number_Of_Tables" />
-              <Mapping SourceColumn="Assignment_Type" DataSetColumn="Assignment_Type" />
               <Mapping SourceColumn="Start_Time" DataSetColumn="Start_Time" />
               <Mapping SourceColumn="End_Time" DataSetColumn="End_Time" />
             </Mappings>
@@ -1605,14 +1594,6 @@ WHERE Booking_ID = @BookingID</CommandText>
               <xs:element name="Table_Allocation_ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnPropNameInTable="Table_Allocation_IDColumn" msprop:Generator_ColumnPropNameInRow="Table_Allocation_ID" msprop:Generator_UserColumnName="Table_Allocation_ID" msprop:Generator_ColumnVarNameInTable="columnTable_Allocation_ID" type="xs:int" />
               <xs:element name="Booking_ID" msprop:Generator_ColumnPropNameInTable="Booking_IDColumn" msprop:Generator_ColumnPropNameInRow="Booking_ID" msprop:Generator_UserColumnName="Booking_ID" msprop:Generator_ColumnVarNameInTable="columnBooking_ID" type="xs:int" minOccurs="0" />
               <xs:element name="Restuarant_Table_ID" msprop:Generator_ColumnPropNameInTable="Restuarant_Table_IDColumn" msprop:Generator_ColumnPropNameInRow="Restuarant_Table_ID" msprop:Generator_UserColumnName="Restuarant_Table_ID" msprop:Generator_ColumnVarNameInTable="columnRestuarant_Table_ID" type="xs:int" minOccurs="0" />
-              <xs:element name="Number_Of_Tables" msprop:Generator_ColumnPropNameInTable="Number_Of_TablesColumn" msprop:Generator_ColumnPropNameInRow="Number_Of_Tables" msprop:Generator_UserColumnName="Number_Of_Tables" msprop:Generator_ColumnVarNameInTable="columnNumber_Of_Tables" type="xs:int" />
-              <xs:element name="Assignment_Type" msprop:Generator_ColumnPropNameInTable="Assignment_TypeColumn" msprop:Generator_ColumnPropNameInRow="Assignment_Type" msprop:Generator_UserColumnName="Assignment_Type" msprop:Generator_ColumnVarNameInTable="columnAssignment_Type" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="50" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
               <xs:element name="Start_Time" msprop:Generator_ColumnPropNameInTable="Start_TimeColumn" msprop:Generator_ColumnPropNameInRow="Start_Time" msprop:Generator_UserColumnName="Start_Time" msprop:Generator_ColumnVarNameInTable="columnStart_Time" type="xs:dateTime" />
               <xs:element name="End_Time" msprop:Generator_ColumnPropNameInTable="End_TimeColumn" msprop:Generator_ColumnPropNameInRow="End_Time" msprop:Generator_UserColumnName="End_Time" msprop:Generator_ColumnVarNameInTable="columnEnd_Time" type="xs:dateTime" />
             </xs:sequence>

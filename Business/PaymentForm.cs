@@ -63,62 +63,7 @@ namespace Code_Crafters_Interface_Prototype_1.Business
                 taFolio.InsertNewPayment(bookingID, paymentType, amount, DateTime.Now, "Settled", "Room, Accommodation/Room and Accommodation");
                 taBooking.UpdateBookingStatus("Confirmed", bookingID);
 
-                try
-                {
-                    string clientEmail = UserSession.EmailAddress?.Trim();
-                    string clientName = UserSession.GuestName?.Trim();
-
-                    if (string.IsNullOrWhiteSpace(clientEmail))
-                    {
-                        var taClientLookup = new ClientTableAdapter();
-                        var clientTable = taClientLookup.GetData();
-                        var matchedClientRow = clientTable.FirstOrDefault(row => Convert.ToInt32(row["Client_ID"]) == this.clientID);
-
-                        if (matchedClientRow != null)
-                        {
-                            clientEmail = matchedClientRow["Email_Address"]?.ToString().Trim();
-                            clientName = matchedClientRow["First_Name"]?.ToString().Trim();
-                        }
-                    }
-
-                    if (!string.IsNullOrWhiteSpace(clientEmail))
-                    {
-                        string emailSubject = $"The Regal Inn - Booking Confirmed! Ref: #{bookingID}";
-                        string emailBody = $@"
-                        <div style='font-family: Arial, sans-serif; max-width: 600px; border: 1px solid #dcdcdc; padding: 20px;'>
-                            <h2 style='color: #2E7D32;'>Booking Confirmed, {clientName}!</h2>
-                            <p>Thank you! We have successfully processed your payment of <b>R {amount:0.00}</b> via <b>{paymentType}</b>.</p>
-                            <hr style='border: 0; border-top: 1px solid #eee;' />
-                            <p><b>Reservation Summary:</b></p>
-                            <ul>
-                                <li><b>Booking Reference:</b> #{bookingID}</li>
-                                <li><b>Payment Status:</b> Settled / Paid</li>
-                                <li><b>Booking Status:</b> Confirmed</li>
-                            </ul>
-                            <p>We look forward to hosting you at The Regal Inn!</p>
-                            <hr style='border: 0; border-top: 1px solid #eee;' />
-                            <p style='font-size: 12px; color: #888;'>This is an automated system receipt. Please do not reply directly to this message.</p>
-                        </div>";
-
-                        EmailService.SendEmail(clientEmail, emailSubject, emailBody);
-
-                        MessageBox.Show(
-                            $"An email has been sent successfully to {clientEmail}!",
-                            "Booking Complete",
-                            MessageBoxButtons.OK,
-                            MessageBoxIcon.Information);
-                    }
-                    else
-                    {
-                        MessageBox.Show($"Payment updated, but email skipped: Could not resolve email address for Client ID: {this.clientID}.",
-                                        "Mailing Failure", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    }
-                }
-                catch (Exception emailEx)
-                {
-                    MessageBox.Show("Payment updated, but mailing engine broke: " + emailEx.Message,
-                                    "Mailing Alert", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
+                MessageBox.Show("Payment successfully processed and booking has been confirmed!", "Booking Complete", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 Close();
             }
@@ -193,7 +138,7 @@ namespace Code_Crafters_Interface_Prototype_1.Business
             this.BackColor = ColorTranslator.FromHtml("#F9EED8");
             grbPayments.BackColor = ColorTranslator.FromHtml("#966919");
             pnlPayments.BackColor = ColorTranslator.FromHtml("#F8F5F0");
-           btnReset.BackColor = ColorTranslator.FromHtml("#C99A2E");
+            btnReset.BackColor = ColorTranslator.FromHtml("#C99A2E");
             btnReset.ForeColor = Color.White;
 
             btnCancel.BackColor = ColorTranslator.FromHtml("#C99A2E");

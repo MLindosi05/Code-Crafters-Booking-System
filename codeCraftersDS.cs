@@ -4,6 +4,10 @@
 
     partial class codeCraftersDS
     {
+        partial class Table_AllocationDataTable
+        {
+        }
+
         partial class ClientBranchBookingDataTable
         {
         }

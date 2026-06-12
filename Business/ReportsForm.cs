@@ -28,11 +28,15 @@ namespace Code_Crafters_Interface_Prototype_1.Business
             taFolioReport.Fill(codeCraftersDS.Folio);
             taRoomAssignmentReport.Fill(codeCraftersDS.Room_Assignment);
             taHotelRoomReport.Fill(codeCraftersDS.Hotel_Room);
+            taTable.Fill(codeCraftersDS.Restuarant_Table);
             btnRevenueReport.BackColor = ColorTranslator.FromHtml("#C99A2E");
             btnRevenueReport.ForeColor = Color.White;
             btnRoomReport.BackColor = ColorTranslator.FromHtml("#C99A2E");
             btnRoomReport.ForeColor = Color.White;
+            btnTableReport.BackColor = ColorTranslator.FromHtml("#C99A2E");
+            btnTableReport.ForeColor = Color.White;
             this.BackColor = ColorTranslator.FromHtml("#F9EED8");
+
         }
 
 
@@ -52,6 +56,14 @@ namespace Code_Crafters_Interface_Prototype_1.Business
             crystalReportViewerRegalInn.ReportSource = rpt;
             crystalReportViewerRegalInn.Refresh();
 
+        }
+
+        private void btnTableReport_Click(object sender, EventArgs e)
+        {
+            rptTableOccupancyReport rpt = new rptTableOccupancyReport();
+            rpt.SetDataSource(codeCraftersDS);
+            crystalReportViewerRegalInn.ReportSource = rpt;
+            crystalReportViewerRegalInn.Refresh();
         }
     }
 }

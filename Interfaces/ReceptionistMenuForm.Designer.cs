@@ -317,7 +317,7 @@
             this.panel3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.panel3.Location = new System.Drawing.Point(426, 40);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(225, 3);
+            this.panel3.Size = new System.Drawing.Size(230, 3);
             this.panel3.TabIndex = 2;
             // 
             // label1
