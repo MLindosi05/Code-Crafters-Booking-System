@@ -314,6 +314,16 @@ namespace Code_Crafters_Interface_Prototype_1.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap blue_profile {
+            get {
+                object obj = ResourceManager.GetObject("blue profile", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap booking_hotel {
             get {
                 object obj = ResourceManager.GetObject("booking hotel", resourceCulture);
@@ -864,6 +874,86 @@ namespace Code_Crafters_Interface_Prototype_1.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap logged {
+            get {
+                object obj = ResourceManager.GetObject("logged", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap logged_4 {
+            get {
+                object obj = ResourceManager.GetObject("logged 4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap logged_5 {
+            get {
+                object obj = ResourceManager.GetObject("logged 5", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap logged_golden {
+            get {
+                object obj = ResourceManager.GetObject("logged golden", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap logged_golden_1 {
+            get {
+                object obj = ResourceManager.GetObject("logged golden 1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap logged_in {
+            get {
+                object obj = ResourceManager.GetObject("logged in", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap logged_in_2 {
+            get {
+                object obj = ResourceManager.GetObject("logged in 2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap logged_profile {
+            get {
+                object obj = ResourceManager.GetObject("logged profile", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap logout_11551049168o9cg0mxxib {
             get {
                 object obj = ResourceManager.GetObject("logout-11551049168o9cg0mxxib", resourceCulture);
@@ -877,6 +967,16 @@ namespace Code_Crafters_Interface_Prototype_1.Properties {
         internal static System.Drawing.Bitmap logout_icon_png_transparent_login_logout_icon_11562923416nzkie6fbka {
             get {
                 object obj = ResourceManager.GetObject("logout-icon-png-transparent-login-logout-icon-11562923416nzkie6fbka", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap looged_in_1 {
+            get {
+                object obj = ResourceManager.GetObject("looged in 1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

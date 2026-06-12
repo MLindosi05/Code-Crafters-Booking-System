@@ -37,7 +37,7 @@ namespace Code_Crafters_Interface_Prototype_1.Interfaces
 
         private void button1_Click(object sender, EventArgs e)
         {
-            LoadFormIntoPanel(new SignUpForm());
+            LoadFormIntoPanel(new GuestRegistrationForm());
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -137,6 +137,9 @@ namespace Code_Crafters_Interface_Prototype_1.Interfaces
 
         private void AdminMenuForm_Load(object sender, EventArgs e)
         {
+
+
+
             this.WindowState = FormWindowState.Maximized;
 
             panel1.BackColor = ColorTranslator.FromHtml("#966919");
@@ -170,6 +173,10 @@ namespace Code_Crafters_Interface_Prototype_1.Interfaces
             button9.ForeColor = Color.White;
 
             LoadFormIntoPanel(new AdminHomeForm());
+
+            lblLoggedIn.Text = $"Logged in as: {UserSession.Email}";
+            lblLoggedIn.Text = $"Logged in as: {UserSession.EmailAddress}";
+            lblLoggedIn.Refresh();
 
         }
     }

@@ -145,11 +145,11 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="EmailService.cs" />
-    <Compile Include="Interfaces\HomePage.cs">
+    <Compile Include="Interfaces\HomeForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Interfaces\HomePage.Designer.cs">
-      <DependentUpon>HomePage.cs</DependentUpon>
+    <Compile Include="Interfaces\HomeForm.Designer.cs">
+      <DependentUpon>HomeForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Interfaces\Login.cs">
       <SubType>Form</SubType>
@@ -157,11 +157,11 @@
     <Compile Include="Interfaces\Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="Interfaces\SignUpForm.cs">
+    <Compile Include="Interfaces\GuestRegistrationForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Interfaces\SignUpForm.Designer.cs">
-      <DependentUpon>SignUpForm.cs</DependentUpon>
+    <Compile Include="Interfaces\GuestRegistrationForm.Designer.cs">
+      <DependentUpon>GuestRegistrationForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -210,15 +210,15 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptRevenueAnalysis.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Interfaces\HomePage.resx">
-      <DependentUpon>HomePage.cs</DependentUpon>
+    <EmbeddedResource Include="Interfaces\HomeForm.resx">
+      <DependentUpon>HomeForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Interfaces\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Interfaces\SignUpForm.resx">
-      <DependentUpon>SignUpForm.cs</DependentUpon>
+    <EmbeddedResource Include="Interfaces\GuestRegistrationForm.resx">
+      <DependentUpon>GuestRegistrationForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -587,6 +587,36 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\show.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logged 4.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logged 5.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logged golden 1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logged golden.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logged profile.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logged.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\blue profile.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logged in 2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\looged in 1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logged in.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

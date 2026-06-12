@@ -133,11 +133,11 @@
   <data name="200-2005429_password-icon-png-transparent-png" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\200-2005429_password-icon-png-transparent-png.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="lp2-powerful-reservation-img" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\lp2-powerful-reservation-img.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="hide password" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\hide password.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Credit card 1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Credit card 1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="lv_0_20260417000417" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\lv_0_20260417000417.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -148,11 +148,11 @@
   <data name="calendar" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\calendar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="IMG_20260413_185555" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\IMG_20260413_185555.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Umhlanga" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Umhlanga.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="dc2783d2-dae4-4480-ad6f-0beab3bbd767" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\dc2783d2-dae4-4480-ad6f-0beab3bbd767.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Exit_sign_text_(red).svg" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Exit_sign_text_(red).svg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -163,9 +163,6 @@
   <data name="MAKE BOOKING 2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MAKE BOOKING 2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="lv_0_202604131858311" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\lv_0_20260413185831.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="Regal pic" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Regal pic.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -175,8 +172,8 @@
   <data name="show password" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\show password.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="bed 4" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\bed 4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="its-a-padlock-forgot-password-vector-icon-11553450739ggbzcdw4uv" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\its-a-padlock-forgot-password-vector-icon-11553450739ggbzcdw4uv.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="logout-11551049168o9cg0mxxib" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\logout-11551049168o9cg0mxxib.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -196,11 +193,17 @@
   <data name="ChatGPT Image Jun 10, 2026, 12_51_34 PM" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ChatGPT Image Jun 10, 2026, 12_51_34 PM.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="c3c22da5-2a49-45ef-a028-06c321edcf88" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\c3c22da5-2a49-45ef-a028-06c321edcf88.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="lv_0_20260413193232" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\lv_0_20260413193232.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="show 1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\show 1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="IMG_20260413_1855131" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\IMG_20260413_185513.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="HOME ICON" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\HOME ICON.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -210,6 +213,9 @@
   </data>
   <data name="GROUP" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\GROUP.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="show" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\show.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="265653123" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\265653123.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -226,8 +232,8 @@
   <data name="360_F_2029401947_Z9Veo6Yk2CBRBzutfKuxqefqeZ4wS0Fr" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\360_F_2029401947_Z9Veo6Yk2CBRBzutfKuxqefqeZ4wS0Fr.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="download" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\download.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="calendar1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\calendar1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="MAKE BOOKING 3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MAKE BOOKING 3.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -259,11 +265,17 @@
   <data name="8607cf68-a6fa-41b5-86b3-dc588d3fd22f" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\8607cf68-a6fa-41b5-86b3-dc588d3fd22f.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="6478-2001" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\6478-2001.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Credit card 3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Credit card 3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="images1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\images.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="eb5ad774-4f14-4345-8a42-11010a4d3e02" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\eb5ad774-4f14-4345-8a42-11010a4d3e02.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Regal" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Regal.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -280,23 +292,20 @@
   <data name="0c6801fe-8b78-4a87-a500-0632c277ccc3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\0c6801fe-8b78-4a87-a500-0632c277ccc3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="booking hotel 1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\booking hotel 1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="eec44f9f-382a-4860-aa8d-b031be32312f" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\eec44f9f-382a-4860-aa8d-b031be32312f.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="IMG_20260413_185605" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\IMG_20260413_185605.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="password hide" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\password hide.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="images2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\images1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="regal inn hotels 2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\regal inn hotels 2.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="6478-2001" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\6478-2001.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="lv_0_202604131858311" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\lv_0_20260413185831.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="hide (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\hide (1).jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -319,9 +328,6 @@
   <data name="Untitled design" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Untitled design.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="HOME 4" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\HOME 4.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="Credit card 4" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Credit card 4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -330,9 +336,6 @@
   </data>
   <data name="IMG_20260413_185427" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\IMG_20260413_185427.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="1131224-200" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1131224-200.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="booking hotel" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\booking hotel.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -352,11 +355,8 @@
   <data name="8607cf68-a6fa-41b5-86b3-dc588d3fd22f1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\8607cf68-a6fa-41b5-86b3-dc588d3fd22f1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="200-2005429_password-icon-png-transparent-png1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\200-2005429_password-icon-png-transparent-png1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="IMG_20260413_1855131" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\IMG_20260413_185513.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="booking hotel 1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\booking hotel 1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ChatGPT Image Jun 10, 2026, 12_54_41 PM" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ChatGPT Image Jun 10, 2026, 12_54_41 PM.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -367,8 +367,8 @@
   <data name="360_F_1071326094_tjUmhPv6z93aSEtnCx7jEXRkPH2XhFh7" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\360_F_1071326094_tjUmhPv6z93aSEtnCx7jEXRkPH2XhFh7.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="lp2-powerful-reservation-img" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\lp2-powerful-reservation-img.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="bed 4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bed 4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Umhlanga1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Umhlanga1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -385,8 +385,11 @@
   <data name="IMG_20260413_185513" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\IMG_20260413_185513.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="its-a-padlock-forgot-password-vector-icon-11553450739ggbzcdw4uv" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\its-a-padlock-forgot-password-vector-icon-11553450739ggbzcdw4uv.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="dc2783d2-dae4-4480-ad6f-0beab3bbd767" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\dc2783d2-dae4-4480-ad6f-0beab3bbd767.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="319060405" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\319060405.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Generate Reports" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Generate Reports.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -430,34 +433,61 @@
   <data name="154-1547969_password-icon-password-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\154-1547969_password-icon-password-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="319060405" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\319060405.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="1131224-200" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1131224-200.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="png-clipart-black-padlock-illustration-login-computer-icons-iconfinder-website-login-key-icon-lock-locked-login-miscellaneous-user-thumbnail" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\png-clipart-black-padlock-illustration-login-computer-icons-iconfinder-website-login-key-icon-lock-locked-login-miscellaneous-user-thumbnail.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="eb5ad774-4f14-4345-8a42-11010a4d3e02" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\eb5ad774-4f14-4345-8a42-11010a4d3e02.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="200-2005429_password-icon-png-transparent-png1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\200-2005429_password-icon-png-transparent-png1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="images2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\images1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="HOME 4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\HOME 4.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="MAKE BOOKING" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MAKE BOOKING.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="c3c22da5-2a49-45ef-a028-06c321edcf88" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\c3c22da5-2a49-45ef-a028-06c321edcf88.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="download" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\download.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="calendar1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\calendar1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="password hide" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\password hide.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="IMG_20260413_185555" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\IMG_20260413_185555.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Credit card 1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Credit card 1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Credit card 2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Credit card 2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="show" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\show.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="logged 4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\logged 4.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="logged 5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\logged 5.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="logged golden 1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\logged golden 1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="logged golden" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\logged golden.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="logged profile" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\logged profile.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="logged" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\logged.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="blue profile" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\blue profile.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="logged in 2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\logged in 2.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="looged in 1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\looged in 1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="logged in" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\logged in.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

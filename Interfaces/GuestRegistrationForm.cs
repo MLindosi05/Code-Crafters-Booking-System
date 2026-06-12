@@ -13,9 +13,9 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 
 namespace Code_Crafters_Booking_System
 {
-    public partial class SignUpForm : Form
+    public partial class GuestRegistrationForm : Form
     {
-        public SignUpForm()
+        public GuestRegistrationForm()
         {
             InitializeComponent();
         }
@@ -185,7 +185,7 @@ namespace Code_Crafters_Booking_System
 
         private void button1_Click(object sender, EventArgs e)
         {
-            HomePage homePage = new HomePage();
+            HomeForm homePage = new HomeForm();
             homePage.Show();
             this.Close();
         }

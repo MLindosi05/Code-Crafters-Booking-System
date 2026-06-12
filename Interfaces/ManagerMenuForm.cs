@@ -79,7 +79,7 @@ namespace Code_Crafters_Interface_Prototype_1.Interfaces
 
         private void button1_Click(object sender, EventArgs e)
         {
-            LoadFormIntoPanel(new SignUpForm());
+            LoadFormIntoPanel(new GuestRegistrationForm());
         }
 
         private void button3_Click(object sender, EventArgs e)

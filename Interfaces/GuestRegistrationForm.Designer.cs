@@ -1,6 +1,6 @@
 ﻿namespace Code_Crafters_Booking_System
 {
-    partial class SignUpForm
+    partial class GuestRegistrationForm
     {
         /// <summary>
         /// Required designer variable.

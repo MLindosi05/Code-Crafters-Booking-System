@@ -12,9 +12,9 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 
 namespace Code_Crafters_Interface_Prototype_1.Interfaces
 {
-    public partial class HomePage : Form
+    public partial class HomeForm : Form
     {
-        public HomePage()
+        public HomeForm()
         {
             InitializeComponent();
         }
@@ -114,7 +114,7 @@ namespace Code_Crafters_Interface_Prototype_1.Interfaces
 
         private void button4_Click(object sender, EventArgs e)
         {
-            SignUpForm SignUp = new SignUpForm();
+            GuestRegistrationForm SignUp = new GuestRegistrationForm();
             SignUp.Show();
             this.Hide();
         }

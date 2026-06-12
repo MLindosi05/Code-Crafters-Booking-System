@@ -158,6 +158,9 @@ namespace Code_Crafters_Interface_Prototype_1.Interfaces
                 {
                     found = true;
 
+                    UserSession.Email = row.staff_email;
+                    UserSession.EmailAddress = row.staff_email;
+
                     MessageBox.Show($"Welcome to The Regal Inn.\n\n" +
                     $"Staff Member: {row.staff_email} \n" +
                     $"Role: {row.staff_role}\n\n" +
@@ -179,6 +182,7 @@ namespace Code_Crafters_Interface_Prototype_1.Interfaces
                         new ReceptionistMenuForm().Show();
                     }
 
+                    
                     this.Hide();
                     break;
                 }
@@ -207,7 +211,7 @@ namespace Code_Crafters_Interface_Prototype_1.Interfaces
 
         private void button1_Click(object sender, EventArgs e)
         {
-            HomePage homePage = new HomePage();
+            HomeForm homePage = new HomeForm();
             homePage.Show();
             this.Hide();
         }
