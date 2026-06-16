@@ -20,6 +20,8 @@ namespace Code_Crafters_Interface_Prototype_1.Business
 
         private void StaffManagementForm_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'codeCraftersDSTWO.Staff' table. You can move, or remove it, as needed.
+            this.taStaffs.Fill(this.codeCraftersDSTWO.Staff);
             this.BackColor = ColorTranslator.FromHtml("#F9EED8");
             panel1.BackColor = ColorTranslator.FromHtml("#F8F5F0");
             panel3.BackColor = ColorTranslator.FromHtml("#966919");
@@ -100,12 +102,12 @@ namespace Code_Crafters_Interface_Prototype_1.Business
 
             try
             {
-                taStaffs.Fill(codeCraftersDS.Staff);
+                taStaffs.Fill(codeCraftersDSTWO.Staff);
 
                 string inputPhone = Regex.Replace(txtPhoneNumber.Text.Trim(), @"\s+", "");
                 string inputEmail = txtEmailAddress.Text.Trim();
 
-                bool duplicateExists = codeCraftersDS.Staff.AsEnumerable().Any(row =>
+                bool duplicateExists = codeCraftersDSTWO.Staff.AsEnumerable().Any(row =>
                     string.Equals(Regex.Replace(row.Field<string>("staff_phone_number") ?? "", @"\s+", ""), inputPhone, StringComparison.OrdinalIgnoreCase) ||
                     string.Equals(row.Field<string>("staff_email") ?? "", inputEmail, StringComparison.OrdinalIgnoreCase)
                 );
@@ -143,8 +145,8 @@ namespace Code_Crafters_Interface_Prototype_1.Business
 
                 MessageBox.Show("New staff member added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                taStaffs.Fill(codeCraftersDS.Staff);
-                taClients.Fill(codeCraftersDS.Client);
+                taStaffs.Fill(codeCraftersDSTWO.Staff);
+                taClients.Fill(codeCraftersDSTWO.Client);
             }
             catch (Exception ex)
             {
@@ -166,20 +168,22 @@ namespace Code_Crafters_Interface_Prototype_1.Business
             cmbStaffRole.SelectedIndex = -1;
             cmbStaffStatus.SelectedIndex = -1;
 
-            codeCraftersDS.Staff.Clear();
+            codeCraftersDSTWO.Staff.Clear();
         }
 
         private void btnStaffUpdate_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtStaffID.Text) || !int.TryParse(txtStaffID.Text, out int staffID))
+            string staffID = txtStaffID.Text.Trim();
+
+            if (string.IsNullOrWhiteSpace(staffID))
             {
-                MessageBox.Show("Please search for or enter a valid numeric Staff ID before updating.", "Missing ID", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Please search for or enter a valid Staff NO. before updating.", "Missing NO.", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             if (!ValidateStaffInputs()) return;
 
-            DialogResult result = MessageBox.Show($"Are you sure you want to save updates for Staff ID {txtStaffID.Text}?",
+            DialogResult result = MessageBox.Show($"Are you sure you want to save updates for Staff NO. {staffID}?",
                                                   "Confirm Update",
                                                   MessageBoxButtons.YesNo,
                                                   MessageBoxIcon.Question);
@@ -203,7 +207,7 @@ namespace Code_Crafters_Interface_Prototype_1.Business
 
                     MessageBox.Show("Staff record updated successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    taStaffs.Fill(codeCraftersDS.Staff);
+                    taStaffs.Fill(codeCraftersDSTWO.Staff);
                 }
                 catch (Exception ex)
                 {
@@ -214,13 +218,15 @@ namespace Code_Crafters_Interface_Prototype_1.Business
 
         private void btnStaffDelete_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtStaffID.Text) || !int.TryParse(txtStaffID.Text, out int staffID))
+            string staffID = txtStaffID.Text.Trim();
+
+            if (string.IsNullOrWhiteSpace(staffID))
             {
-                MessageBox.Show("Please enter or search for a valid numeric Staff ID to delete.", "Missing ID", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Please enter or search for a valid Staff NO. to delete.", "Missing NO.", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            DialogResult result = MessageBox.Show($"Are you sure you want to delete Staff ID {txtStaffID.Text}?",
+            DialogResult result = MessageBox.Show($"Are you sure you want to delete Staff NO. {staffID}?",
                                                   "Confirm Deletion",
                                                   MessageBoxButtons.YesNo,
                                                   MessageBoxIcon.Question);
@@ -234,7 +240,8 @@ namespace Code_Crafters_Interface_Prototype_1.Business
                     MessageBox.Show("Staff record deleted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     txtStaffID.Clear();
-                    taStaffs.Fill(codeCraftersDS.Staff);
+
+                    taStaffs.Fill(codeCraftersDSTWO.Staff);
                 }
                 catch (Exception ex)
                 {
@@ -250,22 +257,18 @@ namespace Code_Crafters_Interface_Prototype_1.Business
             if (string.IsNullOrWhiteSpace(input))
             {
                 ClearInputFieldsValuesOnly();
-                codeCraftersDS.Staff.Clear();
+                codeCraftersDSTWO.Staff.Clear();
                 return;
             }
 
-            if (!int.TryParse(input, out int staffID))
-            {
-                return;
-            }
-
+        
             try
             {
-                taStaffs.FillByStaffID(codeCraftersDS.Staff, staffID);
+                taStaffs.FillByStaffNo(codeCraftersDSTWO.Staff, input);
 
-                if (codeCraftersDS.Staff.Rows.Count > 0)
+                if (codeCraftersDSTWO.Staff.Rows.Count > 0)
                 {
-                    DataRow row = codeCraftersDS.Staff.Rows[0];
+                    DataRow row = codeCraftersDSTWO.Staff.Rows[0];
 
                     cmbBranchID.Text = row["Branch_ID"]?.ToString() ?? "";
                     txtStaffName.Text = row["staff_First_Name"]?.ToString() ?? "";

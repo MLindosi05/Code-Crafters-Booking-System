@@ -18,39 +18,40 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle31 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle32 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle33 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle34 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle35 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle36 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle37 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle38 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle39 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle40 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle41 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle42 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlBooking = new System.Windows.Forms.Panel();
             this.grpRegalInnBooking = new System.Windows.Forms.GroupBox();
+            this.txtPhoneNumber = new System.Windows.Forms.TextBox();
             this.cmbBranchID = new System.Windows.Forms.ComboBox();
             this.lblBranchID = new System.Windows.Forms.Label();
             this.grpBookingDetails = new System.Windows.Forms.GroupBox();
+            this.dtpCheckOut = new System.Windows.Forms.DateTimePicker();
+            this.dtpCheckIn = new System.Windows.Forms.DateTimePicker();
             this.txtTotalAmount = new System.Windows.Forms.TextBox();
             this.lblTotalAmount = new System.Windows.Forms.Label();
             this.dgvInvoice = new System.Windows.Forms.DataGridView();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.mclCheckOut = new System.Windows.Forms.MonthCalendar();
-            this.mclCheckIn = new System.Windows.Forms.MonthCalendar();
             this.label1 = new System.Windows.Forms.Label();
             this.txtRestaurantTableAvailable = new System.Windows.Forms.TextBox();
             this.dgvRestaurantTableAvailable = new System.Windows.Forms.DataGridView();
@@ -59,19 +60,14 @@
             this.lblHotelRoomAvailable = new System.Windows.Forms.Label();
             this.txtHotelRoomAvailable = new System.Windows.Forms.TextBox();
             this.grpClientDetails = new System.Windows.Forms.GroupBox();
-            this.txtPhoneNumber = new System.Windows.Forms.TextBox();
             this.txtAddress = new System.Windows.Forms.TextBox();
             this.txtEmailAddress = new System.Windows.Forms.TextBox();
             this.txtFullName = new System.Windows.Forms.TextBox();
             this.lblAddress = new System.Windows.Forms.Label();
             this.lblEmailAddress = new System.Windows.Forms.Label();
-            this.lblPhoneNumber = new System.Windows.Forms.Label();
             this.lblFullName = new System.Windows.Forms.Label();
+            this.lblPhoneNumber = new System.Windows.Forms.Label();
             this.btnCreateBooking = new System.Windows.Forms.Button();
-            this.dtpCheckIn = new System.Windows.Forms.DateTimePicker();
-            this.dtpCheckOut = new System.Windows.Forms.DateTimePicker();
-            this.lblStartTime = new System.Windows.Forms.Label();
-            this.lblEndTime = new System.Windows.Forms.Label();
             this.hotelRoomIDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.hotelroomnumberDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.hotelRoomPriceDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -79,7 +75,7 @@
             this.restaurantTableNumDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.restaurantTablePriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.invoiceBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.codeCraftersDS = new Code_Crafters_Interface_Prototype_1.codeCraftersDS();
+            this.codeCraftersDSTWO = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTWO();
             this.restaurantTableIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.branchIDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.restuarantTableNumDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -97,14 +93,17 @@
             this.hotelroomstatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.hotelRoomPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.hotelRoomBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.taBooking = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTableAdapters.BookingTableAdapter();
-            this.taClient = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTableAdapters.ClientTableAdapter();
-            this.taBranch = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTableAdapters.BranchTableAdapter();
-            this.taHotelRoom = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTableAdapters.Hotel_RoomTableAdapter();
-            this.taRatePlan = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTableAdapters.Rate_PlanTableAdapter();
-            this.taRoomAssignment = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTableAdapters.Room_AssignmentTableAdapter();
-            this.taTableAllocation = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTableAdapters.Table_AllocationTableAdapter();
-            this.taRestaurantTable = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTableAdapters.Restuarant_TableTableAdapter();
+            this.taBooking = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTWOTableAdapters.BookingTableAdapter();
+            this.taBranch = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTWOTableAdapters.BranchTableAdapter();
+            this.taClientBranchTableBooking = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTWOTableAdapters.ClientBranchTableBookingTableAdapter();
+            this.taClient = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTWOTableAdapters.ClientTableAdapter();
+            this.taFolio = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTWOTableAdapters.FolioTableAdapter();
+            this.taHotelRoom = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTWOTableAdapters.Hotel_RoomTableAdapter();
+            this.taRatePlan = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTWOTableAdapters.Rate_PlanTableAdapter();
+            this.taRestaurantTable = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTWOTableAdapters.Restuarant_TableTableAdapter();
+            this.taRoomAssignment = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTWOTableAdapters.Room_AssignmentTableAdapter();
+            this.taStaff = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTWOTableAdapters.StaffTableAdapter();
+            this.taTableAllocation = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTWOTableAdapters.Table_AllocationTableAdapter();
             this.pnlBooking.SuspendLayout();
             this.grpRegalInnBooking.SuspendLayout();
             this.grpBookingDetails.SuspendLayout();
@@ -113,7 +112,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvHotelRoomAvailable)).BeginInit();
             this.grpClientDetails.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.invoiceBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.codeCraftersDS)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.codeCraftersDSTWO)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.restuarantTableBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.hotelRoomBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -122,24 +121,35 @@
             // 
             this.pnlBooking.BackColor = System.Drawing.Color.White;
             this.pnlBooking.Controls.Add(this.grpRegalInnBooking);
+            this.pnlBooking.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pnlBooking.Location = new System.Drawing.Point(12, 2);
             this.pnlBooking.Name = "pnlBooking";
-            this.pnlBooking.Size = new System.Drawing.Size(1204, 1006);
+            this.pnlBooking.Size = new System.Drawing.Size(1204, 936);
             this.pnlBooking.TabIndex = 3;
             // 
             // grpRegalInnBooking
             // 
+            this.grpRegalInnBooking.Controls.Add(this.txtPhoneNumber);
             this.grpRegalInnBooking.Controls.Add(this.cmbBranchID);
             this.grpRegalInnBooking.Controls.Add(this.lblBranchID);
             this.grpRegalInnBooking.Controls.Add(this.grpBookingDetails);
             this.grpRegalInnBooking.Controls.Add(this.grpClientDetails);
+            this.grpRegalInnBooking.Controls.Add(this.lblPhoneNumber);
             this.grpRegalInnBooking.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
             this.grpRegalInnBooking.Location = new System.Drawing.Point(20, 40);
             this.grpRegalInnBooking.Name = "grpRegalInnBooking";
-            this.grpRegalInnBooking.Size = new System.Drawing.Size(1130, 988);
+            this.grpRegalInnBooking.Size = new System.Drawing.Size(1130, 891);
             this.grpRegalInnBooking.TabIndex = 4;
             this.grpRegalInnBooking.TabStop = false;
             this.grpRegalInnBooking.Text = "REGAL INN BOOKING";
+            // 
+            // txtPhoneNumber
+            // 
+            this.txtPhoneNumber.Location = new System.Drawing.Point(220, 67);
+            this.txtPhoneNumber.Name = "txtPhoneNumber";
+            this.txtPhoneNumber.Size = new System.Drawing.Size(177, 29);
+            this.txtPhoneNumber.TabIndex = 3;
+            this.txtPhoneNumber.TextChanged += new System.EventHandler(this.txtPhoneNumber_TextChanged);
             // 
             // cmbBranchID
             // 
@@ -167,8 +177,6 @@
             // grpBookingDetails
             // 
             this.grpBookingDetails.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.grpBookingDetails.Controls.Add(this.lblEndTime);
-            this.grpBookingDetails.Controls.Add(this.lblStartTime);
             this.grpBookingDetails.Controls.Add(this.dtpCheckOut);
             this.grpBookingDetails.Controls.Add(this.dtpCheckIn);
             this.grpBookingDetails.Controls.Add(this.txtTotalAmount);
@@ -176,8 +184,6 @@
             this.grpBookingDetails.Controls.Add(this.dgvInvoice);
             this.grpBookingDetails.Controls.Add(this.label3);
             this.grpBookingDetails.Controls.Add(this.label2);
-            this.grpBookingDetails.Controls.Add(this.mclCheckOut);
-            this.grpBookingDetails.Controls.Add(this.mclCheckIn);
             this.grpBookingDetails.Controls.Add(this.label1);
             this.grpBookingDetails.Controls.Add(this.txtRestaurantTableAvailable);
             this.grpBookingDetails.Controls.Add(this.dgvRestaurantTableAvailable);
@@ -187,22 +193,36 @@
             this.grpBookingDetails.Controls.Add(this.txtHotelRoomAvailable);
             this.grpBookingDetails.Location = new System.Drawing.Point(20, 220);
             this.grpBookingDetails.Name = "grpBookingDetails";
-            this.grpBookingDetails.Size = new System.Drawing.Size(1084, 746);
+            this.grpBookingDetails.Size = new System.Drawing.Size(1084, 656);
             this.grpBookingDetails.TabIndex = 5;
             this.grpBookingDetails.TabStop = false;
             this.grpBookingDetails.Text = "BOOKING DETAILS";
             // 
+            // dtpCheckOut
+            // 
+            this.dtpCheckOut.Location = new System.Drawing.Point(274, 387);
+            this.dtpCheckOut.Name = "dtpCheckOut";
+            this.dtpCheckOut.Size = new System.Drawing.Size(200, 29);
+            this.dtpCheckOut.TabIndex = 15;
+            // 
+            // dtpCheckIn
+            // 
+            this.dtpCheckIn.Location = new System.Drawing.Point(20, 387);
+            this.dtpCheckIn.Name = "dtpCheckIn";
+            this.dtpCheckIn.Size = new System.Drawing.Size(200, 29);
+            this.dtpCheckIn.TabIndex = 14;
+            // 
             // txtTotalAmount
             // 
-            this.txtTotalAmount.Location = new System.Drawing.Point(860, 703);
+            this.txtTotalAmount.Location = new System.Drawing.Point(860, 596);
             this.txtTotalAmount.Name = "txtTotalAmount";
             this.txtTotalAmount.ReadOnly = true;
-            this.txtTotalAmount.Size = new System.Drawing.Size(180, 29);
+            this.txtTotalAmount.Size = new System.Drawing.Size(165, 29);
             this.txtTotalAmount.TabIndex = 12;
             // 
             // lblTotalAmount
             // 
-            this.lblTotalAmount.Location = new System.Drawing.Point(723, 706);
+            this.lblTotalAmount.Location = new System.Drawing.Point(723, 599);
             this.lblTotalAmount.Name = "lblTotalAmount";
             this.lblTotalAmount.Size = new System.Drawing.Size(140, 25);
             this.lblTotalAmount.TabIndex = 11;
@@ -220,9 +240,9 @@
             this.restaurantTableNumDataGridViewTextBoxColumn,
             this.restaurantTablePriceDataGridViewTextBoxColumn});
             this.dgvInvoice.DataSource = this.invoiceBindingSource;
-            this.dgvInvoice.Location = new System.Drawing.Point(20, 583);
+            this.dgvInvoice.Location = new System.Drawing.Point(20, 476);
             this.dgvInvoice.Name = "dgvInvoice";
-            this.dgvInvoice.Size = new System.Drawing.Size(1020, 110);
+            this.dgvInvoice.Size = new System.Drawing.Size(1005, 110);
             this.dgvInvoice.TabIndex = 13;
             // 
             // label3
@@ -231,7 +251,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(231, 20);
             this.label3.TabIndex = 0;
-            this.label3.Text = "ROOM CHECK OUT ";
+            this.label3.Text = "CHECK OUT ";
             // 
             // label2
             // 
@@ -239,23 +259,11 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(227, 20);
             this.label2.TabIndex = 1;
-            this.label2.Text = "ROOM CHECK IN ";
-            // 
-            // mclCheckOut
-            // 
-            this.mclCheckOut.Location = new System.Drawing.Point(274, 380);
-            this.mclCheckOut.Name = "mclCheckOut";
-            this.mclCheckOut.TabIndex = 9;
-            // 
-            // mclCheckIn
-            // 
-            this.mclCheckIn.Location = new System.Drawing.Point(20, 380);
-            this.mclCheckIn.Name = "mclCheckIn";
-            this.mclCheckIn.TabIndex = 7;
+            this.label2.Text = "CHECK IN ";
             // 
             // label1
             // 
-            this.label1.Location = new System.Drawing.Point(16, 551);
+            this.label1.Location = new System.Drawing.Point(16, 444);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(350, 20);
             this.label1.TabIndex = 12;
@@ -263,11 +271,11 @@
             // 
             // txtRestaurantTableAvailable
             // 
-            this.txtRestaurantTableAvailable.Location = new System.Drawing.Point(216, 184);
+            this.txtRestaurantTableAvailable.Location = new System.Drawing.Point(234, 184);
             this.txtRestaurantTableAvailable.Name = "txtRestaurantTableAvailable";
             this.txtRestaurantTableAvailable.Size = new System.Drawing.Size(100, 29);
             this.txtRestaurantTableAvailable.TabIndex = 4;
-            this.txtRestaurantTableAvailable.TextChanged += new System.EventHandler(this.txtRestaurantTableAvailable_TextChanged_1);
+            this.txtRestaurantTableAvailable.TextChanged += new System.EventHandler(this.txtRestaurantTableAvailable_TextChanged);
             // 
             // dgvRestaurantTableAvailable
             // 
@@ -286,7 +294,7 @@
             this.dgvRestaurantTableAvailable.DataSource = this.restuarantTableBindingSource;
             this.dgvRestaurantTableAvailable.Location = new System.Drawing.Point(20, 222);
             this.dgvRestaurantTableAvailable.Name = "dgvRestaurantTableAvailable";
-            this.dgvRestaurantTableAvailable.Size = new System.Drawing.Size(1020, 118);
+            this.dgvRestaurantTableAvailable.Size = new System.Drawing.Size(1005, 118);
             this.dgvRestaurantTableAvailable.TabIndex = 5;
             this.dgvRestaurantTableAvailable.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvRestaurantTableAvailable_RowHeaderMouseDoubleClick);
             // 
@@ -304,7 +312,7 @@
             this.dgvHotelRoomAvailable.DataSource = this.hotelRoomBindingSource;
             this.dgvHotelRoomAvailable.Location = new System.Drawing.Point(20, 65);
             this.dgvHotelRoomAvailable.Name = "dgvHotelRoomAvailable";
-            this.dgvHotelRoomAvailable.Size = new System.Drawing.Size(1020, 110);
+            this.dgvHotelRoomAvailable.Size = new System.Drawing.Size(1005, 110);
             this.dgvHotelRoomAvailable.TabIndex = 2;
             this.dgvHotelRoomAvailable.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvHotelRoomAvailable_RowHeaderMouseDoubleClick);
             // 
@@ -313,63 +321,56 @@
             this.lblRestaurantTableAvailable.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold);
             this.lblRestaurantTableAvailable.Location = new System.Drawing.Point(20, 190);
             this.lblRestaurantTableAvailable.Name = "lblRestaurantTableAvailable";
-            this.lblRestaurantTableAvailable.Size = new System.Drawing.Size(200, 20);
+            this.lblRestaurantTableAvailable.Size = new System.Drawing.Size(208, 20);
             this.lblRestaurantTableAvailable.TabIndex = 3;
-            this.lblRestaurantTableAvailable.Text = "ENTER RESTAURANT TABLE ID:";
+            this.lblRestaurantTableAvailable.Text = "ENTER RESTAURANT TABLE NO:";
             // 
             // lblHotelRoomAvailable
             // 
             this.lblHotelRoomAvailable.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold);
             this.lblHotelRoomAvailable.Location = new System.Drawing.Point(20, 33);
             this.lblHotelRoomAvailable.Name = "lblHotelRoomAvailable";
-            this.lblHotelRoomAvailable.Size = new System.Drawing.Size(160, 20);
+            this.lblHotelRoomAvailable.Size = new System.Drawing.Size(128, 20);
             this.lblHotelRoomAvailable.TabIndex = 0;
-            this.lblHotelRoomAvailable.Text = "ENTER HOTEL ROOM ID:";
+            this.lblHotelRoomAvailable.Text = "ENTER ROOM NO:";
             // 
             // txtHotelRoomAvailable
             // 
-            this.txtHotelRoomAvailable.Location = new System.Drawing.Point(190, 27);
+            this.txtHotelRoomAvailable.Location = new System.Drawing.Point(154, 27);
             this.txtHotelRoomAvailable.Name = "txtHotelRoomAvailable";
-            this.txtHotelRoomAvailable.Size = new System.Drawing.Size(126, 29);
+            this.txtHotelRoomAvailable.Size = new System.Drawing.Size(100, 29);
             this.txtHotelRoomAvailable.TabIndex = 1;
-            this.txtHotelRoomAvailable.TextChanged += new System.EventHandler(this.txtHotelRoomAvailable_TextChanged_1);
+            this.txtHotelRoomAvailable.TextChanged += new System.EventHandler(this.txtHotelRoomAvailable_TextChanged);
             // 
             // grpClientDetails
             // 
             this.grpClientDetails.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.grpClientDetails.Controls.Add(this.txtPhoneNumber);
             this.grpClientDetails.Controls.Add(this.txtAddress);
             this.grpClientDetails.Controls.Add(this.txtEmailAddress);
             this.grpClientDetails.Controls.Add(this.txtFullName);
             this.grpClientDetails.Controls.Add(this.lblAddress);
             this.grpClientDetails.Controls.Add(this.lblEmailAddress);
-            this.grpClientDetails.Controls.Add(this.lblPhoneNumber);
             this.grpClientDetails.Controls.Add(this.lblFullName);
-            this.grpClientDetails.Location = new System.Drawing.Point(20, 70);
+            this.grpClientDetails.Location = new System.Drawing.Point(20, 111);
             this.grpClientDetails.Name = "grpClientDetails";
-            this.grpClientDetails.Size = new System.Drawing.Size(1084, 144);
+            this.grpClientDetails.Size = new System.Drawing.Size(1084, 103);
             this.grpClientDetails.TabIndex = 4;
             this.grpClientDetails.TabStop = false;
             this.grpClientDetails.Text = "CLIENT DETAILS";
             // 
-            // txtPhoneNumber
-            // 
-            this.txtPhoneNumber.Location = new System.Drawing.Point(20, 105);
-            this.txtPhoneNumber.Name = "txtPhoneNumber";
-            this.txtPhoneNumber.Size = new System.Drawing.Size(220, 29);
-            this.txtPhoneNumber.TabIndex = 3;
-            // 
             // txtAddress
             // 
-            this.txtAddress.Location = new System.Drawing.Point(280, 105);
+            this.txtAddress.Location = new System.Drawing.Point(573, 55);
             this.txtAddress.Name = "txtAddress";
-            this.txtAddress.Size = new System.Drawing.Size(250, 29);
+            this.txtAddress.ReadOnly = true;
+            this.txtAddress.Size = new System.Drawing.Size(344, 29);
             this.txtAddress.TabIndex = 7;
             // 
             // txtEmailAddress
             // 
             this.txtEmailAddress.Location = new System.Drawing.Point(280, 55);
             this.txtEmailAddress.Name = "txtEmailAddress";
+            this.txtEmailAddress.ReadOnly = true;
             this.txtEmailAddress.Size = new System.Drawing.Size(250, 29);
             this.txtEmailAddress.TabIndex = 5;
             // 
@@ -377,17 +378,18 @@
             // 
             this.txtFullName.Location = new System.Drawing.Point(20, 55);
             this.txtFullName.Name = "txtFullName";
+            this.txtFullName.ReadOnly = true;
             this.txtFullName.Size = new System.Drawing.Size(220, 29);
             this.txtFullName.TabIndex = 1;
             // 
             // lblAddress
             // 
             this.lblAddress.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold);
-            this.lblAddress.Location = new System.Drawing.Point(280, 85);
+            this.lblAddress.Location = new System.Drawing.Point(572, 30);
             this.lblAddress.Name = "lblAddress";
-            this.lblAddress.Size = new System.Drawing.Size(100, 20);
+            this.lblAddress.Size = new System.Drawing.Size(155, 20);
             this.lblAddress.TabIndex = 6;
-            this.lblAddress.Text = "ADDRESS:";
+            this.lblAddress.Text = "CLIENT ADDRESS:";
             // 
             // lblEmailAddress
             // 
@@ -398,15 +400,6 @@
             this.lblEmailAddress.TabIndex = 4;
             this.lblEmailAddress.Text = "EMAIL ADDRESS:";
             // 
-            // lblPhoneNumber
-            // 
-            this.lblPhoneNumber.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold);
-            this.lblPhoneNumber.Location = new System.Drawing.Point(20, 85);
-            this.lblPhoneNumber.Name = "lblPhoneNumber";
-            this.lblPhoneNumber.Size = new System.Drawing.Size(120, 20);
-            this.lblPhoneNumber.TabIndex = 2;
-            this.lblPhoneNumber.Text = "PHONE NUMBER:";
-            // 
             // lblFullName
             // 
             this.lblFullName.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold);
@@ -416,11 +409,20 @@
             this.lblFullName.TabIndex = 0;
             this.lblFullName.Text = "FULL NAME:";
             // 
+            // lblPhoneNumber
+            // 
+            this.lblPhoneNumber.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPhoneNumber.Location = new System.Drawing.Point(17, 76);
+            this.lblPhoneNumber.Name = "lblPhoneNumber";
+            this.lblPhoneNumber.Size = new System.Drawing.Size(193, 20);
+            this.lblPhoneNumber.TabIndex = 2;
+            this.lblPhoneNumber.Text = "ENTER CLIENT PHONE NO:";
+            // 
             // btnCreateBooking
             // 
             this.btnCreateBooking.BackColor = System.Drawing.Color.DarkOrange;
             this.btnCreateBooking.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.btnCreateBooking.Location = new System.Drawing.Point(892, 1014);
+            this.btnCreateBooking.Location = new System.Drawing.Point(877, 944);
             this.btnCreateBooking.Name = "btnCreateBooking";
             this.btnCreateBooking.Size = new System.Drawing.Size(200, 33);
             this.btnCreateBooking.TabIndex = 11;
@@ -428,43 +430,11 @@
             this.btnCreateBooking.UseVisualStyleBackColor = false;
             this.btnCreateBooking.Click += new System.EventHandler(this.btnCreateBooking_Click_1);
             // 
-            // dtpCheckIn
-            // 
-            this.dtpCheckIn.Location = new System.Drawing.Point(527, 380);
-            this.dtpCheckIn.Name = "dtpCheckIn";
-            this.dtpCheckIn.Size = new System.Drawing.Size(200, 29);
-            this.dtpCheckIn.TabIndex = 14;
-            // 
-            // dtpCheckOut
-            // 
-            this.dtpCheckOut.Location = new System.Drawing.Point(527, 474);
-            this.dtpCheckOut.Name = "dtpCheckOut";
-            this.dtpCheckOut.Size = new System.Drawing.Size(200, 29);
-            this.dtpCheckOut.TabIndex = 15;
-            // 
-            // lblStartTime
-            // 
-            this.lblStartTime.AutoSize = true;
-            this.lblStartTime.Location = new System.Drawing.Point(523, 356);
-            this.lblStartTime.Name = "lblStartTime";
-            this.lblStartTime.Size = new System.Drawing.Size(149, 21);
-            this.lblStartTime.TabIndex = 16;
-            this.lblStartTime.Text = "TABLE START TIME";
-            // 
-            // lblEndTime
-            // 
-            this.lblEndTime.AutoSize = true;
-            this.lblEndTime.Location = new System.Drawing.Point(523, 450);
-            this.lblEndTime.Name = "lblEndTime";
-            this.lblEndTime.Size = new System.Drawing.Size(136, 21);
-            this.lblEndTime.TabIndex = 17;
-            this.lblEndTime.Text = "TABLE END TIME";
-            // 
             // hotelRoomIDDataGridViewTextBoxColumn1
             // 
             this.hotelRoomIDDataGridViewTextBoxColumn1.DataPropertyName = "Hotel_Room_ID";
-            dataGridViewCellStyle22.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.hotelRoomIDDataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle22;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.hotelRoomIDDataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle1;
             this.hotelRoomIDDataGridViewTextBoxColumn1.HeaderText = "ROOM ID";
             this.hotelRoomIDDataGridViewTextBoxColumn1.Name = "hotelRoomIDDataGridViewTextBoxColumn1";
             this.hotelRoomIDDataGridViewTextBoxColumn1.Width = 110;
@@ -472,26 +442,26 @@
             // hotelroomnumberDataGridViewTextBoxColumn1
             // 
             this.hotelroomnumberDataGridViewTextBoxColumn1.DataPropertyName = "Hotel_room_number";
-            dataGridViewCellStyle23.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.hotelroomnumberDataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle23;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.hotelroomnumberDataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle2;
             this.hotelroomnumberDataGridViewTextBoxColumn1.HeaderText = "ROOM NO.";
             this.hotelroomnumberDataGridViewTextBoxColumn1.Name = "hotelroomnumberDataGridViewTextBoxColumn1";
-            this.hotelroomnumberDataGridViewTextBoxColumn1.Width = 130;
+            this.hotelroomnumberDataGridViewTextBoxColumn1.Width = 120;
             // 
             // hotelRoomPriceDataGridViewTextBoxColumn1
             // 
             this.hotelRoomPriceDataGridViewTextBoxColumn1.DataPropertyName = "Hotel_Room_Price";
-            dataGridViewCellStyle24.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.hotelRoomPriceDataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle24;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.hotelRoomPriceDataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle3;
             this.hotelRoomPriceDataGridViewTextBoxColumn1.HeaderText = "ROOM PRICE";
             this.hotelRoomPriceDataGridViewTextBoxColumn1.Name = "hotelRoomPriceDataGridViewTextBoxColumn1";
-            this.hotelRoomPriceDataGridViewTextBoxColumn1.Width = 150;
+            this.hotelRoomPriceDataGridViewTextBoxColumn1.Width = 130;
             // 
             // restaurantTableIDDataGridViewTextBoxColumn1
             // 
             this.restaurantTableIDDataGridViewTextBoxColumn1.DataPropertyName = "RestaurantTable_ID";
-            dataGridViewCellStyle25.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.restaurantTableIDDataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle25;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.restaurantTableIDDataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle4;
             this.restaurantTableIDDataGridViewTextBoxColumn1.HeaderText = "TABLE ID";
             this.restaurantTableIDDataGridViewTextBoxColumn1.Name = "restaurantTableIDDataGridViewTextBoxColumn1";
             this.restaurantTableIDDataGridViewTextBoxColumn1.Width = 110;
@@ -499,46 +469,46 @@
             // restaurantTableNumDataGridViewTextBoxColumn
             // 
             this.restaurantTableNumDataGridViewTextBoxColumn.DataPropertyName = "RestaurantTableNum";
-            dataGridViewCellStyle26.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.restaurantTableNumDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle26;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.restaurantTableNumDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle5;
             this.restaurantTableNumDataGridViewTextBoxColumn.HeaderText = "TABLE NO.";
             this.restaurantTableNumDataGridViewTextBoxColumn.Name = "restaurantTableNumDataGridViewTextBoxColumn";
-            this.restaurantTableNumDataGridViewTextBoxColumn.Width = 130;
+            this.restaurantTableNumDataGridViewTextBoxColumn.Width = 120;
             // 
             // restaurantTablePriceDataGridViewTextBoxColumn
             // 
             this.restaurantTablePriceDataGridViewTextBoxColumn.DataPropertyName = "RestaurantTablePrice";
-            dataGridViewCellStyle27.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.restaurantTablePriceDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle27;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.restaurantTablePriceDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle6;
             this.restaurantTablePriceDataGridViewTextBoxColumn.HeaderText = "TABLE PRICE";
             this.restaurantTablePriceDataGridViewTextBoxColumn.Name = "restaurantTablePriceDataGridViewTextBoxColumn";
-            this.restaurantTablePriceDataGridViewTextBoxColumn.Width = 150;
+            this.restaurantTablePriceDataGridViewTextBoxColumn.Width = 130;
             // 
             // invoiceBindingSource
             // 
             this.invoiceBindingSource.DataMember = "Invoice";
-            this.invoiceBindingSource.DataSource = this.codeCraftersDS;
+            this.invoiceBindingSource.DataSource = this.codeCraftersDSTWO;
             // 
-            // codeCraftersDS
+            // codeCraftersDSTWO
             // 
-            this.codeCraftersDS.DataSetName = "codeCraftersDS";
-            this.codeCraftersDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.codeCraftersDSTWO.DataSetName = "codeCraftersDSTWO";
+            this.codeCraftersDSTWO.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // restaurantTableIDDataGridViewTextBoxColumn
             // 
             this.restaurantTableIDDataGridViewTextBoxColumn.DataPropertyName = "RestaurantTableID";
-            dataGridViewCellStyle28.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.restaurantTableIDDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle28;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.restaurantTableIDDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle7;
             this.restaurantTableIDDataGridViewTextBoxColumn.HeaderText = "TABLE ID";
             this.restaurantTableIDDataGridViewTextBoxColumn.Name = "restaurantTableIDDataGridViewTextBoxColumn";
             this.restaurantTableIDDataGridViewTextBoxColumn.ReadOnly = true;
-            this.restaurantTableIDDataGridViewTextBoxColumn.Width = 105;
+            this.restaurantTableIDDataGridViewTextBoxColumn.Width = 110;
             // 
             // branchIDDataGridViewTextBoxColumn1
             // 
             this.branchIDDataGridViewTextBoxColumn1.DataPropertyName = "Branch_ID";
-            dataGridViewCellStyle29.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.branchIDDataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle29;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.branchIDDataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle8;
             this.branchIDDataGridViewTextBoxColumn1.HeaderText = "BRANCH ID";
             this.branchIDDataGridViewTextBoxColumn1.Name = "branchIDDataGridViewTextBoxColumn1";
             this.branchIDDataGridViewTextBoxColumn1.Width = 130;
@@ -546,8 +516,8 @@
             // restuarantTableNumDataGridViewTextBoxColumn
             // 
             this.restuarantTableNumDataGridViewTextBoxColumn.DataPropertyName = "RestuarantTableNum";
-            dataGridViewCellStyle30.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.restuarantTableNumDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle30;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.restuarantTableNumDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle9;
             this.restuarantTableNumDataGridViewTextBoxColumn.HeaderText = "TABLE NO.";
             this.restuarantTableNumDataGridViewTextBoxColumn.Name = "restuarantTableNumDataGridViewTextBoxColumn";
             this.restuarantTableNumDataGridViewTextBoxColumn.Width = 120;
@@ -555,67 +525,67 @@
             // restuarantMenuTypeDataGridViewTextBoxColumn
             // 
             this.restuarantMenuTypeDataGridViewTextBoxColumn.DataPropertyName = "RestuarantMenuType";
-            dataGridViewCellStyle31.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.restuarantMenuTypeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle31;
-            this.restuarantMenuTypeDataGridViewTextBoxColumn.HeaderText = "TABLE MENU";
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.restuarantMenuTypeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle10;
+            this.restuarantMenuTypeDataGridViewTextBoxColumn.HeaderText = "TABLE MENU ";
             this.restuarantMenuTypeDataGridViewTextBoxColumn.Name = "restuarantMenuTypeDataGridViewTextBoxColumn";
-            this.restuarantMenuTypeDataGridViewTextBoxColumn.Width = 150;
+            this.restuarantMenuTypeDataGridViewTextBoxColumn.Width = 140;
             // 
             // tableCapacityDataGridViewTextBoxColumn
             // 
             this.tableCapacityDataGridViewTextBoxColumn.DataPropertyName = "TableCapacity";
-            dataGridViewCellStyle32.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tableCapacityDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle32;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tableCapacityDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle11;
             this.tableCapacityDataGridViewTextBoxColumn.HeaderText = "TABLE CAPACITY";
             this.tableCapacityDataGridViewTextBoxColumn.Name = "tableCapacityDataGridViewTextBoxColumn";
-            this.tableCapacityDataGridViewTextBoxColumn.Width = 160;
+            this.tableCapacityDataGridViewTextBoxColumn.Width = 180;
             // 
             // tableStatusDataGridViewTextBoxColumn
             // 
             this.tableStatusDataGridViewTextBoxColumn.DataPropertyName = "TableStatus";
-            dataGridViewCellStyle33.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tableStatusDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle33;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tableStatusDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle12;
             this.tableStatusDataGridViewTextBoxColumn.HeaderText = "TABLE STATUS";
             this.tableStatusDataGridViewTextBoxColumn.Name = "tableStatusDataGridViewTextBoxColumn";
-            this.tableStatusDataGridViewTextBoxColumn.Width = 150;
+            this.tableStatusDataGridViewTextBoxColumn.Width = 160;
             // 
             // tableIsCombinableDataGridViewTextBoxColumn
             // 
             this.tableIsCombinableDataGridViewTextBoxColumn.DataPropertyName = "TableIsCombinable";
-            dataGridViewCellStyle34.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tableIsCombinableDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle34;
-            this.tableIsCombinableDataGridViewTextBoxColumn.HeaderText = "TABLE COMBINED";
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tableIsCombinableDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle13;
+            this.tableIsCombinableDataGridViewTextBoxColumn.HeaderText = "COMBINED";
             this.tableIsCombinableDataGridViewTextBoxColumn.Name = "tableIsCombinableDataGridViewTextBoxColumn";
-            this.tableIsCombinableDataGridViewTextBoxColumn.Width = 180;
+            this.tableIsCombinableDataGridViewTextBoxColumn.Width = 120;
             // 
             // tableFeaturesDataGridViewTextBoxColumn
             // 
             this.tableFeaturesDataGridViewTextBoxColumn.DataPropertyName = "TableFeatures";
-            dataGridViewCellStyle35.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tableFeaturesDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle35;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tableFeaturesDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle14;
             this.tableFeaturesDataGridViewTextBoxColumn.HeaderText = "TABLE FEATURES";
             this.tableFeaturesDataGridViewTextBoxColumn.Name = "tableFeaturesDataGridViewTextBoxColumn";
-            this.tableFeaturesDataGridViewTextBoxColumn.Width = 170;
+            this.tableFeaturesDataGridViewTextBoxColumn.Width = 180;
             // 
             // tablePriceDataGridViewTextBoxColumn
             // 
             this.tablePriceDataGridViewTextBoxColumn.DataPropertyName = "TablePrice";
-            dataGridViewCellStyle36.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tablePriceDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle36;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tablePriceDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle15;
             this.tablePriceDataGridViewTextBoxColumn.HeaderText = "TABLE PRICE";
             this.tablePriceDataGridViewTextBoxColumn.Name = "tablePriceDataGridViewTextBoxColumn";
-            this.tablePriceDataGridViewTextBoxColumn.Width = 140;
+            this.tablePriceDataGridViewTextBoxColumn.Width = 130;
             // 
             // restuarantTableBindingSource
             // 
             this.restuarantTableBindingSource.DataMember = "Restuarant_Table";
-            this.restuarantTableBindingSource.DataSource = this.codeCraftersDS;
+            this.restuarantTableBindingSource.DataSource = this.codeCraftersDSTWO;
             // 
             // hotelRoomIDDataGridViewTextBoxColumn
             // 
             this.hotelRoomIDDataGridViewTextBoxColumn.DataPropertyName = "Hotel_Room_ID";
-            dataGridViewCellStyle37.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.hotelRoomIDDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle37;
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.hotelRoomIDDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle16;
             this.hotelRoomIDDataGridViewTextBoxColumn.HeaderText = "ROOM ID";
             this.hotelRoomIDDataGridViewTextBoxColumn.Name = "hotelRoomIDDataGridViewTextBoxColumn";
             this.hotelRoomIDDataGridViewTextBoxColumn.ReadOnly = true;
@@ -624,8 +594,8 @@
             // branchIDDataGridViewTextBoxColumn
             // 
             this.branchIDDataGridViewTextBoxColumn.DataPropertyName = "Branch_ID";
-            dataGridViewCellStyle38.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.branchIDDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle38;
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.branchIDDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle17;
             this.branchIDDataGridViewTextBoxColumn.HeaderText = "BRANCH ID";
             this.branchIDDataGridViewTextBoxColumn.Name = "branchIDDataGridViewTextBoxColumn";
             this.branchIDDataGridViewTextBoxColumn.Width = 130;
@@ -633,26 +603,26 @@
             // hotelroomtypeIDDataGridViewTextBoxColumn
             // 
             this.hotelroomtypeIDDataGridViewTextBoxColumn.DataPropertyName = "hotel_room_type_ID";
-            dataGridViewCellStyle39.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.hotelroomtypeIDDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle39;
-            this.hotelroomtypeIDDataGridViewTextBoxColumn.HeaderText = "ROOM TYPE ID";
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.hotelroomtypeIDDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle18;
+            this.hotelroomtypeIDDataGridViewTextBoxColumn.HeaderText = "ROOM TYPE";
             this.hotelroomtypeIDDataGridViewTextBoxColumn.Name = "hotelroomtypeIDDataGridViewTextBoxColumn";
-            this.hotelroomtypeIDDataGridViewTextBoxColumn.Width = 150;
+            this.hotelroomtypeIDDataGridViewTextBoxColumn.Width = 130;
             // 
             // hotelroomnumberDataGridViewTextBoxColumn
             // 
             this.hotelroomnumberDataGridViewTextBoxColumn.DataPropertyName = "hotel_room_number";
-            dataGridViewCellStyle40.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.hotelroomnumberDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle40;
+            dataGridViewCellStyle19.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.hotelroomnumberDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle19;
             this.hotelroomnumberDataGridViewTextBoxColumn.HeaderText = "ROOM NO.";
             this.hotelroomnumberDataGridViewTextBoxColumn.Name = "hotelroomnumberDataGridViewTextBoxColumn";
-            this.hotelroomnumberDataGridViewTextBoxColumn.Width = 120;
+            this.hotelroomnumberDataGridViewTextBoxColumn.Width = 130;
             // 
             // hotelroomstatusDataGridViewTextBoxColumn
             // 
             this.hotelroomstatusDataGridViewTextBoxColumn.DataPropertyName = "hotel_room_status";
-            dataGridViewCellStyle41.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.hotelroomstatusDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle41;
+            dataGridViewCellStyle20.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.hotelroomstatusDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle20;
             this.hotelroomstatusDataGridViewTextBoxColumn.HeaderText = "ROOM STATUS";
             this.hotelroomstatusDataGridViewTextBoxColumn.Name = "hotelroomstatusDataGridViewTextBoxColumn";
             this.hotelroomstatusDataGridViewTextBoxColumn.Width = 150;
@@ -660,28 +630,36 @@
             // hotelRoomPriceDataGridViewTextBoxColumn
             // 
             this.hotelRoomPriceDataGridViewTextBoxColumn.DataPropertyName = "Hotel_Room_Price";
-            dataGridViewCellStyle42.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.hotelRoomPriceDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle42;
+            dataGridViewCellStyle21.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.hotelRoomPriceDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle21;
             this.hotelRoomPriceDataGridViewTextBoxColumn.HeaderText = "ROOM PRICE";
             this.hotelRoomPriceDataGridViewTextBoxColumn.Name = "hotelRoomPriceDataGridViewTextBoxColumn";
-            this.hotelRoomPriceDataGridViewTextBoxColumn.Width = 150;
+            this.hotelRoomPriceDataGridViewTextBoxColumn.Width = 130;
             // 
             // hotelRoomBindingSource
             // 
             this.hotelRoomBindingSource.DataMember = "Hotel_Room";
-            this.hotelRoomBindingSource.DataSource = this.codeCraftersDS;
+            this.hotelRoomBindingSource.DataSource = this.codeCraftersDSTWO;
             // 
             // taBooking
             // 
             this.taBooking.ClearBeforeFill = true;
             // 
+            // taBranch
+            // 
+            this.taBranch.ClearBeforeFill = true;
+            // 
+            // taClientBranchTableBooking
+            // 
+            this.taClientBranchTableBooking.ClearBeforeFill = true;
+            // 
             // taClient
             // 
             this.taClient.ClearBeforeFill = true;
             // 
-            // taBranch
+            // taFolio
             // 
-            this.taBranch.ClearBeforeFill = true;
+            this.taFolio.ClearBeforeFill = true;
             // 
             // taHotelRoom
             // 
@@ -691,17 +669,21 @@
             // 
             this.taRatePlan.ClearBeforeFill = true;
             // 
+            // taRestaurantTable
+            // 
+            this.taRestaurantTable.ClearBeforeFill = true;
+            // 
             // taRoomAssignment
             // 
             this.taRoomAssignment.ClearBeforeFill = true;
             // 
+            // taStaff
+            // 
+            this.taStaff.ClearBeforeFill = true;
+            // 
             // taTableAllocation
             // 
             this.taTableAllocation.ClearBeforeFill = true;
-            // 
-            // taRestaurantTable
-            // 
-            this.taRestaurantTable.ClearBeforeFill = true;
             // 
             // BookingForm
             // 
@@ -717,6 +699,7 @@
             this.Load += new System.EventHandler(this.BookingForm_Load_1);
             this.pnlBooking.ResumeLayout(false);
             this.grpRegalInnBooking.ResumeLayout(false);
+            this.grpRegalInnBooking.PerformLayout();
             this.grpBookingDetails.ResumeLayout(false);
             this.grpBookingDetails.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInvoice)).EndInit();
@@ -725,7 +708,7 @@
             this.grpClientDetails.ResumeLayout(false);
             this.grpClientDetails.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.invoiceBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.codeCraftersDS)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.codeCraftersDSTWO)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.restuarantTableBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.hotelRoomBindingSource)).EndInit();
             this.ResumeLayout(false);
@@ -733,19 +716,6 @@
         }
 
         #endregion
-        private codeCraftersDS codeCraftersDS;
-        private System.Windows.Forms.BindingSource restuarantTableBindingSource;
-        private System.Windows.Forms.BindingSource hotelRoomBindingSource;
-
-        private codeCraftersDSTableAdapters.BookingTableAdapter taBooking;
-        private codeCraftersDSTableAdapters.ClientTableAdapter taClient;
-        private codeCraftersDSTableAdapters.BranchTableAdapter taBranch;
-        private codeCraftersDSTableAdapters.Hotel_RoomTableAdapter taHotelRoom;
-        private codeCraftersDSTableAdapters.Rate_PlanTableAdapter taRatePlan;
-        private codeCraftersDSTableAdapters.Room_AssignmentTableAdapter taRoomAssignment;
-        private codeCraftersDSTableAdapters.Table_AllocationTableAdapter taTableAllocation;
-        private codeCraftersDSTableAdapters.Restuarant_TableTableAdapter taRestaurantTable;
-        private System.Windows.Forms.BindingSource invoiceBindingSource;
         private System.Windows.Forms.Panel pnlBooking;
         private System.Windows.Forms.GroupBox grpRegalInnBooking;
         private System.Windows.Forms.ComboBox cmbBranchID;
@@ -754,32 +724,17 @@
         private System.Windows.Forms.TextBox txtTotalAmount;
         private System.Windows.Forms.Label lblTotalAmount;
         private System.Windows.Forms.DataGridView dgvInvoice;
-        private System.Windows.Forms.DataGridViewTextBoxColumn hotelRoomIDDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn hotelroomnumberDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn hotelRoomPriceDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn restaurantTableIDDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn restaurantTableNumDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn restaurantTablePriceDataGridViewTextBoxColumn;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.MonthCalendar mclCheckOut;
-        private System.Windows.Forms.MonthCalendar mclCheckIn;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtRestaurantTableAvailable;
         private System.Windows.Forms.DataGridView dgvRestaurantTableAvailable;
         private System.Windows.Forms.DataGridView dgvHotelRoomAvailable;
-        private System.Windows.Forms.DataGridViewTextBoxColumn hotelRoomIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn branchIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn hotelroomtypeIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn hotelroomnumberDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn hotelroomstatusDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn hotelRoomPriceDataGridViewTextBoxColumn;
         private System.Windows.Forms.Label lblRestaurantTableAvailable;
         private System.Windows.Forms.Label lblHotelRoomAvailable;
         private System.Windows.Forms.TextBox txtHotelRoomAvailable;
         private System.Windows.Forms.GroupBox grpClientDetails;
         private System.Windows.Forms.TextBox txtPhoneNumber;
-        private System.Windows.Forms.TextBox txtAddress;
         private System.Windows.Forms.TextBox txtEmailAddress;
         private System.Windows.Forms.TextBox txtFullName;
         private System.Windows.Forms.Label lblAddress;
@@ -787,6 +742,36 @@
         private System.Windows.Forms.Label lblPhoneNumber;
         private System.Windows.Forms.Label lblFullName;
         private System.Windows.Forms.Button btnCreateBooking;
+        private System.Windows.Forms.DateTimePicker dtpCheckOut;
+        private System.Windows.Forms.DateTimePicker dtpCheckIn;
+        private codeCraftersDSTWO codeCraftersDSTWO;
+        private codeCraftersDSTWOTableAdapters.BookingTableAdapter taBooking;
+        private codeCraftersDSTWOTableAdapters.BranchTableAdapter taBranch;
+        private codeCraftersDSTWOTableAdapters.ClientBranchTableBookingTableAdapter taClientBranchTableBooking;
+        private codeCraftersDSTWOTableAdapters.ClientTableAdapter taClient;
+        private codeCraftersDSTWOTableAdapters.FolioTableAdapter taFolio;
+        private codeCraftersDSTWOTableAdapters.Hotel_RoomTableAdapter taHotelRoom;
+        private codeCraftersDSTWOTableAdapters.Rate_PlanTableAdapter taRatePlan;
+        private codeCraftersDSTWOTableAdapters.Restuarant_TableTableAdapter taRestaurantTable;
+        private codeCraftersDSTWOTableAdapters.Room_AssignmentTableAdapter taRoomAssignment;
+        private codeCraftersDSTWOTableAdapters.StaffTableAdapter taStaff;
+        private codeCraftersDSTWOTableAdapters.Table_AllocationTableAdapter taTableAllocation;
+        private System.Windows.Forms.BindingSource invoiceBindingSource;
+        private System.Windows.Forms.BindingSource restuarantTableBindingSource;
+        private System.Windows.Forms.BindingSource hotelRoomBindingSource;
+        private System.Windows.Forms.TextBox txtAddress;
+        private System.Windows.Forms.DataGridViewTextBoxColumn hotelRoomIDDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn hotelroomnumberDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn hotelRoomPriceDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn restaurantTableIDDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn restaurantTableNumDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn restaurantTablePriceDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn hotelRoomIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn branchIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn hotelroomtypeIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn hotelroomnumberDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn hotelroomstatusDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn hotelRoomPriceDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn restaurantTableIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn branchIDDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn restuarantTableNumDataGridViewTextBoxColumn;
@@ -796,9 +781,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn tableIsCombinableDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn tableFeaturesDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn tablePriceDataGridViewTextBoxColumn;
-        private System.Windows.Forms.Label lblEndTime;
-        private System.Windows.Forms.Label lblStartTime;
-        private System.Windows.Forms.DateTimePicker dtpCheckOut;
-        private System.Windows.Forms.DateTimePicker dtpCheckIn;
     }
 }

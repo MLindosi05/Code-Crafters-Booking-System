@@ -68,13 +68,13 @@
             this.datejoinedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.staffstatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.staffBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.codeCraftersDS = new Code_Crafters_Interface_Prototype_1.codeCraftersDS();
+            this.codeCraftersDSTWO = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTWO();
             this.txtStaffID = new System.Windows.Forms.TextBox();
             this.btnStaffDelete = new System.Windows.Forms.Button();
             this.btnStaffAdd = new System.Windows.Forms.Button();
             this.lblStaffManagement = new System.Windows.Forms.Label();
-            this.taStaffs = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTableAdapters.StaffTableAdapter();
-            this.taClients = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTableAdapters.ClientTableAdapter();
+            this.taStaffs = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTWOTableAdapters.StaffTableAdapter();
+            this.taClients = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTWOTableAdapters.ClientTableAdapter();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -82,7 +82,7 @@
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStaffManagement)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.staffBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.codeCraftersDS)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.codeCraftersDSTWO)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -135,9 +135,9 @@
             this.lblStaffID.AutoSize = true;
             this.lblStaffID.Location = new System.Drawing.Point(68, 412);
             this.lblStaffID.Name = "lblStaffID";
-            this.lblStaffID.Size = new System.Drawing.Size(111, 17);
+            this.lblStaffID.Size = new System.Drawing.Size(125, 17);
             this.lblStaffID.TabIndex = 22;
-            this.lblStaffID.Text = "ENTER STAFF ID:";
+            this.lblStaffID.Text = "ENTER PHONE NO:";
             // 
             // btnStaffClear
             // 
@@ -451,18 +451,18 @@
             // staffBindingSource
             // 
             this.staffBindingSource.DataMember = "Staff";
-            this.staffBindingSource.DataSource = this.codeCraftersDS;
+            this.staffBindingSource.DataSource = this.codeCraftersDSTWO;
             // 
-            // codeCraftersDS
+            // codeCraftersDSTWO
             // 
-            this.codeCraftersDS.DataSetName = "codeCraftersDS";
-            this.codeCraftersDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.codeCraftersDSTWO.DataSetName = "codeCraftersDSTWO";
+            this.codeCraftersDSTWO.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // txtStaffID
             // 
-            this.txtStaffID.Location = new System.Drawing.Point(185, 409);
+            this.txtStaffID.Location = new System.Drawing.Point(199, 409);
             this.txtStaffID.Name = "txtStaffID";
-            this.txtStaffID.Size = new System.Drawing.Size(91, 25);
+            this.txtStaffID.Size = new System.Drawing.Size(106, 25);
             this.txtStaffID.TabIndex = 21;
             this.txtStaffID.Click += new System.EventHandler(this.txtStaffID_TextChanged);
             this.txtStaffID.TextChanged += new System.EventHandler(this.txtStaffID_TextChanged);
@@ -524,7 +524,7 @@
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStaffManagement)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.staffBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.codeCraftersDS)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.codeCraftersDSTWO)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -534,7 +534,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.DataGridView dgvStaffManagement;
         private System.Windows.Forms.BindingSource staffBindingSource;
-        private codeCraftersDS codeCraftersDS;
         private System.Windows.Forms.Label lblStaffManagement;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnStaffClear;
@@ -569,8 +568,6 @@
         private System.Windows.Forms.Label lblPhoneNumber;
         private System.Windows.Forms.Label lblStaffID;
         private System.Windows.Forms.Button btnStaffUpdate;
-        private codeCraftersDSTableAdapters.StaffTableAdapter taStaffs;
-        private codeCraftersDSTableAdapters.ClientTableAdapter taClients;
         private System.Windows.Forms.DataGridViewTextBoxColumn staffIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn branchIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn staffFirstNameDataGridViewTextBoxColumn;
@@ -581,5 +578,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn staffroleDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn datejoinedDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn staffstatusDataGridViewTextBoxColumn;
+        private codeCraftersDSTWO codeCraftersDSTWO;
+        private codeCraftersDSTWOTableAdapters.StaffTableAdapter taStaffs;
+        private codeCraftersDSTWOTableAdapters.ClientTableAdapter taClients;
     }
 }

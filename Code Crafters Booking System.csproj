@@ -97,6 +97,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>codeCraftersDS.xsd</DependentUpon>
     </Compile>
+    <Compile Include="codeCraftersDSTWO.cs">
+      <DependentUpon>codeCraftersDSTWO.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="codeCraftersDSTWO.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>codeCraftersDSTWO.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Interfaces\AdminHomeForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -133,18 +141,6 @@
     <Compile Include="Interfaces\ReceptionistMenuForm.Designer.cs">
       <DependentUpon>ReceptionistMenuForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="rptOccupancyReport.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>rptOccupancyReport.rpt</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="rptRevenueAnalysis.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>rptRevenueAnalysis.rpt</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="EmailService.cs" />
     <Compile Include="Interfaces\HomeForm.cs">
       <SubType>Form</SubType>
@@ -166,6 +162,18 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="rptOccupancyReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptOccupancyReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rptRevenueAnalysis.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptRevenueAnalysis.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="rptTableOccupancyReport.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -209,14 +217,6 @@
     <EmbeddedResource Include="Interfaces\ReceptionistMenuForm.resx">
       <DependentUpon>ReceptionistMenuForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="rptOccupancyReport.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>rptOccupancyReport.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="rptRevenueAnalysis.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>rptRevenueAnalysis.cs</LastGenOutput>
-    </EmbeddedResource>
     <EmbeddedResource Include="Interfaces\HomeForm.resx">
       <DependentUpon>HomeForm.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -237,6 +237,14 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="rptOccupancyReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptOccupancyReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rptRevenueAnalysis.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptRevenueAnalysis.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="rptTableOccupancyReport.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptTableOccupancyReport.cs</LastGenOutput>
@@ -251,6 +259,17 @@
     </None>
     <None Include="codeCraftersDS.xss">
       <DependentUpon>codeCraftersDS.xsd</DependentUpon>
+    </None>
+    <None Include="codeCraftersDSTWO.xsc">
+      <DependentUpon>codeCraftersDSTWO.xsd</DependentUpon>
+    </None>
+    <None Include="codeCraftersDSTWO.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>codeCraftersDSTWO.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="codeCraftersDSTWO.xss">
+      <DependentUpon>codeCraftersDSTWO.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
