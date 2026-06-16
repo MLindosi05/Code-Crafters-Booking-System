@@ -29,14 +29,13 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.txtRoomID = new System.Windows.Forms.TextBox();
             this.lblSearchRoomID = new System.Windows.Forms.Label();
@@ -46,6 +45,14 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.dgvHotelRoomManagement = new System.Windows.Forms.DataGridView();
+            this.hotelRoomIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.branchIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.hotelroomtypeIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.hotelroomnumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.hotelroomstatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.hotelRoomPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.hotelRoomBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.codeCraftersDSTWO = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTWO();
             this.pnlRoomManagement = new System.Windows.Forms.Panel();
             this.txtRoomNumber = new System.Windows.Forms.TextBox();
             this.lblRoomNumber = new System.Windows.Forms.Label();
@@ -57,49 +64,30 @@
             this.txtRoomPrice = new System.Windows.Forms.TextBox();
             this.cmbRoomStatus = new System.Windows.Forms.ComboBox();
             this.cmbRoomTypeID = new System.Windows.Forms.ComboBox();
-            this.lblRoomManagement = new System.Windows.Forms.Label();
             this.btnUpdateRoom = new System.Windows.Forms.Button();
             this.btnClearRoom = new System.Windows.Forms.Button();
             this.btnDeleteRoom = new System.Windows.Forms.Button();
             this.btnAddRoom = new System.Windows.Forms.Button();
-            this.hotelRoomIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.branchIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.hotelroomtypeIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.hotelroomnumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.hotelroomstatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.hotelRoomPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.codeCraftersDSTWO = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTWO();
             this.taRoomHotel = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTWOTableAdapters.Hotel_RoomTableAdapter();
-            this.hotelRoomBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHotelRoomManagement)).BeginInit();
-            this.pnlRoomManagement.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.codeCraftersDSTWO)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.hotelRoomBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.codeCraftersDSTWO)).BeginInit();
+            this.pnlRoomManagement.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.panel4);
             this.panel1.Controls.Add(this.panel2);
-            this.panel1.Controls.Add(this.lblRoomManagement);
             this.panel1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel1.Location = new System.Drawing.Point(4, 4);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1117, 782);
             this.panel1.TabIndex = 0;
-            // 
-            // panel4
-            // 
-            this.panel4.BackColor = System.Drawing.Color.Black;
-            this.panel4.Location = new System.Drawing.Point(409, 64);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(212, 3);
-            this.panel4.TabIndex = 6;
             // 
             // panel2
             // 
@@ -121,7 +109,7 @@
             // 
             this.txtRoomID.Location = new System.Drawing.Point(163, 374);
             this.txtRoomID.Name = "txtRoomID";
-            this.txtRoomID.Size = new System.Drawing.Size(106, 25);
+            this.txtRoomID.Size = new System.Drawing.Size(106, 29);
             this.txtRoomID.TabIndex = 10;
             this.txtRoomID.TextChanged += new System.EventHandler(this.txtRoomID_TextChanged_1);
             // 
@@ -130,7 +118,7 @@
             this.lblSearchRoomID.AutoSize = true;
             this.lblSearchRoomID.Location = new System.Drawing.Point(43, 377);
             this.lblSearchRoomID.Name = "lblSearchRoomID";
-            this.lblSearchRoomID.Size = new System.Drawing.Size(120, 17);
+            this.lblSearchRoomID.Size = new System.Drawing.Size(156, 23);
             this.lblSearchRoomID.TabIndex = 9;
             this.lblSearchRoomID.Text = "ENTER ROOM NO:";
             // 
@@ -202,6 +190,77 @@
             this.dgvHotelRoomManagement.TabIndex = 3;
             this.dgvHotelRoomManagement.SelectionChanged += new System.EventHandler(this.dgvHotelRoomManagement_SelectionChanged);
             // 
+            // hotelRoomIDDataGridViewTextBoxColumn
+            // 
+            this.hotelRoomIDDataGridViewTextBoxColumn.DataPropertyName = "Hotel_Room_ID";
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.hotelRoomIDDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
+            this.hotelRoomIDDataGridViewTextBoxColumn.HeaderText = "ROOM ID";
+            this.hotelRoomIDDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.hotelRoomIDDataGridViewTextBoxColumn.Name = "hotelRoomIDDataGridViewTextBoxColumn";
+            this.hotelRoomIDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.hotelRoomIDDataGridViewTextBoxColumn.Width = 105;
+            // 
+            // branchIDDataGridViewTextBoxColumn
+            // 
+            this.branchIDDataGridViewTextBoxColumn.DataPropertyName = "Branch_ID";
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.branchIDDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
+            this.branchIDDataGridViewTextBoxColumn.HeaderText = "BRANCH ID";
+            this.branchIDDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.branchIDDataGridViewTextBoxColumn.Name = "branchIDDataGridViewTextBoxColumn";
+            this.branchIDDataGridViewTextBoxColumn.Width = 120;
+            // 
+            // hotelroomtypeIDDataGridViewTextBoxColumn
+            // 
+            this.hotelroomtypeIDDataGridViewTextBoxColumn.DataPropertyName = "hotel_room_type_ID";
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.hotelroomtypeIDDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
+            this.hotelroomtypeIDDataGridViewTextBoxColumn.HeaderText = "ROOM TYPE ID";
+            this.hotelroomtypeIDDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.hotelroomtypeIDDataGridViewTextBoxColumn.Name = "hotelroomtypeIDDataGridViewTextBoxColumn";
+            this.hotelroomtypeIDDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // hotelroomnumberDataGridViewTextBoxColumn
+            // 
+            this.hotelroomnumberDataGridViewTextBoxColumn.DataPropertyName = "hotel_room_number";
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.hotelroomnumberDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle4;
+            this.hotelroomnumberDataGridViewTextBoxColumn.HeaderText = "ROOM NO.";
+            this.hotelroomnumberDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.hotelroomnumberDataGridViewTextBoxColumn.Name = "hotelroomnumberDataGridViewTextBoxColumn";
+            this.hotelroomnumberDataGridViewTextBoxColumn.Width = 120;
+            // 
+            // hotelroomstatusDataGridViewTextBoxColumn
+            // 
+            this.hotelroomstatusDataGridViewTextBoxColumn.DataPropertyName = "hotel_room_status";
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.hotelroomstatusDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle5;
+            this.hotelroomstatusDataGridViewTextBoxColumn.HeaderText = "ROOOM STATUS";
+            this.hotelroomstatusDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.hotelroomstatusDataGridViewTextBoxColumn.Name = "hotelroomstatusDataGridViewTextBoxColumn";
+            this.hotelroomstatusDataGridViewTextBoxColumn.Width = 160;
+            // 
+            // hotelRoomPriceDataGridViewTextBoxColumn
+            // 
+            this.hotelRoomPriceDataGridViewTextBoxColumn.DataPropertyName = "Hotel_Room_Price";
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.hotelRoomPriceDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle6;
+            this.hotelRoomPriceDataGridViewTextBoxColumn.HeaderText = "ROOM PRICE";
+            this.hotelRoomPriceDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.hotelRoomPriceDataGridViewTextBoxColumn.Name = "hotelRoomPriceDataGridViewTextBoxColumn";
+            this.hotelRoomPriceDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // hotelRoomBindingSource
+            // 
+            this.hotelRoomBindingSource.DataMember = "Hotel_Room";
+            this.hotelRoomBindingSource.DataSource = this.codeCraftersDSTWO;
+            // 
+            // codeCraftersDSTWO
+            // 
+            this.codeCraftersDSTWO.DataSetName = "codeCraftersDSTWO";
+            this.codeCraftersDSTWO.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // pnlRoomManagement
             // 
             this.pnlRoomManagement.BackColor = System.Drawing.Color.WhiteSmoke;
@@ -225,7 +284,7 @@
             // 
             this.txtRoomNumber.Location = new System.Drawing.Point(222, 131);
             this.txtRoomNumber.Name = "txtRoomNumber";
-            this.txtRoomNumber.Size = new System.Drawing.Size(197, 25);
+            this.txtRoomNumber.Size = new System.Drawing.Size(197, 29);
             this.txtRoomNumber.TabIndex = 15;
             // 
             // lblRoomNumber
@@ -233,7 +292,7 @@
             this.lblRoomNumber.AutoSize = true;
             this.lblRoomNumber.Location = new System.Drawing.Point(28, 134);
             this.lblRoomNumber.Name = "lblRoomNumber";
-            this.lblRoomNumber.Size = new System.Drawing.Size(76, 17);
+            this.lblRoomNumber.Size = new System.Drawing.Size(99, 23);
             this.lblRoomNumber.TabIndex = 14;
             this.lblRoomNumber.Text = "ROOM NO:";
             // 
@@ -248,7 +307,7 @@
             "BR05"});
             this.cmbBranchID.Location = new System.Drawing.Point(222, 31);
             this.cmbBranchID.Name = "cmbBranchID";
-            this.cmbBranchID.Size = new System.Drawing.Size(96, 25);
+            this.cmbBranchID.Size = new System.Drawing.Size(96, 29);
             this.cmbBranchID.TabIndex = 13;
             // 
             // lblBranchID
@@ -257,7 +316,7 @@
             this.lblBranchID.ForeColor = System.Drawing.Color.Black;
             this.lblBranchID.Location = new System.Drawing.Point(28, 34);
             this.lblBranchID.Name = "lblBranchID";
-            this.lblBranchID.Size = new System.Drawing.Size(83, 17);
+            this.lblBranchID.Size = new System.Drawing.Size(109, 23);
             this.lblBranchID.TabIndex = 12;
             this.lblBranchID.Text = "BRANCH ID:";
             // 
@@ -266,7 +325,7 @@
             this.lblRoomStatus.AutoSize = true;
             this.lblRoomStatus.Location = new System.Drawing.Point(28, 171);
             this.lblRoomStatus.Name = "lblRoomStatus";
-            this.lblRoomStatus.Size = new System.Drawing.Size(102, 17);
+            this.lblRoomStatus.Size = new System.Drawing.Size(135, 23);
             this.lblRoomStatus.TabIndex = 7;
             this.lblRoomStatus.Text = "ROOM STATUS:";
             // 
@@ -275,7 +334,7 @@
             this.lblRoomPrice.AutoSize = true;
             this.lblRoomPrice.Location = new System.Drawing.Point(28, 210);
             this.lblRoomPrice.Name = "lblRoomPrice";
-            this.lblRoomPrice.Size = new System.Drawing.Size(91, 17);
+            this.lblRoomPrice.Size = new System.Drawing.Size(119, 23);
             this.lblRoomPrice.TabIndex = 6;
             this.lblRoomPrice.Text = "ROOM PRICE:";
             // 
@@ -284,7 +343,7 @@
             this.lblRoomTypeID.AutoSize = true;
             this.lblRoomTypeID.Location = new System.Drawing.Point(28, 97);
             this.lblRoomTypeID.Name = "lblRoomTypeID";
-            this.lblRoomTypeID.Size = new System.Drawing.Size(105, 17);
+            this.lblRoomTypeID.Size = new System.Drawing.Size(135, 23);
             this.lblRoomTypeID.TabIndex = 5;
             this.lblRoomTypeID.Text = "ROOM TYPE ID:";
             // 
@@ -292,7 +351,7 @@
             // 
             this.txtRoomPrice.Location = new System.Drawing.Point(222, 207);
             this.txtRoomPrice.Name = "txtRoomPrice";
-            this.txtRoomPrice.Size = new System.Drawing.Size(197, 25);
+            this.txtRoomPrice.Size = new System.Drawing.Size(197, 29);
             this.txtRoomPrice.TabIndex = 4;
             // 
             // cmbRoomStatus
@@ -305,7 +364,7 @@
             "Maintenance"});
             this.cmbRoomStatus.Location = new System.Drawing.Point(222, 168);
             this.cmbRoomStatus.Name = "cmbRoomStatus";
-            this.cmbRoomStatus.Size = new System.Drawing.Size(139, 25);
+            this.cmbRoomStatus.Size = new System.Drawing.Size(139, 29);
             this.cmbRoomStatus.TabIndex = 3;
             // 
             // cmbRoomTypeID
@@ -319,19 +378,8 @@
             "5"});
             this.cmbRoomTypeID.Location = new System.Drawing.Point(222, 94);
             this.cmbRoomTypeID.Name = "cmbRoomTypeID";
-            this.cmbRoomTypeID.Size = new System.Drawing.Size(139, 25);
+            this.cmbRoomTypeID.Size = new System.Drawing.Size(139, 29);
             this.cmbRoomTypeID.TabIndex = 1;
-            // 
-            // lblRoomManagement
-            // 
-            this.lblRoomManagement.AutoSize = true;
-            this.lblRoomManagement.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
-            this.lblRoomManagement.Location = new System.Drawing.Point(407, 36);
-            this.lblRoomManagement.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblRoomManagement.Name = "lblRoomManagement";
-            this.lblRoomManagement.Size = new System.Drawing.Size(212, 25);
-            this.lblRoomManagement.TabIndex = 2;
-            this.lblRoomManagement.Text = "ROOM MANAGEMENT";
             // 
             // btnUpdateRoom
             // 
@@ -373,84 +421,13 @@
             this.btnAddRoom.Text = "ADD";
             this.btnAddRoom.UseVisualStyleBackColor = false;
             // 
-            // hotelRoomIDDataGridViewTextBoxColumn
-            // 
-            this.hotelRoomIDDataGridViewTextBoxColumn.DataPropertyName = "Hotel_Room_ID";
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.hotelRoomIDDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle7;
-            this.hotelRoomIDDataGridViewTextBoxColumn.HeaderText = "ROOM ID";
-            this.hotelRoomIDDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.hotelRoomIDDataGridViewTextBoxColumn.Name = "hotelRoomIDDataGridViewTextBoxColumn";
-            this.hotelRoomIDDataGridViewTextBoxColumn.ReadOnly = true;
-            this.hotelRoomIDDataGridViewTextBoxColumn.Width = 105;
-            // 
-            // branchIDDataGridViewTextBoxColumn
-            // 
-            this.branchIDDataGridViewTextBoxColumn.DataPropertyName = "Branch_ID";
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.branchIDDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle8;
-            this.branchIDDataGridViewTextBoxColumn.HeaderText = "BRANCH ID";
-            this.branchIDDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.branchIDDataGridViewTextBoxColumn.Name = "branchIDDataGridViewTextBoxColumn";
-            this.branchIDDataGridViewTextBoxColumn.Width = 120;
-            // 
-            // hotelroomtypeIDDataGridViewTextBoxColumn
-            // 
-            this.hotelroomtypeIDDataGridViewTextBoxColumn.DataPropertyName = "hotel_room_type_ID";
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.hotelroomtypeIDDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle9;
-            this.hotelroomtypeIDDataGridViewTextBoxColumn.HeaderText = "ROOM TYPE ID";
-            this.hotelroomtypeIDDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.hotelroomtypeIDDataGridViewTextBoxColumn.Name = "hotelroomtypeIDDataGridViewTextBoxColumn";
-            this.hotelroomtypeIDDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // hotelroomnumberDataGridViewTextBoxColumn
-            // 
-            this.hotelroomnumberDataGridViewTextBoxColumn.DataPropertyName = "hotel_room_number";
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.hotelroomnumberDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle10;
-            this.hotelroomnumberDataGridViewTextBoxColumn.HeaderText = "ROOM NO.";
-            this.hotelroomnumberDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.hotelroomnumberDataGridViewTextBoxColumn.Name = "hotelroomnumberDataGridViewTextBoxColumn";
-            this.hotelroomnumberDataGridViewTextBoxColumn.Width = 120;
-            // 
-            // hotelroomstatusDataGridViewTextBoxColumn
-            // 
-            this.hotelroomstatusDataGridViewTextBoxColumn.DataPropertyName = "hotel_room_status";
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.hotelroomstatusDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle11;
-            this.hotelroomstatusDataGridViewTextBoxColumn.HeaderText = "ROOOM STATUS";
-            this.hotelroomstatusDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.hotelroomstatusDataGridViewTextBoxColumn.Name = "hotelroomstatusDataGridViewTextBoxColumn";
-            this.hotelroomstatusDataGridViewTextBoxColumn.Width = 160;
-            // 
-            // hotelRoomPriceDataGridViewTextBoxColumn
-            // 
-            this.hotelRoomPriceDataGridViewTextBoxColumn.DataPropertyName = "Hotel_Room_Price";
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.hotelRoomPriceDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle12;
-            this.hotelRoomPriceDataGridViewTextBoxColumn.HeaderText = "ROOM PRICE";
-            this.hotelRoomPriceDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.hotelRoomPriceDataGridViewTextBoxColumn.Name = "hotelRoomPriceDataGridViewTextBoxColumn";
-            this.hotelRoomPriceDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // codeCraftersDSTWO
-            // 
-            this.codeCraftersDSTWO.DataSetName = "codeCraftersDSTWO";
-            this.codeCraftersDSTWO.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // taRoomHotel
             // 
             this.taRoomHotel.ClearBeforeFill = true;
             // 
-            // hotelRoomBindingSource
-            // 
-            this.hotelRoomBindingSource.DataMember = "Hotel_Room";
-            this.hotelRoomBindingSource.DataSource = this.codeCraftersDSTWO;
-            // 
             // RoomManagementForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.PeachPuff;
             this.ClientSize = new System.Drawing.Size(1318, 944);
@@ -461,16 +438,15 @@
             this.Text = "REGAL INN ROOM MANAGEMENT";
             this.Load += new System.EventHandler(this.RoomManagementForm_Load);
             this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHotelRoomManagement)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.hotelRoomBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.codeCraftersDSTWO)).EndInit();
             this.pnlRoomManagement.ResumeLayout(false);
             this.pnlRoomManagement.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.codeCraftersDSTWO)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.hotelRoomBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -478,7 +454,6 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label lblRoomManagement;
         private System.Windows.Forms.Panel pnlRoomManagement;
         private System.Windows.Forms.DataGridView dgvHotelRoomManagement;
         private System.Windows.Forms.Button btnUpdateRoom;
@@ -502,7 +477,6 @@
         private System.Windows.Forms.TextBox txtRoomNumber;
         private System.Windows.Forms.Label lblRoomNumber;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnRoomAdd;

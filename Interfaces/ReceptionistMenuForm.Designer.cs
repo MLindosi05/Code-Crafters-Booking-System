@@ -49,8 +49,6 @@
             this.ReceptionistPanel = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -86,25 +84,28 @@
             this.panel1.Controls.Add(this.pictureBox11);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(238, 735);
+            this.panel1.Size = new System.Drawing.Size(317, 905);
             this.panel1.TabIndex = 8;
             // 
             // panel5
             // 
             this.panel5.Controls.Add(this.lblLoggedIn);
             this.panel5.Controls.Add(this.pictureBox5);
-            this.panel5.Location = new System.Drawing.Point(12, 580);
+            this.panel5.Location = new System.Drawing.Point(16, 714);
+            this.panel5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(209, 132);
+            this.panel5.Size = new System.Drawing.Size(279, 162);
             this.panel5.TabIndex = 31;
             // 
             // lblLoggedIn
             // 
             this.lblLoggedIn.AutoSize = true;
-            this.lblLoggedIn.Location = new System.Drawing.Point(14, 94);
+            this.lblLoggedIn.Location = new System.Drawing.Point(19, 116);
+            this.lblLoggedIn.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblLoggedIn.Name = "lblLoggedIn";
-            this.lblLoggedIn.Size = new System.Drawing.Size(85, 13);
+            this.lblLoggedIn.Size = new System.Drawing.Size(106, 16);
             this.lblLoggedIn.TabIndex = 1;
             this.lblLoggedIn.Text = "Log in username";
             this.lblLoggedIn.Click += new System.EventHandler(this.lblLoggedIn_Click);
@@ -112,9 +113,10 @@
             // pictureBox5
             // 
             this.pictureBox5.Image = global::Code_Crafters_Interface_Prototype_1.Properties.Resources.logged_4;
-            this.pictureBox5.Location = new System.Drawing.Point(50, 15);
+            this.pictureBox5.Location = new System.Drawing.Point(67, 18);
+            this.pictureBox5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(76, 66);
+            this.pictureBox5.Size = new System.Drawing.Size(101, 81);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox5.TabIndex = 0;
             this.pictureBox5.TabStop = false;
@@ -123,9 +125,10 @@
             // 
             this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox1.Image = global::Code_Crafters_Interface_Prototype_1.Properties.Resources.Untitled_design__2_;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 3);
+            this.pictureBox1.Location = new System.Drawing.Point(0, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(238, 90);
+            this.pictureBox1.Size = new System.Drawing.Size(317, 110);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 11;
             this.pictureBox1.TabStop = false;
@@ -136,9 +139,10 @@
             this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button9.ForeColor = System.Drawing.Color.Black;
-            this.button9.Location = new System.Drawing.Point(55, 506);
+            this.button9.Location = new System.Drawing.Point(73, 623);
+            this.button9.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(183, 57);
+            this.button9.Size = new System.Drawing.Size(244, 70);
             this.button9.TabIndex = 25;
             this.button9.Text = "LOGOUT";
             this.button9.UseVisualStyleBackColor = false;
@@ -147,9 +151,10 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = global::Code_Crafters_Interface_Prototype_1.Properties.Resources.logout_11551049168o9cg0mxxib;
-            this.pictureBox2.Location = new System.Drawing.Point(0, 506);
+            this.pictureBox2.Location = new System.Drawing.Point(0, 623);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(57, 57);
+            this.pictureBox2.Size = new System.Drawing.Size(76, 70);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 6;
             this.pictureBox2.TabStop = false;
@@ -161,9 +166,10 @@
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button5.ForeColor = System.Drawing.Color.Black;
-            this.button5.Location = new System.Drawing.Point(55, 425);
+            this.button5.Location = new System.Drawing.Point(73, 523);
+            this.button5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(183, 57);
+            this.button5.Size = new System.Drawing.Size(244, 70);
             this.button5.TabIndex = 21;
             this.button5.Text = "PAYMENT";
             this.button5.UseVisualStyleBackColor = false;
@@ -175,9 +181,10 @@
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button4.ForeColor = System.Drawing.Color.Black;
-            this.button4.Location = new System.Drawing.Point(55, 346);
+            this.button4.Location = new System.Drawing.Point(73, 426);
+            this.button4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(183, 57);
+            this.button4.Size = new System.Drawing.Size(244, 70);
             this.button4.TabIndex = 20;
             this.button4.Text = "VIEW BOOKINGS";
             this.button4.UseVisualStyleBackColor = false;
@@ -189,9 +196,10 @@
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ForeColor = System.Drawing.Color.Black;
-            this.button3.Location = new System.Drawing.Point(55, 263);
+            this.button3.Location = new System.Drawing.Point(73, 324);
+            this.button3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(183, 57);
+            this.button3.Size = new System.Drawing.Size(244, 70);
             this.button3.TabIndex = 19;
             this.button3.Text = "MAKE BOOKING";
             this.button3.UseVisualStyleBackColor = false;
@@ -203,9 +211,10 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.Black;
-            this.button1.Location = new System.Drawing.Point(55, 179);
+            this.button1.Location = new System.Drawing.Point(73, 220);
+            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(183, 57);
+            this.button1.Size = new System.Drawing.Size(244, 70);
             this.button1.TabIndex = 18;
             this.button1.Text = "GUEST REGISTRATION";
             this.button1.UseVisualStyleBackColor = false;
@@ -215,9 +224,10 @@
             // 
             this.pictureBox14.BackColor = System.Drawing.Color.DarkGray;
             this.pictureBox14.Image = global::Code_Crafters_Interface_Prototype_1.Properties.Resources.HOME_3;
-            this.pictureBox14.Location = new System.Drawing.Point(0, 99);
+            this.pictureBox14.Location = new System.Drawing.Point(0, 122);
+            this.pictureBox14.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox14.Name = "pictureBox14";
-            this.pictureBox14.Size = new System.Drawing.Size(57, 57);
+            this.pictureBox14.Size = new System.Drawing.Size(76, 70);
             this.pictureBox14.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox14.TabIndex = 5;
             this.pictureBox14.TabStop = false;
@@ -228,9 +238,10 @@
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.Color.Black;
-            this.button2.Location = new System.Drawing.Point(55, 99);
+            this.button2.Location = new System.Drawing.Point(73, 122);
+            this.button2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(183, 57);
+            this.button2.Size = new System.Drawing.Size(244, 70);
             this.button2.TabIndex = 12;
             this.button2.Text = "HOME";
             this.button2.UseVisualStyleBackColor = false;
@@ -241,9 +252,10 @@
             this.pictureBox13.BackColor = System.Drawing.Color.DarkGray;
             this.pictureBox13.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox13.Image = global::Code_Crafters_Interface_Prototype_1.Properties.Resources._6478_200;
-            this.pictureBox13.Location = new System.Drawing.Point(0, 179);
+            this.pictureBox13.Location = new System.Drawing.Point(0, 220);
+            this.pictureBox13.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox13.Name = "pictureBox13";
-            this.pictureBox13.Size = new System.Drawing.Size(57, 57);
+            this.pictureBox13.Size = new System.Drawing.Size(75, 70);
             this.pictureBox13.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox13.TabIndex = 6;
             this.pictureBox13.TabStop = false;
@@ -252,9 +264,10 @@
             // 
             this.pictureBox12.BackColor = System.Drawing.Color.DarkGray;
             this.pictureBox12.Image = global::Code_Crafters_Interface_Prototype_1.Properties.Resources.MAKE_BOOKING_2;
-            this.pictureBox12.Location = new System.Drawing.Point(0, 263);
+            this.pictureBox12.Location = new System.Drawing.Point(0, 324);
+            this.pictureBox12.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox12.Name = "pictureBox12";
-            this.pictureBox12.Size = new System.Drawing.Size(57, 57);
+            this.pictureBox12.Size = new System.Drawing.Size(76, 70);
             this.pictureBox12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox12.TabIndex = 6;
             this.pictureBox12.TabStop = false;
@@ -262,9 +275,10 @@
             // pictureBox10
             // 
             this.pictureBox10.Image = global::Code_Crafters_Interface_Prototype_1.Properties.Resources.Credit_card_2;
-            this.pictureBox10.Location = new System.Drawing.Point(0, 425);
+            this.pictureBox10.Location = new System.Drawing.Point(0, 523);
+            this.pictureBox10.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox10.Name = "pictureBox10";
-            this.pictureBox10.Size = new System.Drawing.Size(57, 57);
+            this.pictureBox10.Size = new System.Drawing.Size(76, 70);
             this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox10.TabIndex = 6;
             this.pictureBox10.TabStop = false;
@@ -272,9 +286,10 @@
             // pictureBox11
             // 
             this.pictureBox11.Image = global::Code_Crafters_Interface_Prototype_1.Properties.Resources.calendar;
-            this.pictureBox11.Location = new System.Drawing.Point(0, 346);
+            this.pictureBox11.Location = new System.Drawing.Point(0, 426);
+            this.pictureBox11.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox11.Name = "pictureBox11";
-            this.pictureBox11.Size = new System.Drawing.Size(57, 57);
+            this.pictureBox11.Size = new System.Drawing.Size(76, 70);
             this.pictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox11.TabIndex = 6;
             this.pictureBox11.TabStop = false;
@@ -286,56 +301,39 @@
             this.ReceptionistPanel.Controls.Add(this.panel2);
             this.ReceptionistPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ReceptionistPanel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ReceptionistPanel.Location = new System.Drawing.Point(238, 0);
+            this.ReceptionistPanel.Location = new System.Drawing.Point(317, 0);
+            this.ReceptionistPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ReceptionistPanel.Name = "ReceptionistPanel";
-            this.ReceptionistPanel.Size = new System.Drawing.Size(1183, 735);
+            this.ReceptionistPanel.Size = new System.Drawing.Size(1578, 905);
             this.ReceptionistPanel.TabIndex = 10;
             this.ReceptionistPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.ReceptionistPanel_Paint);
             // 
             // panel4
             // 
             this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel4.Location = new System.Drawing.Point(0, 688);
+            this.panel4.Location = new System.Drawing.Point(0, 847);
+            this.panel4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1183, 47);
+            this.panel4.Size = new System.Drawing.Size(1578, 58);
             this.panel4.TabIndex = 3;
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
-            this.panel2.Controls.Add(this.panel3);
-            this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.pictureBox3);
-            this.panel2.Location = new System.Drawing.Point(48, 39);
+            this.panel2.Location = new System.Drawing.Point(64, 48);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1109, 609);
+            this.panel2.Size = new System.Drawing.Size(1479, 750);
             this.panel2.TabIndex = 1;
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.Black;
-            this.panel3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.panel3.Location = new System.Drawing.Point(426, 40);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(230, 3);
-            this.panel3.TabIndex = 2;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(421, 12);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(240, 25);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "WELCOME RECEPTIONIST";
             // 
             // pictureBox3
             // 
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(62, 56);
+            this.pictureBox3.Location = new System.Drawing.Point(83, 69);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(940, 509);
+            this.pictureBox3.Size = new System.Drawing.Size(1253, 626);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox3.TabIndex = 0;
             this.pictureBox3.TabStop = false;
@@ -343,12 +341,13 @@
             // 
             // ReceptionistMenuForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1421, 735);
+            this.ClientSize = new System.Drawing.Size(1895, 905);
             this.Controls.Add(this.ReceptionistPanel);
             this.Controls.Add(this.panel1);
             this.IsMdiContainer = true;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "ReceptionistMenuForm";
             this.Text = "REGAL INN RECEPTIONIST MENU";
             this.Load += new System.EventHandler(this.ReceptionistMenuForm_Load);
@@ -366,7 +365,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
             this.ReceptionistPanel.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
 
@@ -391,8 +389,6 @@
         private System.Windows.Forms.Panel ReceptionistPanel;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label lblLoggedIn;
