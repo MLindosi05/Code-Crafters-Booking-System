@@ -8,15 +8,15 @@
   <Shapes>
     <Shape ID="DesignTable:Booking" ZOrder="9" X="392" Y="70" Height="248" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="178" />
     <Shape ID="DesignTable:Branch" ZOrder="8" X="733" Y="72" Height="191" Width="185" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="140" />
-    <Shape ID="DesignTable:Client" ZOrder="2" X="933" Y="70" Height="248" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="159" />
+    <Shape ID="DesignTable:Client" ZOrder="3" X="933" Y="70" Height="248" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="159" />
     <Shape ID="DesignTable:Folio" ZOrder="7" X="1418" Y="344" Height="210" Width="173" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="159" />
-    <Shape ID="DesignTable:Hotel_Room" ZOrder="6" X="392" Y="369" Height="267" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="140" />
+    <Shape ID="DesignTable:Hotel_Room" ZOrder="2" X="392" Y="369" Height="267" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="140" />
     <Shape ID="DesignTable:Rate_Plan" ZOrder="15" X="1424" Y="70" Height="172" Width="201" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="121" />
     <Shape ID="DesignTable:Restuarant_Table" ZOrder="1" X="1698" Y="69" Height="324" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="197" />
     <Shape ID="DesignTable:Room_Assignment" ZOrder="14" X="70" Y="70" Height="191" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="121" />
-    <Shape ID="DesignTable:Staff" ZOrder="5" X="2065" Y="70" Height="362" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="235" />
+    <Shape ID="DesignTable:Staff" ZOrder="6" X="2065" Y="70" Height="362" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="235" />
     <Shape ID="DesignTable:Table_Allocation" ZOrder="13" X="1692" Y="516" Height="191" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="121" />
-    <Shape ID="DesignTable:ClientBranchTableBooking" ZOrder="3" X="813" Y="478" Height="324" Width="289" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="254" />
+    <Shape ID="DesignTable:ClientBranchTableBooking" ZOrder="4" X="813" Y="478" Height="324" Width="289" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="254" />
     <Shape ID="DesignTable:Invoice" ZOrder="10" X="96" Y="418" Height="143" Width="156" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="139" />
   </Shapes>
   <Connectors>
@@ -48,7 +48,7 @@
         </Point>
       </RoutePoints>
     </Connector>
-    <Connector ID="DesignRelation:FK__Room_Assi__Booki__1C5231C21" ZOrder="4" LineWidth="11">
+    <Connector ID="DesignRelation:FK__Room_Assi__Booki__1C5231C21" ZOrder="5" LineWidth="11">
       <RoutePoints>
         <Point>
           <X>813</X>

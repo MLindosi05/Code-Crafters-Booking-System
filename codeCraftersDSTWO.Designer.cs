@@ -11042,23 +11042,42 @@ SELECT RestaurantTableID, Branch_ID, RestuarantTableNum, RestuarantMenuType, Tab
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = @"SELECT 
+            this._commandCollection[1].CommandText = @"
+SELECT 
+
     RestaurantTableID, 
+
     Branch_ID, 
+
     RestuarantTableNum, 
+
     RestuarantMenuType, 
+
     TableCapacity, 
+
     'Available' AS TableStatus, -- Overrides the static 'Booked' status for filtered results
+
     TableIsCombinable, 
+
     TableFeatures, 
+
     TablePrice
+
 FROM Restuarant_Table
+
 WHERE Branch_ID = @BranchID
+
 AND RestaurantTableID NOT IN (
+
     SELECT Restuarant_Table_ID 
+
     FROM Table_Allocation
+
     WHERE (@RequestedStart < End_Time AND @RequestedEnd > Start_Time)
-)";
+
+) 
+
+";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BranchID", global::System.Data.SqlDbType.VarChar, 10, global::System.Data.ParameterDirection.Input, 0, 0, "Branch_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RequestedStart", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -11148,25 +11167,6 @@ WHERE
             }
             int returnValue = this.Adapter.Fill(dataTable);
             return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual codeCraftersDSTWO.Restuarant_TableDataTable GetDataBy2(string BranchID, System.DateTime RequestedStart, System.DateTime RequestedEnd) {
-            this.Adapter.SelectCommand = this.CommandCollection[1];
-            if ((BranchID == null)) {
-                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(BranchID));
-            }
-            this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(RequestedStart));
-            this.Adapter.SelectCommand.Parameters[2].Value = ((System.DateTime)(RequestedEnd));
-            codeCraftersDSTWO.Restuarant_TableDataTable dataTable = new codeCraftersDSTWO.Restuarant_TableDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
