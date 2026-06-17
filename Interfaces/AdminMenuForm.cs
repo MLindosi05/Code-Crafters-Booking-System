@@ -58,10 +58,7 @@ namespace Code_Crafters_Interface_Prototype_1.Interfaces
             LoadFormIntoPanel(new ViewBookingForm());
         }
 
-        private void button5_Click(object sender, EventArgs e)
-        {
-            LoadFormIntoPanel(new PaymentForm());
-        }
+        
 
         private void button6_Click(object sender, EventArgs e)
         {
@@ -97,43 +94,7 @@ namespace Code_Crafters_Interface_Prototype_1.Interfaces
                 this.Hide();
             }
 
-        }
-
-        private void adminPanel_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void AdminMenuForm_MdiChildActivate(object sender, EventArgs e)
-        {
-            if (ActiveMdiChild != null)
-            {
-                pictureBox1.SendToBack();
-            }
-            else
-            {
-                pictureBox1.BringToFront();
-            }
-            if (ActiveMdiChild != null)
-            {
-                label1.SendToBack();
-            }
-            else
-            {
-                label1.BringToFront();
-            }
-            if (ActiveMdiChild != null)
-            {
-                panel4.SendToBack();
-            }
-            else
-            {
-                panel4.BringToFront();
-            }
-
-
-
-        }
+        }  
 
         private void AdminMenuForm_Load(object sender, EventArgs e)
         {
@@ -158,8 +119,7 @@ namespace Code_Crafters_Interface_Prototype_1.Interfaces
             button4.BackColor = ColorTranslator.FromHtml("#C99A2E");
             button4.ForeColor = Color.White;
 
-            button5.BackColor = ColorTranslator.FromHtml("#C99A2E");
-            button5.ForeColor = Color.White;
+           
 
 
             button7.BackColor = ColorTranslator.FromHtml("#C99A2E");

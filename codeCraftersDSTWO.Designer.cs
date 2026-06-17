@@ -8678,10 +8678,10 @@ SELECT Client_ID, First_Name, Last_Name, Password, Email_Address, Client_Address
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
             this._commandCollection[1].CommandText = "SELECT        Client_ID, First_Name, Last_Name, Password, Email_Address, Client_A" +
-                "ddress, Phone_Number\r\nFROM            Client\r\nWHERE        (Phone_Number LIKE @p" +
-                "honeNo)";
+                "ddress, Phone_Number\r\nFROM            Client\r\nWHERE        (Email_Address LIKE @" +
+                "email)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@phoneNo", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "Phone_Number", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@email", global::System.Data.SqlDbType.VarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "Email_Address", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
             this._commandCollection[2].CommandText = @"INSERT INTO [dbo].[Client] ([First_Name], [Last_Name], [Password], [Email_Address], [Client_Address], [Phone_Number]) VALUES (@First_Name, @Last_Name, @Password, @Email_Address, @Client_Address, @Phone_Number);
@@ -8723,13 +8723,13 @@ SELECT Client_ID, First_Name, Last_Name, Password, Email_Address, Client_Address
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillByPhoneNo(codeCraftersDSTWO.ClientDataTable dataTable, string phoneNo) {
+        public virtual int FillByEmail(codeCraftersDSTWO.ClientDataTable dataTable, string email) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
-            if ((phoneNo == null)) {
+            if ((email == null)) {
                 this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(phoneNo));
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(email));
             }
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -8742,13 +8742,13 @@ SELECT Client_ID, First_Name, Last_Name, Password, Email_Address, Client_Address
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual codeCraftersDSTWO.ClientDataTable GetDataBy(string phoneNo) {
+        public virtual codeCraftersDSTWO.ClientDataTable GetDataBy(string email) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
-            if ((phoneNo == null)) {
+            if ((email == null)) {
                 this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(phoneNo));
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(email));
             }
             codeCraftersDSTWO.ClientDataTable dataTable = new codeCraftersDSTWO.ClientDataTable();
             this.Adapter.Fill(dataTable);
@@ -11042,7 +11042,16 @@ SELECT RestaurantTableID, Branch_ID, RestuarantTableNum, RestuarantMenuType, Tab
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = @"SELECT RestaurantTableID, Branch_ID, RestuarantTableNum, RestuarantMenuType, TableCapacity, TableStatus, TableIsCombinable, TableFeatures, TablePrice
+            this._commandCollection[1].CommandText = @"SELECT 
+    RestaurantTableID, 
+    Branch_ID, 
+    RestuarantTableNum, 
+    RestuarantMenuType, 
+    TableCapacity, 
+    'Available' AS TableStatus, -- Overrides the static 'Booked' status for filtered results
+    TableIsCombinable, 
+    TableFeatures, 
+    TablePrice
 FROM Restuarant_Table
 WHERE Branch_ID = @BranchID
 AND RestaurantTableID NOT IN (
@@ -12491,7 +12500,7 @@ WHERE staff_phone_number = @Original_staff_ID";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual codeCraftersDSTWO.StaffDataTable GetDataBy(string phoneNo) {
+        public virtual codeCraftersDSTWO.StaffDataTable GetDataBy1(string phoneNo) {
             this.Adapter.SelectCommand = this.CommandCollection[2];
             if ((phoneNo == null)) {
                 this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
@@ -13740,9 +13749,9 @@ FROM            Booking INNER JOIN
                          Hotel_Room ON Room_Assignment.Hotel_Room_ID = Hotel_Room.Hotel_Room_ID LEFT OUTER JOIN
                          Table_Allocation ON Booking.Booking_ID = Table_Allocation.Booking_ID LEFT OUTER JOIN
                          Restuarant_Table ON Table_Allocation.Restuarant_Table_ID = Restuarant_Table.RestaurantTableID
-WHERE        (Client.Phone_Number LIKE @phoneNo)";
+WHERE        (Client.First_Name LIKE @firstName + '%')";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@phoneNo", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "Phone_Number", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@firstName", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "First_Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -13773,13 +13782,13 @@ WHERE        (Client.Phone_Number LIKE @phoneNo)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillByBookingIDTWO(codeCraftersDSTWO.ClientBranchTableBookingDataTable dataTable, string phoneNo) {
+        public virtual int FillByFirstName(codeCraftersDSTWO.ClientBranchTableBookingDataTable dataTable, string firstName) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
-            if ((phoneNo == null)) {
-                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            if ((firstName == null)) {
+                throw new global::System.ArgumentNullException("firstName");
             }
             else {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(phoneNo));
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(firstName));
             }
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -13792,13 +13801,13 @@ WHERE        (Client.Phone_Number LIKE @phoneNo)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual codeCraftersDSTWO.ClientBranchTableBookingDataTable GetDataBy(string phoneNo) {
+        public virtual codeCraftersDSTWO.ClientBranchTableBookingDataTable GetDataBy(string firstName) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
-            if ((phoneNo == null)) {
-                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            if ((firstName == null)) {
+                throw new global::System.ArgumentNullException("firstName");
             }
             else {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(phoneNo));
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(firstName));
             }
             codeCraftersDSTWO.ClientBranchTableBookingDataTable dataTable = new codeCraftersDSTWO.ClientBranchTableBookingDataTable();
             this.Adapter.Fill(dataTable);

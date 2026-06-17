@@ -140,7 +140,7 @@
             this.panel1.Controls.Add(this.panel6);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.pictureBox6);
-            this.panel1.Location = new System.Drawing.Point(114, 42);
+            this.panel1.Location = new System.Drawing.Point(287, 60);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1297, 295);
             this.panel1.TabIndex = 7;
@@ -199,7 +199,7 @@
             // 
             this.panel3.Controls.Add(this.button1);
             this.panel3.Controls.Add(this.button2);
-            this.panel3.Location = new System.Drawing.Point(114, 762);
+            this.panel3.Location = new System.Drawing.Point(287, 780);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1297, 40);
             this.panel3.TabIndex = 8;
@@ -207,7 +207,7 @@
             // panel4
             // 
             this.panel4.Controls.Add(this.pictureBox8);
-            this.panel4.Location = new System.Drawing.Point(1091, 350);
+            this.panel4.Location = new System.Drawing.Point(1264, 368);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(317, 386);
             this.panel4.TabIndex = 9;
@@ -265,7 +265,7 @@
             // panel7
             // 
             this.panel7.Controls.Add(this.pictureBox7);
-            this.panel7.Location = new System.Drawing.Point(786, 350);
+            this.panel7.Location = new System.Drawing.Point(959, 368);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(309, 388);
             this.panel7.TabIndex = 11;
@@ -289,7 +289,7 @@
             this.panel8.Controls.Add(this.panel15);
             this.panel8.Controls.Add(this.panel9);
             this.panel8.Controls.Add(this.label6);
-            this.panel8.Location = new System.Drawing.Point(114, 350);
+            this.panel8.Location = new System.Drawing.Point(287, 368);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(666, 409);
             this.panel8.TabIndex = 12;
@@ -468,6 +468,9 @@
             // 
             // pnlHomePage
             // 
+            this.pnlHomePage.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlHomePage.AutoScroll = true;
             this.pnlHomePage.Controls.Add(this.panel8);
             this.pnlHomePage.Controls.Add(this.panel1);
@@ -476,7 +479,7 @@
             this.pnlHomePage.Controls.Add(this.panel4);
             this.pnlHomePage.Location = new System.Drawing.Point(28, 12);
             this.pnlHomePage.Name = "pnlHomePage";
-            this.pnlHomePage.Size = new System.Drawing.Size(1530, 836);
+            this.pnlHomePage.Size = new System.Drawing.Size(1763, 837);
             this.pnlHomePage.TabIndex = 13;
             // 
             // timer1
@@ -491,10 +494,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.SystemColors.HighlightText;
-            this.ClientSize = new System.Drawing.Size(1621, 880);
+            this.ClientSize = new System.Drawing.Size(1854, 881);
             this.Controls.Add(this.pnlHomePage);
             this.Name = "HomeForm";
             this.Text = "REGAL INN HOME";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.HomePage_Load);
             this.panel1.ResumeLayout(false);
             this.panel6.ResumeLayout(false);

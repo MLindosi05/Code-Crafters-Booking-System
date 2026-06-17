@@ -48,6 +48,7 @@ namespace Code_Crafters_Interface_Prototype_1.Interfaces
             panel4.BackColor = Color.Black;
 
             button3.BackColor = ColorTranslator.FromHtml("#C99A2E");
+            pnlHelpDrawer.BackColor = ColorTranslator.FromHtml("#966919");
 
             groupBox1.BackColor = ColorTranslator.FromHtml("#966919");
             pnlLogin.BackColor = ColorTranslator.FromHtml("#F8F5F0");
@@ -358,6 +359,11 @@ namespace Code_Crafters_Interface_Prototype_1.Interfaces
                 MessageBox.Show($"An unexpected database exception occurred while updating credentials:\n\n{ex.Message}",
                                 "Database Synchronization Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void pnlHelpDrawer_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

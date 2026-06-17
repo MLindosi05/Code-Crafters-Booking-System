@@ -39,11 +39,6 @@
             this.lblBookingID = new System.Windows.Forms.Label();
             this.txtBookingID = new System.Windows.Forms.TextBox();
             this.dgvBookings = new System.Windows.Forms.DataGridView();
-            this.codeCraftersDSTWO = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTWO();
-            this.taHotelRoom = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTWOTableAdapters.Hotel_RoomTableAdapter();
-            this.taRestaurantTable = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTWOTableAdapters.Restuarant_TableTableAdapter();
-            this.clientBranchTableBookingBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.taClientBranchTableBooking = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTWOTableAdapters.ClientBranchTableBookingTableAdapter();
             this.bookingIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clientIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -59,18 +54,26 @@
             this.phoneNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clientBranchTableBookingBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.codeCraftersDSTWO = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTWO();
+            this.taHotelRoom = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTWOTableAdapters.Hotel_RoomTableAdapter();
+            this.taRestaurantTable = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTWOTableAdapters.Restuarant_TableTableAdapter();
+            this.taClientBranchTableBooking = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTWOTableAdapters.ClientBranchTableBookingTableAdapter();
             this.panel1.SuspendLayout();
             this.pnlViewBookings.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBookings)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.codeCraftersDSTWO)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientBranchTableBookingBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.codeCraftersDSTWO)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.PeachPuff;
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.label2);
@@ -78,7 +81,7 @@
             this.panel1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1263, 581);
+            this.panel1.Size = new System.Drawing.Size(1326, 581);
             this.panel1.TabIndex = 2;
             // 
             // panel3
@@ -108,7 +111,7 @@
             this.pnlViewBookings.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pnlViewBookings.Location = new System.Drawing.Point(92, 64);
             this.pnlViewBookings.Name = "pnlViewBookings";
-            this.pnlViewBookings.Size = new System.Drawing.Size(1103, 449);
+            this.pnlViewBookings.Size = new System.Drawing.Size(1090, 449);
             this.pnlViewBookings.TabIndex = 1;
             // 
             // panel4
@@ -146,13 +149,13 @@
             this.lblBookingID.Font = new System.Drawing.Font("Segoe UI", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblBookingID.Location = new System.Drawing.Point(12, 21);
             this.lblBookingID.Name = "lblBookingID";
-            this.lblBookingID.Size = new System.Drawing.Size(173, 17);
+            this.lblBookingID.Size = new System.Drawing.Size(179, 17);
             this.lblBookingID.TabIndex = 2;
-            this.lblBookingID.Text = "ENTER CLIENT PHONE NO:";
+            this.lblBookingID.Text = "ENTER CLIENT FIRST NAME:";
             // 
             // txtBookingID
             // 
-            this.txtBookingID.Location = new System.Drawing.Point(191, 18);
+            this.txtBookingID.Location = new System.Drawing.Point(197, 18);
             this.txtBookingID.Name = "txtBookingID";
             this.txtBookingID.Size = new System.Drawing.Size(163, 25);
             this.txtBookingID.TabIndex = 1;
@@ -183,30 +186,8 @@
             this.dgvBookings.Location = new System.Drawing.Point(74, 258);
             this.dgvBookings.Name = "dgvBookings";
             this.dgvBookings.RowHeadersWidth = 51;
-            this.dgvBookings.Size = new System.Drawing.Size(1014, 168);
+            this.dgvBookings.Size = new System.Drawing.Size(994, 168);
             this.dgvBookings.TabIndex = 0;
-            // 
-            // codeCraftersDSTWO
-            // 
-            this.codeCraftersDSTWO.DataSetName = "codeCraftersDSTWO";
-            this.codeCraftersDSTWO.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // taHotelRoom
-            // 
-            this.taHotelRoom.ClearBeforeFill = true;
-            // 
-            // taRestaurantTable
-            // 
-            this.taRestaurantTable.ClearBeforeFill = true;
-            // 
-            // clientBranchTableBookingBindingSource
-            // 
-            this.clientBranchTableBookingBindingSource.DataMember = "ClientBranchTableBooking";
-            this.clientBranchTableBookingBindingSource.DataSource = this.codeCraftersDSTWO;
-            // 
-            // taClientBranchTableBooking
-            // 
-            this.taClientBranchTableBooking.ClearBeforeFill = true;
             // 
             // bookingIDDataGridViewTextBoxColumn
             // 
@@ -314,6 +295,28 @@
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             this.dataGridViewTextBoxColumn3.Width = 120;
             // 
+            // clientBranchTableBookingBindingSource
+            // 
+            this.clientBranchTableBookingBindingSource.DataMember = "ClientBranchTableBooking";
+            this.clientBranchTableBookingBindingSource.DataSource = this.codeCraftersDSTWO;
+            // 
+            // codeCraftersDSTWO
+            // 
+            this.codeCraftersDSTWO.DataSetName = "codeCraftersDSTWO";
+            this.codeCraftersDSTWO.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // taHotelRoom
+            // 
+            this.taHotelRoom.ClearBeforeFill = true;
+            // 
+            // taRestaurantTable
+            // 
+            this.taRestaurantTable.ClearBeforeFill = true;
+            // 
+            // taClientBranchTableBooking
+            // 
+            this.taClientBranchTableBooking.ClearBeforeFill = true;
+            // 
             // ViewBookingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -321,7 +324,7 @@
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.PeachPuff;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ClientSize = new System.Drawing.Size(1475, 688);
+            this.ClientSize = new System.Drawing.Size(1463, 688);
             this.Controls.Add(this.panel1);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ViewBookingForm";
@@ -335,8 +338,8 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBookings)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.codeCraftersDSTWO)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientBranchTableBookingBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.codeCraftersDSTWO)).EndInit();
             this.ResumeLayout(false);
 
         }

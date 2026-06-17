@@ -54,10 +54,7 @@ namespace Code_Crafters_Interface_Prototype_1.Interfaces
             LoadFormIntoPanel(new BookingForm());
         }
 
-        private void button5_Click(object sender, EventArgs e)
-        {
-            LoadFormIntoPanel(new PaymentForm());
-        }
+       
 
         private void button4_Click(object sender, EventArgs e)
         {
@@ -130,13 +127,6 @@ namespace Code_Crafters_Interface_Prototype_1.Interfaces
 
             button4.BackColor = ColorTranslator.FromHtml("#C99A2E");
             button4.ForeColor = Color.White;
-
-            button5.BackColor = ColorTranslator.FromHtml("#C99A2E");
-            button5.ForeColor = Color.White;
-
-           
-
-
 
             button9.BackColor = ColorTranslator.FromHtml("#C99A2E");
             button9.ForeColor = Color.White;

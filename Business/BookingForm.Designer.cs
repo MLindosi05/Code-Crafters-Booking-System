@@ -50,12 +50,37 @@
             this.txtTotalAmount = new System.Windows.Forms.TextBox();
             this.lblTotalAmount = new System.Windows.Forms.Label();
             this.dgvInvoice = new System.Windows.Forms.DataGridView();
+            this.hotelRoomIDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.hotelroomnumberDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.hotelRoomPriceDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.restaurantTableIDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.restaurantTableNumDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.restaurantTablePriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.invoiceBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.codeCraftersDSTWO = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTWO();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtRestaurantTableAvailable = new System.Windows.Forms.TextBox();
             this.dgvRestaurantTableAvailable = new System.Windows.Forms.DataGridView();
+            this.restaurantTableIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.branchIDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.restuarantTableNumDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.restuarantMenuTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tableCapacityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tableStatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tableIsCombinableDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tableFeaturesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tablePriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.restuarantTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dgvHotelRoomAvailable = new System.Windows.Forms.DataGridView();
+            this.hotelRoomIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.branchIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.hotelroomtypeIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.hotelroomnumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.hotelroomstatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.hotelRoomPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.hotelRoomBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.lblRestaurantTableAvailable = new System.Windows.Forms.Label();
             this.lblHotelRoomAvailable = new System.Windows.Forms.Label();
             this.txtHotelRoomAvailable = new System.Windows.Forms.TextBox();
@@ -68,31 +93,6 @@
             this.lblFullName = new System.Windows.Forms.Label();
             this.lblPhoneNumber = new System.Windows.Forms.Label();
             this.btnCreateBooking = new System.Windows.Forms.Button();
-            this.hotelRoomIDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.hotelroomnumberDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.hotelRoomPriceDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.restaurantTableIDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.restaurantTableNumDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.restaurantTablePriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.invoiceBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.codeCraftersDSTWO = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTWO();
-            this.restaurantTableIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.branchIDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.restuarantTableNumDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.restuarantMenuTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tableCapacityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tableStatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tableIsCombinableDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tableFeaturesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tablePriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.restuarantTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.hotelRoomIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.branchIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.hotelroomtypeIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.hotelroomnumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.hotelroomstatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.hotelRoomPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.hotelRoomBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.taBooking = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTWOTableAdapters.BookingTableAdapter();
             this.taBranch = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTWOTableAdapters.BranchTableAdapter();
             this.taClientBranchTableBooking = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTWOTableAdapters.ClientBranchTableBookingTableAdapter();
@@ -108,13 +108,13 @@
             this.grpRegalInnBooking.SuspendLayout();
             this.grpBookingDetails.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInvoice)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvRestaurantTableAvailable)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvHotelRoomAvailable)).BeginInit();
-            this.grpClientDetails.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.invoiceBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.codeCraftersDSTWO)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvRestaurantTableAvailable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.restuarantTableBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvHotelRoomAvailable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.hotelRoomBindingSource)).BeginInit();
+            this.grpClientDetails.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlBooking
@@ -245,191 +245,6 @@
             this.dgvInvoice.Size = new System.Drawing.Size(1005, 110);
             this.dgvInvoice.TabIndex = 13;
             // 
-            // label3
-            // 
-            this.label3.Location = new System.Drawing.Point(270, 355);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(231, 20);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "CHECK OUT ";
-            // 
-            // label2
-            // 
-            this.label2.Location = new System.Drawing.Point(20, 355);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(227, 20);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "CHECK IN ";
-            // 
-            // label1
-            // 
-            this.label1.Location = new System.Drawing.Point(16, 444);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(350, 20);
-            this.label1.TabIndex = 12;
-            this.label1.Text = "CURRENT BOOKING SELECTIONS (INVOICE)";
-            // 
-            // txtRestaurantTableAvailable
-            // 
-            this.txtRestaurantTableAvailable.Location = new System.Drawing.Point(234, 184);
-            this.txtRestaurantTableAvailable.Name = "txtRestaurantTableAvailable";
-            this.txtRestaurantTableAvailable.Size = new System.Drawing.Size(100, 29);
-            this.txtRestaurantTableAvailable.TabIndex = 4;
-            this.txtRestaurantTableAvailable.TextChanged += new System.EventHandler(this.txtRestaurantTableAvailable_TextChanged);
-            // 
-            // dgvRestaurantTableAvailable
-            // 
-            this.dgvRestaurantTableAvailable.AutoGenerateColumns = false;
-            this.dgvRestaurantTableAvailable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvRestaurantTableAvailable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.restaurantTableIDDataGridViewTextBoxColumn,
-            this.branchIDDataGridViewTextBoxColumn1,
-            this.restuarantTableNumDataGridViewTextBoxColumn,
-            this.restuarantMenuTypeDataGridViewTextBoxColumn,
-            this.tableCapacityDataGridViewTextBoxColumn,
-            this.tableStatusDataGridViewTextBoxColumn,
-            this.tableIsCombinableDataGridViewTextBoxColumn,
-            this.tableFeaturesDataGridViewTextBoxColumn,
-            this.tablePriceDataGridViewTextBoxColumn});
-            this.dgvRestaurantTableAvailable.DataSource = this.restuarantTableBindingSource;
-            this.dgvRestaurantTableAvailable.Location = new System.Drawing.Point(20, 222);
-            this.dgvRestaurantTableAvailable.Name = "dgvRestaurantTableAvailable";
-            this.dgvRestaurantTableAvailable.Size = new System.Drawing.Size(1005, 118);
-            this.dgvRestaurantTableAvailable.TabIndex = 5;
-            this.dgvRestaurantTableAvailable.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvRestaurantTableAvailable_RowHeaderMouseDoubleClick);
-            // 
-            // dgvHotelRoomAvailable
-            // 
-            this.dgvHotelRoomAvailable.AutoGenerateColumns = false;
-            this.dgvHotelRoomAvailable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvHotelRoomAvailable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.hotelRoomIDDataGridViewTextBoxColumn,
-            this.branchIDDataGridViewTextBoxColumn,
-            this.hotelroomtypeIDDataGridViewTextBoxColumn,
-            this.hotelroomnumberDataGridViewTextBoxColumn,
-            this.hotelroomstatusDataGridViewTextBoxColumn,
-            this.hotelRoomPriceDataGridViewTextBoxColumn});
-            this.dgvHotelRoomAvailable.DataSource = this.hotelRoomBindingSource;
-            this.dgvHotelRoomAvailable.Location = new System.Drawing.Point(20, 65);
-            this.dgvHotelRoomAvailable.Name = "dgvHotelRoomAvailable";
-            this.dgvHotelRoomAvailable.Size = new System.Drawing.Size(1005, 110);
-            this.dgvHotelRoomAvailable.TabIndex = 2;
-            this.dgvHotelRoomAvailable.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvHotelRoomAvailable_RowHeaderMouseDoubleClick);
-            // 
-            // lblRestaurantTableAvailable
-            // 
-            this.lblRestaurantTableAvailable.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold);
-            this.lblRestaurantTableAvailable.Location = new System.Drawing.Point(20, 190);
-            this.lblRestaurantTableAvailable.Name = "lblRestaurantTableAvailable";
-            this.lblRestaurantTableAvailable.Size = new System.Drawing.Size(208, 20);
-            this.lblRestaurantTableAvailable.TabIndex = 3;
-            this.lblRestaurantTableAvailable.Text = "ENTER RESTAURANT TABLE NO:";
-            // 
-            // lblHotelRoomAvailable
-            // 
-            this.lblHotelRoomAvailable.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold);
-            this.lblHotelRoomAvailable.Location = new System.Drawing.Point(20, 33);
-            this.lblHotelRoomAvailable.Name = "lblHotelRoomAvailable";
-            this.lblHotelRoomAvailable.Size = new System.Drawing.Size(128, 20);
-            this.lblHotelRoomAvailable.TabIndex = 0;
-            this.lblHotelRoomAvailable.Text = "ENTER ROOM NO:";
-            // 
-            // txtHotelRoomAvailable
-            // 
-            this.txtHotelRoomAvailable.Location = new System.Drawing.Point(154, 27);
-            this.txtHotelRoomAvailable.Name = "txtHotelRoomAvailable";
-            this.txtHotelRoomAvailable.Size = new System.Drawing.Size(100, 29);
-            this.txtHotelRoomAvailable.TabIndex = 1;
-            this.txtHotelRoomAvailable.TextChanged += new System.EventHandler(this.txtHotelRoomAvailable_TextChanged);
-            // 
-            // grpClientDetails
-            // 
-            this.grpClientDetails.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.grpClientDetails.Controls.Add(this.txtAddress);
-            this.grpClientDetails.Controls.Add(this.txtEmailAddress);
-            this.grpClientDetails.Controls.Add(this.txtFullName);
-            this.grpClientDetails.Controls.Add(this.lblAddress);
-            this.grpClientDetails.Controls.Add(this.lblEmailAddress);
-            this.grpClientDetails.Controls.Add(this.lblFullName);
-            this.grpClientDetails.Location = new System.Drawing.Point(20, 111);
-            this.grpClientDetails.Name = "grpClientDetails";
-            this.grpClientDetails.Size = new System.Drawing.Size(1084, 103);
-            this.grpClientDetails.TabIndex = 4;
-            this.grpClientDetails.TabStop = false;
-            this.grpClientDetails.Text = "CLIENT DETAILS";
-            // 
-            // txtAddress
-            // 
-            this.txtAddress.Location = new System.Drawing.Point(573, 55);
-            this.txtAddress.Name = "txtAddress";
-            this.txtAddress.ReadOnly = true;
-            this.txtAddress.Size = new System.Drawing.Size(344, 29);
-            this.txtAddress.TabIndex = 7;
-            // 
-            // txtEmailAddress
-            // 
-            this.txtEmailAddress.Location = new System.Drawing.Point(280, 55);
-            this.txtEmailAddress.Name = "txtEmailAddress";
-            this.txtEmailAddress.ReadOnly = true;
-            this.txtEmailAddress.Size = new System.Drawing.Size(250, 29);
-            this.txtEmailAddress.TabIndex = 5;
-            // 
-            // txtFullName
-            // 
-            this.txtFullName.Location = new System.Drawing.Point(20, 55);
-            this.txtFullName.Name = "txtFullName";
-            this.txtFullName.ReadOnly = true;
-            this.txtFullName.Size = new System.Drawing.Size(220, 29);
-            this.txtFullName.TabIndex = 1;
-            // 
-            // lblAddress
-            // 
-            this.lblAddress.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold);
-            this.lblAddress.Location = new System.Drawing.Point(572, 30);
-            this.lblAddress.Name = "lblAddress";
-            this.lblAddress.Size = new System.Drawing.Size(155, 20);
-            this.lblAddress.TabIndex = 6;
-            this.lblAddress.Text = "CLIENT ADDRESS:";
-            // 
-            // lblEmailAddress
-            // 
-            this.lblEmailAddress.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold);
-            this.lblEmailAddress.Location = new System.Drawing.Point(280, 30);
-            this.lblEmailAddress.Name = "lblEmailAddress";
-            this.lblEmailAddress.Size = new System.Drawing.Size(120, 20);
-            this.lblEmailAddress.TabIndex = 4;
-            this.lblEmailAddress.Text = "EMAIL ADDRESS:";
-            // 
-            // lblFullName
-            // 
-            this.lblFullName.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold);
-            this.lblFullName.Location = new System.Drawing.Point(20, 30);
-            this.lblFullName.Name = "lblFullName";
-            this.lblFullName.Size = new System.Drawing.Size(100, 20);
-            this.lblFullName.TabIndex = 0;
-            this.lblFullName.Text = "FULL NAME:";
-            // 
-            // lblPhoneNumber
-            // 
-            this.lblPhoneNumber.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPhoneNumber.Location = new System.Drawing.Point(17, 76);
-            this.lblPhoneNumber.Name = "lblPhoneNumber";
-            this.lblPhoneNumber.Size = new System.Drawing.Size(193, 20);
-            this.lblPhoneNumber.TabIndex = 2;
-            this.lblPhoneNumber.Text = "ENTER CLIENT PHONE NO:";
-            // 
-            // btnCreateBooking
-            // 
-            this.btnCreateBooking.BackColor = System.Drawing.Color.DarkOrange;
-            this.btnCreateBooking.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.btnCreateBooking.Location = new System.Drawing.Point(877, 944);
-            this.btnCreateBooking.Name = "btnCreateBooking";
-            this.btnCreateBooking.Size = new System.Drawing.Size(200, 33);
-            this.btnCreateBooking.TabIndex = 11;
-            this.btnCreateBooking.Text = "MAKE A BOOKING";
-            this.btnCreateBooking.UseVisualStyleBackColor = false;
-            this.btnCreateBooking.Click += new System.EventHandler(this.btnCreateBooking_Click_1);
-            // 
             // hotelRoomIDDataGridViewTextBoxColumn1
             // 
             this.hotelRoomIDDataGridViewTextBoxColumn1.DataPropertyName = "Hotel_Room_ID";
@@ -493,6 +308,59 @@
             // 
             this.codeCraftersDSTWO.DataSetName = "codeCraftersDSTWO";
             this.codeCraftersDSTWO.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // label3
+            // 
+            this.label3.Location = new System.Drawing.Point(270, 355);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(231, 20);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "CHECK OUT ";
+            // 
+            // label2
+            // 
+            this.label2.Location = new System.Drawing.Point(20, 355);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(227, 20);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "CHECK IN ";
+            // 
+            // label1
+            // 
+            this.label1.Location = new System.Drawing.Point(16, 444);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(350, 20);
+            this.label1.TabIndex = 12;
+            this.label1.Text = "CURRENT BOOKING SELECTIONS (INVOICE)";
+            // 
+            // txtRestaurantTableAvailable
+            // 
+            this.txtRestaurantTableAvailable.Location = new System.Drawing.Point(234, 184);
+            this.txtRestaurantTableAvailable.Name = "txtRestaurantTableAvailable";
+            this.txtRestaurantTableAvailable.Size = new System.Drawing.Size(100, 29);
+            this.txtRestaurantTableAvailable.TabIndex = 4;
+            this.txtRestaurantTableAvailable.TextChanged += new System.EventHandler(this.txtRestaurantTableAvailable_TextChanged);
+            // 
+            // dgvRestaurantTableAvailable
+            // 
+            this.dgvRestaurantTableAvailable.AutoGenerateColumns = false;
+            this.dgvRestaurantTableAvailable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvRestaurantTableAvailable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.restaurantTableIDDataGridViewTextBoxColumn,
+            this.branchIDDataGridViewTextBoxColumn1,
+            this.restuarantTableNumDataGridViewTextBoxColumn,
+            this.restuarantMenuTypeDataGridViewTextBoxColumn,
+            this.tableCapacityDataGridViewTextBoxColumn,
+            this.tableStatusDataGridViewTextBoxColumn,
+            this.tableIsCombinableDataGridViewTextBoxColumn,
+            this.tableFeaturesDataGridViewTextBoxColumn,
+            this.tablePriceDataGridViewTextBoxColumn});
+            this.dgvRestaurantTableAvailable.DataSource = this.restuarantTableBindingSource;
+            this.dgvRestaurantTableAvailable.Location = new System.Drawing.Point(20, 222);
+            this.dgvRestaurantTableAvailable.Name = "dgvRestaurantTableAvailable";
+            this.dgvRestaurantTableAvailable.Size = new System.Drawing.Size(1005, 118);
+            this.dgvRestaurantTableAvailable.TabIndex = 5;
+            this.dgvRestaurantTableAvailable.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvRestaurantTableAvailable_RowHeaderMouseDoubleClick);
             // 
             // restaurantTableIDDataGridViewTextBoxColumn
             // 
@@ -581,6 +449,24 @@
             this.restuarantTableBindingSource.DataMember = "Restuarant_Table";
             this.restuarantTableBindingSource.DataSource = this.codeCraftersDSTWO;
             // 
+            // dgvHotelRoomAvailable
+            // 
+            this.dgvHotelRoomAvailable.AutoGenerateColumns = false;
+            this.dgvHotelRoomAvailable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvHotelRoomAvailable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.hotelRoomIDDataGridViewTextBoxColumn,
+            this.branchIDDataGridViewTextBoxColumn,
+            this.hotelroomtypeIDDataGridViewTextBoxColumn,
+            this.hotelroomnumberDataGridViewTextBoxColumn,
+            this.hotelroomstatusDataGridViewTextBoxColumn,
+            this.hotelRoomPriceDataGridViewTextBoxColumn});
+            this.dgvHotelRoomAvailable.DataSource = this.hotelRoomBindingSource;
+            this.dgvHotelRoomAvailable.Location = new System.Drawing.Point(20, 65);
+            this.dgvHotelRoomAvailable.Name = "dgvHotelRoomAvailable";
+            this.dgvHotelRoomAvailable.Size = new System.Drawing.Size(1005, 110);
+            this.dgvHotelRoomAvailable.TabIndex = 2;
+            this.dgvHotelRoomAvailable.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvHotelRoomAvailable_RowHeaderMouseDoubleClick);
+            // 
             // hotelRoomIDDataGridViewTextBoxColumn
             // 
             this.hotelRoomIDDataGridViewTextBoxColumn.DataPropertyName = "Hotel_Room_ID";
@@ -640,6 +526,120 @@
             // 
             this.hotelRoomBindingSource.DataMember = "Hotel_Room";
             this.hotelRoomBindingSource.DataSource = this.codeCraftersDSTWO;
+            // 
+            // lblRestaurantTableAvailable
+            // 
+            this.lblRestaurantTableAvailable.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold);
+            this.lblRestaurantTableAvailable.Location = new System.Drawing.Point(20, 190);
+            this.lblRestaurantTableAvailable.Name = "lblRestaurantTableAvailable";
+            this.lblRestaurantTableAvailable.Size = new System.Drawing.Size(208, 20);
+            this.lblRestaurantTableAvailable.TabIndex = 3;
+            this.lblRestaurantTableAvailable.Text = "ENTER RESTAURANT TABLE NO:";
+            // 
+            // lblHotelRoomAvailable
+            // 
+            this.lblHotelRoomAvailable.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold);
+            this.lblHotelRoomAvailable.Location = new System.Drawing.Point(20, 33);
+            this.lblHotelRoomAvailable.Name = "lblHotelRoomAvailable";
+            this.lblHotelRoomAvailable.Size = new System.Drawing.Size(128, 20);
+            this.lblHotelRoomAvailable.TabIndex = 0;
+            this.lblHotelRoomAvailable.Text = "ENTER ROOM NO:";
+            // 
+            // txtHotelRoomAvailable
+            // 
+            this.txtHotelRoomAvailable.Location = new System.Drawing.Point(154, 27);
+            this.txtHotelRoomAvailable.Name = "txtHotelRoomAvailable";
+            this.txtHotelRoomAvailable.Size = new System.Drawing.Size(100, 29);
+            this.txtHotelRoomAvailable.TabIndex = 1;
+            this.txtHotelRoomAvailable.TextChanged += new System.EventHandler(this.txtHotelRoomAvailable_TextChanged);
+            // 
+            // grpClientDetails
+            // 
+            this.grpClientDetails.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.grpClientDetails.Controls.Add(this.txtAddress);
+            this.grpClientDetails.Controls.Add(this.txtEmailAddress);
+            this.grpClientDetails.Controls.Add(this.txtFullName);
+            this.grpClientDetails.Controls.Add(this.lblAddress);
+            this.grpClientDetails.Controls.Add(this.lblEmailAddress);
+            this.grpClientDetails.Controls.Add(this.lblFullName);
+            this.grpClientDetails.Location = new System.Drawing.Point(20, 111);
+            this.grpClientDetails.Name = "grpClientDetails";
+            this.grpClientDetails.Size = new System.Drawing.Size(1084, 103);
+            this.grpClientDetails.TabIndex = 4;
+            this.grpClientDetails.TabStop = false;
+            this.grpClientDetails.Text = "CLIENT DETAILS";
+            // 
+            // txtAddress
+            // 
+            this.txtAddress.Location = new System.Drawing.Point(573, 55);
+            this.txtAddress.Name = "txtAddress";
+            this.txtAddress.ReadOnly = true;
+            this.txtAddress.Size = new System.Drawing.Size(344, 29);
+            this.txtAddress.TabIndex = 7;
+            // 
+            // txtEmailAddress
+            // 
+            this.txtEmailAddress.Location = new System.Drawing.Point(283, 55);
+            this.txtEmailAddress.Name = "txtEmailAddress";
+            this.txtEmailAddress.ReadOnly = true;
+            this.txtEmailAddress.Size = new System.Drawing.Size(250, 29);
+            this.txtEmailAddress.TabIndex = 5;
+            // 
+            // txtFullName
+            // 
+            this.txtFullName.Location = new System.Drawing.Point(20, 55);
+            this.txtFullName.Name = "txtFullName";
+            this.txtFullName.ReadOnly = true;
+            this.txtFullName.Size = new System.Drawing.Size(220, 29);
+            this.txtFullName.TabIndex = 1;
+            // 
+            // lblAddress
+            // 
+            this.lblAddress.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold);
+            this.lblAddress.Location = new System.Drawing.Point(572, 30);
+            this.lblAddress.Name = "lblAddress";
+            this.lblAddress.Size = new System.Drawing.Size(155, 20);
+            this.lblAddress.TabIndex = 6;
+            this.lblAddress.Text = "CLIENT ADDRESS:";
+            // 
+            // lblEmailAddress
+            // 
+            this.lblEmailAddress.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold);
+            this.lblEmailAddress.Location = new System.Drawing.Point(280, 30);
+            this.lblEmailAddress.Name = "lblEmailAddress";
+            this.lblEmailAddress.Size = new System.Drawing.Size(120, 20);
+            this.lblEmailAddress.TabIndex = 4;
+            this.lblEmailAddress.Text = "EMAIL ADDRESS:";
+            // 
+            // lblFullName
+            // 
+            this.lblFullName.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold);
+            this.lblFullName.Location = new System.Drawing.Point(20, 30);
+            this.lblFullName.Name = "lblFullName";
+            this.lblFullName.Size = new System.Drawing.Size(100, 20);
+            this.lblFullName.TabIndex = 0;
+            this.lblFullName.Text = "FULL NAME:";
+            // 
+            // lblPhoneNumber
+            // 
+            this.lblPhoneNumber.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPhoneNumber.Location = new System.Drawing.Point(17, 76);
+            this.lblPhoneNumber.Name = "lblPhoneNumber";
+            this.lblPhoneNumber.Size = new System.Drawing.Size(193, 20);
+            this.lblPhoneNumber.TabIndex = 2;
+            this.lblPhoneNumber.Text = "ENTER EMAIL ADDRESS:";
+            // 
+            // btnCreateBooking
+            // 
+            this.btnCreateBooking.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnCreateBooking.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.btnCreateBooking.Location = new System.Drawing.Point(877, 944);
+            this.btnCreateBooking.Name = "btnCreateBooking";
+            this.btnCreateBooking.Size = new System.Drawing.Size(200, 33);
+            this.btnCreateBooking.TabIndex = 11;
+            this.btnCreateBooking.Text = "MAKE A BOOKING";
+            this.btnCreateBooking.UseVisualStyleBackColor = false;
+            this.btnCreateBooking.Click += new System.EventHandler(this.btnCreateBooking_Click_1);
             // 
             // taBooking
             // 
@@ -703,14 +703,14 @@
             this.grpBookingDetails.ResumeLayout(false);
             this.grpBookingDetails.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInvoice)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvRestaurantTableAvailable)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvHotelRoomAvailable)).EndInit();
-            this.grpClientDetails.ResumeLayout(false);
-            this.grpClientDetails.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.invoiceBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.codeCraftersDSTWO)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvRestaurantTableAvailable)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.restuarantTableBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvHotelRoomAvailable)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.hotelRoomBindingSource)).EndInit();
+            this.grpClientDetails.ResumeLayout(false);
+            this.grpClientDetails.PerformLayout();
             this.ResumeLayout(false);
 
         }

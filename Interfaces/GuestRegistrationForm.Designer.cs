@@ -70,7 +70,7 @@
             this.groupBox4.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox4.Size = new System.Drawing.Size(698, 352);
+            this.groupBox4.Size = new System.Drawing.Size(706, 352);
             this.groupBox4.TabIndex = 2;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Personal Details";
@@ -116,7 +116,7 @@
             this.btnSignUp.Name = "btnSignUp";
             this.btnSignUp.Size = new System.Drawing.Size(129, 28);
             this.btnSignUp.TabIndex = 26;
-            this.btnSignUp.Text = "Sign Up";
+            this.btnSignUp.Text = "Register";
             this.btnSignUp.UseVisualStyleBackColor = true;
             this.btnSignUp.Click += new System.EventHandler(this.btnSignUp_Click);
             // 
@@ -288,9 +288,9 @@
             this.pnlSignUp.Controls.Add(this.pictureBox1);
             this.pnlSignUp.Controls.Add(this.button1);
             this.pnlSignUp.Controls.Add(this.groupBox4);
-            this.pnlSignUp.Location = new System.Drawing.Point(22, 12);
+            this.pnlSignUp.Location = new System.Drawing.Point(12, 91);
             this.pnlSignUp.Name = "pnlSignUp";
-            this.pnlSignUp.Size = new System.Drawing.Size(1255, 426);
+            this.pnlSignUp.Size = new System.Drawing.Size(1211, 426);
             this.pnlSignUp.TabIndex = 12;
             // 
             // pictureBox1
@@ -303,17 +303,17 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // SignUpForm
+            // GuestRegistrationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1726, 703);
+            this.ClientSize = new System.Drawing.Size(1439, 703);
             this.Controls.Add(this.pnlSignUp);
             this.Margin = new System.Windows.Forms.Padding(2);
-            this.Name = "SignUpForm";
+            this.Name = "GuestRegistrationForm";
             this.Text = "REGAL INN SIGN UP ";
             this.Load += new System.EventHandler(this.SignUpForm_Load);
             this.groupBox4.ResumeLayout(false);

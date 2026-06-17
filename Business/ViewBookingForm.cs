@@ -21,6 +21,10 @@ namespace Code_Crafters_Interface_Prototype_1.Business
 
         private void ViewBookingForm_Load(object sender, EventArgs e)
         {
+            this.BackColor = ColorTranslator.FromHtml("#F9EED8");
+            pnlViewBookings.BackColor = ColorTranslator.FromHtml("#966919");
+            panel1.BackColor = ColorTranslator.FromHtml("#F8F5F0");
+
             try
             {
                 this.taClientBranchTableBooking.Fill(this.codeCraftersDSTWO.ClientBranchTableBooking);
@@ -67,7 +71,7 @@ namespace Code_Crafters_Interface_Prototype_1.Business
                 return;
             }
 
-            taClientBranchTableBooking.FillByBookingIDTWO(codeCraftersDSTWO.ClientBranchTableBooking, input);
+            taClientBranchTableBooking.FillByFirstName(codeCraftersDSTWO.ClientBranchTableBooking, input);
 
         }
 
