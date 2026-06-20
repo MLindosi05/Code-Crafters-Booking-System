@@ -1,12 +1,17 @@
 ﻿using Code_Crafters_Booking_System;
 using Code_Crafters_Interface_Prototype_1.codeCraftersDSTableAdapters;
 using Code_Crafters_Interface_Prototype_1.codeCraftersDSTWOTableAdapters;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
 using System;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Printing;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace Code_Crafters_Interface_Prototype_1.Business
 {
@@ -15,6 +20,9 @@ namespace Code_Crafters_Interface_Prototype_1.Business
         private Timer liveEndTimeTimer;
         private bool isCheckOutEditedByUser = false;
         private bool isFormLoaded = false;
+
+        // Class-level object used to store the captured screen state for printing
+        private Bitmap bmp;
 
         public BookingForm()
         {
@@ -26,6 +34,9 @@ namespace Code_Crafters_Interface_Prototype_1.Business
             cmbBranchID.SelectedIndexChanged += CmbBranchID_SelectedIndexChanged;
 
             InitializeLiveTimer();
+
+            // Wire up the print document page drawing handler programmatically if not done in designer
+            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
         }
 
         private void InitializeLiveTimer()
@@ -50,13 +61,11 @@ namespace Code_Crafters_Interface_Prototype_1.Business
             try
             {
                 taBranch.Fill(codeCraftersDSTWO.Branch);
-
                 taClient.Fill(codeCraftersDSTWO.Client);
                 taRoomAssignment.Fill(codeCraftersDSTWO.Room_Assignment);
                 taTableAllocation.Fill(codeCraftersDSTWO.Table_Allocation);
 
                 ConfigureBranchComboBox();
-
                 InitializeDateControls();
 
                 isFormLoaded = true;
@@ -74,10 +83,10 @@ namespace Code_Crafters_Interface_Prototype_1.Business
             cmbBranchID.SelectedIndexChanged -= CmbBranchID_SelectedIndexChanged;
 
             cmbBranchID.DataSource = codeCraftersDSTWO.Branch;
-            cmbBranchID.DisplayMember = "Branch_Name"; 
-            cmbBranchID.ValueMember = "Branch_ID";     
+            cmbBranchID.DisplayMember = "Branch_Name";
+            cmbBranchID.ValueMember = "Branch_ID";
 
-            cmbBranchID.SelectedIndex = -1; 
+            cmbBranchID.SelectedIndex = -1;
 
             cmbBranchID.SelectedIndexChanged += CmbBranchID_SelectedIndexChanged;
         }
@@ -101,7 +110,6 @@ namespace Code_Crafters_Interface_Prototype_1.Business
         {
             if (!isFormLoaded) return;
 
-            // Use SelectedValue to pull the string ID (e.g., "BR01")
             if (cmbBranchID.SelectedValue == null || string.IsNullOrEmpty(cmbBranchID.SelectedValue.ToString()))
             {
                 codeCraftersDSTWO.Hotel_Room.Clear();
@@ -122,7 +130,6 @@ namespace Code_Crafters_Interface_Prototype_1.Business
                 taRoomAssignment.Fill(codeCraftersDSTWO.Room_Assignment);
                 taTableAllocation.Fill(codeCraftersDSTWO.Table_Allocation);
 
-                // Keep your query looking for "Branch_ID" as it is built in your DB schema!
                 var branchRooms = codeCraftersDSTWO.Hotel_Room.Where(r => r.Field<string>("Branch_ID") == branchID);
                 foreach (var room in branchRooms)
                 {
@@ -169,7 +176,7 @@ namespace Code_Crafters_Interface_Prototype_1.Business
         private void ApplyLocalSearchFilters(string branchID)
         {
             DataView dvRooms = new DataView(codeCraftersDSTWO.Hotel_Room);
-            string roomFilter = $"Branch_ID = '{branchID}'"; 
+            string roomFilter = $"Branch_ID = '{branchID}'";
 
             if (!string.IsNullOrWhiteSpace(txtHotelRoomAvailable.Text) && int.TryParse(txtHotelRoomAvailable.Text, out int roomNo))
             {
@@ -178,9 +185,8 @@ namespace Code_Crafters_Interface_Prototype_1.Business
             dvRooms.RowFilter = roomFilter;
             dgvHotelRoomAvailable.DataSource = dvRooms;
 
-
             DataView dvTables = new DataView(codeCraftersDSTWO.Restuarant_Table);
-            string tableFilter = $"Branch_ID = '{branchID}'"; 
+            string tableFilter = $"Branch_ID = '{branchID}'";
 
             if (!string.IsNullOrWhiteSpace(txtRestaurantTableAvailable.Text))
             {
@@ -290,43 +296,41 @@ namespace Code_Crafters_Interface_Prototype_1.Business
 
             try
             {
-            int tableID = Convert.ToInt32(dgvRestaurantTableAvailable.CurrentRow.Cells[0].Value);
-            string tableNumber = dgvRestaurantTableAvailable.CurrentRow.Cells[2].Value.ToString();
-            decimal tablePrice = Convert.ToDecimal(dgvRestaurantTableAvailable.CurrentRow.Cells[8].Value);
+                int tableID = Convert.ToInt32(dgvRestaurantTableAvailable.CurrentRow.Cells[0].Value);
+                string tableNumber = dgvRestaurantTableAvailable.CurrentRow.Cells[2].Value.ToString();
+                decimal tablePrice = Convert.ToDecimal(dgvRestaurantTableAvailable.CurrentRow.Cells[8].Value);
 
-            bool exists = codeCraftersDSTWO.Invoice.AsEnumerable().Any(r => r.Field<object>(3) != DBNull.Value && Convert.ToInt32(r.Field<object>(3)) == tableID);
-            if (exists)
-            {
-                MessageBox.Show("This restaurant table has already been added to your current booking selection.", "Duplicate Selection", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
-            }
+                bool exists = codeCraftersDSTWO.Invoice.AsEnumerable().Any(r => r.Field<object>(3) != DBNull.Value && Convert.ToInt32(r.Field<object>(3)) == tableID);
+                if (exists)
+                {
+                    MessageBox.Show("This restaurant table has already been added to your current booking selection.", "Duplicate Selection", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
 
-            bool isNewRow = false;
-            DataRow row = GetOrCreateCurrentInvoiceRow(isRoomInsertion: false);
-            if (row.RowState == DataRowState.Detached || row.Table == null)
-            {
-                isNewRow = true;
-            }
+                bool isNewRow = false;
+                DataRow row = GetOrCreateCurrentInvoiceRow(isRoomInsertion: false);
+                if (row.RowState == DataRowState.Detached || row.Table == null)
+                {
+                    isNewRow = true;
+                }
 
-            row[3] = tableID;
-            row[4] = tableNumber;
-            row[5] = tablePrice;
+                row[3] = tableID;
+                row[4] = tableNumber;
+                row[5] = tablePrice;
 
-            if (isNewRow)
-            {
-                codeCraftersDSTWO.Invoice.Rows.Add(row);
-            }
+                if (isNewRow)
+                {
+                    codeCraftersDSTWO.Invoice.Rows.Add(row);
+                }
 
-            dgvInvoice.DataSource = null;
-            dgvInvoice.DataSource = codeCraftersDSTWO.Invoice;
-            UpdateInvoiceTotal();
+                dgvInvoice.DataSource = null;
+                dgvInvoice.DataSource = codeCraftersDSTWO.Invoice;
+                UpdateInvoiceTotal();
             }
             catch (Exception ex)
             {
-                   MessageBox.Show($"Error adding room: {ex.Message}", "Selection Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Error adding room: {ex.Message}", "Selection Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
-       
         }
 
         private void btnCreateBooking_Click_1(object sender, EventArgs e)
@@ -411,7 +415,7 @@ namespace Code_Crafters_Interface_Prototype_1.Business
 
             int pk = Convert.ToInt32(taBooking.InsertNewBooking(
                 clientBookingID,
-                cmbBranchID.SelectedValue.ToString(), 
+                cmbBranchID.SelectedValue.ToString(),
                 DateTime.Now,
                 dtpCheckIn.Value,
                 dtpCheckOut.Value,
@@ -563,6 +567,154 @@ namespace Code_Crafters_Interface_Prototype_1.Business
             btnCreateBooking.BackColor = ColorTranslator.FromHtml("#C99A2E");
             btnCreateBooking.ForeColor = Color.White;
             grpBookingDetails.BackColor = ColorTranslator.FromHtml("#F8F5F0");
+        }
+
+        public Bitmap CaptureForm(Control container)
+        {
+            Bitmap bitmapImage = new Bitmap(container.Width, container.Height);
+            container.DrawToBitmap(bitmapImage, new System.Drawing.Rectangle(0, 0, container.Width, container.Height));
+            return bitmapImage;
+        }
+
+        public void SaveFormAsPdf(Control container, string filePath)
+        {
+            Bitmap capturedBmp = CaptureForm(container);
+
+            using (MemoryStream ms = new MemoryStream())
+            {
+                capturedBmp.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
+                byte[] imageBytes = ms.ToArray();
+
+                using (FileStream fs = new FileStream(filePath, FileMode.Create, FileAccess.Write, FileShare.None))
+                {
+                    Document doc = new Document(PageSize.A4, 10f, 10f, 10f, 10f);
+                    PdfWriter writer = PdfWriter.GetInstance(doc, fs);
+                    doc.Open();
+
+                    iTextSharp.text.Image pdfImage = iTextSharp.text.Image.GetInstance(imageBytes);
+                    pdfImage.ScaleToFit(doc.PageSize.Width, doc.PageSize.Height);
+                    doc.Add(pdfImage);
+
+                    doc.Close();
+                }
+            }
+        }
+
+        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            if (bmp != null)
+            {
+                e.Graphics.DrawImage(bmp, 0, 0);
+            }
+        }
+
+        private void btnSaveInvoice_Click_1(object sender, EventArgs e)
+        {
+            int originalGridHeight = dgvInvoice.Height;
+
+            try
+            {
+                string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+                string bookingRef = string.IsNullOrEmpty(UserSession.BookingReference) ? DateTime.Now.ToString("yyyyMMdd_HHmmss") : UserSession.BookingReference;
+                string clientName = string.IsNullOrEmpty(txtFullName.Text) ? "Guest" : txtFullName.Text.Trim().Replace(" ", "_");
+
+                string filePath = Path.Combine(desktopPath, $"{clientName}_{bookingRef}_Invoice.pdf");
+
+                int totalRowsHeight = 0;
+                foreach (DataGridViewRow row in dgvInvoice.Rows)
+                {
+                    if (!row.IsNewRow) 
+                    {
+                        totalRowsHeight += row.Height;
+                    }
+                }
+
+                dgvInvoice.Height = dgvInvoice.ColumnHeadersHeight + totalRowsHeight + 10;
+                dgvInvoice.Refresh();
+
+                Bitmap clientBmp = CaptureForm(grpClientDetails);
+                Bitmap gridBmp = CaptureForm(dgvInvoice);
+
+                int combinedWidth = Math.Max(clientBmp.Width, gridBmp.Width);
+                int combinedHeight = clientBmp.Height + gridBmp.Height + 30; 
+
+                using (Bitmap combinedBmp = new Bitmap(combinedWidth, combinedHeight))
+                {
+                    using (Graphics g = Graphics.FromImage(combinedBmp))
+                    {
+                        g.Clear(Color.White);
+
+                        g.DrawImage(clientBmp, 0, 0);
+
+                        g.DrawImage(gridBmp, 0, clientBmp.Height + 20);
+                    }
+
+                    using (MemoryStream ms = new MemoryStream())
+                    {
+                        combinedBmp.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
+                        byte[] imageBytes = ms.ToArray();
+
+                        using (FileStream fs = new FileStream(filePath, FileMode.Create, FileAccess.Write, FileShare.None))
+                        {
+                            Document doc = new Document(PageSize.A4, 10f, 10f, 10f, 10f);
+                            PdfWriter writer = PdfWriter.GetInstance(doc, fs);
+                            doc.Open();
+
+                            iTextSharp.text.Image pdfImage = iTextSharp.text.Image.GetInstance(imageBytes);
+                            pdfImage.ScaleToFit(doc.PageSize.Width - 20f, doc.PageSize.Height - 20f);
+                            doc.Add(pdfImage);
+
+                            doc.Close();
+                        }
+                    }
+                }
+
+                clientBmp.Dispose();
+                gridBmp.Dispose();
+
+                MessageBox.Show($"Invoice and Client Details successfully saved to desktop as a PDF file:\n{filePath}", "Invoice Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred during invoice extraction: " + ex.Message, "PDF Export Failure", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                dgvInvoice.Height = originalGridHeight;
+            }
+        }
+
+        private void btnPrintInvoice_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                Bitmap clientBmp = CaptureForm(grpClientDetails);
+                Bitmap bookingBmp = CaptureForm(grpBookingDetails);
+
+                int combinedWidth = Math.Max(clientBmp.Width, bookingBmp.Width);
+                int combinedHeight = clientBmp.Height + bookingBmp.Height + 30; 
+
+                bmp = new Bitmap(combinedWidth, combinedHeight);
+
+                using (Graphics g = Graphics.FromImage(bmp))
+                {
+                    g.Clear(Color.White);
+
+                    g.DrawImage(clientBmp, 0, 0);
+
+                    g.DrawImage(bookingBmp, 0, clientBmp.Height + 20);
+                }
+
+                clientBmp.Dispose();
+                bookingBmp.Dispose();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred during print layout layout stitching: " + ex.Message, "Print Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            printPreviewDialog1.Document = printDocument1;
+            printPreviewDialog1.ShowDialog();
         }
     }
 }
