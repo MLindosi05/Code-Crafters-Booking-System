@@ -49,9 +49,13 @@ namespace Code_Crafters_Interface_Prototype_1.Business
         {
             try
             {
+                taBranch.Fill(codeCraftersDSTWO.Branch);
+
                 taClient.Fill(codeCraftersDSTWO.Client);
                 taRoomAssignment.Fill(codeCraftersDSTWO.Room_Assignment);
                 taTableAllocation.Fill(codeCraftersDSTWO.Table_Allocation);
+
+                ConfigureBranchComboBox();
 
                 InitializeDateControls();
 
@@ -63,6 +67,19 @@ namespace Code_Crafters_Interface_Prototype_1.Business
                 MessageBox.Show($"Error pulling initial data from database: {ex.Message}",
                                 "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void ConfigureBranchComboBox()
+        {
+            cmbBranchID.SelectedIndexChanged -= CmbBranchID_SelectedIndexChanged;
+
+            cmbBranchID.DataSource = codeCraftersDSTWO.Branch;
+            cmbBranchID.DisplayMember = "Branch_Name"; 
+            cmbBranchID.ValueMember = "Branch_ID";     
+
+            cmbBranchID.SelectedIndex = -1; 
+
+            cmbBranchID.SelectedIndexChanged += CmbBranchID_SelectedIndexChanged;
         }
 
         private void InitializeDateControls()
@@ -84,14 +101,15 @@ namespace Code_Crafters_Interface_Prototype_1.Business
         {
             if (!isFormLoaded) return;
 
-            if (cmbBranchID.SelectedItem == null || string.IsNullOrEmpty(cmbBranchID.SelectedItem.ToString()))
+            // Use SelectedValue to pull the string ID (e.g., "BR01")
+            if (cmbBranchID.SelectedValue == null || string.IsNullOrEmpty(cmbBranchID.SelectedValue.ToString()))
             {
                 codeCraftersDSTWO.Hotel_Room.Clear();
                 codeCraftersDSTWO.Restuarant_Table.Clear();
                 return;
             }
 
-            string branchID = cmbBranchID.SelectedItem.ToString();
+            string branchID = cmbBranchID.SelectedValue.ToString();
             DateTime startTimeline = dtpCheckIn.Value;
             DateTime endTimeline = dtpCheckOut.Value;
 
@@ -99,19 +117,16 @@ namespace Code_Crafters_Interface_Prototype_1.Business
 
             try
             {
-                // 1. Fetch all records into memory
                 taHotelRoom.Fill(codeCraftersDSTWO.Hotel_Room);
                 taRestaurantTable.Fill(codeCraftersDSTWO.Restuarant_Table);
                 taRoomAssignment.Fill(codeCraftersDSTWO.Room_Assignment);
                 taTableAllocation.Fill(codeCraftersDSTWO.Table_Allocation);
 
-                // 2. Filter locally by Branch and update Room Statuses dynamically
+                // Keep your query looking for "Branch_ID" as it is built in your DB schema!
                 var branchRooms = codeCraftersDSTWO.Hotel_Room.Where(r => r.Field<string>("Branch_ID") == branchID);
                 foreach (var room in branchRooms)
                 {
                     int targetRoomID = Convert.ToInt32(room["Hotel_Room_ID"]);
-
-                    // CRITICAL FIX: Reset the status to Available first so it doesn't get stuck on Maintenance
                     room["hotel_room_status"] = "Available";
 
                     bool isBusy = codeCraftersDSTWO.Room_Assignment.AsEnumerable().Any(ra =>
@@ -125,13 +140,10 @@ namespace Code_Crafters_Interface_Prototype_1.Business
                     }
                 }
 
-                // 3. Filter locally by Branch and update Table Statuses dynamically
                 var branchTables = codeCraftersDSTWO.Restuarant_Table.Where(t => t.Field<string>("Branch_ID") == branchID);
                 foreach (var table in branchTables)
                 {
                     int targetTableID = Convert.ToInt32(table["RestaurantTableID"]);
-
-                    // CRITICAL FIX: Reset the status to Available first
                     table["TableStatus"] = "Available";
 
                     bool isBusy = codeCraftersDSTWO.Table_Allocation.AsEnumerable().Any(ta =>
@@ -145,8 +157,7 @@ namespace Code_Crafters_Interface_Prototype_1.Business
                     }
                 }
 
-                // 4. CRITICAL FIX: Run combined Branch + Text Search calculations safely
-                ApplyLocalSearchFilters();
+                ApplyLocalSearchFilters(branchID);
             }
             catch (Exception ex)
             {
@@ -155,15 +166,11 @@ namespace Code_Crafters_Interface_Prototype_1.Business
             }
         }
 
-        private void ApplyLocalSearchFilters()
+        private void ApplyLocalSearchFilters(string branchID)
         {
-            string branchID = cmbBranchID.SelectedItem?.ToString() ?? "";
-
-            // --- Build Combined Room Filter ---
             DataView dvRooms = new DataView(codeCraftersDSTWO.Hotel_Room);
-            string roomFilter = $"Branch_ID = '{branchID}'";
+            string roomFilter = $"Branch_ID = '{branchID}'"; 
 
-            // If search text box has a valid number, append it to the branch filter rule
             if (!string.IsNullOrWhiteSpace(txtHotelRoomAvailable.Text) && int.TryParse(txtHotelRoomAvailable.Text, out int roomNo))
             {
                 roomFilter += $" AND hotel_room_number = {roomNo}";
@@ -172,11 +179,9 @@ namespace Code_Crafters_Interface_Prototype_1.Business
             dgvHotelRoomAvailable.DataSource = dvRooms;
 
 
-            // --- Build Combined Restaurant Table Filter ---
             DataView dvTables = new DataView(codeCraftersDSTWO.Restuarant_Table);
-            string tableFilter = $"Branch_ID = '{branchID}'";
+            string tableFilter = $"Branch_ID = '{branchID}'"; 
 
-            // If search text box has character data, append a wildcard pattern to the branch filter rule
             if (!string.IsNullOrWhiteSpace(txtRestaurantTableAvailable.Text))
             {
                 string safeSearchValue = txtRestaurantTableAvailable.Text.Replace("'", "''");
@@ -362,11 +367,9 @@ namespace Code_Crafters_Interface_Prototype_1.Business
 
             liveEndTimeTimer.Stop();
 
-            // Refreshes the dataset data layout directly from DB before saving to detect mid-session conflicts
             taRoomAssignment.Fill(codeCraftersDSTWO.Room_Assignment);
             taTableAllocation.Fill(codeCraftersDSTWO.Table_Allocation);
 
-            // Double Check Overlapping Timelines immediately before transaction executes
             foreach (DataRow invoiceRow in codeCraftersDSTWO.Invoice.Rows)
             {
                 if (invoiceRow[0] != DBNull.Value)
@@ -408,7 +411,7 @@ namespace Code_Crafters_Interface_Prototype_1.Business
 
             int pk = Convert.ToInt32(taBooking.InsertNewBooking(
                 clientBookingID,
-                cmbBranchID.SelectedItem.ToString(),
+                cmbBranchID.SelectedValue.ToString(), 
                 DateTime.Now,
                 dtpCheckIn.Value,
                 dtpCheckOut.Value,
@@ -486,13 +489,11 @@ namespace Code_Crafters_Interface_Prototype_1.Business
 
         private void txtHotelRoomAvailable_TextChanged(object sender, EventArgs e)
         {
-            // Runs our central timeline checker to populate all truly safe rooms, then sorts locally based on user text entry
             RefreshAvailableAccommodations();
         }
 
         private void txtRestaurantTableAvailable_TextChanged(object sender, EventArgs e)
         {
-            // Runs our central timeline checker to populate all truly safe tables, then sorts locally based on user text entry
             RefreshAvailableAccommodations();
         }
 
