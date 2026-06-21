@@ -11,7 +11,6 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
-using System.Xml.Linq;
 
 namespace Code_Crafters_Interface_Prototype_1.Business
 {
@@ -20,21 +19,36 @@ namespace Code_Crafters_Interface_Prototype_1.Business
         private Timer liveEndTimeTimer;
         private bool isCheckOutEditedByUser = false;
         private bool isFormLoaded = false;
-
         private Bitmap bmp;
+
+        // Add these two tracking state rules right here:
+        private bool showOnlyAvailableRooms = false;
+        private bool showOnlyAvailableTables = false;
+
+        // Class-level tracking variable to avoid unsafe currency string extraction
+        private decimal _calculatedTotalAmount = 0.00m;
+
+        // Match the ZAR/South Africa environment shown in your user interface
+        private readonly CultureInfo _southAfricanCulture = new CultureInfo("en-ZA");
 
         public BookingForm()
         {
             InitializeComponent();
+
+            // Core Lifecycle Events
             this.Load += BookingForm_Load;
 
+            // Date & Time Value Triggers
             dtpCheckIn.ValueChanged += DtpCheckIn_ValueChanged;
             dtpCheckOut.ValueChanged += DtpCheckOut_ValueChanged;
-
             dtpTableStart.ValueChanged += DtpTable_ValueChanged;
             dtpTableEnd.ValueChanged += DtpTable_ValueChanged;
 
+            // Selection & Search Triggers
             cmbBranchID.SelectedIndexChanged += CmbBranchID_SelectedIndexChanged;
+            txtPhoneNumber.TextChanged += txtPhoneNumber_TextChanged;
+            txtHotelRoomAvailable.TextChanged += txtHotelRoomAvailable_TextChanged;
+            txtRestaurantTableAvailable.TextChanged += txtRestaurantTableAvailable_TextChanged;
 
             InitializeLiveTimer();
 
@@ -60,6 +74,30 @@ namespace Code_Crafters_Interface_Prototype_1.Business
 
         private void BookingForm_Load(object sender, EventArgs e)
         {
+            // Apply Form Interface Styling Configurations safely during load
+            this.BackColor = ColorTranslator.FromHtml("#F9EED8");
+            pnlBooking.BackColor = ColorTranslator.FromHtml("#966919");
+            btnCreateBooking.BackColor = ColorTranslator.FromHtml("#C99A2E");
+            btnCreateBooking.ForeColor = Color.White;
+            grpBookingDetails.BackColor = ColorTranslator.FromHtml("#F8F5F0");
+
+            if (btnPrintInvoice != null)
+            {
+                btnPrintInvoice.BackColor = ColorTranslator.FromHtml("#C99A2E");
+                btnPrintInvoice.ForeColor = Color.White;
+            }
+
+            btnSaveInvoice.BackColor = ColorTranslator.FromHtml("#C99A2E");
+            btnSaveInvoice.ForeColor = Color.White;
+            tableLayoutPanel1.BackColor = ColorTranslator.FromHtml("#C99A2E");
+            tableLayoutPanel2.BackColor = ColorTranslator.FromHtml("#C99A2E");
+
+            btnAvailableRooms.BackColor = ColorTranslator.FromHtml("#C99A2E");
+            btnAvailableRooms.ForeColor = Color.White;
+
+            btnAvailableTables.BackColor = ColorTranslator.FromHtml("#C99A2E");
+            btnAvailableTables.ForeColor = Color.White;
+
             try
             {
                 taBranch.Fill(codeCraftersDSTWO.Branch);
@@ -87,7 +125,6 @@ namespace Code_Crafters_Interface_Prototype_1.Business
             cmbBranchID.DataSource = codeCraftersDSTWO.Branch;
             cmbBranchID.DisplayMember = "Branch_Name";
             cmbBranchID.ValueMember = "Branch_ID";
-
             cmbBranchID.SelectedIndex = -1;
 
             cmbBranchID.SelectedIndexChanged += CmbBranchID_SelectedIndexChanged;
@@ -112,7 +149,7 @@ namespace Code_Crafters_Interface_Prototype_1.Business
             dtpCheckOut.Value = DateTime.Now.AddHours(2);
 
             dtpTableStart.Value = DateTime.Now.Date.AddHours(18);
-            dtpTableEnd.Value = DateTime.Now.Date.AddHours(20);   
+            dtpTableEnd.Value = DateTime.Now.Date.AddHours(20);
 
             liveEndTimeTimer.Start();
         }
@@ -137,16 +174,28 @@ namespace Code_Crafters_Interface_Prototype_1.Business
 
             try
             {
+                // 1. Fetch fresh states directly from your database
                 taHotelRoom.Fill(codeCraftersDSTWO.Hotel_Room);
                 taRestaurantTable.Fill(codeCraftersDSTWO.Restuarant_Table);
                 taRoomAssignment.Fill(codeCraftersDSTWO.Room_Assignment);
                 taTableAllocation.Fill(codeCraftersDSTWO.Table_Allocation);
 
+                // --- ROOM PROCESSING ---
                 var branchRooms = codeCraftersDSTWO.Hotel_Room.Where(r => r.Field<string>("Branch_ID") == branchID);
                 foreach (var room in branchRooms)
                 {
+                    string currentDbStatus = room["hotel_room_status"]?.ToString() ?? "Available";
+
+                    // CRITICAL FIX: If the room is explicitly down for Maintenance or Unavailable in the DB, 
+                    // DO NOT overwrite it to 'Available'. Leave it exactly as it is.
+                    if (currentDbStatus == "Maintenance" || currentDbStatus == "Unavailable")
+                    {
+                        continue;
+                    }
+
+                    // Otherwise, check if it's currently booked by dates
                     int targetRoomID = Convert.ToInt32(room["Hotel_Room_ID"]);
-                    room["hotel_room_status"] = "Available";
+                    room["hotel_room_status"] = "Available"; // Default state for operational rooms
 
                     bool isBusy = codeCraftersDSTWO.Room_Assignment.AsEnumerable().Any(ra =>
                         ra.Hotel_Room_ID == targetRoomID &&
@@ -159,9 +208,18 @@ namespace Code_Crafters_Interface_Prototype_1.Business
                     }
                 }
 
+                // --- TABLE PROCESSING ---
                 var branchTables = codeCraftersDSTWO.Restuarant_Table.Where(t => t.Field<string>("Branch_ID") == branchID);
                 foreach (var table in branchTables)
                 {
+                    string currentTableDbStatus = table["TableStatus"]?.ToString() ?? "Available";
+
+                    // Fix applied to tables as well in case you add a maintenance status for them later
+                    if (currentTableDbStatus == "Maintenance" || currentTableDbStatus == "Unavailable")
+                    {
+                        continue;
+                    }
+
                     int targetTableID = Convert.ToInt32(table["RestaurantTableID"]);
                     table["TableStatus"] = "Available";
 
@@ -176,6 +234,7 @@ namespace Code_Crafters_Interface_Prototype_1.Business
                     }
                 }
 
+                // 2. Finalize UI view updates via your string filtering rules
                 ApplyLocalSearchFilters(branchID);
             }
             catch (Exception ex)
@@ -187,9 +246,17 @@ namespace Code_Crafters_Interface_Prototype_1.Business
 
         private void ApplyLocalSearchFilters(string branchID)
         {
+            // --- ROOM FILTERING ENGINE ---
             DataView dvRooms = new DataView(codeCraftersDSTWO.Hotel_Room);
             string roomFilter = $"Branch_ID = '{branchID}'";
 
+            // If the "Show Available Only" rule is active, restrict down to Available status string
+            if (showOnlyAvailableRooms)
+            {
+                roomFilter += " AND hotel_room_status = 'Available'";
+            }
+
+            // Blend safely with text typing search criteria
             if (!string.IsNullOrWhiteSpace(txtHotelRoomAvailable.Text) && int.TryParse(txtHotelRoomAvailable.Text, out int roomNo))
             {
                 roomFilter += $" AND hotel_room_number = {roomNo}";
@@ -197,9 +264,18 @@ namespace Code_Crafters_Interface_Prototype_1.Business
             dvRooms.RowFilter = roomFilter;
             dgvHotelRoomAvailable.DataSource = dvRooms;
 
+
+            // --- TABLE FILTERING ENGINE ---
             DataView dvTables = new DataView(codeCraftersDSTWO.Restuarant_Table);
             string tableFilter = $"Branch_ID = '{branchID}'";
 
+            // If the "Show Available Only" rule is active, restrict down to Available status string
+            if (showOnlyAvailableTables)
+            {
+                tableFilter += " AND TableStatus = 'Available'";
+            }
+
+            // Blend safely with text typing search criteria
             if (!string.IsNullOrWhiteSpace(txtRestaurantTableAvailable.Text))
             {
                 string safeSearchValue = txtRestaurantTableAvailable.Text.Replace("'", "''");
@@ -258,9 +334,31 @@ namespace Code_Crafters_Interface_Prototype_1.Business
             if (dgvHotelRoomAvailable.CurrentRow == null) return;
 
             string roomStatus = dgvHotelRoomAvailable.CurrentRow.Cells[4].Value.ToString();
+
             if (roomStatus == "Booked")
             {
-                MessageBox.Show("This room is already booked for your selected time range.", "Selection Unavailable", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("This room is already booked for your selected time range.",
+                                "Selection Unavailable",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (roomStatus == "Maintenance")
+            {
+                MessageBox.Show("This room is currently under maintenance and cannot be added to the invoice.",
+                                "Room Unavailable",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (roomStatus == "Unavailable")
+            {
+                MessageBox.Show("This room is currently unavailable and cannot be added to the invoice.",
+                                "Room Unavailable",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Warning);
                 return;
             }
 
@@ -400,7 +498,7 @@ namespace Code_Crafters_Interface_Prototype_1.Business
 
             foreach (DataRow invoiceRow in codeCraftersDSTWO.Invoice.Rows)
             {
-                if (invoiceRow[0] != DBNull.Value)
+                if (invoiceRow[0] != DBNull.Value && !string.IsNullOrEmpty(invoiceRow[0].ToString()))
                 {
                     int targetRoomID = Convert.ToInt32(invoiceRow[0]);
                     bool roomConflict = codeCraftersDSTWO.Room_Assignment.AsEnumerable().Any(ra =>
@@ -415,7 +513,7 @@ namespace Code_Crafters_Interface_Prototype_1.Business
                     }
                 }
 
-                if (invoiceRow[3] != DBNull.Value)
+                if (invoiceRow[3] != DBNull.Value && !string.IsNullOrEmpty(invoiceRow[3].ToString()))
                 {
                     int targetTableID = Convert.ToInt32(invoiceRow[3]);
                     bool tableConflict = codeCraftersDSTWO.Table_Allocation.AsEnumerable().Any(ta =>
@@ -431,19 +529,15 @@ namespace Code_Crafters_Interface_Prototype_1.Business
                 }
             }
 
-            if (!decimal.TryParse(txtTotalAmount.Text, NumberStyles.Currency, null, out decimal cleanBookingTotal))
-            {
-                string fallbackText = txtTotalAmount.Text.Replace("R", "").Replace("$", "").Replace(" ", "").Trim();
-                decimal.TryParse(fallbackText, out cleanBookingTotal);
-            }
+            double dbCompatibleTotal = Convert.ToDouble(_calculatedTotalAmount);
 
             int pk = Convert.ToInt32(taBooking.InsertNewBooking(
                 clientBookingID,
                 cmbBranchID.SelectedValue.ToString(),
                 DateTime.Now,
-                dtpCheckIn.Value, 
+                dtpCheckIn.Value,
                 dtpCheckOut.Value,
-                cleanBookingTotal,
+                Convert.ToDecimal(dbCompatibleTotal),
                 "Pending"
             ));
 
@@ -517,6 +611,18 @@ namespace Code_Crafters_Interface_Prototype_1.Business
 
         private void txtHotelRoomAvailable_TextChanged(object sender, EventArgs e)
         {
+            try
+            {
+                // 1. Force pull the latest data from the database into your dataset
+                this.taHotelRoom.Fill(this.codeCraftersDSTWO.Hotel_Room);
+            }
+            catch (Exception ex)
+            {
+                // Smooths over any temporary connection/data issues while typing
+                Console.WriteLine("Database sync issue: " + ex.Message);
+            }
+
+            // 2. Run your existing filtering and display logic using the freshly updated data
             RefreshAvailableAccommodations();
         }
 
@@ -547,6 +653,7 @@ namespace Code_Crafters_Interface_Prototype_1.Business
             UserSession.EmailAddress = string.Empty;
             UserSession.PhysicalAddress = string.Empty;
             UserSession.TotalPrice = string.Empty;
+            _calculatedTotalAmount = 0.00m;
         }
 
         public void ResetBookingFormData()
@@ -572,48 +679,80 @@ namespace Code_Crafters_Interface_Prototype_1.Business
 
         private void UpdateInvoiceTotal()
         {
-            decimal totalBookingAmount = 0;
+            _calculatedTotalAmount = 0;
 
             DateTime checkIn = dtpCheckIn.Value;
             DateTime checkOut = dtpCheckOut.Value;
-            TimeSpan roomDuration = checkOut - checkIn;
-            int totalRoomDays = (int)Math.Ceiling(roomDuration.TotalDays);
 
-            if (totalRoomDays <= 0) totalRoomDays = 1;
+            int baseNights = (checkOut.Date - checkIn.Date).Days;
+            bool isSameDayStay = (baseNights == 0);
 
-            foreach (DataRow row in codeCraftersDSTWO.Invoice.Rows)
+            if (isSameDayStay)
             {
-                if (row[2] != DBNull.Value)
-                {
-                    decimal baseRoomPrice = Convert.ToDecimal(row[2]);
-                    totalBookingAmount += (baseRoomPrice * totalRoomDays);
-                }
+                baseNights = 1;
+            }
 
-                if (row[5] != DBNull.Value)
+            decimal lateCheckOutMultiplier = 0;
+            TimeSpan checkOutTimeOfDay = checkOut.TimeOfDay;
+            TimeSpan officialCheckOutLimit = new TimeSpan(10, 0, 0);
+            TimeSpan gracePeriodLimit = new TimeSpan(11, 0, 0);
+            TimeSpan halfDayLimit = new TimeSpan(14, 0, 0);
+
+            if (!isSameDayStay && checkOutTimeOfDay > officialCheckOutLimit)
+            {
+                if (checkOutTimeOfDay <= gracePeriodLimit)
                 {
-                    decimal baseTablePrice = Convert.ToDecimal(row[5]);
-                    totalBookingAmount += baseTablePrice;
+                    lateCheckOutMultiplier = 0;
+                }
+                else if (checkOutTimeOfDay <= halfDayLimit)
+                {
+                    lateCheckOutMultiplier = 0.5m;
+                }
+                else
+                {
+                    lateCheckOutMultiplier = 1.0m;
                 }
             }
 
-            txtTotalAmount.Text = totalBookingAmount.ToString("C2");
-        }
+            foreach (DataRow row in codeCraftersDSTWO.Invoice.Rows)
+            {
+                // Calculate Room Costs safely
+                if (row[0] != DBNull.Value && !string.IsNullOrEmpty(row[0].ToString()) && row[2] != DBNull.Value)
+                {
+                    decimal baseRoomPrice = Convert.ToDecimal(row[2]);
+                    decimal roomCost = (baseRoomPrice * baseNights) + (baseRoomPrice * lateCheckOutMultiplier);
+                    _calculatedTotalAmount += roomCost;
+                }
 
-        private void BookingForm_Load_1(object sender, EventArgs e)
-        {
-            this.BackColor = ColorTranslator.FromHtml("#F9EED8");
-            pnlBooking.BackColor = ColorTranslator.FromHtml("#966919");
-            btnCreateBooking.BackColor = ColorTranslator.FromHtml("#C99A2E");
-            btnCreateBooking.ForeColor = Color.White;
-            grpBookingDetails.BackColor = ColorTranslator.FromHtml("#F8F5F0");
-            
-           btnPrintInvoice.BackColor = ColorTranslator.FromHtml("#C99A2E");
-            btnPrintInvoice.ForeColor = Color.White;
+                // Calculate Table Costs safely
+                if (row[3] != DBNull.Value && !string.IsNullOrEmpty(row[3].ToString()) && row[5] != DBNull.Value)
+                {
+                    decimal baseTablePrice = Convert.ToDecimal(row[5]);
 
-            btnSaveInvoice.BackColor = ColorTranslator.FromHtml("#C99A2E");
-            btnSaveInvoice.ForeColor = Color.White;
-            tableLayoutPanel1.BackColor = ColorTranslator.FromHtml("#C99A2E");
-            tableLayoutPanel2.BackColor = ColorTranslator.FromHtml("#C99A2E");
+                    DateTime tableStart = dtpTableStart.Value;
+                    DateTime tableEnd = dtpTableEnd.Value;
+                    TimeSpan tableDuration = tableEnd - tableStart;
+
+                    double totalHoursBooked = Math.Ceiling(tableDuration.TotalHours);
+                    if (totalHoursBooked <= 0) totalHoursBooked = 1;
+
+                    const double standardSlotHours = 3.0;
+                    int slotMultiplier;
+
+                    if (totalHoursBooked <= standardSlotHours)
+                    {
+                        slotMultiplier = 1;
+                    }
+                    else
+                    {
+                        slotMultiplier = (int)Math.Ceiling(totalHoursBooked / standardSlotHours);
+                    }
+
+                    _calculatedTotalAmount += (baseTablePrice * slotMultiplier);
+                }
+            }
+
+            txtTotalAmount.Text = _calculatedTotalAmount.ToString("C2", _southAfricanCulture);
         }
 
         public Bitmap CaptureForm(Control container)
@@ -647,11 +786,30 @@ namespace Code_Crafters_Interface_Prototype_1.Business
             }
         }
 
-        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        private string GetBookingDates()
         {
+            return
+                $"Room Check In: {dtpCheckIn.Value:dd/MM/yyyy HH:mm}\n" +
+                $"Room Check Out: {dtpCheckOut.Value:dd/MM/yyyy HH:mm}\n" +
+                $"Table Check In: {dtpTableStart.Value:dd/MM/yyyy HH:mm}\n" +
+                $"Table Check Out: {dtpTableEnd.Value:dd/MM/yyyy HH:mm}";
+        }
+
+        private void printDocument1_PrintPage(object sender, PrintPageEventArgs e)
+        {
+            float y = 20;
+
+            e.Graphics.DrawString(
+                GetBookingDates(),
+                new System.Drawing.Font("Arial", 10),
+                Brushes.Black,
+                new RectangleF(20, y, 700, 100));
+
+            y += 100;
+
             if (bmp != null)
             {
-                e.Graphics.DrawImage(bmp, 0, 0);
+                e.Graphics.DrawImage(bmp, 0, y);
             }
         }
 
@@ -690,9 +848,7 @@ namespace Code_Crafters_Interface_Prototype_1.Business
                     using (Graphics g = Graphics.FromImage(combinedBmp))
                     {
                         g.Clear(Color.White);
-
                         g.DrawImage(clientBmp, 0, 0);
-
                         g.DrawImage(gridBmp, 0, clientBmp.Height + 20);
                     }
 
@@ -706,6 +862,23 @@ namespace Code_Crafters_Interface_Prototype_1.Business
                             Document doc = new Document(PageSize.A4, 10f, 10f, 10f, 10f);
                             PdfWriter writer = PdfWriter.GetInstance(doc, fs);
                             doc.Open();
+
+                            Paragraph bookingDates = new Paragraph(
+                            GetBookingDates(),
+                            FontFactory.GetFont(FontFactory.HELVETICA, 11)
+                            );
+
+                            Paragraph totalAmount = new Paragraph(
+                            "TOTAL AMOUNT: " + txtTotalAmount.Text,
+                            FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 14)
+                            );
+
+                            totalAmount.Alignment = Element.ALIGN_RIGHT;
+
+                            doc.Add(bookingDates);
+                            doc.Add(new Paragraph(" "));
+                            doc.Add(totalAmount);
+                            doc.Add(new Paragraph(" "));
 
                             iTextSharp.text.Image pdfImage = iTextSharp.text.Image.GetInstance(imageBytes);
                             pdfImage.ScaleToFit(doc.PageSize.Width - 20f, doc.PageSize.Height - 20f);
@@ -762,6 +935,44 @@ namespace Code_Crafters_Interface_Prototype_1.Business
 
             printPreviewDialog1.Document = printDocument1;
             printPreviewDialog1.ShowDialog();
+        }
+
+        private void btnAvailableRooms_Click(object sender, EventArgs e)
+        {
+            if (cmbBranchID.SelectedValue == null || string.IsNullOrEmpty(cmbBranchID.SelectedValue.ToString()))
+            {
+                MessageBox.Show("Please select a branch first to view accommodation availability.",
+                                "Branch Required", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            // Toggle the filter state (clicking again turns it off)
+            showOnlyAvailableRooms = !showOnlyAvailableRooms;
+
+            // Visual indicator: Change button appearance when active
+            btnAvailableRooms.BackColor = showOnlyAvailableRooms ? ColorTranslator.FromHtml("#4A752C") : ColorTranslator.FromHtml("#C99A2E");
+
+            // Force recalculation and filter application
+            RefreshAvailableAccommodations();
+        }
+
+        private void btnAvailableTables_Click(object sender, EventArgs e)
+        {
+            if (cmbBranchID.SelectedValue == null || string.IsNullOrEmpty(cmbBranchID.SelectedValue.ToString()))
+            {
+                MessageBox.Show("Please select a branch first to view accommodation availability.",
+                                "Branch Required", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            // Toggle the filter state (clicking again turns it off)
+            showOnlyAvailableTables = !showOnlyAvailableTables;
+
+            // Visual indicator: Change button appearance when active
+            btnAvailableTables.BackColor = showOnlyAvailableTables ? ColorTranslator.FromHtml("#4A752C") : ColorTranslator.FromHtml("#C99A2E");
+
+            // Force recalculation and filter application
+            RefreshAvailableAccommodations();
         }
     }
 }

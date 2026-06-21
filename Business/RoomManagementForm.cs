@@ -14,6 +14,7 @@ namespace Code_Crafters_Interface_Prototype_1.Business
 
         private void RoomManagementForm_Load(object sender, EventArgs e)
         {
+            taRoomHotel.Fill(codeCraftersDSTWO.Hotel_Room);
             this.BackColor = ColorTranslator.FromHtml("#F9EED8");
             panel1.BackColor = ColorTranslator.FromHtml("#F8F5F0");
             panel2.BackColor = ColorTranslator.FromHtml("#966919");
