@@ -30,8 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
             this.pnlViewBookings = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -75,32 +73,12 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.PeachPuff;
-            this.panel1.Controls.Add(this.panel3);
-            this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.pnlViewBookings);
             this.panel1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1326, 581);
+            this.panel1.Size = new System.Drawing.Size(1072, 581);
             this.panel1.TabIndex = 2;
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.Black;
-            this.panel3.Location = new System.Drawing.Point(560, 53);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(160, 3);
-            this.panel3.TabIndex = 3;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(561, 25);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(152, 25);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "VIEW BOOKING";
             // 
             // pnlViewBookings
             // 
@@ -109,9 +87,9 @@
             this.pnlViewBookings.Controls.Add(this.panel2);
             this.pnlViewBookings.Controls.Add(this.dgvBookings);
             this.pnlViewBookings.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pnlViewBookings.Location = new System.Drawing.Point(92, 64);
+            this.pnlViewBookings.Location = new System.Drawing.Point(65, 64);
             this.pnlViewBookings.Name = "pnlViewBookings";
-            this.pnlViewBookings.Size = new System.Drawing.Size(1090, 449);
+            this.pnlViewBookings.Size = new System.Drawing.Size(966, 449);
             this.pnlViewBookings.TabIndex = 1;
             // 
             // panel4
@@ -186,7 +164,7 @@
             this.dgvBookings.Location = new System.Drawing.Point(74, 258);
             this.dgvBookings.Name = "dgvBookings";
             this.dgvBookings.RowHeadersWidth = 51;
-            this.dgvBookings.Size = new System.Drawing.Size(994, 168);
+            this.dgvBookings.Size = new System.Drawing.Size(879, 168);
             this.dgvBookings.TabIndex = 0;
             // 
             // bookingIDDataGridViewTextBoxColumn
@@ -324,14 +302,13 @@
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.PeachPuff;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ClientSize = new System.Drawing.Size(1463, 688);
+            this.ClientSize = new System.Drawing.Size(1096, 688);
             this.Controls.Add(this.panel1);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ViewBookingForm";
             this.Text = "REGAL INN VIEW BOOKINGS";
             this.Load += new System.EventHandler(this.ViewBookingForm_Load);
             this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.pnlViewBookings.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -346,8 +323,6 @@
 
         #endregion
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel pnlViewBookings;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.PictureBox pictureBox1;

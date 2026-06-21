@@ -44,52 +44,47 @@
             this.ReceptionistPanel.Controls.Add(this.panel4);
             this.ReceptionistPanel.Controls.Add(this.panel2);
             this.ReceptionistPanel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ReceptionistPanel.Location = new System.Drawing.Point(11, 10);
-            this.ReceptionistPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ReceptionistPanel.Location = new System.Drawing.Point(8, 8);
             this.ReceptionistPanel.Name = "ReceptionistPanel";
-            this.ReceptionistPanel.Size = new System.Drawing.Size(1719, 896);
+            this.ReceptionistPanel.Size = new System.Drawing.Size(1289, 728);
             this.ReceptionistPanel.TabIndex = 11;
             // 
             // panel4
             // 
             this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel4.Location = new System.Drawing.Point(0, 838);
-            this.panel4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel4.Location = new System.Drawing.Point(0, 681);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1719, 58);
+            this.panel4.Size = new System.Drawing.Size(1289, 47);
             this.panel4.TabIndex = 3;
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
             this.panel2.Controls.Add(this.pictureBox3);
-            this.panel2.Location = new System.Drawing.Point(68, 39);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Location = new System.Drawing.Point(51, 32);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1412, 750);
+            this.panel2.Size = new System.Drawing.Size(1059, 609);
             this.panel2.TabIndex = 1;
             // 
             // pictureBox3
             // 
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(83, 69);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox3.Location = new System.Drawing.Point(62, 56);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(1253, 626);
+            this.pictureBox3.Size = new System.Drawing.Size(940, 509);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox3.TabIndex = 0;
             this.pictureBox3.TabStop = false;
             // 
             // ReceptionistHomeForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Bisque;
-            this.ClientSize = new System.Drawing.Size(1924, 978);
+            this.ClientSize = new System.Drawing.Size(1443, 795);
             this.Controls.Add(this.ReceptionistPanel);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "ReceptionistHomeForm";
-            this.Text = "ReceptionistHomeForm";
+            this.Text = "REGAL INN RECEPTIONIST HOME MENU";
             this.Load += new System.EventHandler(this.ReceptionistHomeForm_Load);
             this.ReceptionistPanel.ResumeLayout(false);
             this.panel2.ResumeLayout(false);

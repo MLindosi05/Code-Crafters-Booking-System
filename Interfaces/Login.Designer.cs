@@ -58,12 +58,12 @@
             this.codeCraftersDS1 = new Code_Crafters_Interface_Prototype_1.codeCraftersDS();
             this.button1 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pnlHelpDrawer = new System.Windows.Forms.Panel();
             this.btnContactSupport = new System.Windows.Forms.Button();
             this.lstHelpTopics = new System.Windows.Forms.ListBox();
             this.txtSearchHelp = new System.Windows.Forms.TextBox();
             this.labelHelpHeader = new System.Windows.Forms.Label();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pnlLogin = new System.Windows.Forms.Panel();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
@@ -77,8 +77,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.codeCraftersDS1)).BeginInit();
             this.panel1.SuspendLayout();
-            this.pnlHelpDrawer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            this.pnlHelpDrawer.SuspendLayout();
             this.pnlLogin.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             this.SuspendLayout();
@@ -90,9 +90,9 @@
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
             this.groupBox1.Location = new System.Drawing.Point(861, 2);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox1.Size = new System.Drawing.Size(823, 750);
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
@@ -136,7 +136,7 @@
             // 
             this.pictureBox9.Image = global::Code_Crafters_Interface_Prototype_1.Properties.Resources.hide__1_1;
             this.pictureBox9.Location = new System.Drawing.Point(434, 375);
-            this.pictureBox9.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox9.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox9.Name = "pictureBox9";
             this.pictureBox9.Size = new System.Drawing.Size(24, 24);
             this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -262,7 +262,7 @@
             this.button2.BackColor = System.Drawing.Color.White;
             this.button2.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.Location = new System.Drawing.Point(263, 476);
-            this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button2.Margin = new System.Windows.Forms.Padding(2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(214, 28);
             this.button2.TabIndex = 6;
@@ -296,7 +296,7 @@
             // 
             this.userNameTxt.ForeColor = System.Drawing.Color.Gray;
             this.userNameTxt.Location = new System.Drawing.Point(265, 308);
-            this.userNameTxt.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.userNameTxt.Margin = new System.Windows.Forms.Padding(2);
             this.userNameTxt.Name = "userNameTxt";
             this.userNameTxt.Size = new System.Drawing.Size(167, 24);
             this.userNameTxt.TabIndex = 1;
@@ -309,7 +309,7 @@
             // 
             this.pictureBox2.Image = global::Code_Crafters_Interface_Prototype_1.Properties.Resources.show_password;
             this.pictureBox2.Location = new System.Drawing.Point(434, 375);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(24, 24);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -355,7 +355,7 @@
             this.passwordTxt.BackColor = System.Drawing.SystemColors.Window;
             this.passwordTxt.ForeColor = System.Drawing.Color.Gray;
             this.passwordTxt.Location = new System.Drawing.Point(263, 375);
-            this.passwordTxt.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.passwordTxt.Margin = new System.Windows.Forms.Padding(2);
             this.passwordTxt.Name = "passwordTxt";
             this.passwordTxt.Size = new System.Drawing.Size(167, 24);
             this.passwordTxt.TabIndex = 2;
@@ -370,7 +370,7 @@
             this.btnHelp.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnHelp.ForeColor = System.Drawing.Color.White;
             this.btnHelp.Location = new System.Drawing.Point(213, 13);
-            this.btnHelp.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnHelp.Margin = new System.Windows.Forms.Padding(2);
             this.btnHelp.Name = "btnHelp";
             this.btnHelp.Size = new System.Drawing.Size(75, 34);
             this.btnHelp.TabIndex = 10;
@@ -413,6 +413,17 @@
             this.panel1.Size = new System.Drawing.Size(1696, 754);
             this.panel1.TabIndex = 11;
             // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = global::Code_Crafters_Interface_Prototype_1.Properties.Resources.IMG_20260413_185513;
+            this.pictureBox3.Location = new System.Drawing.Point(0, 2);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(857, 750);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 9;
+            this.pictureBox3.TabStop = false;
+            // 
             // pnlHelpDrawer
             // 
             this.pnlHelpDrawer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -425,7 +436,7 @@
             this.pnlHelpDrawer.Controls.Add(this.txtSearchHelp);
             this.pnlHelpDrawer.Controls.Add(this.labelHelpHeader);
             this.pnlHelpDrawer.Location = new System.Drawing.Point(72, 53);
-            this.pnlHelpDrawer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnlHelpDrawer.Margin = new System.Windows.Forms.Padding(2);
             this.pnlHelpDrawer.Name = "pnlHelpDrawer";
             this.pnlHelpDrawer.Size = new System.Drawing.Size(623, 427);
             this.pnlHelpDrawer.TabIndex = 11;
@@ -435,7 +446,7 @@
             // btnContactSupport
             // 
             this.btnContactSupport.Location = new System.Drawing.Point(98, 217);
-            this.btnContactSupport.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnContactSupport.Margin = new System.Windows.Forms.Padding(2);
             this.btnContactSupport.Name = "btnContactSupport";
             this.btnContactSupport.Size = new System.Drawing.Size(117, 23);
             this.btnContactSupport.TabIndex = 3;
@@ -447,7 +458,7 @@
             // 
             this.lstHelpTopics.FormattingEnabled = true;
             this.lstHelpTopics.Location = new System.Drawing.Point(3, 71);
-            this.lstHelpTopics.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.lstHelpTopics.Margin = new System.Windows.Forms.Padding(2);
             this.lstHelpTopics.Name = "lstHelpTopics";
             this.lstHelpTopics.Size = new System.Drawing.Size(213, 134);
             this.lstHelpTopics.TabIndex = 2;
@@ -456,7 +467,7 @@
             // txtSearchHelp
             // 
             this.txtSearchHelp.Location = new System.Drawing.Point(2, 23);
-            this.txtSearchHelp.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtSearchHelp.Margin = new System.Windows.Forms.Padding(2);
             this.txtSearchHelp.Name = "txtSearchHelp";
             this.txtSearchHelp.Size = new System.Drawing.Size(97, 20);
             this.txtSearchHelp.TabIndex = 1;
@@ -475,17 +486,6 @@
             this.labelHelpHeader.Size = new System.Drawing.Size(112, 13);
             this.labelHelpHeader.TabIndex = 0;
             this.labelHelpHeader.Text = "How can we help?";
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = global::Code_Crafters_Interface_Prototype_1.Properties.Resources.IMG_20260413_185513;
-            this.pictureBox3.Location = new System.Drawing.Point(0, 2);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(857, 750);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 9;
-            this.pictureBox3.TabStop = false;
             // 
             // pnlLogin
             // 
@@ -535,9 +535,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.codeCraftersDS1)).EndInit();
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.pnlHelpDrawer.ResumeLayout(false);
             this.pnlHelpDrawer.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.pnlLogin.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             this.ResumeLayout(false);

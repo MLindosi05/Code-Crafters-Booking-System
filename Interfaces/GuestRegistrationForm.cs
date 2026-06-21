@@ -24,11 +24,11 @@ namespace Code_Crafters_Booking_System
         {
             txtName.Clear();
             txtSurname.Clear();
-            txtEmailAddress.Clear();
+            txtEmailAddress.Clear();  
             txtPhysicalAddress.Clear();
             txtContactNumber.Clear();
-            txtPassword.Clear();
-            txtConfirmPassword.Clear();
+            //txtPassword.Clear();
+            //txtConfirmPassword.Clear();
 
             txtName.Focus();
         }
@@ -37,18 +37,16 @@ namespace Code_Crafters_Booking_System
         {
             string name = txtName.Text.Trim();
             string surname = txtSurname.Text.Trim();
-            string email = txtEmailAddress.Text.Trim();
             string physicalAddress = txtPhysicalAddress.Text.Trim();
             string phoneNumber = txtContactNumber.Text.Trim();
-            string password = txtPassword.Text;
-            string confirmPassword = txtConfirmPassword.Text;
+            string password = "";//txtPassword.Text;
+            //string confirmPassword = txtConfirmPassword.Text;
 
             // 1. Validation Checks
             if (string.IsNullOrWhiteSpace(name) ||
                 string.IsNullOrWhiteSpace(surname) ||
-                string.IsNullOrWhiteSpace(email) ||
-                string.IsNullOrWhiteSpace(phoneNumber) ||
-                string.IsNullOrWhiteSpace(password))
+                string.IsNullOrWhiteSpace(phoneNumber))//||
+                                                       //string.IsNullOrWhiteSpace(password))
             {
                 MessageBox.Show("Please fill in all required fields.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -66,34 +64,21 @@ namespace Code_Crafters_Booking_System
                 return;
             }
 
-            if (!Regex.IsMatch(email, @"^[^@\s]+@[^@\s]+\.[^@\s]+$"))
-            {
-                MessageBox.Show("Invalid email format.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
+            //if (password != confirmPassword)
+            //{
+            //    MessageBox.Show("Passwords do not match.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //    return;
+            //}
 
-            if (password != confirmPassword)
-            {
-                MessageBox.Show("Passwords do not match.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            if (!Regex.IsMatch(password, @"^(?=.*[A-Za-z])(?=.*\d).+$"))
-            {
-                MessageBox.Show("Password must contain at least one letter and one number.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
+            //if (!Regex.IsMatch(password, @"^(?=.*[A-Za-z])(?=.*\d).+$"))
+            //{
+            //    MessageBox.Show("Password must contain at least one letter and one number.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //    return;
+            //}
 
             try
             {
                 // 2. Duplicate Checks
-                int emailExists = Convert.ToInt32(taClient.CheckEmailExists(email));
-                if (emailExists > 0)
-                {
-                    MessageBox.Show("Email address already exists!", "Duplicate Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-
                 int phoneExists = Convert.ToInt32(taClient.CheckPhoneExists(phoneNumber));
                 if (phoneExists > 0)
                 {
@@ -101,49 +86,13 @@ namespace Code_Crafters_Booking_System
                     return;
                 }
 
-                int pk = Convert.ToInt32(taClient.InsertNewClient(name, surname, password, email, physicalAddress, phoneNumber));
+                // Note: If your backend InsertNewClient method still expects an email parameter, 
+                // you can pass an empty string ("") here temporarily until you update your database schema.
+                int pk = Convert.ToInt32(taClient.InsertNewClient(name, surname, password, "", physicalAddress, phoneNumber));
                 UserSession.ClientID = pk;
 
-                if (email.EndsWith("@regalinn.co.za", StringComparison.OrdinalIgnoreCase))
-                {
-                    var taStaff = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTableAdapters.StaffTableAdapter();
+                MessageBox.Show("Client account created successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    string[] branches = { "BR01", "BR02", "BR03", "BR04", "BR05" };
-
-                    Random rand = new Random();
-                    int randomIndex = rand.Next(0, branches.Length);
-                    string branchId = branches[randomIndex];
-
-                    taStaff.InsertNewStaff(
-                        branchId,
-                        name,
-                        surname,
-                        physicalAddress,
-                        phoneNumber,
-                        email,
-                        "Admin",
-                        DateTime.Now,
-                        "Full Time",
-                        txtConfirmPassword.Text 
-                    );
-
-                    MessageBox.Show($"Staff and Client accounts created successfully!\nAssigned to Branch: {branchId}", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                else
-                {
-                    MessageBox.Show("Client account created successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-
-                // 5. Send Confirmation Email
-                string subject = "Welcome to The Regal Inn";
-                string body = $@"
-        <div style='font-family: Arial; max-width:600px; padding:20px; border:1px solid #ccc;'>
-            <h2>Welcome {name}</h2>
-            <p>Your account has been created successfully.</p>
-            <p><b>Login Email:</b> {email}</p>
-        </div>";
-
-                EmailService.SendEmail(email, subject, body);
                 ClearFields();
             }
             catch (Exception ex)
@@ -180,7 +129,6 @@ namespace Code_Crafters_Booking_System
             btnSignUp.ForeColor = Color.White;
             panel2.BackColor = ColorTranslator.FromHtml("#F8F5F0");
             groupBox4.BackColor = ColorTranslator.FromHtml("#966919");
-            
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -189,7 +137,5 @@ namespace Code_Crafters_Booking_System
             homePage.Show();
             this.Close();
         }
-
-
     }
 }

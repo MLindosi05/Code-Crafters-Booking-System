@@ -35,12 +35,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.txtContactNumber = new System.Windows.Forms.TextBox();
             this.txtPhysicalAddress = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.txtEmailAddress = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.txtConfirmPassword = new System.Windows.Forms.TextBox();
-            this.txtPassword = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
@@ -70,7 +66,7 @@
             this.groupBox4.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox4.Size = new System.Drawing.Size(706, 352);
+            this.groupBox4.Size = new System.Drawing.Size(596, 352);
             this.groupBox4.TabIndex = 2;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Personal Details";
@@ -83,12 +79,8 @@
             this.panel2.Controls.Add(this.label5);
             this.panel2.Controls.Add(this.txtContactNumber);
             this.panel2.Controls.Add(this.txtPhysicalAddress);
-            this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.txtEmailAddress);
-            this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.label8);
-            this.panel2.Controls.Add(this.txtConfirmPassword);
-            this.panel2.Controls.Add(this.txtPassword);
             this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.label7);
             this.panel2.Controls.Add(this.txtName);
@@ -96,22 +88,22 @@
             this.panel2.Controls.Add(this.txtSurname);
             this.panel2.Location = new System.Drawing.Point(20, 32);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(659, 300);
+            this.panel2.Size = new System.Drawing.Size(547, 300);
             this.panel2.TabIndex = 0;
             // 
             // pictureBox2
             // 
             this.pictureBox2.Image = global::Code_Crafters_Interface_Prototype_1.Properties.Resources._6478_200;
-            this.pictureBox2.Location = new System.Drawing.Point(508, 99);
+            this.pictureBox2.Location = new System.Drawing.Point(389, 96);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(122, 65);
+            this.pictureBox2.Size = new System.Drawing.Size(129, 65);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 29;
             this.pictureBox2.TabStop = false;
             // 
             // btnSignUp
             // 
-            this.btnSignUp.Location = new System.Drawing.Point(508, 183);
+            this.btnSignUp.Location = new System.Drawing.Point(389, 180);
             this.btnSignUp.Margin = new System.Windows.Forms.Padding(2);
             this.btnSignUp.Name = "btnSignUp";
             this.btnSignUp.Size = new System.Drawing.Size(129, 28);
@@ -147,17 +139,6 @@
             this.txtPhysicalAddress.Size = new System.Drawing.Size(122, 24);
             this.txtPhysicalAddress.TabIndex = 28;
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.label3.Location = new System.Drawing.Point(345, 58);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(152, 21);
-            this.label3.TabIndex = 25;
-            this.label3.Text = "Confirm password:";
-            // 
             // txtEmailAddress
             // 
             this.txtEmailAddress.Location = new System.Drawing.Point(171, 96);
@@ -165,17 +146,6 @@
             this.txtEmailAddress.Name = "txtEmailAddress";
             this.txtEmailAddress.Size = new System.Drawing.Size(122, 24);
             this.txtEmailAddress.TabIndex = 12;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.label2.Location = new System.Drawing.Point(345, 13);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(86, 21);
-            this.label2.TabIndex = 24;
-            this.label2.Text = "Password:";
             // 
             // label8
             // 
@@ -187,22 +157,6 @@
             this.label8.Size = new System.Drawing.Size(131, 21);
             this.label8.TabIndex = 9;
             this.label8.Text = "Phone Number:";
-            // 
-            // txtConfirmPassword
-            // 
-            this.txtConfirmPassword.Location = new System.Drawing.Point(508, 58);
-            this.txtConfirmPassword.Margin = new System.Windows.Forms.Padding(2);
-            this.txtConfirmPassword.Name = "txtConfirmPassword";
-            this.txtConfirmPassword.Size = new System.Drawing.Size(122, 24);
-            this.txtConfirmPassword.TabIndex = 20;
-            // 
-            // txtPassword
-            // 
-            this.txtPassword.Location = new System.Drawing.Point(508, 10);
-            this.txtPassword.Margin = new System.Windows.Forms.Padding(2);
-            this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(122, 24);
-            this.txtPassword.TabIndex = 19;
             // 
             // label4
             // 
@@ -288,9 +242,9 @@
             this.pnlSignUp.Controls.Add(this.pictureBox1);
             this.pnlSignUp.Controls.Add(this.button1);
             this.pnlSignUp.Controls.Add(this.groupBox4);
-            this.pnlSignUp.Location = new System.Drawing.Point(12, 91);
+            this.pnlSignUp.Location = new System.Drawing.Point(22, 36);
             this.pnlSignUp.Name = "pnlSignUp";
-            this.pnlSignUp.Size = new System.Drawing.Size(1211, 426);
+            this.pnlSignUp.Size = new System.Drawing.Size(1120, 426);
             this.pnlSignUp.TabIndex = 12;
             // 
             // pictureBox1
@@ -310,7 +264,7 @@
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1439, 703);
+            this.ClientSize = new System.Drawing.Size(1154, 546);
             this.Controls.Add(this.pnlSignUp);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "GuestRegistrationForm";
@@ -330,8 +284,6 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.TextBox txtConfirmPassword;
-        private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.TextBox txtContactNumber;
         private System.Windows.Forms.TextBox txtEmailAddress;
         private System.Windows.Forms.Label label8;
@@ -340,8 +292,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtSurname;
         private System.Windows.Forms.TextBox txtName;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnSignUp;
         private System.Windows.Forms.TextBox txtPhysicalAddress;
         private System.Windows.Forms.Label label4;

@@ -21,7 +21,6 @@ namespace Code_Crafters_Interface_Prototype_1.Business
         private bool isCheckOutEditedByUser = false;
         private bool isFormLoaded = false;
 
-        // Class-level object used to store the captured screen state for printing
         private Bitmap bmp;
 
         public BookingForm()
@@ -31,11 +30,14 @@ namespace Code_Crafters_Interface_Prototype_1.Business
 
             dtpCheckIn.ValueChanged += DtpCheckIn_ValueChanged;
             dtpCheckOut.ValueChanged += DtpCheckOut_ValueChanged;
+
+            dtpTableStart.ValueChanged += DtpTable_ValueChanged;
+            dtpTableEnd.ValueChanged += DtpTable_ValueChanged;
+
             cmbBranchID.SelectedIndexChanged += CmbBranchID_SelectedIndexChanged;
 
             InitializeLiveTimer();
 
-            // Wire up the print document page drawing handler programmatically if not done in designer
             this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
         }
 
@@ -99,9 +101,18 @@ namespace Code_Crafters_Interface_Prototype_1.Business
             dtpCheckOut.Format = DateTimePickerFormat.Custom;
             dtpCheckOut.CustomFormat = "yyyy/MM/dd HH:mm";
 
+            dtpTableStart.Format = DateTimePickerFormat.Custom;
+            dtpTableStart.CustomFormat = "yyyy/MM/dd HH:mm";
+
+            dtpTableEnd.Format = DateTimePickerFormat.Custom;
+            dtpTableEnd.CustomFormat = "yyyy/MM/dd HH:mm";
+
             dtpCheckIn.Value = DateTime.Now;
             isCheckOutEditedByUser = false;
             dtpCheckOut.Value = DateTime.Now.AddHours(2);
+
+            dtpTableStart.Value = DateTime.Now.Date.AddHours(18);
+            dtpTableEnd.Value = DateTime.Now.Date.AddHours(20);   
 
             liveEndTimeTimer.Start();
         }
@@ -118,10 +129,11 @@ namespace Code_Crafters_Interface_Prototype_1.Business
             }
 
             string branchID = cmbBranchID.SelectedValue.ToString();
-            DateTime startTimeline = dtpCheckIn.Value;
-            DateTime endTimeline = dtpCheckOut.Value;
 
-            if (endTimeline <= startTimeline) return;
+            DateTime roomStart = dtpCheckIn.Value;
+            DateTime roomEnd = dtpCheckOut.Value;
+            DateTime tableStart = dtpTableStart.Value;
+            DateTime tableEnd = dtpTableEnd.Value;
 
             try
             {
@@ -138,8 +150,8 @@ namespace Code_Crafters_Interface_Prototype_1.Business
 
                     bool isBusy = codeCraftersDSTWO.Room_Assignment.AsEnumerable().Any(ra =>
                         ra.Hotel_Room_ID == targetRoomID &&
-                        startTimeline < ra.Actual_CheckOut_Time &&
-                        endTimeline > ra.Actual_CheckIn_Time);
+                        roomStart < ra.Actual_CheckOut_Time &&
+                        roomEnd > ra.Actual_CheckIn_Time);
 
                     if (isBusy)
                     {
@@ -155,8 +167,8 @@ namespace Code_Crafters_Interface_Prototype_1.Business
 
                     bool isBusy = codeCraftersDSTWO.Table_Allocation.AsEnumerable().Any(ta =>
                         ta.Restuarant_Table_ID == targetTableID &&
-                        startTimeline < ta.End_Time &&
-                        endTimeline > ta.Start_Time);
+                        tableStart < ta.End_Time &&
+                        tableEnd > ta.Start_Time);
 
                     if (isBusy)
                     {
@@ -209,6 +221,7 @@ namespace Code_Crafters_Interface_Prototype_1.Business
                 dtpCheckOut.Value = dtpCheckIn.Value.AddHours(1);
             }
             RefreshAvailableAccommodations();
+            UpdateInvoiceTotal();
         }
 
         private void DtpCheckOut_ValueChanged(object sender, EventArgs e)
@@ -227,6 +240,17 @@ namespace Code_Crafters_Interface_Prototype_1.Business
                 return;
             }
             RefreshAvailableAccommodations();
+            UpdateInvoiceTotal();
+        }
+
+        private void DtpTable_ValueChanged(object sender, EventArgs e)
+        {
+            if (dtpTableEnd.Value < dtpTableStart.Value)
+            {
+                dtpTableEnd.Value = dtpTableStart.Value.AddHours(2);
+            }
+            RefreshAvailableAccommodations();
+            UpdateInvoiceTotal();
         }
 
         private void dgvHotelRoomAvailable_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -290,7 +314,7 @@ namespace Code_Crafters_Interface_Prototype_1.Business
             string tableStatus = dgvRestaurantTableAvailable.CurrentRow.Cells[5].Value.ToString();
             if (tableStatus == "Booked")
             {
-                MessageBox.Show("This table is already reserved for your selected time range.", "Selection Unavailable", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("This table is already reserved for your selected table time range.", "Selection Unavailable", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -329,7 +353,7 @@ namespace Code_Crafters_Interface_Prototype_1.Business
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error adding room: {ex.Message}", "Selection Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Error adding table: {ex.Message}", "Selection Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -363,9 +387,9 @@ namespace Code_Crafters_Interface_Prototype_1.Business
                 return;
             }
 
-            if (dtpCheckOut.Value < dtpCheckIn.Value)
+            if (dtpCheckOut.Value < dtpCheckIn.Value || dtpTableEnd.Value < dtpTableStart.Value)
             {
-                MessageBox.Show("Invalid timeline parameters. Please double-check your check-out selection.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Invalid timeline parameters. Please check your room or table scheduling dates.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -396,7 +420,7 @@ namespace Code_Crafters_Interface_Prototype_1.Business
                     int targetTableID = Convert.ToInt32(invoiceRow[3]);
                     bool tableConflict = codeCraftersDSTWO.Table_Allocation.AsEnumerable().Any(ta =>
                         ta.Restuarant_Table_ID == targetTableID &&
-                        dtpCheckIn.Value < ta.End_Time && dtpCheckOut.Value > ta.Start_Time);
+                        dtpTableStart.Value < ta.End_Time && dtpTableEnd.Value > ta.Start_Time);
 
                     if (tableConflict)
                     {
@@ -417,7 +441,7 @@ namespace Code_Crafters_Interface_Prototype_1.Business
                 clientBookingID,
                 cmbBranchID.SelectedValue.ToString(),
                 DateTime.Now,
-                dtpCheckIn.Value,
+                dtpCheckIn.Value, 
                 dtpCheckOut.Value,
                 cleanBookingTotal,
                 "Pending"
@@ -434,7 +458,7 @@ namespace Code_Crafters_Interface_Prototype_1.Business
                 if (invoiceRow[3] != DBNull.Value && Convert.ToInt32(invoiceRow[3]) > 0)
                 {
                     int restaurantTableID = Convert.ToInt32(invoiceRow[3]);
-                    taTableAllocation.InsertTableAllocation(pk, restaurantTableID, dtpCheckIn.Value, dtpCheckOut.Value);
+                    taTableAllocation.InsertTableAllocation(pk, restaurantTableID, dtpTableStart.Value, dtpTableEnd.Value);
                 }
             }
 
@@ -549,14 +573,29 @@ namespace Code_Crafters_Interface_Prototype_1.Business
         private void UpdateInvoiceTotal()
         {
             decimal totalBookingAmount = 0;
+
+            DateTime checkIn = dtpCheckIn.Value;
+            DateTime checkOut = dtpCheckOut.Value;
+            TimeSpan roomDuration = checkOut - checkIn;
+            int totalRoomDays = (int)Math.Ceiling(roomDuration.TotalDays);
+
+            if (totalRoomDays <= 0) totalRoomDays = 1;
+
             foreach (DataRow row in codeCraftersDSTWO.Invoice.Rows)
             {
                 if (row[2] != DBNull.Value)
-                    totalBookingAmount += Convert.ToDecimal(row[2]);
+                {
+                    decimal baseRoomPrice = Convert.ToDecimal(row[2]);
+                    totalBookingAmount += (baseRoomPrice * totalRoomDays);
+                }
 
                 if (row[5] != DBNull.Value)
-                    totalBookingAmount += Convert.ToDecimal(row[5]);
+                {
+                    decimal baseTablePrice = Convert.ToDecimal(row[5]);
+                    totalBookingAmount += baseTablePrice;
+                }
             }
+
             txtTotalAmount.Text = totalBookingAmount.ToString("C2");
         }
 
@@ -567,6 +606,14 @@ namespace Code_Crafters_Interface_Prototype_1.Business
             btnCreateBooking.BackColor = ColorTranslator.FromHtml("#C99A2E");
             btnCreateBooking.ForeColor = Color.White;
             grpBookingDetails.BackColor = ColorTranslator.FromHtml("#F8F5F0");
+            
+           btnPrintInvoice.BackColor = ColorTranslator.FromHtml("#C99A2E");
+            btnPrintInvoice.ForeColor = Color.White;
+
+            btnSaveInvoice.BackColor = ColorTranslator.FromHtml("#C99A2E");
+            btnSaveInvoice.ForeColor = Color.White;
+            tableLayoutPanel1.BackColor = ColorTranslator.FromHtml("#C99A2E");
+            tableLayoutPanel2.BackColor = ColorTranslator.FromHtml("#C99A2E");
         }
 
         public Bitmap CaptureForm(Control container)
@@ -623,7 +670,7 @@ namespace Code_Crafters_Interface_Prototype_1.Business
                 int totalRowsHeight = 0;
                 foreach (DataGridViewRow row in dgvInvoice.Rows)
                 {
-                    if (!row.IsNewRow) 
+                    if (!row.IsNewRow)
                     {
                         totalRowsHeight += row.Height;
                     }
@@ -636,7 +683,7 @@ namespace Code_Crafters_Interface_Prototype_1.Business
                 Bitmap gridBmp = CaptureForm(dgvInvoice);
 
                 int combinedWidth = Math.Max(clientBmp.Width, gridBmp.Width);
-                int combinedHeight = clientBmp.Height + gridBmp.Height + 30; 
+                int combinedHeight = clientBmp.Height + gridBmp.Height + 30;
 
                 using (Bitmap combinedBmp = new Bitmap(combinedWidth, combinedHeight))
                 {
@@ -692,7 +739,7 @@ namespace Code_Crafters_Interface_Prototype_1.Business
                 Bitmap bookingBmp = CaptureForm(grpBookingDetails);
 
                 int combinedWidth = Math.Max(clientBmp.Width, bookingBmp.Width);
-                int combinedHeight = clientBmp.Height + bookingBmp.Height + 30; 
+                int combinedHeight = clientBmp.Height + bookingBmp.Height + 30;
 
                 bmp = new Bitmap(combinedWidth, combinedHeight);
 
