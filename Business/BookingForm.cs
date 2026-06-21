@@ -736,19 +736,18 @@ namespace Code_Crafters_Interface_Prototype_1.Business
                     double totalHoursBooked = Math.Ceiling(tableDuration.TotalHours);
                     if (totalHoursBooked <= 0) totalHoursBooked = 1;
 
-                    const double standardSlotHours = 3.0;
-                    int slotMultiplier;
+                    const double standardHours = 2.0;
 
-                    if (totalHoursBooked <= standardSlotHours)
+                    decimal tableCost = baseTablePrice;
+
+                    if (totalHoursBooked > standardHours)
                     {
-                        slotMultiplier = 1;
-                    }
-                    else
-                    {
-                        slotMultiplier = (int)Math.Ceiling(totalHoursBooked / standardSlotHours);
+                        double extraHours = totalHoursBooked - standardHours;
+
+                        tableCost += (decimal)extraHours * (baseTablePrice * 0.5m);
                     }
 
-                    _calculatedTotalAmount += (baseTablePrice * slotMultiplier);
+                    _calculatedTotalAmount += tableCost;
                 }
             }
 
