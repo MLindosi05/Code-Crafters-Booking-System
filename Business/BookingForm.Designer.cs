@@ -29,19 +29,12 @@
             this.label7 = new System.Windows.Forms.Label();
             this.btnClear = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
-            this.dtpToDate = new System.Windows.Forms.DateTimePicker();
-            this.dtpFromDate = new System.Windows.Forms.DateTimePicker();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.txtSearchQuery = new System.Windows.Forms.TextBox();
-            this.cmbFilterBookingStatus = new System.Windows.Forms.ComboBox();
-            this.cmbFilterBookingType = new System.Windows.Forms.ComboBox();
             this.cmbSearchBy = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.numNoOfNights = new System.Windows.Forms.TextBox();
             this.numNoOfRooms = new System.Windows.Forms.NumericUpDown();
             this.dtpRoomCheckIn = new System.Windows.Forms.DateTimePicker();
             this.dtpRoomCheckOut = new System.Windows.Forms.DateTimePicker();
@@ -86,6 +79,7 @@
             this.panel7 = new System.Windows.Forms.Panel();
             this.label20 = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
+            this.btnSave = new System.Windows.Forms.Button();
             this.btnPrint = new System.Windows.Forms.Button();
             this.btnCancelBooking = new System.Windows.Forms.Button();
             this.btnLinkBookings = new System.Windows.Forms.Button();
@@ -110,7 +104,6 @@
             this.taRoomAssignment = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTWOTableAdapters.Room_AssignmentTableAdapter();
             this.taStaff = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTWOTableAdapters.StaffTableAdapter();
             this.taTableAllocation = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTWOTableAdapters.Table_AllocationTableAdapter();
-            this.numNoOfNights = new System.Windows.Forms.TextBox();
             this.pnlBooking.SuspendLayout();
             this.pnlGuestDetails.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -209,22 +202,14 @@
             this.pnlGuestDetails.Controls.Add(this.label7);
             this.pnlGuestDetails.Controls.Add(this.btnClear);
             this.pnlGuestDetails.Controls.Add(this.btnSearch);
-            this.pnlGuestDetails.Controls.Add(this.dtpToDate);
-            this.pnlGuestDetails.Controls.Add(this.dtpFromDate);
-            this.pnlGuestDetails.Controls.Add(this.label1);
-            this.pnlGuestDetails.Controls.Add(this.label2);
             this.pnlGuestDetails.Controls.Add(this.txtSearchQuery);
-            this.pnlGuestDetails.Controls.Add(this.cmbFilterBookingStatus);
-            this.pnlGuestDetails.Controls.Add(this.cmbFilterBookingType);
             this.pnlGuestDetails.Controls.Add(this.cmbSearchBy);
-            this.pnlGuestDetails.Controls.Add(this.label3);
-            this.pnlGuestDetails.Controls.Add(this.label4);
             this.pnlGuestDetails.Controls.Add(this.label5);
             this.pnlGuestDetails.Controls.Add(this.label6);
             this.pnlGuestDetails.ForeColor = System.Drawing.Color.Navy;
             this.pnlGuestDetails.Location = new System.Drawing.Point(13, 418);
             this.pnlGuestDetails.Name = "pnlGuestDetails";
-            this.pnlGuestDetails.Size = new System.Drawing.Size(659, 250);
+            this.pnlGuestDetails.Size = new System.Drawing.Size(401, 250);
             this.pnlGuestDetails.TabIndex = 10;
             // 
             // panel2
@@ -232,27 +217,26 @@
             this.panel2.BackColor = System.Drawing.Color.Gainsboro;
             this.panel2.Location = new System.Drawing.Point(1, 30);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(653, 1);
+            this.panel2.Size = new System.Drawing.Size(395, 1);
             this.panel2.TabIndex = 33;
-            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(17, 6);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(349, 28);
+            this.label7.Size = new System.Drawing.Size(231, 28);
             this.label7.TabIndex = 32;
-            this.label7.Text = "🔍 SEARCH AND FILTER BOOKINGS";
+            this.label7.Text = "🔍 SEARCH BOOKINGS";
             // 
             // btnClear
             // 
             this.btnClear.BackColor = System.Drawing.Color.White;
             this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClear.ForeColor = System.Drawing.Color.Navy;
-            this.btnClear.Location = new System.Drawing.Point(497, 146);
+            this.btnClear.Location = new System.Drawing.Point(213, 158);
             this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(95, 45);
+            this.btnClear.Size = new System.Drawing.Size(155, 56);
             this.btnClear.TabIndex = 31;
             this.btnClear.Text = "🧹 CLEAR";
             this.btnClear.UseVisualStyleBackColor = false;
@@ -262,110 +246,34 @@
             this.btnSearch.BackColor = System.Drawing.Color.Navy;
             this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSearch.ForeColor = System.Drawing.Color.White;
-            this.btnSearch.Location = new System.Drawing.Point(375, 146);
+            this.btnSearch.Location = new System.Drawing.Point(30, 158);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(108, 45);
+            this.btnSearch.Size = new System.Drawing.Size(153, 56);
             this.btnSearch.TabIndex = 30;
             this.btnSearch.Text = "🔍 SEARCH";
             this.btnSearch.UseVisualStyleBackColor = false;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click_1);
             // 
-            // dtpToDate
-            // 
-            this.dtpToDate.CustomFormat = "yyyy/MM/dd ";
-            this.dtpToDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpToDate.Location = new System.Drawing.Point(200, 187);
-            this.dtpToDate.Name = "dtpToDate";
-            this.dtpToDate.Size = new System.Drawing.Size(143, 34);
-            this.dtpToDate.TabIndex = 29;
-            this.dtpToDate.Value = new System.DateTime(2026, 8, 5, 0, 0, 0, 0);
-            // 
-            // dtpFromDate
-            // 
-            this.dtpFromDate.CustomFormat = "yyyy/MM/dd";
-            this.dtpFromDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpFromDate.Location = new System.Drawing.Point(30, 187);
-            this.dtpFromDate.Name = "dtpFromDate";
-            this.dtpFromDate.Size = new System.Drawing.Size(134, 34);
-            this.dtpFromDate.TabIndex = 28;
-            this.dtpFromDate.Value = new System.DateTime(2026, 8, 5, 0, 0, 0, 0);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(26, 152);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(126, 28);
-            this.label1.TabIndex = 27;
-            this.label1.Text = "FROM DATE";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(196, 152);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(95, 28);
-            this.label2.TabIndex = 26;
-            this.label2.Text = "TO DATE";
-            // 
             // txtSearchQuery
             // 
-            this.txtSearchQuery.Location = new System.Drawing.Point(146, 107);
+            this.txtSearchQuery.Location = new System.Drawing.Point(213, 107);
             this.txtSearchQuery.Name = "txtSearchQuery";
-            this.txtSearchQuery.Size = new System.Drawing.Size(133, 34);
+            this.txtSearchQuery.Size = new System.Drawing.Size(155, 34);
             this.txtSearchQuery.TabIndex = 25;
-            // 
-            // cmbFilterBookingStatus
-            // 
-            this.cmbFilterBookingStatus.FormattingEnabled = true;
-            this.cmbFilterBookingStatus.Location = new System.Drawing.Point(445, 107);
-            this.cmbFilterBookingStatus.Name = "cmbFilterBookingStatus";
-            this.cmbFilterBookingStatus.Size = new System.Drawing.Size(147, 36);
-            this.cmbFilterBookingStatus.TabIndex = 24;
-            // 
-            // cmbFilterBookingType
-            // 
-            this.cmbFilterBookingType.FormattingEnabled = true;
-            this.cmbFilterBookingType.Location = new System.Drawing.Point(293, 107);
-            this.cmbFilterBookingType.Name = "cmbFilterBookingType";
-            this.cmbFilterBookingType.Size = new System.Drawing.Size(121, 36);
-            this.cmbFilterBookingType.TabIndex = 23;
             // 
             // cmbSearchBy
             // 
             this.cmbSearchBy.FormattingEnabled = true;
             this.cmbSearchBy.Location = new System.Drawing.Point(30, 107);
             this.cmbSearchBy.Name = "cmbSearchBy";
-            this.cmbSearchBy.Size = new System.Drawing.Size(95, 36);
+            this.cmbSearchBy.Size = new System.Drawing.Size(153, 36);
             this.cmbSearchBy.TabIndex = 22;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(441, 74);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(182, 28);
-            this.label3.TabIndex = 21;
-            this.label3.Text = "BOOKING STATUS";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(289, 74);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(157, 28);
-            this.label4.TabIndex = 20;
-            this.label4.Text = "BOOKING TYPE";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(142, 74);
+            this.label5.Location = new System.Drawing.Point(208, 74);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(159, 28);
             this.label5.TabIndex = 19;
@@ -399,6 +307,14 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(373, 250);
             this.panel1.TabIndex = 11;
+            // 
+            // numNoOfNights
+            // 
+            this.numNoOfNights.Location = new System.Drawing.Point(152, 129);
+            this.numNoOfNights.Name = "numNoOfNights";
+            this.numNoOfNights.ReadOnly = true;
+            this.numNoOfNights.Size = new System.Drawing.Size(85, 34);
+            this.numNoOfNights.TabIndex = 42;
             // 
             // numNoOfRooms
             // 
@@ -705,6 +621,7 @@
             this.cmbBookingType.Name = "cmbBookingType";
             this.cmbBookingType.Size = new System.Drawing.Size(168, 36);
             this.cmbBookingType.TabIndex = 43;
+            this.cmbBookingType.SelectedIndexChanged += new System.EventHandler(this.cmbBookingType_SelectedIndexChanged);
             // 
             // lblRoomCategory
             // 
@@ -816,6 +733,7 @@
             // panel8
             // 
             this.panel8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel8.Controls.Add(this.btnSave);
             this.panel8.Controls.Add(this.btnPrint);
             this.panel8.Controls.Add(this.btnCancelBooking);
             this.panel8.Controls.Add(this.btnLinkBookings);
@@ -824,21 +742,34 @@
             this.panel8.Controls.Add(this.panel9);
             this.panel8.Controls.Add(this.label21);
             this.panel8.ForeColor = System.Drawing.Color.Navy;
-            this.panel8.Location = new System.Drawing.Point(694, 418);
+            this.panel8.Location = new System.Drawing.Point(434, 418);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(807, 250);
+            this.panel8.Size = new System.Drawing.Size(1067, 250);
             this.panel8.TabIndex = 52;
+            // 
+            // btnSave
+            // 
+            this.btnSave.BackColor = System.Drawing.Color.Gray;
+            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSave.ForeColor = System.Drawing.Color.White;
+            this.btnSave.Location = new System.Drawing.Point(713, 61);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(159, 65);
+            this.btnSave.TabIndex = 39;
+            this.btnSave.Text = "🖨 SAVE INVOICE";
+            this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnPrint
             // 
             this.btnPrint.BackColor = System.Drawing.Color.Teal;
             this.btnPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPrint.ForeColor = System.Drawing.Color.White;
-            this.btnPrint.Location = new System.Drawing.Point(701, 61);
+            this.btnPrint.Location = new System.Drawing.Point(878, 61);
             this.btnPrint.Name = "btnPrint";
-            this.btnPrint.Size = new System.Drawing.Size(96, 45);
+            this.btnPrint.Size = new System.Drawing.Size(179, 65);
             this.btnPrint.TabIndex = 38;
-            this.btnPrint.Text = "🖨 PRINT";
+            this.btnPrint.Text = "🖨 PRINT INVOICE";
             this.btnPrint.UseVisualStyleBackColor = false;
             // 
             // btnCancelBooking
@@ -848,7 +779,7 @@
             this.btnCancelBooking.ForeColor = System.Drawing.Color.White;
             this.btnCancelBooking.Location = new System.Drawing.Point(326, 61);
             this.btnCancelBooking.Name = "btnCancelBooking";
-            this.btnCancelBooking.Size = new System.Drawing.Size(189, 45);
+            this.btnCancelBooking.Size = new System.Drawing.Size(189, 65);
             this.btnCancelBooking.TabIndex = 37;
             this.btnCancelBooking.Text = "❌ CANCEL BOOKING";
             this.btnCancelBooking.UseVisualStyleBackColor = false;
@@ -860,7 +791,7 @@
             this.btnLinkBookings.ForeColor = System.Drawing.Color.White;
             this.btnLinkBookings.Location = new System.Drawing.Point(521, 61);
             this.btnLinkBookings.Name = "btnLinkBookings";
-            this.btnLinkBookings.Size = new System.Drawing.Size(174, 45);
+            this.btnLinkBookings.Size = new System.Drawing.Size(174, 65);
             this.btnLinkBookings.TabIndex = 36;
             this.btnLinkBookings.Text = "🔗 LINK BOOKINGS";
             this.btnLinkBookings.UseVisualStyleBackColor = false;
@@ -872,7 +803,7 @@
             this.btnReschedule.ForeColor = System.Drawing.Color.White;
             this.btnReschedule.Location = new System.Drawing.Point(159, 61);
             this.btnReschedule.Name = "btnReschedule";
-            this.btnReschedule.Size = new System.Drawing.Size(161, 45);
+            this.btnReschedule.Size = new System.Drawing.Size(161, 65);
             this.btnReschedule.TabIndex = 35;
             this.btnReschedule.Text = "📅 RESCHEDULE";
             this.btnReschedule.UseVisualStyleBackColor = false;
@@ -884,18 +815,18 @@
             this.btnViewEdit.ForeColor = System.Drawing.Color.White;
             this.btnViewEdit.Location = new System.Drawing.Point(21, 61);
             this.btnViewEdit.Name = "btnViewEdit";
-            this.btnViewEdit.Size = new System.Drawing.Size(132, 45);
+            this.btnViewEdit.Size = new System.Drawing.Size(132, 65);
             this.btnViewEdit.TabIndex = 34;
             this.btnViewEdit.Text = "👁 VIEW/EDIT";
             this.btnViewEdit.UseVisualStyleBackColor = false;
-            this.btnViewEdit.Click += new System.EventHandler(this.btnViewEdit_Click_1);
+            this.btnViewEdit.Click += new System.EventHandler(this.btnViewEdit_Click);
             // 
             // panel9
             // 
             this.panel9.BackColor = System.Drawing.Color.Gainsboro;
             this.panel9.Location = new System.Drawing.Point(0, 30);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(803, 1);
+            this.panel9.Size = new System.Drawing.Size(1062, 1);
             this.panel9.TabIndex = 33;
             // 
             // label21
@@ -999,14 +930,6 @@
             // 
             this.taTableAllocation.ClearBeforeFill = true;
             // 
-            // numNoOfNights
-            // 
-            this.numNoOfNights.Location = new System.Drawing.Point(152, 129);
-            this.numNoOfNights.Name = "numNoOfNights";
-            this.numNoOfNights.ReadOnly = true;
-            this.numNoOfNights.Size = new System.Drawing.Size(85, 34);
-            this.numNoOfNights.TabIndex = 42;
-            // 
             // BookingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 28F);
@@ -1080,16 +1003,8 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Button btnSearch;
-        private System.Windows.Forms.DateTimePicker dtpToDate;
-        private System.Windows.Forms.DateTimePicker dtpFromDate;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtSearchQuery;
-        private System.Windows.Forms.ComboBox cmbFilterBookingStatus;
-        private System.Windows.Forms.ComboBox cmbFilterBookingType;
         private System.Windows.Forms.ComboBox cmbSearchBy;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel panel2;
@@ -1150,5 +1065,6 @@
         private System.Windows.Forms.ComboBox cmbBranchName;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox numNoOfNights;
+        private System.Windows.Forms.Button btnSave;
     }
 }

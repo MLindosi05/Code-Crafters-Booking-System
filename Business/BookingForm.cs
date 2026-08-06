@@ -33,12 +33,14 @@ namespace Code_Crafters_Interface_Prototype_1.Business
             this.btnLinkBookings.Click += new System.EventHandler(this.btnLinkBookings_Click);
             this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
 
+            this.btnNewBooking.Click += new System.EventHandler(this.btnNewBooking_Click_1);
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click_1);
+
             this.cmbRoomCategory.DropDown += new System.EventHandler(this.cmbRoomCategory_DropDown);
             this.cmbTableArea.DropDown += new System.EventHandler(this.cmbTableArea_DropDown);
             this.cmbSearchBy.DropDown += new System.EventHandler(this.cmbSearchBy_DropDown);
             this.cmbBookingType.DropDown += new System.EventHandler(this.cmbBookingType_DropDown);
-            this.cmbFilterBookingStatus.DropDown += new System.EventHandler(this.cmbFilterBookingStatus_DropDown);
-            this.cmbFilterBookingType.DropDown += new System.EventHandler(this.cmbFilterBookingType_DropDown);
+            this.cmbBookingType.SelectedIndexChanged += new System.EventHandler(this.cmbBookingType_SelectedIndexChanged);
 
             this.dtpRoomCheckIn.ValueChanged += new System.EventHandler(this.DtpRoomDates_ValueChanged);
             this.dtpRoomCheckOut.ValueChanged += new System.EventHandler(this.DtpRoomDates_ValueChanged);
@@ -150,7 +152,7 @@ namespace Code_Crafters_Interface_Prototype_1.Business
                 Width = 130
             });
 
-            // 9. Check-out / Time Column
+            // 9. Check-out Column
             dgvBookingList.Columns.Add(new DataGridViewTextBoxColumn
             {
                 Name = "Checkout_Date",
@@ -159,7 +161,7 @@ namespace Code_Crafters_Interface_Prototype_1.Business
                 Width = 130
             });
 
-            // 10. Status Column (Custom Drawn Badge)
+            // 10. Status Column
             dgvBookingList.Columns.Add(new DataGridViewTextBoxColumn
             {
                 Name = "Booking_Status",
@@ -194,7 +196,6 @@ namespace Code_Crafters_Interface_Prototype_1.Business
             string colName = dgvBookingList.Columns[e.ColumnIndex].Name;
             int bookingID = Convert.ToInt32(drv.Row["Booking_ID"]);
 
-            // 1. Format Booking ID (BKG0001)
             if (colName == "Booking_ID" && e.Value != null)
             {
                 e.Value = $"BKG{bookingID:D4}";
@@ -204,17 +205,13 @@ namespace Code_Crafters_Interface_Prototype_1.Business
                 return;
             }
 
-            // 2. Read BOOKING TYPE from saved database record
             if (colName == "Booking_Type")
             {
                 e.Value = drv["Booking_Type"].ToString();
-
                 e.FormattingApplied = true;
-
                 return;
             }
 
-            // 3. Guest Name
             if (colName == "Guest_Name")
             {
                 string firstName = drv.Row.Table.Columns.Contains("First_Name") ? drv.Row["First_Name"].ToString() : "";
@@ -224,38 +221,18 @@ namespace Code_Crafters_Interface_Prototype_1.Business
                 return;
             }
 
-            // --- LOOK UP REAL DATABASE ASSIGNMENT RECORDS ---
-            DataRow roomAssign = codeCraftersDSTWO.Room_Assignment.AsEnumerable()
-                .FirstOrDefault(ra => ra.Field<int>("Booking_ID") == bookingID);
-
-            DataRow tableAlloc = codeCraftersDSTWO.Table_Allocation.AsEnumerable()
-                .FirstOrDefault(ta => ta.Field<int>("Booking_ID") == bookingID);
-
-            DataRow actualRoom = roomAssign != null ? codeCraftersDSTWO.Hotel_Room.FindByHotel_Room_ID(roomAssign.Field<int>("Hotel_Room_ID")) : null;
-            DataRow actualTable = tableAlloc != null ? codeCraftersDSTWO.Restuarant_Table.FindByRestaurantTableID(tableAlloc.Field<int>("Restuarant_Table_ID")) : null;
-
-            // 4. ROOM / TABLE COLUMN: Reads exact Room/Table numbers from database tables
             if (colName == "Room_Table")
             {
                 string bookingType = Convert.ToString(drv["Booking_Type"]);
-
-                string room = drv.Row.Table.Columns.Contains("hotel_room_number")
-                    ? Convert.ToString(drv["hotel_room_number"])
-                    : "";
-
-                string tableNo = drv.Row.Table.Columns.Contains("RestuarantTableNum")
-                    ? Convert.ToString(drv["RestuarantTableNum"])
-                    : "";
+                string room = drv.Row.Table.Columns.Contains("hotel_room_number") ? Convert.ToString(drv["hotel_room_number"]) : "";
+                string tableNo = drv.Row.Table.Columns.Contains("RestuarantTableNum") ? Convert.ToString(drv["RestuarantTableNum"]) : "";
 
                 if (bookingType == "Room & Table")
                     e.Value = room + " / " + tableNo;
-
                 else if (bookingType == "Room Booking")
                     e.Value = room;
-
                 else if (bookingType == "Table Booking")
                     e.Value = tableNo;
-
                 else
                     e.Value = "";
 
@@ -263,28 +240,18 @@ namespace Code_Crafters_Interface_Prototype_1.Business
                 return;
             }
 
-            // 5. CATEGORY / AREA COLUMN: Reads exact Room Category & Table Area from database tables
             if (colName == "Category_Area")
             {
                 string bookingType = Convert.ToString(drv["Booking_Type"]);
-
-                string roomType = drv.Row.Table.Columns.Contains("hotel_room_type")
-                    ? Convert.ToString(drv["hotel_room_type"])
-                    : "";
-
-                string tableArea = drv.Row.Table.Columns.Contains("TableFeatures")
-                    ? Convert.ToString(drv["TableFeatures"])
-                    : "";
+                string roomType = drv.Row.Table.Columns.Contains("hotel_room_type") ? Convert.ToString(drv["hotel_room_type"]) : "";
+                string tableArea = drv.Row.Table.Columns.Contains("TableFeatures") ? Convert.ToString(drv["TableFeatures"]) : "";
 
                 if (bookingType == "Room & Table")
                     e.Value = roomType + " / " + tableArea;
-
                 else if (bookingType == "Room Booking")
                     e.Value = roomType;
-
                 else if (bookingType == "Table Booking")
                     e.Value = tableArea;
-
                 else
                     e.Value = "";
 
@@ -292,8 +259,6 @@ namespace Code_Crafters_Interface_Prototype_1.Business
                 return;
             }
 
-            // 6. Check-in & Check-out Date Formatting
-            // 6. Check-in & Check-out Date Formatting (Date only)
             if ((colName == "Checkin_Date" || colName == "Checkout_Date") && e.Value != DBNull.Value && e.Value != null)
             {
                 if (DateTime.TryParse(e.Value.ToString(), out DateTime dateVal))
@@ -304,7 +269,6 @@ namespace Code_Crafters_Interface_Prototype_1.Business
                 return;
             }
 
-            // 7. Total Amount Formatting
             if (colName == "Booking_Total_Amount" && e.Value != DBNull.Value && e.Value != null)
             {
                 if (decimal.TryParse(e.Value.ToString(), out decimal total))
@@ -322,14 +286,14 @@ namespace Code_Crafters_Interface_Prototype_1.Business
                 e.PaintBackground(e.CellBounds, true);
 
                 string status = e.Value?.ToString() ?? "Pending";
-                Color badgeColor = Color.FromArgb(241, 196, 15); // Yellow (Pending)
+                Color badgeColor = Color.FromArgb(241, 196, 15);
 
-                if (status.Equals("Confirmed", StringComparison.OrdinalIgnoreCase))
-                    badgeColor = Color.FromArgb(76, 175, 80); // Green
+                if (status.Equals("Confirmed", StringComparison.OrdinalIgnoreCase) || status.Equals("Deposit Paid", StringComparison.OrdinalIgnoreCase))
+                    badgeColor = Color.FromArgb(76, 175, 80);
                 else if (status.Equals("Checked In", StringComparison.OrdinalIgnoreCase) || status.Equals("Checked Out", StringComparison.OrdinalIgnoreCase))
-                    badgeColor = Color.FromArgb(52, 152, 219); // Blue
+                    badgeColor = Color.FromArgb(52, 152, 219);
                 else if (status.Equals("Cancelled", StringComparison.OrdinalIgnoreCase) || status.Equals("No Show", StringComparison.OrdinalIgnoreCase))
-                    badgeColor = Color.FromArgb(231, 76, 60); // Red
+                    badgeColor = Color.FromArgb(231, 76, 60);
 
                 int paddingX = 10;
                 int paddingY = 6;
@@ -433,21 +397,18 @@ namespace Code_Crafters_Interface_Prototype_1.Business
             }
         }
 
+
+
         private void BookingForm_Load(object sender, EventArgs e)
         {
             InitializeDropdowns();
             SetInitialDates();
             SetupCustomGridView();
-            RefreshData();
+
+            dgvBookingList.DataSource = null;
 
             cmbBookingType.Items.Clear();
             cmbBookingType.Items.AddRange(new string[] { "Room Booking", "Table Booking", "Room & Table" });
-
-            cmbFilterBookingType.Items.Clear();
-            cmbFilterBookingType.Items.AddRange(new string[] { "All", "Room Booking", "Table Booking", "Room & Table" });
-
-            cmbFilterBookingStatus.Items.Clear();
-            cmbFilterBookingStatus.Items.AddRange(new string[] { "All", "Pending", "Confirmed", "Checked In", "Checked Out", "Cancelled", "No Show" });
 
             ClearAllDropdowns();
         }
@@ -458,8 +419,6 @@ namespace Code_Crafters_Interface_Prototype_1.Business
             cmbRoomCategory.SelectedIndex = -1;
             cmbTableArea.SelectedIndex = -1;
             cmbSearchBy.SelectedIndex = -1;
-            cmbFilterBookingType.SelectedIndex = -1;
-            cmbFilterBookingStatus.SelectedIndex = -1;
             cmbBranchName.SelectedIndex = -1;
         }
 
@@ -471,14 +430,26 @@ namespace Code_Crafters_Interface_Prototype_1.Business
             dtpTableCheckIn.Value = DateTime.Now;
             dtpTableCheckOut.Value = DateTime.Now.AddHours(2);
 
-            dtpFromDate.Value = DateTime.Now.AddMonths(-1);
-            dtpToDate.Value = DateTime.Now.AddMonths(1);
+            CalculateNights();
+        }
 
-            dtpRoomCheckIn.Value = DateTime.Today.Add(StandardCheckInTime);
-            dtpRoomCheckOut.Value = DateTime.Today.AddDays(1).Add(StandardCheckOutTime);
+        private void cmbBookingType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string selectedType = cmbBookingType.SelectedItem?.ToString();
 
-            CalculateNights(); 
+            bool isRoom = selectedType == "Room Booking" || selectedType == "Room & Table";
+            bool isTable = selectedType == "Table Booking" || selectedType == "Room & Table";
 
+            cmbRoomCategory.Enabled = isRoom;
+            numAdults.Enabled = isRoom;
+            numChildren.Enabled = isRoom;
+            numInfants.Enabled = isRoom;
+            dtpRoomCheckIn.Enabled = isRoom;
+            dtpRoomCheckOut.Enabled = isRoom;
+
+            cmbTableArea.Enabled = isTable;
+            dtpTableCheckIn.Enabled = isTable;
+            dtpTableCheckOut.Enabled = isTable;
         }
 
         #endregion
@@ -501,7 +472,7 @@ namespace Code_Crafters_Interface_Prototype_1.Business
 
                 if (checkOut <= checkIn) continue;
 
-                if (currentStatus.Equals("Confirmed", StringComparison.OrdinalIgnoreCase) && now >= checkIn && now < checkOut)
+                if ((currentStatus.Equals("Confirmed", StringComparison.OrdinalIgnoreCase) || currentStatus.Equals("Deposit Paid", StringComparison.OrdinalIgnoreCase)) && now >= checkIn && now < checkOut)
                 {
                     booking["Booking_Status"] = "Checked In";
                     hasUpdates = true;
@@ -528,26 +499,11 @@ namespace Code_Crafters_Interface_Prototype_1.Business
 
         #region Availability & Dynamic Price Calculation
 
-        private int GetAvailableTableCount(string tableArea, DateTime checkIn, DateTime checkOut)
-        {
-            var candidateTables = codeCraftersDSTWO.Restuarant_Table.AsEnumerable().Where(t =>
-                (t.Field<string>("TableFeatures") ?? "").Equals(tableArea, StringComparison.OrdinalIgnoreCase) &&
-                (t.Field<string>("TableStatus") ?? "Available").Equals("Available", StringComparison.OrdinalIgnoreCase)
-            );
-
-            return candidateTables.Count();
-        }
-
-        /// <summary>
-        /// Calculates dynamic booking total directly from database tables:
-        /// Hotel_Room.Hotel_Room_Price and Restuarant_Table.TablePrice
-        /// </summary>
         private decimal CalculateBookingAmount(string bookingType, DataRow assignedRoom, DataRow assignedTable, int nights)
         {
             decimal total = 0.00m;
             int stayNights = nights > 0 ? nights : 1;
 
-            // 1. Fetch Room Price from database row
             if (assignedRoom != null && assignedRoom.Table.Columns.Contains("Hotel_Room_Price") && assignedRoom["Hotel_Room_Price"] != DBNull.Value)
             {
                 decimal roomPricePerNight = Convert.ToDecimal(assignedRoom["Hotel_Room_Price"]);
@@ -556,8 +512,11 @@ namespace Code_Crafters_Interface_Prototype_1.Business
                     total += (roomPricePerNight * stayNights);
                 }
             }
+            else if (bookingType == "Room Booking" || bookingType == "Room & Table")
+            {
+                throw new Exception("Room price is missing or not configured in the database for this room.");
+            }
 
-            // 2. Fetch Table Price from database row
             if (assignedTable != null && assignedTable.Table.Columns.Contains("TablePrice") && assignedTable["TablePrice"] != DBNull.Value)
             {
                 decimal tablePrice = Convert.ToDecimal(assignedTable["TablePrice"]);
@@ -565,12 +524,6 @@ namespace Code_Crafters_Interface_Prototype_1.Business
                 {
                     total += tablePrice;
                 }
-            }
-
-            // Fallback if no specific row prices were loaded yet
-            if (total == 0.00m)
-            {
-                total = 1200.00m * stayNights;
             }
 
             return total;
@@ -601,7 +554,7 @@ namespace Code_Crafters_Interface_Prototype_1.Business
                 }
             }
 
-            return candidateTables.FirstOrDefault();
+            return null;
         }
 
         #endregion
@@ -625,7 +578,7 @@ namespace Code_Crafters_Interface_Prototype_1.Business
                 else
                 {
                     cmbRoomCategory.Items.Clear();
-                    cmbRoomCategory.Items.AddRange(new string[] { "Standard", "Deluxe", "Family", "Executive", "Presidential" });
+                    cmbRoomCategory.Items.AddRange(new string[] { "Standard", "Deluxe", "Executive", "Suite" });
                 }
             }
             catch (Exception ex)
@@ -636,14 +589,17 @@ namespace Code_Crafters_Interface_Prototype_1.Business
 
         private void cmbTableArea_DropDown(object sender, EventArgs e)
         {
-            if (cmbTableArea.DataSource != null) return;
-
             try
             {
+                // Always ensure the table adapter populates the data table from the database first
+                taRestaurantTable.Fill(codeCraftersDSTWO.Restuarant_Table);
+
                 if (codeCraftersDSTWO.Restuarant_Table.Rows.Count > 0)
                 {
                     DataView dvAreas = new DataView(codeCraftersDSTWO.Restuarant_Table);
                     DataTable dtAreas = dvAreas.ToTable(true, "TableFeatures");
+
+                    cmbTableArea.DataSource = null; // Clear existing binding to refresh properly
                     cmbTableArea.DataSource = dtAreas;
                     cmbTableArea.DisplayMember = "TableFeatures";
                     cmbTableArea.ValueMember = "TableFeatures";
@@ -658,25 +614,13 @@ namespace Code_Crafters_Interface_Prototype_1.Business
         private void cmbSearchBy_DropDown(object sender, EventArgs e)
         {
             if (cmbSearchBy.Items.Count > 0) return;
-            cmbSearchBy.Items.AddRange(new string[] { "Booking ID", "Guest Name", "Phone No", "ID/Passport No", "Room Type" });
+            cmbSearchBy.Items.AddRange(new string[] { "Guest Full Name", "Phone No", "ID/Passport No" });
         }
 
         private void cmbBookingType_DropDown(object sender, EventArgs e)
         {
             if (cmbBookingType.Items.Count > 0) return;
             cmbBookingType.Items.AddRange(new string[] { "Room Booking", "Table Booking", "Room & Table" });
-        }
-
-        private void cmbFilterBookingStatus_DropDown(object sender, EventArgs e)
-        {
-            if (cmbFilterBookingStatus.Items.Count > 0) return;
-            cmbFilterBookingStatus.Items.AddRange(new string[] { "All", "Pending", "Confirmed", "Checked In", "Checked Out", "Cancelled", "No Show" });
-        }
-
-        private void cmbFilterBookingType_DropDown(object sender, EventArgs e)
-        {
-            if (cmbFilterBookingType.Items.Count > 0) return;
-            cmbFilterBookingType.Items.AddRange(new string[] { "All", "Room Booking", "Table Booking", "Room & Table" });
         }
 
         #endregion
@@ -686,10 +630,10 @@ namespace Code_Crafters_Interface_Prototype_1.Business
         private void btnRefresh_Click(object sender, EventArgs e)
         {
             ClearFormInputs();
-            RefreshData();
+            dgvBookingList.DataSource = null;
         }
 
-        private void RefreshData()
+        private void RefreshDataSilent()
         {
             try
             {
@@ -701,8 +645,6 @@ namespace Code_Crafters_Interface_Prototype_1.Business
                 taClientBranchTableBooking.Fill(codeCraftersDSTWO.ClientBranchTableBooking);
 
                 AutoUpdateBookingStatuses();
-
-                dgvBookingList.DataSource = codeCraftersDSTWO.ClientBranchTableBooking;
             }
             catch (Exception ex)
             {
@@ -715,7 +657,7 @@ namespace Code_Crafters_Interface_Prototype_1.Business
             txtSearchQuery.Clear();
             ClearAllDropdowns();
             SetInitialDates();
-            RefreshData();
+            dgvBookingList.DataSource = null;
         }
 
         #endregion
@@ -755,21 +697,6 @@ namespace Code_Crafters_Interface_Prototype_1.Business
             return null;
         }
 
-        public void ProcessPaymentForBooking(int bookingID, decimal paymentAmount)
-        {
-            DataRow bookingRow = codeCraftersDSTWO.Booking.FindByBooking_ID(bookingID);
-
-            if (bookingRow != null)
-            {
-                bookingRow["Booking_Status"] = "Confirmed";
-                taBooking.Update(codeCraftersDSTWO.Booking);
-
-                MessageBox.Show($"Payment of R{paymentAmount:N2} received for Booking BR{bookingID}.\nStatus changed to: CONFIRMED",
-                                "Payment Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                RefreshData();
-            }
-        }
-
         #endregion
 
         #region Booking Actions
@@ -782,46 +709,148 @@ namespace Code_Crafters_Interface_Prototype_1.Business
                 return;
             }
 
-            int bookingID = Convert.ToInt32(dgvBookingList.CurrentRow.Cells["Booking_ID"].Value);
-            DataRow bookingRow = codeCraftersDSTWO.Booking.FindByBooking_ID(bookingID);
-
-            if (bookingRow == null) return;
-
-            DateTime oldCheckIn = Convert.ToDateTime(bookingRow["Checkin_Date"]);
-            double hoursDiff = (oldCheckIn - DateTime.Now).TotalHours;
-            decimal penalty = 0.00m;
-
-            DialogResult creditChoice = MessageBox.Show("Do you want to credit the balance to the guest account? (No penalties will be applied)",
-                                                        "Account Crediting Option", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-            if (creditChoice == DialogResult.No)
+            try
             {
-                if (hoursDiff < 24)
+                int bookingID = Convert.ToInt32(dgvBookingList.CurrentRow.Cells["Booking_ID"].Value);
+                DataRow bookingRow = codeCraftersDSTWO.Booking.FindByBooking_ID(bookingID);
+
+                if (bookingRow == null) return;
+
+                string bookingType = bookingRow["Booking_Type"]?.ToString() ?? "Room Booking";
+                DateTime newCheckIn = dtpRoomCheckIn.Value.Date.Add(StandardCheckInTime);
+                DateTime newCheckOut = dtpRoomCheckOut.Value.Date.Add(StandardCheckOutTime);
+
+                int newNights = (int)(newCheckOut.Date - newCheckIn.Date).TotalDays;
+                if (newNights <= 0) newNights = 1;
+
+                if (newCheckOut <= newCheckIn)
                 {
-                    penalty = Convert.ToDecimal(bookingRow["Booking_Total_Amount"]) * 0.50m;
-                    MessageBox.Show($"Rescheduling under 24 hours incurs a 50% penalty fee: R{penalty:F2}", "Penalty Applied", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Check-out date must be after check-in date.", "Invalid Dates", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
                 }
-                else if (hoursDiff < 48)
+
+                DataRow assignedRoom = null;
+                DataRow assignedTable = null;
+
+                if (bookingType == "Room Booking" || bookingType == "Room & Table")
                 {
-                    penalty = Convert.ToDecimal(bookingRow["Booking_Total_Amount"]) * 0.20m;
-                    MessageBox.Show($"Rescheduling under 48 hours incurs a 20% penalty fee: R{penalty:F2}", "Penalty Applied", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    DataRow roomAssign = codeCraftersDSTWO.Room_Assignment.AsEnumerable()
+                        .FirstOrDefault(ra => ra.Field<int>("Booking_ID") == bookingID);
+
+                    if (roomAssign != null)
+                    {
+                        int roomID = roomAssign.Field<int>("Hotel_Room_ID");
+                        bool isRoomOccupied = codeCraftersDSTWO.Room_Assignment.AsEnumerable().Any(ra =>
+                            ra.Field<int>("Hotel_Room_ID") == roomID &&
+                            ra.Field<int>("Booking_ID") != bookingID &&
+                            newCheckIn < ra.Field<DateTime>("Actual_Checkout_Time") &&
+                            newCheckOut > ra.Field<DateTime>("Actual_Checkin_Time")
+                        );
+
+                        if (isRoomOccupied)
+                        {
+                            MessageBox.Show("The assigned room is already booked for these new dates. Please choose different dates or select another room.", "Room Conflict", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+
+                        assignedRoom = codeCraftersDSTWO.Hotel_Room.FindByHotel_Room_ID(roomID);
+                    }
                 }
+
+                if (bookingType == "Table Booking" || bookingType == "Room & Table")
+                {
+                    DataRow tableAlloc = codeCraftersDSTWO.Table_Allocation.AsEnumerable()
+                        .FirstOrDefault(ta => ta.Field<int>("Booking_ID") == bookingID);
+
+                    if (tableAlloc != null)
+                    {
+                        int tableID = tableAlloc.Field<int>("Restuarant_Table_ID");
+                        assignedTable = codeCraftersDSTWO.Restuarant_Table.FindByRestaurantTableID(tableID);
+                    }
+                }
+
+                decimal originalTotal = bookingRow["Booking_Total_Amount"] != DBNull.Value ? Convert.ToDecimal(bookingRow["Booking_Total_Amount"]) : 0.00m;
+                decimal newTotalAmount = CalculateBookingAmount(bookingType, assignedRoom, assignedTable, newNights);
+
+                decimal priceDifference = newTotalAmount - originalTotal;
+                decimal penaltyAmount = 0.00m;
+                decimal creditAmount = 0.00m;
+
+                if (priceDifference > 0)
+                {
+                    penaltyAmount = priceDifference;
+                }
+                else if (priceDifference < 0)
+                {
+                    creditAmount = Math.Abs(priceDifference);
+                }
+
+                bookingRow["Checkin_Date"] = newCheckIn;
+                bookingRow["Checkout_Date"] = newCheckOut;
+                bookingRow["Booking_Total_Amount"] = newTotalAmount;
+
+                if (codeCraftersDSTWO.Booking.Columns.Contains("Penalty_Amount"))
+                    bookingRow["Penalty_Amount"] = penaltyAmount;
+
+                if (codeCraftersDSTWO.Booking.Columns.Contains("Credit_Amount"))
+                    bookingRow["Credit_Amount"] = creditAmount;
+
+                var roomAssignRow = codeCraftersDSTWO.Room_Assignment.AsEnumerable().FirstOrDefault(ra => ra.Field<int>("Booking_ID") == bookingID);
+                if (roomAssignRow != null)
+                {
+                    roomAssignRow["Actual_Checkin_Time"] = newCheckIn;
+                    roomAssignRow["Actual_Checkout_Time"] = newCheckOut;
+                    roomAssignRow["Assignment_Status"] = "Reserved";
+                    taRoomAssignment.Update(codeCraftersDSTWO.Room_Assignment);
+                }
+
+                var tableAllocRow = codeCraftersDSTWO.Table_Allocation.AsEnumerable().FirstOrDefault(ta => ta.Field<int>("Booking_ID") == bookingID);
+                if (tableAllocRow != null)
+                {
+                    tableAllocRow["Start_Time"] = dtpTableCheckIn.Value;
+                    tableAllocRow["End_Time"] = dtpTableCheckOut.Value;
+                    tableAllocRow["Allocation_Status"] = "Reserved";
+                    taTableAllocation.Update(codeCraftersDSTWO.Table_Allocation);
+                }
+
+                if (codeCraftersDSTWO.Booking.Columns.Contains("Admin_Notes"))
+                {
+                    string financialNote = priceDifference > 0 ? $"Penalty: R{penaltyAmount:N2}" : (priceDifference < 0 ? $"Credit: R{creditAmount:N2}" : "No Change");
+                    string newNote = $"Rescheduled {newCheckIn:yyyy-MM-dd} ({newNights}n). {financialNote}";
+
+                    if (newNote.Length > 200)
+                        newNote = newNote.Substring(0, 200);
+
+                    bookingRow["Admin_Notes"] = newNote;
+                }
+
+                if (penaltyAmount > 0)
+                {
+                    MessageBox.Show($"Rescheduling extends the stay. An additional amount of R {penaltyAmount:N2} is due.\nPlease complete payment to confirm this booking.",
+                                    "Payment Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                    using (PaymentForm paymentForm = new PaymentForm(bookingID, codeCraftersDSTWO, taBooking))
+                    {
+                        if (paymentForm.ShowDialog() == DialogResult.OK)
+                        {
+                            bookingRow["Booking_Status"] = "Confirmed";
+                        }
+                    }
+                }
+                else
+                {
+                    bookingRow["Booking_Status"] = "Confirmed";
+                    MessageBox.Show($"Booking successfully rescheduled!\nNew Total Amount: R {newTotalAmount:N2}\nCredit/Refund Issued: R {creditAmount:N2}\nStatus updated to Confirmed.",
+                                    "Reschedule Complete", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
+                taBooking.Update(codeCraftersDSTWO.Booking);
+                btnSearch_Click_1(sender, e);
             }
-
-            bookingRow["Checkin_Date"] = dtpRoomCheckIn.Value.Date.Add(StandardCheckInTime);
-            bookingRow["Checkout_Date"] = dtpRoomCheckOut.Value.Date.Add(StandardCheckOutTime);
-
-            if (codeCraftersDSTWO.Booking.Columns.Contains("Admin_Notes"))
+            catch (Exception ex)
             {
-                string oldNotes = bookingRow["Admin_Notes"]?.ToString() ?? "";
-                string penaltyNote = creditChoice == DialogResult.Yes ? "Credited to Account (No Penalty)" : $"Penalty: R{penalty:F2}";
-                bookingRow["Admin_Notes"] = $"{oldNotes} | Rescheduled on {DateTime.Now:yyyy-MM-dd HH:mm}. {penaltyNote}".TrimStart(' ', '|');
+                MessageBox.Show("An error occurred while rescheduling: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
-            taBooking.Update(codeCraftersDSTWO.Booking);
-
-            MessageBox.Show("Booking rescheduled successfully.", "Reschedule Complete", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            RefreshData();
         }
 
         private void btnCancelBooking_Click(object sender, EventArgs e)
@@ -837,22 +866,53 @@ namespace Code_Crafters_Interface_Prototype_1.Business
 
             if (bookingRow == null) return;
 
-            DialogResult result = MessageBox.Show($"Are you sure you want to cancel booking BR{bookingID}?", "Confirm Cancellation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult result = MessageBox.Show($"Are you sure you want to cancel booking BKG{bookingID:D4}?\n(A standard 5% cancellation penalty will apply to paid bookings).",
+                                                  "Confirm Cancellation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (result == DialogResult.Yes)
             {
-                bookingRow["Booking_Status"] = "Cancelled";
+                try
+                {
+                    decimal totalAmount = bookingRow["Booking_Total_Amount"] != DBNull.Value ? Convert.ToDecimal(bookingRow["Booking_Total_Amount"]) : 0.00m;
 
-                if (codeCraftersDSTWO.Booking.Columns.Contains("Cancellation_Date"))
-                    bookingRow["Cancellation_Date"] = DateTime.Now;
+                    decimal penaltyAmount = totalAmount * 0.05m;
+                    decimal refundCreditAmount = totalAmount - penaltyAmount;
 
-                if (codeCraftersDSTWO.Booking.Columns.Contains("Cancellation_Reason"))
-                    bookingRow["Cancellation_Reason"] = "Cancelled via Booking Management Interface";
+                    bookingRow["Booking_Status"] = "Cancelled";
 
-                taBooking.Update(codeCraftersDSTWO.Booking);
+                    if (codeCraftersDSTWO.Booking.Columns.Contains("Cancellation_Date"))
+                        bookingRow["Cancellation_Date"] = DateTime.Now;
 
-                MessageBox.Show($"Booking BR{bookingID} has been successfully CANCELLED.", "Cancelled", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                RefreshData();
+                    if (codeCraftersDSTWO.Booking.Columns.Contains("Cancellation_Reason"))
+                        bookingRow["Cancellation_Reason"] = "Cancelled via Booking Management Interface";
+
+                    if (codeCraftersDSTWO.Booking.Columns.Contains("Penalty_Amount"))
+                        bookingRow["Penalty_Amount"] = penaltyAmount;
+
+                    if (codeCraftersDSTWO.Booking.Columns.Contains("Credit_Amount"))
+                        bookingRow["Credit_Amount"] = refundCreditAmount;
+
+                    if (codeCraftersDSTWO.Booking.Columns.Contains("Admin_Notes"))
+                    {
+                        string cancelNote = $"Cancelled. Penalty (5%): R{penaltyAmount:N2}, Refundable Credit: R{refundCreditAmount:N2}";
+                        if (cancelNote.Length > 200) cancelNote = cancelNote.Substring(0, 200);
+                        bookingRow["Admin_Notes"] = cancelNote;
+                    }
+
+                    taBooking.Update(codeCraftersDSTWO.Booking);
+
+                    MessageBox.Show($"Booking BKG{bookingID:D4} has been successfully CANCELLED.\n\n" +
+                                    $"Total Paid: R {totalAmount:N2}\n" +
+                                    $"5% Penalty Deducted: R {penaltyAmount:N2}\n" +
+                                    $"Refund / Credit Amount: R {refundCreditAmount:N2}",
+                                    "Cancellation Complete", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    btnSearch_Click_1(sender, e);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("An error occurred while cancelling the booking: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 
@@ -860,34 +920,29 @@ namespace Code_Crafters_Interface_Prototype_1.Business
         {
             if (dgvBookingList.CurrentRow == null)
             {
-                MessageBox.Show("Please select an existing booking in the grid to append a new booking to.", "Selection Required", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Please select an existing booking in the grid to link items to.", "Selection Required", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
 
             try
             {
-                // 1. Get the primary/existing booking details from the selected row
-                int primaryBookingID = Convert.ToInt32(dgvBookingList.CurrentRow.Cells["Booking_ID"].Value);
-                DataRow primaryBookingRow = codeCraftersDSTWO.Booking.FindByBooking_ID(primaryBookingID);
+                int existingBookingID = Convert.ToInt32(dgvBookingList.CurrentRow.Cells["Booking_ID"].Value);
+                DataRow existingBookingRow = codeCraftersDSTWO.Booking.FindByBooking_ID(existingBookingID);
 
-                if (primaryBookingRow == null)
+                if (existingBookingRow == null)
                 {
-                    MessageBox.Show("Selected primary booking record not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Selected booking record not found in the database.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 
-                // 2. Validate form inputs for the new appended booking part
                 if (cmbBookingType.SelectedItem == null)
                 {
-                    MessageBox.Show("Please select a valid booking type for the appended booking (Room Booking, Table Booking, or Room & Table).", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Please select a valid booking type to link.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     cmbBookingType.Focus();
                     return;
                 }
 
-                string bookingType = cmbBookingType.SelectedItem.ToString();
-                string branchID = primaryBookingRow["Branch_ID"].ToString();
-                int clientID = Convert.ToInt32(primaryBookingRow["Client_ID"]);
-
+                string additionalBookingType = cmbBookingType.SelectedItem.ToString();
                 DateTime checkIn = dtpRoomCheckIn.Value;
                 DateTime checkOut = dtpRoomCheckOut.Value;
                 int nights = (int)(checkOut.Date - checkIn.Date).TotalDays;
@@ -896,36 +951,30 @@ namespace Code_Crafters_Interface_Prototype_1.Business
                 DataRow assignedRoom = null;
                 DataRow assignedTable = null;
 
-                // 3. Room Assignment if applicable
-                if (bookingType == "Room Booking" || bookingType == "Room & Table")
+                if (additionalBookingType == "Room Booking" || additionalBookingType == "Room & Table")
                 {
                     if (cmbRoomCategory.SelectedItem == null && cmbRoomCategory.Text == "")
                     {
-                        MessageBox.Show("Please select or specify a room category for the appended booking.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBox.Show("Please select or specify a room category to add.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         cmbRoomCategory.Focus();
                         return;
                     }
 
                     string roomCategory = cmbRoomCategory.Text.Trim();
-                    int adults = (int)numAdults.Value;
-                    int children = (int)numChildren.Value;
-                    int infants = (int)numInfants.Value;
-
-                    assignedRoom = AssignAvailableRoom(roomCategory, adults, children, infants, checkIn, checkOut);
+                    assignedRoom = AssignAvailableRoom(roomCategory, (int)numAdults.Value, (int)numChildren.Value, (int)numInfants.Value, checkIn, checkOut);
 
                     if (assignedRoom == null)
                     {
-                        MessageBox.Show($"No available rooms found for category '{roomCategory}' matching capacity and dates.", "Availability Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show($"No available rooms found for category '{roomCategory}'.", "Availability Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
                 }
 
-                // 4. Table Assignment if applicable
-                if (bookingType == "Table Booking" || bookingType == "Room & Table")
+                if (additionalBookingType == "Table Booking" || additionalBookingType == "Room & Table")
                 {
                     if (cmbTableArea.SelectedItem == null && cmbTableArea.Text == "")
                     {
-                        MessageBox.Show("Please select or specify a restaurant table area for the appended booking.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBox.Show("Please select or specify a restaurant table area to add.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         cmbTableArea.Focus();
                         return;
                     }
@@ -935,49 +984,31 @@ namespace Code_Crafters_Interface_Prototype_1.Business
 
                     if (assignedTable == null)
                     {
-                        MessageBox.Show($"No available restaurant tables found in area '{tableArea}' for the selected time slot.", "Availability Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show($"No available restaurant tables found in area '{tableArea}'.", "Availability Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
                 }
 
-                // 5. Calculate Total Cost for Appended Booking
-                decimal totalAmount = CalculateBookingAmount(bookingType, assignedRoom, assignedTable, nights);
+                decimal additionalCost = CalculateBookingAmount(additionalBookingType, assignedRoom, assignedTable, nights);
+                decimal currentTotal = existingBookingRow["Booking_Total_Amount"] != DBNull.Value ? Convert.ToDecimal(existingBookingRow["Booking_Total_Amount"]) : 0.00m;
 
-                // 6. Create the Appended Booking Record
-                DataRow appendedBooking = codeCraftersDSTWO.Booking.NewRow();
-                appendedBooking["Client_ID"] = clientID;
-                appendedBooking["Branch_ID"] = branchID;
-                appendedBooking["Booking_Date"] = DateTime.Now;
-                appendedBooking["Checkin_Date"] = checkIn;
-                appendedBooking["Checkout_Date"] = checkOut;
-                appendedBooking["Booking_Total_Amount"] = totalAmount;
-                appendedBooking["Booking_Status"] = "Pending"; // Starts as pending until paid
+                existingBookingRow["Booking_Total_Amount"] = currentTotal + additionalCost;
 
-                // Ensure Number_Adults is at least 1 to satisfy database CHECK constraints
-                int adultsCount = (int)numAdults.Value;
-                appendedBooking["Number_Adults"] = adultsCount > 0 ? adultsCount : 1;
+                string currentType = existingBookingRow["Booking_Type"]?.ToString() ?? "";
+                if (currentType != additionalBookingType && currentType != "Room & Table")
+                {
+                    existingBookingRow["Booking_Type"] = "Room & Table";
+                }
 
-                appendedBooking["Number_Children"] = (int)numChildren.Value;
-                appendedBooking["Booking_Type"] = bookingType;
+                string existingNotes = existingBookingRow.Table.Columns.Contains("Admin_Notes") ? (existingBookingRow["Admin_Notes"]?.ToString() ?? "") : "";
+                existingBookingRow["Admin_Notes"] = $"{existingNotes} | Linked {additionalBookingType} on {DateTime.Now:yyyy-MM-dd HH:mm}".TrimStart(' ', '|');
 
-                // Tag it as appended to the primary reference
-                string existingNotes = primaryBookingRow.Table.Columns.Contains("Admin_Notes") ? (primaryBookingRow["Admin_Notes"]?.ToString() ?? "") : "";
-                appendedBooking["Special_Request"] = $"Appended to Primary Ref BKG{primaryBookingID:D4}";
-
-                string staffFullName = $"{UserSession.StaffFirstName} {UserSession.StaffSurname}".Trim();
-                appendedBooking["Staff_Created_By"] = string.IsNullOrEmpty(staffFullName) ? "Administrator" : staffFullName;
-
-                codeCraftersDSTWO.Booking.Rows.Add(appendedBooking);
                 taBooking.Update(codeCraftersDSTWO.Booking);
 
-                // Fetch newly generated Appended Booking ID securely
-                int appendedBookingID = Convert.ToInt32(appendedBooking["Booking_ID"]);
-
-                // 7. Save Room/Table Mappings for Appended Booking
                 if (assignedRoom != null)
                 {
                     DataRow roomAssignRow = codeCraftersDSTWO.Room_Assignment.NewRow();
-                    roomAssignRow["Booking_ID"] = appendedBookingID;
+                    roomAssignRow["Booking_ID"] = existingBookingID;
                     roomAssignRow["Hotel_Room_ID"] = Convert.ToInt32(assignedRoom["Hotel_Room_ID"]);
                     roomAssignRow["Actual_Checkin_Time"] = checkIn;
                     roomAssignRow["Actual_Checkout_Time"] = checkOut;
@@ -990,7 +1021,7 @@ namespace Code_Crafters_Interface_Prototype_1.Business
                 if (assignedTable != null)
                 {
                     DataRow tableAllocRow = codeCraftersDSTWO.Table_Allocation.NewRow();
-                    tableAllocRow["Booking_ID"] = appendedBookingID;
+                    tableAllocRow["Booking_ID"] = existingBookingID;
                     tableAllocRow["Restuarant_Table_ID"] = Convert.ToInt32(assignedTable["RestaurantTableID"]);
                     tableAllocRow["Start_Time"] = dtpTableCheckIn.Value;
                     tableAllocRow["End_Time"] = dtpTableCheckOut.Value;
@@ -1000,21 +1031,15 @@ namespace Code_Crafters_Interface_Prototype_1.Business
                     taTableAllocation.Update(codeCraftersDSTWO.Table_Allocation);
                 }
 
-                MessageBox.Show($"New booking successfully appended!\nAppended Reference: BKG{appendedBookingID:D4} (Linked to BKG{primaryBookingID:D4})\nProceeding to payment...",
-                                "Booking Appended", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                // 8. Immediately Open Payment Form for the Appended Booking
-                using (PaymentForm paymentForm = new PaymentForm(appendedBookingID, codeCraftersDSTWO, taBooking))
-                {
-                    paymentForm.ShowDialog();
-                }
+                MessageBox.Show($"Successfully linked items to booking BKG{existingBookingID:D4}!\nAdded Cost: R {additionalCost:N2}\nUpdated Total: R {(currentTotal + additionalCost):N2}",
+                                "Booking Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 ClearFormInputs();
-                RefreshData();
+                btnSearch_Click_1(sender, e);
             }
             catch (Exception ex)
             {
-                MessageBox.Show("An error occurred while appending the booking: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("An error occurred while linking to the booking: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -1022,11 +1047,120 @@ namespace Code_Crafters_Interface_Prototype_1.Business
         {
             if (dgvBookingList.CurrentRow == null)
             {
-                MessageBox.Show("Please select a booking from the list to print.", "Selection Required", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Please select a booking from the list to print the invoice.", "Selection Required", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
 
-            MessageBox.Show("Sending booking invoice/summary to printer...", "Print Document", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            try
+            {
+                DataRowView drv = dgvBookingList.CurrentRow.DataBoundItem as DataRowView;
+                if (drv == null) return;
+
+                int bookingID = Convert.ToInt32(drv["Booking_ID"]);
+                string bookingType = drv.Row.Table.Columns.Contains("Booking_Type") ? drv["Booking_Type"].ToString() : "N/A";
+                string firstName = drv.Row.Table.Columns.Contains("First_Name") ? drv["First_Name"].ToString() : "";
+                string lastName = drv.Row.Table.Columns.Contains("Last_Name") ? drv["Last_Name"].ToString() : "";
+                string phone = drv.Row.Table.Columns.Contains("Phone_Number") ? drv["Phone_Number"].ToString() : "N/A";
+                string status = drv.Row.Table.Columns.Contains("Booking_Status") ? drv["Booking_Status"].ToString() : "Pending";
+
+                string checkIn = drv.Row.Table.Columns.Contains("Checkin_Date") && drv["Checkin_Date"] != DBNull.Value
+                    ? Convert.ToDateTime(drv["Checkin_Date"]).ToString("yyyy/MM/dd") : "N/A";
+                string checkOut = drv.Row.Table.Columns.Contains("Checkout_Date") && drv["Checkout_Date"] != DBNull.Value
+                    ? Convert.ToDateTime(drv["Checkout_Date"]).ToString("yyyy/MM/dd") : "N/A";
+
+                decimal totalAmount = drv.Row.Table.Columns.Contains("Booking_Total_Amount") && drv["Booking_Total_Amount"] != DBNull.Value
+                    ? Convert.ToDecimal(drv["Booking_Total_Amount"]) : 0.00m;
+
+                string roomTable = drv.Row.Table.Columns.Contains("hotel_room_number") ? drv["hotel_room_number"].ToString() : "";
+                string categoryArea = drv.Row.Table.Columns.Contains("hotel_room_type") ? drv["hotel_room_type"].ToString() : "";
+
+                System.Drawing.Printing.PrintDocument printDoc = new System.Drawing.Printing.PrintDocument();
+                printDoc.PrintPage += (s, ev) =>
+                {
+                    Graphics g = ev.Graphics;
+                    Font titleFont = new Font("Segoe UI", 18, FontStyle.Bold);
+                    Font headerFont = new Font("Segoe UI", 12, FontStyle.Bold);
+                    Font regularFont = new Font("Segoe UI", 10, FontStyle.Regular);
+                    Font boldRegFont = new Font("Segoe UI", 10, FontStyle.Bold);
+
+                    int startX = 50;
+                    int startY = 50;
+                    int offsetX = 200;
+
+                    g.DrawString("REGAL INN HOTEL & RESTAURANT", titleFont, Brushes.DarkBlue, startX, startY);
+                    g.DrawString("Official Booking Tax Invoice", headerFont, Brushes.DimGray, startX, startY + 30);
+                    g.DrawLine(Pens.Black, startX, startY + 60, 800, startY + 60);
+
+                    int currentY = startY + 80;
+
+                    g.DrawString("Invoice Reference:", boldRegFont, Brushes.Black, startX, currentY);
+                    g.DrawString($"BKG{bookingID:D4}", regularFont, Brushes.Black, startX + offsetX, currentY);
+                    currentY += 25;
+
+                    g.DrawString("Date Issued:", boldRegFont, Brushes.Black, startX, currentY);
+                    g.DrawString($"{DateTime.Now:yyyy/MM/dd HH:mm}", regularFont, Brushes.Black, startX + offsetX, currentY);
+                    currentY += 25;
+
+                    g.DrawString("Booking Status:", boldRegFont, Brushes.Black, startX, currentY);
+                    g.DrawString($"{status}", regularFont, Brushes.Black, startX + offsetX, currentY);
+                    currentY += 35;
+
+                    g.DrawString("GUEST INFORMATION", headerFont, Brushes.DarkBlue, startX, currentY);
+                    currentY += 25;
+                    g.DrawLine(Pens.LightGray, startX, currentY, 800, currentY);
+                    currentY += 10;
+
+                    g.DrawString("Guest Full Name:", boldRegFont, Brushes.Black, startX, currentY);
+                    g.DrawString($"{firstName} {lastName}", regularFont, Brushes.Black, startX + offsetX, currentY);
+                    currentY += 25;
+
+                    g.DrawString("Phone Number:", boldRegFont, Brushes.Black, startX, currentY);
+                    g.DrawString($"{phone}", regularFont, Brushes.Black, startX + offsetX, currentY);
+                    currentY += 35;
+
+                    g.DrawString("BOOKING PARTICULARS", headerFont, Brushes.DarkBlue, startX, currentY);
+                    currentY += 25;
+                    g.DrawLine(Pens.LightGray, startX, currentY, 800, currentY);
+                    currentY += 10;
+
+                    g.DrawString("Booking Type:", boldRegFont, Brushes.Black, startX, currentY);
+                    g.DrawString($"{bookingType}", regularFont, Brushes.Black, startX + offsetX, currentY);
+                    currentY += 25;
+
+                    g.DrawString("Assigned Unit:", boldRegFont, Brushes.Black, startX, currentY);
+                    g.DrawString($"{roomTable} ({categoryArea})", regularFont, Brushes.Black, startX + offsetX, currentY);
+                    currentY += 25;
+
+                    g.DrawString("Check-In Date:", boldRegFont, Brushes.Black, startX, currentY);
+                    g.DrawString($"{checkIn}", regularFont, Brushes.Black, startX + offsetX, currentY);
+                    currentY += 25;
+
+                    g.DrawString("Check-Out Date:", boldRegFont, Brushes.Black, startX, currentY);
+                    g.DrawString($"{checkOut}", regularFont, Brushes.Black, startX + offsetX, currentY);
+                    currentY += 40;
+
+                    g.DrawLine(Pens.Black, startX, currentY, 800, currentY);
+                    currentY += 15;
+
+                    g.DrawString("TOTAL AMOUNT DUE:", new Font("Segoe UI", 12, FontStyle.Bold), Brushes.DarkBlue, startX, currentY);
+                    g.DrawString($"R {totalAmount:N2}", new Font("Segoe UI", 14, FontStyle.Bold), Brushes.DarkGreen, startX + offsetX + 100, currentY - 2);
+                    currentY += 50;
+
+                    g.DrawLine(Pens.LightGray, startX, currentY, 800, currentY);
+                    currentY += 15;
+                    g.DrawString("Thank you for choosing Regal Inn. We look forward to hosting you!", new Font("Segoe UI", 9, FontStyle.Italic), Brushes.Gray, startX, currentY);
+                };
+
+                PrintPreviewDialog previewDialog = new PrintPreviewDialog();
+                previewDialog.Document = printDoc;
+                previewDialog.Width = 800;
+                previewDialog.Height = 600;
+                previewDialog.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred while generating the invoice: " + ex.Message, "Print Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         #endregion
@@ -1044,20 +1178,11 @@ namespace Code_Crafters_Interface_Prototype_1.Business
             numChildren.Value = 0;
             numInfants.Value = 0;
 
-            numNoOfNights.Clear(); 
+            numNoOfNights.Clear();
             numNoOfRooms.Value = 0;
 
             ClearAllDropdowns();
             SetInitialDates();
-        }
-
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-            ControlPaint.DrawBorder(
-                e.Graphics,
-                pnlGuestDetails.ClientRectangle,
-                Color.LightGray,
-                ButtonBorderStyle.Solid);
         }
 
         #endregion
@@ -1111,7 +1236,6 @@ namespace Code_Crafters_Interface_Prototype_1.Business
         {
             try
             {
-                // 1. Basic Input Validations
                 if (string.IsNullOrWhiteSpace(txtFullName.Text))
                 {
                     MessageBox.Show("Please enter the guest's full name.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -1128,12 +1252,21 @@ namespace Code_Crafters_Interface_Prototype_1.Business
 
                 if (cmbBookingType.SelectedItem == null)
                 {
-                    MessageBox.Show("Please select a valid booking type (Room Booking, Table Booking, or Room & Table).", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Please select a valid booking type.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     cmbBookingType.Focus();
                     return;
                 }
 
                 string bookingType = cmbBookingType.SelectedItem.ToString();
+
+                int validatedAdults = (int)numAdults.Value;
+                if (bookingType.Contains("Room") && validatedAdults <= 0)
+                {
+                    MessageBox.Show("At least 1 adult is required for a room booking.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    numAdults.Focus();
+                    return;
+                }
+
                 string branchID = GetSelectedBranchID();
                 int clientID = GetOrCreateClientID(txtFullName.Text.Trim(), txtPhoneNo.Text.Trim(), txtEmailAddress.Text.Trim(), txtIdPassportNo.Text.Trim());
 
@@ -1145,7 +1278,6 @@ namespace Code_Crafters_Interface_Prototype_1.Business
                 DataRow assignedRoom = null;
                 DataRow assignedTable = null;
 
-                // 2. Validate and Assign Room if applicable
                 if (bookingType == "Room Booking" || bookingType == "Room & Table")
                 {
                     if (cmbRoomCategory.SelectedItem == null && cmbRoomCategory.Text == "")
@@ -1156,20 +1288,15 @@ namespace Code_Crafters_Interface_Prototype_1.Business
                     }
 
                     string roomCategory = cmbRoomCategory.Text.Trim();
-                    int adults = (int)numAdults.Value;
-                    int children = (int)numChildren.Value;
-                    int infants = (int)numInfants.Value;
-
-                    assignedRoom = AssignAvailableRoom(roomCategory, adults, children, infants, checkIn, checkOut);
+                    assignedRoom = AssignAvailableRoom(roomCategory, validatedAdults, (int)numChildren.Value, (int)numInfants.Value, checkIn, checkOut);
 
                     if (assignedRoom == null)
                     {
-                        MessageBox.Show($"No available rooms found for category '{roomCategory}' matching the guest capacity and dates.", "Availability Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show($"No available rooms found for category '{roomCategory}'.", "Availability Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
                 }
 
-                // 3. Validate and Assign Table if applicable
                 if (bookingType == "Table Booking" || bookingType == "Room & Table")
                 {
                     if (cmbTableArea.SelectedItem == null && cmbTableArea.Text == "")
@@ -1184,15 +1311,13 @@ namespace Code_Crafters_Interface_Prototype_1.Business
 
                     if (assignedTable == null)
                     {
-                        MessageBox.Show($"No available restaurant tables found in area '{tableArea}' for the selected time slot.", "Availability Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show($"No available restaurant tables found in area '{tableArea}'.", "Availability Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
                 }
 
-                // 4. Calculate Total Booking Cost Dynamically
                 decimal totalAmount = CalculateBookingAmount(bookingType, assignedRoom, assignedTable, nights);
 
-                // 5. Create New Booking Record
                 DataRow newBooking = codeCraftersDSTWO.Booking.NewRow();
                 newBooking["Client_ID"] = clientID;
                 newBooking["Branch_ID"] = branchID;
@@ -1201,24 +1326,19 @@ namespace Code_Crafters_Interface_Prototype_1.Business
                 newBooking["Checkout_Date"] = checkOut;
                 newBooking["Booking_Total_Amount"] = totalAmount;
                 newBooking["Booking_Status"] = "Pending";
-                newBooking["Number_Adults"] = (int)numAdults.Value;
+                newBooking["Number_Adults"] = validatedAdults > 0 ? validatedAdults : 1;
                 newBooking["Number_Children"] = (int)numChildren.Value;
                 newBooking["Booking_Type"] = bookingType;
                 newBooking["Special_Request"] = string.Empty;
 
-                string staffFirstName = UserSession.StaffFirstName;
-                string staffSurname = UserSession.StaffSurname;
-                string staffFullName = $"{staffFirstName} {staffSurname}".Trim();
-
+                string staffFullName = $"{UserSession.StaffFirstName} {UserSession.StaffSurname}".Trim();
                 newBooking["Staff_Created_By"] = string.IsNullOrEmpty(staffFullName) ? "Administrator" : staffFullName;
 
                 codeCraftersDSTWO.Booking.Rows.Add(newBooking);
                 taBooking.Update(codeCraftersDSTWO.Booking);
 
-                // Fetch back the newly created Booking_ID securely
                 int newBookingID = Convert.ToInt32(newBooking["Booking_ID"]);
 
-                // 6. Save Room Assignment Mapping if applicable
                 if (assignedRoom != null)
                 {
                     DataRow roomAssignRow = codeCraftersDSTWO.Room_Assignment.NewRow();
@@ -1232,7 +1352,6 @@ namespace Code_Crafters_Interface_Prototype_1.Business
                     taRoomAssignment.Update(codeCraftersDSTWO.Room_Assignment);
                 }
 
-                // 7. Save Table Allocation Mapping if applicable
                 if (assignedTable != null)
                 {
                     DataRow tableAllocRow = codeCraftersDSTWO.Table_Allocation.NewRow();
@@ -1246,22 +1365,15 @@ namespace Code_Crafters_Interface_Prototype_1.Business
                     taTableAllocation.Update(codeCraftersDSTWO.Table_Allocation);
                 }
 
-                // 8. Success Feedback & Payment Form Integration & Cleanup
                 MessageBox.Show($"New booking successfully created!\nBooking Reference: BKG{newBookingID:D4}\nTotal Amount: R {totalAmount:N2}",
                                 "Booking Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                // Open the PaymentForm passing the newly generated booking ID, dataset, and table adapter
                 using (PaymentForm paymentForm = new PaymentForm(newBookingID, codeCraftersDSTWO, taBooking))
                 {
-                    // Show as a dialog; if payment is completed successfully (DialogResult.OK), refresh the grid
-                    if (paymentForm.ShowDialog() == DialogResult.OK)
-                    {
-                        // Optional: any extra logic post-payment completion if needed
-                    }
+                    paymentForm.ShowDialog();
                 }
 
                 ClearFormInputs();
-                RefreshData();
             }
             catch (Exception ex)
             {
@@ -1273,38 +1385,12 @@ namespace Code_Crafters_Interface_Prototype_1.Business
 
         #region Search & View Edit
 
-        private void btnViewEdit_Click_1(object sender, EventArgs e)
-        {
-            if (dgvBookingList.CurrentRow == null)
-            {
-                MessageBox.Show("Please select a booking from the list to view or edit.", "Selection Required", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
-            }
-
-            DataRowView drv = dgvBookingList.CurrentRow.DataBoundItem as DataRowView;
-
-            if (drv != null)
-            {
-                string firstName = drv.Row.Table.Columns.Contains("First_Name") ? drv.Row["First_Name"]?.ToString() : "";
-                string lastName = drv.Row.Table.Columns.Contains("Last_Name") ? drv.Row["Last_Name"]?.ToString() : "";
-
-                txtFullName.Text = $"{firstName} {lastName}".Trim();
-                txtPhoneNo.Text = drv.Row.Table.Columns.Contains("Phone_Number") ? drv.Row["Phone_Number"]?.ToString() : "";
-                txtEmailAddress.Text = drv.Row.Table.Columns.Contains("Email_Address") ? drv.Row["Email_Address"]?.ToString() : "";
-
-                if (txtIdPassportNo != null && drv.Row.Table.Columns.Contains("Identity_Number"))
-                {
-                    txtIdPassportNo.Text = drv.Row["Identity_Number"]?.ToString();
-                }
-
-                MessageBox.Show("Booking details loaded into editor fields.", "Details Loaded", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-        }
-
         private void btnSearch_Click_1(object sender, EventArgs e)
         {
             try
             {
+                RefreshDataSilent();
+
                 DataView dv = new DataView(codeCraftersDSTWO.ClientBranchTableBooking);
                 string filter = "1=1";
 
@@ -1315,11 +1401,8 @@ namespace Code_Crafters_Interface_Prototype_1.Business
                 {
                     switch (searchBy)
                     {
-                        case "Booking ID":
-                            filter += $" AND Convert(Booking_ID, 'System.String') LIKE '%{query}%'";
-                            break;
-                        case "Guest Name":
-                            filter += $" AND (First_Name LIKE '%{query}%' OR Last_Name LIKE '%{query}%')";
+                        case "Guest Full Name":
+                            filter += $" AND (First_Name + ' ' + Last_Name = '{query}')";
                             break;
                         case "Phone No":
                             filter += $" AND Phone_Number LIKE '%{query}%'";
@@ -1328,32 +1411,8 @@ namespace Code_Crafters_Interface_Prototype_1.Business
                             if (codeCraftersDSTWO.ClientBranchTableBooking.Columns.Contains("Identity_Number"))
                                 filter += $" AND Identity_Number LIKE '%{query}%'";
                             break;
-                        case "Room Type":
-                            if (codeCraftersDSTWO.ClientBranchTableBooking.Columns.Contains("hotel_room_type"))
-                                filter += $" AND hotel_room_type LIKE '%{query}%'";
-                            break;
                     }
                 }
-
-                string typeColName = codeCraftersDSTWO.ClientBranchTableBooking.Columns.Contains("Booking_Type") ? "Booking_Type" : "TYPE";
-
-                if (!string.IsNullOrEmpty(cmbFilterBookingType.Text) && cmbFilterBookingType.Text != "All")
-                {
-                    if (codeCraftersDSTWO.ClientBranchTableBooking.Columns.Contains(typeColName))
-                    {
-                        filter += $" AND {typeColName} = '{cmbFilterBookingType.Text.Replace("'", "''")}'";
-                    }
-                }
-
-                if (!string.IsNullOrEmpty(cmbFilterBookingStatus.Text) && cmbFilterBookingStatus.Text != "All")
-                {
-                    filter += $" AND Booking_Status = '{cmbFilterBookingStatus.Text.Replace("'", "''")}'";
-                }
-
-                DateTime fromDate = dtpFromDate.Value.Date;
-                DateTime toDate = dtpToDate.Value.Date.AddDays(1).AddTicks(-1);
-
-                filter += $" AND Checkin_Date >= #{fromDate:yyyy-MM-dd HH:mm:ss}# AND Checkout_Date <= #{toDate:yyyy-MM-dd HH:mm:ss}#";
 
                 dv.RowFilter = filter;
                 dgvBookingList.DataSource = dv;
@@ -1365,5 +1424,119 @@ namespace Code_Crafters_Interface_Prototype_1.Business
         }
 
         #endregion
+
+        private void btnViewEdit_Click(object sender, EventArgs e)
+        {
+            if (dgvBookingList.CurrentRow == null)
+            {
+                MessageBox.Show("Please select a booking from the list to view or edit.", "Selection Required", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            try
+            {
+                DataRowView drv = dgvBookingList.CurrentRow.DataBoundItem as DataRowView;
+                if (drv == null) return;
+
+                string firstName = drv.Row.Table.Columns.Contains("First_Name") && drv["First_Name"] != DBNull.Value ? drv["First_Name"].ToString() : "";
+                string lastName = drv.Row.Table.Columns.Contains("Last_Name") && drv["Last_Name"] != DBNull.Value ? drv["Last_Name"].ToString() : "";
+                txtFullName.Text = $"{firstName} {lastName}".Trim();
+
+                txtPhoneNo.Text = drv.Row.Table.Columns.Contains("Phone_Number") && drv["Phone_Number"] != DBNull.Value ? drv["Phone_Number"].ToString() : "";
+                txtEmailAddress.Text = drv.Row.Table.Columns.Contains("Email_Address") && drv["Email_Address"] != DBNull.Value ? drv["Email_Address"].ToString() : "";
+                txtIdPassportNo.Text = drv.Row.Table.Columns.Contains("Identity_Number") && drv["Identity_Number"] != DBNull.Value ? drv["Identity_Number"].ToString() : "";
+                cmbBookingType.Text = drv.Row.Table.Columns.Contains("Booking_Type") && drv["Booking_Type"] != DBNull.Value ? drv["Booking_Type"].ToString() : "";
+
+                if (drv.Row.Table.Columns.Contains("Number_Adults") && drv["Number_Adults"] != DBNull.Value)
+                    numAdults.Value = Convert.ToDecimal(drv["Number_Adults"]);
+
+                if (drv.Row.Table.Columns.Contains("Number_Children") && drv["Number_Children"] != DBNull.Value)
+                    numChildren.Value = Convert.ToDecimal(drv["Number_Children"]);
+
+                if (drv.Row.Table.Columns.Contains("Checkin_Date") && drv["Checkin_Date"] != DBNull.Value)
+                    dtpRoomCheckIn.Value = Convert.ToDateTime(drv["Checkin_Date"]);
+
+                if (drv.Row.Table.Columns.Contains("Checkout_Date") && drv["Checkout_Date"] != DBNull.Value)
+                    dtpRoomCheckOut.Value = Convert.ToDateTime(drv["Checkout_Date"]);
+
+                int bookingID = drv.Row.Table.Columns.Contains("Booking_ID") && drv["Booking_ID"] != DBNull.Value ? Convert.ToInt32(drv["Booking_ID"]) : 0;
+                MessageBox.Show(bookingID > 0 ? $"Booking BKG{bookingID:D4} loaded successfully." : "Booking loaded successfully.", "View/Edit Mode", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred while loading booking details: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            if (dgvBookingList.CurrentRow == null)
+            {
+                MessageBox.Show("Please select a booking from the list to save the invoice.", "Selection Required", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            try
+            {
+                DataRowView drv = dgvBookingList.CurrentRow.DataBoundItem as DataRowView;
+                if (drv == null) return;
+
+                int bookingID = Convert.ToInt32(drv["Booking_ID"]);
+                string bookingType = drv.Row.Table.Columns.Contains("Booking_Type") ? drv["Booking_Type"].ToString() : "N/A";
+                string firstName = drv.Row.Table.Columns.Contains("First_Name") ? drv["First_Name"].ToString() : "";
+                string lastName = drv.Row.Table.Columns.Contains("Last_Name") ? drv["Last_Name"].ToString() : "";
+                string phone = drv.Row.Table.Columns.Contains("Phone_Number") ? drv["Phone_Number"].ToString() : "N/A";
+                string status = drv.Row.Table.Columns.Contains("Booking_Status") ? drv["Booking_Status"].ToString() : "Pending";
+
+                string checkIn = drv.Row.Table.Columns.Contains("Checkin_Date") && drv["Checkin_Date"] != DBNull.Value
+                    ? Convert.ToDateTime(drv["Checkin_Date"]).ToString("yyyy/MM/dd") : "N/A";
+                string checkOut = drv.Row.Table.Columns.Contains("Checkout_Date") && drv["Checkout_Date"] != DBNull.Value
+                    ? Convert.ToDateTime(drv["Checkout_Date"]).ToString("yyyy/MM/dd") : "N/A";
+
+                decimal totalAmount = drv.Row.Table.Columns.Contains("Booking_Total_Amount") && drv["Booking_Total_Amount"] != DBNull.Value
+                    ? Convert.ToDecimal(drv["Booking_Total_Amount"]) : 0.00m;
+
+                string invoiceContent =
+                    "========================================\r\n" +
+                    "      REGAL INN HOTEL & RESTAURANT     \r\n" +
+                    "         Official Tax Invoice          \r\n" +
+                    "========================================\r\n\r\n" +
+                    $"Invoice Reference : BKG{bookingID:D4}\r\n" +
+                    $"Date Issued       : {DateTime.Now:yyyy/MM/dd HH:mm}\r\n" +
+                    $"Booking Status    : {status}\r\n\r\n" +
+                    "----------------------------------------\r\n" +
+                    " GUEST INFORMATION\r\n" +
+                    "----------------------------------------\r\n" +
+                    $"Guest Full Name   : {firstName} {lastName}\r\n" +
+                    $"Phone Number      : {phone}\r\n\r\n" +
+                    "----------------------------------------\r\n" +
+                    " BOOKING PARTICULARS\r\n" +
+                    "----------------------------------------\r\n" +
+                    $"Booking Type      : {bookingType}\r\n" +
+                    $"Check-In Date     : {checkIn}\r\n" +
+                    $"Check-Out Date    : {checkOut}\r\n\r\n" +
+                    "========================================\r\n" +
+                    $"TOTAL AMOUNT DUE  : R {totalAmount:N2}\r\n" +
+                    "========================================\r\n" +
+                    "Thank you for choosing Regal Inn!";
+
+                using (SaveFileDialog saveFileDialog = new SaveFileDialog())
+                {
+                    saveFileDialog.Filter = "Text Document (*.txt)|*.txt|All Files (*.*)|*.*";
+                    saveFileDialog.Title = "Save Invoice Receipt";
+                    saveFileDialog.FileName = $"Invoice_BKG{bookingID:D4}.txt";
+
+                    if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                    {
+                        System.IO.File.WriteAllText(saveFileDialog.FileName, invoiceContent);
+                        MessageBox.Show("Invoice successfully saved to file.", "Save Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred while saving the invoice: " + ex.Message, "Save Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

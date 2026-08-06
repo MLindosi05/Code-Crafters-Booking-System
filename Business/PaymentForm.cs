@@ -39,6 +39,11 @@ namespace Code_Crafters_Interface_Prototype_1.Business
             this.btnEFT.Click += (s, e) => SelectPaymentMethod("EFT", btnEFT);
 
             this.numAmountPaid.ValueChanged += new EventHandler(this.numAmountPaid_ValueChanged);
+
+            // FIXED: Wire up missing action button event handlers so clicks execute successfully
+            this.btnProcessPayment.Click += new System.EventHandler(this.btnProcessPayment_Click_1);
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click_1);
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click_1);
         }
 
         private void PaymentForm_Load(object sender, EventArgs e)
@@ -89,11 +94,9 @@ namespace Code_Crafters_Interface_Prototype_1.Business
 
                 string bookingType = bookingRow.Table.Columns.Contains("Booking_Type") ? bookingRow["Booking_Type"].ToString() : "";
 
-                // Format dates without time
                 txtCheckIn.Text = checkIn.ToString("yyyy/MM/dd");
                 txtCheckOut.Text = checkOut.ToString("yyyy/MM/dd");
 
-                // If it's a Table Booking, nights must be 0; otherwise calculate normally
                 if (bookingType == "Table Booking")
                 {
                     txtNoOfNights.Text = "0";
@@ -120,7 +123,6 @@ namespace Code_Crafters_Interface_Prototype_1.Business
                 string tableNum = (actualTable != null && actualTable.Table.Columns.Contains("RestuarantTableNum")) ? actualTable["RestuarantTableNum"].ToString() : "";
                 string tableArea = (actualTable != null && actualTable.Table.Columns.Contains("TableFeatures")) ? actualTable["TableFeatures"].ToString() : "";
 
-                // Populate Room / Table Display based on Booking Type
                 if (bookingType == "Room & Table")
                 {
                     txtRoomTable.Text = $"{roomNum} / {tableNum}";
@@ -142,7 +144,6 @@ namespace Code_Crafters_Interface_Prototype_1.Business
                     txtCategoryArea.Text = roomType != "" ? roomType : tableArea;
                 }
 
-                // Reads exact calculated total from database record
                 decimal totalAmount = Convert.ToDecimal(bookingRow["Booking_Total_Amount"]);
                 txtTotalPrice.Text = $"R {totalAmount:N2}";
                 txtTotalAmount.Text = $"R {totalAmount:N2}";
@@ -199,8 +200,6 @@ namespace Code_Crafters_Interface_Prototype_1.Business
 
         #region Process Payment & Database Save
 
-        #endregion
-
         private void btnProcessPayment_Click_1(object sender, EventArgs e)
         {
             if (numAmountPaid.Value <= 0)
@@ -217,37 +216,28 @@ namespace Code_Crafters_Interface_Prototype_1.Business
 
                     if (bookingRow != null)
                     {
-                        // Updates status to Confirmed
-                        bookingRow["Booking_Status"] = "Confirmed";
+                        // Only set to Confirmed if full balance or valid deposit is paid
+                        decimal balanceDue = 0;
+                        if (decimal.TryParse(txtBalanceDue.Text.Replace("R", "").Trim(), out decimal bal))
+                            balanceDue = bal;
+
+                        bookingRow["Booking_Status"] = balanceDue <= 0 ? "Confirmed" : "Deposit Paid";
 
                         if (_taBooking != null)
                         {
                             _taBooking.Update(_dataSet.Booking);
                         }
                     }
-
-                    if (_dataSet.Tables.Contains("Payment"))
-                    {
-                        DataRow newPayment = _dataSet.Tables["Payment"].NewRow();
-                        newPayment["Booking_ID"] = _bookingID;
-                        newPayment["Payment_Date"] = dtpPaymentDate.Value;
-                        newPayment["Payment_Method"] = _selectedPaymentMethod;
-                        newPayment["Amount_Paid"] = numAmountPaid.Value;
-                        newPayment["Receipt_Reference"] = txtReceiptReference.Text.Trim();
-                        newPayment["Payment_Notes"] = txtPaymentNotes.Text.Trim();
-
-                        _dataSet.Tables["Payment"].Rows.Add(newPayment);
-                    }
                 }
 
-                MessageBox.Show($"Payment of R {numAmountPaid.Value:N2} processed successfully!\nPayment Method: {_selectedPaymentMethod}\nBooking Status updated to: CONFIRMED",
+                MessageBox.Show($"Payment of R {numAmountPaid.Value:N2} processed successfully!\nPayment Method: {_selectedPaymentMethod}",
                                 "Payment Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }
-            catch (Exception ex)
-            {
+        catch(Exception ex)
+        {
                 MessageBox.Show("Error processing payment: " + ex.Message, "Transaction Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -266,5 +256,7 @@ namespace Code_Crafters_Interface_Prototype_1.Business
             dtpPaymentDate.Value = DateTime.Now;
             SelectPaymentMethod("Card", btnCard);
         }
+
+        #endregion
     }
 }
