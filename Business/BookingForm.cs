@@ -39,6 +39,27 @@ namespace Code_Crafters_Interface_Prototype_1.Business
             this.cmbBookingType.DropDown += new System.EventHandler(this.cmbBookingType_DropDown);
             this.cmbFilterBookingStatus.DropDown += new System.EventHandler(this.cmbFilterBookingStatus_DropDown);
             this.cmbFilterBookingType.DropDown += new System.EventHandler(this.cmbFilterBookingType_DropDown);
+
+            this.dtpRoomCheckIn.ValueChanged += new System.EventHandler(this.DtpRoomDates_ValueChanged);
+            this.dtpRoomCheckOut.ValueChanged += new System.EventHandler(this.DtpRoomDates_ValueChanged);
+        }
+
+        private void DtpRoomDates_ValueChanged(object sender, EventArgs e)
+        {
+            CalculateNights();
+        }
+
+        private void CalculateNights()
+        {
+            if (dtpRoomCheckOut.Value.Date >= dtpRoomCheckIn.Value.Date)
+            {
+                int nights = (int)(dtpRoomCheckOut.Value.Date - dtpRoomCheckIn.Value.Date).TotalDays;
+                numNoOfNights.Text = (nights > 0 ? nights : 1).ToString();
+            }
+            else
+            {
+                numNoOfNights.Text = "1";
+            }
         }
 
         #region Form Load & Initialization
@@ -419,7 +440,6 @@ namespace Code_Crafters_Interface_Prototype_1.Business
             SetupCustomGridView();
             RefreshData();
 
-            // Populate Dropdowns immediately on Load
             cmbBookingType.Items.Clear();
             cmbBookingType.Items.AddRange(new string[] { "Room Booking", "Table Booking", "Room & Table" });
 
@@ -453,6 +473,12 @@ namespace Code_Crafters_Interface_Prototype_1.Business
 
             dtpFromDate.Value = DateTime.Now.AddMonths(-1);
             dtpToDate.Value = DateTime.Now.AddMonths(1);
+
+            dtpRoomCheckIn.Value = DateTime.Today.Add(StandardCheckInTime);
+            dtpRoomCheckOut.Value = DateTime.Today.AddDays(1).Add(StandardCheckOutTime);
+
+            CalculateNights(); 
+
         }
 
         #endregion
@@ -832,33 +858,164 @@ namespace Code_Crafters_Interface_Prototype_1.Business
 
         private void btnLinkBookings_Click(object sender, EventArgs e)
         {
-            if (dgvBookingList.SelectedRows.Count < 2)
+            if (dgvBookingList.CurrentRow == null)
             {
-                MessageBox.Show("Please select at least two bookings in the grid using Ctrl+Click to link them together.", "Multiple Selection Required", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Please select an existing booking in the grid to append a new booking to.", "Selection Required", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
 
-            int parentID = Convert.ToInt32(dgvBookingList.SelectedRows[0].Cells["Booking_ID"].Value);
-
-            for (int i = 1; i < dgvBookingList.SelectedRows.Count; i++)
+            try
             {
-                int childID = Convert.ToInt32(dgvBookingList.SelectedRows[i].Cells["Booking_ID"].Value);
-                DataRow childRow = codeCraftersDSTWO.Booking.FindByBooking_ID(childID);
+                // 1. Get the primary/existing booking details from the selected row
+                int primaryBookingID = Convert.ToInt32(dgvBookingList.CurrentRow.Cells["Booking_ID"].Value);
+                DataRow primaryBookingRow = codeCraftersDSTWO.Booking.FindByBooking_ID(primaryBookingID);
 
-                if (childRow != null)
+                if (primaryBookingRow == null)
                 {
-                    if (codeCraftersDSTWO.Booking.Columns.Contains("Admin_Notes"))
+                    MessageBox.Show("Selected primary booking record not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                // 2. Validate form inputs for the new appended booking part
+                if (cmbBookingType.SelectedItem == null)
+                {
+                    MessageBox.Show("Please select a valid booking type for the appended booking (Room Booking, Table Booking, or Room & Table).", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    cmbBookingType.Focus();
+                    return;
+                }
+
+                string bookingType = cmbBookingType.SelectedItem.ToString();
+                string branchID = primaryBookingRow["Branch_ID"].ToString();
+                int clientID = Convert.ToInt32(primaryBookingRow["Client_ID"]);
+
+                DateTime checkIn = dtpRoomCheckIn.Value;
+                DateTime checkOut = dtpRoomCheckOut.Value;
+                int nights = (int)(checkOut.Date - checkIn.Date).TotalDays;
+                if (nights <= 0) nights = 1;
+
+                DataRow assignedRoom = null;
+                DataRow assignedTable = null;
+
+                // 3. Room Assignment if applicable
+                if (bookingType == "Room Booking" || bookingType == "Room & Table")
+                {
+                    if (cmbRoomCategory.SelectedItem == null && cmbRoomCategory.Text == "")
                     {
-                        string currentNotes = childRow["Admin_Notes"]?.ToString() ?? "";
-                        childRow["Admin_Notes"] = $"{currentNotes} | Linked under Primary Ref BR{parentID}".TrimStart(' ', '|');
+                        MessageBox.Show("Please select or specify a room category for the appended booking.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        cmbRoomCategory.Focus();
+                        return;
+                    }
+
+                    string roomCategory = cmbRoomCategory.Text.Trim();
+                    int adults = (int)numAdults.Value;
+                    int children = (int)numChildren.Value;
+                    int infants = (int)numInfants.Value;
+
+                    assignedRoom = AssignAvailableRoom(roomCategory, adults, children, infants, checkIn, checkOut);
+
+                    if (assignedRoom == null)
+                    {
+                        MessageBox.Show($"No available rooms found for category '{roomCategory}' matching capacity and dates.", "Availability Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
                     }
                 }
+
+                // 4. Table Assignment if applicable
+                if (bookingType == "Table Booking" || bookingType == "Room & Table")
+                {
+                    if (cmbTableArea.SelectedItem == null && cmbTableArea.Text == "")
+                    {
+                        MessageBox.Show("Please select or specify a restaurant table area for the appended booking.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        cmbTableArea.Focus();
+                        return;
+                    }
+
+                    string tableArea = cmbTableArea.Text.Trim();
+                    assignedTable = AssignAvailableTable(tableArea, checkIn, checkOut);
+
+                    if (assignedTable == null)
+                    {
+                        MessageBox.Show($"No available restaurant tables found in area '{tableArea}' for the selected time slot.", "Availability Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                }
+
+                // 5. Calculate Total Cost for Appended Booking
+                decimal totalAmount = CalculateBookingAmount(bookingType, assignedRoom, assignedTable, nights);
+
+                // 6. Create the Appended Booking Record
+                DataRow appendedBooking = codeCraftersDSTWO.Booking.NewRow();
+                appendedBooking["Client_ID"] = clientID;
+                appendedBooking["Branch_ID"] = branchID;
+                appendedBooking["Booking_Date"] = DateTime.Now;
+                appendedBooking["Checkin_Date"] = checkIn;
+                appendedBooking["Checkout_Date"] = checkOut;
+                appendedBooking["Booking_Total_Amount"] = totalAmount;
+                appendedBooking["Booking_Status"] = "Pending"; // Starts as pending until paid
+
+                // Ensure Number_Adults is at least 1 to satisfy database CHECK constraints
+                int adultsCount = (int)numAdults.Value;
+                appendedBooking["Number_Adults"] = adultsCount > 0 ? adultsCount : 1;
+
+                appendedBooking["Number_Children"] = (int)numChildren.Value;
+                appendedBooking["Booking_Type"] = bookingType;
+
+                // Tag it as appended to the primary reference
+                string existingNotes = primaryBookingRow.Table.Columns.Contains("Admin_Notes") ? (primaryBookingRow["Admin_Notes"]?.ToString() ?? "") : "";
+                appendedBooking["Special_Request"] = $"Appended to Primary Ref BKG{primaryBookingID:D4}";
+
+                string staffFullName = $"{UserSession.StaffFirstName} {UserSession.StaffSurname}".Trim();
+                appendedBooking["Staff_Created_By"] = string.IsNullOrEmpty(staffFullName) ? "Administrator" : staffFullName;
+
+                codeCraftersDSTWO.Booking.Rows.Add(appendedBooking);
+                taBooking.Update(codeCraftersDSTWO.Booking);
+
+                // Fetch newly generated Appended Booking ID securely
+                int appendedBookingID = Convert.ToInt32(appendedBooking["Booking_ID"]);
+
+                // 7. Save Room/Table Mappings for Appended Booking
+                if (assignedRoom != null)
+                {
+                    DataRow roomAssignRow = codeCraftersDSTWO.Room_Assignment.NewRow();
+                    roomAssignRow["Booking_ID"] = appendedBookingID;
+                    roomAssignRow["Hotel_Room_ID"] = Convert.ToInt32(assignedRoom["Hotel_Room_ID"]);
+                    roomAssignRow["Actual_Checkin_Time"] = checkIn;
+                    roomAssignRow["Actual_Checkout_Time"] = checkOut;
+                    roomAssignRow["Assignment_Status"] = "Reserved";
+
+                    codeCraftersDSTWO.Room_Assignment.Rows.Add(roomAssignRow);
+                    taRoomAssignment.Update(codeCraftersDSTWO.Room_Assignment);
+                }
+
+                if (assignedTable != null)
+                {
+                    DataRow tableAllocRow = codeCraftersDSTWO.Table_Allocation.NewRow();
+                    tableAllocRow["Booking_ID"] = appendedBookingID;
+                    tableAllocRow["Restuarant_Table_ID"] = Convert.ToInt32(assignedTable["RestaurantTableID"]);
+                    tableAllocRow["Start_Time"] = dtpTableCheckIn.Value;
+                    tableAllocRow["End_Time"] = dtpTableCheckOut.Value;
+                    tableAllocRow["Allocation_Status"] = "Reserved";
+
+                    codeCraftersDSTWO.Table_Allocation.Rows.Add(tableAllocRow);
+                    taTableAllocation.Update(codeCraftersDSTWO.Table_Allocation);
+                }
+
+                MessageBox.Show($"New booking successfully appended!\nAppended Reference: BKG{appendedBookingID:D4} (Linked to BKG{primaryBookingID:D4})\nProceeding to payment...",
+                                "Booking Appended", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                // 8. Immediately Open Payment Form for the Appended Booking
+                using (PaymentForm paymentForm = new PaymentForm(appendedBookingID, codeCraftersDSTWO, taBooking))
+                {
+                    paymentForm.ShowDialog();
+                }
+
+                ClearFormInputs();
+                RefreshData();
             }
-
-            taBooking.Update(codeCraftersDSTWO.Booking);
-
-            MessageBox.Show("Selected bookings successfully linked under primary reference.", "Link Complete", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            RefreshData();
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred while appending the booking: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnPrint_Click(object sender, EventArgs e)
@@ -887,7 +1044,7 @@ namespace Code_Crafters_Interface_Prototype_1.Business
             numChildren.Value = 0;
             numInfants.Value = 0;
 
-            numNoOfNights.Value = 0;
+            numNoOfNights.Clear(); 
             numNoOfRooms.Value = 0;
 
             ClearAllDropdowns();

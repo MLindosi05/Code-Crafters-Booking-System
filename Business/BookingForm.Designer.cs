@@ -42,7 +42,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.numNoOfNights = new System.Windows.Forms.NumericUpDown();
             this.numNoOfRooms = new System.Windows.Forms.NumericUpDown();
             this.dtpRoomCheckIn = new System.Windows.Forms.DateTimePicker();
             this.dtpRoomCheckOut = new System.Windows.Forms.DateTimePicker();
@@ -111,10 +110,10 @@
             this.taRoomAssignment = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTWOTableAdapters.Room_AssignmentTableAdapter();
             this.taStaff = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTWOTableAdapters.StaffTableAdapter();
             this.taTableAllocation = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTWOTableAdapters.Table_AllocationTableAdapter();
+            this.numNoOfNights = new System.Windows.Forms.TextBox();
             this.pnlBooking.SuspendLayout();
             this.pnlGuestDetails.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numNoOfNights)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numNoOfRooms)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.hotelRoomBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.codeCraftersDSTWO)).BeginInit();
@@ -155,7 +154,7 @@
             "JHB Midrand"});
             this.cmbBranchName.Location = new System.Drawing.Point(201, 44);
             this.cmbBranchName.Name = "cmbBranchName";
-            this.cmbBranchName.Size = new System.Drawing.Size(168, 29);
+            this.cmbBranchName.Size = new System.Drawing.Size(168, 36);
             this.cmbBranchName.TabIndex = 44;
             // 
             // label9
@@ -164,7 +163,7 @@
             this.label9.ForeColor = System.Drawing.Color.DarkGoldenrod;
             this.label9.Location = new System.Drawing.Point(12, 47);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(183, 21);
+            this.label9.Size = new System.Drawing.Size(231, 28);
             this.label9.TabIndex = 4;
             this.label9.Text = "🏨 REGAL INN HOTELS";
             // 
@@ -199,7 +198,7 @@
             this.lblRegalBooking.ForeColor = System.Drawing.Color.Navy;
             this.lblRegalBooking.Location = new System.Drawing.Point(16, 13);
             this.lblRegalBooking.Name = "lblRegalBooking";
-            this.lblRegalBooking.Size = new System.Drawing.Size(171, 21);
+            this.lblRegalBooking.Size = new System.Drawing.Size(216, 28);
             this.lblRegalBooking.TabIndex = 1;
             this.lblRegalBooking.Text = "REGAL INN BOOKING";
             // 
@@ -242,7 +241,7 @@
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(17, 6);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(276, 21);
+            this.label7.Size = new System.Drawing.Size(349, 28);
             this.label7.TabIndex = 32;
             this.label7.Text = "🔍 SEARCH AND FILTER BOOKINGS";
             // 
@@ -277,7 +276,7 @@
             this.dtpToDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpToDate.Location = new System.Drawing.Point(200, 187);
             this.dtpToDate.Name = "dtpToDate";
-            this.dtpToDate.Size = new System.Drawing.Size(143, 29);
+            this.dtpToDate.Size = new System.Drawing.Size(143, 34);
             this.dtpToDate.TabIndex = 29;
             this.dtpToDate.Value = new System.DateTime(2026, 8, 5, 0, 0, 0, 0);
             // 
@@ -287,7 +286,7 @@
             this.dtpFromDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpFromDate.Location = new System.Drawing.Point(30, 187);
             this.dtpFromDate.Name = "dtpFromDate";
-            this.dtpFromDate.Size = new System.Drawing.Size(134, 29);
+            this.dtpFromDate.Size = new System.Drawing.Size(134, 34);
             this.dtpFromDate.TabIndex = 28;
             this.dtpFromDate.Value = new System.DateTime(2026, 8, 5, 0, 0, 0, 0);
             // 
@@ -297,7 +296,7 @@
             this.label1.ForeColor = System.Drawing.Color.Black;
             this.label1.Location = new System.Drawing.Point(26, 152);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(99, 21);
+            this.label1.Size = new System.Drawing.Size(126, 28);
             this.label1.TabIndex = 27;
             this.label1.Text = "FROM DATE";
             // 
@@ -307,7 +306,7 @@
             this.label2.ForeColor = System.Drawing.Color.Black;
             this.label2.Location = new System.Drawing.Point(196, 152);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(74, 21);
+            this.label2.Size = new System.Drawing.Size(95, 28);
             this.label2.TabIndex = 26;
             this.label2.Text = "TO DATE";
             // 
@@ -315,7 +314,7 @@
             // 
             this.txtSearchQuery.Location = new System.Drawing.Point(146, 107);
             this.txtSearchQuery.Name = "txtSearchQuery";
-            this.txtSearchQuery.Size = new System.Drawing.Size(133, 29);
+            this.txtSearchQuery.Size = new System.Drawing.Size(133, 34);
             this.txtSearchQuery.TabIndex = 25;
             // 
             // cmbFilterBookingStatus
@@ -323,7 +322,7 @@
             this.cmbFilterBookingStatus.FormattingEnabled = true;
             this.cmbFilterBookingStatus.Location = new System.Drawing.Point(445, 107);
             this.cmbFilterBookingStatus.Name = "cmbFilterBookingStatus";
-            this.cmbFilterBookingStatus.Size = new System.Drawing.Size(147, 29);
+            this.cmbFilterBookingStatus.Size = new System.Drawing.Size(147, 36);
             this.cmbFilterBookingStatus.TabIndex = 24;
             // 
             // cmbFilterBookingType
@@ -331,7 +330,7 @@
             this.cmbFilterBookingType.FormattingEnabled = true;
             this.cmbFilterBookingType.Location = new System.Drawing.Point(293, 107);
             this.cmbFilterBookingType.Name = "cmbFilterBookingType";
-            this.cmbFilterBookingType.Size = new System.Drawing.Size(121, 29);
+            this.cmbFilterBookingType.Size = new System.Drawing.Size(121, 36);
             this.cmbFilterBookingType.TabIndex = 23;
             // 
             // cmbSearchBy
@@ -339,7 +338,7 @@
             this.cmbSearchBy.FormattingEnabled = true;
             this.cmbSearchBy.Location = new System.Drawing.Point(30, 107);
             this.cmbSearchBy.Name = "cmbSearchBy";
-            this.cmbSearchBy.Size = new System.Drawing.Size(95, 29);
+            this.cmbSearchBy.Size = new System.Drawing.Size(95, 36);
             this.cmbSearchBy.TabIndex = 22;
             // 
             // label3
@@ -348,7 +347,7 @@
             this.label3.ForeColor = System.Drawing.Color.Black;
             this.label3.Location = new System.Drawing.Point(441, 74);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(144, 21);
+            this.label3.Size = new System.Drawing.Size(182, 28);
             this.label3.TabIndex = 21;
             this.label3.Text = "BOOKING STATUS";
             // 
@@ -358,7 +357,7 @@
             this.label4.ForeColor = System.Drawing.Color.Black;
             this.label4.Location = new System.Drawing.Point(289, 74);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(125, 21);
+            this.label4.Size = new System.Drawing.Size(157, 28);
             this.label4.TabIndex = 20;
             this.label4.Text = "BOOKING TYPE";
             // 
@@ -368,7 +367,7 @@
             this.label5.ForeColor = System.Drawing.Color.Black;
             this.label5.Location = new System.Drawing.Point(142, 74);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(128, 21);
+            this.label5.Size = new System.Drawing.Size(159, 28);
             this.label5.TabIndex = 19;
             this.label5.Text = "SEARCH QUERY";
             // 
@@ -378,7 +377,7 @@
             this.label6.ForeColor = System.Drawing.Color.Black;
             this.label6.Location = new System.Drawing.Point(26, 74);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(95, 21);
+            this.label6.Size = new System.Drawing.Size(119, 28);
             this.label6.TabIndex = 18;
             this.label6.Text = "SEARCH BY";
             // 
@@ -401,18 +400,11 @@
             this.panel1.Size = new System.Drawing.Size(373, 250);
             this.panel1.TabIndex = 11;
             // 
-            // numNoOfNights
-            // 
-            this.numNoOfNights.Location = new System.Drawing.Point(152, 131);
-            this.numNoOfNights.Name = "numNoOfNights";
-            this.numNoOfNights.Size = new System.Drawing.Size(85, 29);
-            this.numNoOfNights.TabIndex = 42;
-            // 
             // numNoOfRooms
             // 
             this.numNoOfRooms.Location = new System.Drawing.Point(152, 166);
             this.numNoOfRooms.Name = "numNoOfRooms";
-            this.numNoOfRooms.Size = new System.Drawing.Size(85, 29);
+            this.numNoOfRooms.Size = new System.Drawing.Size(85, 34);
             this.numNoOfRooms.TabIndex = 41;
             // 
             // dtpRoomCheckIn
@@ -421,7 +413,7 @@
             this.dtpRoomCheckIn.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpRoomCheckIn.Location = new System.Drawing.Point(152, 55);
             this.dtpRoomCheckIn.Name = "dtpRoomCheckIn";
-            this.dtpRoomCheckIn.Size = new System.Drawing.Size(129, 29);
+            this.dtpRoomCheckIn.Size = new System.Drawing.Size(129, 34);
             this.dtpRoomCheckIn.TabIndex = 40;
             this.dtpRoomCheckIn.Value = new System.DateTime(2026, 8, 5, 0, 0, 0, 0);
             // 
@@ -431,7 +423,7 @@
             this.dtpRoomCheckOut.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpRoomCheckOut.Location = new System.Drawing.Point(152, 92);
             this.dtpRoomCheckOut.Name = "dtpRoomCheckOut";
-            this.dtpRoomCheckOut.Size = new System.Drawing.Size(129, 29);
+            this.dtpRoomCheckOut.Size = new System.Drawing.Size(129, 34);
             this.dtpRoomCheckOut.TabIndex = 39;
             this.dtpRoomCheckOut.Value = new System.DateTime(2026, 8, 5, 0, 0, 0, 0);
             // 
@@ -441,7 +433,7 @@
             this.label10.ForeColor = System.Drawing.Color.Black;
             this.label10.Location = new System.Drawing.Point(18, 171);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(124, 21);
+            this.label10.Size = new System.Drawing.Size(157, 28);
             this.label10.TabIndex = 37;
             this.label10.Text = "NO. OF ROOMS";
             // 
@@ -451,7 +443,7 @@
             this.label11.ForeColor = System.Drawing.Color.Black;
             this.label11.Location = new System.Drawing.Point(18, 136);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(125, 21);
+            this.label11.Size = new System.Drawing.Size(158, 28);
             this.label11.TabIndex = 36;
             this.label11.Text = "NO. OF NIGHTS";
             // 
@@ -461,7 +453,7 @@
             this.label12.ForeColor = System.Drawing.Color.Black;
             this.label12.Location = new System.Drawing.Point(18, 98);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(100, 21);
+            this.label12.Size = new System.Drawing.Size(124, 28);
             this.label12.TabIndex = 35;
             this.label12.Text = "CHECK-OUT";
             // 
@@ -471,7 +463,7 @@
             this.label13.ForeColor = System.Drawing.Color.Black;
             this.label13.Location = new System.Drawing.Point(18, 61);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(85, 21);
+            this.label13.Size = new System.Drawing.Size(105, 28);
             this.label13.TabIndex = 34;
             this.label13.Text = "CHECK-IN";
             // 
@@ -488,7 +480,7 @@
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(17, 6);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(163, 21);
+            this.label8.Size = new System.Drawing.Size(206, 28);
             this.label8.TabIndex = 32;
             this.label8.Text = "🛏 ROOM BOOKING";
             // 
@@ -526,7 +518,7 @@
             this.cmbTableArea.FormattingEnabled = true;
             this.cmbTableArea.Location = new System.Drawing.Point(159, 171);
             this.cmbTableArea.Name = "cmbTableArea";
-            this.cmbTableArea.Size = new System.Drawing.Size(170, 29);
+            this.cmbTableArea.Size = new System.Drawing.Size(170, 36);
             this.cmbTableArea.TabIndex = 43;
             // 
             // label14
@@ -536,7 +528,7 @@
             this.label14.Location = new System.Drawing.Point(28, 174);
             this.label14.Name = "label14";
             this.label14.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label14.Size = new System.Drawing.Size(101, 21);
+            this.label14.Size = new System.Drawing.Size(129, 28);
             this.label14.TabIndex = 42;
             this.label14.Text = "TABLE AREA";
             // 
@@ -546,7 +538,7 @@
             this.dtpTableCheckOut.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpTableCheckOut.Location = new System.Drawing.Point(159, 92);
             this.dtpTableCheckOut.Name = "dtpTableCheckOut";
-            this.dtpTableCheckOut.Size = new System.Drawing.Size(131, 29);
+            this.dtpTableCheckOut.Size = new System.Drawing.Size(131, 34);
             this.dtpTableCheckOut.TabIndex = 41;
             this.dtpTableCheckOut.Value = new System.DateTime(2026, 8, 5, 0, 0, 0, 0);
             // 
@@ -556,7 +548,7 @@
             this.dtpTableCheckIn.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpTableCheckIn.Location = new System.Drawing.Point(159, 57);
             this.dtpTableCheckIn.Name = "dtpTableCheckIn";
-            this.dtpTableCheckIn.Size = new System.Drawing.Size(131, 29);
+            this.dtpTableCheckIn.Size = new System.Drawing.Size(131, 34);
             this.dtpTableCheckIn.TabIndex = 40;
             this.dtpTableCheckIn.Value = new System.DateTime(2026, 8, 5, 0, 0, 0, 0);
             // 
@@ -564,7 +556,7 @@
             // 
             this.numTableGuests.Location = new System.Drawing.Point(159, 130);
             this.numTableGuests.Name = "numTableGuests";
-            this.numTableGuests.Size = new System.Drawing.Size(85, 29);
+            this.numTableGuests.Size = new System.Drawing.Size(85, 34);
             this.numTableGuests.TabIndex = 38;
             // 
             // label15
@@ -574,7 +566,7 @@
             this.label15.Location = new System.Drawing.Point(28, 135);
             this.label15.Name = "label15";
             this.label15.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label15.Size = new System.Drawing.Size(125, 21);
+            this.label15.Size = new System.Drawing.Size(157, 28);
             this.label15.TabIndex = 37;
             this.label15.Text = "NO. OF GUESTS";
             // 
@@ -584,7 +576,7 @@
             this.label17.ForeColor = System.Drawing.Color.Black;
             this.label17.Location = new System.Drawing.Point(28, 96);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(100, 21);
+            this.label17.Size = new System.Drawing.Size(124, 28);
             this.label17.TabIndex = 35;
             this.label17.Text = "CHECK-OUT";
             // 
@@ -594,7 +586,7 @@
             this.label18.ForeColor = System.Drawing.Color.Black;
             this.label18.Location = new System.Drawing.Point(28, 61);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(85, 21);
+            this.label18.Size = new System.Drawing.Size(105, 28);
             this.label18.TabIndex = 34;
             this.label18.Text = "CHECK-IN";
             // 
@@ -611,7 +603,7 @@
             this.label19.AutoSize = true;
             this.label19.Location = new System.Drawing.Point(17, 6);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(160, 21);
+            this.label19.Size = new System.Drawing.Size(203, 28);
             this.label19.TabIndex = 32;
             this.label19.Text = "🍽 TABLE BOOKING";
             // 
@@ -648,21 +640,21 @@
             // 
             this.numInfants.Location = new System.Drawing.Point(533, 131);
             this.numInfants.Name = "numInfants";
-            this.numInfants.Size = new System.Drawing.Size(85, 29);
+            this.numInfants.Size = new System.Drawing.Size(85, 34);
             this.numInfants.TabIndex = 51;
             // 
             // numChildren
             // 
             this.numChildren.Location = new System.Drawing.Point(533, 94);
             this.numChildren.Name = "numChildren";
-            this.numChildren.Size = new System.Drawing.Size(85, 29);
+            this.numChildren.Size = new System.Drawing.Size(85, 34);
             this.numChildren.TabIndex = 50;
             // 
             // numAdults
             // 
             this.numAdults.Location = new System.Drawing.Point(533, 59);
             this.numAdults.Name = "numAdults";
-            this.numAdults.Size = new System.Drawing.Size(85, 29);
+            this.numAdults.Size = new System.Drawing.Size(85, 34);
             this.numAdults.TabIndex = 49;
             // 
             // cmbRoomCategory
@@ -675,35 +667,35 @@
             "Suite"});
             this.cmbRoomCategory.Location = new System.Drawing.Point(532, 167);
             this.cmbRoomCategory.Name = "cmbRoomCategory";
-            this.cmbRoomCategory.Size = new System.Drawing.Size(86, 29);
+            this.cmbRoomCategory.Size = new System.Drawing.Size(86, 36);
             this.cmbRoomCategory.TabIndex = 48;
             // 
             // txtIdPassportNo
             // 
             this.txtIdPassportNo.Location = new System.Drawing.Point(191, 203);
             this.txtIdPassportNo.Name = "txtIdPassportNo";
-            this.txtIdPassportNo.Size = new System.Drawing.Size(168, 29);
+            this.txtIdPassportNo.Size = new System.Drawing.Size(168, 34);
             this.txtIdPassportNo.TabIndex = 47;
             // 
             // txtEmailAddress
             // 
             this.txtEmailAddress.Location = new System.Drawing.Point(191, 168);
             this.txtEmailAddress.Name = "txtEmailAddress";
-            this.txtEmailAddress.Size = new System.Drawing.Size(168, 29);
+            this.txtEmailAddress.Size = new System.Drawing.Size(168, 34);
             this.txtEmailAddress.TabIndex = 46;
             // 
             // txtPhoneNo
             // 
             this.txtPhoneNo.Location = new System.Drawing.Point(191, 132);
             this.txtPhoneNo.Name = "txtPhoneNo";
-            this.txtPhoneNo.Size = new System.Drawing.Size(168, 29);
+            this.txtPhoneNo.Size = new System.Drawing.Size(168, 34);
             this.txtPhoneNo.TabIndex = 45;
             // 
             // txtFullName
             // 
             this.txtFullName.Location = new System.Drawing.Point(191, 95);
             this.txtFullName.Name = "txtFullName";
-            this.txtFullName.Size = new System.Drawing.Size(168, 29);
+            this.txtFullName.Size = new System.Drawing.Size(168, 34);
             this.txtFullName.TabIndex = 44;
             // 
             // cmbBookingType
@@ -711,7 +703,7 @@
             this.cmbBookingType.FormattingEnabled = true;
             this.cmbBookingType.Location = new System.Drawing.Point(191, 59);
             this.cmbBookingType.Name = "cmbBookingType";
-            this.cmbBookingType.Size = new System.Drawing.Size(168, 29);
+            this.cmbBookingType.Size = new System.Drawing.Size(168, 36);
             this.cmbBookingType.TabIndex = 43;
             // 
             // lblRoomCategory
@@ -720,7 +712,7 @@
             this.lblRoomCategory.ForeColor = System.Drawing.Color.Black;
             this.lblRoomCategory.Location = new System.Drawing.Point(380, 170);
             this.lblRoomCategory.Name = "lblRoomCategory";
-            this.lblRoomCategory.Size = new System.Drawing.Size(144, 21);
+            this.lblRoomCategory.Size = new System.Drawing.Size(182, 28);
             this.lblRoomCategory.TabIndex = 42;
             this.lblRoomCategory.Text = "ROOM CATEGORY";
             // 
@@ -730,7 +722,7 @@
             this.lblInfants.ForeColor = System.Drawing.Color.Black;
             this.lblInfants.Location = new System.Drawing.Point(381, 131);
             this.lblInfants.Name = "lblInfants";
-            this.lblInfants.Size = new System.Drawing.Size(77, 21);
+            this.lblInfants.Size = new System.Drawing.Size(96, 28);
             this.lblInfants.TabIndex = 41;
             this.lblInfants.Text = "INFANTS";
             // 
@@ -740,7 +732,7 @@
             this.lblChildren.ForeColor = System.Drawing.Color.Black;
             this.lblChildren.Location = new System.Drawing.Point(381, 94);
             this.lblChildren.Name = "lblChildren";
-            this.lblChildren.Size = new System.Drawing.Size(89, 21);
+            this.lblChildren.Size = new System.Drawing.Size(110, 28);
             this.lblChildren.TabIndex = 40;
             this.lblChildren.Text = "CHILDREN";
             // 
@@ -750,7 +742,7 @@
             this.lblAdults.ForeColor = System.Drawing.Color.Black;
             this.lblAdults.Location = new System.Drawing.Point(381, 59);
             this.lblAdults.Name = "lblAdults";
-            this.lblAdults.Size = new System.Drawing.Size(70, 21);
+            this.lblAdults.Size = new System.Drawing.Size(87, 28);
             this.lblAdults.TabIndex = 39;
             this.lblAdults.Text = "ADULTS";
             // 
@@ -760,7 +752,7 @@
             this.lblIDORPASS.ForeColor = System.Drawing.Color.Black;
             this.lblIDORPASS.Location = new System.Drawing.Point(26, 203);
             this.lblIDORPASS.Name = "lblIDORPASS";
-            this.lblIDORPASS.Size = new System.Drawing.Size(142, 21);
+            this.lblIDORPASS.Size = new System.Drawing.Size(178, 28);
             this.lblIDORPASS.TabIndex = 38;
             this.lblIDORPASS.Text = "ID/PASSPORT NO";
             // 
@@ -770,7 +762,7 @@
             this.lblEmailAddress.ForeColor = System.Drawing.Color.Black;
             this.lblEmailAddress.Location = new System.Drawing.Point(26, 168);
             this.lblEmailAddress.Name = "lblEmailAddress";
-            this.lblEmailAddress.Size = new System.Drawing.Size(134, 21);
+            this.lblEmailAddress.Size = new System.Drawing.Size(168, 28);
             this.lblEmailAddress.TabIndex = 37;
             this.lblEmailAddress.Text = "EMAIL ADDRESS";
             // 
@@ -780,7 +772,7 @@
             this.lblPhoneNo.ForeColor = System.Drawing.Color.Black;
             this.lblPhoneNo.Location = new System.Drawing.Point(26, 132);
             this.lblPhoneNo.Name = "lblPhoneNo";
-            this.lblPhoneNo.Size = new System.Drawing.Size(95, 21);
+            this.lblPhoneNo.Size = new System.Drawing.Size(118, 28);
             this.lblPhoneNo.TabIndex = 36;
             this.lblPhoneNo.Text = "PHONE NO";
             // 
@@ -790,7 +782,7 @@
             this.lblFullName.ForeColor = System.Drawing.Color.Black;
             this.lblFullName.Location = new System.Drawing.Point(26, 95);
             this.lblFullName.Name = "lblFullName";
-            this.lblFullName.Size = new System.Drawing.Size(98, 21);
+            this.lblFullName.Size = new System.Drawing.Size(122, 28);
             this.lblFullName.TabIndex = 35;
             this.lblFullName.Text = "FULL NAME";
             // 
@@ -800,7 +792,7 @@
             this.lblBookingTypes.ForeColor = System.Drawing.Color.Black;
             this.lblBookingTypes.Location = new System.Drawing.Point(26, 60);
             this.lblBookingTypes.Name = "lblBookingTypes";
-            this.lblBookingTypes.Size = new System.Drawing.Size(125, 21);
+            this.lblBookingTypes.Size = new System.Drawing.Size(157, 28);
             this.lblBookingTypes.TabIndex = 34;
             this.lblBookingTypes.Text = "BOOKING TYPE";
             // 
@@ -817,7 +809,7 @@
             this.label20.AutoSize = true;
             this.label20.Location = new System.Drawing.Point(17, 6);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(153, 21);
+            this.label20.Size = new System.Drawing.Size(192, 28);
             this.label20.TabIndex = 32;
             this.label20.Text = "👤 GUEST DETAILS";
             // 
@@ -911,7 +903,7 @@
             this.label21.AutoSize = true;
             this.label21.Location = new System.Drawing.Point(17, 6);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(106, 21);
+            this.label21.Size = new System.Drawing.Size(132, 28);
             this.label21.TabIndex = 32;
             this.label21.Text = "⚡ ACTIONS";
             // 
@@ -932,6 +924,7 @@
             this.dgvBookingList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvBookingList.Location = new System.Drawing.Point(20, 46);
             this.dgvBookingList.Name = "dgvBookingList";
+            this.dgvBookingList.RowHeadersWidth = 51;
             this.dgvBookingList.Size = new System.Drawing.Size(1459, 163);
             this.dgvBookingList.TabIndex = 34;
             // 
@@ -948,7 +941,7 @@
             this.label22.AutoSize = true;
             this.label22.Location = new System.Drawing.Point(17, 6);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(145, 21);
+            this.label22.Size = new System.Drawing.Size(183, 28);
             this.label22.TabIndex = 32;
             this.label22.Text = "📋 BOOKING LIST";
             // 
@@ -1006,9 +999,17 @@
             // 
             this.taTableAllocation.ClearBeforeFill = true;
             // 
+            // numNoOfNights
+            // 
+            this.numNoOfNights.Location = new System.Drawing.Point(152, 129);
+            this.numNoOfNights.Name = "numNoOfNights";
+            this.numNoOfNights.ReadOnly = true;
+            this.numNoOfNights.Size = new System.Drawing.Size(85, 34);
+            this.numNoOfNights.TabIndex = 42;
+            // 
             // BookingForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 28F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.White;
@@ -1033,7 +1034,6 @@
             this.pnlGuestDetails.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numNoOfNights)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numNoOfRooms)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.hotelRoomBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.codeCraftersDSTWO)).EndInit();
@@ -1094,7 +1094,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.NumericUpDown numNoOfNights;
         private System.Windows.Forms.NumericUpDown numNoOfRooms;
         private System.Windows.Forms.DateTimePicker dtpRoomCheckIn;
         private System.Windows.Forms.DateTimePicker dtpRoomCheckOut;
@@ -1150,5 +1149,6 @@
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.ComboBox cmbBranchName;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox numNoOfNights;
     }
 }

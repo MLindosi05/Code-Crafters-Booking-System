@@ -87,14 +87,23 @@ namespace Code_Crafters_Interface_Prototype_1.Business
                 DateTime checkOut = Convert.ToDateTime(bookingRow["Checkout_Date"]);
                 int nights = (checkOut.Date - checkIn.Date).Days;
 
+                string bookingType = bookingRow.Table.Columns.Contains("Booking_Type") ? bookingRow["Booking_Type"].ToString() : "";
+
                 // Format dates without time
                 txtCheckIn.Text = checkIn.ToString("yyyy/MM/dd");
                 txtCheckOut.Text = checkOut.ToString("yyyy/MM/dd");
-                txtNoOfNights.Text = (nights > 0 ? nights : 1).ToString();
-                txtNoOfGuests.Text = bookingRow.Table.Columns.Contains("Number_Adults") && bookingRow["Number_Adults"] != DBNull.Value ? bookingRow["Number_Adults"].ToString() : "2";
 
-                // --- LOOK UP REAL DATABASE ASSIGNMENT RECORDS (MATCHING BookingForm LOGIC) ---
-                string bookingType = bookingRow.Table.Columns.Contains("Booking_Type") ? bookingRow["Booking_Type"].ToString() : "";
+                // If it's a Table Booking, nights must be 0; otherwise calculate normally
+                if (bookingType == "Table Booking")
+                {
+                    txtNoOfNights.Text = "0";
+                }
+                else
+                {
+                    txtNoOfNights.Text = (nights > 0 ? nights : 1).ToString();
+                }
+
+                txtNoOfGuests.Text = bookingRow.Table.Columns.Contains("Number_Adults") && bookingRow["Number_Adults"] != DBNull.Value ? bookingRow["Number_Adults"].ToString() : "2";
 
                 DataRow roomAssign = _dataSet.Room_Assignment.AsEnumerable()
                     .FirstOrDefault(ra => ra.Field<int>("Booking_ID") == _bookingID);

@@ -61,13 +61,11 @@
             this.dtpPaymentDate = new System.Windows.Forms.DateTimePicker();
             this.txtTotalAmount = new System.Windows.Forms.TextBox();
             this.numAmountPaid = new System.Windows.Forms.NumericUpDown();
-            this.txtBalanceDue = new System.Windows.Forms.TextBox();
             this.txtPaymentNotes = new System.Windows.Forms.TextBox();
             this.txtReceiptReference = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.btnEFT = new System.Windows.Forms.Button();
@@ -83,6 +81,8 @@
             this.btnProcessPayment = new System.Windows.Forms.Button();
             this.hotel_RoomTableAdapter1 = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTableAdapters.Hotel_RoomTableAdapter();
             this.codeCraftersDSTWO = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTWO();
+            this.label16 = new System.Windows.Forms.Label();
+            this.txtBalanceDue = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.codeCraftersDS)).BeginInit();
             this.panel8.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -136,7 +136,7 @@
             this.txtBookingReference.Location = new System.Drawing.Point(817, 34);
             this.txtBookingReference.Name = "txtBookingReference";
             this.txtBookingReference.ReadOnly = true;
-            this.txtBookingReference.Size = new System.Drawing.Size(192, 29);
+            this.txtBookingReference.Size = new System.Drawing.Size(192, 34);
             this.txtBookingReference.TabIndex = 47;
             // 
             // txtNoOfNights
@@ -144,7 +144,7 @@
             this.txtNoOfNights.Location = new System.Drawing.Point(822, 120);
             this.txtNoOfNights.Name = "txtNoOfNights";
             this.txtNoOfNights.ReadOnly = true;
-            this.txtNoOfNights.Size = new System.Drawing.Size(148, 29);
+            this.txtNoOfNights.Size = new System.Drawing.Size(148, 34);
             this.txtNoOfNights.TabIndex = 46;
             // 
             // txtCheckOut
@@ -152,7 +152,7 @@
             this.txtCheckOut.Location = new System.Drawing.Point(680, 120);
             this.txtCheckOut.Name = "txtCheckOut";
             this.txtCheckOut.ReadOnly = true;
-            this.txtCheckOut.Size = new System.Drawing.Size(122, 29);
+            this.txtCheckOut.Size = new System.Drawing.Size(122, 34);
             this.txtCheckOut.TabIndex = 45;
             // 
             // txtCheckIn
@@ -160,7 +160,7 @@
             this.txtCheckIn.Location = new System.Drawing.Point(535, 120);
             this.txtCheckIn.Name = "txtCheckIn";
             this.txtCheckIn.ReadOnly = true;
-            this.txtCheckIn.Size = new System.Drawing.Size(122, 29);
+            this.txtCheckIn.Size = new System.Drawing.Size(122, 34);
             this.txtCheckIn.TabIndex = 44;
             // 
             // txtPhoneNo
@@ -168,7 +168,7 @@
             this.txtPhoneNo.Location = new System.Drawing.Point(381, 120);
             this.txtPhoneNo.Name = "txtPhoneNo";
             this.txtPhoneNo.ReadOnly = true;
-            this.txtPhoneNo.Size = new System.Drawing.Size(132, 29);
+            this.txtPhoneNo.Size = new System.Drawing.Size(132, 34);
             this.txtPhoneNo.TabIndex = 43;
             // 
             // txtEmailAddress
@@ -176,7 +176,7 @@
             this.txtEmailAddress.Location = new System.Drawing.Point(199, 120);
             this.txtEmailAddress.Name = "txtEmailAddress";
             this.txtEmailAddress.ReadOnly = true;
-            this.txtEmailAddress.Size = new System.Drawing.Size(162, 29);
+            this.txtEmailAddress.Size = new System.Drawing.Size(162, 34);
             this.txtEmailAddress.TabIndex = 42;
             // 
             // txtGuestName
@@ -184,7 +184,7 @@
             this.txtGuestName.Location = new System.Drawing.Point(32, 120);
             this.txtGuestName.Name = "txtGuestName";
             this.txtGuestName.ReadOnly = true;
-            this.txtGuestName.Size = new System.Drawing.Size(147, 29);
+            this.txtGuestName.Size = new System.Drawing.Size(147, 34);
             this.txtGuestName.TabIndex = 41;
             // 
             // label7
@@ -192,7 +192,7 @@
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(818, 84);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(152, 21);
+            this.label7.Size = new System.Drawing.Size(192, 28);
             this.label7.TabIndex = 40;
             this.label7.Text = "🌙 NO. OF NIGHTS";
             // 
@@ -201,7 +201,7 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(676, 84);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(127, 21);
+            this.label6.Size = new System.Drawing.Size(158, 28);
             this.label6.TabIndex = 39;
             this.label6.Text = "📅 CHECK-OUT";
             // 
@@ -210,7 +210,7 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(531, 84);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(112, 21);
+            this.label5.Size = new System.Drawing.Size(139, 28);
             this.label5.TabIndex = 38;
             this.label5.Text = "📅 CHECK-IN";
             // 
@@ -219,7 +219,7 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(377, 84);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(122, 21);
+            this.label4.Size = new System.Drawing.Size(152, 28);
             this.label4.TabIndex = 37;
             this.label4.Text = "☎ PHONE NO";
             // 
@@ -228,7 +228,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(195, 84);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(161, 21);
+            this.label3.Size = new System.Drawing.Size(202, 28);
             this.label3.TabIndex = 36;
             this.label3.Text = "✉ EMAIL ADDRESS";
             // 
@@ -237,7 +237,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(28, 84);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(139, 21);
+            this.label2.Size = new System.Drawing.Size(174, 28);
             this.label2.TabIndex = 35;
             this.label2.Text = "👤 GUEST NAME";
             // 
@@ -246,7 +246,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(813, 10);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(201, 21);
+            this.label1.Size = new System.Drawing.Size(252, 28);
             this.label1.TabIndex = 34;
             this.label1.Text = "🆔 BOOKING REFERENCE";
             // 
@@ -265,7 +265,7 @@
             this.label21.Location = new System.Drawing.Point(28, 10);
             this.label21.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(196, 21);
+            this.label21.Size = new System.Drawing.Size(246, 28);
             this.label21.TabIndex = 32;
             this.label21.Text = "📋 BOOKING SUMMARY";
             // 
@@ -292,7 +292,7 @@
             this.txtTotalPrice.Location = new System.Drawing.Point(822, 36);
             this.txtTotalPrice.Name = "txtTotalPrice";
             this.txtTotalPrice.ReadOnly = true;
-            this.txtTotalPrice.Size = new System.Drawing.Size(148, 29);
+            this.txtTotalPrice.Size = new System.Drawing.Size(148, 34);
             this.txtTotalPrice.TabIndex = 7;
             // 
             // txtNoOfGuests
@@ -300,7 +300,7 @@
             this.txtNoOfGuests.Location = new System.Drawing.Point(550, 36);
             this.txtNoOfGuests.Name = "txtNoOfGuests";
             this.txtNoOfGuests.ReadOnly = true;
-            this.txtNoOfGuests.Size = new System.Drawing.Size(121, 29);
+            this.txtNoOfGuests.Size = new System.Drawing.Size(121, 34);
             this.txtNoOfGuests.TabIndex = 6;
             // 
             // txtCategoryArea
@@ -308,7 +308,7 @@
             this.txtCategoryArea.Location = new System.Drawing.Point(271, 36);
             this.txtCategoryArea.Name = "txtCategoryArea";
             this.txtCategoryArea.ReadOnly = true;
-            this.txtCategoryArea.Size = new System.Drawing.Size(143, 29);
+            this.txtCategoryArea.Size = new System.Drawing.Size(143, 34);
             this.txtCategoryArea.TabIndex = 5;
             // 
             // txtRoomTable
@@ -316,7 +316,7 @@
             this.txtRoomTable.Location = new System.Drawing.Point(32, 36);
             this.txtRoomTable.Name = "txtRoomTable";
             this.txtRoomTable.ReadOnly = true;
-            this.txtRoomTable.Size = new System.Drawing.Size(108, 29);
+            this.txtRoomTable.Size = new System.Drawing.Size(108, 34);
             this.txtRoomTable.TabIndex = 4;
             // 
             // label11
@@ -324,7 +324,7 @@
             this.label11.AutoSize = true;
             this.label11.Location = new System.Drawing.Point(818, 11);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(131, 21);
+            this.label11.Size = new System.Drawing.Size(166, 28);
             this.label11.TabIndex = 3;
             this.label11.Text = "💰 TOTAL PRICE";
             // 
@@ -334,7 +334,7 @@
             this.label10.Location = new System.Drawing.Point(546, 11);
             this.label10.Name = "label10";
             this.label10.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label10.Size = new System.Drawing.Size(152, 21);
+            this.label10.Size = new System.Drawing.Size(191, 28);
             this.label10.TabIndex = 2;
             this.label10.Text = "👥 NO. OF GUESTS";
             // 
@@ -343,7 +343,7 @@
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(267, 11);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(174, 21);
+            this.label9.Size = new System.Drawing.Size(221, 28);
             this.label9.TabIndex = 1;
             this.label9.Text = "🏷 CATEGORY / AREA";
             // 
@@ -352,7 +352,7 @@
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(28, 11);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(147, 21);
+            this.label8.Size = new System.Drawing.Size(188, 28);
             this.label8.TabIndex = 0;
             this.label8.Text = "🛏 ROOM / TABLE";
             // 
@@ -391,7 +391,7 @@
             this.dtpPaymentDate.Location = new System.Drawing.Point(515, 252);
             this.dtpPaymentDate.Name = "dtpPaymentDate";
             this.dtpPaymentDate.ShowUpDown = true;
-            this.dtpPaymentDate.Size = new System.Drawing.Size(455, 29);
+            this.dtpPaymentDate.Size = new System.Drawing.Size(455, 34);
             this.dtpPaymentDate.TabIndex = 52;
             // 
             // txtTotalAmount
@@ -399,7 +399,7 @@
             this.txtTotalAmount.Location = new System.Drawing.Point(673, 71);
             this.txtTotalAmount.Name = "txtTotalAmount";
             this.txtTotalAmount.ReadOnly = true;
-            this.txtTotalAmount.Size = new System.Drawing.Size(297, 29);
+            this.txtTotalAmount.Size = new System.Drawing.Size(297, 34);
             this.txtTotalAmount.TabIndex = 51;
             // 
             // numAmountPaid
@@ -407,16 +407,8 @@
             this.numAmountPaid.DecimalPlaces = 2;
             this.numAmountPaid.Location = new System.Drawing.Point(674, 120);
             this.numAmountPaid.Name = "numAmountPaid";
-            this.numAmountPaid.Size = new System.Drawing.Size(296, 29);
+            this.numAmountPaid.Size = new System.Drawing.Size(296, 34);
             this.numAmountPaid.TabIndex = 50;
-            // 
-            // txtBalanceDue
-            // 
-            this.txtBalanceDue.Location = new System.Drawing.Point(674, 173);
-            this.txtBalanceDue.Name = "txtBalanceDue";
-            this.txtBalanceDue.ReadOnly = true;
-            this.txtBalanceDue.Size = new System.Drawing.Size(296, 29);
-            this.txtBalanceDue.TabIndex = 49;
             // 
             // txtPaymentNotes
             // 
@@ -430,7 +422,7 @@
             // 
             this.txtReceiptReference.Location = new System.Drawing.Point(32, 252);
             this.txtReceiptReference.Name = "txtReceiptReference";
-            this.txtReceiptReference.Size = new System.Drawing.Size(389, 29);
+            this.txtReceiptReference.Size = new System.Drawing.Size(389, 34);
             this.txtReceiptReference.TabIndex = 46;
             // 
             // label19
@@ -438,7 +430,7 @@
             this.label19.AutoSize = true;
             this.label19.Location = new System.Drawing.Point(28, 284);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(250, 21);
+            this.label19.Size = new System.Drawing.Size(311, 28);
             this.label19.TabIndex = 45;
             this.label19.Text = "📝 PAYMENT NOTES (Optional)";
             // 
@@ -447,7 +439,7 @@
             this.label18.AutoSize = true;
             this.label18.Location = new System.Drawing.Point(28, 228);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(313, 21);
+            this.label18.Size = new System.Drawing.Size(391, 28);
             this.label18.TabIndex = 44;
             this.label18.Text = "🧾 RECEIPT / REFERENCE NO (Optional)";
             // 
@@ -456,25 +448,16 @@
             this.label17.AutoSize = true;
             this.label17.Location = new System.Drawing.Point(511, 228);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(156, 21);
+            this.label17.Size = new System.Drawing.Size(196, 28);
             this.label17.TabIndex = 43;
             this.label17.Text = "📅 PAYMENT DATE";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(511, 173);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(146, 21);
-            this.label16.TabIndex = 42;
-            this.label16.Text = "⚠ BALANCE DUE";
             // 
             // label15
             // 
             this.label15.AutoSize = true;
             this.label15.Location = new System.Drawing.Point(511, 122);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(150, 21);
+            this.label15.Size = new System.Drawing.Size(188, 28);
             this.label15.TabIndex = 41;
             this.label15.Text = "💲 AMOUNT PAID";
             // 
@@ -483,7 +466,7 @@
             this.label14.AutoSize = true;
             this.label14.Location = new System.Drawing.Point(511, 74);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(159, 21);
+            this.label14.Size = new System.Drawing.Size(202, 28);
             this.label14.TabIndex = 40;
             this.label14.Text = "💵 TOTAL AMOUNT";
             // 
@@ -520,7 +503,7 @@
             this.label13.Location = new System.Drawing.Point(28, 64);
             this.label13.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(185, 21);
+            this.label13.Size = new System.Drawing.Size(232, 28);
             this.label13.TabIndex = 36;
             this.label13.Text = "💳 PAYMENT METHOD";
             // 
@@ -530,7 +513,7 @@
             this.label12.Location = new System.Drawing.Point(28, 12);
             this.label12.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(178, 21);
+            this.label12.Size = new System.Drawing.Size(223, 28);
             this.label12.TabIndex = 35;
             this.label12.Text = "💳 PAYMENT DETAILS";
             // 
@@ -558,7 +541,7 @@
             this.label20.ForeColor = System.Drawing.Color.Black;
             this.label20.Location = new System.Drawing.Point(29, 9);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(493, 21);
+            this.label20.Size = new System.Drawing.Size(613, 28);
             this.label20.TabIndex = 46;
             this.label20.Text = "ℹ Please confirm payment details before processing payment.";
             // 
@@ -605,9 +588,26 @@
             this.codeCraftersDSTWO.DataSetName = "codeCraftersDSTWO";
             this.codeCraftersDSTWO.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(511, 173);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(182, 28);
+            this.label16.TabIndex = 42;
+            this.label16.Text = "⚠ BALANCE DUE";
+            // 
+            // txtBalanceDue
+            // 
+            this.txtBalanceDue.Location = new System.Drawing.Point(674, 173);
+            this.txtBalanceDue.Name = "txtBalanceDue";
+            this.txtBalanceDue.ReadOnly = true;
+            this.txtBalanceDue.Size = new System.Drawing.Size(296, 34);
+            this.txtBalanceDue.TabIndex = 49;
+            // 
             // PaymentForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 28F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.White;
@@ -676,7 +676,6 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TextBox txtPaymentNotes;
@@ -689,10 +688,11 @@
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnProcessPayment;
         private codeCraftersDSTableAdapters.Hotel_RoomTableAdapter hotel_RoomTableAdapter1;
-        private System.Windows.Forms.TextBox txtBalanceDue;
         private System.Windows.Forms.TextBox txtTotalAmount;
         private System.Windows.Forms.NumericUpDown numAmountPaid;
         private System.Windows.Forms.DateTimePicker dtpPaymentDate;
         private codeCraftersDSTWO codeCraftersDSTWO;
+        private System.Windows.Forms.TextBox txtBalanceDue;
+        private System.Windows.Forms.Label label16;
     }
 }
