@@ -45,7 +45,7 @@
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.button2 = new System.Windows.Forms.Button();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.roleComboBox = new System.Windows.Forms.ComboBox();
             this.userNameTxt = new System.Windows.Forms.TextBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -55,7 +55,7 @@
             this.btnHelp = new System.Windows.Forms.Button();
             this.taStaff = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTableAdapters.StaffTableAdapter();
             this.taClient = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTableAdapters.ClientTableAdapter();
-            this.codeCraftersDS1 = new Code_Crafters_Interface_Prototype_1.codeCraftersDS();
+            this.codeCraftersDS = new Code_Crafters_Interface_Prototype_1.codeCraftersDS();
             this.button1 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
@@ -75,7 +75,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.codeCraftersDS1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.codeCraftersDS)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.pnlHelpDrawer.SuspendLayout();
@@ -120,7 +120,7 @@
             this.panel2.Controls.Add(this.pictureBox5);
             this.panel2.Controls.Add(this.button2);
             this.panel2.Controls.Add(this.pictureBox4);
-            this.panel2.Controls.Add(this.comboBox1);
+            this.panel2.Controls.Add(this.roleComboBox);
             this.panel2.Controls.Add(this.userNameTxt);
             this.panel2.Controls.Add(this.pictureBox2);
             this.panel2.Controls.Add(this.label1);
@@ -280,17 +280,16 @@
             this.pictureBox4.TabIndex = 12;
             this.pictureBox4.TabStop = false;
             // 
-            // comboBox1
+            // roleComboBox
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Admin",
-            "Manager",
-            "Receptionist"});
-            this.comboBox1.Location = new System.Drawing.Point(263, 435);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(123, 25);
-            this.comboBox1.TabIndex = 8;
+            this.roleComboBox.FormattingEnabled = true;
+            this.roleComboBox.Items.AddRange(new object[] {
+            "Administrator",
+            "Manager"});
+            this.roleComboBox.Location = new System.Drawing.Point(263, 435);
+            this.roleComboBox.Name = "roleComboBox";
+            this.roleComboBox.Size = new System.Drawing.Size(123, 25);
+            this.roleComboBox.TabIndex = 8;
             // 
             // userNameTxt
             // 
@@ -386,10 +385,10 @@
             // 
             this.taClient.ClearBeforeFill = true;
             // 
-            // codeCraftersDS1
+            // codeCraftersDS
             // 
-            this.codeCraftersDS1.DataSetName = "codeCraftersDS";
-            this.codeCraftersDS1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.codeCraftersDS.DataSetName = "codeCraftersDS";
+            this.codeCraftersDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // button1
             // 
@@ -441,7 +440,6 @@
             this.pnlHelpDrawer.Size = new System.Drawing.Size(623, 427);
             this.pnlHelpDrawer.TabIndex = 11;
             this.pnlHelpDrawer.Visible = false;
-            this.pnlHelpDrawer.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlHelpDrawer_Paint);
             // 
             // btnContactSupport
             // 
@@ -533,7 +531,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.codeCraftersDS1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.codeCraftersDS)).EndInit();
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.pnlHelpDrawer.ResumeLayout(false);
@@ -556,9 +554,9 @@
         private System.Windows.Forms.PictureBox pictureBox3;
         private codeCraftersDSTableAdapters.StaffTableAdapter taStaff;
         private codeCraftersDSTableAdapters.ClientTableAdapter taClient;
-        private codeCraftersDS codeCraftersDS1;
+        private codeCraftersDS codeCraftersDS;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox roleComboBox;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnHelp;

@@ -51,8 +51,6 @@ namespace Code_Crafters_Interface_Prototype_1.Business
 
         }
 
-    
-
         private void txtBookingID_TextChanged_1(object sender, EventArgs e)
         {
             string input = txtBookingID.Text.Trim();

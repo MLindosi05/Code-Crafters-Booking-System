@@ -18,92 +18,88 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle31 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle32 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle33 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle34 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle35 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle36 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle37 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle38 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle39 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle40 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle41 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle42 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BookingForm));
             this.pnlBooking = new System.Windows.Forms.Panel();
-            this.grpRegalInnBooking = new System.Windows.Forms.GroupBox();
-            this.txtPhoneNumber = new System.Windows.Forms.TextBox();
-            this.cmbBranchID = new System.Windows.Forms.ComboBox();
-            this.lblBranchID = new System.Windows.Forms.Label();
-            this.grpBookingDetails = new System.Windows.Forms.GroupBox();
-            this.btnAvailableTables = new System.Windows.Forms.Button();
-            this.btnAvailableRooms = new System.Windows.Forms.Button();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.dtpTableStart = new System.Windows.Forms.DateTimePicker();
-            this.dtpTableEnd = new System.Windows.Forms.DateTimePicker();
-            this.label2 = new System.Windows.Forms.Label();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.dtpCheckIn = new System.Windows.Forms.DateTimePicker();
-            this.dtpCheckOut = new System.Windows.Forms.DateTimePicker();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.btnSaveInvoice = new System.Windows.Forms.Button();
-            this.btnPrintInvoice = new System.Windows.Forms.Button();
-            this.txtTotalAmount = new System.Windows.Forms.TextBox();
-            this.lblTotalAmount = new System.Windows.Forms.Label();
-            this.dgvInvoice = new System.Windows.Forms.DataGridView();
-            this.hotelRoomIDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.hotelroomnumberDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.hotelRoomPriceDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.restaurantTableIDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.restaurantTableNumDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.restaurantTablePriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.invoiceBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.codeCraftersDSTWO = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTWO();
+            this.cmbBranchName = new System.Windows.Forms.ComboBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.btnRefresh = new System.Windows.Forms.Button();
+            this.btnNewBooking = new System.Windows.Forms.Button();
+            this.lblRegalBooking = new System.Windows.Forms.Label();
+            this.pnlGuestDetails = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.label7 = new System.Windows.Forms.Label();
+            this.btnClear = new System.Windows.Forms.Button();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.dtpToDate = new System.Windows.Forms.DateTimePicker();
+            this.dtpFromDate = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtRestaurantTableAvailable = new System.Windows.Forms.TextBox();
-            this.dgvRestaurantTableAvailable = new System.Windows.Forms.DataGridView();
-            this.restaurantTableIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.branchIDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.restuarantTableNumDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.restuarantMenuTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tableCapacityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tableStatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tableIsCombinableDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tableFeaturesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tablePriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.restuarantTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dgvHotelRoomAvailable = new System.Windows.Forms.DataGridView();
-            this.hotelRoomIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.branchIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.hotelroomtypeIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.hotelroomnumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.hotelroomstatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.hotelRoomPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtSearchQuery = new System.Windows.Forms.TextBox();
+            this.cmbFilterBookingStatus = new System.Windows.Forms.ComboBox();
+            this.cmbFilterBookingType = new System.Windows.Forms.ComboBox();
+            this.cmbSearchBy = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.numNoOfNights = new System.Windows.Forms.NumericUpDown();
+            this.numNoOfRooms = new System.Windows.Forms.NumericUpDown();
+            this.dtpRoomCheckIn = new System.Windows.Forms.DateTimePicker();
+            this.dtpRoomCheckOut = new System.Windows.Forms.DateTimePicker();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.label8 = new System.Windows.Forms.Label();
             this.hotelRoomBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.lblRestaurantTableAvailable = new System.Windows.Forms.Label();
-            this.lblHotelRoomAvailable = new System.Windows.Forms.Label();
-            this.txtHotelRoomAvailable = new System.Windows.Forms.TextBox();
-            this.grpClientDetails = new System.Windows.Forms.GroupBox();
-            this.txtAddress = new System.Windows.Forms.TextBox();
+            this.codeCraftersDSTWO = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTWO();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.cmbTableArea = new System.Windows.Forms.ComboBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.dtpTableCheckOut = new System.Windows.Forms.DateTimePicker();
+            this.dtpTableCheckIn = new System.Windows.Forms.DateTimePicker();
+            this.numTableGuests = new System.Windows.Forms.NumericUpDown();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.label19 = new System.Windows.Forms.Label();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.numInfants = new System.Windows.Forms.NumericUpDown();
+            this.numChildren = new System.Windows.Forms.NumericUpDown();
+            this.numAdults = new System.Windows.Forms.NumericUpDown();
+            this.cmbRoomCategory = new System.Windows.Forms.ComboBox();
+            this.txtIdPassportNo = new System.Windows.Forms.TextBox();
             this.txtEmailAddress = new System.Windows.Forms.TextBox();
+            this.txtPhoneNo = new System.Windows.Forms.TextBox();
             this.txtFullName = new System.Windows.Forms.TextBox();
-            this.lblAddress = new System.Windows.Forms.Label();
+            this.cmbBookingType = new System.Windows.Forms.ComboBox();
+            this.lblRoomCategory = new System.Windows.Forms.Label();
+            this.lblInfants = new System.Windows.Forms.Label();
+            this.lblChildren = new System.Windows.Forms.Label();
+            this.lblAdults = new System.Windows.Forms.Label();
+            this.lblIDORPASS = new System.Windows.Forms.Label();
             this.lblEmailAddress = new System.Windows.Forms.Label();
+            this.lblPhoneNo = new System.Windows.Forms.Label();
             this.lblFullName = new System.Windows.Forms.Label();
-            this.lblPhoneNumber = new System.Windows.Forms.Label();
-            this.btnCreateBooking = new System.Windows.Forms.Button();
+            this.lblBookingTypes = new System.Windows.Forms.Label();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.label20 = new System.Windows.Forms.Label();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.btnPrint = new System.Windows.Forms.Button();
+            this.btnCancelBooking = new System.Windows.Forms.Button();
+            this.btnLinkBookings = new System.Windows.Forms.Button();
+            this.btnReschedule = new System.Windows.Forms.Button();
+            this.btnViewEdit = new System.Windows.Forms.Button();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.label21 = new System.Windows.Forms.Label();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.dgvBookingList = new System.Windows.Forms.DataGridView();
+            this.panel11 = new System.Windows.Forms.Panel();
+            this.label22 = new System.Windows.Forms.Label();
+            this.invoiceBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.restuarantTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.taBooking = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTWOTableAdapters.BookingTableAdapter();
             this.taBranch = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTWOTableAdapters.BranchTableAdapter();
             this.taClientBranchTableBooking = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTWOTableAdapters.ClientBranchTableBookingTableAdapter();
@@ -115,720 +111,856 @@
             this.taRoomAssignment = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTWOTableAdapters.Room_AssignmentTableAdapter();
             this.taStaff = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTWOTableAdapters.StaffTableAdapter();
             this.taTableAllocation = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTWOTableAdapters.Table_AllocationTableAdapter();
-            this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
-            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.pnlBooking.SuspendLayout();
-            this.grpRegalInnBooking.SuspendLayout();
-            this.grpBookingDetails.SuspendLayout();
-            this.tableLayoutPanel2.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvInvoice)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.invoiceBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.codeCraftersDSTWO)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvRestaurantTableAvailable)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.restuarantTableBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvHotelRoomAvailable)).BeginInit();
+            this.pnlGuestDetails.SuspendLayout();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numNoOfNights)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numNoOfRooms)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.hotelRoomBindingSource)).BeginInit();
-            this.grpClientDetails.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.codeCraftersDSTWO)).BeginInit();
+            this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numTableGuests)).BeginInit();
+            this.panel6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numInfants)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numChildren)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numAdults)).BeginInit();
+            this.panel8.SuspendLayout();
+            this.panel10.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBookingList)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.invoiceBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.restuarantTableBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlBooking
             // 
-            this.pnlBooking.BackColor = System.Drawing.Color.White;
-            this.pnlBooking.Controls.Add(this.grpRegalInnBooking);
-            this.pnlBooking.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pnlBooking.Location = new System.Drawing.Point(16, 2);
-            this.pnlBooking.Margin = new System.Windows.Forms.Padding(4);
+            this.pnlBooking.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlBooking.Controls.Add(this.cmbBranchName);
+            this.pnlBooking.Controls.Add(this.label9);
+            this.pnlBooking.Controls.Add(this.btnRefresh);
+            this.pnlBooking.Controls.Add(this.btnNewBooking);
+            this.pnlBooking.Controls.Add(this.lblRegalBooking);
+            this.pnlBooking.Location = new System.Drawing.Point(12, 22);
             this.pnlBooking.Name = "pnlBooking";
-            this.pnlBooking.Size = new System.Drawing.Size(1605, 1152);
-            this.pnlBooking.TabIndex = 3;
+            this.pnlBooking.Size = new System.Drawing.Size(1486, 100);
+            this.pnlBooking.TabIndex = 0;
             // 
-            // grpRegalInnBooking
+            // cmbBranchName
             // 
-            this.grpRegalInnBooking.Controls.Add(this.txtPhoneNumber);
-            this.grpRegalInnBooking.Controls.Add(this.cmbBranchID);
-            this.grpRegalInnBooking.Controls.Add(this.lblBranchID);
-            this.grpRegalInnBooking.Controls.Add(this.grpBookingDetails);
-            this.grpRegalInnBooking.Controls.Add(this.grpClientDetails);
-            this.grpRegalInnBooking.Controls.Add(this.lblPhoneNumber);
-            this.grpRegalInnBooking.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.grpRegalInnBooking.Location = new System.Drawing.Point(27, 49);
-            this.grpRegalInnBooking.Margin = new System.Windows.Forms.Padding(4);
-            this.grpRegalInnBooking.Name = "grpRegalInnBooking";
-            this.grpRegalInnBooking.Padding = new System.Windows.Forms.Padding(4);
-            this.grpRegalInnBooking.Size = new System.Drawing.Size(1507, 1097);
-            this.grpRegalInnBooking.TabIndex = 4;
-            this.grpRegalInnBooking.TabStop = false;
-            this.grpRegalInnBooking.Text = "REGAL INN BOOKING";
-            // 
-            // txtPhoneNumber
-            // 
-            this.txtPhoneNumber.Location = new System.Drawing.Point(251, 86);
-            this.txtPhoneNumber.Margin = new System.Windows.Forms.Padding(4);
-            this.txtPhoneNumber.Name = "txtPhoneNumber";
-            this.txtPhoneNumber.Size = new System.Drawing.Size(311, 34);
-            this.txtPhoneNumber.TabIndex = 3;
-            this.txtPhoneNumber.TextChanged += new System.EventHandler(this.txtPhoneNumber_TextChanged);
-            // 
-            // cmbBranchID
-            // 
-            this.cmbBranchID.FormattingEnabled = true;
-            this.cmbBranchID.Items.AddRange(new object[] {
+            this.cmbBranchName.FormattingEnabled = true;
+            this.cmbBranchName.Items.AddRange(new object[] {
             "Pietermaritzburg",
             "Durban Umhlanga",
             "Durban North Beach",
             "Durban Ballito",
             "JHB Midrand"});
-            this.cmbBranchID.Location = new System.Drawing.Point(327, 34);
-            this.cmbBranchID.Margin = new System.Windows.Forms.Padding(4);
-            this.cmbBranchID.Name = "cmbBranchID";
-            this.cmbBranchID.Size = new System.Drawing.Size(235, 36);
-            this.cmbBranchID.TabIndex = 1;
+            this.cmbBranchName.Location = new System.Drawing.Point(201, 44);
+            this.cmbBranchName.Name = "cmbBranchName";
+            this.cmbBranchName.Size = new System.Drawing.Size(168, 29);
+            this.cmbBranchName.TabIndex = 44;
             // 
-            // lblBranchID
+            // label9
             // 
-            this.lblBranchID.ForeColor = System.Drawing.Color.Black;
-            this.lblBranchID.Location = new System.Drawing.Point(21, 38);
-            this.lblBranchID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblBranchID.Name = "lblBranchID";
-            this.lblBranchID.Size = new System.Drawing.Size(297, 31);
-            this.lblBranchID.TabIndex = 0;
-            this.lblBranchID.Text = "REGAL INN BRANCH NAME:";
+            this.label9.AutoSize = true;
+            this.label9.ForeColor = System.Drawing.Color.DarkGoldenrod;
+            this.label9.Location = new System.Drawing.Point(12, 47);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(183, 21);
+            this.label9.TabIndex = 4;
+            this.label9.Text = "🏨 REGAL INN HOTELS";
             // 
-            // grpBookingDetails
+            // btnRefresh
             // 
-            this.grpBookingDetails.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.grpBookingDetails.Controls.Add(this.btnAvailableTables);
-            this.grpBookingDetails.Controls.Add(this.btnAvailableRooms);
-            this.grpBookingDetails.Controls.Add(this.tableLayoutPanel2);
-            this.grpBookingDetails.Controls.Add(this.label2);
-            this.grpBookingDetails.Controls.Add(this.tableLayoutPanel1);
-            this.grpBookingDetails.Controls.Add(this.label5);
-            this.grpBookingDetails.Controls.Add(this.label4);
-            this.grpBookingDetails.Controls.Add(this.label3);
-            this.grpBookingDetails.Controls.Add(this.btnSaveInvoice);
-            this.grpBookingDetails.Controls.Add(this.btnPrintInvoice);
-            this.grpBookingDetails.Controls.Add(this.txtTotalAmount);
-            this.grpBookingDetails.Controls.Add(this.lblTotalAmount);
-            this.grpBookingDetails.Controls.Add(this.dgvInvoice);
-            this.grpBookingDetails.Controls.Add(this.label1);
-            this.grpBookingDetails.Controls.Add(this.txtRestaurantTableAvailable);
-            this.grpBookingDetails.Controls.Add(this.dgvRestaurantTableAvailable);
-            this.grpBookingDetails.Controls.Add(this.dgvHotelRoomAvailable);
-            this.grpBookingDetails.Controls.Add(this.lblRestaurantTableAvailable);
-            this.grpBookingDetails.Controls.Add(this.lblHotelRoomAvailable);
-            this.grpBookingDetails.Controls.Add(this.txtHotelRoomAvailable);
-            this.grpBookingDetails.Location = new System.Drawing.Point(27, 271);
-            this.grpBookingDetails.Margin = new System.Windows.Forms.Padding(4);
-            this.grpBookingDetails.Name = "grpBookingDetails";
-            this.grpBookingDetails.Padding = new System.Windows.Forms.Padding(4);
-            this.grpBookingDetails.Size = new System.Drawing.Size(1445, 818);
-            this.grpBookingDetails.TabIndex = 5;
-            this.grpBookingDetails.TabStop = false;
-            this.grpBookingDetails.Text = "BOOKING DETAILS";
+            this.btnRefresh.BackColor = System.Drawing.Color.White;
+            this.btnRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRefresh.ForeColor = System.Drawing.Color.Navy;
+            this.btnRefresh.Location = new System.Drawing.Point(1320, 23);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(150, 45);
+            this.btnRefresh.TabIndex = 3;
+            this.btnRefresh.Text = "🔄 REFRESH";
+            this.btnRefresh.UseVisualStyleBackColor = false;
             // 
-            // btnAvailableTables
+            // btnNewBooking
             // 
-            this.btnAvailableTables.Location = new System.Drawing.Point(561, 351);
-            this.btnAvailableTables.Name = "btnAvailableTables";
-            this.btnAvailableTables.Size = new System.Drawing.Size(221, 49);
-            this.btnAvailableTables.TabIndex = 45;
-            this.btnAvailableTables.Text = "AVAILABLE TABLES";
-            this.btnAvailableTables.UseVisualStyleBackColor = true;
-            this.btnAvailableTables.Click += new System.EventHandler(this.btnAvailableTables_Click);
+            this.btnNewBooking.BackColor = System.Drawing.Color.Navy;
+            this.btnNewBooking.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNewBooking.ForeColor = System.Drawing.Color.White;
+            this.btnNewBooking.Location = new System.Drawing.Point(1121, 23);
+            this.btnNewBooking.Name = "btnNewBooking";
+            this.btnNewBooking.Size = new System.Drawing.Size(170, 45);
+            this.btnNewBooking.TabIndex = 2;
+            this.btnNewBooking.Text = "➕ NEW BOOKING";
+            this.btnNewBooking.UseVisualStyleBackColor = false;
+            this.btnNewBooking.Click += new System.EventHandler(this.btnNewBooking_Click_1);
             // 
-            // btnAvailableRooms
+            // lblRegalBooking
             // 
-            this.btnAvailableRooms.Location = new System.Drawing.Point(561, 106);
-            this.btnAvailableRooms.Name = "btnAvailableRooms";
-            this.btnAvailableRooms.Size = new System.Drawing.Size(221, 49);
-            this.btnAvailableRooms.TabIndex = 44;
-            this.btnAvailableRooms.Text = "AVAILABLE ROOMS";
-            this.btnAvailableRooms.UseVisualStyleBackColor = true;
-            this.btnAvailableRooms.Click += new System.EventHandler(this.btnAvailableRooms_Click);
+            this.lblRegalBooking.AutoSize = true;
+            this.lblRegalBooking.ForeColor = System.Drawing.Color.Navy;
+            this.lblRegalBooking.Location = new System.Drawing.Point(16, 13);
+            this.lblRegalBooking.Name = "lblRegalBooking";
+            this.lblRegalBooking.Size = new System.Drawing.Size(171, 21);
+            this.lblRegalBooking.TabIndex = 1;
+            this.lblRegalBooking.Text = "REGAL INN BOOKING";
             // 
-            // tableLayoutPanel2
+            // pnlGuestDetails
             // 
-            this.tableLayoutPanel2.ColumnCount = 2;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 52F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 48F));
-            this.tableLayoutPanel2.Controls.Add(this.dtpTableStart, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.dtpTableEnd, 1, 0);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(828, 356);
-            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 1;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(543, 42);
-            this.tableLayoutPanel2.TabIndex = 43;
+            this.pnlGuestDetails.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlGuestDetails.Controls.Add(this.panel2);
+            this.pnlGuestDetails.Controls.Add(this.label7);
+            this.pnlGuestDetails.Controls.Add(this.btnClear);
+            this.pnlGuestDetails.Controls.Add(this.btnSearch);
+            this.pnlGuestDetails.Controls.Add(this.dtpToDate);
+            this.pnlGuestDetails.Controls.Add(this.dtpFromDate);
+            this.pnlGuestDetails.Controls.Add(this.label1);
+            this.pnlGuestDetails.Controls.Add(this.label2);
+            this.pnlGuestDetails.Controls.Add(this.txtSearchQuery);
+            this.pnlGuestDetails.Controls.Add(this.cmbFilterBookingStatus);
+            this.pnlGuestDetails.Controls.Add(this.cmbFilterBookingType);
+            this.pnlGuestDetails.Controls.Add(this.cmbSearchBy);
+            this.pnlGuestDetails.Controls.Add(this.label3);
+            this.pnlGuestDetails.Controls.Add(this.label4);
+            this.pnlGuestDetails.Controls.Add(this.label5);
+            this.pnlGuestDetails.Controls.Add(this.label6);
+            this.pnlGuestDetails.ForeColor = System.Drawing.Color.Navy;
+            this.pnlGuestDetails.Location = new System.Drawing.Point(13, 418);
+            this.pnlGuestDetails.Name = "pnlGuestDetails";
+            this.pnlGuestDetails.Size = new System.Drawing.Size(659, 250);
+            this.pnlGuestDetails.TabIndex = 10;
             // 
-            // dtpTableStart
+            // panel2
             // 
-            this.dtpTableStart.Location = new System.Drawing.Point(4, 4);
-            this.dtpTableStart.Margin = new System.Windows.Forms.Padding(4);
-            this.dtpTableStart.Name = "dtpTableStart";
-            this.dtpTableStart.Size = new System.Drawing.Size(272, 34);
-            this.dtpTableStart.TabIndex = 38;
+            this.panel2.BackColor = System.Drawing.Color.Gainsboro;
+            this.panel2.Location = new System.Drawing.Point(1, 30);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(653, 1);
+            this.panel2.TabIndex = 33;
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
-            // dtpTableEnd
+            // label7
             // 
-            this.dtpTableEnd.Location = new System.Drawing.Point(286, 4);
-            this.dtpTableEnd.Margin = new System.Windows.Forms.Padding(4);
-            this.dtpTableEnd.Name = "dtpTableEnd";
-            this.dtpTableEnd.Size = new System.Drawing.Size(252, 34);
-            this.dtpTableEnd.TabIndex = 39;
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(17, 6);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(276, 21);
+            this.label7.TabIndex = 32;
+            this.label7.Text = "🔍 SEARCH AND FILTER BOOKINGS";
+            // 
+            // btnClear
+            // 
+            this.btnClear.BackColor = System.Drawing.Color.White;
+            this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClear.ForeColor = System.Drawing.Color.Navy;
+            this.btnClear.Location = new System.Drawing.Point(497, 146);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(95, 45);
+            this.btnClear.TabIndex = 31;
+            this.btnClear.Text = "🧹 CLEAR";
+            this.btnClear.UseVisualStyleBackColor = false;
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.BackColor = System.Drawing.Color.Navy;
+            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSearch.ForeColor = System.Drawing.Color.White;
+            this.btnSearch.Location = new System.Drawing.Point(375, 146);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(108, 45);
+            this.btnSearch.TabIndex = 30;
+            this.btnSearch.Text = "🔍 SEARCH";
+            this.btnSearch.UseVisualStyleBackColor = false;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click_1);
+            // 
+            // dtpToDate
+            // 
+            this.dtpToDate.CustomFormat = "yyyy/MM/dd ";
+            this.dtpToDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpToDate.Location = new System.Drawing.Point(200, 187);
+            this.dtpToDate.Name = "dtpToDate";
+            this.dtpToDate.Size = new System.Drawing.Size(143, 29);
+            this.dtpToDate.TabIndex = 29;
+            this.dtpToDate.Value = new System.DateTime(2026, 8, 5, 0, 0, 0, 0);
+            // 
+            // dtpFromDate
+            // 
+            this.dtpFromDate.CustomFormat = "yyyy/MM/dd";
+            this.dtpFromDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpFromDate.Location = new System.Drawing.Point(30, 187);
+            this.dtpFromDate.Name = "dtpFromDate";
+            this.dtpFromDate.Size = new System.Drawing.Size(134, 29);
+            this.dtpFromDate.TabIndex = 28;
+            this.dtpFromDate.Value = new System.DateTime(2026, 8, 5, 0, 0, 0, 0);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(26, 152);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(99, 21);
+            this.label1.TabIndex = 27;
+            this.label1.Text = "FROM DATE";
             // 
             // label2
             // 
-            this.label2.Location = new System.Drawing.Point(823, 82);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.Location = new System.Drawing.Point(196, 152);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(257, 25);
-            this.label2.TabIndex = 31;
-            this.label2.Text = "ROOM CHECK IN ";
+            this.label2.Size = new System.Drawing.Size(74, 21);
+            this.label2.TabIndex = 26;
+            this.label2.Text = "TO DATE";
             // 
-            // tableLayoutPanel1
+            // txtSearchQuery
             // 
-            this.tableLayoutPanel1.BackColor = System.Drawing.Color.White;
-            this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Controls.Add(this.dtpCheckIn, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.dtpCheckOut, 1, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(824, 111);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 1;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(547, 44);
-            this.tableLayoutPanel1.TabIndex = 42;
+            this.txtSearchQuery.Location = new System.Drawing.Point(146, 107);
+            this.txtSearchQuery.Name = "txtSearchQuery";
+            this.txtSearchQuery.Size = new System.Drawing.Size(133, 29);
+            this.txtSearchQuery.TabIndex = 25;
             // 
-            // dtpCheckIn
+            // cmbFilterBookingStatus
             // 
-            this.dtpCheckIn.Location = new System.Drawing.Point(4, 4);
-            this.dtpCheckIn.Margin = new System.Windows.Forms.Padding(4);
-            this.dtpCheckIn.Name = "dtpCheckIn";
-            this.dtpCheckIn.Size = new System.Drawing.Size(264, 34);
-            this.dtpCheckIn.TabIndex = 32;
+            this.cmbFilterBookingStatus.FormattingEnabled = true;
+            this.cmbFilterBookingStatus.Location = new System.Drawing.Point(445, 107);
+            this.cmbFilterBookingStatus.Name = "cmbFilterBookingStatus";
+            this.cmbFilterBookingStatus.Size = new System.Drawing.Size(147, 29);
+            this.cmbFilterBookingStatus.TabIndex = 24;
             // 
-            // dtpCheckOut
+            // cmbFilterBookingType
             // 
-            this.dtpCheckOut.Location = new System.Drawing.Point(277, 4);
-            this.dtpCheckOut.Margin = new System.Windows.Forms.Padding(4);
-            this.dtpCheckOut.Name = "dtpCheckOut";
-            this.dtpCheckOut.Size = new System.Drawing.Size(264, 34);
-            this.dtpCheckOut.TabIndex = 33;
+            this.cmbFilterBookingType.FormattingEnabled = true;
+            this.cmbFilterBookingType.Location = new System.Drawing.Point(293, 107);
+            this.cmbFilterBookingType.Name = "cmbFilterBookingType";
+            this.cmbFilterBookingType.Size = new System.Drawing.Size(121, 29);
+            this.cmbFilterBookingType.TabIndex = 23;
             // 
-            // label5
+            // cmbSearchBy
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(1108, 326);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(187, 28);
-            this.label5.TabIndex = 41;
-            this.label5.Text = "TABLE CHECK OUT";
+            this.cmbSearchBy.FormattingEnabled = true;
+            this.cmbSearchBy.Location = new System.Drawing.Point(30, 107);
+            this.cmbSearchBy.Name = "cmbSearchBy";
+            this.cmbSearchBy.Size = new System.Drawing.Size(95, 29);
+            this.cmbSearchBy.TabIndex = 22;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.Color.Black;
+            this.label3.Location = new System.Drawing.Point(441, 74);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(144, 21);
+            this.label3.TabIndex = 21;
+            this.label3.Text = "BOOKING STATUS";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(823, 326);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.ForeColor = System.Drawing.Color.Black;
+            this.label4.Location = new System.Drawing.Point(289, 74);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(168, 28);
-            this.label4.TabIndex = 40;
-            this.label4.Text = "TABLE CHECK IN";
-            // 
-            // label3
-            // 
-            this.label3.Location = new System.Drawing.Point(1095, 82);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(272, 25);
-            this.label3.TabIndex = 30;
-            this.label3.Text = "ROOM CHECK OUT ";
-            // 
-            // btnSaveInvoice
-            // 
-            this.btnSaveInvoice.BackColor = System.Drawing.Color.DarkOrange;
-            this.btnSaveInvoice.Location = new System.Drawing.Point(1191, 608);
-            this.btnSaveInvoice.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnSaveInvoice.Name = "btnSaveInvoice";
-            this.btnSaveInvoice.Size = new System.Drawing.Size(176, 50);
-            this.btnSaveInvoice.TabIndex = 17;
-            this.btnSaveInvoice.Text = "SAVE INVOICE";
-            this.btnSaveInvoice.UseVisualStyleBackColor = false;
-            this.btnSaveInvoice.Click += new System.EventHandler(this.btnSaveInvoice_Click_1);
-            // 
-            // btnPrintInvoice
-            // 
-            this.btnPrintInvoice.BackColor = System.Drawing.Color.DarkOrange;
-            this.btnPrintInvoice.Location = new System.Drawing.Point(1191, 693);
-            this.btnPrintInvoice.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnPrintInvoice.Name = "btnPrintInvoice";
-            this.btnPrintInvoice.Size = new System.Drawing.Size(180, 50);
-            this.btnPrintInvoice.TabIndex = 16;
-            this.btnPrintInvoice.Text = "PRINT INVOICE";
-            this.btnPrintInvoice.UseVisualStyleBackColor = false;
-            this.btnPrintInvoice.Click += new System.EventHandler(this.btnPrintInvoice_Click_1);
-            // 
-            // txtTotalAmount
-            // 
-            this.txtTotalAmount.Location = new System.Drawing.Point(271, 759);
-            this.txtTotalAmount.Margin = new System.Windows.Forms.Padding(4);
-            this.txtTotalAmount.Name = "txtTotalAmount";
-            this.txtTotalAmount.ReadOnly = true;
-            this.txtTotalAmount.Size = new System.Drawing.Size(219, 34);
-            this.txtTotalAmount.TabIndex = 12;
-            // 
-            // lblTotalAmount
-            // 
-            this.lblTotalAmount.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.lblTotalAmount.Location = new System.Drawing.Point(20, 764);
-            this.lblTotalAmount.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblTotalAmount.Name = "lblTotalAmount";
-            this.lblTotalAmount.Size = new System.Drawing.Size(243, 31);
-            this.lblTotalAmount.TabIndex = 11;
-            this.lblTotalAmount.Text = "TOTAL AMOUNT(ZAR):";
-            // 
-            // dgvInvoice
-            // 
-            this.dgvInvoice.AutoGenerateColumns = false;
-            this.dgvInvoice.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvInvoice.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.hotelRoomIDDataGridViewTextBoxColumn1,
-            this.hotelroomnumberDataGridViewTextBoxColumn1,
-            this.hotelRoomPriceDataGridViewTextBoxColumn1,
-            this.restaurantTableIDDataGridViewTextBoxColumn1,
-            this.restaurantTableNumDataGridViewTextBoxColumn,
-            this.restaurantTablePriceDataGridViewTextBoxColumn});
-            this.dgvInvoice.DataSource = this.invoiceBindingSource;
-            this.dgvInvoice.Location = new System.Drawing.Point(27, 608);
-            this.dgvInvoice.Margin = new System.Windows.Forms.Padding(4);
-            this.dgvInvoice.Name = "dgvInvoice";
-            this.dgvInvoice.RowHeadersWidth = 51;
-            this.dgvInvoice.Size = new System.Drawing.Size(1063, 135);
-            this.dgvInvoice.TabIndex = 13;
-            // 
-            // hotelRoomIDDataGridViewTextBoxColumn1
-            // 
-            this.hotelRoomIDDataGridViewTextBoxColumn1.DataPropertyName = "Hotel_Room_ID";
-            dataGridViewCellStyle22.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.hotelRoomIDDataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle22;
-            this.hotelRoomIDDataGridViewTextBoxColumn1.HeaderText = "ROOM ID";
-            this.hotelRoomIDDataGridViewTextBoxColumn1.MinimumWidth = 6;
-            this.hotelRoomIDDataGridViewTextBoxColumn1.Name = "hotelRoomIDDataGridViewTextBoxColumn1";
-            this.hotelRoomIDDataGridViewTextBoxColumn1.Width = 110;
-            // 
-            // hotelroomnumberDataGridViewTextBoxColumn1
-            // 
-            this.hotelroomnumberDataGridViewTextBoxColumn1.DataPropertyName = "Hotel_room_number";
-            dataGridViewCellStyle23.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.hotelroomnumberDataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle23;
-            this.hotelroomnumberDataGridViewTextBoxColumn1.HeaderText = "ROOM NO.";
-            this.hotelroomnumberDataGridViewTextBoxColumn1.MinimumWidth = 6;
-            this.hotelroomnumberDataGridViewTextBoxColumn1.Name = "hotelroomnumberDataGridViewTextBoxColumn1";
-            this.hotelroomnumberDataGridViewTextBoxColumn1.Width = 120;
-            // 
-            // hotelRoomPriceDataGridViewTextBoxColumn1
-            // 
-            this.hotelRoomPriceDataGridViewTextBoxColumn1.DataPropertyName = "Hotel_Room_Price";
-            dataGridViewCellStyle24.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.hotelRoomPriceDataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle24;
-            this.hotelRoomPriceDataGridViewTextBoxColumn1.HeaderText = "ROOM PRICE";
-            this.hotelRoomPriceDataGridViewTextBoxColumn1.MinimumWidth = 6;
-            this.hotelRoomPriceDataGridViewTextBoxColumn1.Name = "hotelRoomPriceDataGridViewTextBoxColumn1";
-            this.hotelRoomPriceDataGridViewTextBoxColumn1.Width = 130;
-            // 
-            // restaurantTableIDDataGridViewTextBoxColumn1
-            // 
-            this.restaurantTableIDDataGridViewTextBoxColumn1.DataPropertyName = "RestaurantTable_ID";
-            dataGridViewCellStyle25.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.restaurantTableIDDataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle25;
-            this.restaurantTableIDDataGridViewTextBoxColumn1.HeaderText = "TABLE ID";
-            this.restaurantTableIDDataGridViewTextBoxColumn1.MinimumWidth = 6;
-            this.restaurantTableIDDataGridViewTextBoxColumn1.Name = "restaurantTableIDDataGridViewTextBoxColumn1";
-            this.restaurantTableIDDataGridViewTextBoxColumn1.Width = 110;
-            // 
-            // restaurantTableNumDataGridViewTextBoxColumn
-            // 
-            this.restaurantTableNumDataGridViewTextBoxColumn.DataPropertyName = "RestaurantTableNum";
-            dataGridViewCellStyle26.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.restaurantTableNumDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle26;
-            this.restaurantTableNumDataGridViewTextBoxColumn.HeaderText = "TABLE NO.";
-            this.restaurantTableNumDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.restaurantTableNumDataGridViewTextBoxColumn.Name = "restaurantTableNumDataGridViewTextBoxColumn";
-            this.restaurantTableNumDataGridViewTextBoxColumn.Width = 120;
-            // 
-            // restaurantTablePriceDataGridViewTextBoxColumn
-            // 
-            this.restaurantTablePriceDataGridViewTextBoxColumn.DataPropertyName = "RestaurantTablePrice";
-            dataGridViewCellStyle27.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.restaurantTablePriceDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle27;
-            this.restaurantTablePriceDataGridViewTextBoxColumn.HeaderText = "TABLE PRICE";
-            this.restaurantTablePriceDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.restaurantTablePriceDataGridViewTextBoxColumn.Name = "restaurantTablePriceDataGridViewTextBoxColumn";
-            this.restaurantTablePriceDataGridViewTextBoxColumn.Width = 130;
-            // 
-            // invoiceBindingSource
-            // 
-            this.invoiceBindingSource.DataMember = "Invoice";
-            this.invoiceBindingSource.DataSource = this.codeCraftersDSTWO;
-            // 
-            // codeCraftersDSTWO
-            // 
-            this.codeCraftersDSTWO.DataSetName = "codeCraftersDSTWO";
-            this.codeCraftersDSTWO.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // label1
-            // 
-            this.label1.Location = new System.Drawing.Point(21, 569);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(467, 25);
-            this.label1.TabIndex = 12;
-            this.label1.Text = "CURRENT BOOKING SELECTIONS (INVOICE)";
-            // 
-            // txtRestaurantTableAvailable
-            // 
-            this.txtRestaurantTableAvailable.Location = new System.Drawing.Point(312, 366);
-            this.txtRestaurantTableAvailable.Margin = new System.Windows.Forms.Padding(4);
-            this.txtRestaurantTableAvailable.Name = "txtRestaurantTableAvailable";
-            this.txtRestaurantTableAvailable.Size = new System.Drawing.Size(132, 34);
-            this.txtRestaurantTableAvailable.TabIndex = 4;
-            this.txtRestaurantTableAvailable.TextChanged += new System.EventHandler(this.txtRestaurantTableAvailable_TextChanged);
-            // 
-            // dgvRestaurantTableAvailable
-            // 
-            this.dgvRestaurantTableAvailable.AutoGenerateColumns = false;
-            this.dgvRestaurantTableAvailable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvRestaurantTableAvailable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.restaurantTableIDDataGridViewTextBoxColumn,
-            this.branchIDDataGridViewTextBoxColumn1,
-            this.restuarantTableNumDataGridViewTextBoxColumn,
-            this.restuarantMenuTypeDataGridViewTextBoxColumn,
-            this.tableCapacityDataGridViewTextBoxColumn,
-            this.tableStatusDataGridViewTextBoxColumn,
-            this.tableIsCombinableDataGridViewTextBoxColumn,
-            this.tableFeaturesDataGridViewTextBoxColumn,
-            this.tablePriceDataGridViewTextBoxColumn});
-            this.dgvRestaurantTableAvailable.DataSource = this.restuarantTableBindingSource;
-            this.dgvRestaurantTableAvailable.Location = new System.Drawing.Point(27, 412);
-            this.dgvRestaurantTableAvailable.Margin = new System.Windows.Forms.Padding(4);
-            this.dgvRestaurantTableAvailable.Name = "dgvRestaurantTableAvailable";
-            this.dgvRestaurantTableAvailable.RowHeadersWidth = 51;
-            this.dgvRestaurantTableAvailable.Size = new System.Drawing.Size(1340, 145);
-            this.dgvRestaurantTableAvailable.TabIndex = 5;
-            this.dgvRestaurantTableAvailable.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvRestaurantTableAvailable_RowHeaderMouseDoubleClick);
-            // 
-            // restaurantTableIDDataGridViewTextBoxColumn
-            // 
-            this.restaurantTableIDDataGridViewTextBoxColumn.DataPropertyName = "RestaurantTableID";
-            dataGridViewCellStyle28.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.restaurantTableIDDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle28;
-            this.restaurantTableIDDataGridViewTextBoxColumn.HeaderText = "TABLE ID";
-            this.restaurantTableIDDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.restaurantTableIDDataGridViewTextBoxColumn.Name = "restaurantTableIDDataGridViewTextBoxColumn";
-            this.restaurantTableIDDataGridViewTextBoxColumn.ReadOnly = true;
-            this.restaurantTableIDDataGridViewTextBoxColumn.Width = 110;
-            // 
-            // branchIDDataGridViewTextBoxColumn1
-            // 
-            this.branchIDDataGridViewTextBoxColumn1.DataPropertyName = "Branch_ID";
-            dataGridViewCellStyle29.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.branchIDDataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle29;
-            this.branchIDDataGridViewTextBoxColumn1.HeaderText = "BRANCH ID";
-            this.branchIDDataGridViewTextBoxColumn1.MinimumWidth = 6;
-            this.branchIDDataGridViewTextBoxColumn1.Name = "branchIDDataGridViewTextBoxColumn1";
-            this.branchIDDataGridViewTextBoxColumn1.Width = 130;
-            // 
-            // restuarantTableNumDataGridViewTextBoxColumn
-            // 
-            this.restuarantTableNumDataGridViewTextBoxColumn.DataPropertyName = "RestuarantTableNum";
-            dataGridViewCellStyle30.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.restuarantTableNumDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle30;
-            this.restuarantTableNumDataGridViewTextBoxColumn.HeaderText = "TABLE NO.";
-            this.restuarantTableNumDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.restuarantTableNumDataGridViewTextBoxColumn.Name = "restuarantTableNumDataGridViewTextBoxColumn";
-            this.restuarantTableNumDataGridViewTextBoxColumn.Width = 120;
-            // 
-            // restuarantMenuTypeDataGridViewTextBoxColumn
-            // 
-            this.restuarantMenuTypeDataGridViewTextBoxColumn.DataPropertyName = "RestuarantMenuType";
-            dataGridViewCellStyle31.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.restuarantMenuTypeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle31;
-            this.restuarantMenuTypeDataGridViewTextBoxColumn.HeaderText = "TABLE MENU ";
-            this.restuarantMenuTypeDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.restuarantMenuTypeDataGridViewTextBoxColumn.Name = "restuarantMenuTypeDataGridViewTextBoxColumn";
-            this.restuarantMenuTypeDataGridViewTextBoxColumn.Width = 140;
-            // 
-            // tableCapacityDataGridViewTextBoxColumn
-            // 
-            this.tableCapacityDataGridViewTextBoxColumn.DataPropertyName = "TableCapacity";
-            dataGridViewCellStyle32.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tableCapacityDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle32;
-            this.tableCapacityDataGridViewTextBoxColumn.HeaderText = "TABLE CAPACITY";
-            this.tableCapacityDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.tableCapacityDataGridViewTextBoxColumn.Name = "tableCapacityDataGridViewTextBoxColumn";
-            this.tableCapacityDataGridViewTextBoxColumn.Width = 180;
-            // 
-            // tableStatusDataGridViewTextBoxColumn
-            // 
-            this.tableStatusDataGridViewTextBoxColumn.DataPropertyName = "TableStatus";
-            dataGridViewCellStyle33.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tableStatusDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle33;
-            this.tableStatusDataGridViewTextBoxColumn.HeaderText = "TABLE STATUS";
-            this.tableStatusDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.tableStatusDataGridViewTextBoxColumn.Name = "tableStatusDataGridViewTextBoxColumn";
-            this.tableStatusDataGridViewTextBoxColumn.Width = 160;
-            // 
-            // tableIsCombinableDataGridViewTextBoxColumn
-            // 
-            this.tableIsCombinableDataGridViewTextBoxColumn.DataPropertyName = "TableIsCombinable";
-            dataGridViewCellStyle34.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tableIsCombinableDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle34;
-            this.tableIsCombinableDataGridViewTextBoxColumn.HeaderText = "COMBINED";
-            this.tableIsCombinableDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.tableIsCombinableDataGridViewTextBoxColumn.Name = "tableIsCombinableDataGridViewTextBoxColumn";
-            this.tableIsCombinableDataGridViewTextBoxColumn.Width = 120;
-            // 
-            // tableFeaturesDataGridViewTextBoxColumn
-            // 
-            this.tableFeaturesDataGridViewTextBoxColumn.DataPropertyName = "TableFeatures";
-            dataGridViewCellStyle35.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tableFeaturesDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle35;
-            this.tableFeaturesDataGridViewTextBoxColumn.HeaderText = "TABLE FEATURES";
-            this.tableFeaturesDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.tableFeaturesDataGridViewTextBoxColumn.Name = "tableFeaturesDataGridViewTextBoxColumn";
-            this.tableFeaturesDataGridViewTextBoxColumn.Width = 180;
-            // 
-            // tablePriceDataGridViewTextBoxColumn
-            // 
-            this.tablePriceDataGridViewTextBoxColumn.DataPropertyName = "TablePrice";
-            dataGridViewCellStyle36.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tablePriceDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle36;
-            this.tablePriceDataGridViewTextBoxColumn.HeaderText = "TABLE PRICE";
-            this.tablePriceDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.tablePriceDataGridViewTextBoxColumn.Name = "tablePriceDataGridViewTextBoxColumn";
-            this.tablePriceDataGridViewTextBoxColumn.Width = 130;
-            // 
-            // restuarantTableBindingSource
-            // 
-            this.restuarantTableBindingSource.DataMember = "Restuarant_Table";
-            this.restuarantTableBindingSource.DataSource = this.codeCraftersDSTWO;
-            // 
-            // dgvHotelRoomAvailable
-            // 
-            this.dgvHotelRoomAvailable.AutoGenerateColumns = false;
-            this.dgvHotelRoomAvailable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvHotelRoomAvailable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.hotelRoomIDDataGridViewTextBoxColumn,
-            this.branchIDDataGridViewTextBoxColumn,
-            this.hotelroomtypeIDDataGridViewTextBoxColumn,
-            this.hotelroomnumberDataGridViewTextBoxColumn,
-            this.hotelroomstatusDataGridViewTextBoxColumn,
-            this.hotelRoomPriceDataGridViewTextBoxColumn});
-            this.dgvHotelRoomAvailable.DataSource = this.hotelRoomBindingSource;
-            this.dgvHotelRoomAvailable.Location = new System.Drawing.Point(27, 166);
-            this.dgvHotelRoomAvailable.Margin = new System.Windows.Forms.Padding(4);
-            this.dgvHotelRoomAvailable.Name = "dgvHotelRoomAvailable";
-            this.dgvHotelRoomAvailable.RowHeadersWidth = 51;
-            this.dgvHotelRoomAvailable.Size = new System.Drawing.Size(1340, 135);
-            this.dgvHotelRoomAvailable.TabIndex = 2;
-            this.dgvHotelRoomAvailable.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvHotelRoomAvailable_RowHeaderMouseDoubleClick);
-            // 
-            // hotelRoomIDDataGridViewTextBoxColumn
-            // 
-            this.hotelRoomIDDataGridViewTextBoxColumn.DataPropertyName = "Hotel_Room_ID";
-            dataGridViewCellStyle37.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.hotelRoomIDDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle37;
-            this.hotelRoomIDDataGridViewTextBoxColumn.HeaderText = "ROOM ID";
-            this.hotelRoomIDDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.hotelRoomIDDataGridViewTextBoxColumn.Name = "hotelRoomIDDataGridViewTextBoxColumn";
-            this.hotelRoomIDDataGridViewTextBoxColumn.ReadOnly = true;
-            this.hotelRoomIDDataGridViewTextBoxColumn.Width = 110;
-            // 
-            // branchIDDataGridViewTextBoxColumn
-            // 
-            this.branchIDDataGridViewTextBoxColumn.DataPropertyName = "Branch_ID";
-            dataGridViewCellStyle38.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.branchIDDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle38;
-            this.branchIDDataGridViewTextBoxColumn.HeaderText = "BRANCH ID";
-            this.branchIDDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.branchIDDataGridViewTextBoxColumn.Name = "branchIDDataGridViewTextBoxColumn";
-            this.branchIDDataGridViewTextBoxColumn.Width = 130;
-            // 
-            // hotelroomtypeIDDataGridViewTextBoxColumn
-            // 
-            this.hotelroomtypeIDDataGridViewTextBoxColumn.DataPropertyName = "hotel_room_type_ID";
-            dataGridViewCellStyle39.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.hotelroomtypeIDDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle39;
-            this.hotelroomtypeIDDataGridViewTextBoxColumn.HeaderText = "ROOM TYPE";
-            this.hotelroomtypeIDDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.hotelroomtypeIDDataGridViewTextBoxColumn.Name = "hotelroomtypeIDDataGridViewTextBoxColumn";
-            this.hotelroomtypeIDDataGridViewTextBoxColumn.Width = 130;
-            // 
-            // hotelroomnumberDataGridViewTextBoxColumn
-            // 
-            this.hotelroomnumberDataGridViewTextBoxColumn.DataPropertyName = "hotel_room_number";
-            dataGridViewCellStyle40.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.hotelroomnumberDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle40;
-            this.hotelroomnumberDataGridViewTextBoxColumn.HeaderText = "ROOM NO.";
-            this.hotelroomnumberDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.hotelroomnumberDataGridViewTextBoxColumn.Name = "hotelroomnumberDataGridViewTextBoxColumn";
-            this.hotelroomnumberDataGridViewTextBoxColumn.Width = 130;
-            // 
-            // hotelroomstatusDataGridViewTextBoxColumn
-            // 
-            this.hotelroomstatusDataGridViewTextBoxColumn.DataPropertyName = "hotel_room_status";
-            dataGridViewCellStyle41.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.hotelroomstatusDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle41;
-            this.hotelroomstatusDataGridViewTextBoxColumn.HeaderText = "ROOM STATUS";
-            this.hotelroomstatusDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.hotelroomstatusDataGridViewTextBoxColumn.Name = "hotelroomstatusDataGridViewTextBoxColumn";
-            this.hotelroomstatusDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // hotelRoomPriceDataGridViewTextBoxColumn
-            // 
-            this.hotelRoomPriceDataGridViewTextBoxColumn.DataPropertyName = "Hotel_Room_Price";
-            dataGridViewCellStyle42.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.hotelRoomPriceDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle42;
-            this.hotelRoomPriceDataGridViewTextBoxColumn.HeaderText = "ROOM PRICE";
-            this.hotelRoomPriceDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.hotelRoomPriceDataGridViewTextBoxColumn.Name = "hotelRoomPriceDataGridViewTextBoxColumn";
-            this.hotelRoomPriceDataGridViewTextBoxColumn.Width = 130;
+            this.label4.Size = new System.Drawing.Size(125, 21);
+            this.label4.TabIndex = 20;
+            this.label4.Text = "BOOKING TYPE";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.ForeColor = System.Drawing.Color.Black;
+            this.label5.Location = new System.Drawing.Point(142, 74);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(128, 21);
+            this.label5.TabIndex = 19;
+            this.label5.Text = "SEARCH QUERY";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.ForeColor = System.Drawing.Color.Black;
+            this.label6.Location = new System.Drawing.Point(26, 74);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(95, 21);
+            this.label6.TabIndex = 18;
+            this.label6.Text = "SEARCH BY";
+            // 
+            // panel1
+            // 
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.numNoOfNights);
+            this.panel1.Controls.Add(this.numNoOfRooms);
+            this.panel1.Controls.Add(this.dtpRoomCheckIn);
+            this.panel1.Controls.Add(this.dtpRoomCheckOut);
+            this.panel1.Controls.Add(this.label10);
+            this.panel1.Controls.Add(this.label11);
+            this.panel1.Controls.Add(this.label12);
+            this.panel1.Controls.Add(this.label13);
+            this.panel1.Controls.Add(this.panel3);
+            this.panel1.Controls.Add(this.label8);
+            this.panel1.ForeColor = System.Drawing.Color.Navy;
+            this.panel1.Location = new System.Drawing.Point(694, 147);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(373, 250);
+            this.panel1.TabIndex = 11;
+            // 
+            // numNoOfNights
+            // 
+            this.numNoOfNights.Location = new System.Drawing.Point(152, 131);
+            this.numNoOfNights.Name = "numNoOfNights";
+            this.numNoOfNights.Size = new System.Drawing.Size(85, 29);
+            this.numNoOfNights.TabIndex = 42;
+            // 
+            // numNoOfRooms
+            // 
+            this.numNoOfRooms.Location = new System.Drawing.Point(152, 166);
+            this.numNoOfRooms.Name = "numNoOfRooms";
+            this.numNoOfRooms.Size = new System.Drawing.Size(85, 29);
+            this.numNoOfRooms.TabIndex = 41;
+            // 
+            // dtpRoomCheckIn
+            // 
+            this.dtpRoomCheckIn.CustomFormat = "yyyy/MM/dd";
+            this.dtpRoomCheckIn.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpRoomCheckIn.Location = new System.Drawing.Point(152, 55);
+            this.dtpRoomCheckIn.Name = "dtpRoomCheckIn";
+            this.dtpRoomCheckIn.Size = new System.Drawing.Size(129, 29);
+            this.dtpRoomCheckIn.TabIndex = 40;
+            this.dtpRoomCheckIn.Value = new System.DateTime(2026, 8, 5, 0, 0, 0, 0);
+            // 
+            // dtpRoomCheckOut
+            // 
+            this.dtpRoomCheckOut.CustomFormat = "yyyy/MM/dd ";
+            this.dtpRoomCheckOut.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpRoomCheckOut.Location = new System.Drawing.Point(152, 92);
+            this.dtpRoomCheckOut.Name = "dtpRoomCheckOut";
+            this.dtpRoomCheckOut.Size = new System.Drawing.Size(129, 29);
+            this.dtpRoomCheckOut.TabIndex = 39;
+            this.dtpRoomCheckOut.Value = new System.DateTime(2026, 8, 5, 0, 0, 0, 0);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.ForeColor = System.Drawing.Color.Black;
+            this.label10.Location = new System.Drawing.Point(18, 171);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(124, 21);
+            this.label10.TabIndex = 37;
+            this.label10.Text = "NO. OF ROOMS";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.ForeColor = System.Drawing.Color.Black;
+            this.label11.Location = new System.Drawing.Point(18, 136);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(125, 21);
+            this.label11.TabIndex = 36;
+            this.label11.Text = "NO. OF NIGHTS";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.ForeColor = System.Drawing.Color.Black;
+            this.label12.Location = new System.Drawing.Point(18, 98);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(100, 21);
+            this.label12.TabIndex = 35;
+            this.label12.Text = "CHECK-OUT";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.ForeColor = System.Drawing.Color.Black;
+            this.label13.Location = new System.Drawing.Point(18, 61);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(85, 21);
+            this.label13.TabIndex = 34;
+            this.label13.Text = "CHECK-IN";
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.Gainsboro;
+            this.panel3.Location = new System.Drawing.Point(3, 33);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(363, 1);
+            this.panel3.TabIndex = 33;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(17, 6);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(163, 21);
+            this.label8.TabIndex = 32;
+            this.label8.Text = "🛏 ROOM BOOKING";
             // 
             // hotelRoomBindingSource
             // 
             this.hotelRoomBindingSource.DataMember = "Hotel_Room";
             this.hotelRoomBindingSource.DataSource = this.codeCraftersDSTWO;
             // 
-            // lblRestaurantTableAvailable
+            // codeCraftersDSTWO
             // 
-            this.lblRestaurantTableAvailable.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold);
-            this.lblRestaurantTableAvailable.Location = new System.Drawing.Point(27, 373);
-            this.lblRestaurantTableAvailable.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblRestaurantTableAvailable.Name = "lblRestaurantTableAvailable";
-            this.lblRestaurantTableAvailable.Size = new System.Drawing.Size(277, 25);
-            this.lblRestaurantTableAvailable.TabIndex = 3;
-            this.lblRestaurantTableAvailable.Text = "ENTER RESTAURANT TABLE NO:";
+            this.codeCraftersDSTWO.DataSetName = "codeCraftersDSTWO";
+            this.codeCraftersDSTWO.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // lblHotelRoomAvailable
+            // panel4
             // 
-            this.lblHotelRoomAvailable.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold);
-            this.lblHotelRoomAvailable.Location = new System.Drawing.Point(27, 127);
-            this.lblHotelRoomAvailable.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblHotelRoomAvailable.Name = "lblHotelRoomAvailable";
-            this.lblHotelRoomAvailable.Size = new System.Drawing.Size(171, 25);
-            this.lblHotelRoomAvailable.TabIndex = 0;
-            this.lblHotelRoomAvailable.Text = "ENTER ROOM NO:";
+            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel4.Controls.Add(this.cmbTableArea);
+            this.panel4.Controls.Add(this.label14);
+            this.panel4.Controls.Add(this.dtpTableCheckOut);
+            this.panel4.Controls.Add(this.dtpTableCheckIn);
+            this.panel4.Controls.Add(this.numTableGuests);
+            this.panel4.Controls.Add(this.label15);
+            this.panel4.Controls.Add(this.label17);
+            this.panel4.Controls.Add(this.label18);
+            this.panel4.Controls.Add(this.panel5);
+            this.panel4.Controls.Add(this.label19);
+            this.panel4.ForeColor = System.Drawing.Color.Navy;
+            this.panel4.Location = new System.Drawing.Point(1086, 147);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(415, 250);
+            this.panel4.TabIndex = 12;
             // 
-            // txtHotelRoomAvailable
+            // cmbTableArea
             // 
-            this.txtHotelRoomAvailable.Location = new System.Drawing.Point(205, 119);
-            this.txtHotelRoomAvailable.Margin = new System.Windows.Forms.Padding(4);
-            this.txtHotelRoomAvailable.Name = "txtHotelRoomAvailable";
-            this.txtHotelRoomAvailable.Size = new System.Drawing.Size(132, 34);
-            this.txtHotelRoomAvailable.TabIndex = 1;
-            this.txtHotelRoomAvailable.TextChanged += new System.EventHandler(this.txtHotelRoomAvailable_TextChanged);
+            this.cmbTableArea.FormattingEnabled = true;
+            this.cmbTableArea.Location = new System.Drawing.Point(159, 171);
+            this.cmbTableArea.Name = "cmbTableArea";
+            this.cmbTableArea.Size = new System.Drawing.Size(170, 29);
+            this.cmbTableArea.TabIndex = 43;
             // 
-            // grpClientDetails
+            // label14
             // 
-            this.grpClientDetails.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.grpClientDetails.Controls.Add(this.txtAddress);
-            this.grpClientDetails.Controls.Add(this.txtEmailAddress);
-            this.grpClientDetails.Controls.Add(this.txtFullName);
-            this.grpClientDetails.Controls.Add(this.lblAddress);
-            this.grpClientDetails.Controls.Add(this.lblEmailAddress);
-            this.grpClientDetails.Controls.Add(this.lblFullName);
-            this.grpClientDetails.Location = new System.Drawing.Point(27, 137);
-            this.grpClientDetails.Margin = new System.Windows.Forms.Padding(4);
-            this.grpClientDetails.Name = "grpClientDetails";
-            this.grpClientDetails.Padding = new System.Windows.Forms.Padding(4);
-            this.grpClientDetails.Size = new System.Drawing.Size(1445, 127);
-            this.grpClientDetails.TabIndex = 4;
-            this.grpClientDetails.TabStop = false;
-            this.grpClientDetails.Text = "CLIENT DETAILS";
+            this.label14.AutoSize = true;
+            this.label14.ForeColor = System.Drawing.Color.Black;
+            this.label14.Location = new System.Drawing.Point(28, 174);
+            this.label14.Name = "label14";
+            this.label14.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.label14.Size = new System.Drawing.Size(101, 21);
+            this.label14.TabIndex = 42;
+            this.label14.Text = "TABLE AREA";
             // 
-            // txtAddress
+            // dtpTableCheckOut
             // 
-            this.txtAddress.Location = new System.Drawing.Point(764, 68);
-            this.txtAddress.Margin = new System.Windows.Forms.Padding(4);
-            this.txtAddress.Name = "txtAddress";
-            this.txtAddress.ReadOnly = true;
-            this.txtAddress.Size = new System.Drawing.Size(457, 34);
-            this.txtAddress.TabIndex = 7;
+            this.dtpTableCheckOut.CustomFormat = "yyyy/MM/dd";
+            this.dtpTableCheckOut.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpTableCheckOut.Location = new System.Drawing.Point(159, 92);
+            this.dtpTableCheckOut.Name = "dtpTableCheckOut";
+            this.dtpTableCheckOut.Size = new System.Drawing.Size(131, 29);
+            this.dtpTableCheckOut.TabIndex = 41;
+            this.dtpTableCheckOut.Value = new System.DateTime(2026, 8, 5, 0, 0, 0, 0);
+            // 
+            // dtpTableCheckIn
+            // 
+            this.dtpTableCheckIn.CustomFormat = "yyyy/MM/dd";
+            this.dtpTableCheckIn.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpTableCheckIn.Location = new System.Drawing.Point(159, 57);
+            this.dtpTableCheckIn.Name = "dtpTableCheckIn";
+            this.dtpTableCheckIn.Size = new System.Drawing.Size(131, 29);
+            this.dtpTableCheckIn.TabIndex = 40;
+            this.dtpTableCheckIn.Value = new System.DateTime(2026, 8, 5, 0, 0, 0, 0);
+            // 
+            // numTableGuests
+            // 
+            this.numTableGuests.Location = new System.Drawing.Point(159, 130);
+            this.numTableGuests.Name = "numTableGuests";
+            this.numTableGuests.Size = new System.Drawing.Size(85, 29);
+            this.numTableGuests.TabIndex = 38;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.ForeColor = System.Drawing.Color.Black;
+            this.label15.Location = new System.Drawing.Point(28, 135);
+            this.label15.Name = "label15";
+            this.label15.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.label15.Size = new System.Drawing.Size(125, 21);
+            this.label15.TabIndex = 37;
+            this.label15.Text = "NO. OF GUESTS";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.ForeColor = System.Drawing.Color.Black;
+            this.label17.Location = new System.Drawing.Point(28, 96);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(100, 21);
+            this.label17.TabIndex = 35;
+            this.label17.Text = "CHECK-OUT";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.ForeColor = System.Drawing.Color.Black;
+            this.label18.Location = new System.Drawing.Point(28, 61);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(85, 21);
+            this.label18.TabIndex = 34;
+            this.label18.Text = "CHECK-IN";
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.Gainsboro;
+            this.panel5.Location = new System.Drawing.Point(3, 33);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(408, 1);
+            this.panel5.TabIndex = 33;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(17, 6);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(160, 21);
+            this.label19.TabIndex = 32;
+            this.label19.Text = "🍽 TABLE BOOKING";
+            // 
+            // panel6
+            // 
+            this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel6.Controls.Add(this.numInfants);
+            this.panel6.Controls.Add(this.numChildren);
+            this.panel6.Controls.Add(this.numAdults);
+            this.panel6.Controls.Add(this.cmbRoomCategory);
+            this.panel6.Controls.Add(this.txtIdPassportNo);
+            this.panel6.Controls.Add(this.txtEmailAddress);
+            this.panel6.Controls.Add(this.txtPhoneNo);
+            this.panel6.Controls.Add(this.txtFullName);
+            this.panel6.Controls.Add(this.cmbBookingType);
+            this.panel6.Controls.Add(this.lblRoomCategory);
+            this.panel6.Controls.Add(this.lblInfants);
+            this.panel6.Controls.Add(this.lblChildren);
+            this.panel6.Controls.Add(this.lblAdults);
+            this.panel6.Controls.Add(this.lblIDORPASS);
+            this.panel6.Controls.Add(this.lblEmailAddress);
+            this.panel6.Controls.Add(this.lblPhoneNo);
+            this.panel6.Controls.Add(this.lblFullName);
+            this.panel6.Controls.Add(this.lblBookingTypes);
+            this.panel6.Controls.Add(this.panel7);
+            this.panel6.Controls.Add(this.label20);
+            this.panel6.ForeColor = System.Drawing.Color.Navy;
+            this.panel6.Location = new System.Drawing.Point(13, 147);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(659, 250);
+            this.panel6.TabIndex = 44;
+            // 
+            // numInfants
+            // 
+            this.numInfants.Location = new System.Drawing.Point(533, 131);
+            this.numInfants.Name = "numInfants";
+            this.numInfants.Size = new System.Drawing.Size(85, 29);
+            this.numInfants.TabIndex = 51;
+            // 
+            // numChildren
+            // 
+            this.numChildren.Location = new System.Drawing.Point(533, 94);
+            this.numChildren.Name = "numChildren";
+            this.numChildren.Size = new System.Drawing.Size(85, 29);
+            this.numChildren.TabIndex = 50;
+            // 
+            // numAdults
+            // 
+            this.numAdults.Location = new System.Drawing.Point(533, 59);
+            this.numAdults.Name = "numAdults";
+            this.numAdults.Size = new System.Drawing.Size(85, 29);
+            this.numAdults.TabIndex = 49;
+            // 
+            // cmbRoomCategory
+            // 
+            this.cmbRoomCategory.FormattingEnabled = true;
+            this.cmbRoomCategory.Items.AddRange(new object[] {
+            "Standard",
+            "Deluxe",
+            "Executive",
+            "Suite"});
+            this.cmbRoomCategory.Location = new System.Drawing.Point(532, 167);
+            this.cmbRoomCategory.Name = "cmbRoomCategory";
+            this.cmbRoomCategory.Size = new System.Drawing.Size(86, 29);
+            this.cmbRoomCategory.TabIndex = 48;
+            // 
+            // txtIdPassportNo
+            // 
+            this.txtIdPassportNo.Location = new System.Drawing.Point(191, 203);
+            this.txtIdPassportNo.Name = "txtIdPassportNo";
+            this.txtIdPassportNo.Size = new System.Drawing.Size(168, 29);
+            this.txtIdPassportNo.TabIndex = 47;
             // 
             // txtEmailAddress
             // 
-            this.txtEmailAddress.Location = new System.Drawing.Point(377, 68);
-            this.txtEmailAddress.Margin = new System.Windows.Forms.Padding(4);
+            this.txtEmailAddress.Location = new System.Drawing.Point(191, 168);
             this.txtEmailAddress.Name = "txtEmailAddress";
-            this.txtEmailAddress.ReadOnly = true;
-            this.txtEmailAddress.Size = new System.Drawing.Size(332, 34);
-            this.txtEmailAddress.TabIndex = 5;
+            this.txtEmailAddress.Size = new System.Drawing.Size(168, 29);
+            this.txtEmailAddress.TabIndex = 46;
+            // 
+            // txtPhoneNo
+            // 
+            this.txtPhoneNo.Location = new System.Drawing.Point(191, 132);
+            this.txtPhoneNo.Name = "txtPhoneNo";
+            this.txtPhoneNo.Size = new System.Drawing.Size(168, 29);
+            this.txtPhoneNo.TabIndex = 45;
             // 
             // txtFullName
             // 
-            this.txtFullName.Location = new System.Drawing.Point(27, 68);
-            this.txtFullName.Margin = new System.Windows.Forms.Padding(4);
+            this.txtFullName.Location = new System.Drawing.Point(191, 95);
             this.txtFullName.Name = "txtFullName";
-            this.txtFullName.ReadOnly = true;
-            this.txtFullName.Size = new System.Drawing.Size(292, 34);
-            this.txtFullName.TabIndex = 1;
+            this.txtFullName.Size = new System.Drawing.Size(168, 29);
+            this.txtFullName.TabIndex = 44;
             // 
-            // lblAddress
+            // cmbBookingType
             // 
-            this.lblAddress.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold);
-            this.lblAddress.Location = new System.Drawing.Point(763, 37);
-            this.lblAddress.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblAddress.Name = "lblAddress";
-            this.lblAddress.Size = new System.Drawing.Size(207, 25);
-            this.lblAddress.TabIndex = 6;
-            this.lblAddress.Text = "CLIENT ADDRESS:";
+            this.cmbBookingType.FormattingEnabled = true;
+            this.cmbBookingType.Location = new System.Drawing.Point(191, 59);
+            this.cmbBookingType.Name = "cmbBookingType";
+            this.cmbBookingType.Size = new System.Drawing.Size(168, 29);
+            this.cmbBookingType.TabIndex = 43;
+            // 
+            // lblRoomCategory
+            // 
+            this.lblRoomCategory.AutoSize = true;
+            this.lblRoomCategory.ForeColor = System.Drawing.Color.Black;
+            this.lblRoomCategory.Location = new System.Drawing.Point(380, 170);
+            this.lblRoomCategory.Name = "lblRoomCategory";
+            this.lblRoomCategory.Size = new System.Drawing.Size(144, 21);
+            this.lblRoomCategory.TabIndex = 42;
+            this.lblRoomCategory.Text = "ROOM CATEGORY";
+            // 
+            // lblInfants
+            // 
+            this.lblInfants.AutoSize = true;
+            this.lblInfants.ForeColor = System.Drawing.Color.Black;
+            this.lblInfants.Location = new System.Drawing.Point(381, 131);
+            this.lblInfants.Name = "lblInfants";
+            this.lblInfants.Size = new System.Drawing.Size(77, 21);
+            this.lblInfants.TabIndex = 41;
+            this.lblInfants.Text = "INFANTS";
+            // 
+            // lblChildren
+            // 
+            this.lblChildren.AutoSize = true;
+            this.lblChildren.ForeColor = System.Drawing.Color.Black;
+            this.lblChildren.Location = new System.Drawing.Point(381, 94);
+            this.lblChildren.Name = "lblChildren";
+            this.lblChildren.Size = new System.Drawing.Size(89, 21);
+            this.lblChildren.TabIndex = 40;
+            this.lblChildren.Text = "CHILDREN";
+            // 
+            // lblAdults
+            // 
+            this.lblAdults.AutoSize = true;
+            this.lblAdults.ForeColor = System.Drawing.Color.Black;
+            this.lblAdults.Location = new System.Drawing.Point(381, 59);
+            this.lblAdults.Name = "lblAdults";
+            this.lblAdults.Size = new System.Drawing.Size(70, 21);
+            this.lblAdults.TabIndex = 39;
+            this.lblAdults.Text = "ADULTS";
+            // 
+            // lblIDORPASS
+            // 
+            this.lblIDORPASS.AutoSize = true;
+            this.lblIDORPASS.ForeColor = System.Drawing.Color.Black;
+            this.lblIDORPASS.Location = new System.Drawing.Point(26, 203);
+            this.lblIDORPASS.Name = "lblIDORPASS";
+            this.lblIDORPASS.Size = new System.Drawing.Size(142, 21);
+            this.lblIDORPASS.TabIndex = 38;
+            this.lblIDORPASS.Text = "ID/PASSPORT NO";
             // 
             // lblEmailAddress
             // 
-            this.lblEmailAddress.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold);
-            this.lblEmailAddress.Location = new System.Drawing.Point(373, 37);
-            this.lblEmailAddress.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblEmailAddress.AutoSize = true;
+            this.lblEmailAddress.ForeColor = System.Drawing.Color.Black;
+            this.lblEmailAddress.Location = new System.Drawing.Point(26, 168);
             this.lblEmailAddress.Name = "lblEmailAddress";
-            this.lblEmailAddress.Size = new System.Drawing.Size(160, 25);
-            this.lblEmailAddress.TabIndex = 4;
-            this.lblEmailAddress.Text = "EMAIL ADDRESS:";
+            this.lblEmailAddress.Size = new System.Drawing.Size(134, 21);
+            this.lblEmailAddress.TabIndex = 37;
+            this.lblEmailAddress.Text = "EMAIL ADDRESS";
+            // 
+            // lblPhoneNo
+            // 
+            this.lblPhoneNo.AutoSize = true;
+            this.lblPhoneNo.ForeColor = System.Drawing.Color.Black;
+            this.lblPhoneNo.Location = new System.Drawing.Point(26, 132);
+            this.lblPhoneNo.Name = "lblPhoneNo";
+            this.lblPhoneNo.Size = new System.Drawing.Size(95, 21);
+            this.lblPhoneNo.TabIndex = 36;
+            this.lblPhoneNo.Text = "PHONE NO";
             // 
             // lblFullName
             // 
-            this.lblFullName.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold);
-            this.lblFullName.Location = new System.Drawing.Point(27, 37);
-            this.lblFullName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblFullName.AutoSize = true;
+            this.lblFullName.ForeColor = System.Drawing.Color.Black;
+            this.lblFullName.Location = new System.Drawing.Point(26, 95);
             this.lblFullName.Name = "lblFullName";
-            this.lblFullName.Size = new System.Drawing.Size(133, 25);
-            this.lblFullName.TabIndex = 0;
-            this.lblFullName.Text = "FULL NAME:";
+            this.lblFullName.Size = new System.Drawing.Size(98, 21);
+            this.lblFullName.TabIndex = 35;
+            this.lblFullName.Text = "FULL NAME";
             // 
-            // lblPhoneNumber
+            // lblBookingTypes
             // 
-            this.lblPhoneNumber.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPhoneNumber.Location = new System.Drawing.Point(23, 94);
-            this.lblPhoneNumber.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblPhoneNumber.Name = "lblPhoneNumber";
-            this.lblPhoneNumber.Size = new System.Drawing.Size(219, 25);
-            this.lblPhoneNumber.TabIndex = 2;
-            this.lblPhoneNumber.Text = "ENTER EMAIL ADDRESS:";
+            this.lblBookingTypes.AutoSize = true;
+            this.lblBookingTypes.ForeColor = System.Drawing.Color.Black;
+            this.lblBookingTypes.Location = new System.Drawing.Point(26, 60);
+            this.lblBookingTypes.Name = "lblBookingTypes";
+            this.lblBookingTypes.Size = new System.Drawing.Size(125, 21);
+            this.lblBookingTypes.TabIndex = 34;
+            this.lblBookingTypes.Text = "BOOKING TYPE";
             // 
-            // btnCreateBooking
+            // panel7
             // 
-            this.btnCreateBooking.BackColor = System.Drawing.Color.DarkOrange;
-            this.btnCreateBooking.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.btnCreateBooking.Location = new System.Drawing.Point(1169, 1162);
-            this.btnCreateBooking.Margin = new System.Windows.Forms.Padding(4);
-            this.btnCreateBooking.Name = "btnCreateBooking";
-            this.btnCreateBooking.Size = new System.Drawing.Size(267, 41);
-            this.btnCreateBooking.TabIndex = 11;
-            this.btnCreateBooking.Text = "MAKE A BOOKING";
-            this.btnCreateBooking.UseVisualStyleBackColor = false;
-            this.btnCreateBooking.Click += new System.EventHandler(this.btnCreateBooking_Click_1);
+            this.panel7.BackColor = System.Drawing.Color.Gainsboro;
+            this.panel7.Location = new System.Drawing.Point(3, 30);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(650, 1);
+            this.panel7.TabIndex = 33;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(17, 6);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(153, 21);
+            this.label20.TabIndex = 32;
+            this.label20.Text = "👤 GUEST DETAILS";
+            // 
+            // panel8
+            // 
+            this.panel8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel8.Controls.Add(this.btnPrint);
+            this.panel8.Controls.Add(this.btnCancelBooking);
+            this.panel8.Controls.Add(this.btnLinkBookings);
+            this.panel8.Controls.Add(this.btnReschedule);
+            this.panel8.Controls.Add(this.btnViewEdit);
+            this.panel8.Controls.Add(this.panel9);
+            this.panel8.Controls.Add(this.label21);
+            this.panel8.ForeColor = System.Drawing.Color.Navy;
+            this.panel8.Location = new System.Drawing.Point(694, 418);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(807, 250);
+            this.panel8.TabIndex = 52;
+            // 
+            // btnPrint
+            // 
+            this.btnPrint.BackColor = System.Drawing.Color.Teal;
+            this.btnPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPrint.ForeColor = System.Drawing.Color.White;
+            this.btnPrint.Location = new System.Drawing.Point(701, 61);
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.Size = new System.Drawing.Size(96, 45);
+            this.btnPrint.TabIndex = 38;
+            this.btnPrint.Text = "🖨 PRINT";
+            this.btnPrint.UseVisualStyleBackColor = false;
+            // 
+            // btnCancelBooking
+            // 
+            this.btnCancelBooking.BackColor = System.Drawing.Color.Purple;
+            this.btnCancelBooking.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancelBooking.ForeColor = System.Drawing.Color.White;
+            this.btnCancelBooking.Location = new System.Drawing.Point(326, 61);
+            this.btnCancelBooking.Name = "btnCancelBooking";
+            this.btnCancelBooking.Size = new System.Drawing.Size(189, 45);
+            this.btnCancelBooking.TabIndex = 37;
+            this.btnCancelBooking.Text = "❌ CANCEL BOOKING";
+            this.btnCancelBooking.UseVisualStyleBackColor = false;
+            // 
+            // btnLinkBookings
+            // 
+            this.btnLinkBookings.BackColor = System.Drawing.Color.Red;
+            this.btnLinkBookings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLinkBookings.ForeColor = System.Drawing.Color.White;
+            this.btnLinkBookings.Location = new System.Drawing.Point(521, 61);
+            this.btnLinkBookings.Name = "btnLinkBookings";
+            this.btnLinkBookings.Size = new System.Drawing.Size(174, 45);
+            this.btnLinkBookings.TabIndex = 36;
+            this.btnLinkBookings.Text = "🔗 LINK BOOKINGS";
+            this.btnLinkBookings.UseVisualStyleBackColor = false;
+            // 
+            // btnReschedule
+            // 
+            this.btnReschedule.BackColor = System.Drawing.Color.Orange;
+            this.btnReschedule.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReschedule.ForeColor = System.Drawing.Color.White;
+            this.btnReschedule.Location = new System.Drawing.Point(159, 61);
+            this.btnReschedule.Name = "btnReschedule";
+            this.btnReschedule.Size = new System.Drawing.Size(161, 45);
+            this.btnReschedule.TabIndex = 35;
+            this.btnReschedule.Text = "📅 RESCHEDULE";
+            this.btnReschedule.UseVisualStyleBackColor = false;
+            // 
+            // btnViewEdit
+            // 
+            this.btnViewEdit.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnViewEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnViewEdit.ForeColor = System.Drawing.Color.White;
+            this.btnViewEdit.Location = new System.Drawing.Point(21, 61);
+            this.btnViewEdit.Name = "btnViewEdit";
+            this.btnViewEdit.Size = new System.Drawing.Size(132, 45);
+            this.btnViewEdit.TabIndex = 34;
+            this.btnViewEdit.Text = "👁 VIEW/EDIT";
+            this.btnViewEdit.UseVisualStyleBackColor = false;
+            this.btnViewEdit.Click += new System.EventHandler(this.btnViewEdit_Click_1);
+            // 
+            // panel9
+            // 
+            this.panel9.BackColor = System.Drawing.Color.Gainsboro;
+            this.panel9.Location = new System.Drawing.Point(0, 30);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(803, 1);
+            this.panel9.TabIndex = 33;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(17, 6);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(106, 21);
+            this.label21.TabIndex = 32;
+            this.label21.Text = "⚡ ACTIONS";
+            // 
+            // panel10
+            // 
+            this.panel10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel10.Controls.Add(this.dgvBookingList);
+            this.panel10.Controls.Add(this.panel11);
+            this.panel10.Controls.Add(this.label22);
+            this.panel10.ForeColor = System.Drawing.Color.Navy;
+            this.panel10.Location = new System.Drawing.Point(12, 693);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(1489, 227);
+            this.panel10.TabIndex = 53;
+            // 
+            // dgvBookingList
+            // 
+            this.dgvBookingList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvBookingList.Location = new System.Drawing.Point(20, 46);
+            this.dgvBookingList.Name = "dgvBookingList";
+            this.dgvBookingList.Size = new System.Drawing.Size(1459, 163);
+            this.dgvBookingList.TabIndex = 34;
+            // 
+            // panel11
+            // 
+            this.panel11.BackColor = System.Drawing.Color.Gainsboro;
+            this.panel11.Location = new System.Drawing.Point(0, 30);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(1485, 1);
+            this.panel11.TabIndex = 33;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(17, 6);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(145, 21);
+            this.label22.TabIndex = 32;
+            this.label22.Text = "📋 BOOKING LIST";
+            // 
+            // invoiceBindingSource
+            // 
+            this.invoiceBindingSource.DataMember = "Invoice";
+            this.invoiceBindingSource.DataSource = this.codeCraftersDSTWO;
+            // 
+            // restuarantTableBindingSource
+            // 
+            this.restuarantTableBindingSource.DataMember = "Restuarant_Table";
+            this.restuarantTableBindingSource.DataSource = this.codeCraftersDSTWO;
             // 
             // taBooking
             // 
@@ -874,77 +1006,57 @@
             // 
             this.taTableAllocation.ClearBeforeFill = true;
             // 
-            // printPreviewDialog1
-            // 
-            this.printPreviewDialog1.AutoScrollMargin = new System.Drawing.Size(0, 0);
-            this.printPreviewDialog1.AutoScrollMinSize = new System.Drawing.Size(0, 0);
-            this.printPreviewDialog1.ClientSize = new System.Drawing.Size(400, 300);
-            this.printPreviewDialog1.Enabled = true;
-            this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
-            this.printPreviewDialog1.Name = "printPreviewDialog1";
-            this.printPreviewDialog1.Visible = false;
-            // 
-            // printDocument1
-            // 
-            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
-            // 
             // BookingForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.BackColor = System.Drawing.Color.BlanchedAlmond;
-            this.ClientSize = new System.Drawing.Size(1669, 1055);
-            this.Controls.Add(this.btnCreateBooking);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(1596, 942);
+            this.Controls.Add(this.panel10);
+            this.Controls.Add(this.panel8);
+            this.Controls.Add(this.panel6);
+            this.Controls.Add(this.panel4);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.pnlGuestDetails);
             this.Controls.Add(this.pnlBooking);
-            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "BookingForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "REGAL INN MAKE BOOKING";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.BookingForm_Load);
             this.pnlBooking.ResumeLayout(false);
-            this.grpRegalInnBooking.ResumeLayout(false);
-            this.grpRegalInnBooking.PerformLayout();
-            this.grpBookingDetails.ResumeLayout(false);
-            this.grpBookingDetails.PerformLayout();
-            this.tableLayoutPanel2.ResumeLayout(false);
-            this.tableLayoutPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvInvoice)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.invoiceBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.codeCraftersDSTWO)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvRestaurantTableAvailable)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.restuarantTableBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvHotelRoomAvailable)).EndInit();
+            this.pnlBooking.PerformLayout();
+            this.pnlGuestDetails.ResumeLayout(false);
+            this.pnlGuestDetails.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numNoOfNights)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numNoOfRooms)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.hotelRoomBindingSource)).EndInit();
-            this.grpClientDetails.ResumeLayout(false);
-            this.grpClientDetails.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.codeCraftersDSTWO)).EndInit();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numTableGuests)).EndInit();
+            this.panel6.ResumeLayout(false);
+            this.panel6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numInfants)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numChildren)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numAdults)).EndInit();
+            this.panel8.ResumeLayout(false);
+            this.panel8.PerformLayout();
+            this.panel10.ResumeLayout(false);
+            this.panel10.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBookingList)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.invoiceBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.restuarantTableBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.Panel pnlBooking;
-        private System.Windows.Forms.GroupBox grpRegalInnBooking;
-        private System.Windows.Forms.ComboBox cmbBranchID;
-        private System.Windows.Forms.Label lblBranchID;
-        private System.Windows.Forms.GroupBox grpBookingDetails;
-        private System.Windows.Forms.TextBox txtTotalAmount;
-        private System.Windows.Forms.Label lblTotalAmount;
-        private System.Windows.Forms.DataGridView dgvInvoice;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtRestaurantTableAvailable;
-        private System.Windows.Forms.DataGridView dgvRestaurantTableAvailable;
-        private System.Windows.Forms.DataGridView dgvHotelRoomAvailable;
-        private System.Windows.Forms.Label lblRestaurantTableAvailable;
-        private System.Windows.Forms.Label lblHotelRoomAvailable;
-        private System.Windows.Forms.TextBox txtHotelRoomAvailable;
-        private System.Windows.Forms.GroupBox grpClientDetails;
-        private System.Windows.Forms.TextBox txtPhoneNumber;
-        private System.Windows.Forms.TextBox txtEmailAddress;
-        private System.Windows.Forms.TextBox txtFullName;
-        private System.Windows.Forms.Label lblAddress;
-        private System.Windows.Forms.Label lblEmailAddress;
-        private System.Windows.Forms.Label lblPhoneNumber;
-        private System.Windows.Forms.Label lblFullName;
-        private System.Windows.Forms.Button btnCreateBooking;
         private codeCraftersDSTWO codeCraftersDSTWO;
         private codeCraftersDSTWOTableAdapters.BookingTableAdapter taBooking;
         private codeCraftersDSTWOTableAdapters.BranchTableAdapter taBranch;
@@ -960,43 +1072,83 @@
         private System.Windows.Forms.BindingSource invoiceBindingSource;
         private System.Windows.Forms.BindingSource restuarantTableBindingSource;
         private System.Windows.Forms.BindingSource hotelRoomBindingSource;
-        private System.Windows.Forms.TextBox txtAddress;
-        private System.Windows.Forms.DataGridViewTextBoxColumn hotelRoomIDDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn hotelroomnumberDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn hotelRoomPriceDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn restaurantTableIDDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn restaurantTableNumDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn restaurantTablePriceDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn hotelRoomIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn branchIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn hotelroomtypeIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn hotelroomnumberDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn hotelroomstatusDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn hotelRoomPriceDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn restaurantTableIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn branchIDDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn restuarantTableNumDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn restuarantMenuTypeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tableCapacityDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tableStatusDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tableIsCombinableDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tableFeaturesDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tablePriceDataGridViewTextBoxColumn;
-        private System.Windows.Forms.Button btnSaveInvoice;
-        private System.Windows.Forms.Button btnPrintInvoice;
-        private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
-        private System.Drawing.Printing.PrintDocument printDocument1;
-        private System.Windows.Forms.DateTimePicker dtpCheckOut;
-        private System.Windows.Forms.DateTimePicker dtpCheckIn;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Panel pnlBooking;
+        private System.Windows.Forms.Label lblRegalBooking;
+        private System.Windows.Forms.Button btnRefresh;
+        private System.Windows.Forms.Button btnNewBooking;
+        private System.Windows.Forms.Panel pnlGuestDetails;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button btnClear;
+        private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.DateTimePicker dtpToDate;
+        private System.Windows.Forms.DateTimePicker dtpFromDate;
+        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox txtSearchQuery;
+        private System.Windows.Forms.ComboBox cmbFilterBookingStatus;
+        private System.Windows.Forms.ComboBox cmbFilterBookingType;
+        private System.Windows.Forms.ComboBox cmbSearchBy;
+        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.DateTimePicker dtpTableEnd;
-        private System.Windows.Forms.DateTimePicker dtpTableStart;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.Button btnAvailableTables;
-        private System.Windows.Forms.Button btnAvailableRooms;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.NumericUpDown numNoOfNights;
+        private System.Windows.Forms.NumericUpDown numNoOfRooms;
+        private System.Windows.Forms.DateTimePicker dtpRoomCheckIn;
+        private System.Windows.Forms.DateTimePicker dtpRoomCheckOut;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.ComboBox cmbTableArea;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.DateTimePicker dtpTableCheckOut;
+        private System.Windows.Forms.DateTimePicker dtpTableCheckIn;
+        private System.Windows.Forms.NumericUpDown numTableGuests;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.NumericUpDown numInfants;
+        private System.Windows.Forms.NumericUpDown numChildren;
+        private System.Windows.Forms.NumericUpDown numAdults;
+        private System.Windows.Forms.ComboBox cmbRoomCategory;
+        private System.Windows.Forms.TextBox txtIdPassportNo;
+        private System.Windows.Forms.TextBox txtEmailAddress;
+        private System.Windows.Forms.TextBox txtPhoneNo;
+        private System.Windows.Forms.TextBox txtFullName;
+        private System.Windows.Forms.ComboBox cmbBookingType;
+        private System.Windows.Forms.Label lblRoomCategory;
+        private System.Windows.Forms.Label lblInfants;
+        private System.Windows.Forms.Label lblChildren;
+        private System.Windows.Forms.Label lblAdults;
+        private System.Windows.Forms.Label lblIDORPASS;
+        private System.Windows.Forms.Label lblEmailAddress;
+        private System.Windows.Forms.Label lblPhoneNo;
+        private System.Windows.Forms.Label lblFullName;
+        private System.Windows.Forms.Label lblBookingTypes;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.Button btnPrint;
+        private System.Windows.Forms.Button btnCancelBooking;
+        private System.Windows.Forms.Button btnLinkBookings;
+        private System.Windows.Forms.Button btnReschedule;
+        private System.Windows.Forms.Button btnViewEdit;
+        private System.Windows.Forms.Panel panel9;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Panel panel10;
+        private System.Windows.Forms.DataGridView dgvBookingList;
+        private System.Windows.Forms.Panel panel11;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.ComboBox cmbBranchName;
+        private System.Windows.Forms.Label label9;
     }
 }

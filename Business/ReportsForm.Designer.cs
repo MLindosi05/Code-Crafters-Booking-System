@@ -84,7 +84,6 @@
             this.btnRevenueReport.TabIndex = 2;
             this.btnRevenueReport.Text = "REVENUE REPORT";
             this.btnRevenueReport.UseVisualStyleBackColor = true;
-            this.btnRevenueReport.Click += new System.EventHandler(this.btnRevenueReport_Click);
             // 
             // btnRoomReport
             // 
@@ -95,7 +94,6 @@
             this.btnRoomReport.TabIndex = 3;
             this.btnRoomReport.Text = "ROOM OCCUPANCY REPORT";
             this.btnRoomReport.UseVisualStyleBackColor = true;
-            this.btnRoomReport.Click += new System.EventHandler(this.btnRoomReport_Click);
             // 
             // dgvReportSummary
             // 
@@ -144,7 +142,6 @@
             this.btnTableReport.TabIndex = 6;
             this.btnTableReport.Text = "TABLE OCCUPANCY REPORT";
             this.btnTableReport.UseVisualStyleBackColor = false;
-            this.btnTableReport.Click += new System.EventHandler(this.btnTableReport_Click);
             // 
             // pictureBox1
             // 

@@ -1,13 +1,7 @@
 ﻿using Code_Crafters_Booking_System;
 using Code_Crafters_Interface_Prototype_1.Business;
+using Code_Crafters_Interface_Prototype_1.Common;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Code_Crafters_Interface_Prototype_1.Interfaces
@@ -19,119 +13,98 @@ namespace Code_Crafters_Interface_Prototype_1.Interfaces
             InitializeComponent();
         }
 
-        private void LoadFormIntoPanel(Form form)
-        {
-
-            ManagerPanel.Controls.Clear();
-
-
-            form.TopLevel = false;
-            form.FormBorderStyle = FormBorderStyle.None;
-            form.Dock = DockStyle.Fill;
-
-
-            ManagerPanel.Controls.Add(form);
-            form.Show();
-        }
+        #region Form Load
 
         private void ManagerMenuForm_Load(object sender, EventArgs e)
         {
-            this.WindowState = FormWindowState.Maximized;
+            WindowState = FormWindowState.Maximized;
+
             lblLoggedIn.Text = UserSession.Username;
 
-            panel1.BackColor = ColorTranslator.FromHtml("#966919");
-            panel3.BackColor = ColorTranslator.FromHtml("#966919");
-            ManagerPanel.BackColor = ColorTranslator.FromHtml("#F9EED8");
-            button2.BackColor = ColorTranslator.FromHtml("#C99A2E");
-            button2.ForeColor = Color.White;
+            ApplyTheme();
 
+            PanelLoader.Load(ManagerPanel, new ManagerHomeForm());
+        }
 
+        #endregion
 
-            button2.BackColor = ColorTranslator.FromHtml("#C99A2E");
-            button2.ForeColor = Color.White;
+        #region Theme
 
-           
-            button4.BackColor = ColorTranslator.FromHtml("#C99A2E");
-            button4.ForeColor = Color.White;
+        private void ApplyTheme()
+        {
+            panel1.BackColor = Theme.Brown;
+            panel3.BackColor = Theme.Brown;
 
+            ManagerPanel.BackColor = Theme.Background;
 
-            button6.BackColor = ColorTranslator.FromHtml("#C99A2E");
-            button6.ForeColor = Color.White;
+            ButtonStyler.Apply(button2);
+            ButtonStyler.Apply(button4);
+            ButtonStyler.Apply(button6);
+            ButtonStyler.Apply(button7);
+            ButtonStyler.Apply(button8);
+            ButtonStyler.Apply(button9);
+        }
 
-            button7.BackColor = ColorTranslator.FromHtml("#C99A2E");
-            button7.ForeColor = Color.White;
+        #endregion
 
-            button8.BackColor = ColorTranslator.FromHtml("#C99A2E");
-            button8.ForeColor = Color.White;
+        #region Navigation
 
-
-
-            button9.BackColor = ColorTranslator.FromHtml("#C99A2E");
-            button9.ForeColor = Color.White;
-
-            LoadFormIntoPanel(new ManagerHomeForm());
+        private void button1_Click(object sender, EventArgs e)
+        {
+            PanelLoader.Load(ManagerPanel, new GuestRegistrationForm());
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            LoadFormIntoPanel(new ManagerHomeForm());
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            LoadFormIntoPanel(new GuestRegistrationForm());
+            PanelLoader.Load(ManagerPanel, new ManagerHomeForm());
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            LoadFormIntoPanel(new BookingForm());
+            PanelLoader.Load(ManagerPanel, new BookingForm());
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            LoadFormIntoPanel(new ViewBookingForm());
+            PanelLoader.Load(ManagerPanel, new ViewBookingForm());
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-            LoadFormIntoPanel(new PaymentForm());
-        }
-
-        private void button9_Click(object sender, EventArgs e)
-        {
-            DialogResult result = MessageBox.Show(
-             "Are you sure you want to log out?",
-             "Confirm Logout",
-             MessageBoxButtons.YesNo,
-             MessageBoxIcon.Question,
-             MessageBoxDefaultButton.Button2);
-
-            if (result == DialogResult.Yes)
-            {
-
-                Login login = new Login();
-                login.Show();
-
-
-                this.Hide();
-            }
-
+            PanelLoader.Load(ManagerPanel, new PaymentForm());
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
-            LoadFormIntoPanel(new ReportsForm());
+            PanelLoader.Load(ManagerPanel, new ReportsForm());
         }
 
         private void button7_Click(object sender, EventArgs e)
         {
-            LoadFormIntoPanel(new RoomManagementForm());
+            PanelLoader.Load(ManagerPanel, new RoomManagementForm());
         }
 
         private void button8_Click(object sender, EventArgs e)
         {
-            LoadFormIntoPanel(new StaffManagementForm());
+            PanelLoader.Load(ManagerPanel, new StaffManagementForm());
         }
+
+        #endregion
+
+        #region Logout
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            if (!MessageService.Confirm("Are you sure you want to log out?"))
+                return;
+
+            new Login().Show();
+            Hide();
+        }
+
+        #endregion
+
+        #region Empty Events
 
         private void pictureBox15_Click(object sender, EventArgs e)
         {
@@ -142,5 +115,7 @@ namespace Code_Crafters_Interface_Prototype_1.Interfaces
         {
 
         }
+
+        #endregion
     }
 }

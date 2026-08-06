@@ -38,32 +38,6 @@ namespace Code_Crafters_Interface_Prototype_1.Business
             this.BackColor = ColorTranslator.FromHtml("#F9EED8");
 
         }
-
-
-        private void btnRevenueReport_Click(object sender, EventArgs e)
-        {
-            rptRevenueAnalysis rpt = new rptRevenueAnalysis();
-            rpt.SetDataSource(codeCraftersDS);
-            crystalReportViewerRegalInn.ReportSource = rpt;
-            crystalReportViewerRegalInn.Refresh();
-
-        }
-
-        private void btnRoomReport_Click(object sender, EventArgs e)
-        {
-            rptOccupancyReport rpt = new rptOccupancyReport();
-            rpt.SetDataSource(codeCraftersDS);
-            crystalReportViewerRegalInn.ReportSource = rpt;
-            crystalReportViewerRegalInn.Refresh();
-
-        }
-
-        private void btnTableReport_Click(object sender, EventArgs e)
-        {
-            rptTableOccupancyReport rpt = new rptTableOccupancyReport();
-            rpt.SetDataSource(codeCraftersDS);
-            crystalReportViewerRegalInn.ReportSource = rpt;
-            crystalReportViewerRegalInn.Refresh();
-        }
+        
     }
 }

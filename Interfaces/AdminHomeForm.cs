@@ -16,5 +16,10 @@ namespace Code_Crafters_Interface_Prototype_1.Interfaces
         {
             InitializeComponent();
         }
+
+        private void AdminHomeForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

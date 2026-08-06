@@ -16,9 +16,13 @@ namespace Code_Crafters_Booking_System
         public static String PhysicalAddress;
         public static String TotalPrice;
 
-
         public static string Username { get; set; }
         public static string Email { get; set; }
         public static string FullName { get; set; }
+        public static string UserRole { get; set; } // ADDED PROPERTY
+
+        public static int StaffID { get; set; }
+        public static string StaffFirstName { get; set; } // ADDED
+        public static string StaffSurname { get; set; }   // ADDED
     }
 }

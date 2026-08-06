@@ -1,13 +1,7 @@
 ﻿using Code_Crafters_Booking_System;
 using Code_Crafters_Interface_Prototype_1.Business;
+using Code_Crafters_Interface_Prototype_1.Common;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Code_Crafters_Interface_Prototype_1.Interfaces
@@ -19,124 +13,90 @@ namespace Code_Crafters_Interface_Prototype_1.Interfaces
             InitializeComponent();
         }
 
+        #region Form Load
 
-        private void LoadFormIntoPanel(Form form)
+        private void AdminMenuForm_Load(object sender, EventArgs e)
         {
-            
-            adminPanel.Controls.Clear();
+            WindowState = FormWindowState.Maximized;
 
-            
-            form.TopLevel = false;                
-            form.FormBorderStyle = FormBorderStyle.None;  
-            form.Dock = DockStyle.Fill;            
+            lblLoggedIn.Text = UserSession.Username;
 
-            
-            adminPanel.Controls.Add(form);
-            form.Show();
+            ApplyTheme();
+
+            PanelLoader.Load(adminPanel, new AdminHomeForm());
         }
+
+        #endregion
+
+        #region Theme
+
+        private void ApplyTheme()
+        {
+            panel1.BackColor = Theme.Brown;
+            panel2.BackColor = Theme.Brown;
+
+            adminPanel.BackColor = Theme.Background;
+
+            ButtonStyler.Apply(button1);
+            ButtonStyler.Apply(button2);
+            ButtonStyler.Apply(button3);
+            ButtonStyler.Apply(button4);
+            ButtonStyler.Apply(button7);
+            ButtonStyler.Apply(button9);
+        }
+
+        #endregion
+
+        #region Navigation
 
         private void button1_Click(object sender, EventArgs e)
         {
-            LoadFormIntoPanel(new GuestRegistrationForm());
+            PanelLoader.Load(adminPanel, new GuestRegistrationForm());
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            {
-
-                LoadFormIntoPanel(new AdminHomeForm());
-            } 
+            PanelLoader.Load(adminPanel, new AdminHomeForm());
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            LoadFormIntoPanel(new BookingForm());
+            PanelLoader.Load(adminPanel, new BookingForm());
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            LoadFormIntoPanel(new ViewBookingForm());
+            PanelLoader.Load(adminPanel, new ViewBookingForm());
         }
-
-        
 
         private void button6_Click(object sender, EventArgs e)
         {
-            LoadFormIntoPanel(new ReportsForm());
+            PanelLoader.Load(adminPanel, new ReportsForm());
         }
 
         private void button7_Click(object sender, EventArgs e)
         {
-            LoadFormIntoPanel(new RoomManagementForm());
+            PanelLoader.Load(adminPanel, new RoomManagementForm());
         }
 
         private void button8_Click(object sender, EventArgs e)
         {
-            LoadFormIntoPanel(new StaffManagementForm());
+            PanelLoader.Load(adminPanel, new StaffManagementForm());
         }
+
+        #endregion
+
+        #region Logout
 
         private void button9_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show(
-             "Are you sure you want to log out?",
-             "Confirm Logout",
-             MessageBoxButtons.YesNo,
-             MessageBoxIcon.Question,
-             MessageBoxDefaultButton.Button2);
+            if (!MessageService.Confirm("Are you sure you want to log out?"))
+                return;
 
-            if (result == DialogResult.Yes)
-            {
-
-                Login login = new Login();
-                login.Show();
-
-
-                this.Hide();
-            }
-
-        }  
-
-        private void AdminMenuForm_Load(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Maximized;
-            lblLoggedIn.Text = UserSession.Username;
-
-            panel1.BackColor = ColorTranslator.FromHtml("#966919");
-            panel2.BackColor = ColorTranslator.FromHtml("#966919");
-            adminPanel.BackColor = ColorTranslator.FromHtml("#F9EED8");
-            button2.BackColor = ColorTranslator.FromHtml("#C99A2E");
-            button2.ForeColor = Color.White;
-
-            button1.BackColor = ColorTranslator.FromHtml("#C99A2E");
-            button1.ForeColor = Color.White;
-
-            button2.BackColor = ColorTranslator.FromHtml("#C99A2E");
-            button2.ForeColor = Color.White;
-
-            button3.BackColor = ColorTranslator.FromHtml("#C99A2E");
-            button3.ForeColor = Color.White;
-
-            button4.BackColor = ColorTranslator.FromHtml("#C99A2E");
-            button4.ForeColor = Color.White;
-
-           
-
-
-            button7.BackColor = ColorTranslator.FromHtml("#C99A2E");
-            button7.ForeColor = Color.White;
-
-
-
-            button9.BackColor = ColorTranslator.FromHtml("#C99A2E");
-            button9.ForeColor = Color.White;
-
-            LoadFormIntoPanel(new AdminHomeForm());
-
+            new Login().Show();
+            Hide();
         }
 
-        private void lblLoggedIn_Click(object sender, EventArgs e)
-        {
-
-        }
+        #endregion
     }
 }

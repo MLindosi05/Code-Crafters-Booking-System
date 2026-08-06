@@ -107,7 +107,6 @@
             this.lblLoggedIn.Size = new System.Drawing.Size(85, 13);
             this.lblLoggedIn.TabIndex = 1;
             this.lblLoggedIn.Text = "Log in username";
-            this.lblLoggedIn.Click += new System.EventHandler(this.lblLoggedIn_Click);
             // 
             // pictureBox5
             // 

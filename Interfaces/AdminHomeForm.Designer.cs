@@ -85,6 +85,7 @@
             this.Controls.Add(this.adminPanel);
             this.Name = "AdminHomeForm";
             this.Text = "REGAL INN ADMIN HOME MENU";
+            this.Load += new System.EventHandler(this.AdminHomeForm_Load);
             this.adminPanel.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
