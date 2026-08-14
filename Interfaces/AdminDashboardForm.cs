@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Code_Crafters_Interface_Prototype_1.Interfaces
 {
-    public partial class AdminHomeForm : Form
+    public partial class AdminDashboardForm : Form
     {
-        public AdminHomeForm()
+        public AdminDashboardForm()
         {
             InitializeComponent();
         }

@@ -6,9 +6,9 @@ using System.Windows.Forms;
 
 namespace Code_Crafters_Booking_System
 {
-    public partial class GuestRegistrationForm : Form
+    public partial class GuestManagementForm : Form
     {
-        public GuestRegistrationForm()
+        public GuestManagementForm()
         {
             InitializeComponent();
         }
@@ -159,5 +159,11 @@ namespace Code_Crafters_Booking_System
         }
 
         #endregion
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+            
+
+        }
     }
 }

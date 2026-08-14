@@ -23,7 +23,7 @@ namespace Code_Crafters_Interface_Prototype_1.Interfaces
 
             ApplyTheme();
 
-            PanelLoader.Load(adminPanel, new AdminHomeForm());
+            PanelLoader.Load(adminPanel, new AdminDashboardForm());
         }
 
         #endregion
@@ -51,12 +51,12 @@ namespace Code_Crafters_Interface_Prototype_1.Interfaces
 
         private void button1_Click(object sender, EventArgs e)
         {
-            PanelLoader.Load(adminPanel, new GuestRegistrationForm());
+            PanelLoader.Load(adminPanel, new GuestManagementForm());
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            PanelLoader.Load(adminPanel, new AdminHomeForm());
+            PanelLoader.Load(adminPanel, new AdminDashboardForm());
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -66,7 +66,7 @@ namespace Code_Crafters_Interface_Prototype_1.Interfaces
 
         private void button4_Click(object sender, EventArgs e)
         {
-            PanelLoader.Load(adminPanel, new ViewBookingForm());
+            PanelLoader.Load(adminPanel, new StaffManagementForm());
         }
 
         private void button6_Click(object sender, EventArgs e)
@@ -98,5 +98,10 @@ namespace Code_Crafters_Interface_Prototype_1.Interfaces
         }
 
         #endregion
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            PanelLoader.Load(adminPanel, new SettingsForm());
+        }
     }
 }

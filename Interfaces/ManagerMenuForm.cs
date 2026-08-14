@@ -51,7 +51,7 @@ namespace Code_Crafters_Interface_Prototype_1.Interfaces
 
         private void button1_Click(object sender, EventArgs e)
         {
-            PanelLoader.Load(ManagerPanel, new GuestRegistrationForm());
+            PanelLoader.Load(ManagerPanel, new GuestManagementForm());
         }
 
         private void button2_Click(object sender, EventArgs e)

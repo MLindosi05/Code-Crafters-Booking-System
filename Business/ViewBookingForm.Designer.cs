@@ -77,7 +77,7 @@
             this.panel1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1072, 581);
+            this.panel1.Size = new System.Drawing.Size(1176, 581);
             this.panel1.TabIndex = 2;
             // 
             // pnlViewBookings
@@ -89,7 +89,7 @@
             this.pnlViewBookings.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pnlViewBookings.Location = new System.Drawing.Point(65, 64);
             this.pnlViewBookings.Name = "pnlViewBookings";
-            this.pnlViewBookings.Size = new System.Drawing.Size(966, 449);
+            this.pnlViewBookings.Size = new System.Drawing.Size(1039, 449);
             this.pnlViewBookings.TabIndex = 1;
             // 
             // panel4
@@ -161,7 +161,7 @@
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn3});
             this.dgvBookings.DataSource = this.clientBranchTableBookingBindingSource;
-            this.dgvBookings.Location = new System.Drawing.Point(74, 258);
+            this.dgvBookings.Location = new System.Drawing.Point(74, 254);
             this.dgvBookings.Name = "dgvBookings";
             this.dgvBookings.RowHeadersWidth = 51;
             this.dgvBookings.Size = new System.Drawing.Size(879, 168);
@@ -302,7 +302,7 @@
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.PeachPuff;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ClientSize = new System.Drawing.Size(1096, 688);
+            this.ClientSize = new System.Drawing.Size(1200, 688);
             this.Controls.Add(this.panel1);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ViewBookingForm";

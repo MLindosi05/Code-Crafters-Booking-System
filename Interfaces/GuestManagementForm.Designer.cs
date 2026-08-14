@@ -1,6 +1,6 @@
 ﻿namespace Code_Crafters_Booking_System
 {
-    partial class GuestRegistrationForm
+    partial class GuestManagementForm
     {
         /// <summary>
         /// Required designer variable.
@@ -49,12 +49,18 @@
             this.button1 = new System.Windows.Forms.Button();
             this.pnlSignUp = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
             this.groupBox4.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.codeCraftersDS)).BeginInit();
             this.pnlSignUp.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.tabControl1.SuspendLayout();
+            this.tabPage1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox4
@@ -62,7 +68,7 @@
             this.groupBox4.BackColor = System.Drawing.Color.BlanchedAlmond;
             this.groupBox4.Controls.Add(this.panel2);
             this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox4.Location = new System.Drawing.Point(490, 38);
+            this.groupBox4.Location = new System.Drawing.Point(408, 38);
             this.groupBox4.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Padding = new System.Windows.Forms.Padding(2);
@@ -242,9 +248,9 @@
             this.pnlSignUp.Controls.Add(this.pictureBox1);
             this.pnlSignUp.Controls.Add(this.button1);
             this.pnlSignUp.Controls.Add(this.groupBox4);
-            this.pnlSignUp.Location = new System.Drawing.Point(22, 36);
+            this.pnlSignUp.Location = new System.Drawing.Point(31, 57);
             this.pnlSignUp.Name = "pnlSignUp";
-            this.pnlSignUp.Size = new System.Drawing.Size(1120, 426);
+            this.pnlSignUp.Size = new System.Drawing.Size(1103, 451);
             this.pnlSignUp.TabIndex = 12;
             // 
             // pictureBox1
@@ -252,10 +258,53 @@
             this.pictureBox1.Image = global::Code_Crafters_Interface_Prototype_1.Properties.Resources.IMG_20260413_185513;
             this.pictureBox1.Location = new System.Drawing.Point(40, 38);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(420, 352);
+            this.pictureBox1.Size = new System.Drawing.Size(343, 352);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
+            // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl1.Location = new System.Drawing.Point(0, 0);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(1248, 677);
+            this.tabControl1.TabIndex = 13;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.pnlSignUp);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(1240, 651);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "GUEST REGISTRATION";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(1240, 651);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "VIEW GUESTS";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(1240, 651);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "EDIT GUESTS";
+            this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // GuestRegistrationForm
             // 
@@ -264,8 +313,8 @@
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1154, 546);
-            this.Controls.Add(this.pnlSignUp);
+            this.ClientSize = new System.Drawing.Size(1248, 677);
+            this.Controls.Add(this.tabControl1);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "GuestRegistrationForm";
             this.Text = "REGAL INN SIGN UP ";
@@ -277,6 +326,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.codeCraftersDS)).EndInit();
             this.pnlSignUp.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.tabControl1.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -304,5 +355,9 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TabPage tabPage3;
     }
 }

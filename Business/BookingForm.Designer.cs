@@ -104,6 +104,17 @@
             this.taRoomAssignment = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTWOTableAdapters.Room_AssignmentTableAdapter();
             this.taStaff = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTWOTableAdapters.StaffTableAdapter();
             this.taTableAllocation = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTWOTableAdapters.Table_AllocationTableAdapter();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.pnlViewBookings = new System.Windows.Forms.Panel();
+            this.panel12 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.panel13 = new System.Windows.Forms.Panel();
+            this.lblBookingID = new System.Windows.Forms.Label();
+            this.txtBookingID = new System.Windows.Forms.TextBox();
+            this.dgvBookings = new System.Windows.Forms.DataGridView();
             this.pnlBooking.SuspendLayout();
             this.pnlGuestDetails.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -121,6 +132,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvBookingList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.invoiceBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.restuarantTableBindingSource)).BeginInit();
+            this.tabControl1.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
+            this.pnlViewBookings.SuspendLayout();
+            this.panel12.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel13.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBookings)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlBooking
@@ -131,9 +150,9 @@
             this.pnlBooking.Controls.Add(this.btnRefresh);
             this.pnlBooking.Controls.Add(this.btnNewBooking);
             this.pnlBooking.Controls.Add(this.lblRegalBooking);
-            this.pnlBooking.Location = new System.Drawing.Point(12, 22);
+            this.pnlBooking.Location = new System.Drawing.Point(45, 31);
             this.pnlBooking.Name = "pnlBooking";
-            this.pnlBooking.Size = new System.Drawing.Size(1486, 100);
+            this.pnlBooking.Size = new System.Drawing.Size(1127, 100);
             this.pnlBooking.TabIndex = 0;
             // 
             // cmbBranchName
@@ -147,7 +166,7 @@
             "JHB Midrand"});
             this.cmbBranchName.Location = new System.Drawing.Point(201, 44);
             this.cmbBranchName.Name = "cmbBranchName";
-            this.cmbBranchName.Size = new System.Drawing.Size(168, 36);
+            this.cmbBranchName.Size = new System.Drawing.Size(168, 29);
             this.cmbBranchName.TabIndex = 44;
             // 
             // label9
@@ -156,7 +175,7 @@
             this.label9.ForeColor = System.Drawing.Color.DarkGoldenrod;
             this.label9.Location = new System.Drawing.Point(12, 47);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(231, 28);
+            this.label9.Size = new System.Drawing.Size(183, 21);
             this.label9.TabIndex = 4;
             this.label9.Text = "🏨 REGAL INN HOTELS";
             // 
@@ -165,7 +184,7 @@
             this.btnRefresh.BackColor = System.Drawing.Color.White;
             this.btnRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRefresh.ForeColor = System.Drawing.Color.Navy;
-            this.btnRefresh.Location = new System.Drawing.Point(1320, 23);
+            this.btnRefresh.Location = new System.Drawing.Point(947, 28);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(150, 45);
             this.btnRefresh.TabIndex = 3;
@@ -177,7 +196,7 @@
             this.btnNewBooking.BackColor = System.Drawing.Color.Navy;
             this.btnNewBooking.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNewBooking.ForeColor = System.Drawing.Color.White;
-            this.btnNewBooking.Location = new System.Drawing.Point(1121, 23);
+            this.btnNewBooking.Location = new System.Drawing.Point(747, 28);
             this.btnNewBooking.Name = "btnNewBooking";
             this.btnNewBooking.Size = new System.Drawing.Size(170, 45);
             this.btnNewBooking.TabIndex = 2;
@@ -191,7 +210,7 @@
             this.lblRegalBooking.ForeColor = System.Drawing.Color.Navy;
             this.lblRegalBooking.Location = new System.Drawing.Point(16, 13);
             this.lblRegalBooking.Name = "lblRegalBooking";
-            this.lblRegalBooking.Size = new System.Drawing.Size(216, 28);
+            this.lblRegalBooking.Size = new System.Drawing.Size(171, 21);
             this.lblRegalBooking.TabIndex = 1;
             this.lblRegalBooking.Text = "REGAL INN BOOKING";
             // 
@@ -207,9 +226,9 @@
             this.pnlGuestDetails.Controls.Add(this.label5);
             this.pnlGuestDetails.Controls.Add(this.label6);
             this.pnlGuestDetails.ForeColor = System.Drawing.Color.Navy;
-            this.pnlGuestDetails.Location = new System.Drawing.Point(13, 418);
+            this.pnlGuestDetails.Location = new System.Drawing.Point(34, 460);
             this.pnlGuestDetails.Name = "pnlGuestDetails";
-            this.pnlGuestDetails.Size = new System.Drawing.Size(401, 250);
+            this.pnlGuestDetails.Size = new System.Drawing.Size(288, 201);
             this.pnlGuestDetails.TabIndex = 10;
             // 
             // panel2
@@ -225,7 +244,7 @@
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(17, 6);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(231, 28);
+            this.label7.Size = new System.Drawing.Size(184, 21);
             this.label7.TabIndex = 32;
             this.label7.Text = "🔍 SEARCH BOOKINGS";
             // 
@@ -258,7 +277,7 @@
             // 
             this.txtSearchQuery.Location = new System.Drawing.Point(213, 107);
             this.txtSearchQuery.Name = "txtSearchQuery";
-            this.txtSearchQuery.Size = new System.Drawing.Size(155, 34);
+            this.txtSearchQuery.Size = new System.Drawing.Size(155, 29);
             this.txtSearchQuery.TabIndex = 25;
             // 
             // cmbSearchBy
@@ -266,7 +285,7 @@
             this.cmbSearchBy.FormattingEnabled = true;
             this.cmbSearchBy.Location = new System.Drawing.Point(30, 107);
             this.cmbSearchBy.Name = "cmbSearchBy";
-            this.cmbSearchBy.Size = new System.Drawing.Size(153, 36);
+            this.cmbSearchBy.Size = new System.Drawing.Size(153, 29);
             this.cmbSearchBy.TabIndex = 22;
             // 
             // label5
@@ -275,7 +294,7 @@
             this.label5.ForeColor = System.Drawing.Color.Black;
             this.label5.Location = new System.Drawing.Point(208, 74);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(159, 28);
+            this.label5.Size = new System.Drawing.Size(128, 21);
             this.label5.TabIndex = 19;
             this.label5.Text = "SEARCH QUERY";
             // 
@@ -285,7 +304,7 @@
             this.label6.ForeColor = System.Drawing.Color.Black;
             this.label6.Location = new System.Drawing.Point(26, 74);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(119, 28);
+            this.label6.Size = new System.Drawing.Size(95, 21);
             this.label6.TabIndex = 18;
             this.label6.Text = "SEARCH BY";
             // 
@@ -303,9 +322,9 @@
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.label8);
             this.panel1.ForeColor = System.Drawing.Color.Navy;
-            this.panel1.Location = new System.Drawing.Point(694, 147);
+            this.panel1.Location = new System.Drawing.Point(793, 157);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(373, 250);
+            this.panel1.Size = new System.Drawing.Size(379, 266);
             this.panel1.TabIndex = 11;
             // 
             // numNoOfNights
@@ -313,14 +332,14 @@
             this.numNoOfNights.Location = new System.Drawing.Point(152, 129);
             this.numNoOfNights.Name = "numNoOfNights";
             this.numNoOfNights.ReadOnly = true;
-            this.numNoOfNights.Size = new System.Drawing.Size(85, 34);
+            this.numNoOfNights.Size = new System.Drawing.Size(85, 29);
             this.numNoOfNights.TabIndex = 42;
             // 
             // numNoOfRooms
             // 
             this.numNoOfRooms.Location = new System.Drawing.Point(152, 166);
             this.numNoOfRooms.Name = "numNoOfRooms";
-            this.numNoOfRooms.Size = new System.Drawing.Size(85, 34);
+            this.numNoOfRooms.Size = new System.Drawing.Size(85, 29);
             this.numNoOfRooms.TabIndex = 41;
             // 
             // dtpRoomCheckIn
@@ -329,7 +348,7 @@
             this.dtpRoomCheckIn.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpRoomCheckIn.Location = new System.Drawing.Point(152, 55);
             this.dtpRoomCheckIn.Name = "dtpRoomCheckIn";
-            this.dtpRoomCheckIn.Size = new System.Drawing.Size(129, 34);
+            this.dtpRoomCheckIn.Size = new System.Drawing.Size(129, 29);
             this.dtpRoomCheckIn.TabIndex = 40;
             this.dtpRoomCheckIn.Value = new System.DateTime(2026, 8, 5, 0, 0, 0, 0);
             // 
@@ -339,7 +358,7 @@
             this.dtpRoomCheckOut.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpRoomCheckOut.Location = new System.Drawing.Point(152, 92);
             this.dtpRoomCheckOut.Name = "dtpRoomCheckOut";
-            this.dtpRoomCheckOut.Size = new System.Drawing.Size(129, 34);
+            this.dtpRoomCheckOut.Size = new System.Drawing.Size(129, 29);
             this.dtpRoomCheckOut.TabIndex = 39;
             this.dtpRoomCheckOut.Value = new System.DateTime(2026, 8, 5, 0, 0, 0, 0);
             // 
@@ -349,7 +368,7 @@
             this.label10.ForeColor = System.Drawing.Color.Black;
             this.label10.Location = new System.Drawing.Point(18, 171);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(157, 28);
+            this.label10.Size = new System.Drawing.Size(124, 21);
             this.label10.TabIndex = 37;
             this.label10.Text = "NO. OF ROOMS";
             // 
@@ -359,7 +378,7 @@
             this.label11.ForeColor = System.Drawing.Color.Black;
             this.label11.Location = new System.Drawing.Point(18, 136);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(158, 28);
+            this.label11.Size = new System.Drawing.Size(125, 21);
             this.label11.TabIndex = 36;
             this.label11.Text = "NO. OF NIGHTS";
             // 
@@ -369,7 +388,7 @@
             this.label12.ForeColor = System.Drawing.Color.Black;
             this.label12.Location = new System.Drawing.Point(18, 98);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(124, 28);
+            this.label12.Size = new System.Drawing.Size(100, 21);
             this.label12.TabIndex = 35;
             this.label12.Text = "CHECK-OUT";
             // 
@@ -379,7 +398,7 @@
             this.label13.ForeColor = System.Drawing.Color.Black;
             this.label13.Location = new System.Drawing.Point(18, 61);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(105, 28);
+            this.label13.Size = new System.Drawing.Size(85, 21);
             this.label13.TabIndex = 34;
             this.label13.Text = "CHECK-IN";
             // 
@@ -396,7 +415,7 @@
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(17, 6);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(206, 28);
+            this.label8.Size = new System.Drawing.Size(163, 21);
             this.label8.TabIndex = 32;
             this.label8.Text = "🛏 ROOM BOOKING";
             // 
@@ -424,9 +443,9 @@
             this.panel4.Controls.Add(this.panel5);
             this.panel4.Controls.Add(this.label19);
             this.panel4.ForeColor = System.Drawing.Color.Navy;
-            this.panel4.Location = new System.Drawing.Point(1086, 147);
+            this.panel4.Location = new System.Drawing.Point(713, 460);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(415, 250);
+            this.panel4.Size = new System.Drawing.Size(459, 238);
             this.panel4.TabIndex = 12;
             // 
             // cmbTableArea
@@ -434,7 +453,7 @@
             this.cmbTableArea.FormattingEnabled = true;
             this.cmbTableArea.Location = new System.Drawing.Point(159, 171);
             this.cmbTableArea.Name = "cmbTableArea";
-            this.cmbTableArea.Size = new System.Drawing.Size(170, 36);
+            this.cmbTableArea.Size = new System.Drawing.Size(170, 29);
             this.cmbTableArea.TabIndex = 43;
             // 
             // label14
@@ -444,7 +463,7 @@
             this.label14.Location = new System.Drawing.Point(28, 174);
             this.label14.Name = "label14";
             this.label14.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label14.Size = new System.Drawing.Size(129, 28);
+            this.label14.Size = new System.Drawing.Size(101, 21);
             this.label14.TabIndex = 42;
             this.label14.Text = "TABLE AREA";
             // 
@@ -454,7 +473,7 @@
             this.dtpTableCheckOut.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpTableCheckOut.Location = new System.Drawing.Point(159, 92);
             this.dtpTableCheckOut.Name = "dtpTableCheckOut";
-            this.dtpTableCheckOut.Size = new System.Drawing.Size(131, 34);
+            this.dtpTableCheckOut.Size = new System.Drawing.Size(131, 29);
             this.dtpTableCheckOut.TabIndex = 41;
             this.dtpTableCheckOut.Value = new System.DateTime(2026, 8, 5, 0, 0, 0, 0);
             // 
@@ -464,7 +483,7 @@
             this.dtpTableCheckIn.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpTableCheckIn.Location = new System.Drawing.Point(159, 57);
             this.dtpTableCheckIn.Name = "dtpTableCheckIn";
-            this.dtpTableCheckIn.Size = new System.Drawing.Size(131, 34);
+            this.dtpTableCheckIn.Size = new System.Drawing.Size(131, 29);
             this.dtpTableCheckIn.TabIndex = 40;
             this.dtpTableCheckIn.Value = new System.DateTime(2026, 8, 5, 0, 0, 0, 0);
             // 
@@ -472,7 +491,7 @@
             // 
             this.numTableGuests.Location = new System.Drawing.Point(159, 130);
             this.numTableGuests.Name = "numTableGuests";
-            this.numTableGuests.Size = new System.Drawing.Size(85, 34);
+            this.numTableGuests.Size = new System.Drawing.Size(85, 29);
             this.numTableGuests.TabIndex = 38;
             // 
             // label15
@@ -482,7 +501,7 @@
             this.label15.Location = new System.Drawing.Point(28, 135);
             this.label15.Name = "label15";
             this.label15.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label15.Size = new System.Drawing.Size(157, 28);
+            this.label15.Size = new System.Drawing.Size(125, 21);
             this.label15.TabIndex = 37;
             this.label15.Text = "NO. OF GUESTS";
             // 
@@ -492,7 +511,7 @@
             this.label17.ForeColor = System.Drawing.Color.Black;
             this.label17.Location = new System.Drawing.Point(28, 96);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(124, 28);
+            this.label17.Size = new System.Drawing.Size(100, 21);
             this.label17.TabIndex = 35;
             this.label17.Text = "CHECK-OUT";
             // 
@@ -502,7 +521,7 @@
             this.label18.ForeColor = System.Drawing.Color.Black;
             this.label18.Location = new System.Drawing.Point(28, 61);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(105, 28);
+            this.label18.Size = new System.Drawing.Size(85, 21);
             this.label18.TabIndex = 34;
             this.label18.Text = "CHECK-IN";
             // 
@@ -519,7 +538,7 @@
             this.label19.AutoSize = true;
             this.label19.Location = new System.Drawing.Point(17, 6);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(203, 28);
+            this.label19.Size = new System.Drawing.Size(160, 21);
             this.label19.TabIndex = 32;
             this.label19.Text = "🍽 TABLE BOOKING";
             // 
@@ -547,30 +566,30 @@
             this.panel6.Controls.Add(this.panel7);
             this.panel6.Controls.Add(this.label20);
             this.panel6.ForeColor = System.Drawing.Color.Navy;
-            this.panel6.Location = new System.Drawing.Point(13, 147);
+            this.panel6.Location = new System.Drawing.Point(45, 157);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(659, 250);
+            this.panel6.Size = new System.Drawing.Size(708, 266);
             this.panel6.TabIndex = 44;
             // 
             // numInfants
             // 
             this.numInfants.Location = new System.Drawing.Point(533, 131);
             this.numInfants.Name = "numInfants";
-            this.numInfants.Size = new System.Drawing.Size(85, 34);
+            this.numInfants.Size = new System.Drawing.Size(85, 29);
             this.numInfants.TabIndex = 51;
             // 
             // numChildren
             // 
             this.numChildren.Location = new System.Drawing.Point(533, 94);
             this.numChildren.Name = "numChildren";
-            this.numChildren.Size = new System.Drawing.Size(85, 34);
+            this.numChildren.Size = new System.Drawing.Size(85, 29);
             this.numChildren.TabIndex = 50;
             // 
             // numAdults
             // 
             this.numAdults.Location = new System.Drawing.Point(533, 59);
             this.numAdults.Name = "numAdults";
-            this.numAdults.Size = new System.Drawing.Size(85, 34);
+            this.numAdults.Size = new System.Drawing.Size(85, 29);
             this.numAdults.TabIndex = 49;
             // 
             // cmbRoomCategory
@@ -583,35 +602,35 @@
             "Suite"});
             this.cmbRoomCategory.Location = new System.Drawing.Point(532, 167);
             this.cmbRoomCategory.Name = "cmbRoomCategory";
-            this.cmbRoomCategory.Size = new System.Drawing.Size(86, 36);
+            this.cmbRoomCategory.Size = new System.Drawing.Size(86, 29);
             this.cmbRoomCategory.TabIndex = 48;
             // 
             // txtIdPassportNo
             // 
             this.txtIdPassportNo.Location = new System.Drawing.Point(191, 203);
             this.txtIdPassportNo.Name = "txtIdPassportNo";
-            this.txtIdPassportNo.Size = new System.Drawing.Size(168, 34);
+            this.txtIdPassportNo.Size = new System.Drawing.Size(168, 29);
             this.txtIdPassportNo.TabIndex = 47;
             // 
             // txtEmailAddress
             // 
             this.txtEmailAddress.Location = new System.Drawing.Point(191, 168);
             this.txtEmailAddress.Name = "txtEmailAddress";
-            this.txtEmailAddress.Size = new System.Drawing.Size(168, 34);
+            this.txtEmailAddress.Size = new System.Drawing.Size(168, 29);
             this.txtEmailAddress.TabIndex = 46;
             // 
             // txtPhoneNo
             // 
             this.txtPhoneNo.Location = new System.Drawing.Point(191, 132);
             this.txtPhoneNo.Name = "txtPhoneNo";
-            this.txtPhoneNo.Size = new System.Drawing.Size(168, 34);
+            this.txtPhoneNo.Size = new System.Drawing.Size(168, 29);
             this.txtPhoneNo.TabIndex = 45;
             // 
             // txtFullName
             // 
             this.txtFullName.Location = new System.Drawing.Point(191, 95);
             this.txtFullName.Name = "txtFullName";
-            this.txtFullName.Size = new System.Drawing.Size(168, 34);
+            this.txtFullName.Size = new System.Drawing.Size(168, 29);
             this.txtFullName.TabIndex = 44;
             // 
             // cmbBookingType
@@ -619,7 +638,7 @@
             this.cmbBookingType.FormattingEnabled = true;
             this.cmbBookingType.Location = new System.Drawing.Point(191, 59);
             this.cmbBookingType.Name = "cmbBookingType";
-            this.cmbBookingType.Size = new System.Drawing.Size(168, 36);
+            this.cmbBookingType.Size = new System.Drawing.Size(168, 29);
             this.cmbBookingType.TabIndex = 43;
             this.cmbBookingType.SelectedIndexChanged += new System.EventHandler(this.cmbBookingType_SelectedIndexChanged);
             // 
@@ -629,7 +648,7 @@
             this.lblRoomCategory.ForeColor = System.Drawing.Color.Black;
             this.lblRoomCategory.Location = new System.Drawing.Point(380, 170);
             this.lblRoomCategory.Name = "lblRoomCategory";
-            this.lblRoomCategory.Size = new System.Drawing.Size(182, 28);
+            this.lblRoomCategory.Size = new System.Drawing.Size(144, 21);
             this.lblRoomCategory.TabIndex = 42;
             this.lblRoomCategory.Text = "ROOM CATEGORY";
             // 
@@ -639,7 +658,7 @@
             this.lblInfants.ForeColor = System.Drawing.Color.Black;
             this.lblInfants.Location = new System.Drawing.Point(381, 131);
             this.lblInfants.Name = "lblInfants";
-            this.lblInfants.Size = new System.Drawing.Size(96, 28);
+            this.lblInfants.Size = new System.Drawing.Size(77, 21);
             this.lblInfants.TabIndex = 41;
             this.lblInfants.Text = "INFANTS";
             // 
@@ -649,7 +668,7 @@
             this.lblChildren.ForeColor = System.Drawing.Color.Black;
             this.lblChildren.Location = new System.Drawing.Point(381, 94);
             this.lblChildren.Name = "lblChildren";
-            this.lblChildren.Size = new System.Drawing.Size(110, 28);
+            this.lblChildren.Size = new System.Drawing.Size(89, 21);
             this.lblChildren.TabIndex = 40;
             this.lblChildren.Text = "CHILDREN";
             // 
@@ -659,7 +678,7 @@
             this.lblAdults.ForeColor = System.Drawing.Color.Black;
             this.lblAdults.Location = new System.Drawing.Point(381, 59);
             this.lblAdults.Name = "lblAdults";
-            this.lblAdults.Size = new System.Drawing.Size(87, 28);
+            this.lblAdults.Size = new System.Drawing.Size(70, 21);
             this.lblAdults.TabIndex = 39;
             this.lblAdults.Text = "ADULTS";
             // 
@@ -669,7 +688,7 @@
             this.lblIDORPASS.ForeColor = System.Drawing.Color.Black;
             this.lblIDORPASS.Location = new System.Drawing.Point(26, 203);
             this.lblIDORPASS.Name = "lblIDORPASS";
-            this.lblIDORPASS.Size = new System.Drawing.Size(178, 28);
+            this.lblIDORPASS.Size = new System.Drawing.Size(142, 21);
             this.lblIDORPASS.TabIndex = 38;
             this.lblIDORPASS.Text = "ID/PASSPORT NO";
             // 
@@ -679,7 +698,7 @@
             this.lblEmailAddress.ForeColor = System.Drawing.Color.Black;
             this.lblEmailAddress.Location = new System.Drawing.Point(26, 168);
             this.lblEmailAddress.Name = "lblEmailAddress";
-            this.lblEmailAddress.Size = new System.Drawing.Size(168, 28);
+            this.lblEmailAddress.Size = new System.Drawing.Size(134, 21);
             this.lblEmailAddress.TabIndex = 37;
             this.lblEmailAddress.Text = "EMAIL ADDRESS";
             // 
@@ -689,7 +708,7 @@
             this.lblPhoneNo.ForeColor = System.Drawing.Color.Black;
             this.lblPhoneNo.Location = new System.Drawing.Point(26, 132);
             this.lblPhoneNo.Name = "lblPhoneNo";
-            this.lblPhoneNo.Size = new System.Drawing.Size(118, 28);
+            this.lblPhoneNo.Size = new System.Drawing.Size(95, 21);
             this.lblPhoneNo.TabIndex = 36;
             this.lblPhoneNo.Text = "PHONE NO";
             // 
@@ -699,7 +718,7 @@
             this.lblFullName.ForeColor = System.Drawing.Color.Black;
             this.lblFullName.Location = new System.Drawing.Point(26, 95);
             this.lblFullName.Name = "lblFullName";
-            this.lblFullName.Size = new System.Drawing.Size(122, 28);
+            this.lblFullName.Size = new System.Drawing.Size(98, 21);
             this.lblFullName.TabIndex = 35;
             this.lblFullName.Text = "FULL NAME";
             // 
@@ -709,7 +728,7 @@
             this.lblBookingTypes.ForeColor = System.Drawing.Color.Black;
             this.lblBookingTypes.Location = new System.Drawing.Point(26, 60);
             this.lblBookingTypes.Name = "lblBookingTypes";
-            this.lblBookingTypes.Size = new System.Drawing.Size(157, 28);
+            this.lblBookingTypes.Size = new System.Drawing.Size(125, 21);
             this.lblBookingTypes.TabIndex = 34;
             this.lblBookingTypes.Text = "BOOKING TYPE";
             // 
@@ -726,7 +745,7 @@
             this.label20.AutoSize = true;
             this.label20.Location = new System.Drawing.Point(17, 6);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(192, 28);
+            this.label20.Size = new System.Drawing.Size(153, 21);
             this.label20.TabIndex = 32;
             this.label20.Text = "👤 GUEST DETAILS";
             // 
@@ -742,9 +761,9 @@
             this.panel8.Controls.Add(this.panel9);
             this.panel8.Controls.Add(this.label21);
             this.panel8.ForeColor = System.Drawing.Color.Navy;
-            this.panel8.Location = new System.Drawing.Point(434, 418);
+            this.panel8.Location = new System.Drawing.Point(386, 509);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(1067, 250);
+            this.panel8.Size = new System.Drawing.Size(258, 189);
             this.panel8.TabIndex = 52;
             // 
             // btnSave
@@ -834,7 +853,7 @@
             this.label21.AutoSize = true;
             this.label21.Location = new System.Drawing.Point(17, 6);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(132, 28);
+            this.label21.Size = new System.Drawing.Size(106, 21);
             this.label21.TabIndex = 32;
             this.label21.Text = "⚡ ACTIONS";
             // 
@@ -845,9 +864,9 @@
             this.panel10.Controls.Add(this.panel11);
             this.panel10.Controls.Add(this.label22);
             this.panel10.ForeColor = System.Drawing.Color.Navy;
-            this.panel10.Location = new System.Drawing.Point(12, 693);
+            this.panel10.Location = new System.Drawing.Point(43, 715);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(1489, 227);
+            this.panel10.Size = new System.Drawing.Size(1129, 169);
             this.panel10.TabIndex = 53;
             // 
             // dgvBookingList
@@ -872,7 +891,7 @@
             this.label22.AutoSize = true;
             this.label22.Location = new System.Drawing.Point(17, 6);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(183, 28);
+            this.label22.Size = new System.Drawing.Size(145, 21);
             this.label22.TabIndex = 32;
             this.label22.Text = "📋 BOOKING LIST";
             // 
@@ -930,20 +949,133 @@
             // 
             this.taTableAllocation.ClearBeforeFill = true;
             // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl1.Location = new System.Drawing.Point(0, 0);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(1502, 936);
+            this.tabControl1.TabIndex = 54;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.pnlBooking);
+            this.tabPage1.Controls.Add(this.panel4);
+            this.tabPage1.Controls.Add(this.panel8);
+            this.tabPage1.Controls.Add(this.panel10);
+            this.tabPage1.Controls.Add(this.panel6);
+            this.tabPage1.Controls.Add(this.panel1);
+            this.tabPage1.Controls.Add(this.pnlGuestDetails);
+            this.tabPage1.Location = new System.Drawing.Point(4, 30);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(1494, 902);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "MAKE BOOKING";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.pnlViewBookings);
+            this.tabPage2.Location = new System.Drawing.Point(4, 30);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(1391, 642);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "VIEW BOOKINGS";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            this.tabPage2.Click += new System.EventHandler(this.tabPage2_Click);
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Location = new System.Drawing.Point(4, 30);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(1391, 642);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "MANAGE BOOKINGS";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // pnlViewBookings
+            // 
+            this.pnlViewBookings.AutoScroll = true;
+            this.pnlViewBookings.Controls.Add(this.panel12);
+            this.pnlViewBookings.Controls.Add(this.panel13);
+            this.pnlViewBookings.Controls.Add(this.dgvBookings);
+            this.pnlViewBookings.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pnlViewBookings.Location = new System.Drawing.Point(32, 34);
+            this.pnlViewBookings.Name = "pnlViewBookings";
+            this.pnlViewBookings.Size = new System.Drawing.Size(1012, 457);
+            this.pnlViewBookings.TabIndex = 2;
+            // 
+            // panel12
+            // 
+            this.panel12.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel12.Controls.Add(this.pictureBox1);
+            this.panel12.Location = new System.Drawing.Point(74, 31);
+            this.panel12.Name = "panel12";
+            this.panel12.Size = new System.Drawing.Size(275, 193);
+            this.panel12.TabIndex = 8;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Code_Crafters_Interface_Prototype_1.Properties.Resources.booking_hotel;
+            this.pictureBox1.Location = new System.Drawing.Point(18, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(239, 168);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 6;
+            this.pictureBox1.TabStop = false;
+            // 
+            // panel13
+            // 
+            this.panel13.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel13.Controls.Add(this.lblBookingID);
+            this.panel13.Controls.Add(this.txtBookingID);
+            this.panel13.Location = new System.Drawing.Point(387, 31);
+            this.panel13.Name = "panel13";
+            this.panel13.Size = new System.Drawing.Size(368, 64);
+            this.panel13.TabIndex = 7;
+            // 
+            // lblBookingID
+            // 
+            this.lblBookingID.AutoSize = true;
+            this.lblBookingID.Font = new System.Drawing.Font("Segoe UI", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBookingID.Location = new System.Drawing.Point(12, 21);
+            this.lblBookingID.Name = "lblBookingID";
+            this.lblBookingID.Size = new System.Drawing.Size(179, 17);
+            this.lblBookingID.TabIndex = 2;
+            this.lblBookingID.Text = "ENTER CLIENT FIRST NAME:";
+            // 
+            // txtBookingID
+            // 
+            this.txtBookingID.Location = new System.Drawing.Point(197, 18);
+            this.txtBookingID.Name = "txtBookingID";
+            this.txtBookingID.Size = new System.Drawing.Size(163, 25);
+            this.txtBookingID.TabIndex = 1;
+            // 
+            // dgvBookings
+            // 
+            this.dgvBookings.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dgvBookings.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvBookings.Location = new System.Drawing.Point(74, 258);
+            this.dgvBookings.Name = "dgvBookings";
+            this.dgvBookings.RowHeadersWidth = 51;
+            this.dgvBookings.Size = new System.Drawing.Size(879, 168);
+            this.dgvBookings.TabIndex = 0;
+            // 
             // BookingForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 28F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1596, 942);
-            this.Controls.Add(this.panel10);
-            this.Controls.Add(this.panel8);
-            this.Controls.Add(this.panel6);
-            this.Controls.Add(this.panel4);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.pnlGuestDetails);
-            this.Controls.Add(this.pnlBooking);
+            this.ClientSize = new System.Drawing.Size(1502, 936);
+            this.Controls.Add(this.tabControl1);
             this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "BookingForm";
@@ -975,6 +1107,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvBookingList)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.invoiceBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.restuarantTableBindingSource)).EndInit();
+            this.tabControl1.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage2.ResumeLayout(false);
+            this.pnlViewBookings.ResumeLayout(false);
+            this.panel12.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panel13.ResumeLayout(false);
+            this.panel13.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBookings)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1066,5 +1207,16 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox numNoOfNights;
         private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.Panel pnlViewBookings;
+        private System.Windows.Forms.Panel panel12;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Panel panel13;
+        private System.Windows.Forms.Label lblBookingID;
+        private System.Windows.Forms.TextBox txtBookingID;
+        private System.Windows.Forms.DataGridView dgvBookings;
     }
 }

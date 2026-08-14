@@ -65,6 +65,18 @@
     <Compile Include="Business\BookingForm.Designer.cs">
       <DependentUpon>BookingForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Business\RoomsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Business\RoomsForm.Designer.cs">
+      <DependentUpon>RoomsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Business\SettingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Business\SettingsForm.Designer.cs">
+      <DependentUpon>SettingsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Common\HelpService.cs" />
     <Compile Include="Common\LoginService.cs" />
     <Compile Include="Common\PasswordResetService.cs" />
@@ -123,11 +135,11 @@
     <Compile Include="Common\Theme.cs" />
     <Compile Include="Common\ThemeManager.cs" />
     <Compile Include="Common\ValidationHelper.cs" />
-    <Compile Include="Interfaces\AdminHomeForm.cs">
+    <Compile Include="Interfaces\AdminDashboardForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Interfaces\AdminHomeForm.Designer.cs">
-      <DependentUpon>AdminHomeForm.cs</DependentUpon>
+    <Compile Include="Interfaces\AdminDashboardForm.Designer.cs">
+      <DependentUpon>AdminDashboardForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Interfaces\AdminMenuForm.cs">
       <SubType>Form</SubType>
@@ -160,11 +172,11 @@
     <Compile Include="Interfaces\Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="Interfaces\GuestRegistrationForm.cs">
+    <Compile Include="Interfaces\GuestManagementForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Interfaces\GuestRegistrationForm.Designer.cs">
-      <DependentUpon>GuestRegistrationForm.cs</DependentUpon>
+    <Compile Include="Interfaces\GuestManagementForm.Designer.cs">
+      <DependentUpon>GuestManagementForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Common\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -181,14 +193,20 @@
     <EmbeddedResource Include="Business\RoomManagementForm.resx">
       <DependentUpon>RoomManagementForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Business\RoomsForm.resx">
+      <DependentUpon>RoomsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Business\SettingsForm.resx">
+      <DependentUpon>SettingsForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Business\StaffManagementForm.resx">
       <DependentUpon>StaffManagementForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Business\ViewBookingForm.resx">
       <DependentUpon>ViewBookingForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Interfaces\AdminHomeForm.resx">
-      <DependentUpon>AdminHomeForm.cs</DependentUpon>
+    <EmbeddedResource Include="Interfaces\AdminDashboardForm.resx">
+      <DependentUpon>AdminDashboardForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Interfaces\AdminMenuForm.resx">
       <DependentUpon>AdminMenuForm.cs</DependentUpon>
@@ -206,8 +224,8 @@
     <EmbeddedResource Include="Interfaces\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Interfaces\GuestRegistrationForm.resx">
-      <DependentUpon>GuestRegistrationForm.cs</DependentUpon>
+    <EmbeddedResource Include="Interfaces\GuestManagementForm.resx">
+      <DependentUpon>GuestManagementForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

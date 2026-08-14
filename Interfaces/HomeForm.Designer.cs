@@ -426,7 +426,6 @@
             this.label12.Size = new System.Drawing.Size(244, 13);
             this.label12.TabIndex = 15;
             this.label12.Text = "208 Coubrough Rd, Noordwyk, Midrand, 1687";
-            //this.label12.Click += new System.EventHandler(this.label12_Click);
             // 
             // panel15
             // 

@@ -87,7 +87,7 @@ namespace Code_Crafters_Interface_Prototype_1.Interfaces
 
         private void button4_Click(object sender, EventArgs e)
         {
-            new GuestRegistrationForm().Show();
+            new GuestManagementForm().Show();
             Hide();
         }
 
