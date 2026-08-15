@@ -394,6 +394,16 @@ namespace Code_Crafters_Interface_Prototype_1.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Cash1 {
+            get {
+                object obj = ResourceManager.GetObject("Cash1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ChatGPT_Image_Jun_10__2026__02_31_04_PM {
             get {
                 object obj = ResourceManager.GetObject("ChatGPT Image Jun 10, 2026, 02_31_04 PM", resourceCulture);
@@ -494,6 +504,36 @@ namespace Code_Crafters_Interface_Prototype_1.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap debitcredit {
+            get {
+                object obj = ResourceManager.GetObject("debitcredit", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap debitcredit1 {
+            get {
+                object obj = ResourceManager.GetObject("debitcredit1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap deluxe_1_king {
+            get {
+                object obj = ResourceManager.GetObject("deluxe 1 king", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap download {
             get {
                 object obj = ResourceManager.GetObject("download", resourceCulture);
@@ -527,6 +567,16 @@ namespace Code_Crafters_Interface_Prototype_1.Properties {
         internal static System.Drawing.Bitmap eec44f9f_382a_4860_aa8d_b031be32312f {
             get {
                 object obj = ResourceManager.GetObject("eec44f9f-382a-4860-aa8d-b031be32312f", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap executive {
+            get {
+                object obj = ResourceManager.GetObject("executive", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1104,6 +1154,16 @@ namespace Code_Crafters_Interface_Prototype_1.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Paypal2 {
+            get {
+                object obj = ResourceManager.GetObject("Paypal2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap png_clipart_black_padlock_illustration_login_computer_icons_iconfinder_website_login_key_icon_lock_locked_login_miscellaneous_user_thumbnail {
             get {
                 object obj = ResourceManager.GetObject("png-clipart-black-padlock-illustration-login-computer-icons-iconfinder-website-lo" +
@@ -1238,6 +1298,46 @@ namespace Code_Crafters_Interface_Prototype_1.Properties {
         internal static System.Drawing.Bitmap STAFF_3 {
             get {
                 object obj = ResourceManager.GetObject("STAFF 3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap standard_2_double_beds {
+            get {
+                object obj = ResourceManager.GetObject("standard 2 double beds", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Standard_king_bed {
+            get {
+                object obj = ResourceManager.GetObject("Standard king bed", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap suite_twin_beds1 {
+            get {
+                object obj = ResourceManager.GetObject("suite twin beds1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap suite3_beds2 {
+            get {
+                object obj = ResourceManager.GetObject("suite3 beds2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

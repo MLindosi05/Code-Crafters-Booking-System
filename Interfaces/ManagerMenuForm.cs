@@ -61,7 +61,7 @@ namespace Code_Crafters_Interface_Prototype_1.Interfaces
 
         private void button3_Click(object sender, EventArgs e)
         {
-            PanelLoader.Load(ManagerPanel, new BookingForm());
+            PanelLoader.Load(ManagerPanel, new BookingManagement());
         }
 
         private void button4_Click(object sender, EventArgs e)

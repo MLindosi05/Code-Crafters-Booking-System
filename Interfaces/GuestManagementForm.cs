@@ -17,6 +17,8 @@ namespace Code_Crafters_Booking_System
 
         private void SignUpForm_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'codeCraftersDSTWO1.Client' table. You can move, or remove it, as needed.
+            this.clientTableAdapter.Fill(this.codeCraftersDSTWO1.Client);
             ApplyTheme();
         }
 
@@ -154,8 +156,7 @@ namespace Code_Crafters_Booking_System
 
         private void button1_Click(object sender, EventArgs e)
         {
-            new HomeForm().Show();
-            Close();
+            
         }
 
         #endregion

@@ -151,5 +151,11 @@ namespace Code_Crafters_Interface_Prototype_1.Interfaces
         }
 
         #endregion
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+            new GuestSignUpForm().Show();
+            Hide();
+        }
     }
 }
