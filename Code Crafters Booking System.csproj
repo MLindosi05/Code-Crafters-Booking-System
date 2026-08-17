@@ -142,12 +142,6 @@
     <Compile Include="Business\StaffManagementForm.Designer.cs">
       <DependentUpon>StaffManagementForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Business\ViewBookingForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Business\ViewBookingForm.Designer.cs">
-      <DependentUpon>ViewBookingForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="codeCraftersDS.cs">
       <DependentUpon>codeCraftersDS.xsd</DependentUpon>
     </Compile>
@@ -256,9 +250,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Business\StaffManagementForm.resx">
       <DependentUpon>StaffManagementForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Business\ViewBookingForm.resx">
-      <DependentUpon>ViewBookingForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Interfaces\AdminDashboardForm.resx">
       <DependentUpon>AdminDashboardForm.cs</DependentUpon>

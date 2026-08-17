@@ -66,7 +66,6 @@ namespace Code_Crafters_Interface_Prototype_1.Interfaces
 
         private void button4_Click(object sender, EventArgs e)
         {
-            PanelLoader.Load(ManagerPanel, new ViewBookingForm());
         }
 
         private void button5_Click(object sender, EventArgs e)

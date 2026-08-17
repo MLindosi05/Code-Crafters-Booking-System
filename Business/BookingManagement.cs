@@ -14,7 +14,7 @@ namespace Code_Crafters_Interface_Prototype_1.Business
     {
         private static readonly TimeSpan StandardCheckInTime = new TimeSpan(15, 0, 0);   // 15:00 PM check-in rule
         private static readonly TimeSpan StandardCheckOutTime = new TimeSpan(11, 0, 0); // 11:00 AM check-out rule
-
+        private string connectionString = "Server=146.230.177.46;Database=GroupPmb2;User Id=GroupPmb2;Password=gg5dc2;TrustServerCertificate=True;";
         public BookingManagement()
         {
             InitializeComponent();
@@ -27,6 +27,22 @@ namespace Code_Crafters_Interface_Prototype_1.Business
             SetInitialDates();
             RefreshDataSilent();
             UpdateRoomAndBookingStatuses();
+
+            // Populate search combo items safely
+            cmbSearchBy.Items.Clear();
+            cmbSearchBy.Items.Add("Booking ID");
+            cmbSearchBy.Items.Add("Status");
+            cmbSearchBy.Items.Add("Branch");
+
+            // Load table adapter data here once
+            try
+            {
+                this.taClientBranchTableBooking.Fill(this.codeCraftersDSTWO.ClientBranchTableBooking);
+            }
+            catch(Exception ex)
+            {
+                // Handle error silently or log
+            }
         }
 
         private void InitializeDropdowns()
@@ -441,14 +457,218 @@ namespace Code_Crafters_Interface_Prototype_1.Business
         private void btnRoomFiveBook_Click(object sender, EventArgs e) => ProcessRoomBooking("Deluxe Room 1 King Bed", 2300.00m);
         private void btnRoomSixBook_Click(object sender, EventArgs e) => ProcessRoomBooking("Standard Room 2 Double Beds", 1900.00m);
 
-        private void btnReschedule_Click(object sender, EventArgs e) { }
         private void numAdults_ValueChanged(object sender, EventArgs e) { }
         private void txtClientEmailAddress_TextChanged(object sender, EventArgs e) { }
-        private void btnRefresh_Click(object sender, EventArgs e)
+
+
+        private void button3_Click(object sender, EventArgs e)
         {
-            RefreshDataSilent();
-            UpdateRoomAndBookingStatuses();
-            MessageBox.Show("Booking statuses and room cleaning cycles have been updated based on the current time.", "System Refreshed", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            string searchName = txtClientName.Text.Trim();
+
+            if (string.IsNullOrEmpty(searchName))
+            {
+                clientBranchTableBookingBindingSource.Filter = "Booking_Status = 'Cancelled'";
+            }
+            else
+            {
+                clientBranchTableBookingBindingSource.Filter = $"Booking_Status = 'Cancelled' AND First_Name LIKE '{searchName}%'";
+            }
+        }
+
+        // 2. CURRENT BOOKINGS
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string searchName = txtClientName.Text.Trim();
+            string todayDate = DateTime.Today.ToString("yyyy-MM-dd");
+
+            string filterExpression = $"Checkin_Date <= #{todayDate}# AND Checkout_Date >= #{todayDate}# AND Booking_Status <> 'Cancelled'";
+
+            if (!string.IsNullOrEmpty(searchName))
+            {
+                filterExpression += $" AND First_Name LIKE '{searchName}%'";
+            }
+
+            clientBranchTableBookingBindingSource.Filter = filterExpression;
+        }
+
+        // 3. FUTURE BOOKINGS
+        private void button2_Click(object sender, EventArgs e)
+        {
+            string searchName = txtClientName.Text.Trim(); // Fixed missing control name reference here
+            string todayDate = DateTime.Today.ToString("yyyy-MM-dd");
+
+            string filterExpression = $"Checkin_Date > #{todayDate}# AND Booking_Status <> 'Cancelled'";
+
+            if (!string.IsNullOrEmpty(searchName))
+            {
+                filterExpression += $" AND First_Name LIKE '{searchName}%'";
+            }
+
+            clientBranchTableBookingBindingSource.Filter = filterExpression;
+        }
+
+        private void txtBookingID_TextChanged(object sender, EventArgs e)
+        {
+            string searchName = txtClientName.Text.Trim();
+            string todayDate = DateTime.Today.ToString("yyyy-MM-dd");
+
+            if (string.IsNullOrEmpty(searchName))
+            {
+                clientBranchTableBookingBindingSource.Filter = string.Empty;
+            }
+            else
+            {
+                clientBranchTableBookingBindingSource.Filter = $"First_Name LIKE '{searchName}%'";
+            }
+        }
+
+        private void BookingManagement_Load_1(object sender, EventArgs e)
+        {
+
+           this.taClientBranchTableBooking.Fill(this.codeCraftersDSTWO.ClientBranchTableBooking);
+
+        }
+        private int GetSelectedBookingID()
+        {
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                DataGridViewRow row = dataGridView1.SelectedRows[0];
+
+                if (!row.IsNewRow)
+                {
+                    // Use the exact (Name) shown in your properties window: bookingIDDataGridViewTextBoxColumn
+                    if (dataGridView1.Columns.Contains("bookingID") && row.Cells["bookingID"].Value != null)
+                    {
+                        var cellValue = row.Cells["bookingID"].Value;
+                        if (int.TryParse(cellValue.ToString(), out int bookingID))
+                        {
+                            return bookingID;
+                        }
+                    }
+                }
+            }
+            else if (dataGridView1.SelectedCells.Count > 0)
+            {
+                int rowIndex = dataGridView1.SelectedCells[0].RowIndex;
+                DataGridViewRow row = dataGridView1.Rows[rowIndex];
+
+                if (!row.IsNewRow && dataGridView1.Columns.Contains("bookingID") && row.Cells["bookingID"].Value != null)
+                {
+                    var cellValue = row.Cells["bookingID"].Value;
+                    if (int.TryParse(cellValue.ToString(), out int bookingID))
+                    {
+                        return bookingID;
+                    }
+                }
+            }
+
+            MessageBox.Show("Please select a valid booking row from the list first.", "Selection Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            return -1;
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            string searchBy = cmbSearchBy.SelectedItem?.ToString() ?? cmbSearchBy.Text.Trim();
+            string query = txtSearchQuery.Text.Trim();
+
+            if (string.IsNullOrEmpty(query))
+            {
+                clientBranchTableBookingBindingSource.Filter = string.Empty;
+                return;
+            }
+
+            if (searchBy == "Booking ID")
+            {
+                if (int.TryParse(query, out int bookingId))
+                {
+                    clientBranchTableBookingBindingSource.Filter = $"Booking_ID = {bookingId}";
+                }
+                else
+                {
+                    MessageBox.Show("Please enter a valid numeric Booking ID.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            else if (searchBy == "Status")
+            {
+                clientBranchTableBookingBindingSource.Filter = $"Booking_Status LIKE '%{query}%'";
+            }
+            else if (searchBy == "Branch")
+            {
+                clientBranchTableBookingBindingSource.Filter = $"Branch_Name LIKE '%{query}%'";
+            }
+            else
+            {
+                MessageBox.Show("Please select a search filter category from the dropdown.", "Filter Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            txtSearchQuery.Clear();
+            cmbSearchBy.SelectedIndex = -1;
+            clientBranchTableBookingBindingSource.Filter = string.Empty;
+        }
+
+        private void btnCancelBooking_Click(object sender, EventArgs e)
+        {
+            int bookingID = GetSelectedBookingID();
+            if (bookingID == -1) return;
+
+            var confirm = MessageBox.Show($"Are you sure you want to cancel Booking ID {bookingID}?", "Confirm Cancellation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (confirm == DialogResult.Yes)
+            {
+                try
+                {
+                    using (SqlConnection conn = new SqlConnection(connectionString))
+                    {
+                        conn.Open();
+                        string query = "UPDATE Booking SET Booking_Status = 'Cancelled' WHERE Booking_ID = @BookingID";
+                        using (SqlCommand cmd = new SqlCommand(query, conn))
+                        {
+                            cmd.Parameters.AddWithValue("@BookingID", bookingID);
+                            cmd.ExecuteNonQuery();
+                        }
+                    }
+
+                    MessageBox.Show("Booking successfully cancelled.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    // Refresh your table adapter data here
+                    this.taClientBranchTableBooking.Fill(this.codeCraftersDSTWO.ClientBranchTableBooking);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"An error occurred while cancelling the booking: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void btnReschedule_Click(object sender, EventArgs e)
+        {
+            int bookingID = GetSelectedBookingID();
+            if (bookingID == -1) return;
+
+            // TODO: Open your reschedule form and pass bookingID
+            // RescheduleForm frm = new RescheduleForm(bookingID);
+            // frm.ShowDialog();
+            // this.clientBranchTableBookingTableAdapter.Fill(this.groupPmb2DataSet.ClientBranchTableBooking);
+        }
+
+        private void btnViewEdit_Click(object sender, EventArgs e)
+        {
+            int bookingID = GetSelectedBookingID();
+            if (bookingID == -1) return;
+
+            // TODO: Open your edit details form and pass bookingID
+        }
+
+        private void btnLinkBookings_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtSearchQuery_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
