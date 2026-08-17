@@ -24,16 +24,14 @@
             this.btnRefresh = new System.Windows.Forms.Button();
             this.lblRegalBooking = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label43 = new System.Windows.Forms.Label();
+            this.label42 = new System.Windows.Forms.Label();
             this.dtpRoomCheckIn = new System.Windows.Forms.DateTimePicker();
             this.dtpRoomCheckOut = new System.Windows.Forms.DateTimePicker();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
-            this.numNoOfRooms = new System.Windows.Forms.NumericUpDown();
-            this.label10 = new System.Windows.Forms.Label();
-            this.hotelRoomBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.codeCraftersDSTWO = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTWO();
             this.panel6 = new System.Windows.Forms.Panel();
             this.numChildren = new System.Windows.Forms.NumericUpDown();
             this.numAdults = new System.Windows.Forms.NumericUpDown();
@@ -41,25 +39,14 @@
             this.lblAdults = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
             this.label20 = new System.Windows.Forms.Label();
-            this.invoiceBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.restuarantTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.taBooking = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTWOTableAdapters.BookingTableAdapter();
-            this.taBranch = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTWOTableAdapters.BranchTableAdapter();
-            this.taClientBranchTableBooking = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTWOTableAdapters.ClientBranchTableBookingTableAdapter();
-            this.taClient = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTWOTableAdapters.ClientTableAdapter();
-            this.taFolio = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTWOTableAdapters.FolioTableAdapter();
-            this.taHotelRoom = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTWOTableAdapters.Hotel_RoomTableAdapter();
-            this.taRatePlan = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTWOTableAdapters.Rate_PlanTableAdapter();
-            this.taRestaurantTable = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTWOTableAdapters.Restuarant_TableTableAdapter();
-            this.taRoomAssignment = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTWOTableAdapters.Room_AssignmentTableAdapter();
-            this.taStaff = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTWOTableAdapters.StaffTableAdapter();
-            this.taTableAllocation = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTWOTableAdapters.Table_AllocationTableAdapter();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.lblClientEmailAddress = new System.Windows.Forms.Label();
+            this.txtClientEmailAddress = new System.Windows.Forms.TextBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel16 = new System.Windows.Forms.Panel();
             this.button15 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
+            this.btnRoomSixBook = new System.Windows.Forms.Button();
             this.label27 = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
             this.label29 = new System.Windows.Forms.Label();
@@ -68,7 +55,7 @@
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.panel11 = new System.Windows.Forms.Panel();
             this.button12 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
+            this.btnRoomThreeBook = new System.Windows.Forms.Button();
             this.label22 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
@@ -77,7 +64,7 @@
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.panel17 = new System.Windows.Forms.Panel();
             this.button14 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
+            this.btnRoomFiveBook = new System.Windows.Forms.Button();
             this.label32 = new System.Windows.Forms.Label();
             this.label33 = new System.Windows.Forms.Label();
             this.label34 = new System.Windows.Forms.Label();
@@ -86,7 +73,7 @@
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.panel18 = new System.Windows.Forms.Panel();
             this.button13 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
+            this.btnRoomFourBook = new System.Windows.Forms.Button();
             this.label37 = new System.Windows.Forms.Label();
             this.label38 = new System.Windows.Forms.Label();
             this.label39 = new System.Windows.Forms.Label();
@@ -95,7 +82,7 @@
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.panel10 = new System.Windows.Forms.Panel();
             this.button11 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
+            this.btnRoomTwoBook = new System.Windows.Forms.Button();
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
@@ -104,7 +91,7 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.panel5 = new System.Windows.Forms.Panel();
             this.button10 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btnRoomOneBook = new System.Windows.Forms.Button();
             this.label14 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -122,25 +109,6 @@
             this.lblBookingID = new System.Windows.Forms.Label();
             this.txtBookingID = new System.Windows.Forms.TextBox();
             this.dgvBookings = new System.Windows.Forms.DataGridView();
-            this.bookingIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clientIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.branchIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bookingDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.checkinDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.checkoutDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bookingTotalAmountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bookingStatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cancellationDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cancellationReasonDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.adminNotesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.numberAdultsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.numberChildrenDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bookingTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.specialRequestDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.penaltyAmountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.creditAmountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.staffCreatedByDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bookingBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.pnlGuestDetails = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -160,37 +128,57 @@
             this.label21 = new System.Windows.Forms.Label();
             this.panel14 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.panel15 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.bookingIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clientIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.branchIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bookingDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.checkinDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.checkoutDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bookingTotalAmountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bookingStatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cancellationDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cancellationReasonDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.adminNotesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.numberAdultsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.numberChildrenDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bookingTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.specialRequestDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.penaltyAmountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.creditAmountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.staffCreatedByDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bookingBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.codeCraftersDSTWO = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTWO();
             this.bookingIDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clientIDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.branchIDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bookingDateDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.checkinDateDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.checkoutDateDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bookingTotalAmountDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bookingStatusDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cancellationDateDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cancellationReasonDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.adminNotesDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.numberAdultsDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.numberChildrenDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bookingTypeDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.specialRequestDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.penaltyAmountDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.creditAmountDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.staffCreatedByDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bookingBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.panel15 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
+            this.hotelRoomBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.invoiceBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.restuarantTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.taBooking = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTWOTableAdapters.BookingTableAdapter();
+            this.taBranch = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTWOTableAdapters.BranchTableAdapter();
+            this.taClientBranchTableBooking = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTWOTableAdapters.ClientBranchTableBookingTableAdapter();
+            this.taClient = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTWOTableAdapters.ClientTableAdapter();
+            this.taFolio = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTWOTableAdapters.FolioTableAdapter();
+            this.taHotelRoom = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTWOTableAdapters.Hotel_RoomTableAdapter();
+            this.taRatePlan = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTWOTableAdapters.Rate_PlanTableAdapter();
+            this.taRestaurantTable = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTWOTableAdapters.Restuarant_TableTableAdapter();
+            this.taRoomAssignment = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTWOTableAdapters.Room_AssignmentTableAdapter();
+            this.taStaff = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTWOTableAdapters.StaffTableAdapter();
+            this.taTableAllocation = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTWOTableAdapters.Table_AllocationTableAdapter();
             this.pnlBooking.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numNoOfRooms)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.hotelRoomBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.codeCraftersDSTWO)).BeginInit();
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numChildren)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numAdults)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.invoiceBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.restuarantTableBindingSource)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -212,13 +200,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel13.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBookings)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bookingBindingSource)).BeginInit();
             this.tabPage3.SuspendLayout();
             this.pnlGuestDetails.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel14.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bookingBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.codeCraftersDSTWO)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bookingBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.hotelRoomBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.invoiceBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.restuarantTableBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlBooking
@@ -228,9 +220,9 @@
             this.pnlBooking.Controls.Add(this.label9);
             this.pnlBooking.Controls.Add(this.btnRefresh);
             this.pnlBooking.Controls.Add(this.lblRegalBooking);
-            this.pnlBooking.Location = new System.Drawing.Point(45, 31);
+            this.pnlBooking.Location = new System.Drawing.Point(45, 19);
             this.pnlBooking.Name = "pnlBooking";
-            this.pnlBooking.Size = new System.Drawing.Size(1290, 100);
+            this.pnlBooking.Size = new System.Drawing.Size(1290, 103);
             this.pnlBooking.TabIndex = 0;
             // 
             // cmbBranchName
@@ -268,6 +260,7 @@
             this.btnRefresh.TabIndex = 3;
             this.btnRefresh.Text = "🔄 REFRESH";
             this.btnRefresh.UseVisualStyleBackColor = false;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // lblRegalBooking
             // 
@@ -282,6 +275,8 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.label43);
+            this.panel1.Controls.Add(this.label42);
             this.panel1.Controls.Add(this.dtpRoomCheckIn);
             this.panel1.Controls.Add(this.dtpRoomCheckOut);
             this.panel1.Controls.Add(this.label12);
@@ -289,18 +284,38 @@
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.label8);
             this.panel1.ForeColor = System.Drawing.Color.Navy;
-            this.panel1.Location = new System.Drawing.Point(45, 147);
+            this.panel1.Location = new System.Drawing.Point(45, 226);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(328, 176);
+            this.panel1.Size = new System.Drawing.Size(340, 176);
             this.panel1.TabIndex = 11;
+            // 
+            // label43
+            // 
+            this.label43.AutoSize = true;
+            this.label43.ForeColor = System.Drawing.Color.SteelBlue;
+            this.label43.Location = new System.Drawing.Point(256, 112);
+            this.label43.Name = "label43";
+            this.label43.Size = new System.Drawing.Size(80, 21);
+            this.label43.TabIndex = 42;
+            this.label43.Text = "11:00 AM";
+            // 
+            // label42
+            // 
+            this.label42.AutoSize = true;
+            this.label42.ForeColor = System.Drawing.Color.SteelBlue;
+            this.label42.Location = new System.Drawing.Point(256, 61);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(79, 21);
+            this.label42.TabIndex = 41;
+            this.label42.Text = "15:00 PM";
             // 
             // dtpRoomCheckIn
             // 
-            this.dtpRoomCheckIn.CustomFormat = "yyyy/MM/dd";
+            this.dtpRoomCheckIn.CustomFormat = "yyyy/MM/dd ";
             this.dtpRoomCheckIn.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpRoomCheckIn.Location = new System.Drawing.Point(152, 61);
+            this.dtpRoomCheckIn.Location = new System.Drawing.Point(124, 61);
             this.dtpRoomCheckIn.Name = "dtpRoomCheckIn";
-            this.dtpRoomCheckIn.Size = new System.Drawing.Size(129, 29);
+            this.dtpRoomCheckIn.Size = new System.Drawing.Size(128, 29);
             this.dtpRoomCheckIn.TabIndex = 40;
             this.dtpRoomCheckIn.Value = new System.DateTime(2026, 8, 5, 0, 0, 0, 0);
             // 
@@ -308,9 +323,9 @@
             // 
             this.dtpRoomCheckOut.CustomFormat = "yyyy/MM/dd ";
             this.dtpRoomCheckOut.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpRoomCheckOut.Location = new System.Drawing.Point(152, 112);
+            this.dtpRoomCheckOut.Location = new System.Drawing.Point(124, 112);
             this.dtpRoomCheckOut.Name = "dtpRoomCheckOut";
-            this.dtpRoomCheckOut.Size = new System.Drawing.Size(129, 29);
+            this.dtpRoomCheckOut.Size = new System.Drawing.Size(128, 29);
             this.dtpRoomCheckOut.TabIndex = 39;
             this.dtpRoomCheckOut.Value = new System.DateTime(2026, 8, 5, 0, 0, 0, 0);
             // 
@@ -351,48 +366,19 @@
             this.label8.TabIndex = 32;
             this.label8.Text = "🛏 SELECT DATES";
             // 
-            // numNoOfRooms
-            // 
-            this.numNoOfRooms.Location = new System.Drawing.Point(205, 152);
-            this.numNoOfRooms.Name = "numNoOfRooms";
-            this.numNoOfRooms.Size = new System.Drawing.Size(85, 29);
-            this.numNoOfRooms.TabIndex = 41;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.ForeColor = System.Drawing.Color.Black;
-            this.label10.Location = new System.Drawing.Point(46, 158);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(124, 21);
-            this.label10.TabIndex = 37;
-            this.label10.Text = "NO. OF ROOMS";
-            // 
-            // hotelRoomBindingSource
-            // 
-            this.hotelRoomBindingSource.DataMember = "Hotel_Room";
-            this.hotelRoomBindingSource.DataSource = this.codeCraftersDSTWO;
-            // 
-            // codeCraftersDSTWO
-            // 
-            this.codeCraftersDSTWO.DataSetName = "codeCraftersDSTWO";
-            this.codeCraftersDSTWO.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // panel6
             // 
             this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel6.Controls.Add(this.numChildren);
-            this.panel6.Controls.Add(this.numNoOfRooms);
             this.panel6.Controls.Add(this.numAdults);
             this.panel6.Controls.Add(this.lblChildren);
             this.panel6.Controls.Add(this.lblAdults);
-            this.panel6.Controls.Add(this.label10);
             this.panel6.Controls.Add(this.panel7);
             this.panel6.Controls.Add(this.label20);
             this.panel6.ForeColor = System.Drawing.Color.Navy;
-            this.panel6.Location = new System.Drawing.Point(45, 353);
+            this.panel6.Location = new System.Drawing.Point(45, 439);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(328, 211);
+            this.panel6.Size = new System.Drawing.Size(340, 158);
             this.panel6.TabIndex = 44;
             // 
             // numChildren
@@ -408,6 +394,7 @@
             this.numAdults.Name = "numAdults";
             this.numAdults.Size = new System.Drawing.Size(85, 29);
             this.numAdults.TabIndex = 49;
+            this.numAdults.ValueChanged += new System.EventHandler(this.numAdults_ValueChanged);
             // 
             // lblChildren
             // 
@@ -446,60 +433,6 @@
             this.label20.TabIndex = 32;
             this.label20.Text = "👤 SELECT OCCUPANCY";
             // 
-            // invoiceBindingSource
-            // 
-            this.invoiceBindingSource.DataMember = "Invoice";
-            this.invoiceBindingSource.DataSource = this.codeCraftersDSTWO;
-            // 
-            // restuarantTableBindingSource
-            // 
-            this.restuarantTableBindingSource.DataMember = "Restuarant_Table";
-            this.restuarantTableBindingSource.DataSource = this.codeCraftersDSTWO;
-            // 
-            // taBooking
-            // 
-            this.taBooking.ClearBeforeFill = true;
-            // 
-            // taBranch
-            // 
-            this.taBranch.ClearBeforeFill = true;
-            // 
-            // taClientBranchTableBooking
-            // 
-            this.taClientBranchTableBooking.ClearBeforeFill = true;
-            // 
-            // taClient
-            // 
-            this.taClient.ClearBeforeFill = true;
-            // 
-            // taFolio
-            // 
-            this.taFolio.ClearBeforeFill = true;
-            // 
-            // taHotelRoom
-            // 
-            this.taHotelRoom.ClearBeforeFill = true;
-            // 
-            // taRatePlan
-            // 
-            this.taRatePlan.ClearBeforeFill = true;
-            // 
-            // taRestaurantTable
-            // 
-            this.taRestaurantTable.ClearBeforeFill = true;
-            // 
-            // taRoomAssignment
-            // 
-            this.taRoomAssignment.ClearBeforeFill = true;
-            // 
-            // taStaff
-            // 
-            this.taStaff.ClearBeforeFill = true;
-            // 
-            // taTableAllocation
-            // 
-            this.taTableAllocation.ClearBeforeFill = true;
-            // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
@@ -514,6 +447,8 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.lblClientEmailAddress);
+            this.tabPage1.Controls.Add(this.txtClientEmailAddress);
             this.tabPage1.Controls.Add(this.panel4);
             this.tabPage1.Controls.Add(this.pnlBooking);
             this.tabPage1.Controls.Add(this.panel6);
@@ -526,6 +461,23 @@
             this.tabPage1.Text = "MAKE BOOKING";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // lblClientEmailAddress
+            // 
+            this.lblClientEmailAddress.AutoSize = true;
+            this.lblClientEmailAddress.Location = new System.Drawing.Point(41, 147);
+            this.lblClientEmailAddress.Name = "lblClientEmailAddress";
+            this.lblClientEmailAddress.Size = new System.Drawing.Size(246, 21);
+            this.lblClientEmailAddress.TabIndex = 47;
+            this.lblClientEmailAddress.Text = "ENTER CLIENT EMAIL ADDRESS";
+            // 
+            // txtClientEmailAddress
+            // 
+            this.txtClientEmailAddress.Location = new System.Drawing.Point(45, 171);
+            this.txtClientEmailAddress.Name = "txtClientEmailAddress";
+            this.txtClientEmailAddress.Size = new System.Drawing.Size(328, 29);
+            this.txtClientEmailAddress.TabIndex = 46;
+            this.txtClientEmailAddress.TextChanged += new System.EventHandler(this.txtClientEmailAddress_TextChanged);
+            // 
             // panel4
             // 
             this.panel4.Controls.Add(this.panel16);
@@ -536,13 +488,13 @@
             this.panel4.Controls.Add(this.panel5);
             this.panel4.Location = new System.Drawing.Point(418, 147);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(917, 872);
+            this.panel4.Size = new System.Drawing.Size(947, 872);
             this.panel4.TabIndex = 45;
             // 
             // panel16
             // 
             this.panel16.Controls.Add(this.button15);
-            this.panel16.Controls.Add(this.button7);
+            this.panel16.Controls.Add(this.btnRoomSixBook);
             this.panel16.Controls.Add(this.label27);
             this.panel16.Controls.Add(this.label28);
             this.panel16.Controls.Add(this.label29);
@@ -551,7 +503,7 @@
             this.panel16.Controls.Add(this.pictureBox5);
             this.panel16.Location = new System.Drawing.Point(633, 447);
             this.panel16.Name = "panel16";
-            this.panel16.Size = new System.Drawing.Size(238, 379);
+            this.panel16.Size = new System.Drawing.Size(281, 379);
             this.panel16.TabIndex = 9;
             // 
             // button15
@@ -559,20 +511,20 @@
             this.button15.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button15.Location = new System.Drawing.Point(16, 334);
             this.button15.Name = "button15";
-            this.button15.Size = new System.Drawing.Size(76, 27);
+            this.button15.Size = new System.Drawing.Size(87, 27);
             this.button15.TabIndex = 10;
-            this.button15.Text = "Amenities";
+            this.button15.Text = "AMENITIES";
             this.button15.UseVisualStyleBackColor = true;
             // 
-            // button7
+            // btnRoomSixBook
             // 
-            this.button7.Location = new System.Drawing.Point(16, 286);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(205, 29);
-            this.button7.TabIndex = 6;
-            this.button7.Text = "BOOK NOW";
-            this.button7.UseVisualStyleBackColor = true;
-            this.button7.Click += new System.EventHandler(this.button7_Click);
+            this.btnRoomSixBook.Location = new System.Drawing.Point(16, 286);
+            this.btnRoomSixBook.Name = "btnRoomSixBook";
+            this.btnRoomSixBook.Size = new System.Drawing.Size(205, 29);
+            this.btnRoomSixBook.TabIndex = 6;
+            this.btnRoomSixBook.Text = "BOOK NOW";
+            this.btnRoomSixBook.UseVisualStyleBackColor = true;
+            this.btnRoomSixBook.Click += new System.EventHandler(this.btnRoomSixBook_Click);
             // 
             // label27
             // 
@@ -589,9 +541,9 @@
             this.label28.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label28.Location = new System.Drawing.Point(13, 254);
             this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(90, 17);
+            this.label28.Size = new System.Drawing.Size(98, 17);
             this.label28.TabIndex = 4;
-            this.label28.Text = "Max 4 Guests";
+            this.label28.Text = "MAX 6 GUESTS";
             // 
             // label29
             // 
@@ -599,9 +551,9 @@
             this.label29.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label29.Location = new System.Drawing.Point(16, 231);
             this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(48, 17);
+            this.label29.Size = new System.Drawing.Size(50, 17);
             this.label29.TabIndex = 3;
-            this.label29.Text = "2 Beds";
+            this.label29.Text = "2 BEDS";
             // 
             // label30
             // 
@@ -609,9 +561,9 @@
             this.label30.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label30.Location = new System.Drawing.Point(15, 205);
             this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(73, 17);
+            this.label30.Size = new System.Drawing.Size(81, 17);
             this.label30.TabIndex = 2;
-            this.label30.Text = "1 Bedroom";
+            this.label30.Text = "1 BEDROOM";
             // 
             // label31
             // 
@@ -619,9 +571,9 @@
             this.label31.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label31.Location = new System.Drawing.Point(14, 174);
             this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(223, 20);
+            this.label31.Size = new System.Drawing.Size(258, 20);
             this.label31.TabIndex = 1;
-            this.label31.Text = "Standard Room 2 Double Beds";
+            this.label31.Text = "STANDARD ROOM 2 DOUBLE BEDS";
             // 
             // pictureBox5
             // 
@@ -636,7 +588,7 @@
             // panel11
             // 
             this.panel11.Controls.Add(this.button12);
-            this.panel11.Controls.Add(this.button6);
+            this.panel11.Controls.Add(this.btnRoomThreeBook);
             this.panel11.Controls.Add(this.label22);
             this.panel11.Controls.Add(this.label23);
             this.panel11.Controls.Add(this.label24);
@@ -645,7 +597,7 @@
             this.panel11.Controls.Add(this.pictureBox4);
             this.panel11.Location = new System.Drawing.Point(633, 34);
             this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(238, 374);
+            this.panel11.Size = new System.Drawing.Size(281, 374);
             this.panel11.TabIndex = 2;
             // 
             // button12
@@ -653,20 +605,20 @@
             this.button12.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button12.Location = new System.Drawing.Point(16, 330);
             this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(76, 27);
+            this.button12.Size = new System.Drawing.Size(87, 27);
             this.button12.TabIndex = 8;
-            this.button12.Text = "Amenities";
+            this.button12.Text = "AMENITIES";
             this.button12.UseVisualStyleBackColor = true;
             // 
-            // button6
+            // btnRoomThreeBook
             // 
-            this.button6.Location = new System.Drawing.Point(16, 285);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(205, 29);
-            this.button6.TabIndex = 6;
-            this.button6.Text = "BOOK NOW";
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
+            this.btnRoomThreeBook.Location = new System.Drawing.Point(16, 285);
+            this.btnRoomThreeBook.Name = "btnRoomThreeBook";
+            this.btnRoomThreeBook.Size = new System.Drawing.Size(205, 29);
+            this.btnRoomThreeBook.TabIndex = 6;
+            this.btnRoomThreeBook.Text = "BOOK NOW";
+            this.btnRoomThreeBook.UseVisualStyleBackColor = true;
+            this.btnRoomThreeBook.Click += new System.EventHandler(this.btnRoomThreeBook_Click);
             // 
             // label22
             // 
@@ -683,9 +635,9 @@
             this.label23.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label23.Location = new System.Drawing.Point(13, 254);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(90, 17);
+            this.label23.Size = new System.Drawing.Size(98, 17);
             this.label23.TabIndex = 4;
-            this.label23.Text = "Max 4 Guests";
+            this.label23.Text = "MAX 3 GUESTS";
             // 
             // label24
             // 
@@ -693,9 +645,9 @@
             this.label24.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label24.Location = new System.Drawing.Point(16, 231);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(48, 17);
+            this.label24.Size = new System.Drawing.Size(50, 17);
             this.label24.TabIndex = 3;
-            this.label24.Text = "3 Beds";
+            this.label24.Text = "3 BEDS";
             // 
             // label25
             // 
@@ -703,9 +655,9 @@
             this.label25.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label25.Location = new System.Drawing.Point(15, 205);
             this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(73, 17);
+            this.label25.Size = new System.Drawing.Size(81, 17);
             this.label25.TabIndex = 2;
-            this.label25.Text = "1 Bedroom";
+            this.label25.Text = "1 BEDROOM";
             // 
             // label26
             // 
@@ -713,9 +665,9 @@
             this.label26.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label26.Location = new System.Drawing.Point(12, 173);
             this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(217, 20);
+            this.label26.Size = new System.Drawing.Size(188, 20);
             this.label26.TabIndex = 1;
-            this.label26.Text = "Suite Room 1 King/Twin Beds";
+            this.label26.Text = "SUITE ROOM 1 KING BED";
             // 
             // pictureBox4
             // 
@@ -730,7 +682,7 @@
             // panel17
             // 
             this.panel17.Controls.Add(this.button14);
-            this.panel17.Controls.Add(this.button8);
+            this.panel17.Controls.Add(this.btnRoomFiveBook);
             this.panel17.Controls.Add(this.label32);
             this.panel17.Controls.Add(this.label33);
             this.panel17.Controls.Add(this.label34);
@@ -747,20 +699,20 @@
             this.button14.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button14.Location = new System.Drawing.Point(16, 334);
             this.button14.Name = "button14";
-            this.button14.Size = new System.Drawing.Size(76, 27);
+            this.button14.Size = new System.Drawing.Size(87, 27);
             this.button14.TabIndex = 10;
-            this.button14.Text = "Amenities";
+            this.button14.Text = "AMENITIES";
             this.button14.UseVisualStyleBackColor = true;
             // 
-            // button8
+            // btnRoomFiveBook
             // 
-            this.button8.Location = new System.Drawing.Point(16, 286);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(205, 29);
-            this.button8.TabIndex = 6;
-            this.button8.Text = "BOOK NOW";
-            this.button8.UseVisualStyleBackColor = true;
-            this.button8.Click += new System.EventHandler(this.button8_Click);
+            this.btnRoomFiveBook.Location = new System.Drawing.Point(16, 286);
+            this.btnRoomFiveBook.Name = "btnRoomFiveBook";
+            this.btnRoomFiveBook.Size = new System.Drawing.Size(205, 29);
+            this.btnRoomFiveBook.TabIndex = 6;
+            this.btnRoomFiveBook.Text = "BOOK NOW";
+            this.btnRoomFiveBook.UseVisualStyleBackColor = true;
+            this.btnRoomFiveBook.Click += new System.EventHandler(this.btnRoomFiveBook_Click);
             // 
             // label32
             // 
@@ -777,9 +729,9 @@
             this.label33.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label33.Location = new System.Drawing.Point(13, 254);
             this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(90, 17);
+            this.label33.Size = new System.Drawing.Size(98, 17);
             this.label33.TabIndex = 4;
-            this.label33.Text = "Max 2 Guests";
+            this.label33.Text = "MAX 3 GUESTS";
             // 
             // label34
             // 
@@ -787,9 +739,9 @@
             this.label34.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label34.Location = new System.Drawing.Point(16, 231);
             this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(40, 17);
+            this.label34.Size = new System.Drawing.Size(41, 17);
             this.label34.TabIndex = 3;
-            this.label34.Text = "1 Bed";
+            this.label34.Text = "1 BED";
             // 
             // label35
             // 
@@ -797,9 +749,9 @@
             this.label35.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label35.Location = new System.Drawing.Point(15, 205);
             this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(73, 17);
+            this.label35.Size = new System.Drawing.Size(81, 17);
             this.label35.TabIndex = 2;
-            this.label35.Text = "1 Bedroom";
+            this.label35.Text = "1 BEDROOM";
             // 
             // label36
             // 
@@ -807,9 +759,9 @@
             this.label36.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label36.Location = new System.Drawing.Point(15, 174);
             this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(183, 20);
+            this.label36.Size = new System.Drawing.Size(203, 20);
             this.label36.TabIndex = 1;
-            this.label36.Text = "Deluxe Room 1 King Bed";
+            this.label36.Text = "DELUXE ROOM 1 KING BED";
             // 
             // pictureBox6
             // 
@@ -824,7 +776,7 @@
             // panel18
             // 
             this.panel18.Controls.Add(this.button13);
-            this.panel18.Controls.Add(this.button9);
+            this.panel18.Controls.Add(this.btnRoomFourBook);
             this.panel18.Controls.Add(this.label37);
             this.panel18.Controls.Add(this.label38);
             this.panel18.Controls.Add(this.label39);
@@ -833,7 +785,7 @@
             this.panel18.Controls.Add(this.pictureBox7);
             this.panel18.Location = new System.Drawing.Point(43, 447);
             this.panel18.Name = "panel18";
-            this.panel18.Size = new System.Drawing.Size(238, 379);
+            this.panel18.Size = new System.Drawing.Size(255, 379);
             this.panel18.TabIndex = 7;
             // 
             // button13
@@ -841,20 +793,20 @@
             this.button13.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button13.Location = new System.Drawing.Point(19, 334);
             this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(76, 27);
+            this.button13.Size = new System.Drawing.Size(84, 27);
             this.button13.TabIndex = 10;
-            this.button13.Text = "Amenities";
+            this.button13.Text = "AMENITIES";
             this.button13.UseVisualStyleBackColor = true;
             // 
-            // button9
+            // btnRoomFourBook
             // 
-            this.button9.Location = new System.Drawing.Point(16, 286);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(205, 29);
-            this.button9.TabIndex = 6;
-            this.button9.Text = "BOOK NOW";
-            this.button9.UseVisualStyleBackColor = true;
-            this.button9.Click += new System.EventHandler(this.button9_Click);
+            this.btnRoomFourBook.Location = new System.Drawing.Point(16, 286);
+            this.btnRoomFourBook.Name = "btnRoomFourBook";
+            this.btnRoomFourBook.Size = new System.Drawing.Size(205, 29);
+            this.btnRoomFourBook.TabIndex = 6;
+            this.btnRoomFourBook.Text = "BOOK NOW";
+            this.btnRoomFourBook.UseVisualStyleBackColor = true;
+            this.btnRoomFourBook.Click += new System.EventHandler(this.btnRoomFourBook_Click);
             // 
             // label37
             // 
@@ -871,9 +823,9 @@
             this.label38.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label38.Location = new System.Drawing.Point(13, 254);
             this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(90, 17);
+            this.label38.Size = new System.Drawing.Size(98, 17);
             this.label38.TabIndex = 4;
-            this.label38.Text = "Max 2 Guests";
+            this.label38.Text = "MAX 2 GUESTS";
             // 
             // label39
             // 
@@ -881,9 +833,9 @@
             this.label39.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label39.Location = new System.Drawing.Point(16, 231);
             this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(40, 17);
+            this.label39.Size = new System.Drawing.Size(41, 17);
             this.label39.TabIndex = 3;
-            this.label39.Text = "1 Bed";
+            this.label39.Text = "1 BED";
             // 
             // label40
             // 
@@ -891,9 +843,9 @@
             this.label40.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label40.Location = new System.Drawing.Point(15, 205);
             this.label40.Name = "label40";
-            this.label40.Size = new System.Drawing.Size(73, 17);
+            this.label40.Size = new System.Drawing.Size(81, 17);
             this.label40.TabIndex = 2;
-            this.label40.Text = "1 Bedroom";
+            this.label40.Text = "1 BEDROOM";
             // 
             // label41
             // 
@@ -901,9 +853,9 @@
             this.label41.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label41.Location = new System.Drawing.Point(15, 174);
             this.label41.Name = "label41";
-            this.label41.Size = new System.Drawing.Size(201, 20);
+            this.label41.Size = new System.Drawing.Size(221, 20);
             this.label41.TabIndex = 1;
-            this.label41.Text = "Executive Room 1 King Bed";
+            this.label41.Text = "EXECUTIVE ROOM I KING BED";
             // 
             // pictureBox7
             // 
@@ -918,7 +870,7 @@
             // panel10
             // 
             this.panel10.Controls.Add(this.button11);
-            this.panel10.Controls.Add(this.button5);
+            this.panel10.Controls.Add(this.btnRoomTwoBook);
             this.panel10.Controls.Add(this.label15);
             this.panel10.Controls.Add(this.label16);
             this.panel10.Controls.Add(this.label17);
@@ -935,20 +887,20 @@
             this.button11.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button11.Location = new System.Drawing.Point(18, 332);
             this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(76, 27);
+            this.button11.Size = new System.Drawing.Size(85, 27);
             this.button11.TabIndex = 8;
-            this.button11.Text = "Amenities";
+            this.button11.Text = "AMENITIES";
             this.button11.UseVisualStyleBackColor = true;
             // 
-            // button5
+            // btnRoomTwoBook
             // 
-            this.button5.Location = new System.Drawing.Point(16, 286);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(205, 29);
-            this.button5.TabIndex = 6;
-            this.button5.Text = "BOOK NOW";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.btnRoomTwoBook.Location = new System.Drawing.Point(16, 286);
+            this.btnRoomTwoBook.Name = "btnRoomTwoBook";
+            this.btnRoomTwoBook.Size = new System.Drawing.Size(205, 29);
+            this.btnRoomTwoBook.TabIndex = 6;
+            this.btnRoomTwoBook.Text = "BOOK NOW";
+            this.btnRoomTwoBook.UseVisualStyleBackColor = true;
+            this.btnRoomTwoBook.Click += new System.EventHandler(this.btnRoomTwoBook_Click);
             // 
             // label15
             // 
@@ -965,9 +917,9 @@
             this.label16.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.Location = new System.Drawing.Point(13, 254);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(90, 17);
+            this.label16.Size = new System.Drawing.Size(98, 17);
             this.label16.TabIndex = 4;
-            this.label16.Text = "Max 4 Guests";
+            this.label16.Text = "MAX 4 GUESTS";
             // 
             // label17
             // 
@@ -975,9 +927,9 @@
             this.label17.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label17.Location = new System.Drawing.Point(16, 231);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(48, 17);
+            this.label17.Size = new System.Drawing.Size(50, 17);
             this.label17.TabIndex = 3;
-            this.label17.Text = "2 Beds";
+            this.label17.Text = "2 BEDS";
             // 
             // label18
             // 
@@ -985,9 +937,9 @@
             this.label18.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label18.Location = new System.Drawing.Point(15, 205);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(73, 17);
+            this.label18.Size = new System.Drawing.Size(81, 17);
             this.label18.TabIndex = 2;
-            this.label18.Text = "1 Bedroom";
+            this.label18.Text = "1 BEDROOM";
             // 
             // label19
             // 
@@ -995,9 +947,9 @@
             this.label19.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label19.Location = new System.Drawing.Point(15, 174);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(165, 20);
+            this.label19.Size = new System.Drawing.Size(186, 20);
             this.label19.TabIndex = 1;
-            this.label19.Text = "Suite Room Twin Beds";
+            this.label19.Text = "SUITE ROOM TWIN BEDS";
             // 
             // pictureBox3
             // 
@@ -1012,7 +964,7 @@
             // panel5
             // 
             this.panel5.Controls.Add(this.button10);
-            this.panel5.Controls.Add(this.button4);
+            this.panel5.Controls.Add(this.btnRoomOneBook);
             this.panel5.Controls.Add(this.label14);
             this.panel5.Controls.Add(this.label11);
             this.panel5.Controls.Add(this.label4);
@@ -1021,7 +973,7 @@
             this.panel5.Controls.Add(this.pictureBox2);
             this.panel5.Location = new System.Drawing.Point(43, 33);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(238, 375);
+            this.panel5.Size = new System.Drawing.Size(255, 375);
             this.panel5.TabIndex = 0;
             // 
             // button10
@@ -1029,20 +981,20 @@
             this.button10.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button10.Location = new System.Drawing.Point(16, 331);
             this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(76, 27);
+            this.button10.Size = new System.Drawing.Size(87, 27);
             this.button10.TabIndex = 7;
-            this.button10.Text = "Amenities";
+            this.button10.Text = "AMENITIES";
             this.button10.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // btnRoomOneBook
             // 
-            this.button4.Location = new System.Drawing.Point(16, 286);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(205, 29);
-            this.button4.TabIndex = 6;
-            this.button4.Text = "BOOK NOW";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.btnRoomOneBook.Location = new System.Drawing.Point(16, 286);
+            this.btnRoomOneBook.Name = "btnRoomOneBook";
+            this.btnRoomOneBook.Size = new System.Drawing.Size(205, 29);
+            this.btnRoomOneBook.TabIndex = 6;
+            this.btnRoomOneBook.Text = "BOOK NOW";
+            this.btnRoomOneBook.UseVisualStyleBackColor = true;
+            this.btnRoomOneBook.Click += new System.EventHandler(this.btnRoomOneBook_Click);
             // 
             // label14
             // 
@@ -1059,9 +1011,9 @@
             this.label11.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.Location = new System.Drawing.Point(13, 254);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(90, 17);
+            this.label11.Size = new System.Drawing.Size(98, 17);
             this.label11.TabIndex = 4;
-            this.label11.Text = "Max 2 Guests";
+            this.label11.Text = "MAX 2 GUESTS";
             // 
             // label4
             // 
@@ -1069,9 +1021,9 @@
             this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(16, 231);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(40, 17);
+            this.label4.Size = new System.Drawing.Size(41, 17);
             this.label4.TabIndex = 3;
-            this.label4.Text = "1 Bed";
+            this.label4.Text = "1 BED";
             // 
             // label3
             // 
@@ -1079,9 +1031,9 @@
             this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(15, 205);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(73, 17);
+            this.label3.Size = new System.Drawing.Size(81, 17);
             this.label3.TabIndex = 2;
-            this.label3.Text = "1 Bedroom";
+            this.label3.Text = "1 BEDROOM";
             // 
             // label2
             // 
@@ -1089,9 +1041,9 @@
             this.label2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(15, 174);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(198, 20);
+            this.label2.Size = new System.Drawing.Size(229, 20);
             this.label2.TabIndex = 1;
-            this.label2.Text = "Standard Room 1 King Bed";
+            this.label2.Text = "STANDARD ROOM 1 KING BED";
             // 
             // pictureBox2
             // 
@@ -1113,7 +1065,6 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "VIEW BOOKINGS";
             this.tabPage2.UseVisualStyleBackColor = true;
-            this.tabPage2.Click += new System.EventHandler(this.tabPage2_Click);
             // 
             // pnlViewBookings
             // 
@@ -1132,29 +1083,29 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(402, 129);
+            this.button3.Location = new System.Drawing.Point(387, 128);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(140, 32);
+            this.button3.Size = new System.Drawing.Size(169, 32);
             this.button3.TabIndex = 11;
-            this.button3.Text = "Cancelled Bookings";
+            this.button3.Text = "CANCELLED BOOKINGS";
             this.button3.UseVisualStyleBackColor = true;
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(615, 192);
+            this.button2.Location = new System.Drawing.Point(642, 192);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(140, 32);
             this.button2.TabIndex = 10;
-            this.button2.Text = "Future Bookings";
+            this.button2.Text = "FUTURE BOOKINGS";
             this.button2.UseVisualStyleBackColor = true;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(402, 192);
+            this.button1.Location = new System.Drawing.Point(387, 192);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(140, 32);
+            this.button1.Size = new System.Drawing.Size(169, 32);
             this.button1.TabIndex = 9;
-            this.button1.Text = "Current Bookings";
+            this.button1.Text = "CURRENT BOOKINGS";
             this.button1.UseVisualStyleBackColor = true;
             // 
             // panel12
@@ -1183,7 +1134,7 @@
             this.panel13.Controls.Add(this.txtBookingID);
             this.panel13.Location = new System.Drawing.Point(387, 31);
             this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(368, 64);
+            this.panel13.Size = new System.Drawing.Size(395, 64);
             this.panel13.TabIndex = 7;
             // 
             // lblBookingID
@@ -1200,7 +1151,7 @@
             // 
             this.txtBookingID.Location = new System.Drawing.Point(197, 18);
             this.txtBookingID.Name = "txtBookingID";
-            this.txtBookingID.Size = new System.Drawing.Size(163, 25);
+            this.txtBookingID.Size = new System.Drawing.Size(190, 25);
             this.txtBookingID.TabIndex = 1;
             // 
             // dgvBookings
@@ -1233,120 +1184,6 @@
             this.dgvBookings.RowHeadersWidth = 51;
             this.dgvBookings.Size = new System.Drawing.Size(1342, 168);
             this.dgvBookings.TabIndex = 0;
-            // 
-            // bookingIDDataGridViewTextBoxColumn
-            // 
-            this.bookingIDDataGridViewTextBoxColumn.DataPropertyName = "Booking_ID";
-            this.bookingIDDataGridViewTextBoxColumn.HeaderText = "Booking_ID";
-            this.bookingIDDataGridViewTextBoxColumn.Name = "bookingIDDataGridViewTextBoxColumn";
-            this.bookingIDDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // clientIDDataGridViewTextBoxColumn
-            // 
-            this.clientIDDataGridViewTextBoxColumn.DataPropertyName = "Client_ID";
-            this.clientIDDataGridViewTextBoxColumn.HeaderText = "Client_ID";
-            this.clientIDDataGridViewTextBoxColumn.Name = "clientIDDataGridViewTextBoxColumn";
-            // 
-            // branchIDDataGridViewTextBoxColumn
-            // 
-            this.branchIDDataGridViewTextBoxColumn.DataPropertyName = "Branch_ID";
-            this.branchIDDataGridViewTextBoxColumn.HeaderText = "Branch_ID";
-            this.branchIDDataGridViewTextBoxColumn.Name = "branchIDDataGridViewTextBoxColumn";
-            // 
-            // bookingDateDataGridViewTextBoxColumn
-            // 
-            this.bookingDateDataGridViewTextBoxColumn.DataPropertyName = "Booking_Date";
-            this.bookingDateDataGridViewTextBoxColumn.HeaderText = "Booking_Date";
-            this.bookingDateDataGridViewTextBoxColumn.Name = "bookingDateDataGridViewTextBoxColumn";
-            // 
-            // checkinDateDataGridViewTextBoxColumn
-            // 
-            this.checkinDateDataGridViewTextBoxColumn.DataPropertyName = "Checkin_Date";
-            this.checkinDateDataGridViewTextBoxColumn.HeaderText = "Checkin_Date";
-            this.checkinDateDataGridViewTextBoxColumn.Name = "checkinDateDataGridViewTextBoxColumn";
-            // 
-            // checkoutDateDataGridViewTextBoxColumn
-            // 
-            this.checkoutDateDataGridViewTextBoxColumn.DataPropertyName = "Checkout_Date";
-            this.checkoutDateDataGridViewTextBoxColumn.HeaderText = "Checkout_Date";
-            this.checkoutDateDataGridViewTextBoxColumn.Name = "checkoutDateDataGridViewTextBoxColumn";
-            // 
-            // bookingTotalAmountDataGridViewTextBoxColumn
-            // 
-            this.bookingTotalAmountDataGridViewTextBoxColumn.DataPropertyName = "Booking_Total_Amount";
-            this.bookingTotalAmountDataGridViewTextBoxColumn.HeaderText = "Booking_Total_Amount";
-            this.bookingTotalAmountDataGridViewTextBoxColumn.Name = "bookingTotalAmountDataGridViewTextBoxColumn";
-            // 
-            // bookingStatusDataGridViewTextBoxColumn
-            // 
-            this.bookingStatusDataGridViewTextBoxColumn.DataPropertyName = "Booking_Status";
-            this.bookingStatusDataGridViewTextBoxColumn.HeaderText = "Booking_Status";
-            this.bookingStatusDataGridViewTextBoxColumn.Name = "bookingStatusDataGridViewTextBoxColumn";
-            // 
-            // cancellationDateDataGridViewTextBoxColumn
-            // 
-            this.cancellationDateDataGridViewTextBoxColumn.DataPropertyName = "Cancellation_Date";
-            this.cancellationDateDataGridViewTextBoxColumn.HeaderText = "Cancellation_Date";
-            this.cancellationDateDataGridViewTextBoxColumn.Name = "cancellationDateDataGridViewTextBoxColumn";
-            // 
-            // cancellationReasonDataGridViewTextBoxColumn
-            // 
-            this.cancellationReasonDataGridViewTextBoxColumn.DataPropertyName = "Cancellation_Reason";
-            this.cancellationReasonDataGridViewTextBoxColumn.HeaderText = "Cancellation_Reason";
-            this.cancellationReasonDataGridViewTextBoxColumn.Name = "cancellationReasonDataGridViewTextBoxColumn";
-            // 
-            // adminNotesDataGridViewTextBoxColumn
-            // 
-            this.adminNotesDataGridViewTextBoxColumn.DataPropertyName = "Admin_Notes";
-            this.adminNotesDataGridViewTextBoxColumn.HeaderText = "Admin_Notes";
-            this.adminNotesDataGridViewTextBoxColumn.Name = "adminNotesDataGridViewTextBoxColumn";
-            // 
-            // numberAdultsDataGridViewTextBoxColumn
-            // 
-            this.numberAdultsDataGridViewTextBoxColumn.DataPropertyName = "Number_Adults";
-            this.numberAdultsDataGridViewTextBoxColumn.HeaderText = "Number_Adults";
-            this.numberAdultsDataGridViewTextBoxColumn.Name = "numberAdultsDataGridViewTextBoxColumn";
-            // 
-            // numberChildrenDataGridViewTextBoxColumn
-            // 
-            this.numberChildrenDataGridViewTextBoxColumn.DataPropertyName = "Number_Children";
-            this.numberChildrenDataGridViewTextBoxColumn.HeaderText = "Number_Children";
-            this.numberChildrenDataGridViewTextBoxColumn.Name = "numberChildrenDataGridViewTextBoxColumn";
-            // 
-            // bookingTypeDataGridViewTextBoxColumn
-            // 
-            this.bookingTypeDataGridViewTextBoxColumn.DataPropertyName = "Booking_Type";
-            this.bookingTypeDataGridViewTextBoxColumn.HeaderText = "Booking_Type";
-            this.bookingTypeDataGridViewTextBoxColumn.Name = "bookingTypeDataGridViewTextBoxColumn";
-            // 
-            // specialRequestDataGridViewTextBoxColumn
-            // 
-            this.specialRequestDataGridViewTextBoxColumn.DataPropertyName = "Special_Request";
-            this.specialRequestDataGridViewTextBoxColumn.HeaderText = "Special_Request";
-            this.specialRequestDataGridViewTextBoxColumn.Name = "specialRequestDataGridViewTextBoxColumn";
-            // 
-            // penaltyAmountDataGridViewTextBoxColumn
-            // 
-            this.penaltyAmountDataGridViewTextBoxColumn.DataPropertyName = "Penalty_Amount";
-            this.penaltyAmountDataGridViewTextBoxColumn.HeaderText = "Penalty_Amount";
-            this.penaltyAmountDataGridViewTextBoxColumn.Name = "penaltyAmountDataGridViewTextBoxColumn";
-            // 
-            // creditAmountDataGridViewTextBoxColumn
-            // 
-            this.creditAmountDataGridViewTextBoxColumn.DataPropertyName = "Credit_Amount";
-            this.creditAmountDataGridViewTextBoxColumn.HeaderText = "Credit_Amount";
-            this.creditAmountDataGridViewTextBoxColumn.Name = "creditAmountDataGridViewTextBoxColumn";
-            // 
-            // staffCreatedByDataGridViewTextBoxColumn
-            // 
-            this.staffCreatedByDataGridViewTextBoxColumn.DataPropertyName = "Staff_Created_By";
-            this.staffCreatedByDataGridViewTextBoxColumn.HeaderText = "Staff_Created_By";
-            this.staffCreatedByDataGridViewTextBoxColumn.Name = "staffCreatedByDataGridViewTextBoxColumn";
-            // 
-            // bookingBindingSource
-            // 
-            this.bookingBindingSource.DataMember = "Booking";
-            this.bookingBindingSource.DataSource = this.codeCraftersDSTWO;
             // 
             // tabPage3
             // 
@@ -1466,7 +1303,7 @@
             this.panel8.ForeColor = System.Drawing.Color.Navy;
             this.panel8.Location = new System.Drawing.Point(627, 45);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(569, 254);
+            this.panel8.Size = new System.Drawing.Size(619, 254);
             this.panel8.TabIndex = 55;
             // 
             // btnCancelBooking
@@ -1474,7 +1311,7 @@
             this.btnCancelBooking.BackColor = System.Drawing.Color.Red;
             this.btnCancelBooking.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancelBooking.ForeColor = System.Drawing.Color.White;
-            this.btnCancelBooking.Location = new System.Drawing.Point(325, 154);
+            this.btnCancelBooking.Location = new System.Drawing.Point(392, 149);
             this.btnCancelBooking.Name = "btnCancelBooking";
             this.btnCancelBooking.Size = new System.Drawing.Size(201, 65);
             this.btnCancelBooking.TabIndex = 37;
@@ -1498,12 +1335,13 @@
             this.btnReschedule.BackColor = System.Drawing.Color.Orange;
             this.btnReschedule.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnReschedule.ForeColor = System.Drawing.Color.White;
-            this.btnReschedule.Location = new System.Drawing.Point(325, 52);
+            this.btnReschedule.Location = new System.Drawing.Point(392, 52);
             this.btnReschedule.Name = "btnReschedule";
             this.btnReschedule.Size = new System.Drawing.Size(201, 65);
             this.btnReschedule.TabIndex = 35;
             this.btnReschedule.Text = "📅 RESCHEDULE";
             this.btnReschedule.UseVisualStyleBackColor = false;
+            this.btnReschedule.Click += new System.EventHandler(this.btnReschedule_Click);
             // 
             // btnViewEdit
             // 
@@ -1543,7 +1381,7 @@
             this.panel14.ForeColor = System.Drawing.Color.Navy;
             this.panel14.Location = new System.Drawing.Point(65, 335);
             this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(1131, 242);
+            this.panel14.Size = new System.Drawing.Size(1181, 242);
             this.panel14.TabIndex = 54;
             // 
             // dataGridView1
@@ -1552,143 +1390,19 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.bookingIDDataGridViewTextBoxColumn1,
-            this.clientIDDataGridViewTextBoxColumn1,
             this.branchIDDataGridViewTextBoxColumn1,
-            this.bookingDateDataGridViewTextBoxColumn1,
             this.checkinDateDataGridViewTextBoxColumn1,
             this.checkoutDateDataGridViewTextBoxColumn1,
             this.bookingTotalAmountDataGridViewTextBoxColumn1,
             this.bookingStatusDataGridViewTextBoxColumn1,
-            this.cancellationDateDataGridViewTextBoxColumn1,
-            this.cancellationReasonDataGridViewTextBoxColumn1,
-            this.adminNotesDataGridViewTextBoxColumn1,
-            this.numberAdultsDataGridViewTextBoxColumn1,
-            this.numberChildrenDataGridViewTextBoxColumn1,
             this.bookingTypeDataGridViewTextBoxColumn1,
-            this.specialRequestDataGridViewTextBoxColumn1,
-            this.penaltyAmountDataGridViewTextBoxColumn1,
-            this.creditAmountDataGridViewTextBoxColumn1,
             this.staffCreatedByDataGridViewTextBoxColumn1});
             this.dataGridView1.DataSource = this.bookingBindingSource1;
-            this.dataGridView1.Location = new System.Drawing.Point(20, 46);
+            this.dataGridView1.Location = new System.Drawing.Point(28, 46);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(1459, 163);
+            this.dataGridView1.Size = new System.Drawing.Size(1140, 163);
             this.dataGridView1.TabIndex = 34;
-            // 
-            // bookingIDDataGridViewTextBoxColumn1
-            // 
-            this.bookingIDDataGridViewTextBoxColumn1.DataPropertyName = "Booking_ID";
-            this.bookingIDDataGridViewTextBoxColumn1.HeaderText = "Booking_ID";
-            this.bookingIDDataGridViewTextBoxColumn1.Name = "bookingIDDataGridViewTextBoxColumn1";
-            this.bookingIDDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // clientIDDataGridViewTextBoxColumn1
-            // 
-            this.clientIDDataGridViewTextBoxColumn1.DataPropertyName = "Client_ID";
-            this.clientIDDataGridViewTextBoxColumn1.HeaderText = "Client_ID";
-            this.clientIDDataGridViewTextBoxColumn1.Name = "clientIDDataGridViewTextBoxColumn1";
-            // 
-            // branchIDDataGridViewTextBoxColumn1
-            // 
-            this.branchIDDataGridViewTextBoxColumn1.DataPropertyName = "Branch_ID";
-            this.branchIDDataGridViewTextBoxColumn1.HeaderText = "Branch_ID";
-            this.branchIDDataGridViewTextBoxColumn1.Name = "branchIDDataGridViewTextBoxColumn1";
-            // 
-            // bookingDateDataGridViewTextBoxColumn1
-            // 
-            this.bookingDateDataGridViewTextBoxColumn1.DataPropertyName = "Booking_Date";
-            this.bookingDateDataGridViewTextBoxColumn1.HeaderText = "Booking_Date";
-            this.bookingDateDataGridViewTextBoxColumn1.Name = "bookingDateDataGridViewTextBoxColumn1";
-            // 
-            // checkinDateDataGridViewTextBoxColumn1
-            // 
-            this.checkinDateDataGridViewTextBoxColumn1.DataPropertyName = "Checkin_Date";
-            this.checkinDateDataGridViewTextBoxColumn1.HeaderText = "Checkin_Date";
-            this.checkinDateDataGridViewTextBoxColumn1.Name = "checkinDateDataGridViewTextBoxColumn1";
-            // 
-            // checkoutDateDataGridViewTextBoxColumn1
-            // 
-            this.checkoutDateDataGridViewTextBoxColumn1.DataPropertyName = "Checkout_Date";
-            this.checkoutDateDataGridViewTextBoxColumn1.HeaderText = "Checkout_Date";
-            this.checkoutDateDataGridViewTextBoxColumn1.Name = "checkoutDateDataGridViewTextBoxColumn1";
-            // 
-            // bookingTotalAmountDataGridViewTextBoxColumn1
-            // 
-            this.bookingTotalAmountDataGridViewTextBoxColumn1.DataPropertyName = "Booking_Total_Amount";
-            this.bookingTotalAmountDataGridViewTextBoxColumn1.HeaderText = "Booking_Total_Amount";
-            this.bookingTotalAmountDataGridViewTextBoxColumn1.Name = "bookingTotalAmountDataGridViewTextBoxColumn1";
-            // 
-            // bookingStatusDataGridViewTextBoxColumn1
-            // 
-            this.bookingStatusDataGridViewTextBoxColumn1.DataPropertyName = "Booking_Status";
-            this.bookingStatusDataGridViewTextBoxColumn1.HeaderText = "Booking_Status";
-            this.bookingStatusDataGridViewTextBoxColumn1.Name = "bookingStatusDataGridViewTextBoxColumn1";
-            // 
-            // cancellationDateDataGridViewTextBoxColumn1
-            // 
-            this.cancellationDateDataGridViewTextBoxColumn1.DataPropertyName = "Cancellation_Date";
-            this.cancellationDateDataGridViewTextBoxColumn1.HeaderText = "Cancellation_Date";
-            this.cancellationDateDataGridViewTextBoxColumn1.Name = "cancellationDateDataGridViewTextBoxColumn1";
-            // 
-            // cancellationReasonDataGridViewTextBoxColumn1
-            // 
-            this.cancellationReasonDataGridViewTextBoxColumn1.DataPropertyName = "Cancellation_Reason";
-            this.cancellationReasonDataGridViewTextBoxColumn1.HeaderText = "Cancellation_Reason";
-            this.cancellationReasonDataGridViewTextBoxColumn1.Name = "cancellationReasonDataGridViewTextBoxColumn1";
-            // 
-            // adminNotesDataGridViewTextBoxColumn1
-            // 
-            this.adminNotesDataGridViewTextBoxColumn1.DataPropertyName = "Admin_Notes";
-            this.adminNotesDataGridViewTextBoxColumn1.HeaderText = "Admin_Notes";
-            this.adminNotesDataGridViewTextBoxColumn1.Name = "adminNotesDataGridViewTextBoxColumn1";
-            // 
-            // numberAdultsDataGridViewTextBoxColumn1
-            // 
-            this.numberAdultsDataGridViewTextBoxColumn1.DataPropertyName = "Number_Adults";
-            this.numberAdultsDataGridViewTextBoxColumn1.HeaderText = "Number_Adults";
-            this.numberAdultsDataGridViewTextBoxColumn1.Name = "numberAdultsDataGridViewTextBoxColumn1";
-            // 
-            // numberChildrenDataGridViewTextBoxColumn1
-            // 
-            this.numberChildrenDataGridViewTextBoxColumn1.DataPropertyName = "Number_Children";
-            this.numberChildrenDataGridViewTextBoxColumn1.HeaderText = "Number_Children";
-            this.numberChildrenDataGridViewTextBoxColumn1.Name = "numberChildrenDataGridViewTextBoxColumn1";
-            // 
-            // bookingTypeDataGridViewTextBoxColumn1
-            // 
-            this.bookingTypeDataGridViewTextBoxColumn1.DataPropertyName = "Booking_Type";
-            this.bookingTypeDataGridViewTextBoxColumn1.HeaderText = "Booking_Type";
-            this.bookingTypeDataGridViewTextBoxColumn1.Name = "bookingTypeDataGridViewTextBoxColumn1";
-            // 
-            // specialRequestDataGridViewTextBoxColumn1
-            // 
-            this.specialRequestDataGridViewTextBoxColumn1.DataPropertyName = "Special_Request";
-            this.specialRequestDataGridViewTextBoxColumn1.HeaderText = "Special_Request";
-            this.specialRequestDataGridViewTextBoxColumn1.Name = "specialRequestDataGridViewTextBoxColumn1";
-            // 
-            // penaltyAmountDataGridViewTextBoxColumn1
-            // 
-            this.penaltyAmountDataGridViewTextBoxColumn1.DataPropertyName = "Penalty_Amount";
-            this.penaltyAmountDataGridViewTextBoxColumn1.HeaderText = "Penalty_Amount";
-            this.penaltyAmountDataGridViewTextBoxColumn1.Name = "penaltyAmountDataGridViewTextBoxColumn1";
-            // 
-            // creditAmountDataGridViewTextBoxColumn1
-            // 
-            this.creditAmountDataGridViewTextBoxColumn1.DataPropertyName = "Credit_Amount";
-            this.creditAmountDataGridViewTextBoxColumn1.HeaderText = "Credit_Amount";
-            this.creditAmountDataGridViewTextBoxColumn1.Name = "creditAmountDataGridViewTextBoxColumn1";
-            // 
-            // staffCreatedByDataGridViewTextBoxColumn1
-            // 
-            this.staffCreatedByDataGridViewTextBoxColumn1.DataPropertyName = "Staff_Created_By";
-            this.staffCreatedByDataGridViewTextBoxColumn1.HeaderText = "Staff_Created_By";
-            this.staffCreatedByDataGridViewTextBoxColumn1.Name = "staffCreatedByDataGridViewTextBoxColumn1";
-            // 
-            // bookingBindingSource1
-            // 
-            this.bookingBindingSource1.DataMember = "Booking";
-            this.bookingBindingSource1.DataSource = this.codeCraftersDSTWO;
             // 
             // panel15
             // 
@@ -1707,6 +1421,250 @@
             this.label1.TabIndex = 32;
             this.label1.Text = "📋 BOOKING LIST";
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            // 
+            // bookingIDDataGridViewTextBoxColumn
+            // 
+            this.bookingIDDataGridViewTextBoxColumn.DataPropertyName = "Booking_ID";
+            this.bookingIDDataGridViewTextBoxColumn.HeaderText = "Booking_ID";
+            this.bookingIDDataGridViewTextBoxColumn.Name = "bookingIDDataGridViewTextBoxColumn";
+            this.bookingIDDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // clientIDDataGridViewTextBoxColumn
+            // 
+            this.clientIDDataGridViewTextBoxColumn.DataPropertyName = "Client_ID";
+            this.clientIDDataGridViewTextBoxColumn.HeaderText = "Client_ID";
+            this.clientIDDataGridViewTextBoxColumn.Name = "clientIDDataGridViewTextBoxColumn";
+            // 
+            // branchIDDataGridViewTextBoxColumn
+            // 
+            this.branchIDDataGridViewTextBoxColumn.DataPropertyName = "Branch_ID";
+            this.branchIDDataGridViewTextBoxColumn.HeaderText = "Branch_ID";
+            this.branchIDDataGridViewTextBoxColumn.Name = "branchIDDataGridViewTextBoxColumn";
+            // 
+            // bookingDateDataGridViewTextBoxColumn
+            // 
+            this.bookingDateDataGridViewTextBoxColumn.DataPropertyName = "Booking_Date";
+            this.bookingDateDataGridViewTextBoxColumn.HeaderText = "Booking_Date";
+            this.bookingDateDataGridViewTextBoxColumn.Name = "bookingDateDataGridViewTextBoxColumn";
+            // 
+            // checkinDateDataGridViewTextBoxColumn
+            // 
+            this.checkinDateDataGridViewTextBoxColumn.DataPropertyName = "Checkin_Date";
+            this.checkinDateDataGridViewTextBoxColumn.HeaderText = "Checkin_Date";
+            this.checkinDateDataGridViewTextBoxColumn.Name = "checkinDateDataGridViewTextBoxColumn";
+            // 
+            // checkoutDateDataGridViewTextBoxColumn
+            // 
+            this.checkoutDateDataGridViewTextBoxColumn.DataPropertyName = "Checkout_Date";
+            this.checkoutDateDataGridViewTextBoxColumn.HeaderText = "Checkout_Date";
+            this.checkoutDateDataGridViewTextBoxColumn.Name = "checkoutDateDataGridViewTextBoxColumn";
+            // 
+            // bookingTotalAmountDataGridViewTextBoxColumn
+            // 
+            this.bookingTotalAmountDataGridViewTextBoxColumn.DataPropertyName = "Booking_Total_Amount";
+            this.bookingTotalAmountDataGridViewTextBoxColumn.HeaderText = "Booking_Total_Amount";
+            this.bookingTotalAmountDataGridViewTextBoxColumn.Name = "bookingTotalAmountDataGridViewTextBoxColumn";
+            // 
+            // bookingStatusDataGridViewTextBoxColumn
+            // 
+            this.bookingStatusDataGridViewTextBoxColumn.DataPropertyName = "Booking_Status";
+            this.bookingStatusDataGridViewTextBoxColumn.HeaderText = "Booking_Status";
+            this.bookingStatusDataGridViewTextBoxColumn.Name = "bookingStatusDataGridViewTextBoxColumn";
+            // 
+            // cancellationDateDataGridViewTextBoxColumn
+            // 
+            this.cancellationDateDataGridViewTextBoxColumn.DataPropertyName = "Cancellation_Date";
+            this.cancellationDateDataGridViewTextBoxColumn.HeaderText = "Cancellation_Date";
+            this.cancellationDateDataGridViewTextBoxColumn.Name = "cancellationDateDataGridViewTextBoxColumn";
+            // 
+            // cancellationReasonDataGridViewTextBoxColumn
+            // 
+            this.cancellationReasonDataGridViewTextBoxColumn.DataPropertyName = "Cancellation_Reason";
+            this.cancellationReasonDataGridViewTextBoxColumn.HeaderText = "Cancellation_Reason";
+            this.cancellationReasonDataGridViewTextBoxColumn.Name = "cancellationReasonDataGridViewTextBoxColumn";
+            // 
+            // adminNotesDataGridViewTextBoxColumn
+            // 
+            this.adminNotesDataGridViewTextBoxColumn.DataPropertyName = "Admin_Notes";
+            this.adminNotesDataGridViewTextBoxColumn.HeaderText = "Admin_Notes";
+            this.adminNotesDataGridViewTextBoxColumn.Name = "adminNotesDataGridViewTextBoxColumn";
+            // 
+            // numberAdultsDataGridViewTextBoxColumn
+            // 
+            this.numberAdultsDataGridViewTextBoxColumn.DataPropertyName = "Number_Adults";
+            this.numberAdultsDataGridViewTextBoxColumn.HeaderText = "Number_Adults";
+            this.numberAdultsDataGridViewTextBoxColumn.Name = "numberAdultsDataGridViewTextBoxColumn";
+            // 
+            // numberChildrenDataGridViewTextBoxColumn
+            // 
+            this.numberChildrenDataGridViewTextBoxColumn.DataPropertyName = "Number_Children";
+            this.numberChildrenDataGridViewTextBoxColumn.HeaderText = "Number_Children";
+            this.numberChildrenDataGridViewTextBoxColumn.Name = "numberChildrenDataGridViewTextBoxColumn";
+            // 
+            // bookingTypeDataGridViewTextBoxColumn
+            // 
+            this.bookingTypeDataGridViewTextBoxColumn.DataPropertyName = "Booking_Type";
+            this.bookingTypeDataGridViewTextBoxColumn.HeaderText = "Booking_Type";
+            this.bookingTypeDataGridViewTextBoxColumn.Name = "bookingTypeDataGridViewTextBoxColumn";
+            // 
+            // specialRequestDataGridViewTextBoxColumn
+            // 
+            this.specialRequestDataGridViewTextBoxColumn.DataPropertyName = "Special_Request";
+            this.specialRequestDataGridViewTextBoxColumn.HeaderText = "Special_Request";
+            this.specialRequestDataGridViewTextBoxColumn.Name = "specialRequestDataGridViewTextBoxColumn";
+            // 
+            // penaltyAmountDataGridViewTextBoxColumn
+            // 
+            this.penaltyAmountDataGridViewTextBoxColumn.DataPropertyName = "Penalty_Amount";
+            this.penaltyAmountDataGridViewTextBoxColumn.HeaderText = "Penalty_Amount";
+            this.penaltyAmountDataGridViewTextBoxColumn.Name = "penaltyAmountDataGridViewTextBoxColumn";
+            // 
+            // creditAmountDataGridViewTextBoxColumn
+            // 
+            this.creditAmountDataGridViewTextBoxColumn.DataPropertyName = "Credit_Amount";
+            this.creditAmountDataGridViewTextBoxColumn.HeaderText = "Credit_Amount";
+            this.creditAmountDataGridViewTextBoxColumn.Name = "creditAmountDataGridViewTextBoxColumn";
+            // 
+            // staffCreatedByDataGridViewTextBoxColumn
+            // 
+            this.staffCreatedByDataGridViewTextBoxColumn.DataPropertyName = "Staff_Created_By";
+            this.staffCreatedByDataGridViewTextBoxColumn.HeaderText = "Staff_Created_By";
+            this.staffCreatedByDataGridViewTextBoxColumn.Name = "staffCreatedByDataGridViewTextBoxColumn";
+            // 
+            // bookingBindingSource
+            // 
+            this.bookingBindingSource.DataMember = "Booking";
+            this.bookingBindingSource.DataSource = this.codeCraftersDSTWO;
+            // 
+            // codeCraftersDSTWO
+            // 
+            this.codeCraftersDSTWO.DataSetName = "codeCraftersDSTWO";
+            this.codeCraftersDSTWO.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // bookingIDDataGridViewTextBoxColumn1
+            // 
+            this.bookingIDDataGridViewTextBoxColumn1.DataPropertyName = "Booking_ID";
+            this.bookingIDDataGridViewTextBoxColumn1.HeaderText = "BOOKING ID";
+            this.bookingIDDataGridViewTextBoxColumn1.Name = "bookingIDDataGridViewTextBoxColumn1";
+            this.bookingIDDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.bookingIDDataGridViewTextBoxColumn1.Width = 130;
+            // 
+            // branchIDDataGridViewTextBoxColumn1
+            // 
+            this.branchIDDataGridViewTextBoxColumn1.DataPropertyName = "Branch_ID";
+            this.branchIDDataGridViewTextBoxColumn1.HeaderText = "BRANCH ID";
+            this.branchIDDataGridViewTextBoxColumn1.Name = "branchIDDataGridViewTextBoxColumn1";
+            this.branchIDDataGridViewTextBoxColumn1.Width = 130;
+            // 
+            // checkinDateDataGridViewTextBoxColumn1
+            // 
+            this.checkinDateDataGridViewTextBoxColumn1.DataPropertyName = "Checkin_Date";
+            this.checkinDateDataGridViewTextBoxColumn1.HeaderText = "CHECK - IN ";
+            this.checkinDateDataGridViewTextBoxColumn1.Name = "checkinDateDataGridViewTextBoxColumn1";
+            this.checkinDateDataGridViewTextBoxColumn1.Width = 130;
+            // 
+            // checkoutDateDataGridViewTextBoxColumn1
+            // 
+            this.checkoutDateDataGridViewTextBoxColumn1.DataPropertyName = "Checkout_Date";
+            this.checkoutDateDataGridViewTextBoxColumn1.HeaderText = "CHECK - OUT ";
+            this.checkoutDateDataGridViewTextBoxColumn1.Name = "checkoutDateDataGridViewTextBoxColumn1";
+            this.checkoutDateDataGridViewTextBoxColumn1.Width = 140;
+            // 
+            // bookingTotalAmountDataGridViewTextBoxColumn1
+            // 
+            this.bookingTotalAmountDataGridViewTextBoxColumn1.DataPropertyName = "Booking_Total_Amount";
+            this.bookingTotalAmountDataGridViewTextBoxColumn1.HeaderText = "TOTAL AMOUNT";
+            this.bookingTotalAmountDataGridViewTextBoxColumn1.Name = "bookingTotalAmountDataGridViewTextBoxColumn1";
+            this.bookingTotalAmountDataGridViewTextBoxColumn1.Width = 160;
+            // 
+            // bookingStatusDataGridViewTextBoxColumn1
+            // 
+            this.bookingStatusDataGridViewTextBoxColumn1.DataPropertyName = "Booking_Status";
+            this.bookingStatusDataGridViewTextBoxColumn1.HeaderText = "STATUS";
+            this.bookingStatusDataGridViewTextBoxColumn1.Name = "bookingStatusDataGridViewTextBoxColumn1";
+            // 
+            // bookingTypeDataGridViewTextBoxColumn1
+            // 
+            this.bookingTypeDataGridViewTextBoxColumn1.DataPropertyName = "Booking_Type";
+            this.bookingTypeDataGridViewTextBoxColumn1.HeaderText = "BOOKING TYPE";
+            this.bookingTypeDataGridViewTextBoxColumn1.Name = "bookingTypeDataGridViewTextBoxColumn1";
+            this.bookingTypeDataGridViewTextBoxColumn1.Width = 150;
+            // 
+            // staffCreatedByDataGridViewTextBoxColumn1
+            // 
+            this.staffCreatedByDataGridViewTextBoxColumn1.DataPropertyName = "Staff_Created_By";
+            this.staffCreatedByDataGridViewTextBoxColumn1.HeaderText = "CREATED BY";
+            this.staffCreatedByDataGridViewTextBoxColumn1.Name = "staffCreatedByDataGridViewTextBoxColumn1";
+            this.staffCreatedByDataGridViewTextBoxColumn1.Width = 130;
+            // 
+            // bookingBindingSource1
+            // 
+            this.bookingBindingSource1.DataMember = "Booking";
+            this.bookingBindingSource1.DataSource = this.codeCraftersDSTWO;
+            // 
+            // hotelRoomBindingSource
+            // 
+            this.hotelRoomBindingSource.DataMember = "Hotel_Room";
+            this.hotelRoomBindingSource.DataSource = this.codeCraftersDSTWO;
+            // 
+            // invoiceBindingSource
+            // 
+            this.invoiceBindingSource.DataMember = "Invoice";
+            this.invoiceBindingSource.DataSource = this.codeCraftersDSTWO;
+            // 
+            // restuarantTableBindingSource
+            // 
+            this.restuarantTableBindingSource.DataMember = "Restuarant_Table";
+            this.restuarantTableBindingSource.DataSource = this.codeCraftersDSTWO;
+            // 
+            // taBooking
+            // 
+            this.taBooking.ClearBeforeFill = true;
+            // 
+            // taBranch
+            // 
+            this.taBranch.ClearBeforeFill = true;
+            // 
+            // taClientBranchTableBooking
+            // 
+            this.taClientBranchTableBooking.ClearBeforeFill = true;
+            // 
+            // taClient
+            // 
+            this.taClient.ClearBeforeFill = true;
+            // 
+            // taFolio
+            // 
+            this.taFolio.ClearBeforeFill = true;
+            // 
+            // taHotelRoom
+            // 
+            this.taHotelRoom.ClearBeforeFill = true;
+            // 
+            // taRatePlan
+            // 
+            this.taRatePlan.ClearBeforeFill = true;
+            // 
+            // taRestaurantTable
+            // 
+            this.taRestaurantTable.ClearBeforeFill = true;
+            // 
+            // taRoomAssignment
+            // 
+            this.taRoomAssignment.ClearBeforeFill = true;
+            // 
+            // taStaff
+            // 
+            this.taStaff.ClearBeforeFill = true;
+            // 
+            // taTableAllocation
+            // 
+            this.taTableAllocation.ClearBeforeFill = true;
+            // 
             // BookingManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
@@ -1719,24 +1677,19 @@
             this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "BookingManagement";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "REGAL INN MAKE BOOKING";
+            this.Text = "REGAL INN BOOKINGS";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.BookingForm_Load);
             this.pnlBooking.ResumeLayout(false);
             this.pnlBooking.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numNoOfRooms)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.hotelRoomBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.codeCraftersDSTWO)).EndInit();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numChildren)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numAdults)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.invoiceBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.restuarantTableBindingSource)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel16.ResumeLayout(false);
             this.panel16.PerformLayout();
@@ -1763,7 +1716,6 @@
             this.panel13.ResumeLayout(false);
             this.panel13.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBookings)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bookingBindingSource)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.pnlGuestDetails.ResumeLayout(false);
             this.pnlGuestDetails.PerformLayout();
@@ -1772,7 +1724,12 @@
             this.panel14.ResumeLayout(false);
             this.panel14.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bookingBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.codeCraftersDSTWO)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bookingBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.hotelRoomBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.invoiceBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.restuarantTableBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1797,10 +1754,8 @@
         private System.Windows.Forms.Label lblRegalBooking;
         private System.Windows.Forms.Button btnRefresh;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.NumericUpDown numNoOfRooms;
         private System.Windows.Forms.DateTimePicker dtpRoomCheckIn;
         private System.Windows.Forms.DateTimePicker dtpRoomCheckOut;
-        private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Panel panel3;
@@ -1867,24 +1822,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn bookingIDDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clientIDDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn branchIDDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn bookingDateDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn checkinDateDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn checkoutDateDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn bookingTotalAmountDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn bookingStatusDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cancellationDateDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cancellationReasonDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn adminNotesDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn numberAdultsDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn numberChildrenDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn bookingTypeDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn specialRequestDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn penaltyAmountDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn creditAmountDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn staffCreatedByDataGridViewTextBoxColumn1;
         private System.Windows.Forms.BindingSource bookingBindingSource1;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel5;
@@ -1895,7 +1832,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel16;
-        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button btnRoomSixBook;
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.Label label29;
@@ -1903,7 +1840,7 @@
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.Panel panel11;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button btnRoomThreeBook;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label24;
@@ -1911,7 +1848,7 @@
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Panel panel17;
-        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button btnRoomFiveBook;
         private System.Windows.Forms.Label label32;
         private System.Windows.Forms.Label label33;
         private System.Windows.Forms.Label label34;
@@ -1919,7 +1856,7 @@
         private System.Windows.Forms.Label label36;
         private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.Panel panel18;
-        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Button btnRoomFourBook;
         private System.Windows.Forms.Label label37;
         private System.Windows.Forms.Label label38;
         private System.Windows.Forms.Label label39;
@@ -1927,19 +1864,32 @@
         private System.Windows.Forms.Label label41;
         private System.Windows.Forms.PictureBox pictureBox7;
         private System.Windows.Forms.Panel panel10;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button btnRoomTwoBook;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btnRoomOneBook;
         private System.Windows.Forms.Button button12;
         private System.Windows.Forms.Button button11;
         private System.Windows.Forms.Button button10;
         private System.Windows.Forms.Button button15;
         private System.Windows.Forms.Button button14;
         private System.Windows.Forms.Button button13;
+        private System.Windows.Forms.DataGridViewTextBoxColumn bookingIDDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn branchIDDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn checkinDateDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn checkoutDateDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn bookingTotalAmountDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn bookingStatusDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn bookingTypeDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn staffCreatedByDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.Label lblClientEmailAddress;
+        private System.Windows.Forms.TextBox txtClientEmailAddress;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.Label label43;
+        private System.Windows.Forms.Label label42;
     }
 }

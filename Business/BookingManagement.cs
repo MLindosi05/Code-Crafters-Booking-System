@@ -3,6 +3,7 @@ using Code_Crafters_Interface_Prototype_1.Common;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
@@ -11,106 +12,99 @@ namespace Code_Crafters_Interface_Prototype_1.Business
 {
     public partial class BookingManagement : Form
     {
-        private decimal _calculatedTotal = 0.00m;
-
-        // Standard Hotel Policy Constants
-        private static readonly TimeSpan StandardCheckInTime = new TimeSpan(15, 0, 0);  // 15:00 PM
-        private static readonly TimeSpan StandardCheckOutTime = new TimeSpan(11, 0, 0); // 11:00 AM
+        private static readonly TimeSpan StandardCheckInTime = new TimeSpan(15, 0, 0);   // 15:00 PM check-in rule
+        private static readonly TimeSpan StandardCheckOutTime = new TimeSpan(11, 0, 0); // 11:00 AM check-out rule
 
         public BookingManagement()
         {
             InitializeComponent();
+            SetInitialDates();
         }
 
-       
-
-        
-        #region Form Load & Initialization
-
-       
-
-        
-        private void DgvBookingList_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+        private void BookingManagement_Load(object sender, EventArgs e)
         {
-           // if (e.ColumnIndex >= 0 && e.RowIndex >= 0 && dgvBookingList.Columns[e.ColumnIndex].Name == "Booking_Status")
+            InitializeDropdowns();
+            SetInitialDates();
+            RefreshDataSilent();
+            UpdateRoomAndBookingStatuses();
+        }
+
+        private void InitializeDropdowns()
+        {
+            try
             {
-                e.PaintBackground(e.CellBounds, true);
-
-                string status = e.Value?.ToString() ?? "Pending";
-                Color badgeColor = Color.FromArgb(241, 196, 15);
-
-                if (status.Equals("Confirmed", StringComparison.OrdinalIgnoreCase) || status.Equals("Deposit Paid", StringComparison.OrdinalIgnoreCase))
-                    badgeColor = Color.FromArgb(76, 175, 80);
-                else if (status.Equals("Checked In", StringComparison.OrdinalIgnoreCase) || status.Equals("Checked Out", StringComparison.OrdinalIgnoreCase))
-                    badgeColor = Color.FromArgb(52, 152, 219);
-                else if (status.Equals("Cancelled", StringComparison.OrdinalIgnoreCase) || status.Equals("No Show", StringComparison.OrdinalIgnoreCase))
-                    badgeColor = Color.FromArgb(231, 76, 60);
-
-                int paddingX = 10;
-                int paddingY = 6;
-                Rectangle pillRect = new Rectangle(
-                    e.CellBounds.X + paddingX,
-                    e.CellBounds.Y + paddingY,
-                    e.CellBounds.Width - (paddingX * 2),
-                    e.CellBounds.Height - (paddingY * 2)
-                );
-
-                using (Brush brush = new SolidBrush(badgeColor))
+                if (cmbBranchName.Items.Count > 0 && cmbBranchName.SelectedIndex == -1)
                 {
-                    e.Graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
-                    int cornerRadius = pillRect.Height;
-
-                    using (System.Drawing.Drawing2D.GraphicsPath path = GetRoundedPath(pillRect, cornerRadius))
-                    {
-                        e.Graphics.FillPath(brush, path);
-                    }
-
-                    TextRenderer.DrawText(
-                        e.Graphics,
-                        status,
-                        new Font("Segoe UI", 8.5F, FontStyle.Bold),
-                        pillRect,
-                        Color.White,
-                        TextFormatFlags.HorizontalCenter | TextFormatFlags.VerticalCenter
-                    );
+                    cmbBranchName.SelectedIndex = 0;
                 }
 
-                e.Handled = true;
+                if (taHotelRoom != null)
+                {
+                    taHotelRoom.Fill(codeCraftersDSTWO.Hotel_Room);
+                }
+
+                if (numAdults != null && numAdults.Value == 0)
+                    numAdults.Value = 1;
+
+                if (numChildren != null)
+                    numChildren.Value = 0;
             }
-        }
-
-        private System.Drawing.Drawing2D.GraphicsPath GetRoundedPath(Rectangle rect, int radius)
-        {
-            System.Drawing.Drawing2D.GraphicsPath path = new System.Drawing.Drawing2D.GraphicsPath();
-            float diameter = radius;
-
-            path.AddArc(rect.X, rect.Y, diameter, diameter, 180, 90);
-            path.AddArc(rect.Right - diameter, rect.Y, diameter, diameter, 270, 90);
-            path.AddArc(rect.Right - diameter, rect.Bottom - diameter, diameter, diameter, 0, 90);
-            path.AddArc(rect.X, rect.Bottom - diameter, diameter, diameter, 90, 90);
-            path.CloseFigure();
-
-            return path;
-        }
-
-        public class BranchOption
-        {
-            public string BranchID { get; set; }
-            public string BranchName { get; set; }
-
-            public BranchOption(string id, string name)
+            catch (Exception ex)
             {
-                BranchID = id;
-                BranchName = name;
+                MessageBox.Show("Error initializing form data:\n\n" + ex.ToString(), "Initialization Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        private string GetSelectedBranchID()
+        private void SetInitialDates()
         {
-            if (cmbBranchName.SelectedValue != null)
-                return cmbBranchName.SelectedValue.ToString();
+            DateTime today = DateTime.Today;
 
-            switch (cmbBranchName.Text.Trim())
+            if (dtpRoomCheckIn != null)
+            {
+                dtpRoomCheckIn.Format = DateTimePickerFormat.Short;
+                dtpRoomCheckIn.MinDate = today;
+                dtpRoomCheckIn.Value = today;
+            }
+            if (dtpRoomCheckOut != null)
+            {
+                dtpRoomCheckOut.Format = DateTimePickerFormat.Short;
+                dtpRoomCheckOut.MinDate = today;
+                dtpRoomCheckOut.Value = today.AddDays(1);
+            }
+        }
+
+        private void dtpRoomCheckIn_ValueChanged(object sender, EventArgs e)
+        {
+            if (dtpRoomCheckOut != null && dtpRoomCheckIn.Value >= dtpRoomCheckOut.Value)
+            {
+                dtpRoomCheckOut.Value = dtpRoomCheckIn.Value.AddDays(1);
+            }
+        }
+
+        private void RefreshDataSilent()
+        {
+            try
+            {
+                if (taBooking != null)
+                {
+                    codeCraftersDSTWO.Booking.Clear();
+                    taBooking.Fill(codeCraftersDSTWO.Booking);
+                }
+                if (taClient != null)
+                {
+                    codeCraftersDSTWO.Client.Clear();
+                    taClient.Fill(codeCraftersDSTWO.Client);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Data refresh error: " + ex.Message);
+            }
+        }
+
+        private string GetBranchIDFromName(string branchName)
+        {
+            switch (branchName?.Trim())
             {
                 case "Pietermaritzburg": return "BR01";
                 case "Durban Umhlanga": return "BR02";
@@ -121,455 +115,340 @@ namespace Code_Crafters_Interface_Prototype_1.Business
             }
         }
 
-        private void InitializeDropdowns()
+        private int GetOrCreateClientIDByEmail(string emailAddress)
         {
-            try
+            if (string.IsNullOrWhiteSpace(emailAddress))
+                return -1;
+
+            if (taClient != null)
             {
-                cmbBranchName.DataSource = null;
-                cmbBranchName.Items.Clear();
-
-                var branches = new List<BranchOption>
-                {
-                    new BranchOption("BR01", "Pietermaritzburg"),
-                    new BranchOption("BR02", "Durban Umhlanga"),
-                    new BranchOption("BR03", "Durban North Beach"),
-                    new BranchOption("BR04", "Durban Ballito"),
-                    new BranchOption("BR05", "JHB Midrand")
-                };
-
-                cmbBranchName.DataSource = branches;
-                cmbBranchName.DisplayMember = "BranchName";
-                cmbBranchName.ValueMember = "BranchID";
-                cmbBranchName.SelectedIndex = -1;
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Branch dropdown error: " + ex.Message);
-            }
-        }
-
-
-
-        private void BookingForm_Load(object sender, EventArgs e)
-        {
-            InitializeDropdowns();
-            SetInitialDates();
-           
-
-            
-            ClearAllDropdowns();
-
-
-        }
-
-        private void ClearAllDropdowns()
-        {
-            
-            cmbSearchBy.SelectedIndex = -1;
-            cmbBranchName.SelectedIndex = -1;
-        }
-
-        private void SetInitialDates()
-        {
-            dtpRoomCheckIn.Value = DateTime.Today.Add(StandardCheckInTime);
-            dtpRoomCheckOut.Value = DateTime.Today.AddDays(1).Add(StandardCheckOutTime);
-
-            
-        }
-
-        
-
-        #endregion
-
-        #region Status Lifecycle
-
-        private void AutoUpdateBookingStatuses()
-        {
-            bool hasUpdates = false;
-            DateTime now = DateTime.Now;
-
-            foreach (DataRow booking in codeCraftersDSTWO.Booking.Rows)
-            {
-                if (booking.RowState == DataRowState.Deleted) continue;
-                if (booking["Checkin_Date"] == DBNull.Value || booking["Checkout_Date"] == DBNull.Value) continue;
-
-                string currentStatus = booking["Booking_Status"]?.ToString() ?? "";
-                DateTime checkIn = Convert.ToDateTime(booking["Checkin_Date"]);
-                DateTime checkOut = Convert.ToDateTime(booking["Checkout_Date"]);
-
-                if (checkOut <= checkIn) continue;
-
-                if ((currentStatus.Equals("Confirmed", StringComparison.OrdinalIgnoreCase) || currentStatus.Equals("Deposit Paid", StringComparison.OrdinalIgnoreCase)) && now >= checkIn && now < checkOut)
-                {
-                    booking["Booking_Status"] = "Checked In";
-                    hasUpdates = true;
-                }
-                else if (currentStatus.Equals("Checked In", StringComparison.OrdinalIgnoreCase) && now >= checkOut)
-                {
-                    booking["Booking_Status"] = "Checked Out";
-                    hasUpdates = true;
-                }
-                else if (currentStatus.Equals("Pending", StringComparison.OrdinalIgnoreCase) && now > checkIn.AddHours(2))
-                {
-                    booking["Booking_Status"] = "No Show";
-                    hasUpdates = true;
-                }
+                codeCraftersDSTWO.Client.Clear();
+                taClient.Fill(codeCraftersDSTWO.Client);
             }
 
-            if (hasUpdates)
-            {
-                taBooking.Update(codeCraftersDSTWO.Booking);
-            }
-        }
-
-        #endregion
-
-        #region Availability & Dynamic Price Calculation
-
-        private decimal CalculateBookingAmount(string bookingType, DataRow assignedRoom, DataRow assignedTable, int nights)
-        {
-            decimal total = 0.00m;
-            int stayNights = nights > 0 ? nights : 1;
-
-            if (assignedRoom != null && assignedRoom.Table.Columns.Contains("Hotel_Room_Price") && assignedRoom["Hotel_Room_Price"] != DBNull.Value)
-            {
-                decimal roomPricePerNight = Convert.ToDecimal(assignedRoom["Hotel_Room_Price"]);
-                if (bookingType == "Room Booking" || bookingType == "Room & Table")
-                {
-                    total += (roomPricePerNight * stayNights);
-                }
-            }
-            else if (bookingType == "Room Booking" || bookingType == "Room & Table")
-            {
-                throw new Exception("Room price is missing or not configured in the database for this room.");
-            }
-
-            if (assignedTable != null && assignedTable.Table.Columns.Contains("TablePrice") && assignedTable["TablePrice"] != DBNull.Value)
-            {
-                decimal tablePrice = Convert.ToDecimal(assignedTable["TablePrice"]);
-                if (bookingType == "Table Booking" || bookingType == "Room & Table")
-                {
-                    total += tablePrice;
-                }
-            }
-
-            return total;
-        }
-
-        private DataRow AssignAvailableTable(string requestedArea, DateTime checkIn, DateTime checkOut)
-        {
-            taRestaurantTable.Fill(codeCraftersDSTWO.Restuarant_Table);
-
-            var candidateTables = codeCraftersDSTWO.Restuarant_Table.AsEnumerable().Where(t =>
-                (t.Field<string>("TableFeatures") ?? "").Equals(requestedArea, StringComparison.OrdinalIgnoreCase) &&
-                (t.Field<string>("TableStatus") ?? "Available").Equals("Available", StringComparison.OrdinalIgnoreCase)
-            );
-
-            foreach (var table in candidateTables)
-            {
-                int tableID = Convert.ToInt32(table["RestaurantTableID"]);
-
-                bool isOccupied = codeCraftersDSTWO.Table_Allocation.AsEnumerable().Any(ta =>
-                    ta.Field<int>("Restuarant_Table_ID") == tableID &&
-                    checkIn < ta.Field<DateTime>("End_Time") &&
-                    checkOut > ta.Field<DateTime>("Start_Time")
-                );
-
-                if (!isOccupied)
-                {
-                    return table;
-                }
-            }
-
-            return null;
-        }
-
-        #endregion
-
-        #region Dropdown Handlers
-
-        
-       
-
-        
-        #endregion
-
-        #region Data Refresh & Search
-
-        
-
-        private void RefreshDataSilent()
-        {
-            try
-            {
-                taHotelRoom.Fill(codeCraftersDSTWO.Hotel_Room);
-                taRestaurantTable.Fill(codeCraftersDSTWO.Restuarant_Table);
-                taBooking.Fill(codeCraftersDSTWO.Booking);
-                taRoomAssignment.Fill(codeCraftersDSTWO.Room_Assignment);
-                taTableAllocation.Fill(codeCraftersDSTWO.Table_Allocation);
-                taClientBranchTableBooking.Fill(codeCraftersDSTWO.ClientBranchTableBooking);
-
-                AutoUpdateBookingStatuses();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error refreshing data from database: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void btnClear_Click(object sender, EventArgs e)
-        {
-            txtSearchQuery.Clear();
-            ClearAllDropdowns();
-            SetInitialDates();
-        }
-
-        #endregion
-
-        #region Automatic Room Assignment
-
-        private DataRow AssignAvailableRoom(string requestedCategory, int adults, int children, int infants, DateTime checkIn, DateTime checkOut)
-        {
-            taRoomAssignment.Fill(codeCraftersDSTWO.Room_Assignment);
-
-            var candidateRooms = codeCraftersDSTWO.Hotel_Room.AsEnumerable().Where(r =>
-                (r.Field<string>("hotel_room_type") ?? "").Equals(requestedCategory, StringComparison.OrdinalIgnoreCase) &&
-                (r.Field<string>("hotel_room_status") ?? "Available").Equals("Available", StringComparison.OrdinalIgnoreCase)
-            );
-
-            foreach (var room in candidateRooms)
-            {
-                int maxA = room.Table.Columns.Contains("Max_Adults") && room["Max_Adults"] != DBNull.Value ? Convert.ToInt32(room["Max_Adults"]) : 2;
-                int maxC = room.Table.Columns.Contains("Max_Children") && room["Max_Children"] != DBNull.Value ? Convert.ToInt32(room["Max_Children"]) : 2;
-                int maxI = room.Table.Columns.Contains("Max_Infants") && room["Max_Infants"] != DBNull.Value ? Convert.ToInt32(room["Max_Infants"]) : 1;
-
-                if (adults > maxA || children > maxC || infants > maxI)
-                    continue;
-
-                int roomID = Convert.ToInt32(room["Hotel_Room_ID"]);
-
-                bool isOccupied = codeCraftersDSTWO.Room_Assignment.AsEnumerable().Any(ra =>
-                    ra.Field<int>("Hotel_Room_ID") == roomID &&
-                    checkIn < ra.Field<DateTime>("Actual_Checkout_Time") &&
-                    checkOut > ra.Field<DateTime>("Actual_Checkin_Time")
-                );
-
-                if (!isOccupied)
-                    return room;
-            }
-
-            return null;
-        }
-
-        #endregion
-
-        #region Booking Actions
-
-        
-
-       
-       
-
-        
-
-        #endregion
-
-        #region Helpers
-
-        
-
-        #endregion
-
-        #region Client ID Lookup
-
-        private int GetOrCreateClientID(string fullName, string phoneNumber, string email, string identityNumber)
-        {
-            string[] nameParts = fullName.Trim().Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
-            string firstName = nameParts.Length > 0 ? nameParts[0] : fullName.Trim();
-            string lastName = nameParts.Length > 1 ? string.Join(" ", nameParts.Skip(1)) : "N/A";
-
-            taClient.Fill(codeCraftersDSTWO.Client);
-
-            DataRow existingClient = codeCraftersDSTWO.Client.AsEnumerable().FirstOrDefault(c =>
-                c.Field<string>("Phone_Number") == phoneNumber ||
-                (c.Field<string>("First_Name").Equals(firstName, StringComparison.OrdinalIgnoreCase) &&
-                 c.Field<string>("Last_Name").Equals(lastName, StringComparison.OrdinalIgnoreCase))
-            );
+            var existingClient = codeCraftersDSTWO.Client.AsEnumerable()
+                .FirstOrDefault(c => string.Equals(c.Field<string>("Email_Address"), emailAddress.Trim(), StringComparison.OrdinalIgnoreCase));
 
             if (existingClient != null)
             {
-                return Convert.ToInt32(existingClient["Client_ID"]);
+                return existingClient.Client_ID;
             }
+            else
+            {
+                MessageBox.Show(
+                    "Client email does not exist in the system.\nYou must first register / add the client to the system before proceeding with a booking.",
+                    "Client Not Found",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
 
-            DataRow newClient = codeCraftersDSTWO.Client.NewRow();
-            newClient["First_Name"] = firstName;
-            newClient["Last_Name"] = lastName;
-            newClient["Phone_Number"] = phoneNumber;
-            newClient["Email_Address"] = string.IsNullOrWhiteSpace(email) ? DBNull.Value : (object)email;
-            newClient["Client_Status"] = "Active";
-            newClient["Date_Registered"] = DateTime.Now;
-
-            codeCraftersDSTWO.Client.Rows.Add(newClient);
-            taClient.Update(codeCraftersDSTWO.Client);
-
-            taClient.Fill(codeCraftersDSTWO.Client);
-
-            DataRow createdClient = codeCraftersDSTWO.Client.AsEnumerable().FirstOrDefault(c =>
-                c.Field<string>("Phone_Number") == phoneNumber
-            );
-
-            return createdClient != null ? Convert.ToInt32(createdClient["Client_ID"]) : 1;
+                return -1;
+            }
         }
 
-        #endregion
-
-        #region New Booking Creation
-
-        
-
-        #endregion
-
-        #region Search & View Edit
-
-        private void btnSearch_Click_1(object sender, EventArgs e)
+        private void UpdateRoomAndBookingStatuses()
         {
             try
             {
-                RefreshDataSilent();
+                DateTime currentDateTime = DateTime.Now;
 
-                DataView dv = new DataView(codeCraftersDSTWO.ClientBranchTableBooking);
-                string filter = "1=1";
-
-                string query = txtSearchQuery.Text.Trim().Replace("'", "''");
-                string searchBy = cmbSearchBy.Text;
-
-                if (!string.IsNullOrEmpty(query))
+                if (taBooking != null)
                 {
-                    switch (searchBy)
+                    codeCraftersDSTWO.Booking.Clear();
+                    taBooking.Fill(codeCraftersDSTWO.Booking);
+                }
+                if (taHotelRoom != null)
+                {
+                    codeCraftersDSTWO.Hotel_Room.Clear();
+                    taHotelRoom.Fill(codeCraftersDSTWO.Hotel_Room);
+                }
+
+                foreach (var booking in codeCraftersDSTWO.Booking.Rows.Cast<codeCraftersDSTWO.BookingRow>())
+                {
+                    if (booking.RowState == DataRowState.Deleted) continue;
+
+                    DateTime checkInTime = booking.Checkin_Date;
+                    DateTime checkOutTime = booking.Checkout_Date;
+                    DateTime cleaningEndTime = checkOutTime.AddHours(1);
+
+                    string currentStatus = booking.Booking_Status;
+                    int roomNumber = ExtractRoomNumberFromBookingType(booking.Booking_Type);
+
+                    if (currentDateTime >= checkInTime && currentDateTime < checkOutTime && currentStatus == "Pending")
                     {
-                        case "Guest Full Name":
-                            filter += $" AND (First_Name + ' ' + Last_Name = '{query}')";
-                            break;
-                        case "Phone No":
-                            filter += $" AND Phone_Number LIKE '%{query}%'";
-                            break;
-                        case "ID/Passport No":
-                            if (codeCraftersDSTWO.ClientBranchTableBooking.Columns.Contains("Identity_Number"))
-                                filter += $" AND Identity_Number LIKE '%{query}%'";
-                            break;
+                        booking.Booking_Status = "Checked-In";
+                        UpdateHotelRoomStatus(booking.Branch_ID, roomNumber, "Occupied");
+                    }
+                    else if (currentDateTime >= checkOutTime && currentDateTime < cleaningEndTime && currentStatus == "Checked-In")
+                    {
+                        booking.Booking_Status = "Checked-Out";
+                        UpdateHotelRoomStatus(booking.Branch_ID, roomNumber, "Cleaning");
+                    }
+                    else if (currentDateTime >= cleaningEndTime && (currentStatus == "Checked-Out" || currentStatus == "Checked-In"))
+                    {
+                        booking.Booking_Status = "Completed";
+                        UpdateHotelRoomStatus(booking.Branch_ID, roomNumber, "Available");
                     }
                 }
 
-                dv.RowFilter = filter;
+                if (taBooking != null) taBooking.Update(codeCraftersDSTWO.Booking);
+                if (taHotelRoom != null) taHotelRoom.Update(codeCraftersDSTWO.Hotel_Room);
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Filter application error: " + ex.Message, "Search Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Console.WriteLine("Error updating room and booking statuses: " + ex.Message);
             }
         }
 
-        #endregion
-
-       
-        private void tabPage2_Click(object sender, EventArgs e)
+        private int ExtractRoomNumberFromBookingType(string bookingType)
         {
-            this.BackColor = ColorTranslator.FromHtml("#F9EED8");
-            pnlViewBookings.BackColor = ColorTranslator.FromHtml("#966919");
-            panel1.BackColor = ColorTranslator.FromHtml("#F8F5F0");
-
             try
             {
-                this.taClientBranchTableBooking.Fill(this.codeCraftersDSTWO.ClientBranchTableBooking);
-            }
-            catch (DataException ex)
-            {
-                System.Text.StringBuilder sb = new System.Text.StringBuilder();
-                if (this.codeCraftersDSTWO.ClientBranchTableBooking.HasErrors)
+                if (string.IsNullOrEmpty(bookingType)) return 0;
+
+                int lastIndex = bookingType.LastIndexOf("Room");
+                if (lastIndex != -1)
                 {
-                    foreach (DataRow row in this.codeCraftersDSTWO.ClientBranchTableBooking.GetErrors())
+                    string cleanStr = bookingType.Substring(lastIndex + 4).Replace("(", "").Replace(")", "").Trim();
+                    if (int.TryParse(cleanStr, out int roomNo))
                     {
-                        sb.AppendLine($"Row Error: {row.RowError}");
-                        foreach (DataColumn col in row.GetColumnsInError())
-                        {
-                            sb.AppendLine($"--- Column '{col.ColumnName}' failed. Current value: '{row[col]}'");
-                        }
+                        return roomNo;
+                    }
+                }
+            }
+            catch { }
+            return 0;
+        }
+
+        private bool IsRoomBookedForDates(string branchID, int roomNumber, DateTime requestedCheckIn, DateTime requestedCheckOut)
+        {
+            if (taBooking != null)
+            {
+                codeCraftersDSTWO.Booking.Clear();
+                taBooking.Fill(codeCraftersDSTWO.Booking);
+            }
+
+            return codeCraftersDSTWO.Booking.AsEnumerable()
+                .Where(b => b.RowState != DataRowState.Deleted &&
+                            b.Branch_ID?.Trim() == branchID?.Trim() &&
+                            (b.Booking_Status == "Pending" || b.Booking_Status == "Checked-In" || b.Booking_Status == "Booked"))
+                .Any(b =>
+                {
+                    int assignedRoomNo = ExtractRoomNumberFromBookingType(b.Booking_Type);
+                    if (assignedRoomNo != roomNumber) return false;
+
+                    DateTime existingCheckIn = b.Checkin_Date;
+                    DateTime existingCheckOut = b.Checkout_Date;
+
+                    return existingCheckIn < requestedCheckOut && existingCheckOut > requestedCheckIn;
+                });
+        }
+
+        private void UpdateHotelRoomStatus(string branchID, int roomNumber, string newStatus)
+        {
+            if (roomNumber <= 0) return;
+
+            var roomRow = codeCraftersDSTWO.Hotel_Room.AsEnumerable()
+                .FirstOrDefault(r => r.Field<string>("Branch_ID") == branchID && r.hotel_room_number == roomNumber);
+
+            if (roomRow != null)
+            {
+                roomRow.hotel_room_status = newStatus;
+                if (newStatus == "Cleaning")
+                {
+                    roomRow.Cleaning_Status = "Pending Cleaning";
+                }
+                else if (newStatus == "Available")
+                {
+                    roomRow.Cleaning_Status = "Cleaned";
+                    roomRow.Last_Cleaned = DateTime.Now;
+                }
+            }
+        }
+
+        private int GetRoomCapacity(string roomType, DataRow r)
+        {
+            int dbAdults = (r.Table.Columns.Contains("Max_Adults") && !r.IsNull("Max_Adults")) ? r.Field<int>("Max_Adults") : 0;
+            int dbChildren = (r.Table.Columns.Contains("Max_Children") && !r.IsNull("Max_Children")) ? r.Field<int>("Max_Children") : 0;
+            int totalDbCapacity = dbAdults + dbChildren;
+
+            if (totalDbCapacity > 0)
+            {
+                return totalDbCapacity;
+            }
+
+            switch (roomType?.Trim())
+            {
+                case "Standard Room 1 King Bed": return 2;
+                case "Executive Room 1 King Bed": return 2;
+                case "Suite Room 1 King Bed": return 3;
+                case "Deluxe Room 1 King Bed": return 3;
+                case "Suite Room Twin Beds": return 4;
+                case "Standard Room 2 Double Beds": return 6;
+                default: return 2;
+            }
+        }
+
+        private void ProcessRoomBooking(string roomType, decimal roomPricePerNight)
+        {
+            try
+            {
+                string clientEmail = txtClientEmailAddress.Text.Trim();
+                if (string.IsNullOrEmpty(clientEmail))
+                {
+                    MessageBox.Show("Please enter the client's email address.", "Email Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtClientEmailAddress.Focus();
+                    return;
+                }
+
+                int clientID = GetOrCreateClientIDByEmail(clientEmail);
+                if (clientID == -1) return;
+
+                string selectedBranchName = cmbBranchName.SelectedItem?.ToString() ?? cmbBranchName.Text;
+                if (string.IsNullOrWhiteSpace(selectedBranchName))
+                {
+                    MessageBox.Show("Please select a valid hotel branch.", "Selection Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                string branchID = GetBranchIDFromName(selectedBranchName);
+
+                DateTime selectedCheckInDate = dtpRoomCheckIn.Value.Date;
+                DateTime selectedCheckOutDate = dtpRoomCheckOut.Value.Date;
+
+                DateTime checkIn = selectedCheckInDate.Add(StandardCheckInTime);
+                DateTime checkOut = selectedCheckOutDate.Add(StandardCheckOutTime);
+
+                if (checkOut <= checkIn)
+                {
+                    MessageBox.Show("Check-out date/time must be after check-in date/time.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                int totalNights = (int)(checkOut.Date - checkIn.Date).TotalDays;
+                if (totalNights <= 0) totalNights = 1;
+
+                int adults = numAdults != null ? (int)numAdults.Value : 1;
+                int children = numChildren != null ? (int)numChildren.Value : 0;
+                int totalGuests = adults + children;
+
+                if (taHotelRoom != null)
+                {
+                    codeCraftersDSTWO.Hotel_Room.Clear();
+                    taHotelRoom.Fill(codeCraftersDSTWO.Hotel_Room);
+                }
+
+                var availableRoom = codeCraftersDSTWO.Hotel_Room.AsEnumerable()
+                    .Where(r =>
+                        r.Field<string>("Branch_ID") == branchID &&
+                        r.Field<string>("hotel_room_type") == roomType &&
+                        totalGuests <= GetRoomCapacity(roomType, r)
+                    )
+                    .FirstOrDefault(r =>
+                        !IsRoomBookedForDates(branchID, r.hotel_room_number, checkIn, checkOut)
+                    );
+
+                if (availableRoom == null)
+                {
+                    MessageBox.Show("No available rooms of this type match your criteria or dates.", "Fully Booked", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                int assignedRoomID = availableRoom.Hotel_Room_ID;
+                int assignedRoomNumber = availableRoom.hotel_room_number;
+                decimal finalBookingTotal = roomPricePerNight * totalNights;
+                string bookingTypeStr = roomType + " (Room " + assignedRoomNumber + ")";
+                int activeBookingID = 0;
+
+                // Direct SQL Insertion for Booking and Room Assignment
+                string connectionString = "Server=146.230.177.46;Database=GroupPmb2;User Id=GroupPmb2;Password=gg5dc2;TrustServerCertificate=True;";
+
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+
+                    // 1. Insert Booking and retrieve the new Booking_ID
+                    // 1. Insert Booking and retrieve the new Booking_ID
+                    string insertBookingQuery = @"
+                           INSERT INTO Booking 
+                           (Client_ID, Branch_ID, Booking_Date, Checkin_Date, Checkout_Date, Booking_Total_Amount, Booking_Status, Number_Adults, Number_Children, Booking_Type, Staff_Created_By)
+                           VALUES 
+                           (@ClientID, @BranchID, GETDATE(), @CheckIn, @CheckOut, @TotalAmount, 'Pending', @Adults, @Children, @BookingType, @StaffCreatedBy);
+                           SELECT CAST(SCOPE_IDENTITY() AS INT);";
+
+                    using (SqlCommand cmdBooking = new SqlCommand(insertBookingQuery, conn))
+                    {
+                        cmdBooking.Parameters.AddWithValue("@ClientID", clientID);
+                        cmdBooking.Parameters.AddWithValue("@BranchID", branchID);
+                        cmdBooking.Parameters.AddWithValue("@CheckIn", checkIn);
+                        cmdBooking.Parameters.AddWithValue("@CheckOut", checkOut);
+                        cmdBooking.Parameters.AddWithValue("@TotalAmount", finalBookingTotal);
+                        cmdBooking.Parameters.AddWithValue("@Adults", adults);
+                        cmdBooking.Parameters.AddWithValue("@Children", children);
+                        cmdBooking.Parameters.AddWithValue("@BookingType", bookingTypeStr);
+                        cmdBooking.Parameters.AddWithValue("@StaffCreatedBy", "Administrator");
+
+                        activeBookingID = (int)cmdBooking.ExecuteScalar();
+                    }
+
+                    // 2. Insert into Room_Assignment
+                    string roomAssignQuery = @"
+                INSERT INTO Room_Assignment (Booking_ID, Hotel_Room_ID, Actual_CheckIn_Time, Actual_CheckOut_Time, Assignment_Status, Assigned_By, Assigned_Date)
+                VALUES (@BookingID, @HotelRoomID, @CheckIn, @CheckOut, 'Assigned', 'Administrator', GETDATE())";
+
+                    using (SqlCommand cmdAssign = new SqlCommand(roomAssignQuery, conn))
+                    {
+                        cmdAssign.Parameters.AddWithValue("@BookingID", activeBookingID);
+                        cmdAssign.Parameters.AddWithValue("@HotelRoomID", assignedRoomID);
+                        cmdAssign.Parameters.AddWithValue("@CheckIn", checkIn);
+                        cmdAssign.Parameters.AddWithValue("@CheckOut", checkOut);
+                        cmdAssign.ExecuteNonQuery();
                     }
                 }
 
-                MessageBox.Show($"Constraint Error Details:\n\n{sb.ToString() ?? ex.Message}",
-                                "Dataset Constraint Broken", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                throw;
+                DialogResult dialogResult = MessageBox.Show(
+                    "Would you like to include an optional restaurant table reservation with your room booking?",
+                    "Optional Dining Reservation",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question
+                );
+
+                if (dialogResult == DialogResult.Yes)
+                {
+                    RestaurentBookingForm restForm = new RestaurentBookingForm(branchID, checkIn, checkOut, totalGuests, activeBookingID);
+                    if (restForm.ShowDialog() == DialogResult.OK)
+                    {
+                        new BookingSummaryForm(activeBookingID).Show();
+                        this.Hide();
+                    }
+                }
+                else
+                {
+                    new BookingSummaryForm(activeBookingID).Show();
+                    this.Hide();
+                }
             }
-
-        }
-
-
-        private void txtBookingID_TextChanged_1(object sender, EventArgs e)
-        {
-            string input = txtBookingID.Text.Trim();
-
-            if (string.IsNullOrWhiteSpace(input))
+            catch (Exception ex)
             {
-                taClientBranchTableBooking.Fill(codeCraftersDSTWO.ClientBranchTableBooking);
-                return;
+                MessageBox.Show("Booking Error: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
-            if (input.StartsWith("-"))
-            {
-                MessageBox.Show("Negative ID patterns are not allowed.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtBookingID.Clear();
-                taClientBranchTableBooking.Fill(codeCraftersDSTWO.ClientBranchTableBooking);
-                return;
-            }
-
-            taClientBranchTableBooking.FillByFirstName(codeCraftersDSTWO.ClientBranchTableBooking, input);
-
         }
 
-        private void btnSave_Click(object sender, EventArgs e)
+        private void btnRoomOneBook_Click(object sender, EventArgs e) => ProcessRoomBooking("Standard Room 1 King Bed", 1600.00m);
+        private void btnRoomTwoBook_Click(object sender, EventArgs e) => ProcessRoomBooking("Suite Room Twin Beds", 2700.00m);
+        private void btnRoomThreeBook_Click(object sender, EventArgs e) => ProcessRoomBooking("Suite Room 1 King Bed", 3000.00m);
+        private void btnRoomFourBook_Click(object sender, EventArgs e) => ProcessRoomBooking("Executive Room 1 King Bed", 2100.00m);
+        private void btnRoomFiveBook_Click(object sender, EventArgs e) => ProcessRoomBooking("Deluxe Room 1 King Bed", 2300.00m);
+        private void btnRoomSixBook_Click(object sender, EventArgs e) => ProcessRoomBooking("Standard Room 2 Double Beds", 1900.00m);
+
+        private void btnReschedule_Click(object sender, EventArgs e) { }
+        private void numAdults_ValueChanged(object sender, EventArgs e) { }
+        private void txtClientEmailAddress_TextChanged(object sender, EventArgs e) { }
+        private void btnRefresh_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void btnNewBooking_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            new BookingSummaryForm().Show();
-            Hide();
-        }
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-            new BookingSummaryForm().Show();
-            Hide();
-        }
-
-        private void button6_Click(object sender, EventArgs e)
-        {
-            new BookingSummaryForm().Show();
-            Hide();
-        }
-
-        private void button9_Click(object sender, EventArgs e)
-        {
-            new BookingSummaryForm().Show();
-            Hide();
-        }
-
-        private void button8_Click(object sender, EventArgs e)
-        {
-            new BookingSummaryForm().Show();
-            Hide();
-        }
-
-        private void button7_Click(object sender, EventArgs e)
-        {
-            new BookingSummaryForm().Show();
-            Hide();
+            RefreshDataSilent();
+            UpdateRoomAndBookingStatuses();
+            MessageBox.Show("Booking statuses and room cleaning cycles have been updated based on the current time.", "System Refreshed", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

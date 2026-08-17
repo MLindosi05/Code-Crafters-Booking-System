@@ -72,11 +72,29 @@
     <Compile Include="Business\BookingSummaryForm.Designer.cs">
       <DependentUpon>BookingSummaryForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Business\CardPayment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Business\CardPayment.Designer.cs">
+      <DependentUpon>CardPayment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Business\CashPayment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Business\CashPayment.Designer.cs">
+      <DependentUpon>CashPayment.cs</DependentUpon>
+    </Compile>
     <Compile Include="Business\GuestSignUpForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Business\GuestSignUpForm.Designer.cs">
       <DependentUpon>GuestSignUpForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Business\PayPalPayment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Business\PayPalPayment.Designer.cs">
+      <DependentUpon>PayPalPayment.cs</DependentUpon>
     </Compile>
     <Compile Include="Business\RestaurentBookingForm.cs">
       <SubType>Form</SubType>
@@ -206,11 +224,20 @@
     <EmbeddedResource Include="Business\BookingSummaryForm.resx">
       <DependentUpon>BookingSummaryForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Business\CardPayment.resx">
+      <DependentUpon>CardPayment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Business\CashPayment.resx">
+      <DependentUpon>CashPayment.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Business\GuestSignUpForm.resx">
       <DependentUpon>GuestSignUpForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Business\PaymentForm.resx">
       <DependentUpon>PaymentForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Business\PayPalPayment.resx">
+      <DependentUpon>PayPalPayment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Business\ReportsForm.resx">
       <DependentUpon>ReportsForm.cs</DependentUpon>

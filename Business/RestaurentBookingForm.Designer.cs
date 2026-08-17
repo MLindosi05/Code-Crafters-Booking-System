@@ -31,16 +31,13 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.cmbTableArea = new System.Windows.Forms.ComboBox();
             this.label14 = new System.Windows.Forms.Label();
-            this.dtpTableCheckOut = new System.Windows.Forms.DateTimePicker();
-            this.dtpTableCheckIn = new System.Windows.Forms.DateTimePicker();
-            this.numTableGuests = new System.Windows.Forms.NumericUpDown();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.label19 = new System.Windows.Forms.Label();
+            this.btnContinueToPayment = new System.Windows.Forms.Button();
+            this.taTableAllocation = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTWOTableAdapters.Table_AllocationTableAdapter();
+            this.taBooking = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTWOTableAdapters.BookingTableAdapter();
+            this.taRestuarant_Table = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTWOTableAdapters.Restuarant_TableTableAdapter();
             this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numTableGuests)).BeginInit();
             this.SuspendLayout();
             // 
             // panel4
@@ -48,96 +45,51 @@
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel4.Controls.Add(this.cmbTableArea);
             this.panel4.Controls.Add(this.label14);
-            this.panel4.Controls.Add(this.dtpTableCheckOut);
-            this.panel4.Controls.Add(this.dtpTableCheckIn);
-            this.panel4.Controls.Add(this.numTableGuests);
-            this.panel4.Controls.Add(this.label15);
-            this.panel4.Controls.Add(this.label17);
-            this.panel4.Controls.Add(this.label18);
             this.panel4.Controls.Add(this.panel5);
             this.panel4.Controls.Add(this.label19);
             this.panel4.ForeColor = System.Drawing.Color.Navy;
             this.panel4.Location = new System.Drawing.Point(81, 82);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(465, 247);
+            this.panel4.Size = new System.Drawing.Size(418, 101);
             this.panel4.TabIndex = 13;
             // 
             // cmbTableArea
             // 
             this.cmbTableArea.FormattingEnabled = true;
-            this.cmbTableArea.Location = new System.Drawing.Point(159, 171);
+            this.cmbTableArea.Items.AddRange(new object[] {
+            "Near Bar",
+            "Main Floor",
+            "Family Section",
+            "Street View",
+            "Garden View",
+            "Cozy Comer",
+            "City View",
+            "Private Room",
+            "Near Entrance",
+            "Quiet Zone",
+            "No View",
+            "Center Room",
+            "Poolside View",
+            "Family Area",
+            "Ocean View",
+            "Near Kitchen",
+            "VIP Comer",
+            "Terrace View"});
+            this.cmbTableArea.Location = new System.Drawing.Point(96, 46);
             this.cmbTableArea.Name = "cmbTableArea";
-            this.cmbTableArea.Size = new System.Drawing.Size(170, 21);
+            this.cmbTableArea.Size = new System.Drawing.Size(231, 21);
             this.cmbTableArea.TabIndex = 43;
             // 
             // label14
             // 
             this.label14.AutoSize = true;
             this.label14.ForeColor = System.Drawing.Color.Black;
-            this.label14.Location = new System.Drawing.Point(28, 174);
+            this.label14.Location = new System.Drawing.Point(17, 49);
             this.label14.Name = "label14";
             this.label14.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.label14.Size = new System.Drawing.Size(73, 13);
             this.label14.TabIndex = 42;
             this.label14.Text = "TABLE AREA";
-            // 
-            // dtpTableCheckOut
-            // 
-            this.dtpTableCheckOut.CustomFormat = "yyyy/MM/dd";
-            this.dtpTableCheckOut.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpTableCheckOut.Location = new System.Drawing.Point(159, 92);
-            this.dtpTableCheckOut.Name = "dtpTableCheckOut";
-            this.dtpTableCheckOut.Size = new System.Drawing.Size(131, 20);
-            this.dtpTableCheckOut.TabIndex = 41;
-            this.dtpTableCheckOut.Value = new System.DateTime(2026, 8, 5, 0, 0, 0, 0);
-            // 
-            // dtpTableCheckIn
-            // 
-            this.dtpTableCheckIn.CustomFormat = "yyyy/MM/dd";
-            this.dtpTableCheckIn.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpTableCheckIn.Location = new System.Drawing.Point(159, 57);
-            this.dtpTableCheckIn.Name = "dtpTableCheckIn";
-            this.dtpTableCheckIn.Size = new System.Drawing.Size(131, 20);
-            this.dtpTableCheckIn.TabIndex = 40;
-            this.dtpTableCheckIn.Value = new System.DateTime(2026, 8, 5, 0, 0, 0, 0);
-            // 
-            // numTableGuests
-            // 
-            this.numTableGuests.Location = new System.Drawing.Point(159, 130);
-            this.numTableGuests.Name = "numTableGuests";
-            this.numTableGuests.Size = new System.Drawing.Size(85, 20);
-            this.numTableGuests.TabIndex = 38;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.ForeColor = System.Drawing.Color.Black;
-            this.label15.Location = new System.Drawing.Point(28, 135);
-            this.label15.Name = "label15";
-            this.label15.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label15.Size = new System.Drawing.Size(90, 13);
-            this.label15.TabIndex = 37;
-            this.label15.Text = "NO. OF GUESTS";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.ForeColor = System.Drawing.Color.Black;
-            this.label17.Location = new System.Drawing.Point(28, 96);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(69, 13);
-            this.label17.TabIndex = 35;
-            this.label17.Text = "CHECK-OUT";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.ForeColor = System.Drawing.Color.Black;
-            this.label18.Location = new System.Drawing.Point(28, 61);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(57, 13);
-            this.label18.TabIndex = 34;
-            this.label18.Text = "CHECK-IN";
             // 
             // panel5
             // 
@@ -156,17 +108,42 @@
             this.label19.TabIndex = 32;
             this.label19.Text = "🍽 TABLE BOOKING";
             // 
+            // btnContinueToPayment
+            // 
+            this.btnContinueToPayment.BackColor = System.Drawing.Color.Navy;
+            this.btnContinueToPayment.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnContinueToPayment.Location = new System.Drawing.Point(335, 189);
+            this.btnContinueToPayment.Name = "btnContinueToPayment";
+            this.btnContinueToPayment.Size = new System.Drawing.Size(164, 31);
+            this.btnContinueToPayment.TabIndex = 14;
+            this.btnContinueToPayment.Text = "CONTINUE TO PAYMENT";
+            this.btnContinueToPayment.UseVisualStyleBackColor = false;
+            this.btnContinueToPayment.Click += new System.EventHandler(this.btnContinueToPayment_Click_1);
+            // 
+            // taTableAllocation
+            // 
+            this.taTableAllocation.ClearBeforeFill = true;
+            // 
+            // taBooking
+            // 
+            this.taBooking.ClearBeforeFill = true;
+            // 
+            // taRestuarant_Table
+            // 
+            this.taRestuarant_Table.ClearBeforeFill = true;
+            // 
             // RestaurentBookingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(968, 635);
+            this.ClientSize = new System.Drawing.Size(525, 239);
+            this.Controls.Add(this.btnContinueToPayment);
             this.Controls.Add(this.panel4);
             this.Name = "RestaurentBookingForm";
-            this.Text = "RestaurentBookingForm";
+            this.Text = "REGAL INN RESTAURANT BOOKING";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numTableGuests)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -176,13 +153,11 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.ComboBox cmbTableArea;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.DateTimePicker dtpTableCheckOut;
-        private System.Windows.Forms.DateTimePicker dtpTableCheckIn;
-        private System.Windows.Forms.NumericUpDown numTableGuests;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Button btnContinueToPayment;
+        private codeCraftersDSTWOTableAdapters.Table_AllocationTableAdapter taTableAllocation;
+        private codeCraftersDSTWOTableAdapters.BookingTableAdapter taBooking;
+        private codeCraftersDSTWOTableAdapters.Restuarant_TableTableAdapter taRestuarant_Table;
     }
 }

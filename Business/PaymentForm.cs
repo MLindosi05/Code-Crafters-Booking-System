@@ -1,68 +1,72 @@
 ﻿using Code_Crafters_Interface_Prototype_1;
-using Code_Crafters_Interface_Prototype_1.codeCraftersDSTWOTableAdapters;
 using System;
-using System.Data;
-using System.Drawing;
-using System.Linq;
 using System.Windows.Forms;
-using Code_Crafters_Interface_Prototype_1.Common;
 
 namespace Code_Crafters_Interface_Prototype_1.Business
 {
     public partial class PaymentForm : Form
     {
         private int _bookingID;
-        private codeCraftersDSTWO _dataSet;
-        private BookingTableAdapter _taBooking;
-        private string _selectedPaymentMethod = "Card";
+        private bool _allowPaymentSelection = false;
 
         public PaymentForm()
         {
             InitializeComponent();
+
+            radCash.Checked = false;
+            radCard.Checked = false;
+            radPayPal.Checked = false;
+
+            this.Shown += PaymentForm_Shown;
         }
 
-        public PaymentForm(int bookingID, codeCraftersDSTWO dataSet, BookingTableAdapter taBooking)
+        public PaymentForm(int bookingID) : this()
         {
-            InitializeComponent();
             _bookingID = bookingID;
-            _dataSet = dataSet;
-            _taBooking = taBooking;
-
-            
         }
 
-        
-
-        #region Load & Populate Booking Data
-
-        
-        #endregion
-
-        #region Payment UI Interactivity
-
-        private void SelectPaymentMethod(string method, Button selectedBtn)
+        private void PaymentForm_Shown(object sender, EventArgs e)
         {
-            _selectedPaymentMethod = method;
+            _allowPaymentSelection = true;
 
-           
-
-            selectedBtn.BackColor = Color.FromArgb(41, 128, 185);
-            selectedBtn.ForeColor = Color.White;
+            radCash.Checked = false;
+            radCard.Checked = false;
+            radPayPal.Checked = false;
         }
 
-        private void numAmountPaid_ValueChanged(object sender, EventArgs e)
+        private void radCash_Click(object sender, EventArgs e)
         {
-            
+            if (!_allowPaymentSelection)
+                return;
+
+            radCash.Checked = false;
+
+            CashPayment cashForm = new CashPayment(_bookingID);
+            cashForm.Show();
         }
 
-        
+        private void radCard_Click(object sender, EventArgs e)
+        {
+            if (!_allowPaymentSelection)
+                return;
 
-        #endregion
+            radCard.Checked = false;
 
-        #region Process Payment & Database Save
+            CardPayment cardForm = new CardPayment(_bookingID);
+            cardForm.Show();
+        }
 
-        
+        private void radPayPal_Click(object sender, EventArgs e)
+        {
+            if (!_allowPaymentSelection)
+                return;
 
-        #endregion
+            radPayPal.Checked = false;
+
+            PayPalPayment paypalForm = new PayPalPayment(_bookingID);
+            paypalForm.Show();
+        }
+
+    
     }
 }
