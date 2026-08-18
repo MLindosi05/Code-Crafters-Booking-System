@@ -333,7 +333,7 @@
             this.btnPrintSummary.Name = "btnPrintSummary";
             this.btnPrintSummary.Size = new System.Drawing.Size(164, 31);
             this.btnPrintSummary.TabIndex = 3;
-            this.btnPrintSummary.Text = "PRINT SUMMARY";
+            this.btnPrintSummary.Text = "PRINT RECEIPT";
             this.btnPrintSummary.UseVisualStyleBackColor = true;
             this.btnPrintSummary.Click += new System.EventHandler(this.button4_Click);
             // 

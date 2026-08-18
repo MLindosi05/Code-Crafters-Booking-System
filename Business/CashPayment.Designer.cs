@@ -35,8 +35,12 @@
             this.label8 = new System.Windows.Forms.Label();
             this.btnProcessPayment = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lblTotalDue = new System.Windows.Forms.Label();
             this.panel6.SuspendLayout();
             this.panel7.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel6
@@ -93,7 +97,7 @@
             // 
             this.btnProcessPayment.BackColor = System.Drawing.Color.Navy;
             this.btnProcessPayment.ForeColor = System.Drawing.Color.White;
-            this.btnProcessPayment.Location = new System.Drawing.Point(552, 154);
+            this.btnProcessPayment.Location = new System.Drawing.Point(551, 217);
             this.btnProcessPayment.Name = "btnProcessPayment";
             this.btnProcessPayment.Size = new System.Drawing.Size(151, 42);
             this.btnProcessPayment.TabIndex = 60;
@@ -104,7 +108,7 @@
             // btnCancel
             // 
             this.btnCancel.ForeColor = System.Drawing.Color.Navy;
-            this.btnCancel.Location = new System.Drawing.Point(12, 160);
+            this.btnCancel.Location = new System.Drawing.Point(12, 217);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(131, 41);
             this.btnCancel.TabIndex = 61;
@@ -112,21 +116,54 @@
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.panel1.Controls.Add(this.lblTotalDue);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel1.Location = new System.Drawing.Point(12, 155);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(690, 56);
+            this.panel1.TabIndex = 62;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(17, 21);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(93, 21);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "TOTAL DUE";
+            // 
+            // lblTotalDue
+            // 
+            this.lblTotalDue.AutoSize = true;
+            this.lblTotalDue.Location = new System.Drawing.Point(594, 21);
+            this.lblTotalDue.Name = "lblTotalDue";
+            this.lblTotalDue.Size = new System.Drawing.Size(55, 21);
+            this.lblTotalDue.TabIndex = 1;
+            this.lblTotalDue.Text = "R 0.00";
+            // 
             // CashPayment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(715, 213);
+            this.ClientSize = new System.Drawing.Size(715, 291);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnProcessPayment);
             this.Controls.Add(this.panel6);
             this.Name = "CashPayment";
             this.Text = "REGAL INN PAY WITH CASH";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.CashPayment_Load);
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -140,5 +177,8 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button btnProcessPayment;
         private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label lblTotalDue;
+        private System.Windows.Forms.Label label1;
     }
 }

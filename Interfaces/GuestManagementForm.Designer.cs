@@ -31,13 +31,13 @@
             this.components = new System.ComponentModel.Container();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtContactNumber = new System.Windows.Forms.TextBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.btnSignUp = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
-            this.txtContactNumber = new System.Windows.Forms.TextBox();
             this.txtPhysicalAddress = new System.Windows.Forms.TextBox();
             this.txtEmailAddress = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
@@ -52,36 +52,27 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.pnlViewBookings = new System.Windows.Forms.Panel();
+            this.btnArchived = new System.Windows.Forms.Button();
+            this.btnActive = new System.Windows.Forms.Button();
+            this.btnBlacklisted = new System.Windows.Forms.Button();
+            this.btnInactive = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.lblBookingID = new System.Windows.Forms.Label();
-            this.txtBookingID = new System.Windows.Forms.TextBox();
             this.dgvBookings = new System.Windows.Forms.DataGridView();
-            this.codeCraftersDSTWO1 = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTWO();
-            this.clientTableAdapter1 = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTableAdapters.ClientTableAdapter();
-            this.clientBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.clientTableAdapter = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTWOTableAdapters.ClientTableAdapter();
             this.clientIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.firstNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lastNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.passwordDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.emailAddressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clientAddressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.phoneNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clientStatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dateRegisteredDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lastLoginDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.clientBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.codeCraftersDSTWO1 = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTWO();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.lblBookingID = new System.Windows.Forms.Label();
+            this.txtSearchEmail = new System.Windows.Forms.TextBox();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
             this.panel3 = new System.Windows.Forms.Panel();
             this.button5 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
@@ -100,6 +91,8 @@
             this.panel6 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
+            this.clientTableAdapter1 = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTableAdapters.ClientTableAdapter();
+            this.clientTableAdapter = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTWOTableAdapters.ClientTableAdapter();
             this.groupBox4.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -109,14 +102,14 @@
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
-            this.tabPage3.SuspendLayout();
             this.pnlViewBookings.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBookings)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.codeCraftersDSTWO1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.codeCraftersDSTWO1)).BeginInit();
+            this.panel1.SuspendLayout();
+            this.tabPage3.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel6.SuspendLayout();
@@ -131,7 +124,7 @@
             this.groupBox4.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox4.Size = new System.Drawing.Size(602, 396);
+            this.groupBox4.Size = new System.Drawing.Size(602, 309);
             this.groupBox4.TabIndex = 2;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Personal Details";
@@ -139,17 +132,13 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
-            this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.label1);
-            this.panel2.Controls.Add(this.textBox2);
-            this.panel2.Controls.Add(this.textBox1);
+            this.panel2.Controls.Add(this.txtContactNumber);
             this.panel2.Controls.Add(this.pictureBox2);
             this.panel2.Controls.Add(this.btnSignUp);
             this.panel2.Controls.Add(this.label5);
-            this.panel2.Controls.Add(this.txtContactNumber);
             this.panel2.Controls.Add(this.txtPhysicalAddress);
             this.panel2.Controls.Add(this.txtEmailAddress);
-            this.panel2.Controls.Add(this.label8);
             this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.label7);
             this.panel2.Controls.Add(this.txtName);
@@ -157,13 +146,32 @@
             this.panel2.Controls.Add(this.txtSurname);
             this.panel2.Location = new System.Drawing.Point(20, 32);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(557, 335);
+            this.panel2.Size = new System.Drawing.Size(557, 250);
             this.panel2.TabIndex = 0;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(25, 187);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(81, 17);
+            this.label1.TabIndex = 32;
+            this.label1.Text = "PHONE NO:";
+            // 
+            // txtContactNumber
+            // 
+            this.txtContactNumber.Location = new System.Drawing.Point(172, 184);
+            this.txtContactNumber.Margin = new System.Windows.Forms.Padding(2);
+            this.txtContactNumber.Name = "txtContactNumber";
+            this.txtContactNumber.Size = new System.Drawing.Size(122, 24);
+            this.txtContactNumber.TabIndex = 30;
             // 
             // pictureBox2
             // 
             this.pictureBox2.Image = global::Code_Crafters_Interface_Prototype_1.Properties.Resources._6478_200;
-            this.pictureBox2.Location = new System.Drawing.Point(389, 165);
+            this.pictureBox2.Location = new System.Drawing.Point(397, 82);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(129, 65);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -172,7 +180,7 @@
             // 
             // btnSignUp
             // 
-            this.btnSignUp.Location = new System.Drawing.Point(389, 261);
+            this.btnSignUp.Location = new System.Drawing.Point(397, 178);
             this.btnSignUp.Margin = new System.Windows.Forms.Padding(2);
             this.btnSignUp.Name = "btnSignUp";
             this.btnSignUp.Size = new System.Drawing.Size(129, 28);
@@ -184,21 +192,13 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(25, 15);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(60, 21);
+            this.label5.Size = new System.Drawing.Size(88, 17);
             this.label5.TabIndex = 6;
-            this.label5.Text = "Name:";
-            // 
-            // txtContactNumber
-            // 
-            this.txtContactNumber.Location = new System.Drawing.Point(171, 261);
-            this.txtContactNumber.Margin = new System.Windows.Forms.Padding(2);
-            this.txtContactNumber.Name = "txtContactNumber";
-            this.txtContactNumber.Size = new System.Drawing.Size(122, 24);
-            this.txtContactNumber.TabIndex = 14;
+            this.label5.Text = "FIRST NAME:";
             // 
             // txtPhysicalAddress
             // 
@@ -216,38 +216,27 @@
             this.txtEmailAddress.Size = new System.Drawing.Size(122, 24);
             this.txtEmailAddress.TabIndex = 12;
             // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.label8.Location = new System.Drawing.Point(25, 264);
-            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(131, 21);
-            this.label8.TabIndex = 9;
-            this.label8.Text = "Phone Number:";
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(25, 142);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(59, 21);
+            this.label4.Size = new System.Drawing.Size(135, 17);
             this.label4.TabIndex = 27;
-            this.label4.Text = "Street:";
+            this.label4.Text = "PHYSICAL ADDRESS:";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.label7.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(25, 99);
             this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(121, 21);
+            this.label7.Size = new System.Drawing.Size(113, 17);
             this.label7.TabIndex = 8;
-            this.label7.Text = "Email Address:";
+            this.label7.Text = "EMAIL ADDRESS:";
             // 
             // txtName
             // 
@@ -261,13 +250,13 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.label6.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(25, 57);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(82, 21);
+            this.label6.Size = new System.Drawing.Size(85, 17);
             this.label6.TabIndex = 7;
-            this.label6.Text = "Surname:";
+            this.label6.Text = "LAST NAME:";
             // 
             // txtSurname
             // 
@@ -302,7 +291,7 @@
             this.pnlSignUp.Controls.Add(this.groupBox4);
             this.pnlSignUp.Location = new System.Drawing.Point(31, 57);
             this.pnlSignUp.Name = "pnlSignUp";
-            this.pnlSignUp.Size = new System.Drawing.Size(1105, 499);
+            this.pnlSignUp.Size = new System.Drawing.Size(1078, 391);
             this.pnlSignUp.TabIndex = 12;
             // 
             // pictureBox1
@@ -310,7 +299,7 @@
             this.pictureBox1.Image = global::Code_Crafters_Interface_Prototype_1.Properties.Resources.IMG_20260413_185513;
             this.pictureBox1.Location = new System.Drawing.Point(40, 38);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(346, 396);
+            this.pictureBox1.Size = new System.Drawing.Size(346, 309);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -325,7 +314,7 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1248, 677);
+            this.tabControl1.Size = new System.Drawing.Size(1043, 542);
             this.tabControl1.TabIndex = 13;
             // 
             // tabPage1
@@ -334,7 +323,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1240, 648);
+            this.tabPage1.Size = new System.Drawing.Size(1035, 513);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "GUEST REGISTRATION";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -345,75 +334,66 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1240, 648);
+            this.tabPage2.Size = new System.Drawing.Size(1035, 513);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "VIEW GUESTS";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // tabPage3
-            // 
-            this.tabPage3.Controls.Add(this.panel3);
-            this.tabPage3.Location = new System.Drawing.Point(4, 25);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(1240, 648);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "MANAGE GUESTS";
-            this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(172, 184);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(122, 24);
-            this.textBox1.TabIndex = 30;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(171, 222);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(122, 24);
-            this.textBox2.TabIndex = 31;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(25, 187);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(81, 21);
-            this.label1.TabIndex = 32;
-            this.label1.Text = "Province:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.label2.Location = new System.Drawing.Point(25, 222);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(44, 21);
-            this.label2.TabIndex = 33;
-            this.label2.Text = "City:";
-            // 
             // pnlViewBookings
             // 
             this.pnlViewBookings.AutoScroll = true;
-            this.pnlViewBookings.Controls.Add(this.button4);
-            this.pnlViewBookings.Controls.Add(this.button3);
-            this.pnlViewBookings.Controls.Add(this.button2);
-            this.pnlViewBookings.Controls.Add(this.button1);
+            this.pnlViewBookings.Controls.Add(this.btnArchived);
+            this.pnlViewBookings.Controls.Add(this.btnActive);
+            this.pnlViewBookings.Controls.Add(this.btnBlacklisted);
+            this.pnlViewBookings.Controls.Add(this.btnInactive);
             this.pnlViewBookings.Controls.Add(this.panel4);
             this.pnlViewBookings.Controls.Add(this.dgvBookings);
             this.pnlViewBookings.Controls.Add(this.panel1);
             this.pnlViewBookings.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pnlViewBookings.Location = new System.Drawing.Point(29, 32);
             this.pnlViewBookings.Name = "pnlViewBookings";
-            this.pnlViewBookings.Size = new System.Drawing.Size(1017, 452);
+            this.pnlViewBookings.Size = new System.Drawing.Size(967, 452);
             this.pnlViewBookings.TabIndex = 2;
+            // 
+            // btnArchived
+            // 
+            this.btnArchived.Location = new System.Drawing.Point(688, 181);
+            this.btnArchived.Name = "btnArchived";
+            this.btnArchived.Size = new System.Drawing.Size(176, 30);
+            this.btnArchived.TabIndex = 12;
+            this.btnArchived.Text = "ARCHIVED";
+            this.btnArchived.UseVisualStyleBackColor = true;
+            this.btnArchived.Click += new System.EventHandler(this.btnArchived_Click);
+            // 
+            // btnActive
+            // 
+            this.btnActive.Location = new System.Drawing.Point(387, 133);
+            this.btnActive.Name = "btnActive";
+            this.btnActive.Size = new System.Drawing.Size(176, 30);
+            this.btnActive.TabIndex = 11;
+            this.btnActive.Text = "ACTIVE";
+            this.btnActive.UseVisualStyleBackColor = true;
+            this.btnActive.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // btnBlacklisted
+            // 
+            this.btnBlacklisted.Location = new System.Drawing.Point(387, 181);
+            this.btnBlacklisted.Name = "btnBlacklisted";
+            this.btnBlacklisted.Size = new System.Drawing.Size(176, 30);
+            this.btnBlacklisted.TabIndex = 10;
+            this.btnBlacklisted.Text = "BLACKLISTED";
+            this.btnBlacklisted.UseVisualStyleBackColor = true;
+            this.btnBlacklisted.Click += new System.EventHandler(this.btnBlacklisted_Click);
+            // 
+            // btnInactive
+            // 
+            this.btnInactive.Location = new System.Drawing.Point(688, 133);
+            this.btnInactive.Name = "btnInactive";
+            this.btnInactive.Size = new System.Drawing.Size(176, 30);
+            this.btnInactive.TabIndex = 9;
+            this.btnInactive.Text = "INACTIVE";
+            this.btnInactive.UseVisualStyleBackColor = true;
+            this.btnInactive.Click += new System.EventHandler(this.btnInactive_Click);
             // 
             // panel4
             // 
@@ -434,14 +414,92 @@
             this.pictureBox3.TabIndex = 6;
             this.pictureBox3.TabStop = false;
             // 
+            // dgvBookings
+            // 
+            this.dgvBookings.AutoGenerateColumns = false;
+            this.dgvBookings.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dgvBookings.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvBookings.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.clientIDDataGridViewTextBoxColumn,
+            this.firstNameDataGridViewTextBoxColumn,
+            this.lastNameDataGridViewTextBoxColumn,
+            this.emailAddressDataGridViewTextBoxColumn,
+            this.phoneNumberDataGridViewTextBoxColumn,
+            this.clientStatusDataGridViewTextBoxColumn,
+            this.dateRegisteredDataGridViewTextBoxColumn});
+            this.dgvBookings.DataSource = this.clientBindingSource;
+            this.dgvBookings.Location = new System.Drawing.Point(46, 249);
+            this.dgvBookings.Name = "dgvBookings";
+            this.dgvBookings.RowHeadersWidth = 51;
+            this.dgvBookings.Size = new System.Drawing.Size(887, 168);
+            this.dgvBookings.TabIndex = 0;
+            // 
+            // clientIDDataGridViewTextBoxColumn
+            // 
+            this.clientIDDataGridViewTextBoxColumn.DataPropertyName = "Client_ID";
+            this.clientIDDataGridViewTextBoxColumn.HeaderText = "CLIENT ID";
+            this.clientIDDataGridViewTextBoxColumn.Name = "clientIDDataGridViewTextBoxColumn";
+            this.clientIDDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // firstNameDataGridViewTextBoxColumn
+            // 
+            this.firstNameDataGridViewTextBoxColumn.DataPropertyName = "First_Name";
+            this.firstNameDataGridViewTextBoxColumn.HeaderText = "FIRST NAME";
+            this.firstNameDataGridViewTextBoxColumn.Name = "firstNameDataGridViewTextBoxColumn";
+            this.firstNameDataGridViewTextBoxColumn.Width = 110;
+            // 
+            // lastNameDataGridViewTextBoxColumn
+            // 
+            this.lastNameDataGridViewTextBoxColumn.DataPropertyName = "Last_Name";
+            this.lastNameDataGridViewTextBoxColumn.HeaderText = "LAST NAME";
+            this.lastNameDataGridViewTextBoxColumn.Name = "lastNameDataGridViewTextBoxColumn";
+            this.lastNameDataGridViewTextBoxColumn.Width = 110;
+            // 
+            // emailAddressDataGridViewTextBoxColumn
+            // 
+            this.emailAddressDataGridViewTextBoxColumn.DataPropertyName = "Email_Address";
+            this.emailAddressDataGridViewTextBoxColumn.HeaderText = "EMAIL ADDRESS";
+            this.emailAddressDataGridViewTextBoxColumn.Name = "emailAddressDataGridViewTextBoxColumn";
+            this.emailAddressDataGridViewTextBoxColumn.Width = 140;
+            // 
+            // phoneNumberDataGridViewTextBoxColumn
+            // 
+            this.phoneNumberDataGridViewTextBoxColumn.DataPropertyName = "Phone_Number";
+            this.phoneNumberDataGridViewTextBoxColumn.HeaderText = "PHONE NO.";
+            this.phoneNumberDataGridViewTextBoxColumn.Name = "phoneNumberDataGridViewTextBoxColumn";
+            this.phoneNumberDataGridViewTextBoxColumn.Width = 110;
+            // 
+            // clientStatusDataGridViewTextBoxColumn
+            // 
+            this.clientStatusDataGridViewTextBoxColumn.DataPropertyName = "Client_Status";
+            this.clientStatusDataGridViewTextBoxColumn.HeaderText = "STATUS";
+            this.clientStatusDataGridViewTextBoxColumn.Name = "clientStatusDataGridViewTextBoxColumn";
+            // 
+            // dateRegisteredDataGridViewTextBoxColumn
+            // 
+            this.dateRegisteredDataGridViewTextBoxColumn.DataPropertyName = "Date_Registered";
+            this.dateRegisteredDataGridViewTextBoxColumn.HeaderText = "DATE REGISTERED";
+            this.dateRegisteredDataGridViewTextBoxColumn.Name = "dateRegisteredDataGridViewTextBoxColumn";
+            this.dateRegisteredDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // clientBindingSource
+            // 
+            this.clientBindingSource.DataMember = "Client";
+            this.clientBindingSource.DataSource = this.codeCraftersDSTWO1;
+            // 
+            // codeCraftersDSTWO1
+            // 
+            this.codeCraftersDSTWO1.DataSetName = "codeCraftersDSTWO";
+            this.codeCraftersDSTWO1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.WhiteSmoke;
             this.panel1.Controls.Add(this.lblBookingID);
-            this.panel1.Controls.Add(this.txtBookingID);
+            this.panel1.Controls.Add(this.txtSearchEmail);
             this.panel1.Location = new System.Drawing.Point(387, 31);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(401, 64);
+            this.panel1.Size = new System.Drawing.Size(477, 64);
             this.panel1.TabIndex = 7;
             // 
             // lblBookingID
@@ -454,150 +512,24 @@
             this.lblBookingID.TabIndex = 2;
             this.lblBookingID.Text = "ENTER GUEST EMAIL ADDRESS:";
             // 
-            // txtBookingID
+            // txtSearchEmail
             // 
-            this.txtBookingID.Location = new System.Drawing.Point(218, 18);
-            this.txtBookingID.Name = "txtBookingID";
-            this.txtBookingID.Size = new System.Drawing.Size(163, 25);
-            this.txtBookingID.TabIndex = 1;
+            this.txtSearchEmail.Location = new System.Drawing.Point(218, 18);
+            this.txtSearchEmail.Name = "txtSearchEmail";
+            this.txtSearchEmail.Size = new System.Drawing.Size(241, 25);
+            this.txtSearchEmail.TabIndex = 1;
+            this.txtSearchEmail.TextChanged += new System.EventHandler(this.txtSearchEmail_TextChanged_1);
             // 
-            // dgvBookings
+            // tabPage3
             // 
-            this.dgvBookings.AutoGenerateColumns = false;
-            this.dgvBookings.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.dgvBookings.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvBookings.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.clientIDDataGridViewTextBoxColumn,
-            this.firstNameDataGridViewTextBoxColumn,
-            this.lastNameDataGridViewTextBoxColumn,
-            this.passwordDataGridViewTextBoxColumn,
-            this.emailAddressDataGridViewTextBoxColumn,
-            this.clientAddressDataGridViewTextBoxColumn,
-            this.phoneNumberDataGridViewTextBoxColumn,
-            this.clientStatusDataGridViewTextBoxColumn,
-            this.dateRegisteredDataGridViewTextBoxColumn,
-            this.lastLoginDataGridViewTextBoxColumn});
-            this.dgvBookings.DataSource = this.clientBindingSource;
-            this.dgvBookings.Location = new System.Drawing.Point(46, 249);
-            this.dgvBookings.Name = "dgvBookings";
-            this.dgvBookings.RowHeadersWidth = 51;
-            this.dgvBookings.Size = new System.Drawing.Size(914, 168);
-            this.dgvBookings.TabIndex = 0;
-            // 
-            // codeCraftersDSTWO1
-            // 
-            this.codeCraftersDSTWO1.DataSetName = "codeCraftersDSTWO";
-            this.codeCraftersDSTWO1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // clientTableAdapter1
-            // 
-            this.clientTableAdapter1.ClearBeforeFill = true;
-            // 
-            // clientBindingSource
-            // 
-            this.clientBindingSource.DataMember = "Client";
-            this.clientBindingSource.DataSource = this.codeCraftersDSTWO1;
-            // 
-            // clientTableAdapter
-            // 
-            this.clientTableAdapter.ClearBeforeFill = true;
-            // 
-            // clientIDDataGridViewTextBoxColumn
-            // 
-            this.clientIDDataGridViewTextBoxColumn.DataPropertyName = "Client_ID";
-            this.clientIDDataGridViewTextBoxColumn.HeaderText = "Client_ID";
-            this.clientIDDataGridViewTextBoxColumn.Name = "clientIDDataGridViewTextBoxColumn";
-            this.clientIDDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // firstNameDataGridViewTextBoxColumn
-            // 
-            this.firstNameDataGridViewTextBoxColumn.DataPropertyName = "First_Name";
-            this.firstNameDataGridViewTextBoxColumn.HeaderText = "First_Name";
-            this.firstNameDataGridViewTextBoxColumn.Name = "firstNameDataGridViewTextBoxColumn";
-            // 
-            // lastNameDataGridViewTextBoxColumn
-            // 
-            this.lastNameDataGridViewTextBoxColumn.DataPropertyName = "Last_Name";
-            this.lastNameDataGridViewTextBoxColumn.HeaderText = "Last_Name";
-            this.lastNameDataGridViewTextBoxColumn.Name = "lastNameDataGridViewTextBoxColumn";
-            // 
-            // passwordDataGridViewTextBoxColumn
-            // 
-            this.passwordDataGridViewTextBoxColumn.DataPropertyName = "Password";
-            this.passwordDataGridViewTextBoxColumn.HeaderText = "Password";
-            this.passwordDataGridViewTextBoxColumn.Name = "passwordDataGridViewTextBoxColumn";
-            // 
-            // emailAddressDataGridViewTextBoxColumn
-            // 
-            this.emailAddressDataGridViewTextBoxColumn.DataPropertyName = "Email_Address";
-            this.emailAddressDataGridViewTextBoxColumn.HeaderText = "Email_Address";
-            this.emailAddressDataGridViewTextBoxColumn.Name = "emailAddressDataGridViewTextBoxColumn";
-            // 
-            // clientAddressDataGridViewTextBoxColumn
-            // 
-            this.clientAddressDataGridViewTextBoxColumn.DataPropertyName = "Client_Address";
-            this.clientAddressDataGridViewTextBoxColumn.HeaderText = "Client_Address";
-            this.clientAddressDataGridViewTextBoxColumn.Name = "clientAddressDataGridViewTextBoxColumn";
-            // 
-            // phoneNumberDataGridViewTextBoxColumn
-            // 
-            this.phoneNumberDataGridViewTextBoxColumn.DataPropertyName = "Phone_Number";
-            this.phoneNumberDataGridViewTextBoxColumn.HeaderText = "Phone_Number";
-            this.phoneNumberDataGridViewTextBoxColumn.Name = "phoneNumberDataGridViewTextBoxColumn";
-            // 
-            // clientStatusDataGridViewTextBoxColumn
-            // 
-            this.clientStatusDataGridViewTextBoxColumn.DataPropertyName = "Client_Status";
-            this.clientStatusDataGridViewTextBoxColumn.HeaderText = "Client_Status";
-            this.clientStatusDataGridViewTextBoxColumn.Name = "clientStatusDataGridViewTextBoxColumn";
-            // 
-            // dateRegisteredDataGridViewTextBoxColumn
-            // 
-            this.dateRegisteredDataGridViewTextBoxColumn.DataPropertyName = "Date_Registered";
-            this.dateRegisteredDataGridViewTextBoxColumn.HeaderText = "Date_Registered";
-            this.dateRegisteredDataGridViewTextBoxColumn.Name = "dateRegisteredDataGridViewTextBoxColumn";
-            // 
-            // lastLoginDataGridViewTextBoxColumn
-            // 
-            this.lastLoginDataGridViewTextBoxColumn.DataPropertyName = "Last_Login";
-            this.lastLoginDataGridViewTextBoxColumn.HeaderText = "Last_Login";
-            this.lastLoginDataGridViewTextBoxColumn.Name = "lastLoginDataGridViewTextBoxColumn";
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(387, 194);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(176, 30);
-            this.button1.TabIndex = 9;
-            this.button1.Text = "All Guests";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(387, 140);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(176, 30);
-            this.button2.TabIndex = 10;
-            this.button2.Text = "Checked-In Guests";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(622, 140);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(166, 30);
-            this.button3.TabIndex = 11;
-            this.button3.Text = "Checked-out Guests";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(622, 194);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(166, 30);
-            this.button4.TabIndex = 12;
-            this.button4.Text = "Reserved Guests";
-            this.button4.UseVisualStyleBackColor = true;
+            this.tabPage3.Controls.Add(this.panel3);
+            this.tabPage3.Location = new System.Drawing.Point(4, 25);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(1035, 513);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "MANAGE GUESTS";
+            this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // panel3
             // 
@@ -751,6 +683,14 @@
             this.textBox3.Size = new System.Drawing.Size(163, 25);
             this.textBox3.TabIndex = 1;
             // 
+            // clientTableAdapter1
+            // 
+            this.clientTableAdapter1.ClearBeforeFill = true;
+            // 
+            // clientTableAdapter
+            // 
+            this.clientTableAdapter.ClearBeforeFill = true;
+            // 
             // GuestManagementForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -758,11 +698,12 @@
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1248, 677);
+            this.ClientSize = new System.Drawing.Size(1043, 542);
             this.Controls.Add(this.tabControl1);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "GuestManagementForm";
             this.Text = "REGAL INN SIGN UP ";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.SignUpForm_Load);
             this.groupBox4.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
@@ -774,15 +715,15 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
-            this.tabPage3.ResumeLayout(false);
             this.pnlViewBookings.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBookings)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clientBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.codeCraftersDSTWO1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvBookings)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.codeCraftersDSTWO1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.clientBindingSource)).EndInit();
+            this.tabPage3.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel6.ResumeLayout(false);
@@ -794,9 +735,7 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.TextBox txtContactNumber;
         private System.Windows.Forms.TextBox txtEmailAddress;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
@@ -817,35 +756,23 @@
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtContactNumber;
         private System.Windows.Forms.Panel pnlViewBookings;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lblBookingID;
-        private System.Windows.Forms.TextBox txtBookingID;
+        private System.Windows.Forms.TextBox txtSearchEmail;
         private System.Windows.Forms.DataGridView dgvBookings;
         private Code_Crafters_Interface_Prototype_1.codeCraftersDSTWO codeCraftersDSTWO1;
         private Code_Crafters_Interface_Prototype_1.codeCraftersDSTableAdapters.ClientTableAdapter clientTableAdapter1;
         private System.Windows.Forms.BindingSource clientBindingSource;
         private Code_Crafters_Interface_Prototype_1.codeCraftersDSTWOTableAdapters.ClientTableAdapter clientTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clientIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn firstNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn lastNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn passwordDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn emailAddressDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clientAddressDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn phoneNumberDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clientStatusDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dateRegisteredDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn lastLoginDataGridViewTextBoxColumn;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnArchived;
+        private System.Windows.Forms.Button btnActive;
+        private System.Windows.Forms.Button btnBlacklisted;
+        private System.Windows.Forms.Button btnInactive;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button7;
@@ -864,5 +791,12 @@
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clientIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn firstNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lastNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn emailAddressDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn phoneNumberDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clientStatusDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dateRegisteredDataGridViewTextBoxColumn;
     }
 }

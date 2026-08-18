@@ -67,6 +67,9 @@ namespace Code_Crafters_Interface_Prototype_1.Business
             paypalForm.Show();
         }
 
-    
+        private void radCash_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -257,6 +257,7 @@
             this.btnRefresh.TabIndex = 3;
             this.btnRefresh.Text = "🔄 REFRESH";
             this.btnRefresh.UseVisualStyleBackColor = false;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // lblRegalBooking
             // 
@@ -460,19 +461,21 @@
             // lblClientEmailAddress
             // 
             this.lblClientEmailAddress.AutoSize = true;
-            this.lblClientEmailAddress.Location = new System.Drawing.Point(41, 147);
+            this.lblClientEmailAddress.Location = new System.Drawing.Point(45, 147);
             this.lblClientEmailAddress.Name = "lblClientEmailAddress";
-            this.lblClientEmailAddress.Size = new System.Drawing.Size(246, 21);
+            this.lblClientEmailAddress.Size = new System.Drawing.Size(188, 21);
             this.lblClientEmailAddress.TabIndex = 47;
-            this.lblClientEmailAddress.Text = "ENTER CLIENT EMAIL ADDRESS";
+            this.lblClientEmailAddress.Text = "GUEST EMAIL ADDRESS";
             // 
             // txtClientEmailAddress
             // 
             this.txtClientEmailAddress.Location = new System.Drawing.Point(45, 171);
             this.txtClientEmailAddress.Name = "txtClientEmailAddress";
-            this.txtClientEmailAddress.Size = new System.Drawing.Size(328, 29);
+            this.txtClientEmailAddress.Size = new System.Drawing.Size(340, 29);
             this.txtClientEmailAddress.TabIndex = 46;
             this.txtClientEmailAddress.TextChanged += new System.EventHandler(this.txtClientEmailAddress_TextChanged);
+            this.txtClientEmailAddress.Enter += new System.EventHandler(this.txtClientEmailAddress_Enter);
+            this.txtClientEmailAddress.Leave += new System.EventHandler(this.txtClientEmailAddress_Leave);
             // 
             // panel4
             // 

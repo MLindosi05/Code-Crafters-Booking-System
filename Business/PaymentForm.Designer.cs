@@ -33,9 +33,6 @@
             this.hotel_RoomTableAdapter1 = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTableAdapters.Hotel_RoomTableAdapter();
             this.codeCraftersDSTWO = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTWO();
             this.paymentPanel = new System.Windows.Forms.Panel();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
@@ -56,7 +53,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.codeCraftersDS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.codeCraftersDSTWO)).BeginInit();
             this.paymentPanel.SuspendLayout();
-            this.panel8.SuspendLayout();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.panel3.SuspendLayout();
@@ -85,46 +81,14 @@
             // 
             // paymentPanel
             // 
-            this.paymentPanel.Controls.Add(this.panel8);
             this.paymentPanel.Controls.Add(this.label1);
             this.paymentPanel.Controls.Add(this.panel5);
             this.paymentPanel.Controls.Add(this.panel3);
             this.paymentPanel.Controls.Add(this.panel2);
             this.paymentPanel.Location = new System.Drawing.Point(63, 39);
             this.paymentPanel.Name = "paymentPanel";
-            this.paymentPanel.Size = new System.Drawing.Size(769, 371);
+            this.paymentPanel.Size = new System.Drawing.Size(769, 310);
             this.paymentPanel.TabIndex = 60;
-            // 
-            // panel8
-            // 
-            this.panel8.BackColor = System.Drawing.Color.AliceBlue;
-            this.panel8.Controls.Add(this.label11);
-            this.panel8.Controls.Add(this.label10);
-            this.panel8.Location = new System.Drawing.Point(45, 284);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(690, 54);
-            this.panel8.TabIndex = 6;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.Navy;
-            this.label11.Location = new System.Drawing.Point(582, 17);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(50, 20);
-            this.label11.TabIndex = 7;
-            this.label11.Text = "R0.00";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(20, 17);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(160, 20);
-            this.label10.TabIndex = 6;
-            this.label10.Text = "TOTAL AMOUNT DUE";
             // 
             // label1
             // 
@@ -290,6 +254,7 @@
             this.radCash.TabIndex = 0;
             this.radCash.TabStop = true;
             this.radCash.UseVisualStyleBackColor = true;
+            this.radCash.CheckedChanged += new System.EventHandler(this.radCash_CheckedChanged);
             this.radCash.Click += new System.EventHandler(this.radCash_Click);
             // 
             // taFolio
@@ -302,7 +267,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(873, 441);
+            this.ClientSize = new System.Drawing.Size(873, 408);
             this.Controls.Add(this.paymentPanel);
             this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "PaymentForm";
@@ -312,8 +277,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.codeCraftersDSTWO)).EndInit();
             this.paymentPanel.ResumeLayout(false);
             this.paymentPanel.PerformLayout();
-            this.panel8.ResumeLayout(false);
-            this.panel8.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
@@ -334,9 +297,6 @@
         private codeCraftersDSTWO codeCraftersDSTWO;
         private System.Windows.Forms.Panel paymentPanel;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label11;
         private codeCraftersDSTWOTableAdapters.FolioTableAdapter taFolio;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.PictureBox pictureBox3;

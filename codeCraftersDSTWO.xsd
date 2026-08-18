@@ -1192,41 +1192,29 @@ WHERE (Table_Allocation_ID = SCOPE_IDENTITY());</CommandText>
               <DbSource ConnectionRef="GroupPmb2ConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT
-    Booking.*,
+                    <CommandText>SELECT        Booking.Booking_ID, Booking.Client_ID, Booking.Branch_ID, Booking.Booking_Date, Booking.Checkin_Date, Booking.Checkout_Date, Booking.Booking_Total_Amount, Booking.Booking_Status, Booking.Cancellation_Date, 
 
-    Branch.Branch_Name,
+                         Booking.Cancellation_Reason, Booking.Admin_Notes, Booking.Number_Adults, Booking.Number_Children, Booking.Booking_Type, Booking.Special_Request, Booking.Penalty_Amount, Booking.Credit_Amount, 
 
-    Client.First_Name,
-    Client.Last_Name,
-    Client.Email_Address,
-    Client.Phone_Number,
+                         Booking.Staff_Created_By, Branch.Branch_Name, Client.First_Name, Client.Last_Name, Client.Email_Address, Client.Phone_Number, Hotel_Room.hotel_room_number, Hotel_Room.hotel_room_type, 
 
-    Hotel_Room.hotel_room_number,
-    Hotel_Room.hotel_room_type,
+                         Restuarant_Table.RestuarantTableNum, Restuarant_Table.TableFeatures
 
-    Restuarant_Table.RestuarantTableNum,
-    Restuarant_Table.TableFeatures
+FROM            Booking INNER JOIN
 
-FROM Booking
+                         Branch ON Booking.Branch_ID = Branch.Branch_ID INNER JOIN
 
-INNER JOIN Branch
-ON Booking.Branch_ID = Branch.Branch_ID
+                         Client ON Booking.Client_ID = Client.Client_ID LEFT OUTER JOIN
 
-INNER JOIN Client
-ON Booking.Client_ID = Client.Client_ID
+                         Room_Assignment ON Booking.Booking_ID = Room_Assignment.Booking_ID LEFT OUTER JOIN
 
-LEFT JOIN Room_Assignment
-ON Booking.Booking_ID = Room_Assignment.Booking_ID
+                         Hotel_Room ON Room_Assignment.Hotel_Room_ID = Hotel_Room.Hotel_Room_ID LEFT OUTER JOIN
 
-LEFT JOIN Hotel_Room
-ON Room_Assignment.Hotel_Room_ID = Hotel_Room.Hotel_Room_ID
+                         Table_Allocation ON Booking.Booking_ID = Table_Allocation.Booking_ID LEFT OUTER JOIN
 
-LEFT JOIN Table_Allocation
-ON Booking.Booking_ID = Table_Allocation.Booking_ID
+                         Restuarant_Table ON Table_Allocation.Restuarant_Table_ID = Restuarant_Table.RestaurantTableID 
 
-LEFT JOIN Restuarant_Table
-ON Table_Allocation.Restuarant_Table_ID = Restuarant_Table.RestaurantTableID</CommandText>
+</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -1260,6 +1248,7 @@ ON Table_Allocation.Restuarant_Table_ID = Restuarant_Table.RestaurantTableID</Co
               <Mapping SourceColumn="Created_By" DataSetColumn="Created_By" />
               <Mapping SourceColumn="hotel_room_type" DataSetColumn="hotel_room_type" />
               <Mapping SourceColumn="TableFeatures" DataSetColumn="TableFeatures" />
+              <Mapping SourceColumn="Staff_Created_By" DataSetColumn="Staff_Created_By" />
             </Mappings>
             <Sources>
               <DbSource ConnectionRef="GroupPmb2ConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByFirstName" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy" GeneratorSourceName="FillByFirstName" GetMethodModifier="Public" GetMethodName="GetDataBy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillByFirstName">
@@ -1977,7 +1966,7 @@ SELECT Booking_ID, Client_ID, Branch_ID, Booking_Date, Checkin_Date, Checkout_Da
                 </xs:simpleType>
               </xs:element>
               <xs:element name="hotel_room_number" msprop:Generator_ColumnPropNameInTable="hotel_room_numberColumn" msprop:Generator_ColumnPropNameInRow="hotel_room_number" msprop:Generator_UserColumnName="hotel_room_number" msprop:Generator_ColumnVarNameInTable="columnhotel_room_number" type="xs:int" minOccurs="0" />
-              <xs:element name="RestuarantTableNum" msprop:Generator_ColumnPropNameInTable="RestuarantTableNumColumn" msprop:Generator_ColumnPropNameInRow="RestuarantTableNum" msprop:Generator_UserColumnName="RestuarantTableNum" msprop:Generator_ColumnVarNameInTable="columnRestuarantTableNum" minOccurs="0">
+              <xs:element name="RestuarantTableNum" msprop:Generator_ColumnPropNameInTable="RestuarantTableNumColumn" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="RestuarantTableNum" msprop:Generator_UserColumnName="RestuarantTableNum" msprop:Generator_ColumnVarNameInTable="columnRestuarantTableNum" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
@@ -2018,17 +2007,24 @@ SELECT Booking_ID, Client_ID, Branch_ID, Booking_Date, Checkin_Date, Checkout_Da
               <xs:element name="Penalty_Amount" msprop:Generator_ColumnPropNameInTable="Penalty_AmountColumn" msprop:Generator_ColumnPropNameInRow="Penalty_Amount" msprop:Generator_UserColumnName="Penalty_Amount" msprop:Generator_ColumnVarNameInTable="columnPenalty_Amount" type="xs:decimal" minOccurs="0" />
               <xs:element name="Credit_Amount" msprop:Generator_ColumnPropNameInTable="Credit_AmountColumn" msprop:Generator_ColumnPropNameInRow="Credit_Amount" msprop:Generator_UserColumnName="Credit_Amount" msprop:Generator_ColumnVarNameInTable="columnCredit_Amount" type="xs:decimal" minOccurs="0" />
               <xs:element name="Created_By" msprop:Generator_ColumnPropNameInTable="Created_ByColumn" msprop:Generator_ColumnPropNameInRow="Created_By" msprop:Generator_UserColumnName="Created_By" msprop:Generator_ColumnVarNameInTable="columnCreated_By" type="xs:int" minOccurs="0" />
-              <xs:element name="hotel_room_type" msprop:Generator_ColumnPropNameInTable="hotel_room_typeColumn" msprop:Generator_ColumnPropNameInRow="hotel_room_type" msprop:Generator_UserColumnName="hotel_room_type" msprop:Generator_ColumnVarNameInTable="columnhotel_room_type" minOccurs="0">
+              <xs:element name="hotel_room_type" msprop:Generator_ColumnPropNameInTable="hotel_room_typeColumn" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="hotel_room_type" msprop:Generator_UserColumnName="hotel_room_type" msprop:Generator_ColumnVarNameInTable="columnhotel_room_type" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="TableFeatures" msprop:Generator_ColumnPropNameInTable="TableFeaturesColumn" msprop:Generator_ColumnPropNameInRow="TableFeatures" msprop:Generator_UserColumnName="TableFeatures" msprop:Generator_ColumnVarNameInTable="columnTableFeatures" minOccurs="0">
+              <xs:element name="TableFeatures" msprop:Generator_ColumnPropNameInTable="TableFeaturesColumn" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="TableFeatures" msprop:Generator_UserColumnName="TableFeatures" msprop:Generator_ColumnVarNameInTable="columnTableFeatures" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Staff_Created_By" msprop:Generator_ColumnPropNameInRow="Staff_Created_By" msprop:Generator_ColumnPropNameInTable="Staff_Created_ByColumn" msprop:Generator_ColumnVarNameInTable="columnStaff_Created_By" msprop:Generator_UserColumnName="Staff_Created_By" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
@@ -2179,9 +2175,9 @@ SELECT Booking_ID, Client_ID, Branch_ID, Booking_Date, Checkin_Date, Checkout_Da
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="FK__Room_Assi__Hotel__1B5E0D89" msdata:parent="Hotel_Room" msdata:child="Room_Assignment" msdata:parentkey="Hotel_Room_ID" msdata:childkey="Hotel_Room_ID" msprop:Generator_UserParentTable="Hotel_Room" msprop:Generator_UserChildTable="Room_Assignment" msprop:Generator_RelationVarName="relationFK__Room_Assi__Hotel__1B5E0D89" msprop:Generator_ChildPropName="GetRoom_AssignmentRows" msprop:Generator_ParentPropName="Hotel_RoomRow" msprop:Generator_UserRelationName="FK__Room_Assi__Hotel__1B5E0D89" />
-      <msdata:Relationship name="FK__Room_Assi__Booki__1C5231C21" msdata:parent="ClientBranchTableBooking" msdata:child="Room_Assignment" msdata:parentkey="Booking_ID" msdata:childkey="Booking_ID" msprop:Generator_UserParentTable="ClientBranchTableBooking" msprop:Generator_UserChildTable="Room_Assignment" msprop:Generator_RelationVarName="relationFK__Room_Assi__Booki__1C5231C21" msprop:Generator_ChildPropName="GetRoom_AssignmentRows" msprop:Generator_UserRelationName="FK__Room_Assi__Booki__1C5231C21" msprop:Generator_ParentPropName="ClientBranchTableBookingRow" />
-      <msdata:Relationship name="FK__Room_Assi__Booki__1C5231C2" msdata:parent="Booking" msdata:child="Room_Assignment" msdata:parentkey="Booking_ID" msdata:childkey="Booking_ID" msprop:Generator_UserParentTable="Booking" msprop:Generator_UserChildTable="Room_Assignment" msprop:Generator_RelationVarName="relationFK__Room_Assi__Booki__1C5231C2" msprop:Generator_ChildPropName="GetRoom_AssignmentRows" msprop:Generator_UserRelationName="FK__Room_Assi__Booki__1C5231C2" msprop:Generator_ParentPropName="BookingRow" />
+      <msdata:Relationship name="FK__Room_Assi__Hotel__1B5E0D89" msdata:parent="Hotel_Room" msdata:child="Room_Assignment" msdata:parentkey="Hotel_Room_ID" msdata:childkey="Hotel_Room_ID" msprop:Generator_UserParentTable="Hotel_Room" msprop:Generator_UserChildTable="Room_Assignment" msprop:Generator_RelationVarName="relationFK__Room_Assi__Hotel__1B5E0D89" msprop:Generator_ChildPropName="GetRoom_AssignmentRows" msprop:Generator_UserRelationName="FK__Room_Assi__Hotel__1B5E0D89" msprop:Generator_ParentPropName="Hotel_RoomRow" />
+      <msdata:Relationship name="FK__Room_Assi__Booki__1C5231C21" msdata:parent="ClientBranchTableBooking" msdata:child="Room_Assignment" msdata:parentkey="Booking_ID" msdata:childkey="Booking_ID" msprop:Generator_UserParentTable="ClientBranchTableBooking" msprop:Generator_UserChildTable="Room_Assignment" msprop:Generator_RelationVarName="relationFK__Room_Assi__Booki__1C5231C21" msprop:Generator_ChildPropName="GetRoom_AssignmentRows" msprop:Generator_ParentPropName="ClientBranchTableBookingRow" msprop:Generator_UserRelationName="FK__Room_Assi__Booki__1C5231C21" />
+      <msdata:Relationship name="FK__Room_Assi__Booki__1C5231C2" msdata:parent="Booking" msdata:child="Room_Assignment" msdata:parentkey="Booking_ID" msdata:childkey="Booking_ID" msprop:Generator_UserParentTable="Booking" msprop:Generator_UserChildTable="Room_Assignment" msprop:Generator_RelationVarName="relationFK__Room_Assi__Booki__1C5231C2" msprop:Generator_ChildPropName="GetRoom_AssignmentRows" msprop:Generator_ParentPropName="BookingRow" msprop:Generator_UserRelationName="FK__Room_Assi__Booki__1C5231C2" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>

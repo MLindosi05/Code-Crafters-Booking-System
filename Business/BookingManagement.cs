@@ -27,6 +27,7 @@ namespace Code_Crafters_Interface_Prototype_1.Business
             SetInitialDates();
             RefreshDataSilent();
             UpdateRoomAndBookingStatuses();
+            InitializePlaceholder();
 
             // Populate search combo items safely
             cmbSearchBy.Items.Clear();
@@ -34,8 +35,8 @@ namespace Code_Crafters_Interface_Prototype_1.Business
             cmbSearchBy.Items.Add("Status");
             cmbSearchBy.Items.Add("Branch");
 
+            codeCraftersDSTWO.EnforceConstraints = false;
             taClientBranchTableBooking.Fill(codeCraftersDSTWO.ClientBranchTableBooking);
-
         }
 
         private void InitializeDropdowns()
@@ -53,7 +54,7 @@ namespace Code_Crafters_Interface_Prototype_1.Business
                 }
 
                 if (numAdults != null && numAdults.Value == 0)
-                    numAdults.Value = 1;
+                    numAdults.Value = 0;
 
                 if (numChildren != null)
                     numChildren.Value = 0;
@@ -140,16 +141,65 @@ namespace Code_Crafters_Interface_Prototype_1.Business
 
             if (existingClient != null)
             {
+                // Check for Client_Status and handle Blacklisted or Inactive statuses
+                string clientStatus = existingClient.Table.Columns.Contains("Client_Status") && !existingClient.IsNull("Client_Status")
+                    ? existingClient.Field<string>("Client_Status")?.Trim()
+                    : "Active";
+
+                if (string.Equals(clientStatus, "Blacklisted", StringComparison.OrdinalIgnoreCase))
+                {
+                    MessageBox.Show(
+                        "Cannot proceed with booking. This client is currently Blacklisted.",
+                        "Blacklisted Client",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error
+                    );
+                    return -1;
+                }
+
+                if (string.Equals(clientStatus, "Inactive", StringComparison.OrdinalIgnoreCase))
+                {
+                    MessageBox.Show(
+                        "Cannot proceed with booking. This client's account is Inactive.",
+                        "Inactive Client",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning
+                    );
+                    return -1;
+                }
+
                 return existingClient.Client_ID;
             }
             else
             {
-                MessageBox.Show(
-                    "Client email does not exist in the system.\nYou must first register / add the client to the system before proceeding with a booking.",
+                DialogResult dialogResult = MessageBox.Show(
+                    "Client email does not exist in the system.\nWould you like to open Guest Registration and register this client now?",
                     "Client Not Found",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question
                 );
+
+                if (dialogResult == DialogResult.Yes)
+                {
+                    GuestManagementForm guestRegForm = new GuestManagementForm();
+                    if (guestRegForm.ShowDialog() == DialogResult.OK)
+                    {
+                        // Refresh dataset to capture the newly registered client
+                        if (taClient != null)
+                        {
+                            codeCraftersDSTWO.Client.Clear();
+                            taClient.Fill(codeCraftersDSTWO.Client);
+                        }
+
+                        var newlyAddedClient = codeCraftersDSTWO.Client.AsEnumerable()
+                            .FirstOrDefault(c => string.Equals(c.Field<string>("Email_Address"), emailAddress.Trim(), StringComparison.OrdinalIgnoreCase));
+
+                        if (newlyAddedClient != null)
+                        {
+                            return newlyAddedClient.Client_ID;
+                        }
+                    }
+                }
 
                 return -1;
             }
@@ -474,6 +524,38 @@ namespace Code_Crafters_Interface_Prototype_1.Business
         private void btnRoomSixBook_Click(object sender, EventArgs e) => ProcessRoomBooking("Standard Room 2 Double Beds", 1900.00m);
 
         private void numAdults_ValueChanged(object sender, EventArgs e) { }
+
+        private bool isPlaceholderActive = true;
+        private readonly string placeholderText = "e.g. john@regalinn.co.za";
+
+        private void txtClientEmailAddress_Enter(object sender, EventArgs e)
+        {
+            if (isPlaceholderActive)
+            {
+                txtClientEmailAddress.Text = "";
+                txtClientEmailAddress.ForeColor = System.Drawing.Color.Black;
+                isPlaceholderActive = false;
+            }
+        }
+
+        private void txtClientEmailAddress_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtClientEmailAddress.Text))
+            {
+                txtClientEmailAddress.Text = placeholderText;
+                txtClientEmailAddress.ForeColor = System.Drawing.Color.Gray;
+                isPlaceholderActive = true;
+            }
+        }
+
+        private void InitializePlaceholder()
+        {
+            txtClientEmailAddress.Text = placeholderText;
+            txtClientEmailAddress.ForeColor = System.Drawing.Color.Gray;
+
+            txtClientEmailAddress.Enter += txtClientEmailAddress_Enter;
+            txtClientEmailAddress.Leave += txtClientEmailAddress_Leave;
+        }
         private void txtClientEmailAddress_TextChanged(object sender, EventArgs e) { }
 
 
@@ -491,7 +573,6 @@ namespace Code_Crafters_Interface_Prototype_1.Business
             }
         }
 
-        // 2. CURRENT BOOKINGS
         private void button1_Click(object sender, EventArgs e)
         {
             string searchName = txtClientName.Text.Trim();
@@ -538,13 +619,6 @@ namespace Code_Crafters_Interface_Prototype_1.Business
             }
         }
 
-        //private void BookingManagement_Load_1(object sender, EventArgs e)
-        //{
-
-        //   taClientBranchTableBooking.Fill(codeCraftersDSTWO.ClientBranchTableBooking);
-
-        //}
-
         private int GetSelectedBookingID()
         {
             if (dataGridView1.SelectedRows.Count > 0)
@@ -553,7 +627,6 @@ namespace Code_Crafters_Interface_Prototype_1.Business
 
                 if (!row.IsNewRow)
                 {
-                    // Use the exact (Name) shown in your properties window: bookingIDDataGridViewTextBoxColumn
                     if (dataGridView1.Columns.Contains("bookingID") && row.Cells["bookingID"].Value != null)
                     {
                         var cellValue = row.Cells["bookingID"].Value;
@@ -649,7 +722,6 @@ namespace Code_Crafters_Interface_Prototype_1.Business
 
                     MessageBox.Show("Booking successfully cancelled.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    // Refresh your table adapter data here
                     this.taClientBranchTableBooking.Fill(this.codeCraftersDSTWO.ClientBranchTableBooking);
                 }
                 catch (Exception ex)
@@ -664,10 +736,28 @@ namespace Code_Crafters_Interface_Prototype_1.Business
             int bookingID = GetSelectedBookingID();
             if (bookingID == -1) return;
 
-            // TODO: Open your reschedule form and pass bookingID
-            // RescheduleForm frm = new RescheduleForm(bookingID);
-            // frm.ShowDialog();
-            // this.clientBranchTableBookingTableAdapter.Fill(this.groupPmb2DataSet.ClientBranchTableBooking);
+            DataRowView selectedRow = dataGridView1.SelectedRows.Count > 0 ?
+                dataGridView1.SelectedRows[0].DataBoundItem as DataRowView :
+                (dataGridView1.SelectedCells.Count > 0 ? dataGridView1.Rows[dataGridView1.SelectedCells[0].RowIndex].DataBoundItem as DataRowView : null);
+
+            if (selectedRow != null)
+            {
+                string status = selectedRow["Booking_Status"]?.ToString();
+                if (status == "Cancelled" || status == "Completed")
+                {
+                    MessageBox.Show($"Cannot reschedule a booking with status '{status}'.", "Invalid Action", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+            }
+
+            try
+            {
+                MessageBox.Show($"Reschedule module invoked for Booking ID: {bookingID}.", "Reschedule", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error processing reschedule request: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnViewEdit_Click(object sender, EventArgs e)
@@ -675,17 +765,82 @@ namespace Code_Crafters_Interface_Prototype_1.Business
             int bookingID = GetSelectedBookingID();
             if (bookingID == -1) return;
 
-            // TODO: Open your edit details form and pass bookingID
+            try
+            {
+                MessageBox.Show($"Edit details module invoked for Booking ID: {bookingID}.", "Edit Booking", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error opening edit form: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnLinkBookings_Click(object sender, EventArgs e)
         {
+            int bookingID = GetSelectedBookingID();
+            if (bookingID == -1) return;
 
+            try
+            {
+                MessageBox.Show($"Link bookings module invoked for Booking ID: {bookingID}.", "Link Bookings", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error linking bookings: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
-
         private void txtSearchQuery_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                SetInitialDates();
+
+                if (numAdults != null)
+                {
+                    numAdults.Value = 0;
+                }
+                if (numChildren != null)
+                {
+                    numChildren.Value = 0;
+                }
+
+                if (cmbBranchName != null && cmbBranchName.Items.Count > 0)
+                {
+                    cmbBranchName.SelectedIndex = 0;
+                }
+                if (cmbSearchBy != null)
+                {
+                    cmbSearchBy.SelectedIndex = -1;
+                }
+
+                txtSearchQuery.Clear();
+                txtClientName.Clear();
+                txtClientEmailAddress.Clear();
+
+                if (clientBranchTableBookingBindingSource != null)
+                {
+                    clientBranchTableBookingBindingSource.Filter = string.Empty;
+                }
+
+                UpdateRoomAndBookingStatuses();
+                RefreshDataSilent();
+
+                if (taClientBranchTableBooking != null)
+                {
+                    codeCraftersDSTWO.EnforceConstraints = false;
+                    taClientBranchTableBooking.Fill(codeCraftersDSTWO.ClientBranchTableBooking);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error refreshing page data:\n\n" + ex.Message, "Refresh Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

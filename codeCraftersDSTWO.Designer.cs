@@ -4183,6 +4183,8 @@ namespace Code_Crafters_Interface_Prototype_1 {
             
             private global::System.Data.DataColumn columnTableFeatures;
             
+            private global::System.Data.DataColumn columnStaff_Created_By;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public ClientBranchTableBookingDataTable() {
@@ -4434,6 +4436,14 @@ namespace Code_Crafters_Interface_Prototype_1 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn Staff_Created_ByColumn {
+                get {
+                    return this.columnStaff_Created_By;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -4495,7 +4505,8 @@ namespace Code_Crafters_Interface_Prototype_1 {
                         decimal Credit_Amount, 
                         int Created_By, 
                         string hotel_room_type, 
-                        string TableFeatures) {
+                        string TableFeatures, 
+                        string Staff_Created_By) {
                 ClientBranchTableBookingRow rowClientBranchTableBookingRow = ((ClientBranchTableBookingRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -4524,7 +4535,8 @@ namespace Code_Crafters_Interface_Prototype_1 {
                         Credit_Amount,
                         Created_By,
                         hotel_room_type,
-                        TableFeatures};
+                        TableFeatures,
+                        Staff_Created_By};
                 rowClientBranchTableBookingRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowClientBranchTableBookingRow);
                 return rowClientBranchTableBookingRow;
@@ -4581,6 +4593,7 @@ namespace Code_Crafters_Interface_Prototype_1 {
                 this.columnCreated_By = base.Columns["Created_By"];
                 this.columnhotel_room_type = base.Columns["hotel_room_type"];
                 this.columnTableFeatures = base.Columns["TableFeatures"];
+                this.columnStaff_Created_By = base.Columns["Staff_Created_By"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4640,6 +4653,8 @@ namespace Code_Crafters_Interface_Prototype_1 {
                 base.Columns.Add(this.columnhotel_room_type);
                 this.columnTableFeatures = new global::System.Data.DataColumn("TableFeatures", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTableFeatures);
+                this.columnStaff_Created_By = new global::System.Data.DataColumn("Staff_Created_By", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnStaff_Created_By);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnBooking_ID}, true));
                 this.columnBooking_ID.AutoIncrement = true;
@@ -4670,6 +4685,7 @@ namespace Code_Crafters_Interface_Prototype_1 {
                 this.columnSpecial_Request.MaxLength = 250;
                 this.columnhotel_room_type.MaxLength = 50;
                 this.columnTableFeatures.MaxLength = 100;
+                this.columnStaff_Created_By.MaxLength = 50;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -8220,12 +8236,11 @@ namespace Code_Crafters_Interface_Prototype_1 {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public string RestuarantTableNum {
                 get {
-                    try {
-                        return ((string)(this[this.tableClientBranchTableBooking.RestuarantTableNumColumn]));
+                    if (this.IsRestuarantTableNumNull()) {
+                        return string.Empty;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'RestuarantTableNum\' in table \'ClientBranchTableBooking\' is " +
-                                "DBNull.", e);
+                    else {
+                        return ((string)(this[this.tableClientBranchTableBooking.RestuarantTableNumColumn]));
                     }
                 }
                 set {
@@ -8406,12 +8421,11 @@ namespace Code_Crafters_Interface_Prototype_1 {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public string hotel_room_type {
                 get {
-                    try {
-                        return ((string)(this[this.tableClientBranchTableBooking.hotel_room_typeColumn]));
+                    if (this.Ishotel_room_typeNull()) {
+                        return string.Empty;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'hotel_room_type\' in table \'ClientBranchTableBooking\' is DBN" +
-                                "ull.", e);
+                    else {
+                        return ((string)(this[this.tableClientBranchTableBooking.hotel_room_typeColumn]));
                     }
                 }
                 set {
@@ -8423,16 +8437,32 @@ namespace Code_Crafters_Interface_Prototype_1 {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public string TableFeatures {
                 get {
-                    try {
-                        return ((string)(this[this.tableClientBranchTableBooking.TableFeaturesColumn]));
+                    if (this.IsTableFeaturesNull()) {
+                        return string.Empty;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'TableFeatures\' in table \'ClientBranchTableBooking\' is DBNul" +
-                                "l.", e);
+                    else {
+                        return ((string)(this[this.tableClientBranchTableBooking.TableFeaturesColumn]));
                     }
                 }
                 set {
                     this[this.tableClientBranchTableBooking.TableFeaturesColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string Staff_Created_By {
+                get {
+                    try {
+                        return ((string)(this[this.tableClientBranchTableBooking.Staff_Created_ByColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Staff_Created_By\' in table \'ClientBranchTableBooking\' is DB" +
+                                "Null.", e);
+                    }
+                }
+                set {
+                    this[this.tableClientBranchTableBooking.Staff_Created_ByColumn] = value;
                 }
             }
             
@@ -8650,6 +8680,18 @@ namespace Code_Crafters_Interface_Prototype_1 {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetTableFeaturesNull() {
                 this[this.tableClientBranchTableBooking.TableFeaturesColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsStaff_Created_ByNull() {
+                return this.IsNull(this.tableClientBranchTableBooking.Staff_Created_ByColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetStaff_Created_ByNull() {
+                this[this.tableClientBranchTableBooking.Staff_Created_ByColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -16422,6 +16464,7 @@ WHERE (Table_Allocation_ID = SCOPE_IDENTITY());";
             tableMapping.ColumnMappings.Add("Created_By", "Created_By");
             tableMapping.ColumnMappings.Add("hotel_room_type", "hotel_room_type");
             tableMapping.ColumnMappings.Add("TableFeatures", "TableFeatures");
+            tableMapping.ColumnMappings.Add("Staff_Created_By", "Staff_Created_By");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -16438,41 +16481,29 @@ WHERE (Table_Allocation_ID = SCOPE_IDENTITY());";
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT
-    Booking.*,
+            this._commandCollection[0].CommandText = @"SELECT        Booking.Booking_ID, Booking.Client_ID, Booking.Branch_ID, Booking.Booking_Date, Booking.Checkin_Date, Booking.Checkout_Date, Booking.Booking_Total_Amount, Booking.Booking_Status, Booking.Cancellation_Date, 
 
-    Branch.Branch_Name,
+                         Booking.Cancellation_Reason, Booking.Admin_Notes, Booking.Number_Adults, Booking.Number_Children, Booking.Booking_Type, Booking.Special_Request, Booking.Penalty_Amount, Booking.Credit_Amount, 
 
-    Client.First_Name,
-    Client.Last_Name,
-    Client.Email_Address,
-    Client.Phone_Number,
+                         Booking.Staff_Created_By, Branch.Branch_Name, Client.First_Name, Client.Last_Name, Client.Email_Address, Client.Phone_Number, Hotel_Room.hotel_room_number, Hotel_Room.hotel_room_type, 
 
-    Hotel_Room.hotel_room_number,
-    Hotel_Room.hotel_room_type,
+                         Restuarant_Table.RestuarantTableNum, Restuarant_Table.TableFeatures
 
-    Restuarant_Table.RestuarantTableNum,
-    Restuarant_Table.TableFeatures
+FROM            Booking INNER JOIN
 
-FROM Booking
+                         Branch ON Booking.Branch_ID = Branch.Branch_ID INNER JOIN
 
-INNER JOIN Branch
-ON Booking.Branch_ID = Branch.Branch_ID
+                         Client ON Booking.Client_ID = Client.Client_ID LEFT OUTER JOIN
 
-INNER JOIN Client
-ON Booking.Client_ID = Client.Client_ID
+                         Room_Assignment ON Booking.Booking_ID = Room_Assignment.Booking_ID LEFT OUTER JOIN
 
-LEFT JOIN Room_Assignment
-ON Booking.Booking_ID = Room_Assignment.Booking_ID
+                         Hotel_Room ON Room_Assignment.Hotel_Room_ID = Hotel_Room.Hotel_Room_ID LEFT OUTER JOIN
 
-LEFT JOIN Hotel_Room
-ON Room_Assignment.Hotel_Room_ID = Hotel_Room.Hotel_Room_ID
+                         Table_Allocation ON Booking.Booking_ID = Table_Allocation.Booking_ID LEFT OUTER JOIN
 
-LEFT JOIN Table_Allocation
-ON Booking.Booking_ID = Table_Allocation.Booking_ID
+                         Restuarant_Table ON Table_Allocation.Restuarant_Table_ID = Restuarant_Table.RestaurantTableID 
 
-LEFT JOIN Restuarant_Table
-ON Table_Allocation.Restuarant_Table_ID = Restuarant_Table.RestaurantTableID";
+";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
