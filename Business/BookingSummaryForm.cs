@@ -72,7 +72,8 @@ namespace Code_Crafters_Interface_Prototype_1.Business
                         string roomType = bookingRow.Booking_Type;
                         lblRoomNoValue.Text = GetAssignedRoomNumber(branchID, roomType);
 
-                        lblTableAreaValue.Text = GetAssignedTableArea(_bookingID);
+                        // Fetch and display both table area features and the table number
+                        lblTableAreaValue.Text = GetAssignedTableDetails(_bookingID);
                     }
                 }
             }
@@ -82,15 +83,15 @@ namespace Code_Crafters_Interface_Prototype_1.Business
             }
         }
 
-        private string GetAssignedTableArea(int bookingID)
+        private string GetAssignedTableDetails(int bookingID)
         {
             try
             {
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
-                    // Using exact schema column name: Restuarant_Table_ID
-                    string query = @"SELECT rt.TableFeatures 
+                    // Query both TableFeatures and RestuarantTableNum from Restuarant_Table joined through Table_Allocation
+                    string query = @"SELECT rt.RestuarantTableNum, rt.TableFeatures 
                                    FROM Table_Allocation ta
                                    INNER JOIN Restuarant_Table rt ON ta.Restuarant_Table_ID = rt.RestaurantTableID
                                    WHERE ta.Booking_ID = @BookingID";
@@ -98,21 +99,33 @@ namespace Code_Crafters_Interface_Prototype_1.Business
                     using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
                         cmd.Parameters.AddWithValue("@BookingID", bookingID);
-                        object result = cmd.ExecuteScalar();
-                        if (result != null && result != DBNull.Value)
+                        using (SqlDataReader reader = cmd.ExecuteReader())
                         {
-                            return result.ToString();
+                            if (reader.Read())
+                            {
+                                string tableNum = reader["RestuarantTableNum"]?.ToString() ?? "";
+                                string tableFeatures = reader["TableFeatures"]?.ToString() ?? "";
+
+                                if (!string.IsNullOrEmpty(tableNum))
+                                {
+                                    return $"Table {tableNum} ({tableFeatures})";
+                                }
+                                else if (!string.IsNullOrEmpty(tableFeatures))
+                                {
+                                    return tableFeatures;
+                                }
+                            }
                         }
                     }
                 }
             }
             catch (Exception)
             {
-                // Fallback
+                // Fallback if any error occurs
             }
 
             return "N/A";
-        }
+        }    
 
         private string GetAssignedRoomNumber(string branchID, string roomType)
         {

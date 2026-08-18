@@ -19,7 +19,6 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BookingManagement));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlBooking = new System.Windows.Forms.Panel();
             this.cmbBranchName = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -141,6 +140,15 @@
             this.label21 = new System.Windows.Forms.Label();
             this.panel14 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.bookingID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.checkinDateDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.checkoutDateDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bookingTotalAmountDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bookingStatusDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.branchNameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.firstNameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lastNameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bookingTypeDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clientBranchTableBookingBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.panel15 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
@@ -161,15 +169,6 @@
             this.taRoomAssignment = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTWOTableAdapters.Room_AssignmentTableAdapter();
             this.taStaff = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTWOTableAdapters.StaffTableAdapter();
             this.taTableAllocation = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTWOTableAdapters.Table_AllocationTableAdapter();
-            this.bookingID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.checkinDateDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.checkoutDateDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bookingTotalAmountDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bookingStatusDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.branchNameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.firstNameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lastNameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bookingTypeDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlBooking.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -1457,14 +1456,6 @@
             // 
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.bookingID,
@@ -1482,6 +1473,67 @@
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.Size = new System.Drawing.Size(1074, 168);
             this.dataGridView1.TabIndex = 34;
+            // 
+            // bookingID
+            // 
+            this.bookingID.DataPropertyName = "Booking_ID";
+            this.bookingID.HeaderText = "BOOKING ID";
+            this.bookingID.Name = "bookingID";
+            this.bookingID.ReadOnly = true;
+            this.bookingID.Width = 120;
+            // 
+            // checkinDateDataGridViewTextBoxColumn1
+            // 
+            this.checkinDateDataGridViewTextBoxColumn1.DataPropertyName = "Checkin_Date";
+            this.checkinDateDataGridViewTextBoxColumn1.HeaderText = "CHECK IN";
+            this.checkinDateDataGridViewTextBoxColumn1.Name = "checkinDateDataGridViewTextBoxColumn1";
+            // 
+            // checkoutDateDataGridViewTextBoxColumn1
+            // 
+            this.checkoutDateDataGridViewTextBoxColumn1.DataPropertyName = "Checkout_Date";
+            this.checkoutDateDataGridViewTextBoxColumn1.HeaderText = "CHECK OUT";
+            this.checkoutDateDataGridViewTextBoxColumn1.Name = "checkoutDateDataGridViewTextBoxColumn1";
+            this.checkoutDateDataGridViewTextBoxColumn1.Width = 110;
+            // 
+            // bookingTotalAmountDataGridViewTextBoxColumn1
+            // 
+            this.bookingTotalAmountDataGridViewTextBoxColumn1.DataPropertyName = "Booking_Total_Amount";
+            this.bookingTotalAmountDataGridViewTextBoxColumn1.HeaderText = "PRICE";
+            this.bookingTotalAmountDataGridViewTextBoxColumn1.Name = "bookingTotalAmountDataGridViewTextBoxColumn1";
+            // 
+            // bookingStatusDataGridViewTextBoxColumn1
+            // 
+            this.bookingStatusDataGridViewTextBoxColumn1.DataPropertyName = "Booking_Status";
+            this.bookingStatusDataGridViewTextBoxColumn1.HeaderText = "STATUS";
+            this.bookingStatusDataGridViewTextBoxColumn1.Name = "bookingStatusDataGridViewTextBoxColumn1";
+            // 
+            // branchNameDataGridViewTextBoxColumn1
+            // 
+            this.branchNameDataGridViewTextBoxColumn1.DataPropertyName = "Branch_Name";
+            this.branchNameDataGridViewTextBoxColumn1.HeaderText = "BRANCH NAME";
+            this.branchNameDataGridViewTextBoxColumn1.Name = "branchNameDataGridViewTextBoxColumn1";
+            this.branchNameDataGridViewTextBoxColumn1.Width = 130;
+            // 
+            // firstNameDataGridViewTextBoxColumn1
+            // 
+            this.firstNameDataGridViewTextBoxColumn1.DataPropertyName = "First_Name";
+            this.firstNameDataGridViewTextBoxColumn1.HeaderText = "FIRST NAME";
+            this.firstNameDataGridViewTextBoxColumn1.Name = "firstNameDataGridViewTextBoxColumn1";
+            this.firstNameDataGridViewTextBoxColumn1.Width = 110;
+            // 
+            // lastNameDataGridViewTextBoxColumn1
+            // 
+            this.lastNameDataGridViewTextBoxColumn1.DataPropertyName = "Last_Name";
+            this.lastNameDataGridViewTextBoxColumn1.HeaderText = "LAST NAME";
+            this.lastNameDataGridViewTextBoxColumn1.Name = "lastNameDataGridViewTextBoxColumn1";
+            this.lastNameDataGridViewTextBoxColumn1.Width = 110;
+            // 
+            // bookingTypeDataGridViewTextBoxColumn1
+            // 
+            this.bookingTypeDataGridViewTextBoxColumn1.DataPropertyName = "Booking_Type";
+            this.bookingTypeDataGridViewTextBoxColumn1.HeaderText = "BOOKING TYPE";
+            this.bookingTypeDataGridViewTextBoxColumn1.Name = "bookingTypeDataGridViewTextBoxColumn1";
+            this.bookingTypeDataGridViewTextBoxColumn1.Width = 130;
             // 
             // clientBranchTableBookingBindingSource1
             // 
@@ -1579,67 +1631,6 @@
             // 
             this.taTableAllocation.ClearBeforeFill = true;
             // 
-            // bookingID
-            // 
-            this.bookingID.DataPropertyName = "Booking_ID";
-            this.bookingID.HeaderText = "BOOKING ID";
-            this.bookingID.Name = "bookingID";
-            this.bookingID.ReadOnly = true;
-            this.bookingID.Width = 120;
-            // 
-            // checkinDateDataGridViewTextBoxColumn1
-            // 
-            this.checkinDateDataGridViewTextBoxColumn1.DataPropertyName = "Checkin_Date";
-            this.checkinDateDataGridViewTextBoxColumn1.HeaderText = "CHECK IN";
-            this.checkinDateDataGridViewTextBoxColumn1.Name = "checkinDateDataGridViewTextBoxColumn1";
-            // 
-            // checkoutDateDataGridViewTextBoxColumn1
-            // 
-            this.checkoutDateDataGridViewTextBoxColumn1.DataPropertyName = "Checkout_Date";
-            this.checkoutDateDataGridViewTextBoxColumn1.HeaderText = "CHECK OUT";
-            this.checkoutDateDataGridViewTextBoxColumn1.Name = "checkoutDateDataGridViewTextBoxColumn1";
-            this.checkoutDateDataGridViewTextBoxColumn1.Width = 110;
-            // 
-            // bookingTotalAmountDataGridViewTextBoxColumn1
-            // 
-            this.bookingTotalAmountDataGridViewTextBoxColumn1.DataPropertyName = "Booking_Total_Amount";
-            this.bookingTotalAmountDataGridViewTextBoxColumn1.HeaderText = "PRICE";
-            this.bookingTotalAmountDataGridViewTextBoxColumn1.Name = "bookingTotalAmountDataGridViewTextBoxColumn1";
-            // 
-            // bookingStatusDataGridViewTextBoxColumn1
-            // 
-            this.bookingStatusDataGridViewTextBoxColumn1.DataPropertyName = "Booking_Status";
-            this.bookingStatusDataGridViewTextBoxColumn1.HeaderText = "STATUS";
-            this.bookingStatusDataGridViewTextBoxColumn1.Name = "bookingStatusDataGridViewTextBoxColumn1";
-            // 
-            // branchNameDataGridViewTextBoxColumn1
-            // 
-            this.branchNameDataGridViewTextBoxColumn1.DataPropertyName = "Branch_Name";
-            this.branchNameDataGridViewTextBoxColumn1.HeaderText = "BRANCH NAME";
-            this.branchNameDataGridViewTextBoxColumn1.Name = "branchNameDataGridViewTextBoxColumn1";
-            this.branchNameDataGridViewTextBoxColumn1.Width = 130;
-            // 
-            // firstNameDataGridViewTextBoxColumn1
-            // 
-            this.firstNameDataGridViewTextBoxColumn1.DataPropertyName = "First_Name";
-            this.firstNameDataGridViewTextBoxColumn1.HeaderText = "FIRST NAME";
-            this.firstNameDataGridViewTextBoxColumn1.Name = "firstNameDataGridViewTextBoxColumn1";
-            this.firstNameDataGridViewTextBoxColumn1.Width = 110;
-            // 
-            // lastNameDataGridViewTextBoxColumn1
-            // 
-            this.lastNameDataGridViewTextBoxColumn1.DataPropertyName = "Last_Name";
-            this.lastNameDataGridViewTextBoxColumn1.HeaderText = "LAST NAME";
-            this.lastNameDataGridViewTextBoxColumn1.Name = "lastNameDataGridViewTextBoxColumn1";
-            this.lastNameDataGridViewTextBoxColumn1.Width = 110;
-            // 
-            // bookingTypeDataGridViewTextBoxColumn1
-            // 
-            this.bookingTypeDataGridViewTextBoxColumn1.DataPropertyName = "Booking_Type";
-            this.bookingTypeDataGridViewTextBoxColumn1.HeaderText = "BOOKING TYPE";
-            this.bookingTypeDataGridViewTextBoxColumn1.Name = "bookingTypeDataGridViewTextBoxColumn1";
-            this.bookingTypeDataGridViewTextBoxColumn1.Width = 130;
-            // 
             // BookingManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
@@ -1654,7 +1645,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "REGAL INN BOOKINGS";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.BookingManagement_Load_1);
+            this.Load += new System.EventHandler(this.BookingManagement_Load);
             this.pnlBooking.ResumeLayout(false);
             this.pnlBooking.PerformLayout();
             this.panel1.ResumeLayout(false);

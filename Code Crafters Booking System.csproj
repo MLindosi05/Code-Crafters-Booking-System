@@ -102,18 +102,6 @@
     <Compile Include="Business\RestaurentBookingForm.Designer.cs">
       <DependentUpon>RestaurentBookingForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Business\RoomsForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Business\RoomsForm.Designer.cs">
-      <DependentUpon>RoomsForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Business\SettingsForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Business\SettingsForm.Designer.cs">
-      <DependentUpon>SettingsForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Common\HelpService.cs" />
     <Compile Include="Common\LoginService.cs" />
     <Compile Include="Common\PasswordResetService.cs" />
@@ -241,12 +229,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Business\RoomManagementForm.resx">
       <DependentUpon>RoomManagementForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Business\RoomsForm.resx">
-      <DependentUpon>RoomsForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Business\SettingsForm.resx">
-      <DependentUpon>SettingsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Business\StaffManagementForm.resx">
       <DependentUpon>StaffManagementForm.cs</DependentUpon>

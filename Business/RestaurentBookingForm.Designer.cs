@@ -56,25 +56,6 @@
             // cmbTableArea
             // 
             this.cmbTableArea.FormattingEnabled = true;
-            this.cmbTableArea.Items.AddRange(new object[] {
-            "Near Bar",
-            "Main Floor",
-            "Family Section",
-            "Street View",
-            "Garden View",
-            "Cozy Comer",
-            "City View",
-            "Private Room",
-            "Near Entrance",
-            "Quiet Zone",
-            "No View",
-            "Center Room",
-            "Poolside View",
-            "Family Area",
-            "Ocean View",
-            "Near Kitchen",
-            "VIP Comer",
-            "Terrace View"});
             this.cmbTableArea.Location = new System.Drawing.Point(96, 46);
             this.cmbTableArea.Name = "cmbTableArea";
             this.cmbTableArea.Size = new System.Drawing.Size(231, 21);
@@ -142,6 +123,7 @@
             this.Name = "RestaurentBookingForm";
             this.Text = "REGAL INN RESTAURANT BOOKING";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.RestaurentBookingForm_Load);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.ResumeLayout(false);

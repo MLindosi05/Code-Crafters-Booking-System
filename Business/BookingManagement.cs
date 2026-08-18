@@ -34,15 +34,8 @@ namespace Code_Crafters_Interface_Prototype_1.Business
             cmbSearchBy.Items.Add("Status");
             cmbSearchBy.Items.Add("Branch");
 
-            // Load table adapter data here once
-            try
-            {
-                this.taClientBranchTableBooking.Fill(this.codeCraftersDSTWO.ClientBranchTableBooking);
-            }
-            catch(Exception ex)
-            {
-                // Handle error silently or log
-            }
+            taClientBranchTableBooking.Fill(codeCraftersDSTWO.ClientBranchTableBooking);
+
         }
 
         private void InitializeDropdowns()
@@ -348,25 +341,49 @@ namespace Code_Crafters_Interface_Prototype_1.Business
                 int children = numChildren != null ? (int)numChildren.Value : 0;
                 int totalGuests = adults + children;
 
+                if (totalGuests <= 0)
+                {
+                    MessageBox.Show("Please select at least one guest (Adults or Children) before proceeding.", "Selection Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    numAdults.Focus();
+                    return;
+                }
+
                 if (taHotelRoom != null)
                 {
                     codeCraftersDSTWO.Hotel_Room.Clear();
                     taHotelRoom.Fill(codeCraftersDSTWO.Hotel_Room);
                 }
 
-                var availableRoom = codeCraftersDSTWO.Hotel_Room.AsEnumerable()
-                    .Where(r =>
-                        r.Field<string>("Branch_ID") == branchID &&
-                        r.Field<string>("hotel_room_type") == roomType &&
-                        totalGuests <= GetRoomCapacity(roomType, r)
-                    )
-                    .FirstOrDefault(r =>
-                        !IsRoomBookedForDates(branchID, r.hotel_room_number, checkIn, checkOut)
-                    );
+                var roomsOfType = codeCraftersDSTWO.Hotel_Room.AsEnumerable()
+                    .Where(r => r.Field<string>("Branch_ID") == branchID && r.Field<string>("hotel_room_type") == roomType)
+                    .ToList();
+
+                // 1. Check if ANY room of this type can ever support this total guest capacity
+                if (!roomsOfType.Any(r => totalGuests <= GetRoomCapacity(roomType, r)))
+                {
+                    MessageBox.Show("The number of guests exceeds the maximum capacity allowed for this room type.", "Capacity Exceeded", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                // 2. Filter rooms that meet the guest capacity requirement first
+                var capacityValidRooms = roomsOfType
+                    .Where(r => totalGuests <= GetRoomCapacity(roomType, r))
+                    .ToList();
+
+                if (!capacityValidRooms.Any())
+                {
+                    MessageBox.Show("The number of guests exceeds the maximum capacity allowed for this room type.", "Capacity Exceeded", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                // 3. Look for an available room from the capacity-valid rooms that isn't booked for these dates
+                var availableRoom = capacityValidRooms
+                    .FirstOrDefault(r => !IsRoomBookedForDates(branchID, r.hotel_room_number, checkIn, checkOut));
 
                 if (availableRoom == null)
                 {
-                    MessageBox.Show("No available rooms of this type match your criteria or dates.", "Fully Booked", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    // This now triggers exclusively when capacity is fine, but all matching rooms are fully booked / date clashed
+                    MessageBox.Show("All rooms of this type are already booked for the selected dates. Please choose different dates or another room type.", "Double Booking / Fully Booked", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
@@ -376,21 +393,18 @@ namespace Code_Crafters_Interface_Prototype_1.Business
                 string bookingTypeStr = roomType + " (Room " + assignedRoomNumber + ")";
                 int activeBookingID = 0;
 
-                // Direct SQL Insertion for Booking and Room Assignment
                 string connectionString = "Server=146.230.177.46;Database=GroupPmb2;User Id=GroupPmb2;Password=gg5dc2;TrustServerCertificate=True;";
 
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
 
-                    // 1. Insert Booking and retrieve the new Booking_ID
-                    // 1. Insert Booking and retrieve the new Booking_ID
                     string insertBookingQuery = @"
-                           INSERT INTO Booking 
-                           (Client_ID, Branch_ID, Booking_Date, Checkin_Date, Checkout_Date, Booking_Total_Amount, Booking_Status, Number_Adults, Number_Children, Booking_Type, Staff_Created_By)
-                           VALUES 
-                           (@ClientID, @BranchID, GETDATE(), @CheckIn, @CheckOut, @TotalAmount, 'Pending', @Adults, @Children, @BookingType, @StaffCreatedBy);
-                           SELECT CAST(SCOPE_IDENTITY() AS INT);";
+                INSERT INTO Booking 
+                (Client_ID, Branch_ID, Booking_Date, Checkin_Date, Checkout_Date, Booking_Total_Amount, Booking_Status, Number_Adults, Number_Children, Booking_Type, Staff_Created_By)
+                VALUES 
+                (@ClientID, @BranchID, GETDATE(), @CheckIn, @CheckOut, @TotalAmount, 'Pending', @Adults, @Children, @BookingType, @StaffCreatedBy);
+                SELECT CAST(SCOPE_IDENTITY() AS INT);";
 
                     using (SqlCommand cmdBooking = new SqlCommand(insertBookingQuery, conn))
                     {
@@ -407,10 +421,11 @@ namespace Code_Crafters_Interface_Prototype_1.Business
                         activeBookingID = (int)cmdBooking.ExecuteScalar();
                     }
 
-                    // 2. Insert into Room_Assignment
                     string roomAssignQuery = @"
-                INSERT INTO Room_Assignment (Booking_ID, Hotel_Room_ID, Actual_CheckIn_Time, Actual_CheckOut_Time, Assignment_Status, Assigned_By, Assigned_Date)
-                VALUES (@BookingID, @HotelRoomID, @CheckIn, @CheckOut, 'Assigned', 'Administrator', GETDATE())";
+                INSERT INTO Room_Assignment (Booking_ID, Hotel_Room_ID, Actual_CheckIn_Time, Actual_CheckOut_Time, Assignment_Status, Room_Notes, Assigned_By, Assigned_Date)
+                VALUES (@BookingID, @HotelRoomID, @CheckIn, @CheckOut, 'Assigned', @RoomNotes, 'Administrator', GETDATE())";
+
+                    string generatedRoomNotes = "Standard room assignment completed successfully.";
 
                     using (SqlCommand cmdAssign = new SqlCommand(roomAssignQuery, conn))
                     {
@@ -418,6 +433,7 @@ namespace Code_Crafters_Interface_Prototype_1.Business
                         cmdAssign.Parameters.AddWithValue("@HotelRoomID", assignedRoomID);
                         cmdAssign.Parameters.AddWithValue("@CheckIn", checkIn);
                         cmdAssign.Parameters.AddWithValue("@CheckOut", checkOut);
+                        cmdAssign.Parameters.AddWithValue("@RoomNotes", generatedRoomNotes);
                         cmdAssign.ExecuteNonQuery();
                     }
                 }
@@ -522,12 +538,13 @@ namespace Code_Crafters_Interface_Prototype_1.Business
             }
         }
 
-        private void BookingManagement_Load_1(object sender, EventArgs e)
-        {
+        //private void BookingManagement_Load_1(object sender, EventArgs e)
+        //{
 
-           this.taClientBranchTableBooking.Fill(this.codeCraftersDSTWO.ClientBranchTableBooking);
+        //   taClientBranchTableBooking.Fill(codeCraftersDSTWO.ClientBranchTableBooking);
 
-        }
+        //}
+
         private int GetSelectedBookingID()
         {
             if (dataGridView1.SelectedRows.Count > 0)

@@ -3117,7 +3117,7 @@ namespace Code_Crafters_Interface_Prototype_1 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public Room_AssignmentRow AddRoom_AssignmentRow(ClientBranchTableBookingRow parentClientBranchTableBookingRowByFK__Room_Assi__Booki__1C5231C21, Hotel_RoomRow parentHotel_RoomRowByFK__Room_Assi__Hotel__1B5E0D89, System.DateTime Actual_CheckIn_Time, System.DateTime Actual_CheckOut_Time, string Assignment_Status, string Room_Notes, int Assigned_By, System.DateTime Assigned_Date) {
+            public Room_AssignmentRow AddRoom_AssignmentRow(ClientBranchTableBookingRow parentClientBranchTableBookingRowByFK__Room_Assi__Booki__1C5231C21, Hotel_RoomRow parentHotel_RoomRowByFK__Room_Assi__Hotel__1B5E0D89, System.DateTime Actual_CheckIn_Time, System.DateTime Actual_CheckOut_Time, string Assignment_Status, string Room_Notes, string Assigned_By, System.DateTime Assigned_Date) {
                 Room_AssignmentRow rowRoom_AssignmentRow = ((Room_AssignmentRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -3192,7 +3192,7 @@ namespace Code_Crafters_Interface_Prototype_1 {
                 base.Columns.Add(this.columnAssignment_Status);
                 this.columnRoom_Notes = new global::System.Data.DataColumn("Room_Notes", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnRoom_Notes);
-                this.columnAssigned_By = new global::System.Data.DataColumn("Assigned_By", typeof(int), null, global::System.Data.MappingType.Element);
+                this.columnAssigned_By = new global::System.Data.DataColumn("Assigned_By", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnAssigned_By);
                 this.columnAssigned_Date = new global::System.Data.DataColumn("Assigned_Date", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnAssigned_Date);
@@ -5544,7 +5544,7 @@ namespace Code_Crafters_Interface_Prototype_1 {
                 this.columnBooking_Status.MaxLength = 50;
                 this.columnCancellation_Reason.MaxLength = 255;
                 this.columnAdmin_Notes.MaxLength = 500;
-                this.columnBooking_Type.MaxLength = 50;
+                this.columnBooking_Type.MaxLength = 900;
                 this.columnSpecial_Request.MaxLength = 250;
                 this.columnStaff_Created_By.MaxLength = 50;
             }
@@ -7366,10 +7366,10 @@ namespace Code_Crafters_Interface_Prototype_1 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int Assigned_By {
+            public string Assigned_By {
                 get {
                     try {
-                        return ((int)(this[this.tableRoom_Assignment.Assigned_ByColumn]));
+                        return ((string)(this[this.tableRoom_Assignment.Assigned_ByColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'Assigned_By\' in table \'Room_Assignment\' is DBNull.", e);

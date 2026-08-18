@@ -1809,7 +1809,7 @@ SELECT Booking_ID, Client_ID, Branch_ID, Booking_Date, Checkin_Date, Checkout_Da
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Assigned_By" msprop:Generator_ColumnPropNameInTable="Assigned_ByColumn" msprop:Generator_ColumnPropNameInRow="Assigned_By" msprop:Generator_UserColumnName="Assigned_By" msprop:Generator_ColumnVarNameInTable="columnAssigned_By" type="xs:int" minOccurs="0" />
+              <xs:element name="Assigned_By" msprop:Generator_ColumnPropNameInTable="Assigned_ByColumn" msprop:Generator_ColumnPropNameInRow="Assigned_By" msprop:Generator_UserColumnName="Assigned_By" msprop:Generator_ColumnVarNameInTable="columnAssigned_By" type="xs:string" minOccurs="0" />
               <xs:element name="Assigned_Date" msprop:Generator_ColumnPropNameInTable="Assigned_DateColumn" msprop:Generator_ColumnPropNameInRow="Assigned_Date" msprop:Generator_UserColumnName="Assigned_Date" msprop:Generator_ColumnVarNameInTable="columnAssigned_Date" type="xs:dateTime" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
@@ -2103,7 +2103,7 @@ SELECT Booking_ID, Client_ID, Branch_ID, Booking_Date, Checkin_Date, Checkout_Da
               <xs:element name="Booking_Type" msprop:Generator_ColumnPropNameInTable="Booking_TypeColumn" msprop:Generator_ColumnPropNameInRow="Booking_Type" msprop:Generator_UserColumnName="Booking_Type" msprop:Generator_ColumnVarNameInTable="columnBooking_Type" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
-                    <xs:maxLength value="50" />
+                    <xs:maxLength value="900" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>

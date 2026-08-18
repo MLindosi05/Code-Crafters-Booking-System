@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Windows.Forms;
 
+
 namespace Code_Crafters_Interface_Prototype_1.Business
 {
     public partial class RestaurentBookingForm : Form
@@ -109,6 +110,14 @@ namespace Code_Crafters_Interface_Prototype_1.Business
                         if (bookingRow != null)
                         {
                             bookingRow.Booking_Total_Amount += totalRestaurantCost;
+
+                            // Append restaurant table info to Booking_Type if not already present
+                            string tableInfoStr = $" + Table {availableTable.RestuarantTableNum} ({availableTable.TableFeatures})";
+                            if (!bookingRow.Booking_Type.Contains(tableInfoStr))
+                            {
+                                bookingRow.Booking_Type += tableInfoStr;
+                            }
+
                             taBooking.Update(codeCraftersDSTWOInstance.Booking);
                         }
                     }
@@ -116,13 +125,18 @@ namespace Code_Crafters_Interface_Prototype_1.Business
                     using (SqlConnection conn = new SqlConnection(connectionString))
                     {
                         conn.Open();
-                        // Correct column name matching your Table_Allocation schema: Restuarant_Table_ID
+
                         string query = @"
                             IF EXISTS (SELECT 1 FROM Table_Allocation WHERE Booking_ID = @BookingID)
                                 UPDATE Table_Allocation SET Restuarant_Table_ID = @RestaurantTableID, Start_Time = @StartTime, End_Time = @EndTime, Allocation_Status = 'Reserved' WHERE Booking_ID = @BookingID;
                             ELSE
                                 INSERT INTO Table_Allocation (Booking_ID, Restuarant_Table_ID, Start_Time, End_Time, Allocation_Status) 
-                                VALUES (@BookingID, @RestaurantTableID, @StartTime, @EndTime, 'Reserved');";
+                                VALUES (@BookingID, @RestaurantTableID, @StartTime, @EndTime, 'Reserved');
+
+                            -- 2. Update Booking_Type to include the restaurant table information
+                            UPDATE Booking 
+                            SET Booking_Type = CONCAT(Booking_Type, ' + Table ', @TableNum, ' (', @TableFeatures, ')')
+                            WHERE Booking_ID = @BookingID AND Booking_Type NOT LIKE '%' + @TableNum + '%';";
 
                         using (SqlCommand cmd = new SqlCommand(query, conn))
                         {
@@ -130,6 +144,8 @@ namespace Code_Crafters_Interface_Prototype_1.Business
                             cmd.Parameters.AddWithValue("@RestaurantTableID", tableID);
                             cmd.Parameters.AddWithValue("@StartTime", _checkIn);
                             cmd.Parameters.AddWithValue("@EndTime", _checkOut);
+                            cmd.Parameters.AddWithValue("@TableNum", availableTable.RestuarantTableNum);
+                            cmd.Parameters.AddWithValue("@TableFeatures", availableTable.TableFeatures);
                             cmd.ExecuteNonQuery();
                         }
                     }
