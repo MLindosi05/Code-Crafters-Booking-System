@@ -70,8 +70,6 @@
             this.lblBookingID = new System.Windows.Forms.Label();
             this.txtSearchEmail = new System.Windows.Forms.TextBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.clientTableAdapter1 = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTableAdapters.ClientTableAdapter();
-            this.clientTableAdapter = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTWOTableAdapters.ClientTableAdapter();
             this.btnBlackList = new System.Windows.Forms.Button();
             this.btnArchive = new System.Windows.Forms.Button();
             this.btnDeactivate = new System.Windows.Forms.Button();
@@ -86,6 +84,8 @@
             this.panel6 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.txtManageEmailAddress = new System.Windows.Forms.TextBox();
+            this.clientTableAdapter1 = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTableAdapters.ClientTableAdapter();
+            this.clientTableAdapter = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTWOTableAdapters.ClientTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.codeCraftersDS)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -154,11 +154,11 @@
             this.groupBox4.Controls.Add(this.panel2);
             this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox4.ForeColor = System.Drawing.Color.White;
-            this.groupBox4.Location = new System.Drawing.Point(592, 288);
+            this.groupBox4.Location = new System.Drawing.Point(280, 187);
             this.groupBox4.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox4.Size = new System.Drawing.Size(732, 354);
+            this.groupBox4.Size = new System.Drawing.Size(580, 354);
             this.groupBox4.TabIndex = 3;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "GUEST DETAILS";
@@ -181,7 +181,7 @@
             this.panel2.ForeColor = System.Drawing.Color.Black;
             this.panel2.Location = new System.Drawing.Point(16, 38);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(693, 292);
+            this.panel2.Size = new System.Drawing.Size(531, 292);
             this.panel2.TabIndex = 0;
             // 
             // label1
@@ -197,30 +197,31 @@
             // 
             // txtContactNumber
             // 
-            this.txtContactNumber.Location = new System.Drawing.Point(172, 211);
+            this.txtContactNumber.Location = new System.Drawing.Point(126, 209);
             this.txtContactNumber.Margin = new System.Windows.Forms.Padding(2);
             this.txtContactNumber.Name = "txtContactNumber";
-            this.txtContactNumber.Size = new System.Drawing.Size(183, 26);
+            this.txtContactNumber.Size = new System.Drawing.Size(165, 26);
             this.txtContactNumber.TabIndex = 30;
             // 
             // pictureBox2
             // 
             this.pictureBox2.Image = global::Code_Crafters_Interface_Prototype_1.Properties.Resources._6478_200;
-            this.pictureBox2.Location = new System.Drawing.Point(511, 84);
+            this.pictureBox2.Location = new System.Drawing.Point(351, 69);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(129, 90);
+            this.pictureBox2.Size = new System.Drawing.Size(145, 105);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 29;
             this.pictureBox2.TabStop = false;
             // 
             // btnSignUp
             // 
-            this.btnSignUp.Location = new System.Drawing.Point(511, 205);
+            this.btnSignUp.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSignUp.Location = new System.Drawing.Point(351, 205);
             this.btnSignUp.Margin = new System.Windows.Forms.Padding(2);
             this.btnSignUp.Name = "btnSignUp";
-            this.btnSignUp.Size = new System.Drawing.Size(129, 32);
+            this.btnSignUp.Size = new System.Drawing.Size(145, 32);
             this.btnSignUp.TabIndex = 26;
-            this.btnSignUp.Text = "Register";
+            this.btnSignUp.Text = "CREATE PROFILE";
             this.btnSignUp.UseVisualStyleBackColor = true;
             this.btnSignUp.Click += new System.EventHandler(this.btnSignUp_Click);
             // 
@@ -237,18 +238,18 @@
             // 
             // txtPhysicalAddress
             // 
-            this.txtPhysicalAddress.Location = new System.Drawing.Point(171, 166);
+            this.txtPhysicalAddress.Location = new System.Drawing.Point(125, 164);
             this.txtPhysicalAddress.Margin = new System.Windows.Forms.Padding(2);
             this.txtPhysicalAddress.Name = "txtPhysicalAddress";
-            this.txtPhysicalAddress.Size = new System.Drawing.Size(184, 26);
+            this.txtPhysicalAddress.Size = new System.Drawing.Size(166, 26);
             this.txtPhysicalAddress.TabIndex = 28;
             // 
             // txtEmailAddress
             // 
-            this.txtEmailAddress.Location = new System.Drawing.Point(171, 123);
+            this.txtEmailAddress.Location = new System.Drawing.Point(125, 121);
             this.txtEmailAddress.Margin = new System.Windows.Forms.Padding(2);
             this.txtEmailAddress.Name = "txtEmailAddress";
-            this.txtEmailAddress.Size = new System.Drawing.Size(184, 26);
+            this.txtEmailAddress.Size = new System.Drawing.Size(166, 26);
             this.txtEmailAddress.TabIndex = 12;
             // 
             // label4
@@ -275,10 +276,10 @@
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(172, 39);
+            this.txtName.Location = new System.Drawing.Point(126, 37);
             this.txtName.Margin = new System.Windows.Forms.Padding(2);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(183, 26);
+            this.txtName.Size = new System.Drawing.Size(165, 26);
             this.txtName.TabIndex = 0;
             // 
             // label6
@@ -294,10 +295,10 @@
             // 
             // txtSurname
             // 
-            this.txtSurname.Location = new System.Drawing.Point(171, 81);
+            this.txtSurname.Location = new System.Drawing.Point(125, 79);
             this.txtSurname.Margin = new System.Windows.Forms.Padding(2);
             this.txtSurname.Name = "txtSurname";
-            this.txtSurname.Size = new System.Drawing.Size(184, 26);
+            this.txtSurname.Size = new System.Drawing.Size(166, 26);
             this.txtSurname.TabIndex = 1;
             // 
             // tabPage2
@@ -320,36 +321,37 @@
             // 
             // btnArchived
             // 
-            this.btnArchived.Location = new System.Drawing.Point(1200, 252);
+            this.btnArchived.Location = new System.Drawing.Point(737, 205);
             this.btnArchived.Name = "btnArchived";
-            this.btnArchived.Size = new System.Drawing.Size(176, 30);
+            this.btnArchived.Size = new System.Drawing.Size(120, 30);
             this.btnArchived.TabIndex = 19;
             this.btnArchived.Text = "ARCHIVED";
             this.btnArchived.UseVisualStyleBackColor = true;
+            this.btnArchived.Click += new System.EventHandler(this.btnArchived_Click);
             // 
             // btnActive
             // 
-            this.btnActive.Location = new System.Drawing.Point(899, 204);
+            this.btnActive.Location = new System.Drawing.Point(539, 157);
             this.btnActive.Name = "btnActive";
-            this.btnActive.Size = new System.Drawing.Size(176, 30);
+            this.btnActive.Size = new System.Drawing.Size(129, 30);
             this.btnActive.TabIndex = 18;
             this.btnActive.Text = "ACTIVE";
             this.btnActive.UseVisualStyleBackColor = true;
             // 
             // btnBlacklisted
             // 
-            this.btnBlacklisted.Location = new System.Drawing.Point(899, 252);
+            this.btnBlacklisted.Location = new System.Drawing.Point(539, 205);
             this.btnBlacklisted.Name = "btnBlacklisted";
-            this.btnBlacklisted.Size = new System.Drawing.Size(176, 30);
+            this.btnBlacklisted.Size = new System.Drawing.Size(129, 30);
             this.btnBlacklisted.TabIndex = 17;
             this.btnBlacklisted.Text = "BLACKLISTED";
             this.btnBlacklisted.UseVisualStyleBackColor = true;
             // 
             // btnInactive
             // 
-            this.btnInactive.Location = new System.Drawing.Point(1200, 204);
+            this.btnInactive.Location = new System.Drawing.Point(737, 157);
             this.btnInactive.Name = "btnInactive";
-            this.btnInactive.Size = new System.Drawing.Size(176, 30);
+            this.btnInactive.Size = new System.Drawing.Size(120, 30);
             this.btnInactive.TabIndex = 16;
             this.btnInactive.Text = "INACTIVE";
             this.btnInactive.UseVisualStyleBackColor = true;
@@ -358,9 +360,9 @@
             // 
             this.panel4.BackColor = System.Drawing.Color.WhiteSmoke;
             this.panel4.Controls.Add(this.pictureBox3);
-            this.panel4.Location = new System.Drawing.Point(489, 102);
+            this.panel4.Location = new System.Drawing.Point(260, 47);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(275, 193);
+            this.panel4.Size = new System.Drawing.Size(241, 193);
             this.panel4.TabIndex = 15;
             // 
             // pictureBox3
@@ -368,7 +370,7 @@
             this.pictureBox3.Image = global::Code_Crafters_Interface_Prototype_1.Properties.Resources.booking_hotel;
             this.pictureBox3.Location = new System.Drawing.Point(18, 12);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(239, 168);
+            this.pictureBox3.Size = new System.Drawing.Size(205, 168);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox3.TabIndex = 6;
             this.pictureBox3.TabStop = false;
@@ -387,10 +389,10 @@
             this.clientStatusDataGridViewTextBoxColumn,
             this.dateRegisteredDataGridViewTextBoxColumn});
             this.dgvBookings.DataSource = this.clientBindingSource;
-            this.dgvBookings.Location = new System.Drawing.Point(489, 320);
+            this.dgvBookings.Location = new System.Drawing.Point(260, 265);
             this.dgvBookings.Name = "dgvBookings";
             this.dgvBookings.RowHeadersWidth = 51;
-            this.dgvBookings.Size = new System.Drawing.Size(887, 550);
+            this.dgvBookings.Size = new System.Drawing.Size(597, 480);
             this.dgvBookings.TabIndex = 13;
             // 
             // clientIDDataGridViewTextBoxColumn
@@ -456,16 +458,16 @@
             this.panel1.BackColor = System.Drawing.Color.WhiteSmoke;
             this.panel1.Controls.Add(this.lblBookingID);
             this.panel1.Controls.Add(this.txtSearchEmail);
-            this.panel1.Location = new System.Drawing.Point(899, 102);
+            this.panel1.Location = new System.Drawing.Point(539, 47);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(477, 64);
+            this.panel1.Size = new System.Drawing.Size(318, 72);
             this.panel1.TabIndex = 14;
             // 
             // lblBookingID
             // 
             this.lblBookingID.AutoSize = true;
             this.lblBookingID.Font = new System.Drawing.Font("Segoe UI", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBookingID.Location = new System.Drawing.Point(12, 21);
+            this.lblBookingID.Location = new System.Drawing.Point(20, 23);
             this.lblBookingID.Name = "lblBookingID";
             this.lblBookingID.Size = new System.Drawing.Size(200, 17);
             this.lblBookingID.TabIndex = 2;
@@ -473,9 +475,9 @@
             // 
             // txtSearchEmail
             // 
-            this.txtSearchEmail.Location = new System.Drawing.Point(218, 18);
+            this.txtSearchEmail.Location = new System.Drawing.Point(161, 21);
             this.txtSearchEmail.Name = "txtSearchEmail";
-            this.txtSearchEmail.Size = new System.Drawing.Size(241, 22);
+            this.txtSearchEmail.Size = new System.Drawing.Size(144, 22);
             this.txtSearchEmail.TabIndex = 1;
             // 
             // tabPage3
@@ -493,40 +495,35 @@
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "MANAGE GUESTS";
             // 
-            // clientTableAdapter1
-            // 
-            this.clientTableAdapter1.ClearBeforeFill = true;
-            // 
-            // clientTableAdapter
-            // 
-            this.clientTableAdapter.ClearBeforeFill = true;
-            // 
             // btnBlackList
             // 
-            this.btnBlackList.Location = new System.Drawing.Point(858, 198);
+            this.btnBlackList.Location = new System.Drawing.Point(463, 187);
             this.btnBlackList.Name = "btnBlackList";
-            this.btnBlackList.Size = new System.Drawing.Size(212, 30);
+            this.btnBlackList.Size = new System.Drawing.Size(158, 30);
             this.btnBlackList.TabIndex = 18;
             this.btnBlackList.Text = "BLACKLIST GUEST";
             this.btnBlackList.UseVisualStyleBackColor = true;
+            this.btnBlackList.Click += new System.EventHandler(this.btnBlackList_Click);
             // 
             // btnArchive
             // 
-            this.btnArchive.Location = new System.Drawing.Point(1191, 198);
+            this.btnArchive.Location = new System.Drawing.Point(673, 187);
             this.btnArchive.Name = "btnArchive";
-            this.btnArchive.Size = new System.Drawing.Size(193, 30);
+            this.btnArchive.Size = new System.Drawing.Size(170, 30);
             this.btnArchive.TabIndex = 17;
             this.btnArchive.Text = "ARCHIVE GUEST";
             this.btnArchive.UseVisualStyleBackColor = true;
+            this.btnArchive.Click += new System.EventHandler(this.btnArchive_Click);
             // 
             // btnDeactivate
             // 
-            this.btnDeactivate.Location = new System.Drawing.Point(497, 198);
+            this.btnDeactivate.Location = new System.Drawing.Point(252, 187);
             this.btnDeactivate.Name = "btnDeactivate";
-            this.btnDeactivate.Size = new System.Drawing.Size(212, 30);
+            this.btnDeactivate.Size = new System.Drawing.Size(166, 30);
             this.btnDeactivate.TabIndex = 16;
             this.btnDeactivate.Text = "DEACTIVATE GUEST";
             this.btnDeactivate.UseVisualStyleBackColor = true;
+            this.btnDeactivate.Click += new System.EventHandler(this.btnDeactivate_Click);
             // 
             // dgvManageClients
             // 
@@ -542,10 +539,10 @@
             this.dataGridViewTextBoxColumn8,
             this.dataGridViewTextBoxColumn9});
             this.dgvManageClients.DataSource = this.clientBindingSource;
-            this.dgvManageClients.Location = new System.Drawing.Point(497, 255);
+            this.dgvManageClients.Location = new System.Drawing.Point(252, 244);
             this.dgvManageClients.Name = "dgvManageClients";
             this.dgvManageClients.RowHeadersWidth = 51;
-            this.dgvManageClients.Size = new System.Drawing.Size(887, 550);
+            this.dgvManageClients.Size = new System.Drawing.Size(591, 500);
             this.dgvManageClients.TabIndex = 14;
             // 
             // Client_ID
@@ -601,9 +598,9 @@
             this.panel6.BackColor = System.Drawing.Color.WhiteSmoke;
             this.panel6.Controls.Add(this.label3);
             this.panel6.Controls.Add(this.txtManageEmailAddress);
-            this.panel6.Location = new System.Drawing.Point(497, 88);
+            this.panel6.Location = new System.Drawing.Point(252, 77);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(454, 64);
+            this.panel6.Size = new System.Drawing.Size(369, 64);
             this.panel6.TabIndex = 15;
             // 
             // label3
@@ -618,10 +615,19 @@
             // 
             // txtManageEmailAddress
             // 
-            this.txtManageEmailAddress.Location = new System.Drawing.Point(218, 18);
+            this.txtManageEmailAddress.Location = new System.Drawing.Point(168, 19);
             this.txtManageEmailAddress.Name = "txtManageEmailAddress";
-            this.txtManageEmailAddress.Size = new System.Drawing.Size(223, 22);
+            this.txtManageEmailAddress.Size = new System.Drawing.Size(175, 22);
             this.txtManageEmailAddress.TabIndex = 1;
+            this.txtManageEmailAddress.TextChanged += new System.EventHandler(this.txtManageEmailAddress_TextChanged);
+            // 
+            // clientTableAdapter1
+            // 
+            this.clientTableAdapter1.ClearBeforeFill = true;
+            // 
+            // clientTableAdapter
+            // 
+            this.clientTableAdapter.ClearBeforeFill = true;
             // 
             // GuestManagementForm
             // 

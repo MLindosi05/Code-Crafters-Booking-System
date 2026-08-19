@@ -38,7 +38,6 @@ namespace Code_Crafters_Interface_Prototype_1.Interfaces
             panel7.BackColor = Theme.Brown;
             panel8.BackColor = Theme.Brown;
 
-            panel9.BackColor = Theme.Panel;
             panel11.BackColor = Theme.Panel;
             panel12.BackColor = Theme.Panel;
             panel13.BackColor = Theme.Panel;

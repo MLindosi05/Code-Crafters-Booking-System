@@ -1,314 +1,463 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using Code_Crafters_Interface_Prototype_1.Common;
+using Code_Crafters_Interface_Prototype_1.Interfaces;
+using System;
 using System.Data;
-using System.Drawing;
+using System.Data.SqlClient;
 using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 
 namespace Code_Crafters_Interface_Prototype_1.Business
 {
     public partial class StaffManagementForm : Form
     {
+        private string connectionString = "Server=146.230.177.46;Database=GroupPmb2;User Id=GroupPmb2;Password=gg5dc2;TrustServerCertificate=True;";
+
         public StaffManagementForm()
         {
             InitializeComponent();
         }
 
+        #region Form Load
+
         private void StaffManagementForm_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'codeCraftersDSTWO.Staff' table. You can move, or remove it, as needed.
-            this.taStaffs.Fill(this.codeCraftersDSTWO.Staff);
-            this.BackColor = ColorTranslator.FromHtml("#F9EED8");
-            panel1.BackColor = ColorTranslator.FromHtml("#F8F5F0");
-            panel3.BackColor = ColorTranslator.FromHtml("#966919");
+            ApplyTheme();
 
-            btnStaffAdd.BackColor = ColorTranslator.FromHtml("#C99A2E");
-            btnStaffAdd.ForeColor = Color.White;
+            btnStaffActive.Click += btnStaffActive_Click;
+            btnStaffInactive.Click += btnStaffInactive_Click;
+            btnStaffOnleave.Click += btnStaffOnleave_Click;
+            btnStaffSuspended.Click += btnStaffSuspended_Click;
+            txtSearchStaffEmail.TextChanged += txtSearchStaffEmail_TextChanged;
+            txtManageStaffEmailAddress.TextChanged += txtManageStaffEmailAddress_TextChanged;
 
-            btnStaffClear.BackColor = ColorTranslator.FromHtml("#C99A2E");
-            btnStaffClear.ForeColor = Color.White;
-
-            btnStaffDelete.BackColor = ColorTranslator.FromHtml("#C99A2E");
-            btnStaffDelete.ForeColor = Color.White;
-
-            btnStaffUpdate.BackColor = ColorTranslator.FromHtml("#C99A2E");
-            btnStaffUpdate.ForeColor = Color.White;
-
+            // Load data into both grids on startup
+            LoadStaffData();
+            LoadManageStaffData();
         }
 
-        /// <summary>
-        /// Centralized validation method to handle all text box and combo box criteria.
-        /// </summary>
-        private bool ValidateStaffInputs()
+        private void ApplyTheme()
         {
-            if (string.IsNullOrWhiteSpace(txtStaffName.Text) ||
-                string.IsNullOrWhiteSpace(txtStaffSurname.Text) ||
-                string.IsNullOrWhiteSpace(txtStaffAddress.Text) ||
-                string.IsNullOrWhiteSpace(txtPhoneNumber.Text) ||
-                string.IsNullOrWhiteSpace(txtEmailAddress.Text) ||
-                string.IsNullOrWhiteSpace(txtStaffPassword.Text))
-            {
-                MessageBox.Show("All text fields must be filled in.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return false;
-            }
+            BackColor = System.Drawing.Color.FromArgb(242, 244, 247);
+            panel2.BackColor = System.Drawing.Color.White;
 
-            if (cmbBranchID.SelectedIndex == -1 || string.IsNullOrWhiteSpace(cmbBranchID.Text))
-            {
-                MessageBox.Show("Please select a valid Branch ID.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return false;
-            }
-            if (cmbStaffRole.SelectedIndex == -1 || string.IsNullOrWhiteSpace(cmbStaffRole.Text))
-            {
-                MessageBox.Show("Please select a valid Staff Role.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return false;
-            }
-            if (cmbStaffStatus.SelectedIndex == -1 || string.IsNullOrWhiteSpace(cmbStaffStatus.Text))
-            {
-                MessageBox.Show("Please select a valid Staff Status.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return false;
-            }
+            ButtonStyler.Apply(btnRegisterStaff);
+            ButtonStyler.Apply(btnStaffActive);
+            ButtonStyler.Apply(btnStaffInactive);
+            ButtonStyler.Apply(btnStaffOnleave);
+            ButtonStyler.Apply(btnStaffSuspended);
 
-            string cleanPhone = Regex.Replace(txtPhoneNumber.Text.Trim(), @"\s+", "");
-            if (!Regex.IsMatch(cleanPhone, @"^\d{10}$"))
-            {
-                MessageBox.Show("Please enter a valid 10-digit numeric phone number.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return false;
-            }
+            ButtonStyler.Apply(btnStaffDeactivate);
+            ButtonStyler.Apply(btnSuspend);
+            ButtonStyler.Apply(btnAuthorize);
 
-            string emailPattern = @"^[^@\s]+@regalinn\.co\.za$";
-            if (!Regex.IsMatch(txtEmailAddress.Text.Trim(), emailPattern, RegexOptions.IgnoreCase))
-            {
-                MessageBox.Show("Staff members must use an official corporate email address ending with @regalinn.co.za",
-                                "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return false;
-            }
+            groupBox4.BackColor = System.Drawing.Color.FromArgb(30, 42, 58);
+            groupBox4.ForeColor = System.Drawing.Color.White;
 
-            if (txtStaffPassword.Text.Length < 6)
-            {
-                MessageBox.Show("Password must be at least 6 characters long.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return false;
-            }
-
-            return true; 
+            ConfigureDataGridViewTheme();
         }
 
-        private void btnStaffAdd_Click(object sender, EventArgs e)
+        private void ConfigureDataGridViewTheme()
         {
-            if (!ValidateStaffInputs()) return;
+            ConfigureSingleGridTheme(dgvStaffs);
+            ConfigureSingleGridTheme(dgvManageStaff);
+        }
 
+        private void ConfigureSingleGridTheme(DataGridView grid)
+        {
+            grid.BackgroundColor = System.Drawing.Color.White;
+            grid.BorderStyle = BorderStyle.None;
+            grid.EnableHeadersVisualStyles = false;
+
+            grid.ColumnHeadersDefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(0, 53, 128);
+            grid.ColumnHeadersDefaultCellStyle.ForeColor = System.Drawing.Color.White;
+            grid.ColumnHeadersDefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
+            grid.ColumnHeadersHeight = 35;
+
+            grid.RowsDefaultCellStyle.BackColor = System.Drawing.Color.White;
+            grid.AlternatingRowsDefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(248, 249, 250);
+            grid.RowsDefaultCellStyle.ForeColor = System.Drawing.Color.FromArgb(33, 37, 41);
+
+            grid.RowsDefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(0, 113, 228);
+            grid.RowsDefaultCellStyle.SelectionForeColor = System.Drawing.Color.White;
+            grid.RowTemplate.Height = 28;
+        }
+
+        #endregion
+
+        #region Filtering and Grid Loading
+
+        private void LoadStaffData(string statusFilter = "", string emailSearch = "")
+        {
             try
             {
-                taStaffs.Fill(codeCraftersDSTWO.Staff);
-
-                string inputPhone = Regex.Replace(txtPhoneNumber.Text.Trim(), @"\s+", "");
-                string inputEmail = txtEmailAddress.Text.Trim();
-
-                bool duplicateExists = codeCraftersDSTWO.Staff.AsEnumerable().Any(row =>
-                    string.Equals(Regex.Replace(row.Field<string>("staff_phone_number") ?? "", @"\s+", ""), inputPhone, StringComparison.OrdinalIgnoreCase) ||
-                    string.Equals(row.Field<string>("staff_email") ?? "", inputEmail, StringComparison.OrdinalIgnoreCase)
-                );
-
-                if (duplicateExists)
+                using (SqlConnection conn = new SqlConnection(connectionString))
                 {
-                    MessageBox.Show("A staff member with this phone number or email address already exists.",
-                                    "Duplicate Record Found",
-                                    MessageBoxButtons.OK,
-                                    MessageBoxIcon.Warning);
-                    return; 
-                }
+                    conn.Open();
+                    string query = @"
+                        SELECT [staff_ID], [Branch_ID], [staff_First_Name], [staff_Surname], [staff_Email], [staff_phone_number], [staff_role], [staff_status], [date_joined] 
+                        FROM [GroupPmb2].[dbo].[Staff] 
+                        WHERE 1=1";
 
-                taStaffs.InsertNewStaff(
-                    cmbBranchID.Text,
-                    txtStaffName.Text,
-                    txtStaffSurname.Text,
-                    txtStaffAddress.Text,
-                    txtPhoneNumber.Text,
-                    txtEmailAddress.Text,
-                    cmbStaffRole.Text,
-                    DateTime.Now,
-                    cmbStaffStatus.Text,
-                    txtStaffPassword.Text
-                );
+                    if (!string.IsNullOrEmpty(statusFilter))
+                    {
+                        query += " AND RTRIM([staff_status]) = RTRIM(@Status)";
+                    }
 
-                taClients.InsertNewClient(
-                    txtStaffName.Text,
-                    txtStaffSurname.Text,
-                    txtStaffPassword.Text,
-                    txtEmailAddress.Text,
-                    txtStaffAddress.Text,
-                    txtPhoneNumber.Text
-                );
+                    if (!string.IsNullOrEmpty(emailSearch))
+                    {
+                        query += " AND [staff_Email] LIKE @Email + '%'";
+                    }
 
-                MessageBox.Show("New staff member added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        if (!string.IsNullOrEmpty(statusFilter))
+                        {
+                            cmd.Parameters.AddWithValue("@Status", statusFilter);
+                        }
 
-                taStaffs.Fill(codeCraftersDSTWO.Staff);
-                taClients.Fill(codeCraftersDSTWO.Client);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"An error occurred while saving: {ex.Message}", "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
+                        if (!string.IsNullOrEmpty(emailSearch))
+                        {
+                            cmd.Parameters.AddWithValue("@Email", emailSearch);
+                        }
 
-        private void btnStaffClear_Click(object sender, EventArgs e)
-        {
-            txtStaffID.Clear();
-            txtStaffName.Clear();
-            txtStaffSurname.Clear();
-            txtStaffAddress.Clear();
-            txtPhoneNumber.Clear();
-            txtStaffPassword.Clear();
-            txtEmailAddress.Clear();
-
-            cmbBranchID.SelectedIndex = -1;
-            cmbStaffRole.SelectedIndex = -1;
-            cmbStaffStatus.SelectedIndex = -1;
-
-            codeCraftersDSTWO.Staff.Clear();
-        }
-
-        private void btnStaffUpdate_Click(object sender, EventArgs e)
-        {
-            string staffID = txtStaffID.Text.Trim();
-
-            if (string.IsNullOrWhiteSpace(staffID))
-            {
-                MessageBox.Show("Please search for or enter a valid Staff NO. before updating.", "Missing NO.", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            if (!ValidateStaffInputs()) return;
-
-            DialogResult result = MessageBox.Show($"Are you sure you want to save updates for Staff NO. {staffID}?",
-                                                  "Confirm Update",
-                                                  MessageBoxButtons.YesNo,
-                                                  MessageBoxIcon.Question);
-
-            if (result == DialogResult.Yes)
-            {
-                try
-                {
-                    taStaffs.UpdateStaff(
-                        cmbBranchID.Text,
-                        txtStaffName.Text,
-                        txtStaffSurname.Text,
-                        txtStaffAddress.Text,
-                        txtPhoneNumber.Text,
-                        txtEmailAddress.Text,
-                        cmbStaffRole.Text,
-                        cmbStaffStatus.Text,
-                        txtStaffPassword.Text,
-                        staffID
-                    );
-
-                    MessageBox.Show("Staff record updated successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                    taStaffs.Fill(codeCraftersDSTWO.Staff);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"An error occurred while updating: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-        }
-
-        private void btnStaffDelete_Click(object sender, EventArgs e)
-        {
-            string staffID = txtStaffID.Text.Trim();
-
-            if (string.IsNullOrWhiteSpace(staffID))
-            {
-                MessageBox.Show("Please enter or search for a valid Staff NO. to delete.", "Missing NO.", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            DialogResult result = MessageBox.Show($"Are you sure you want to delete Staff NO. {staffID}?",
-                                                  "Confirm Deletion",
-                                                  MessageBoxButtons.YesNo,
-                                                  MessageBoxIcon.Question);
-
-            if (result == DialogResult.Yes)
-            {
-                try
-                {
-                    taStaffs.DeleteQuery(staffID);
-
-                    MessageBox.Show("Staff record deleted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                    txtStaffID.Clear();
-
-                    taStaffs.Fill(codeCraftersDSTWO.Staff);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"An error occurred while deleting: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-        }
-
-        private void txtStaffID_TextChanged(object sender, EventArgs e)
-        {
-            string input = txtStaffID.Text.Trim();
-
-            if (string.IsNullOrWhiteSpace(input))
-            {
-                ClearInputFieldsValuesOnly();
-                codeCraftersDSTWO.Staff.Clear();
-                return;
-            }
-
-        
-            try
-            {
-                taStaffs.FillByStaffNo(codeCraftersDSTWO.Staff, input);
-
-                if (codeCraftersDSTWO.Staff.Rows.Count > 0)
-                {
-                    DataRow row = codeCraftersDSTWO.Staff.Rows[0];
-
-                    cmbBranchID.Text = row["Branch_ID"]?.ToString() ?? "";
-                    txtStaffName.Text = row["staff_First_Name"]?.ToString() ?? "";
-                    txtStaffSurname.Text = row["staff_Surname"]?.ToString() ?? "";
-                    txtStaffAddress.Text = row["staff_Address"]?.ToString() ?? "";
-                    txtPhoneNumber.Text = row["staff_phone_number"]?.ToString() ?? "";
-                    txtEmailAddress.Text = row["staff_email"]?.ToString() ?? "";
-                    cmbStaffRole.Text = row["staff_role"]?.ToString() ?? "";
-                    cmbStaffStatus.Text = row["staff_status"]?.ToString() ?? "";
-                    txtStaffPassword.Text = row["staff_Password"]?.ToString() ?? "";
-                }
-                else
-                {
-                    ClearInputFieldsValuesOnly();
+                        using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
+                        {
+                            DataTable dt = new DataTable();
+                            adapter.Fill(dt);
+                            dgvStaffs.DataSource = dt;
+                        }
+                    }
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Search Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error loading view staff: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        private void ClearInputFieldsValuesOnly()
+        private void LoadManageStaffData(string emailSearch = "")
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    string query = @"
+                        SELECT [staff_ID], [Branch_ID], [staff_First_Name], [staff_Surname], [staff_Email], [staff_phone_number], [staff_role], [staff_status], [date_joined] 
+                        FROM [GroupPmb2].[dbo].[Staff] 
+                        WHERE 1=1";
+
+                    if (!string.IsNullOrEmpty(emailSearch))
+                    {
+                        query += " AND [staff_Email] LIKE @Email + '%'";
+                    }
+
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        if (!string.IsNullOrEmpty(emailSearch))
+                        {
+                            cmd.Parameters.AddWithValue("@Email", emailSearch);
+                        }
+
+                        using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
+                        {
+                            DataTable dt = new DataTable();
+                            adapter.Fill(dt);
+                            dgvManageStaff.DataSource = dt;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading manage staff: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        #endregion
+
+        #region Status Button Handlers & Search
+
+        private void btnStaffActive_Click(object sender, EventArgs e)
+        {
+            LoadStaffData("Active", txtSearchStaffEmail.Text.Trim());
+        }
+
+        private void btnStaffInactive_Click(object sender, EventArgs e)
+        {
+            LoadStaffData("Inactive", txtSearchStaffEmail.Text.Trim());
+        }
+
+        private void btnStaffOnleave_Click(object sender, EventArgs e)
+        {
+            LoadStaffData("On Leave", txtSearchStaffEmail.Text.Trim());
+        }
+
+        private void btnStaffSuspended_Click(object sender, EventArgs e)
+        {
+            LoadStaffData("Suspended", txtSearchStaffEmail.Text.Trim());
+        }
+
+        private void txtSearchStaffEmail_TextChanged(object sender, EventArgs e)
+        {
+            LoadStaffData("", txtSearchStaffEmail.Text.Trim());
+        }
+
+        private void txtManageStaffEmailAddress_TextChanged(object sender, EventArgs e)
+        {
+            LoadManageStaffData(txtManageStaffEmailAddress.Text.Trim());
+        }
+
+        #endregion
+
+        #region Registration
+
+        private void btnRegisterStaff_Click(object sender, EventArgs e)
+        {
+            if (!ValidateInput())
+                return;
+
+            SaveStaff();
+        }
+
+        private bool ValidateInput()
+        {
+            string firstName = txtStaffName.Text.Trim();
+            string surname = txtStaffSurname.Text.Trim();
+            string email = txtStaffEmailAddress.Text.Trim();
+            string phone = txtStaffContactNumber.Text.Trim();
+
+            if (string.IsNullOrWhiteSpace(firstName) ||
+                string.IsNullOrWhiteSpace(surname) ||
+                string.IsNullOrWhiteSpace(email) ||
+                string.IsNullOrWhiteSpace(phone))
+            {
+                MessageService.Warning("Please complete all required fields.");
+                return false;
+            }
+
+            if (firstName.Any(char.IsDigit) || surname.Any(char.IsDigit))
+            {
+                MessageService.Warning("Names may only contain alphabetic characters.");
+                return false;
+            }
+
+            if (phone.Length != 10 || !phone.All(char.IsDigit))
+            {
+                MessageService.Warning("Phone number must contain exactly 10 digits.");
+                return false;
+            }
+
+            return true;
+        }
+
+        private void SaveStaff()
+        {
+            try
+            {
+                string firstName = txtStaffName.Text.Trim();
+                string surname = txtStaffSurname.Text.Trim();
+                string email = txtStaffEmailAddress.Text.Trim();
+                string address = txtStaffAddress.Text.Trim();
+                string phone = txtStaffContactNumber.Text.Trim();
+
+                using (SqlConnection connCheck = new SqlConnection(connectionString))
+                {
+                    connCheck.Open();
+                    string checkQuery = "SELECT COUNT(*) FROM [GroupPmb2].[dbo].[Staff] WHERE [staff_phone_number] = @Phone";
+                    using (SqlCommand cmdCheck = new SqlCommand(checkQuery, connCheck))
+                    {
+                        cmdCheck.Parameters.AddWithValue("@Phone", phone);
+                        int phoneCount = (int)cmdCheck.ExecuteScalar();
+
+                        if (phoneCount > 0)
+                        {
+                            MessageService.Warning("Staff phone number already exists.");
+                            return;
+                        }
+                    }
+                }
+
+                string password = firstName + "@" + phone.Substring(0, 2);
+                string staffStatus = "Active";
+                string staffRole = email.EndsWith("@regalinn.co.za", StringComparison.OrdinalIgnoreCase) ? "Administrator" : "Cleaner";
+                int defaultBranchId = 1;
+
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+
+                    // Begin a local transaction to ensure both inserts succeed or fail together
+                    using (SqlTransaction transaction = conn.BeginTransaction())
+                    {
+                        try
+                        {
+                            // 1. Insert into Staff Table
+                            string insertStaffQuery = @"
+                        INSERT INTO [GroupPmb2].[dbo].[Staff] 
+                        ([Branch_ID], [staff_First_Name], [staff_Surname], [staff_Address], [staff_phone_number], [staff_email], [staff_role], [date_joined], [staff_status], [staff_Password], [Last_Login], [Failed_Login_Count], [Password_Changed_Date])
+                        VALUES 
+                        (@BranchID, @FirstName, @LastName, @Address, @Phone, @Email, @Role, GETDATE(), @Status, @Password, NULL, NULL, NULL);";
+
+                            using (SqlCommand cmdStaff = new SqlCommand(insertStaffQuery, conn, transaction))
+                            {
+                                cmdStaff.Parameters.AddWithValue("@BranchID", defaultBranchId);
+                                cmdStaff.Parameters.AddWithValue("@FirstName", firstName);
+                                cmdStaff.Parameters.AddWithValue("@LastName", surname);
+                                cmdStaff.Parameters.AddWithValue("@Address", address);
+                                cmdStaff.Parameters.AddWithValue("@Phone", phone);
+                                cmdStaff.Parameters.AddWithValue("@Email", email);
+                                cmdStaff.Parameters.AddWithValue("@Role", staffRole);
+                                cmdStaff.Parameters.AddWithValue("@Status", staffStatus);
+                                cmdStaff.Parameters.AddWithValue("@Password", password);
+
+                                cmdStaff.ExecuteNonQuery();
+                            }
+
+                            // 2. Insert into Client Table (Since staff is also a client)
+                            string insertClientQuery = @"
+                        INSERT INTO [GroupPmb2].[dbo].[Client] 
+                        ([First_Name], [Last_Name], [Password], [Email_Address], [Client_Address], [Phone_Number], [Client_Status], [Date_Registered], [Last_Login])
+                        VALUES 
+                        (@FirstName, @LastName, @Password, @Email, @Address, @Phone, @Status, GETDATE(), NULL);";
+
+                            using (SqlCommand cmdClient = new SqlCommand(insertClientQuery, conn, transaction))
+                            {
+                                cmdClient.Parameters.AddWithValue("@FirstName", firstName);
+                                cmdClient.Parameters.AddWithValue("@LastName", surname);
+                                cmdClient.Parameters.AddWithValue("@Password", password);
+                                cmdClient.Parameters.AddWithValue("@Email", email);
+                                cmdClient.Parameters.AddWithValue("@Address", address);
+                                cmdClient.Parameters.AddWithValue("@Phone", phone);
+                                cmdClient.Parameters.AddWithValue("@Status", staffStatus);
+
+                                cmdClient.ExecuteNonQuery();
+                            }
+
+                            // Commit transaction if both inserts succeed
+                            transaction.Commit();
+                        }
+                        catch
+                        {
+                            // Rollback if any error occurs
+                            transaction.Rollback();
+                            throw;
+                        }
+                    }
+                }
+
+                MessageService.Success("Staff account created and added to both staffs and clients successfully.");
+
+                ClearFields();
+                LoadStaffData();
+                LoadManageStaffData();
+                this.DialogResult = DialogResult.OK;
+            }
+            catch (Exception ex)
+            {
+                MessageService.Error(ex.Message);
+            }
+        }
+
+        #endregion
+
+        #region Helpers
+
+        private void ClearFields()
         {
             txtStaffName.Clear();
             txtStaffSurname.Clear();
+            txtStaffEmailAddress.Clear();
             txtStaffAddress.Clear();
-            txtPhoneNumber.Clear();
-            txtStaffPassword.Clear();
-            txtEmailAddress.Clear();
+            txtStaffContactNumber.Clear();
 
-            cmbBranchID.SelectedIndex = -1;
-            cmbStaffRole.SelectedIndex = -1;
-            cmbStaffStatus.SelectedIndex = -1;
-
-            cmbBranchID.Text = "";
-            cmbStaffRole.Text = "";
-            cmbStaffStatus.Text = "";
+            txtStaffName.Focus();
         }
 
+        #endregion
 
+        #region Management & Status Updates
+
+        private void UpdateStaffStatus(string newStatus)
+        {
+            if (dgvManageStaff.SelectedRows.Count == 0 && dgvManageStaff.CurrentRow == null)
+            {
+                MessageBox.Show("Please select a staff member from the grid first.", "Selection Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            DataGridViewRow row = dgvManageStaff.SelectedRows.Count > 0 ? dgvManageStaff.SelectedRows[0] : dgvManageStaff.CurrentRow;
+
+            if (row.Cells["staff_ID"].Value == null || row.Cells["staff_Email"].Value == null)
+            {
+                MessageBox.Show("Selected row contains invalid data.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            int staffId = Convert.ToInt32(row.Cells["staff_ID"].Value);
+            string emailAddress = row.Cells["staff_Email"].Value.ToString();
+            DateTime actionTime = DateTime.Now;
+
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    string updateQuery = "UPDATE [GroupPmb2].[dbo].[Staff] SET [staff_status] = @Status WHERE [staff_ID] = @StaffID";
+
+                    using (SqlCommand cmd = new SqlCommand(updateQuery, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@Status", newStatus);
+                        cmd.Parameters.AddWithValue("@StaffID", staffId);
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+
+                MessageBox.Show($"Staff Status updated to '{newStatus}'.\n\nEmail Address: {emailAddress}\nDateTime: {actionTime:yyyy-MM-dd HH:mm:ss}",
+                            "REGAL INN HOTEL - STAFF STATUS UPDATED",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Information);
+
+                LoadStaffData();
+                LoadManageStaffData();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Database Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnStaffDeactivate_Click(object sender, EventArgs e)
+        {
+            UpdateStaffStatus("Inactive");
+        }
+
+        private void btnSuspend_Click(object sender, EventArgs e)
+        {
+            UpdateStaffStatus("Suspended");
+        }
+
+        private void btnAuthorize_Click(object sender, EventArgs e)
+        {
+            UpdateStaffStatus("On Leave");
+        }
+
+        #endregion
+
+        #region Extra Control Event Placeholders
+
+        private void txtStaffName_TextChanged(object sender, EventArgs e) { }
+        private void txtStaffSurname_TextChanged(object sender, EventArgs e) { }
+        private void txtStaffAddress_TextChanged(object sender, EventArgs e) { }
+        private void txtStaffContactNumber_TextChanged(object sender, EventArgs e) { }
+        private void txtStaffEmailAddress_TextChanged(object sender, EventArgs e) { }
+        private void groupBox4_Enter(object sender, EventArgs e) { }
+        private void panel2_Paint(object sender, PaintEventArgs e) { }
+        private void panel1_Paint(object sender, PaintEventArgs e) { }
+        private void dgvStaffs_CellContentClick(object sender, DataGridViewCellEventArgs e) { }
+        private void panel6_Paint(object sender, PaintEventArgs e) { }
+        private void dgvManageStaff_CellContentClick(object sender, DataGridViewCellEventArgs e) { }
+
+        #endregion
     }
 }

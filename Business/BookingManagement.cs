@@ -1,5 +1,6 @@
 ﻿using Code_Crafters_Booking_System;
 using Code_Crafters_Interface_Prototype_1.Common;
+using Code_Crafters_Interface_Prototype_1.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -181,23 +182,25 @@ namespace Code_Crafters_Interface_Prototype_1.Business
 
                 if (dialogResult == DialogResult.Yes)
                 {
-                    GuestManagementForm guestRegForm = new GuestManagementForm();
-                    if (guestRegForm.ShowDialog() == DialogResult.OK)
+                    MessageBox.Show(
+                         "Please register the guest via Guest Management --- Guest Registration before proceeding with this booking.",
+                         "REGAL INN REGISTRATION REQUIRED",
+                          MessageBoxButtons.OK,
+                          MessageBoxIcon.Information
+                    );
+
+                    if (taClient != null)
                     {
-                        // Refresh dataset to capture the newly registered client
-                        if (taClient != null)
-                        {
-                            codeCraftersDSTWO.Client.Clear();
-                            taClient.Fill(codeCraftersDSTWO.Client);
-                        }
+                        codeCraftersDSTWO.Client.Clear();
+                        taClient.Fill(codeCraftersDSTWO.Client);
+                    }
 
-                        var newlyAddedClient = codeCraftersDSTWO.Client.AsEnumerable()
-                            .FirstOrDefault(c => string.Equals(c.Field<string>("Email_Address"), emailAddress.Trim(), StringComparison.OrdinalIgnoreCase));
+                    var newlyAddedClient = codeCraftersDSTWO.Client.AsEnumerable()
+                        .FirstOrDefault(c => string.Equals(c.Field<string>("Email_Address"), emailAddress.Trim(), StringComparison.OrdinalIgnoreCase));
 
-                        if (newlyAddedClient != null)
-                        {
-                            return newlyAddedClient.Client_ID;
-                        }
+                    if (newlyAddedClient != null)
+                    {
+                        return newlyAddedClient.Client_ID;
                     }
                 }
 
@@ -230,20 +233,23 @@ namespace Code_Crafters_Interface_Prototype_1.Business
                     DateTime checkOutTime = booking.Checkout_Date;
                     DateTime cleaningEndTime = checkOutTime.AddHours(1);
 
-                    string currentStatus = booking.Booking_Status;
+                    string currentStatus = booking.Booking_Status?.Trim();
                     int roomNumber = ExtractRoomNumberFromBookingType(booking.Booking_Type);
 
-                    if (currentDateTime >= checkInTime && currentDateTime < checkOutTime && currentStatus == "Pending")
+                    // Check-in trigger: Handles both "Pending" and "Booked" statuses when check-in time is reached
+                    if (currentDateTime >= checkInTime && currentDateTime < checkOutTime && (currentStatus == "Pending" || currentStatus == "Booked"))
                     {
                         booking.Booking_Status = "Checked-In";
                         UpdateHotelRoomStatus(booking.Branch_ID, roomNumber, "Occupied");
                     }
+                    // Check-out trigger: Triggers when checkout time arrives
                     else if (currentDateTime >= checkOutTime && currentDateTime < cleaningEndTime && currentStatus == "Checked-In")
                     {
                         booking.Booking_Status = "Checked-Out";
                         UpdateHotelRoomStatus(booking.Branch_ID, roomNumber, "Cleaning");
                     }
-                    else if (currentDateTime >= cleaningEndTime && (currentStatus == "Checked-Out" || currentStatus == "Checked-In"))
+                    // Completion trigger: Changes status back to Completed / Room Available 1 hour after checkout
+                    else if (currentDateTime >= cleaningEndTime && (currentStatus == "Checked-Out" || currentStatus == "Checked-In" || currentStatus == "Booked"))
                     {
                         booking.Booking_Status = "Completed";
                         UpdateHotelRoomStatus(booking.Branch_ID, roomNumber, "Available");

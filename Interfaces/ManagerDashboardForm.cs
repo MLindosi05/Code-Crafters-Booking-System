@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace Code_Crafters_Interface_Prototype_1.Interfaces
 {
-    public partial class ManagerHomeForm : Form
+    public partial class ManagerDashboardForm : Form
     {
-        public ManagerHomeForm()
+        public ManagerDashboardForm()
         {
             InitializeComponent();
-        }
-
-        private void ManagerHomeForm_Load(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Maximized;
         }
     }
 }

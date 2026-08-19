@@ -66,7 +66,6 @@
             this.panel15 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.panel9 = new System.Windows.Forms.Panel();
             this.pnlHomePage = new System.Windows.Forms.Panel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
@@ -281,12 +280,12 @@
             // 
             // panel8
             // 
+            this.panel8.BackColor = System.Drawing.Color.LightGray;
             this.panel8.Controls.Add(this.panel11);
             this.panel8.Controls.Add(this.panel12);
             this.panel8.Controls.Add(this.panel13);
             this.panel8.Controls.Add(this.panel14);
             this.panel8.Controls.Add(this.panel15);
-            this.panel8.Controls.Add(this.panel9);
             this.panel8.Controls.Add(this.label6);
             this.panel8.Location = new System.Drawing.Point(287, 368);
             this.panel8.Name = "panel8";
@@ -457,19 +456,13 @@
             this.label10.TabIndex = 13;
             this.label10.Text = "Saayman Close, Ballito, 4420";
             // 
-            // panel9
-            // 
-            this.panel9.Location = new System.Drawing.Point(245, 53);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(200, 3);
-            this.panel9.TabIndex = 17;
-            // 
             // pnlHomePage
             // 
             this.pnlHomePage.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlHomePage.AutoScroll = true;
+            this.pnlHomePage.BackColor = System.Drawing.Color.LightGray;
             this.pnlHomePage.Controls.Add(this.panel8);
             this.pnlHomePage.Controls.Add(this.panel1);
             this.pnlHomePage.Controls.Add(this.panel7);
@@ -491,7 +484,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.BackColor = System.Drawing.Color.LightGray;
             this.ClientSize = new System.Drawing.Size(1854, 881);
             this.Controls.Add(this.pnlHomePage);
             this.Name = "HomeForm";
@@ -561,7 +554,6 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.PictureBox pictureBox7;
-        private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.PictureBox pictureBox8;
         private System.Windows.Forms.Panel panel11;
         private System.Windows.Forms.Panel panel12;

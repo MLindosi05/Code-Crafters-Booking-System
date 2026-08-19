@@ -11,7 +11,7 @@ namespace Code_Crafters_Interface_Prototype_1.Common
     public static class ThemeManager
     {
         public static readonly Color Background = ColorTranslator.FromHtml("#F9EED8");
-        public static readonly Color Panel = ColorTranslator.FromHtml("#F8F5F0");
+        public static readonly Color Panel = ColorTranslator.FromHtml("#D3D3D3");
         public static readonly Color Button = ColorTranslator.FromHtml("#C99A2E");
         public static readonly Color Header = ColorTranslator.FromHtml("#966919");
 

@@ -25,9 +25,7 @@ namespace Code_Crafters_Interface_Prototype_1.Business
             taBookingReport.Fill(codeCraftersDS.Booking);
             taClientReport.Fill(codeCraftersDS.Client);
             taBranchReport.Fill(codeCraftersDS.Branch);
-            taFolioReport.Fill(codeCraftersDS.Folio);
             taRoomAssignmentReport.Fill(codeCraftersDS.Room_Assignment);
-            taHotelRoomReport.Fill(codeCraftersDS.Hotel_Room);
             taTable.Fill(codeCraftersDS.Restuarant_Table);
             btnRevenueReport.BackColor = ColorTranslator.FromHtml("#C99A2E");
             btnRevenueReport.ForeColor = Color.White;

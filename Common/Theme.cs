@@ -13,7 +13,7 @@ namespace Code_Crafters_Interface_Prototype_1.Common
             ColorTranslator.FromHtml("#F9EED8");
 
         public static Color Panel =>
-            ColorTranslator.FromHtml("#F8F5F0");
+            ColorTranslator.FromHtml("#D3D3D3");    
 
         public static Color Brown =>
             ColorTranslator.FromHtml("#966919");

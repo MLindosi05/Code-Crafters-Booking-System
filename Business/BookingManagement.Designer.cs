@@ -500,7 +500,7 @@
             this.panel16.Controls.Add(this.label30);
             this.panel16.Controls.Add(this.label31);
             this.panel16.Controls.Add(this.pictureBox5);
-            this.panel16.Location = new System.Drawing.Point(633, 447);
+            this.panel16.Location = new System.Drawing.Point(690, 447);
             this.panel16.Name = "panel16";
             this.panel16.Size = new System.Drawing.Size(281, 379);
             this.panel16.TabIndex = 9;
@@ -594,7 +594,7 @@
             this.panel11.Controls.Add(this.label25);
             this.panel11.Controls.Add(this.label26);
             this.panel11.Controls.Add(this.pictureBox4);
-            this.panel11.Location = new System.Drawing.Point(633, 34);
+            this.panel11.Location = new System.Drawing.Point(690, 33);
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(281, 374);
             this.panel11.TabIndex = 2;
@@ -688,7 +688,7 @@
             this.panel17.Controls.Add(this.label35);
             this.panel17.Controls.Add(this.label36);
             this.panel17.Controls.Add(this.pictureBox6);
-            this.panel17.Location = new System.Drawing.Point(345, 447);
+            this.panel17.Location = new System.Drawing.Point(376, 447);
             this.panel17.Name = "panel17";
             this.panel17.Size = new System.Drawing.Size(238, 379);
             this.panel17.TabIndex = 8;
@@ -876,7 +876,7 @@
             this.panel10.Controls.Add(this.label18);
             this.panel10.Controls.Add(this.label19);
             this.panel10.Controls.Add(this.pictureBox3);
-            this.panel10.Location = new System.Drawing.Point(345, 33);
+            this.panel10.Location = new System.Drawing.Point(376, 33);
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(238, 375);
             this.panel10.TabIndex = 1;
@@ -1075,9 +1075,9 @@
             this.pnlViewBookings.Controls.Add(this.panel13);
             this.pnlViewBookings.Controls.Add(this.dgvBookings);
             this.pnlViewBookings.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pnlViewBookings.Location = new System.Drawing.Point(32, 34);
+            this.pnlViewBookings.Location = new System.Drawing.Point(263, 41);
             this.pnlViewBookings.Name = "pnlViewBookings";
-            this.pnlViewBookings.Size = new System.Drawing.Size(1130, 497);
+            this.pnlViewBookings.Size = new System.Drawing.Size(1130, 850);
             this.pnlViewBookings.TabIndex = 2;
             // 
             // button3
@@ -1094,7 +1094,7 @@
             // 
             this.button2.Location = new System.Drawing.Point(642, 192);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(140, 32);
+            this.button2.Size = new System.Drawing.Size(173, 32);
             this.button2.TabIndex = 10;
             this.button2.Text = "FUTURE BOOKINGS";
             this.button2.UseVisualStyleBackColor = true;
@@ -1136,7 +1136,7 @@
             this.panel13.Controls.Add(this.txtClientName);
             this.panel13.Location = new System.Drawing.Point(387, 31);
             this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(395, 64);
+            this.panel13.Size = new System.Drawing.Size(428, 64);
             this.panel13.TabIndex = 7;
             // 
             // lblBookingID
@@ -1153,7 +1153,7 @@
             // 
             this.txtClientName.Location = new System.Drawing.Point(197, 18);
             this.txtClientName.Name = "txtClientName";
-            this.txtClientName.Size = new System.Drawing.Size(190, 25);
+            this.txtClientName.Size = new System.Drawing.Size(217, 25);
             this.txtClientName.TabIndex = 1;
             this.txtClientName.TextChanged += new System.EventHandler(this.txtBookingID_TextChanged);
             // 
@@ -1173,10 +1173,10 @@
             this.lastNameDataGridViewTextBoxColumn,
             this.bookingTypeDataGridViewTextBoxColumn});
             this.dgvBookings.DataSource = this.clientBranchTableBookingBindingSource;
-            this.dgvBookings.Location = new System.Drawing.Point(21, 268);
+            this.dgvBookings.Location = new System.Drawing.Point(32, 268);
             this.dgvBookings.Name = "dgvBookings";
             this.dgvBookings.RowHeadersWidth = 51;
-            this.dgvBookings.Size = new System.Drawing.Size(1074, 168);
+            this.dgvBookings.Size = new System.Drawing.Size(1063, 550);
             this.dgvBookings.TabIndex = 0;
             // 
             // bookingIDDataGridViewTextBoxColumn
@@ -1275,7 +1275,7 @@
             this.pnlGuestDetails.Controls.Add(this.label5);
             this.pnlGuestDetails.Controls.Add(this.label6);
             this.pnlGuestDetails.ForeColor = System.Drawing.Color.Navy;
-            this.pnlGuestDetails.Location = new System.Drawing.Point(63, 45);
+            this.pnlGuestDetails.Location = new System.Drawing.Point(263, 45);
             this.pnlGuestDetails.Name = "pnlGuestDetails";
             this.pnlGuestDetails.Size = new System.Drawing.Size(529, 254);
             this.pnlGuestDetails.TabIndex = 56;
@@ -1369,7 +1369,7 @@
             this.panel8.Controls.Add(this.panel9);
             this.panel8.Controls.Add(this.label21);
             this.panel8.ForeColor = System.Drawing.Color.Navy;
-            this.panel8.Location = new System.Drawing.Point(627, 45);
+            this.panel8.Location = new System.Drawing.Point(827, 45);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(619, 254);
             this.panel8.TabIndex = 55;
@@ -1450,9 +1450,9 @@
             this.panel14.Controls.Add(this.panel15);
             this.panel14.Controls.Add(this.label1);
             this.panel14.ForeColor = System.Drawing.Color.Navy;
-            this.panel14.Location = new System.Drawing.Point(65, 335);
+            this.panel14.Location = new System.Drawing.Point(265, 335);
             this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(1181, 242);
+            this.panel14.Size = new System.Drawing.Size(1181, 580);
             this.panel14.TabIndex = 54;
             // 
             // dataGridView1
@@ -1474,7 +1474,7 @@
             this.dataGridView1.Location = new System.Drawing.Point(28, 37);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(1074, 168);
+            this.dataGridView1.Size = new System.Drawing.Size(1074, 500);
             this.dataGridView1.TabIndex = 34;
             // 
             // bookingID

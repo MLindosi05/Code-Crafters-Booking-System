@@ -22,8 +22,8 @@ namespace Code_Crafters_Interface_Prototype_1.Interfaces
             lblLoggedIn.Text = UserSession.Username;
 
             ApplyTheme();
+            PanelLoader.Load(ManagerPanel, new ManagerDashboardForm());
 
-            PanelLoader.Load(ManagerPanel, new ManagerHomeForm());
         }
 
         #endregion
@@ -38,9 +38,7 @@ namespace Code_Crafters_Interface_Prototype_1.Interfaces
             ManagerPanel.BackColor = Theme.Background;
 
             ButtonStyler.Apply(button2);
-            ButtonStyler.Apply(button4);
             ButtonStyler.Apply(button6);
-            ButtonStyler.Apply(button7);
             ButtonStyler.Apply(button8);
             ButtonStyler.Apply(button9);
         }
@@ -56,7 +54,7 @@ namespace Code_Crafters_Interface_Prototype_1.Interfaces
 
         private void button2_Click(object sender, EventArgs e)
         {
-            PanelLoader.Load(ManagerPanel, new ManagerHomeForm());
+            PanelLoader.Load(ManagerPanel, new ManagerDashboardForm());
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -116,5 +114,10 @@ namespace Code_Crafters_Interface_Prototype_1.Interfaces
         }
 
         #endregion
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

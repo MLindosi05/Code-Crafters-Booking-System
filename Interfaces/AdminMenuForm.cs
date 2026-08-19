@@ -40,7 +40,6 @@ namespace Code_Crafters_Interface_Prototype_1.Interfaces
             ButtonStyler.Apply(button1);
             ButtonStyler.Apply(button2);
             ButtonStyler.Apply(button3);
-            ButtonStyler.Apply(button4);
             ButtonStyler.Apply(button7);
             ButtonStyler.Apply(button9);
         }

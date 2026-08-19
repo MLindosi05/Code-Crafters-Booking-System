@@ -517,6 +517,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlLogin.AutoScroll = true;
+            this.pnlLogin.BackColor = System.Drawing.Color.LightGray;
             this.pnlLogin.Controls.Add(this.pnlHelpDrawer);
             this.pnlLogin.Controls.Add(this.pictureBox8);
             this.pnlLogin.Controls.Add(this.button1);
@@ -542,6 +543,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
+            this.BackColor = System.Drawing.Color.LightGray;
             this.ClientSize = new System.Drawing.Size(1806, 877);
             this.Controls.Add(this.pnlLogin);
             this.Name = "Login";

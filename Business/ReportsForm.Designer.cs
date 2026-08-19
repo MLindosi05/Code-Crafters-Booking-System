@@ -37,7 +37,6 @@
             this.pnlTop = new System.Windows.Forms.Panel();
             this.btnTableReport = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.crystalReportViewerRegalInn = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
             this.taBookingReport = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTableAdapters.BookingTableAdapter();
             this.taClientReport = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTableAdapters.ClientTableAdapter();
@@ -78,11 +77,11 @@
             // btnRevenueReport
             // 
             this.btnRevenueReport.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRevenueReport.Location = new System.Drawing.Point(216, 46);
+            this.btnRevenueReport.Location = new System.Drawing.Point(210, 46);
             this.btnRevenueReport.Name = "btnRevenueReport";
-            this.btnRevenueReport.Size = new System.Drawing.Size(180, 36);
+            this.btnRevenueReport.Size = new System.Drawing.Size(186, 36);
             this.btnRevenueReport.TabIndex = 2;
-            this.btnRevenueReport.Text = "REVENUE REPORT";
+            this.btnRevenueReport.Text = "REVENUE REPORTS";
             this.btnRevenueReport.UseVisualStyleBackColor = true;
             // 
             // btnRoomReport
@@ -90,9 +89,9 @@
             this.btnRoomReport.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRoomReport.Location = new System.Drawing.Point(426, 46);
             this.btnRoomReport.Name = "btnRoomReport";
-            this.btnRoomReport.Size = new System.Drawing.Size(172, 36);
+            this.btnRoomReport.Size = new System.Drawing.Size(179, 36);
             this.btnRoomReport.TabIndex = 3;
-            this.btnRoomReport.Text = "ROOM OCCUPANCY REPORT";
+            this.btnRoomReport.Text = "ROOM OCCUPANCY REPORTS";
             this.btnRoomReport.UseVisualStyleBackColor = true;
             // 
             // dgvReportSummary
@@ -122,7 +121,6 @@
             this.pnlTop.AutoScroll = true;
             this.pnlTop.Controls.Add(this.btnTableReport);
             this.pnlTop.Controls.Add(this.pictureBox1);
-            this.pnlTop.Controls.Add(this.panel1);
             this.pnlTop.Controls.Add(this.lblTitle);
             this.pnlTop.Controls.Add(this.btnRoomReport);
             this.pnlTop.Controls.Add(this.btnRevenueReport);
@@ -136,11 +134,11 @@
             // 
             this.btnTableReport.BackColor = System.Drawing.Color.Transparent;
             this.btnTableReport.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTableReport.Location = new System.Drawing.Point(627, 46);
+            this.btnTableReport.Location = new System.Drawing.Point(633, 46);
             this.btnTableReport.Name = "btnTableReport";
-            this.btnTableReport.Size = new System.Drawing.Size(172, 36);
+            this.btnTableReport.Size = new System.Drawing.Size(181, 36);
             this.btnTableReport.TabIndex = 6;
-            this.btnTableReport.Text = "TABLE OCCUPANCY REPORT";
+            this.btnTableReport.Text = "TABLE OCCUPANCY REPORTS";
             this.btnTableReport.UseVisualStyleBackColor = false;
             // 
             // pictureBox1
@@ -152,14 +150,6 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.panel1.Location = new System.Drawing.Point(216, 37);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(413, 3);
-            this.panel1.TabIndex = 4;
             // 
             // crystalReportViewerRegalInn
             // 
@@ -252,7 +242,6 @@
         private codeCraftersDSTableAdapters.Room_AssignmentTableAdapter taRoomAssignmentReport;
         private codeCraftersDSTableAdapters.Hotel_RoomTableAdapter taHotelRoomReport;
         private codeCraftersDSTableAdapters.BranchTableAdapter taBranchReport;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnTableReport;
         private codeCraftersDSTableAdapters.Restuarant_TableTableAdapter taTable;

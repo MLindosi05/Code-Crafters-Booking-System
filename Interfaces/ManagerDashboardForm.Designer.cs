@@ -1,6 +1,6 @@
 ﻿namespace Code_Crafters_Interface_Prototype_1.Interfaces
 {
-    partial class AdminDashboardForm
+    partial class ManagerDashboardForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,19 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea11 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend11 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series16 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea12 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend12 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series17 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series18 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            this.adminPanel = new System.Windows.Forms.Panel();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            this.ManagerPanel = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
-            this.chart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.chart4 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.panel7 = new System.Windows.Forms.Panel();
-            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.chart3 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.panel6 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -55,33 +55,29 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.bookingTableAdapter1 = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTableAdapters.BookingTableAdapter();
-            this.codeCraftersDS1 = new Code_Crafters_Interface_Prototype_1.codeCraftersDS();
-            this.adminPanel.SuspendLayout();
+            this.ManagerPanel.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel8.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chart2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart4)).BeginInit();
             this.panel7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart3)).BeginInit();
             this.panel6.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.codeCraftersDS1)).BeginInit();
             this.SuspendLayout();
             // 
-            // adminPanel
+            // ManagerPanel
             // 
-            this.adminPanel.BackColor = System.Drawing.Color.LightGray;
-            this.adminPanel.Controls.Add(this.panel3);
-            this.adminPanel.Controls.Add(this.panel2);
-            this.adminPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.adminPanel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.adminPanel.Location = new System.Drawing.Point(0, 0);
-            this.adminPanel.Name = "adminPanel";
-            this.adminPanel.Size = new System.Drawing.Size(930, 765);
-            this.adminPanel.TabIndex = 10;
+            this.ManagerPanel.BackColor = System.Drawing.Color.LightGray;
+            this.ManagerPanel.Controls.Add(this.panel3);
+            this.ManagerPanel.Controls.Add(this.panel2);
+            this.ManagerPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ManagerPanel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ManagerPanel.Location = new System.Drawing.Point(0, 0);
+            this.ManagerPanel.Name = "ManagerPanel";
+            this.ManagerPanel.Size = new System.Drawing.Size(1131, 800);
+            this.ManagerPanel.TabIndex = 11;
             // 
             // panel3
             // 
@@ -99,61 +95,62 @@
             // 
             // panel8
             // 
-            this.panel8.Controls.Add(this.chart2);
+            this.panel8.Controls.Add(this.chart4);
             this.panel8.Location = new System.Drawing.Point(459, 398);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(344, 219);
             this.panel8.TabIndex = 4;
             // 
-            // chart2
+            // chart4
             // 
-            chartArea11.Name = "ChartArea1";
-            this.chart2.ChartAreas.Add(chartArea11);
-            legend11.Name = "Legend1";
-            this.chart2.Legends.Add(legend11);
-            this.chart2.Location = new System.Drawing.Point(26, 21);
-            this.chart2.Name = "chart2";
-            series16.ChartArea = "ChartArea1";
-            series16.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
-            series16.Legend = "Legend1";
-            series16.Name = "Series1";
-            this.chart2.Series.Add(series16);
-            this.chart2.Size = new System.Drawing.Size(278, 181);
-            this.chart2.TabIndex = 0;
-            this.chart2.Text = "chart2";
+            chartArea1.Name = "ChartArea1";
+            this.chart4.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chart4.Legends.Add(legend1);
+            this.chart4.Location = new System.Drawing.Point(26, 21);
+            this.chart4.Name = "chart4";
+            this.chart4.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chart4.Series.Add(series1);
+            this.chart4.Size = new System.Drawing.Size(278, 181);
+            this.chart4.TabIndex = 0;
+            this.chart4.Text = "chart2";
             // 
             // panel7
             // 
-            this.panel7.Controls.Add(this.chart1);
+            this.panel7.Controls.Add(this.chart3);
             this.panel7.Location = new System.Drawing.Point(38, 398);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(393, 219);
             this.panel7.TabIndex = 3;
             // 
-            // chart1
+            // chart3
             // 
-            chartArea12.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea12);
-            legend12.Name = "Legend1";
-            this.chart1.Legends.Add(legend12);
-            this.chart1.Location = new System.Drawing.Point(24, 15);
-            this.chart1.Name = "chart1";
-            series17.BorderWidth = 3;
-            series17.ChartArea = "ChartArea1";
-            series17.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series17.Color = System.Drawing.Color.RoyalBlue;
-            series17.Legend = "Legend1";
-            series17.Name = "Series1";
-            series18.BorderColor = System.Drawing.Color.LightSkyBlue;
-            series18.BorderWidth = 2;
-            series18.ChartArea = "ChartArea1";
-            series18.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series18.Legend = "Legend1";
-            series18.Name = "Series2";
-            this.chart1.Series.Add(series17);
-            this.chart1.Series.Add(series18);
-            this.chart1.Size = new System.Drawing.Size(335, 187);
-            this.chart1.TabIndex = 0;
+            chartArea2.Name = "ChartArea1";
+            this.chart3.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.chart3.Legends.Add(legend2);
+            this.chart3.Location = new System.Drawing.Point(24, 15);
+            this.chart3.Name = "chart3";
+            series2.BorderWidth = 3;
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series2.Color = System.Drawing.Color.RoyalBlue;
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            series3.BorderColor = System.Drawing.Color.LightSkyBlue;
+            series3.BorderWidth = 2;
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series3.Legend = "Legend1";
+            series3.Name = "Series2";
+            this.chart3.Series.Add(series2);
+            this.chart3.Series.Add(series3);
+            this.chart3.Size = new System.Drawing.Size(335, 187);
+            this.chart3.TabIndex = 0;
             // 
             // panel6
             // 
@@ -290,35 +287,25 @@
             // panel2
             // 
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 704);
+            this.panel2.Location = new System.Drawing.Point(0, 739);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(930, 61);
+            this.panel2.Size = new System.Drawing.Size(1131, 61);
             this.panel2.TabIndex = 1;
             // 
-            // bookingTableAdapter1
-            // 
-            this.bookingTableAdapter1.ClearBeforeFill = true;
-            // 
-            // codeCraftersDS1
-            // 
-            this.codeCraftersDS1.DataSetName = "codeCraftersDS";
-            this.codeCraftersDS1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // AdminDashboardForm
+            // ManagerDashboardForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(930, 765);
-            this.Controls.Add(this.adminPanel);
-            this.Name = "AdminDashboardForm";
-            this.Text = "REGAL INN ADMIN HOME MENU";
-            this.Load += new System.EventHandler(this.AdminHomeForm_Load);
-            this.adminPanel.ResumeLayout(false);
+            this.ClientSize = new System.Drawing.Size(1131, 800);
+            this.Controls.Add(this.ManagerPanel);
+            this.Name = "ManagerDashboardForm";
+            this.Text = "ManagerDashboardForm";
+            this.ManagerPanel.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.chart2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart4)).EndInit();
             this.panel7.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart3)).EndInit();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             this.panel5.ResumeLayout(false);
@@ -327,35 +314,31 @@
             this.panel4.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.codeCraftersDS1)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel adminPanel;
+        private System.Windows.Forms.Panel ManagerPanel;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Panel panel2;
-        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart4;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart3;
         private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label1;
-        private codeCraftersDSTableAdapters.BookingTableAdapter bookingTableAdapter1;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label5;
-        private codeCraftersDS codeCraftersDS1;
-        private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
-        private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart2;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel panel2;
     }
 }
