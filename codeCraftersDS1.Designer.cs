@@ -44,15 +44,11 @@ namespace Code_Crafters_Interface_Prototype_1 {
         
         private Restuarant_TableDataTable tableRestuarant_Table;
         
-        private ClientBranchBookingDataTable tableClientBranchBooking;
-        
         private InvoiceDataTable tableInvoice;
         
         private global::System.Data.DataRelation relationFK__Room_Assi__Booki__1C5231C2;
         
         private global::System.Data.DataRelation relationFK__Room_Assi__Hotel__1B5E0D89;
-        
-        private global::System.Data.DataRelation relationFK__Room_Assi__Booki__1C5231C21;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -111,9 +107,6 @@ namespace Code_Crafters_Interface_Prototype_1 {
                 }
                 if ((ds.Tables["Restuarant_Table"] != null)) {
                     base.Tables.Add(new Restuarant_TableDataTable(ds.Tables["Restuarant_Table"]));
-                }
-                if ((ds.Tables["ClientBranchBooking"] != null)) {
-                    base.Tables.Add(new ClientBranchBookingDataTable(ds.Tables["ClientBranchBooking"]));
                 }
                 if ((ds.Tables["Invoice"] != null)) {
                     base.Tables.Add(new InvoiceDataTable(ds.Tables["Invoice"]));
@@ -240,16 +233,6 @@ namespace Code_Crafters_Interface_Prototype_1 {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public ClientBranchBookingDataTable ClientBranchBooking {
-            get {
-                return this.tableClientBranchBooking;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Browsable(false)]
-        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
         public InvoiceDataTable Invoice {
             get {
                 return this.tableInvoice;
@@ -353,9 +336,6 @@ namespace Code_Crafters_Interface_Prototype_1 {
                 if ((ds.Tables["Restuarant_Table"] != null)) {
                     base.Tables.Add(new Restuarant_TableDataTable(ds.Tables["Restuarant_Table"]));
                 }
-                if ((ds.Tables["ClientBranchBooking"] != null)) {
-                    base.Tables.Add(new ClientBranchBookingDataTable(ds.Tables["ClientBranchBooking"]));
-                }
                 if ((ds.Tables["Invoice"] != null)) {
                     base.Tables.Add(new InvoiceDataTable(ds.Tables["Invoice"]));
                 }
@@ -452,12 +432,6 @@ namespace Code_Crafters_Interface_Prototype_1 {
                     this.tableRestuarant_Table.InitVars();
                 }
             }
-            this.tableClientBranchBooking = ((ClientBranchBookingDataTable)(base.Tables["ClientBranchBooking"]));
-            if ((initTable == true)) {
-                if ((this.tableClientBranchBooking != null)) {
-                    this.tableClientBranchBooking.InitVars();
-                }
-            }
             this.tableInvoice = ((InvoiceDataTable)(base.Tables["Invoice"]));
             if ((initTable == true)) {
                 if ((this.tableInvoice != null)) {
@@ -466,7 +440,6 @@ namespace Code_Crafters_Interface_Prototype_1 {
             }
             this.relationFK__Room_Assi__Booki__1C5231C2 = this.Relations["FK__Room_Assi__Booki__1C5231C2"];
             this.relationFK__Room_Assi__Hotel__1B5E0D89 = this.Relations["FK__Room_Assi__Hotel__1B5E0D89"];
-            this.relationFK__Room_Assi__Booki__1C5231C21 = this.Relations["FK__Room_Assi__Booki__1C5231C21"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -497,8 +470,6 @@ namespace Code_Crafters_Interface_Prototype_1 {
             base.Tables.Add(this.tableTable_Allocation);
             this.tableRestuarant_Table = new Restuarant_TableDataTable();
             base.Tables.Add(this.tableRestuarant_Table);
-            this.tableClientBranchBooking = new ClientBranchBookingDataTable();
-            base.Tables.Add(this.tableClientBranchBooking);
             this.tableInvoice = new InvoiceDataTable();
             base.Tables.Add(this.tableInvoice);
             this.relationFK__Room_Assi__Booki__1C5231C2 = new global::System.Data.DataRelation("FK__Room_Assi__Booki__1C5231C2", new global::System.Data.DataColumn[] {
@@ -509,10 +480,6 @@ namespace Code_Crafters_Interface_Prototype_1 {
                         this.tableHotel_Room.Hotel_Room_IDColumn}, new global::System.Data.DataColumn[] {
                         this.tableRoom_Assignment.Hotel_Room_IDColumn}, false);
             this.Relations.Add(this.relationFK__Room_Assi__Hotel__1B5E0D89);
-            this.relationFK__Room_Assi__Booki__1C5231C21 = new global::System.Data.DataRelation("FK__Room_Assi__Booki__1C5231C21", new global::System.Data.DataColumn[] {
-                        this.tableClientBranchBooking.Booking_IDColumn}, new global::System.Data.DataColumn[] {
-                        this.tableRoom_Assignment.Booking_IDColumn}, false);
-            this.Relations.Add(this.relationFK__Room_Assi__Booki__1C5231C21);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -572,12 +539,6 @@ namespace Code_Crafters_Interface_Prototype_1 {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private bool ShouldSerializeRestuarant_Table() {
-            return false;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private bool ShouldSerializeClientBranchBooking() {
             return false;
         }
         
@@ -671,9 +632,6 @@ namespace Code_Crafters_Interface_Prototype_1 {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public delegate void Restuarant_TableRowChangeEventHandler(object sender, Restuarant_TableRowChangeEvent e);
-        
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public delegate void ClientBranchBookingRowChangeEventHandler(object sender, ClientBranchBookingRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public delegate void InvoiceRowChangeEventHandler(object sender, InvoiceRowChangeEvent e);
@@ -2100,13 +2058,13 @@ namespace Code_Crafters_Interface_Prototype_1 {
             
             private global::System.Data.DataColumn columnBranch_ID;
             
-            private global::System.Data.DataColumn columnhotel_room_type_ID;
-            
             private global::System.Data.DataColumn columnhotel_room_number;
             
             private global::System.Data.DataColumn columnhotel_room_status;
             
             private global::System.Data.DataColumn columnHotel_Room_Price;
+            
+            private global::System.Data.DataColumn columnhotel_room_type;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
@@ -2159,14 +2117,6 @@ namespace Code_Crafters_Interface_Prototype_1 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn hotel_room_type_IDColumn {
-                get {
-                    return this.columnhotel_room_type_ID;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public global::System.Data.DataColumn hotel_room_numberColumn {
                 get {
                     return this.columnhotel_room_number;
@@ -2186,6 +2136,14 @@ namespace Code_Crafters_Interface_Prototype_1 {
             public global::System.Data.DataColumn Hotel_Room_PriceColumn {
                 get {
                     return this.columnHotel_Room_Price;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn hotel_room_typeColumn {
+                get {
+                    return this.columnhotel_room_type;
                 }
             }
             
@@ -2226,15 +2184,15 @@ namespace Code_Crafters_Interface_Prototype_1 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public Hotel_RoomRow AddHotel_RoomRow(string Branch_ID, int hotel_room_type_ID, int hotel_room_number, string hotel_room_status, decimal Hotel_Room_Price) {
+            public Hotel_RoomRow AddHotel_RoomRow(string Branch_ID, int hotel_room_number, string hotel_room_status, decimal Hotel_Room_Price, string hotel_room_type) {
                 Hotel_RoomRow rowHotel_RoomRow = ((Hotel_RoomRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         Branch_ID,
-                        hotel_room_type_ID,
                         hotel_room_number,
                         hotel_room_status,
-                        Hotel_Room_Price};
+                        Hotel_Room_Price,
+                        hotel_room_type};
                 rowHotel_RoomRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowHotel_RoomRow);
                 return rowHotel_RoomRow;
@@ -2266,10 +2224,10 @@ namespace Code_Crafters_Interface_Prototype_1 {
             internal void InitVars() {
                 this.columnHotel_Room_ID = base.Columns["Hotel_Room_ID"];
                 this.columnBranch_ID = base.Columns["Branch_ID"];
-                this.columnhotel_room_type_ID = base.Columns["hotel_room_type_ID"];
                 this.columnhotel_room_number = base.Columns["hotel_room_number"];
                 this.columnhotel_room_status = base.Columns["hotel_room_status"];
                 this.columnHotel_Room_Price = base.Columns["Hotel_Room_Price"];
+                this.columnhotel_room_type = base.Columns["hotel_room_type"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2279,14 +2237,14 @@ namespace Code_Crafters_Interface_Prototype_1 {
                 base.Columns.Add(this.columnHotel_Room_ID);
                 this.columnBranch_ID = new global::System.Data.DataColumn("Branch_ID", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnBranch_ID);
-                this.columnhotel_room_type_ID = new global::System.Data.DataColumn("hotel_room_type_ID", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnhotel_room_type_ID);
                 this.columnhotel_room_number = new global::System.Data.DataColumn("hotel_room_number", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnhotel_room_number);
                 this.columnhotel_room_status = new global::System.Data.DataColumn("hotel_room_status", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnhotel_room_status);
                 this.columnHotel_Room_Price = new global::System.Data.DataColumn("Hotel_Room_Price", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnHotel_Room_Price);
+                this.columnhotel_room_type = new global::System.Data.DataColumn("hotel_room_type", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnhotel_room_type);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnHotel_Room_ID}, true));
                 this.columnHotel_Room_ID.AutoIncrement = true;
@@ -2296,6 +2254,7 @@ namespace Code_Crafters_Interface_Prototype_1 {
                 this.columnHotel_Room_ID.ReadOnly = true;
                 this.columnHotel_Room_ID.Unique = true;
                 this.columnhotel_room_status.MaxLength = 20;
+                this.columnhotel_room_type.MaxLength = 50;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3505,10 +3464,6 @@ namespace Code_Crafters_Interface_Prototype_1 {
             
             private global::System.Data.DataColumn columnRestuarant_Table_ID;
             
-            private global::System.Data.DataColumn columnNumber_Of_Tables;
-            
-            private global::System.Data.DataColumn columnAssignment_Type;
-            
             private global::System.Data.DataColumn columnStart_Time;
             
             private global::System.Data.DataColumn columnEnd_Time;
@@ -3572,22 +3527,6 @@ namespace Code_Crafters_Interface_Prototype_1 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn Number_Of_TablesColumn {
-                get {
-                    return this.columnNumber_Of_Tables;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn Assignment_TypeColumn {
-                get {
-                    return this.columnAssignment_Type;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public global::System.Data.DataColumn Start_TimeColumn {
                 get {
                     return this.columnStart_Time;
@@ -3639,14 +3578,12 @@ namespace Code_Crafters_Interface_Prototype_1 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public Table_AllocationRow AddTable_AllocationRow(int Booking_ID, int Restuarant_Table_ID, int Number_Of_Tables, string Assignment_Type, System.DateTime Start_Time, System.DateTime End_Time) {
+            public Table_AllocationRow AddTable_AllocationRow(int Booking_ID, int Restuarant_Table_ID, System.DateTime Start_Time, System.DateTime End_Time) {
                 Table_AllocationRow rowTable_AllocationRow = ((Table_AllocationRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         Booking_ID,
                         Restuarant_Table_ID,
-                        Number_Of_Tables,
-                        Assignment_Type,
                         Start_Time,
                         End_Time};
                 rowTable_AllocationRow.ItemArray = columnValuesArray;
@@ -3681,8 +3618,6 @@ namespace Code_Crafters_Interface_Prototype_1 {
                 this.columnTable_Allocation_ID = base.Columns["Table_Allocation_ID"];
                 this.columnBooking_ID = base.Columns["Booking_ID"];
                 this.columnRestuarant_Table_ID = base.Columns["Restuarant_Table_ID"];
-                this.columnNumber_Of_Tables = base.Columns["Number_Of_Tables"];
-                this.columnAssignment_Type = base.Columns["Assignment_Type"];
                 this.columnStart_Time = base.Columns["Start_Time"];
                 this.columnEnd_Time = base.Columns["End_Time"];
             }
@@ -3696,10 +3631,6 @@ namespace Code_Crafters_Interface_Prototype_1 {
                 base.Columns.Add(this.columnBooking_ID);
                 this.columnRestuarant_Table_ID = new global::System.Data.DataColumn("Restuarant_Table_ID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnRestuarant_Table_ID);
-                this.columnNumber_Of_Tables = new global::System.Data.DataColumn("Number_Of_Tables", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnNumber_Of_Tables);
-                this.columnAssignment_Type = new global::System.Data.DataColumn("Assignment_Type", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnAssignment_Type);
                 this.columnStart_Time = new global::System.Data.DataColumn("Start_Time", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnStart_Time);
                 this.columnEnd_Time = new global::System.Data.DataColumn("End_Time", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
@@ -3712,8 +3643,6 @@ namespace Code_Crafters_Interface_Prototype_1 {
                 this.columnTable_Allocation_ID.AllowDBNull = false;
                 this.columnTable_Allocation_ID.ReadOnly = true;
                 this.columnTable_Allocation_ID.Unique = true;
-                this.columnNumber_Of_Tables.AllowDBNull = false;
-                this.columnAssignment_Type.MaxLength = 50;
                 this.columnStart_Time.AllowDBNull = false;
                 this.columnEnd_Time.AllowDBNull = false;
             }
@@ -4182,547 +4111,6 @@ namespace Code_Crafters_Interface_Prototype_1 {
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
                 attribute2.FixedValue = "Restuarant_TableDataTable";
-                type.Attributes.Add(attribute2);
-                type.Particle = sequence;
-                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
-                if (xs.Contains(dsSchema.TargetNamespace)) {
-                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
-                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
-                    try {
-                        global::System.Xml.Schema.XmlSchema schema = null;
-                        dsSchema.Write(s1);
-                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
-                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
-                            s2.SetLength(0);
-                            schema.Write(s2);
-                            if ((s1.Length == s2.Length)) {
-                                s1.Position = 0;
-                                s2.Position = 0;
-                                for (; ((s1.Position != s1.Length) 
-                                            && (s1.ReadByte() == s2.ReadByte())); ) {
-                                    ;
-                                }
-                                if ((s1.Position == s1.Length)) {
-                                    return type;
-                                }
-                            }
-                        }
-                    }
-                    finally {
-                        if ((s1 != null)) {
-                            s1.Close();
-                        }
-                        if ((s2 != null)) {
-                            s2.Close();
-                        }
-                    }
-                }
-                xs.Add(dsSchema);
-                return type;
-            }
-        }
-        
-        /// <summary>
-        ///Represents the strongly named DataTable class.
-        ///</summary>
-        [global::System.Serializable()]
-        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class ClientBranchBookingDataTable : global::System.Data.TypedTableBase<ClientBranchBookingRow> {
-            
-            private global::System.Data.DataColumn columnBooking_ID;
-            
-            private global::System.Data.DataColumn columnClient_ID;
-            
-            private global::System.Data.DataColumn columnBranch_ID;
-            
-            private global::System.Data.DataColumn columnBooking_Date;
-            
-            private global::System.Data.DataColumn columnCheckin_Date;
-            
-            private global::System.Data.DataColumn columnCheckout_Date;
-            
-            private global::System.Data.DataColumn columnBooking_Total_Amount;
-            
-            private global::System.Data.DataColumn columnBooking_Status;
-            
-            private global::System.Data.DataColumn columnFirst_Name;
-            
-            private global::System.Data.DataColumn columnLast_Name;
-            
-            private global::System.Data.DataColumn columnEmail_Address;
-            
-            private global::System.Data.DataColumn columnClient_Address;
-            
-            private global::System.Data.DataColumn columnPhone_Number;
-            
-            private global::System.Data.DataColumn columnBranch_Name;
-            
-            private global::System.Data.DataColumn columnBranch_Address;
-            
-            private global::System.Data.DataColumn columnBranch_Phone;
-            
-            private global::System.Data.DataColumn columnBranch_Email;
-            
-            private global::System.Data.DataColumn columnBranch_Status;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public ClientBranchBookingDataTable() {
-                this.TableName = "ClientBranchBooking";
-                this.BeginInit();
-                this.InitClass();
-                this.EndInit();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal ClientBranchBookingDataTable(global::System.Data.DataTable table) {
-                this.TableName = table.TableName;
-                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
-                    this.CaseSensitive = table.CaseSensitive;
-                }
-                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
-                    this.Locale = table.Locale;
-                }
-                if ((table.Namespace != table.DataSet.Namespace)) {
-                    this.Namespace = table.Namespace;
-                }
-                this.Prefix = table.Prefix;
-                this.MinimumCapacity = table.MinimumCapacity;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected ClientBranchBookingDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
-                    base(info, context) {
-                this.InitVars();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn Booking_IDColumn {
-                get {
-                    return this.columnBooking_ID;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn Client_IDColumn {
-                get {
-                    return this.columnClient_ID;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn Branch_IDColumn {
-                get {
-                    return this.columnBranch_ID;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn Booking_DateColumn {
-                get {
-                    return this.columnBooking_Date;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn Checkin_DateColumn {
-                get {
-                    return this.columnCheckin_Date;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn Checkout_DateColumn {
-                get {
-                    return this.columnCheckout_Date;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn Booking_Total_AmountColumn {
-                get {
-                    return this.columnBooking_Total_Amount;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn Booking_StatusColumn {
-                get {
-                    return this.columnBooking_Status;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn First_NameColumn {
-                get {
-                    return this.columnFirst_Name;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn Last_NameColumn {
-                get {
-                    return this.columnLast_Name;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn Email_AddressColumn {
-                get {
-                    return this.columnEmail_Address;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn Client_AddressColumn {
-                get {
-                    return this.columnClient_Address;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn Phone_NumberColumn {
-                get {
-                    return this.columnPhone_Number;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn Branch_NameColumn {
-                get {
-                    return this.columnBranch_Name;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn Branch_AddressColumn {
-                get {
-                    return this.columnBranch_Address;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn Branch_PhoneColumn {
-                get {
-                    return this.columnBranch_Phone;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn Branch_EmailColumn {
-                get {
-                    return this.columnBranch_Email;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn Branch_StatusColumn {
-                get {
-                    return this.columnBranch_Status;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            [global::System.ComponentModel.Browsable(false)]
-            public int Count {
-                get {
-                    return this.Rows.Count;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public ClientBranchBookingRow this[int index] {
-                get {
-                    return ((ClientBranchBookingRow)(this.Rows[index]));
-                }
-            }
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event ClientBranchBookingRowChangeEventHandler ClientBranchBookingRowChanging;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event ClientBranchBookingRowChangeEventHandler ClientBranchBookingRowChanged;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event ClientBranchBookingRowChangeEventHandler ClientBranchBookingRowDeleting;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event ClientBranchBookingRowChangeEventHandler ClientBranchBookingRowDeleted;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void AddClientBranchBookingRow(ClientBranchBookingRow row) {
-                this.Rows.Add(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public ClientBranchBookingRow AddClientBranchBookingRow(
-                        int Client_ID, 
-                        string Branch_ID, 
-                        System.DateTime Booking_Date, 
-                        System.DateTime Checkin_Date, 
-                        System.DateTime Checkout_Date, 
-                        decimal Booking_Total_Amount, 
-                        string Booking_Status, 
-                        string First_Name, 
-                        string Last_Name, 
-                        string Email_Address, 
-                        string Client_Address, 
-                        string Phone_Number, 
-                        string Branch_Name, 
-                        string Branch_Address, 
-                        string Branch_Phone, 
-                        string Branch_Email, 
-                        string Branch_Status) {
-                ClientBranchBookingRow rowClientBranchBookingRow = ((ClientBranchBookingRow)(this.NewRow()));
-                object[] columnValuesArray = new object[] {
-                        null,
-                        Client_ID,
-                        Branch_ID,
-                        Booking_Date,
-                        Checkin_Date,
-                        Checkout_Date,
-                        Booking_Total_Amount,
-                        Booking_Status,
-                        First_Name,
-                        Last_Name,
-                        Email_Address,
-                        Client_Address,
-                        Phone_Number,
-                        Branch_Name,
-                        Branch_Address,
-                        Branch_Phone,
-                        Branch_Email,
-                        Branch_Status};
-                rowClientBranchBookingRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowClientBranchBookingRow);
-                return rowClientBranchBookingRow;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public ClientBranchBookingRow FindByBooking_ID(int Booking_ID) {
-                return ((ClientBranchBookingRow)(this.Rows.Find(new object[] {
-                            Booking_ID})));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public override global::System.Data.DataTable Clone() {
-                ClientBranchBookingDataTable cln = ((ClientBranchBookingDataTable)(base.Clone()));
-                cln.InitVars();
-                return cln;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override global::System.Data.DataTable CreateInstance() {
-                return new ClientBranchBookingDataTable();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal void InitVars() {
-                this.columnBooking_ID = base.Columns["Booking_ID"];
-                this.columnClient_ID = base.Columns["Client_ID"];
-                this.columnBranch_ID = base.Columns["Branch_ID"];
-                this.columnBooking_Date = base.Columns["Booking_Date"];
-                this.columnCheckin_Date = base.Columns["Checkin_Date"];
-                this.columnCheckout_Date = base.Columns["Checkout_Date"];
-                this.columnBooking_Total_Amount = base.Columns["Booking_Total_Amount"];
-                this.columnBooking_Status = base.Columns["Booking_Status"];
-                this.columnFirst_Name = base.Columns["First_Name"];
-                this.columnLast_Name = base.Columns["Last_Name"];
-                this.columnEmail_Address = base.Columns["Email_Address"];
-                this.columnClient_Address = base.Columns["Client_Address"];
-                this.columnPhone_Number = base.Columns["Phone_Number"];
-                this.columnBranch_Name = base.Columns["Branch_Name"];
-                this.columnBranch_Address = base.Columns["Branch_Address"];
-                this.columnBranch_Phone = base.Columns["Branch_Phone"];
-                this.columnBranch_Email = base.Columns["Branch_Email"];
-                this.columnBranch_Status = base.Columns["Branch_Status"];
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            private void InitClass() {
-                this.columnBooking_ID = new global::System.Data.DataColumn("Booking_ID", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnBooking_ID);
-                this.columnClient_ID = new global::System.Data.DataColumn("Client_ID", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnClient_ID);
-                this.columnBranch_ID = new global::System.Data.DataColumn("Branch_ID", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnBranch_ID);
-                this.columnBooking_Date = new global::System.Data.DataColumn("Booking_Date", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnBooking_Date);
-                this.columnCheckin_Date = new global::System.Data.DataColumn("Checkin_Date", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCheckin_Date);
-                this.columnCheckout_Date = new global::System.Data.DataColumn("Checkout_Date", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCheckout_Date);
-                this.columnBooking_Total_Amount = new global::System.Data.DataColumn("Booking_Total_Amount", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnBooking_Total_Amount);
-                this.columnBooking_Status = new global::System.Data.DataColumn("Booking_Status", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnBooking_Status);
-                this.columnFirst_Name = new global::System.Data.DataColumn("First_Name", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnFirst_Name);
-                this.columnLast_Name = new global::System.Data.DataColumn("Last_Name", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnLast_Name);
-                this.columnEmail_Address = new global::System.Data.DataColumn("Email_Address", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnEmail_Address);
-                this.columnClient_Address = new global::System.Data.DataColumn("Client_Address", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnClient_Address);
-                this.columnPhone_Number = new global::System.Data.DataColumn("Phone_Number", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPhone_Number);
-                this.columnBranch_Name = new global::System.Data.DataColumn("Branch_Name", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnBranch_Name);
-                this.columnBranch_Address = new global::System.Data.DataColumn("Branch_Address", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnBranch_Address);
-                this.columnBranch_Phone = new global::System.Data.DataColumn("Branch_Phone", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnBranch_Phone);
-                this.columnBranch_Email = new global::System.Data.DataColumn("Branch_Email", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnBranch_Email);
-                this.columnBranch_Status = new global::System.Data.DataColumn("Branch_Status", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnBranch_Status);
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnBooking_ID}, true));
-                this.columnBooking_ID.AutoIncrement = true;
-                this.columnBooking_ID.AutoIncrementSeed = -1;
-                this.columnBooking_ID.AutoIncrementStep = -1;
-                this.columnBooking_ID.AllowDBNull = false;
-                this.columnBooking_ID.ReadOnly = true;
-                this.columnBooking_ID.Unique = true;
-                this.columnBooking_Date.AllowDBNull = false;
-                this.columnCheckin_Date.AllowDBNull = false;
-                this.columnCheckout_Date.AllowDBNull = false;
-                this.columnBooking_Total_Amount.AllowDBNull = false;
-                this.columnBooking_Status.AllowDBNull = false;
-                this.columnBooking_Status.MaxLength = 50;
-                this.columnFirst_Name.AllowDBNull = false;
-                this.columnFirst_Name.MaxLength = 50;
-                this.columnLast_Name.AllowDBNull = false;
-                this.columnLast_Name.MaxLength = 50;
-                this.columnEmail_Address.AllowDBNull = false;
-                this.columnEmail_Address.MaxLength = 100;
-                this.columnClient_Address.MaxLength = 255;
-                this.columnPhone_Number.MaxLength = 20;
-                this.columnBranch_Name.AllowDBNull = false;
-                this.columnBranch_Name.MaxLength = 100;
-                this.columnBranch_Address.AllowDBNull = false;
-                this.columnBranch_Address.MaxLength = 255;
-                this.columnBranch_Phone.AllowDBNull = false;
-                this.columnBranch_Phone.MaxLength = 20;
-                this.columnBranch_Email.AllowDBNull = false;
-                this.columnBranch_Email.MaxLength = 100;
-                this.columnBranch_Status.AllowDBNull = false;
-                this.columnBranch_Status.MaxLength = 20;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public ClientBranchBookingRow NewClientBranchBookingRow() {
-                return ((ClientBranchBookingRow)(this.NewRow()));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new ClientBranchBookingRow(builder);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override global::System.Type GetRowType() {
-                return typeof(ClientBranchBookingRow);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanged(e);
-                if ((this.ClientBranchBookingRowChanged != null)) {
-                    this.ClientBranchBookingRowChanged(this, new ClientBranchBookingRowChangeEvent(((ClientBranchBookingRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanging(e);
-                if ((this.ClientBranchBookingRowChanging != null)) {
-                    this.ClientBranchBookingRowChanging(this, new ClientBranchBookingRowChangeEvent(((ClientBranchBookingRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleted(e);
-                if ((this.ClientBranchBookingRowDeleted != null)) {
-                    this.ClientBranchBookingRowDeleted(this, new ClientBranchBookingRowChangeEvent(((ClientBranchBookingRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleting(e);
-                if ((this.ClientBranchBookingRowDeleting != null)) {
-                    this.ClientBranchBookingRowDeleting(this, new ClientBranchBookingRowChangeEvent(((ClientBranchBookingRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void RemoveClientBranchBookingRow(ClientBranchBookingRow row) {
-                this.Rows.Remove(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
-                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                codeCraftersDS ds = new codeCraftersDS();
-                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
-                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
-                any1.MinOccurs = new decimal(0);
-                any1.MaxOccurs = decimal.MaxValue;
-                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any1);
-                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
-                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
-                any2.MinOccurs = new decimal(1);
-                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any2);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute1.Name = "namespace";
-                attribute1.FixedValue = ds.Namespace;
-                type.Attributes.Add(attribute1);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "ClientBranchBookingDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -5672,22 +5060,6 @@ namespace Code_Crafters_Interface_Prototype_1 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int hotel_room_type_ID {
-                get {
-                    try {
-                        return ((int)(this[this.tableHotel_Room.hotel_room_type_IDColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'hotel_room_type_ID\' in table \'Hotel_Room\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableHotel_Room.hotel_room_type_IDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public int hotel_room_number {
                 get {
                     try {
@@ -5736,6 +5108,22 @@ namespace Code_Crafters_Interface_Prototype_1 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string hotel_room_type {
+                get {
+                    try {
+                        return ((string)(this[this.tableHotel_Room.hotel_room_typeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'hotel_room_type\' in table \'Hotel_Room\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableHotel_Room.hotel_room_typeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsBranch_IDNull() {
                 return this.IsNull(this.tableHotel_Room.Branch_IDColumn);
             }
@@ -5744,18 +5132,6 @@ namespace Code_Crafters_Interface_Prototype_1 {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetBranch_IDNull() {
                 this[this.tableHotel_Room.Branch_IDColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool Ishotel_room_type_IDNull() {
-                return this.IsNull(this.tableHotel_Room.hotel_room_type_IDColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void Sethotel_room_type_IDNull() {
-                this[this.tableHotel_Room.hotel_room_type_IDColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5792,6 +5168,18 @@ namespace Code_Crafters_Interface_Prototype_1 {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetHotel_Room_PriceNull() {
                 this[this.tableHotel_Room.Hotel_Room_PriceColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Ishotel_room_typeNull() {
+                return this.IsNull(this.tableHotel_Room.hotel_room_typeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Sethotel_room_typeNull() {
+                this[this.tableHotel_Room.hotel_room_typeColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6047,17 +5435,6 @@ namespace Code_Crafters_Interface_Prototype_1 {
                 }
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["FK__Room_Assi__Hotel__1B5E0D89"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public ClientBranchBookingRow ClientBranchBookingRow {
-                get {
-                    return ((ClientBranchBookingRow)(this.GetParentRow(this.Table.ParentRelations["FK__Room_Assi__Booki__1C5231C21"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK__Room_Assi__Booki__1C5231C21"]);
                 }
             }
             
@@ -6459,33 +5836,6 @@ namespace Code_Crafters_Interface_Prototype_1 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int Number_Of_Tables {
-                get {
-                    return ((int)(this[this.tableTable_Allocation.Number_Of_TablesColumn]));
-                }
-                set {
-                    this[this.tableTable_Allocation.Number_Of_TablesColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string Assignment_Type {
-                get {
-                    try {
-                        return ((string)(this[this.tableTable_Allocation.Assignment_TypeColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Assignment_Type\' in table \'Table_Allocation\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableTable_Allocation.Assignment_TypeColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public System.DateTime Start_Time {
                 get {
                     return ((global::System.DateTime)(this[this.tableTable_Allocation.Start_TimeColumn]));
@@ -6528,18 +5878,6 @@ namespace Code_Crafters_Interface_Prototype_1 {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetRestuarant_Table_IDNull() {
                 this[this.tableTable_Allocation.Restuarant_Table_IDColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsAssignment_TypeNull() {
-                return this.IsNull(this.tableTable_Allocation.Assignment_TypeColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetAssignment_TypeNull() {
-                this[this.tableTable_Allocation.Assignment_TypeColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -6790,298 +6128,6 @@ namespace Code_Crafters_Interface_Prototype_1 {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetTablePriceNull() {
                 this[this.tableRestuarant_Table.TablePriceColumn] = global::System.Convert.DBNull;
-            }
-        }
-        
-        /// <summary>
-        ///Represents strongly named DataRow class.
-        ///</summary>
-        public partial class ClientBranchBookingRow : global::System.Data.DataRow {
-            
-            private ClientBranchBookingDataTable tableClientBranchBooking;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal ClientBranchBookingRow(global::System.Data.DataRowBuilder rb) : 
-                    base(rb) {
-                this.tableClientBranchBooking = ((ClientBranchBookingDataTable)(this.Table));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int Booking_ID {
-                get {
-                    return ((int)(this[this.tableClientBranchBooking.Booking_IDColumn]));
-                }
-                set {
-                    this[this.tableClientBranchBooking.Booking_IDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int Client_ID {
-                get {
-                    try {
-                        return ((int)(this[this.tableClientBranchBooking.Client_IDColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Client_ID\' in table \'ClientBranchBooking\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableClientBranchBooking.Client_IDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string Branch_ID {
-                get {
-                    try {
-                        return ((string)(this[this.tableClientBranchBooking.Branch_IDColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Branch_ID\' in table \'ClientBranchBooking\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableClientBranchBooking.Branch_IDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public System.DateTime Booking_Date {
-                get {
-                    return ((global::System.DateTime)(this[this.tableClientBranchBooking.Booking_DateColumn]));
-                }
-                set {
-                    this[this.tableClientBranchBooking.Booking_DateColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public System.DateTime Checkin_Date {
-                get {
-                    return ((global::System.DateTime)(this[this.tableClientBranchBooking.Checkin_DateColumn]));
-                }
-                set {
-                    this[this.tableClientBranchBooking.Checkin_DateColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public System.DateTime Checkout_Date {
-                get {
-                    return ((global::System.DateTime)(this[this.tableClientBranchBooking.Checkout_DateColumn]));
-                }
-                set {
-                    this[this.tableClientBranchBooking.Checkout_DateColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public decimal Booking_Total_Amount {
-                get {
-                    return ((decimal)(this[this.tableClientBranchBooking.Booking_Total_AmountColumn]));
-                }
-                set {
-                    this[this.tableClientBranchBooking.Booking_Total_AmountColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string Booking_Status {
-                get {
-                    return ((string)(this[this.tableClientBranchBooking.Booking_StatusColumn]));
-                }
-                set {
-                    this[this.tableClientBranchBooking.Booking_StatusColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string First_Name {
-                get {
-                    return ((string)(this[this.tableClientBranchBooking.First_NameColumn]));
-                }
-                set {
-                    this[this.tableClientBranchBooking.First_NameColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string Last_Name {
-                get {
-                    return ((string)(this[this.tableClientBranchBooking.Last_NameColumn]));
-                }
-                set {
-                    this[this.tableClientBranchBooking.Last_NameColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string Email_Address {
-                get {
-                    return ((string)(this[this.tableClientBranchBooking.Email_AddressColumn]));
-                }
-                set {
-                    this[this.tableClientBranchBooking.Email_AddressColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string Client_Address {
-                get {
-                    try {
-                        return ((string)(this[this.tableClientBranchBooking.Client_AddressColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Client_Address\' in table \'ClientBranchBooking\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableClientBranchBooking.Client_AddressColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string Phone_Number {
-                get {
-                    try {
-                        return ((string)(this[this.tableClientBranchBooking.Phone_NumberColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Phone_Number\' in table \'ClientBranchBooking\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableClientBranchBooking.Phone_NumberColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string Branch_Name {
-                get {
-                    return ((string)(this[this.tableClientBranchBooking.Branch_NameColumn]));
-                }
-                set {
-                    this[this.tableClientBranchBooking.Branch_NameColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string Branch_Address {
-                get {
-                    return ((string)(this[this.tableClientBranchBooking.Branch_AddressColumn]));
-                }
-                set {
-                    this[this.tableClientBranchBooking.Branch_AddressColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string Branch_Phone {
-                get {
-                    return ((string)(this[this.tableClientBranchBooking.Branch_PhoneColumn]));
-                }
-                set {
-                    this[this.tableClientBranchBooking.Branch_PhoneColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string Branch_Email {
-                get {
-                    return ((string)(this[this.tableClientBranchBooking.Branch_EmailColumn]));
-                }
-                set {
-                    this[this.tableClientBranchBooking.Branch_EmailColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string Branch_Status {
-                get {
-                    return ((string)(this[this.tableClientBranchBooking.Branch_StatusColumn]));
-                }
-                set {
-                    this[this.tableClientBranchBooking.Branch_StatusColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsClient_IDNull() {
-                return this.IsNull(this.tableClientBranchBooking.Client_IDColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetClient_IDNull() {
-                this[this.tableClientBranchBooking.Client_IDColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsBranch_IDNull() {
-                return this.IsNull(this.tableClientBranchBooking.Branch_IDColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetBranch_IDNull() {
-                this[this.tableClientBranchBooking.Branch_IDColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsClient_AddressNull() {
-                return this.IsNull(this.tableClientBranchBooking.Client_AddressColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetClient_AddressNull() {
-                this[this.tableClientBranchBooking.Client_AddressColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsPhone_NumberNull() {
-                return this.IsNull(this.tableClientBranchBooking.Phone_NumberColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetPhone_NumberNull() {
-                this[this.tableClientBranchBooking.Phone_NumberColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public Room_AssignmentRow[] GetRoom_AssignmentRows() {
-                if ((this.Table.ChildRelations["FK__Room_Assi__Booki__1C5231C21"] == null)) {
-                    return new Room_AssignmentRow[0];
-                }
-                else {
-                    return ((Room_AssignmentRow[])(base.GetChildRows(this.Table.ChildRelations["FK__Room_Assi__Booki__1C5231C21"])));
-                }
             }
         }
         
@@ -7594,40 +6640,6 @@ namespace Code_Crafters_Interface_Prototype_1 {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public Restuarant_TableRow Row {
-                get {
-                    return this.eventRow;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataRowAction Action {
-                get {
-                    return this.eventAction;
-                }
-            }
-        }
-        
-        /// <summary>
-        ///Row event argument class
-        ///</summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public class ClientBranchBookingRowChangeEvent : global::System.EventArgs {
-            
-            private ClientBranchBookingRow eventRow;
-            
-            private global::System.Data.DataRowAction eventAction;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public ClientBranchBookingRowChangeEvent(ClientBranchBookingRow row, global::System.Data.DataRowAction action) {
-                this.eventRow = row;
-                this.eventAction = action;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public ClientBranchBookingRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -9029,7 +8041,7 @@ SELECT Client_ID, First_Name, Last_Name, Password, Email_Address, Client_Address
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[4];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[7];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT Client_ID, First_Name, Last_Name, Password, Email_Address, Client_Address," +
@@ -9047,15 +8059,41 @@ SELECT Client_ID, First_Name, Last_Name, Password, Email_Address, Client_Address
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Phone", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "Phone_Number", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[3].Connection = this.Connection;
-            this._commandCollection[3].CommandText = @"INSERT INTO [dbo].[Client] ([First_Name], [Last_Name], [Password], [Email_Address], [Client_Address], [Phone_Number]) VALUES (@First_Name, @Last_Name, @Password, @Email_Address, @Client_Address, @Phone_Number);
-SELECT Client_ID, First_Name, Last_Name, Password, Email_Address, Client_Address, Phone_Number FROM Client WHERE (Client_ID = SCOPE_IDENTITY())";
+            this._commandCollection[3].CommandText = "DELETE FROM Client\r\nWHERE Client_ID = @Client_ID";
             this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@First_Name", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "First_Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Last_Name", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Last_Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Password", global::System.Data.SqlDbType.VarChar, 255, global::System.Data.ParameterDirection.Input, 0, 0, "Password", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Email_Address", global::System.Data.SqlDbType.VarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "Email_Address", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Client_Address", global::System.Data.SqlDbType.VarChar, 255, global::System.Data.ParameterDirection.Input, 0, 0, "Client_Address", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Phone_Number", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "Phone_Number", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Client_ID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Client_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[4].Connection = this.Connection;
+            this._commandCollection[4].CommandText = "SELECT        Client_ID, First_Name, Last_Name, Password, Email_Address, Client_A" +
+                "ddress, Phone_Number\r\nFROM            Client\r\nWHERE        (Client_ID = @clientI" +
+                "D)";
+            this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@clientID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Client_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[5] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[5].Connection = this.Connection;
+            this._commandCollection[5].CommandText = @"INSERT INTO [dbo].[Client] ([First_Name], [Last_Name], [Password], [Email_Address], [Client_Address], [Phone_Number]) VALUES (@First_Name, @Last_Name, @Password, @Email_Address, @Client_Address, @Phone_Number);
+SELECT Client_ID, First_Name, Last_Name, Password, Email_Address, Client_Address, Phone_Number FROM Client WHERE (Client_ID = SCOPE_IDENTITY())";
+            this._commandCollection[5].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@First_Name", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "First_Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Last_Name", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Last_Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Password", global::System.Data.SqlDbType.VarChar, 255, global::System.Data.ParameterDirection.Input, 0, 0, "Password", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Email_Address", global::System.Data.SqlDbType.VarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "Email_Address", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Client_Address", global::System.Data.SqlDbType.VarChar, 255, global::System.Data.ParameterDirection.Input, 0, 0, "Client_Address", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Phone_Number", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "Phone_Number", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[6] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[6].Connection = this.Connection;
+            this._commandCollection[6].CommandText = "UPDATE Client\r\nSET \r\n    First_Name = @First_Name,\r\n    Last_Name = @Last_Name,\r\n" +
+                "    Password = @Password,\r\n    Email_Address = @Email_Address,\r\n    Client_Addre" +
+                "ss = @Client_Address,\r\n    Phone_Number = @Phone_Number\r\nWHERE \r\n    Client_ID =" +
+                " @Client_ID";
+            this._commandCollection[6].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@First_Name", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "First_Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Last_Name", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Last_Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Password", global::System.Data.SqlDbType.VarChar, 255, global::System.Data.ParameterDirection.Input, 0, 0, "Password", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Email_Address", global::System.Data.SqlDbType.VarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "Email_Address", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Client_Address", global::System.Data.SqlDbType.VarChar, 255, global::System.Data.ParameterDirection.Input, 0, 0, "Client_Address", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Phone_Number", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "Phone_Number", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Client_ID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Client_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -9077,6 +8115,32 @@ SELECT Client_ID, First_Name, Last_Name, Password, Email_Address, Client_Address
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual codeCraftersDS.ClientDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            codeCraftersDS.ClientDataTable dataTable = new codeCraftersDS.ClientDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByClientID(codeCraftersDS.ClientDataTable dataTable, int clientID) {
+            this.Adapter.SelectCommand = this.CommandCollection[4];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(clientID));
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual codeCraftersDS.ClientDataTable GetDataBy3(int clientID) {
+            this.Adapter.SelectCommand = this.CommandCollection[4];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(clientID));
             codeCraftersDS.ClientDataTable dataTable = new codeCraftersDS.ClientDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -9408,9 +8472,33 @@ SELECT Client_ID, First_Name, Last_Name, Password, Email_Address, Client_Address
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, false)]
+        public virtual int DeleteClient(int Client_ID) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[3];
+            command.Parameters[0].Value = ((int)(Client_ID));
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            int returnValue;
+            try {
+                returnValue = command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
         public virtual object InsertNewClient(string First_Name, string Last_Name, string Password, string Email_Address, string Client_Address, string Phone_Number) {
-            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[3];
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[5];
             if ((First_Name == null)) {
                 throw new global::System.ArgumentNullException("First_Name");
             }
@@ -9468,6 +8556,66 @@ SELECT Client_ID, First_Name, Last_Name, Password, Email_Address, Client_Address
             else {
                 return ((object)(returnValue));
             }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
+        public virtual int UpdateClient(string First_Name, string Last_Name, string Password, string Email_Address, string Client_Address, string Phone_Number, int Client_ID) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[6];
+            if ((First_Name == null)) {
+                throw new global::System.ArgumentNullException("First_Name");
+            }
+            else {
+                command.Parameters[0].Value = ((string)(First_Name));
+            }
+            if ((Last_Name == null)) {
+                throw new global::System.ArgumentNullException("Last_Name");
+            }
+            else {
+                command.Parameters[1].Value = ((string)(Last_Name));
+            }
+            if ((Password == null)) {
+                throw new global::System.ArgumentNullException("Password");
+            }
+            else {
+                command.Parameters[2].Value = ((string)(Password));
+            }
+            if ((Email_Address == null)) {
+                throw new global::System.ArgumentNullException("Email_Address");
+            }
+            else {
+                command.Parameters[3].Value = ((string)(Email_Address));
+            }
+            if ((Client_Address == null)) {
+                command.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[4].Value = ((string)(Client_Address));
+            }
+            if ((Phone_Number == null)) {
+                command.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[5].Value = ((string)(Phone_Number));
+            }
+            command.Parameters[6].Value = ((int)(Client_ID));
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            int returnValue;
+            try {
+                returnValue = command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            return returnValue;
         }
     }
     
@@ -10170,57 +9318,57 @@ SELECT Folio_ID, Booking_ID, Payment_Type, Payment_Amount, Payment_Date, Payment
             tableMapping.DataSetTable = "Hotel_Room";
             tableMapping.ColumnMappings.Add("Hotel_Room_ID", "Hotel_Room_ID");
             tableMapping.ColumnMappings.Add("Branch_ID", "Branch_ID");
-            tableMapping.ColumnMappings.Add("hotel_room_type_ID", "hotel_room_type_ID");
             tableMapping.ColumnMappings.Add("hotel_room_number", "hotel_room_number");
             tableMapping.ColumnMappings.Add("hotel_room_status", "hotel_room_status");
             tableMapping.ColumnMappings.Add("Hotel_Room_Price", "Hotel_Room_Price");
+            tableMapping.ColumnMappings.Add("hotel_room_type", "hotel_room_type");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Hotel_Room] WHERE (([Hotel_Room_ID] = @Original_Hotel_Room_ID) AND ((@IsNull_Branch_ID = 1 AND [Branch_ID] IS NULL) OR ([Branch_ID] = @Original_Branch_ID)) AND ((@IsNull_hotel_room_type_ID = 1 AND [hotel_room_type_ID] IS NULL) OR ([hotel_room_type_ID] = @Original_hotel_room_type_ID)) AND ((@IsNull_hotel_room_number = 1 AND [hotel_room_number] IS NULL) OR ([hotel_room_number] = @Original_hotel_room_number)) AND ((@IsNull_hotel_room_status = 1 AND [hotel_room_status] IS NULL) OR ([hotel_room_status] = @Original_hotel_room_status)) AND ((@IsNull_Hotel_Room_Price = 1 AND [Hotel_Room_Price] IS NULL) OR ([Hotel_Room_Price] = @Original_Hotel_Room_Price)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [Hotel_Room] WHERE (([Hotel_Room_ID] = @Original_Hotel_Room_ID) AND ((@IsNull_Branch_ID = 1 AND [Branch_ID] IS NULL) OR ([Branch_ID] = @Original_Branch_ID)) AND ((@IsNull_hotel_room_number = 1 AND [hotel_room_number] IS NULL) OR ([hotel_room_number] = @Original_hotel_room_number)) AND ((@IsNull_hotel_room_status = 1 AND [hotel_room_status] IS NULL) OR ([hotel_room_status] = @Original_hotel_room_status)) AND ((@IsNull_Hotel_Room_Price = 1 AND [Hotel_Room_Price] IS NULL) OR ([Hotel_Room_Price] = @Original_Hotel_Room_Price)) AND ((@IsNull_hotel_room_type = 1 AND [hotel_room_type] IS NULL) OR ([hotel_room_type] = @Original_hotel_room_type)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Hotel_Room_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Hotel_Room_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Branch_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Branch_ID", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Branch_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Branch_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_hotel_room_type_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "hotel_room_type_ID", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_hotel_room_type_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "hotel_room_type_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Branch_ID", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Branch_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_hotel_room_number", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "hotel_room_number", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_hotel_room_number", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "hotel_room_number", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_hotel_room_number", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "hotel_room_number", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_hotel_room_status", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "hotel_room_status", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_hotel_room_status", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "hotel_room_status", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Hotel_Room_Price", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Hotel_Room_Price", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Hotel_Room_Price", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "Hotel_Room_Price", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_hotel_room_type", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "hotel_room_type", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_hotel_room_type", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "hotel_room_type", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Hotel_Room] ([Branch_ID], [hotel_room_type_ID], [hotel_room_number], [hotel_room_status], [Hotel_Room_Price]) VALUES (@Branch_ID, @hotel_room_type_ID, @hotel_room_number, @hotel_room_status, @Hotel_Room_Price);
-SELECT Hotel_Room_ID, Branch_ID, hotel_room_type_ID, hotel_room_number, hotel_room_status, Hotel_Room_Price FROM Hotel_Room WHERE (Hotel_Room_ID = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [Hotel_Room] ([Branch_ID], [hotel_room_number], [hotel_room_status], [Hotel_Room_Price], [hotel_room_type]) VALUES (@Branch_ID, @hotel_room_number, @hotel_room_status, @Hotel_Room_Price, @hotel_room_type);
+SELECT Hotel_Room_ID, Branch_ID, hotel_room_number, hotel_room_status, Hotel_Room_Price, hotel_room_type FROM Hotel_Room WHERE (Hotel_Room_ID = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Branch_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Branch_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@hotel_room_type_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "hotel_room_type_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@hotel_room_number", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "hotel_room_number", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Branch_ID", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Branch_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@hotel_room_number", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "hotel_room_number", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@hotel_room_status", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "hotel_room_status", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Hotel_Room_Price", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "Hotel_Room_Price", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@hotel_room_type", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "hotel_room_type", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Hotel_Room] SET [Branch_ID] = @Branch_ID, [hotel_room_type_ID] = @hotel_room_type_ID, [hotel_room_number] = @hotel_room_number, [hotel_room_status] = @hotel_room_status, [Hotel_Room_Price] = @Hotel_Room_Price WHERE (([Hotel_Room_ID] = @Original_Hotel_Room_ID) AND ((@IsNull_Branch_ID = 1 AND [Branch_ID] IS NULL) OR ([Branch_ID] = @Original_Branch_ID)) AND ((@IsNull_hotel_room_type_ID = 1 AND [hotel_room_type_ID] IS NULL) OR ([hotel_room_type_ID] = @Original_hotel_room_type_ID)) AND ((@IsNull_hotel_room_number = 1 AND [hotel_room_number] IS NULL) OR ([hotel_room_number] = @Original_hotel_room_number)) AND ((@IsNull_hotel_room_status = 1 AND [hotel_room_status] IS NULL) OR ([hotel_room_status] = @Original_hotel_room_status)) AND ((@IsNull_Hotel_Room_Price = 1 AND [Hotel_Room_Price] IS NULL) OR ([Hotel_Room_Price] = @Original_Hotel_Room_Price)));
-SELECT Hotel_Room_ID, Branch_ID, hotel_room_type_ID, hotel_room_number, hotel_room_status, Hotel_Room_Price FROM Hotel_Room WHERE (Hotel_Room_ID = @Hotel_Room_ID)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [Hotel_Room] SET [Branch_ID] = @Branch_ID, [hotel_room_number] = @hotel_room_number, [hotel_room_status] = @hotel_room_status, [Hotel_Room_Price] = @Hotel_Room_Price, [hotel_room_type] = @hotel_room_type WHERE (([Hotel_Room_ID] = @Original_Hotel_Room_ID) AND ((@IsNull_Branch_ID = 1 AND [Branch_ID] IS NULL) OR ([Branch_ID] = @Original_Branch_ID)) AND ((@IsNull_hotel_room_number = 1 AND [hotel_room_number] IS NULL) OR ([hotel_room_number] = @Original_hotel_room_number)) AND ((@IsNull_hotel_room_status = 1 AND [hotel_room_status] IS NULL) OR ([hotel_room_status] = @Original_hotel_room_status)) AND ((@IsNull_Hotel_Room_Price = 1 AND [Hotel_Room_Price] IS NULL) OR ([Hotel_Room_Price] = @Original_Hotel_Room_Price)) AND ((@IsNull_hotel_room_type = 1 AND [hotel_room_type] IS NULL) OR ([hotel_room_type] = @Original_hotel_room_type)));
+SELECT Hotel_Room_ID, Branch_ID, hotel_room_number, hotel_room_status, Hotel_Room_Price, hotel_room_type FROM Hotel_Room WHERE (Hotel_Room_ID = @Hotel_Room_ID)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Branch_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Branch_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@hotel_room_type_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "hotel_room_type_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@hotel_room_number", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "hotel_room_number", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Branch_ID", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Branch_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@hotel_room_number", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "hotel_room_number", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@hotel_room_status", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "hotel_room_status", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Hotel_Room_Price", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "Hotel_Room_Price", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@hotel_room_type", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "hotel_room_type", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Hotel_Room_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Hotel_Room_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Branch_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Branch_ID", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Branch_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Branch_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_hotel_room_type_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "hotel_room_type_ID", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_hotel_room_type_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "hotel_room_type_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Branch_ID", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Branch_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_hotel_room_number", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "hotel_room_number", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_hotel_room_number", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "hotel_room_number", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_hotel_room_number", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "hotel_room_number", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_hotel_room_status", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "hotel_room_status", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_hotel_room_status", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "hotel_room_status", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Hotel_Room_Price", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Hotel_Room_Price", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Hotel_Room_Price", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "Hotel_Room_Price", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_hotel_room_type", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "hotel_room_type", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_hotel_room_type", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "hotel_room_type", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Hotel_Room_ID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Hotel_Room_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
@@ -10234,37 +9382,31 @@ SELECT Hotel_Room_ID, Branch_ID, hotel_room_type_ID, hotel_room_number, hotel_ro
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[6];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[5];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT Hotel_Room_ID, Branch_ID, hotel_room_type_ID, hotel_room_number, hotel_roo" +
-                "m_status, Hotel_Room_Price FROM dbo.Hotel_Room";
+            this._commandCollection[0].CommandText = "SELECT        Hotel_Room_ID, Branch_ID, hotel_room_type_ID, hotel_room_number, ho" +
+                "tel_room_status, Hotel_Room_Price, hotel_room_type\r\nFROM            Hotel_Room";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "DELETE FROM [dbo].[Hotel_Room]\r\nWHERE [Hotel_Room_ID] = @Hotel_Room_ID;";
+            this._commandCollection[1].CommandText = "SELECT Branch_ID, Hotel_Room_ID, Hotel_Room_Price, hotel_room_number, hotel_room_" +
+                "status, hotel_room_type FROM Hotel_Room WHERE (hotel_room_number = @roomNo)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Hotel_Room_ID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Hotel_Room_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@roomNo", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "hotel_room_number", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = "SELECT        Hotel_Room_ID, Branch_ID, hotel_room_type_ID, hotel_room_number, ho" +
-                "tel_room_status, Hotel_Room_Price\r\nFROM            Hotel_Room\r\nWHERE        (Hot" +
-                "el_Room_ID = @hotelRoomID)";
+            this._commandCollection[2].CommandText = @"INSERT INTO [dbo].[Hotel_Room] ([Branch_ID], [hotel_room_type_ID], [hotel_room_number], [hotel_room_status], [Hotel_Room_Price]) VALUES (@Branch_ID, @hotel_room_type_ID, @hotel_room_number, @hotel_room_status, @Hotel_Room_Price);
+SELECT Hotel_Room_ID, Branch_ID, hotel_room_type_ID, hotel_room_number, hotel_room_status, Hotel_Room_Price FROM Hotel_Room WHERE (Hotel_Room_ID = SCOPE_IDENTITY())";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@hotelRoomID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Hotel_Room_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Branch_ID", global::System.Data.SqlDbType.VarChar, 10, global::System.Data.ParameterDirection.Input, 0, 0, "Branch_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@hotel_room_type_ID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "hotel_room_type_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@hotel_room_number", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "hotel_room_number", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@hotel_room_status", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "hotel_room_status", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Hotel_Room_Price", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 10, 2, "Hotel_Room_Price", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[3].Connection = this.Connection;
-            this._commandCollection[3].CommandText = @"INSERT INTO [dbo].[Hotel_Room] ([Branch_ID], [hotel_room_type_ID], [hotel_room_number], [hotel_room_status], [Hotel_Room_Price]) VALUES (@Branch_ID, @hotel_room_type_ID, @hotel_room_number, @hotel_room_status, @Hotel_Room_Price);
-SELECT Hotel_Room_ID, Branch_ID, hotel_room_type_ID, hotel_room_number, hotel_room_status, Hotel_Room_Price FROM Hotel_Room WHERE (Hotel_Room_ID = SCOPE_IDENTITY())";
-            this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Branch_ID", global::System.Data.SqlDbType.VarChar, 10, global::System.Data.ParameterDirection.Input, 0, 0, "Branch_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@hotel_room_type_ID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "hotel_room_type_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@hotel_room_number", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "hotel_room_number", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@hotel_room_status", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "hotel_room_status", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Hotel_Room_Price", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 10, 2, "Hotel_Room_Price", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[4].Connection = this.Connection;
-            this._commandCollection[4].CommandText = @"UPDATE [dbo].[Hotel_Room]
+            this._commandCollection[3].CommandText = @"UPDATE [dbo].[Hotel_Room]
 SET 
     [Branch_ID] = @Branch_ID,
     [hotel_room_type_ID] = @hotel_room_type_ID,
@@ -10273,19 +9415,19 @@ SET
     [hotel_room_Price] = @hotel_room_Price
 WHERE 
     [Hotel_Room_ID] = @Hotel_Room_ID;";
+            this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Branch_ID", global::System.Data.SqlDbType.VarChar, 10, global::System.Data.ParameterDirection.Input, 0, 0, "Branch_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@hotel_room_type_ID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "hotel_room_type_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@hotel_room_number", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "hotel_room_number", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@hotel_room_status", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "hotel_room_status", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@hotel_room_Price", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 10, 2, "Hotel_Room_Price", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Hotel_Room_ID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Hotel_Room_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[4].Connection = this.Connection;
+            this._commandCollection[4].CommandText = "UPDATE Hotel_Room SET hotel_room_status = @status WHERE Hotel_Room_ID = @id";
             this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Branch_ID", global::System.Data.SqlDbType.VarChar, 10, global::System.Data.ParameterDirection.Input, 0, 0, "Branch_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@hotel_room_type_ID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "hotel_room_type_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@hotel_room_number", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "hotel_room_number", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@hotel_room_status", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "hotel_room_status", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@hotel_room_Price", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 10, 2, "Hotel_Room_Price", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Hotel_Room_ID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Hotel_Room_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._commandCollection[5] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[5].Connection = this.Connection;
-            this._commandCollection[5].CommandText = "UPDATE Hotel_Room SET hotel_room_status = @status WHERE Hotel_Room_ID = @id";
-            this._commandCollection[5].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@status", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "hotel_room_status", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Hotel_Room_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@status", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "hotel_room_status", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Hotel_Room_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -10316,9 +9458,14 @@ WHERE
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillByHotelRoomID(codeCraftersDS.Hotel_RoomDataTable dataTable, int hotelRoomID) {
-            this.Adapter.SelectCommand = this.CommandCollection[2];
-            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(hotelRoomID));
+        public virtual int FillByHotelRoomNo(codeCraftersDS.Hotel_RoomDataTable dataTable, global::System.Nullable<int> roomNo) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((roomNo.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((int)(roomNo.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
             }
@@ -10330,9 +9477,14 @@ WHERE
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual codeCraftersDS.Hotel_RoomDataTable GetDataBy1(int hotelRoomID) {
-            this.Adapter.SelectCommand = this.CommandCollection[2];
-            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(hotelRoomID));
+        public virtual codeCraftersDS.Hotel_RoomDataTable GetDataBy1(global::System.Nullable<int> roomNo) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((roomNo.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((int)(roomNo.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
             codeCraftersDS.Hotel_RoomDataTable dataTable = new codeCraftersDS.Hotel_RoomDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -10371,47 +9523,47 @@ WHERE
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_Hotel_Room_ID, global::System.Nullable<int> Original_Branch_ID, global::System.Nullable<int> Original_hotel_room_type_ID, string Original_hotel_room_number, string Original_hotel_room_status, global::System.Nullable<decimal> Original_Hotel_Room_Price) {
+        public virtual int Delete(int Original_Hotel_Room_ID, string Original_Branch_ID, global::System.Nullable<int> Original_hotel_room_number, string Original_hotel_room_status, global::System.Nullable<decimal> Original_Hotel_Room_Price, string Original_hotel_room_type) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_Hotel_Room_ID));
-            if ((Original_Branch_ID.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_Branch_ID.Value));
-            }
-            else {
+            if ((Original_Branch_ID == null)) {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
-            if ((Original_hotel_room_type_ID.HasValue == true)) {
+            else {
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_Branch_ID));
+            }
+            if ((Original_hotel_room_number.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((int)(Original_hotel_room_type_ID.Value));
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((int)(Original_hotel_room_number.Value));
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
-            if ((Original_hotel_room_number == null)) {
+            if ((Original_hotel_room_status == null)) {
                 this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[6].Value = ((string)(Original_hotel_room_number));
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((string)(Original_hotel_room_status));
             }
-            if ((Original_hotel_room_status == null)) {
+            if ((Original_Hotel_Room_Price.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[8].Value = ((decimal)(Original_Hotel_Room_Price.Value));
+            }
+            else {
                 this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[8].Value = ((string)(Original_hotel_room_status));
-            }
-            if ((Original_Hotel_Room_Price.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[10].Value = ((decimal)(Original_Hotel_Room_Price.Value));
-            }
-            else {
+            if ((Original_hotel_room_type == null)) {
                 this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[10].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[10].Value = ((string)(Original_hotel_room_type));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -10433,36 +9585,36 @@ WHERE
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(global::System.Nullable<int> Branch_ID, global::System.Nullable<int> hotel_room_type_ID, string hotel_room_number, string hotel_room_status, global::System.Nullable<decimal> Hotel_Room_Price) {
-            if ((Branch_ID.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((int)(Branch_ID.Value));
-            }
-            else {
+        public virtual int Insert(string Branch_ID, global::System.Nullable<int> hotel_room_number, string hotel_room_status, global::System.Nullable<decimal> Hotel_Room_Price, string hotel_room_type) {
+            if ((Branch_ID == null)) {
                 this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
-            if ((hotel_room_type_ID.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((int)(hotel_room_type_ID.Value));
+            else {
+                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(Branch_ID));
+            }
+            if ((hotel_room_number.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[1].Value = ((int)(hotel_room_number.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
-            if ((hotel_room_number == null)) {
+            if ((hotel_room_status == null)) {
                 this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(hotel_room_number));
-            }
-            if ((hotel_room_status == null)) {
-                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(hotel_room_status));
+                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(hotel_room_status));
             }
             if ((Hotel_Room_Price.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[4].Value = ((decimal)(Hotel_Room_Price.Value));
+                this.Adapter.InsertCommand.Parameters[3].Value = ((decimal)(Hotel_Room_Price.Value));
             }
             else {
+                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            if ((hotel_room_type == null)) {
                 this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(hotel_room_type));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -10484,77 +9636,77 @@ WHERE
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(global::System.Nullable<int> Branch_ID, global::System.Nullable<int> hotel_room_type_ID, string hotel_room_number, string hotel_room_status, global::System.Nullable<decimal> Hotel_Room_Price, int Original_Hotel_Room_ID, global::System.Nullable<int> Original_Branch_ID, global::System.Nullable<int> Original_hotel_room_type_ID, string Original_hotel_room_number, string Original_hotel_room_status, global::System.Nullable<decimal> Original_Hotel_Room_Price, int Hotel_Room_ID) {
-            if ((Branch_ID.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(Branch_ID.Value));
-            }
-            else {
+        public virtual int Update(string Branch_ID, global::System.Nullable<int> hotel_room_number, string hotel_room_status, global::System.Nullable<decimal> Hotel_Room_Price, string hotel_room_type, int Original_Hotel_Room_ID, string Original_Branch_ID, global::System.Nullable<int> Original_hotel_room_number, string Original_hotel_room_status, global::System.Nullable<decimal> Original_Hotel_Room_Price, string Original_hotel_room_type, int Hotel_Room_ID) {
+            if ((Branch_ID == null)) {
                 this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
-            if ((hotel_room_type_ID.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(hotel_room_type_ID.Value));
+            else {
+                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(Branch_ID));
+            }
+            if ((hotel_room_number.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(hotel_room_number.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
-            if ((hotel_room_number == null)) {
+            if ((hotel_room_status == null)) {
                 this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(hotel_room_number));
-            }
-            if ((hotel_room_status == null)) {
-                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(hotel_room_status));
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(hotel_room_status));
             }
             if ((Hotel_Room_Price.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((decimal)(Hotel_Room_Price.Value));
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((decimal)(Hotel_Room_Price.Value));
             }
             else {
+                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            if ((hotel_room_type == null)) {
                 this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Original_Hotel_Room_ID));
-            if ((Original_Branch_ID.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(Original_Branch_ID.Value));
-            }
             else {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(hotel_room_type));
+            }
+            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Original_Hotel_Room_ID));
+            if ((Original_Branch_ID == null)) {
                 this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
-            if ((Original_hotel_room_type_ID.HasValue == true)) {
+            else {
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Original_Branch_ID));
+            }
+            if ((Original_hotel_room_number.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(Original_hotel_room_type_ID.Value));
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(Original_hotel_room_number.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
             }
-            if ((Original_hotel_room_number == null)) {
+            if ((Original_hotel_room_status == null)) {
                 this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(Original_hotel_room_number));
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(Original_hotel_room_status));
             }
-            if ((Original_hotel_room_status == null)) {
+            if ((Original_Hotel_Room_Price.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((decimal)(Original_Hotel_Room_Price.Value));
+            }
+            else {
                 this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(Original_hotel_room_status));
-            }
-            if ((Original_Hotel_Room_Price.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((decimal)(Original_Hotel_Room_Price.Value));
-            }
-            else {
+            if ((Original_hotel_room_type == null)) {
                 this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(Original_hotel_room_type));
             }
             this.Adapter.UpdateCommand.Parameters[16].Value = ((int)(Hotel_Room_ID));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
@@ -10577,32 +9729,8 @@ WHERE
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(global::System.Nullable<int> Branch_ID, global::System.Nullable<int> hotel_room_type_ID, string hotel_room_number, string hotel_room_status, global::System.Nullable<decimal> Hotel_Room_Price, int Original_Hotel_Room_ID, global::System.Nullable<int> Original_Branch_ID, global::System.Nullable<int> Original_hotel_room_type_ID, string Original_hotel_room_number, string Original_hotel_room_status, global::System.Nullable<decimal> Original_Hotel_Room_Price) {
-            return this.Update(Branch_ID, hotel_room_type_ID, hotel_room_number, hotel_room_status, Hotel_Room_Price, Original_Hotel_Room_ID, Original_Branch_ID, Original_hotel_room_type_ID, Original_hotel_room_number, Original_hotel_room_status, Original_Hotel_Room_Price, Original_Hotel_Room_ID);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, false)]
-        public virtual int DeleteRoomQuery(int Hotel_Room_ID) {
-            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[1];
-            command.Parameters[0].Value = ((int)(Hotel_Room_ID));
-            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
-            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                command.Connection.Open();
-            }
-            int returnValue;
-            try {
-                returnValue = command.ExecuteNonQuery();
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    command.Connection.Close();
-                }
-            }
-            return returnValue;
+        public virtual int Update(string Branch_ID, global::System.Nullable<int> hotel_room_number, string hotel_room_status, global::System.Nullable<decimal> Hotel_Room_Price, string hotel_room_type, int Original_Hotel_Room_ID, string Original_Branch_ID, global::System.Nullable<int> Original_hotel_room_number, string Original_hotel_room_status, global::System.Nullable<decimal> Original_Hotel_Room_Price, string Original_hotel_room_type) {
+            return this.Update(Branch_ID, hotel_room_number, hotel_room_status, Hotel_Room_Price, hotel_room_type, Original_Hotel_Room_ID, Original_Branch_ID, Original_hotel_room_number, Original_hotel_room_status, Original_Hotel_Room_Price, Original_hotel_room_type, Original_Hotel_Room_ID);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -10610,7 +9738,7 @@ WHERE
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
         public virtual object InsertNewRoom(string Branch_ID, global::System.Nullable<int> hotel_room_type_ID, global::System.Nullable<int> hotel_room_number, string hotel_room_status, global::System.Nullable<decimal> Hotel_Room_Price) {
-            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[3];
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[2];
             if ((Branch_ID == null)) {
                 command.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -10669,7 +9797,7 @@ WHERE
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
         public virtual int UpdateRoom(string Branch_ID, global::System.Nullable<int> hotel_room_type_ID, global::System.Nullable<int> hotel_room_number, string hotel_room_status, global::System.Nullable<decimal> hotel_room_Price, int Hotel_Room_ID) {
-            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[4];
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[3];
             if ((Branch_ID == null)) {
                 command.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -10723,7 +9851,7 @@ WHERE
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
         public virtual int UpdateRoomStatus(string status, int id) {
-            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[5];
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[4];
             if ((status == null)) {
                 command.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -12824,45 +11952,36 @@ WHERE staff_ID = @Original_staff_ID";
             tableMapping.ColumnMappings.Add("Table_Allocation_ID", "Table_Allocation_ID");
             tableMapping.ColumnMappings.Add("Booking_ID", "Booking_ID");
             tableMapping.ColumnMappings.Add("Restuarant_Table_ID", "Restuarant_Table_ID");
-            tableMapping.ColumnMappings.Add("Number_Of_Tables", "Number_Of_Tables");
-            tableMapping.ColumnMappings.Add("Assignment_Type", "Assignment_Type");
             tableMapping.ColumnMappings.Add("Start_Time", "Start_Time");
             tableMapping.ColumnMappings.Add("End_Time", "End_Time");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [Table_Allocation] WHERE (([Table_Allocation_ID] = @Original_Table_Allocation_ID) AND ((@IsNull_Booking_ID = 1 AND [Booking_ID] IS NULL) OR ([Booking_ID] = @Original_Booking_ID)) AND ((@IsNull_Restuarant_Table_ID = 1 AND [Restuarant_Table_ID] IS NULL) OR ([Restuarant_Table_ID] = @Original_Restuarant_Table_ID)) AND ([Number_Of_Tables] = @Original_Number_Of_Tables) AND ((@IsNull_Assignment_Type = 1 AND [Assignment_Type] IS NULL) OR ([Assignment_Type] = @Original_Assignment_Type)) AND ([Start_Time] = @Original_Start_Time) AND ([End_Time] = @Original_End_Time))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [Table_Allocation] WHERE (([Table_Allocation_ID] = @Original_Table_Allocation_ID) AND ((@IsNull_Booking_ID = 1 AND [Booking_ID] IS NULL) OR ([Booking_ID] = @Original_Booking_ID)) AND ((@IsNull_Restuarant_Table_ID = 1 AND [Restuarant_Table_ID] IS NULL) OR ([Restuarant_Table_ID] = @Original_Restuarant_Table_ID)) AND ([Start_Time] = @Original_Start_Time) AND ([End_Time] = @Original_End_Time))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Table_Allocation_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Table_Allocation_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Booking_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Booking_ID", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Booking_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Booking_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Restuarant_Table_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Restuarant_Table_ID", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Restuarant_Table_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Restuarant_Table_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Number_Of_Tables", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Number_Of_Tables", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Assignment_Type", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Assignment_Type", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Assignment_Type", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Assignment_Type", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Start_Time", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Start_Time", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_End_Time", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "End_Time", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [Table_Allocation] ([Booking_ID], [Restuarant_Table_ID], [Number_Of_Tables], [Assignment_Type], [Start_Time], [End_Time]) VALUES (@Booking_ID, @Restuarant_Table_ID, @Number_Of_Tables, @Assignment_Type, @Start_Time, @End_Time);
-SELECT Table_Allocation_ID, Booking_ID, Restuarant_Table_ID, Number_Of_Tables, Assignment_Type, Start_Time, End_Time FROM Table_Allocation WHERE (Table_Allocation_ID = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [Table_Allocation] ([Booking_ID], [Restuarant_Table_ID], [Start_Time], [End_Time]) VALUES (@Booking_ID, @Restuarant_Table_ID, @Start_Time, @End_Time);
+SELECT Table_Allocation_ID, Booking_ID, Restuarant_Table_ID, Start_Time, End_Time FROM Table_Allocation WHERE (Table_Allocation_ID = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Booking_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Booking_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Restuarant_Table_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Restuarant_Table_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Number_Of_Tables", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Number_Of_Tables", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Assignment_Type", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Assignment_Type", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Start_Time", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Start_Time", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@End_Time", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "End_Time", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [Table_Allocation] SET [Booking_ID] = @Booking_ID, [Restuarant_Table_ID] = @Restuarant_Table_ID, [Number_Of_Tables] = @Number_Of_Tables, [Assignment_Type] = @Assignment_Type, [Start_Time] = @Start_Time, [End_Time] = @End_Time WHERE (([Table_Allocation_ID] = @Original_Table_Allocation_ID) AND ((@IsNull_Booking_ID = 1 AND [Booking_ID] IS NULL) OR ([Booking_ID] = @Original_Booking_ID)) AND ((@IsNull_Restuarant_Table_ID = 1 AND [Restuarant_Table_ID] IS NULL) OR ([Restuarant_Table_ID] = @Original_Restuarant_Table_ID)) AND ([Number_Of_Tables] = @Original_Number_Of_Tables) AND ((@IsNull_Assignment_Type = 1 AND [Assignment_Type] IS NULL) OR ([Assignment_Type] = @Original_Assignment_Type)) AND ([Start_Time] = @Original_Start_Time) AND ([End_Time] = @Original_End_Time));
-SELECT Table_Allocation_ID, Booking_ID, Restuarant_Table_ID, Number_Of_Tables, Assignment_Type, Start_Time, End_Time FROM Table_Allocation WHERE (Table_Allocation_ID = @Table_Allocation_ID)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [Table_Allocation] SET [Booking_ID] = @Booking_ID, [Restuarant_Table_ID] = @Restuarant_Table_ID, [Start_Time] = @Start_Time, [End_Time] = @End_Time WHERE (([Table_Allocation_ID] = @Original_Table_Allocation_ID) AND ((@IsNull_Booking_ID = 1 AND [Booking_ID] IS NULL) OR ([Booking_ID] = @Original_Booking_ID)) AND ((@IsNull_Restuarant_Table_ID = 1 AND [Restuarant_Table_ID] IS NULL) OR ([Restuarant_Table_ID] = @Original_Restuarant_Table_ID)) AND ([Start_Time] = @Original_Start_Time) AND ([End_Time] = @Original_End_Time));
+SELECT Table_Allocation_ID, Booking_ID, Restuarant_Table_ID, Start_Time, End_Time FROM Table_Allocation WHERE (Table_Allocation_ID = @Table_Allocation_ID)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Booking_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Booking_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Restuarant_Table_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Restuarant_Table_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Number_Of_Tables", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Number_Of_Tables", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Assignment_Type", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Assignment_Type", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Start_Time", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Start_Time", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@End_Time", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "End_Time", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Table_Allocation_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Table_Allocation_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -12870,9 +11989,6 @@ SELECT Table_Allocation_ID, Booking_ID, Restuarant_Table_ID, Number_Of_Tables, A
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Booking_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Booking_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Restuarant_Table_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Restuarant_Table_ID", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Restuarant_Table_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Restuarant_Table_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Number_Of_Tables", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Number_Of_Tables", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Assignment_Type", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Assignment_Type", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Assignment_Type", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Assignment_Type", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Start_Time", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Start_Time", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_End_Time", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "End_Time", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Table_Allocation_ID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Table_Allocation_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -12891,8 +12007,8 @@ SELECT Table_Allocation_ID, Booking_ID, Restuarant_Table_ID, Number_Of_Tables, A
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[3];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT Table_Allocation_ID, Booking_ID, Restuarant_Table_ID, Number_Of_Tables, As" +
-                "signment_Type, Start_Time, End_Time FROM Table_Allocation";
+            this._commandCollection[0].CommandText = "SELECT        Table_Allocation_ID, Booking_ID, Restuarant_Table_ID, Start_Time, E" +
+                "nd_Time\r\nFROM            Table_Allocation";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
@@ -12974,7 +12090,7 @@ WHERE (Table_Allocation_ID = SCOPE_IDENTITY());";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_Table_Allocation_ID, global::System.Nullable<int> Original_Booking_ID, global::System.Nullable<int> Original_Restuarant_Table_ID, int Original_Number_Of_Tables, string Original_Assignment_Type, System.DateTime Original_Start_Time, System.DateTime Original_End_Time) {
+        public virtual int Delete(int Original_Table_Allocation_ID, global::System.Nullable<int> Original_Booking_ID, global::System.Nullable<int> Original_Restuarant_Table_ID, System.DateTime Original_Start_Time, System.DateTime Original_End_Time) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_Table_Allocation_ID));
             if ((Original_Booking_ID.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
@@ -12992,17 +12108,8 @@ WHERE (Table_Allocation_ID = SCOPE_IDENTITY());";
                 this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
-            this.Adapter.DeleteCommand.Parameters[5].Value = ((int)(Original_Number_Of_Tables));
-            if ((Original_Assignment_Type == null)) {
-                this.Adapter.DeleteCommand.Parameters[6].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[7].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[6].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[7].Value = ((string)(Original_Assignment_Type));
-            }
-            this.Adapter.DeleteCommand.Parameters[8].Value = ((System.DateTime)(Original_Start_Time));
-            this.Adapter.DeleteCommand.Parameters[9].Value = ((System.DateTime)(Original_End_Time));
+            this.Adapter.DeleteCommand.Parameters[5].Value = ((System.DateTime)(Original_Start_Time));
+            this.Adapter.DeleteCommand.Parameters[6].Value = ((System.DateTime)(Original_End_Time));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -13023,7 +12130,7 @@ WHERE (Table_Allocation_ID = SCOPE_IDENTITY());";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(global::System.Nullable<int> Booking_ID, global::System.Nullable<int> Restuarant_Table_ID, int Number_Of_Tables, string Assignment_Type, System.DateTime Start_Time, System.DateTime End_Time) {
+        public virtual int Insert(global::System.Nullable<int> Booking_ID, global::System.Nullable<int> Restuarant_Table_ID, System.DateTime Start_Time, System.DateTime End_Time) {
             if ((Booking_ID.HasValue == true)) {
                 this.Adapter.InsertCommand.Parameters[0].Value = ((int)(Booking_ID.Value));
             }
@@ -13036,15 +12143,8 @@ WHERE (Table_Allocation_ID = SCOPE_IDENTITY());";
             else {
                 this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
-            this.Adapter.InsertCommand.Parameters[2].Value = ((int)(Number_Of_Tables));
-            if ((Assignment_Type == null)) {
-                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(Assignment_Type));
-            }
-            this.Adapter.InsertCommand.Parameters[4].Value = ((System.DateTime)(Start_Time));
-            this.Adapter.InsertCommand.Parameters[5].Value = ((System.DateTime)(End_Time));
+            this.Adapter.InsertCommand.Parameters[2].Value = ((System.DateTime)(Start_Time));
+            this.Adapter.InsertCommand.Parameters[3].Value = ((System.DateTime)(End_Time));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -13065,7 +12165,7 @@ WHERE (Table_Allocation_ID = SCOPE_IDENTITY());";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(global::System.Nullable<int> Booking_ID, global::System.Nullable<int> Restuarant_Table_ID, int Number_Of_Tables, string Assignment_Type, System.DateTime Start_Time, System.DateTime End_Time, int Original_Table_Allocation_ID, global::System.Nullable<int> Original_Booking_ID, global::System.Nullable<int> Original_Restuarant_Table_ID, int Original_Number_Of_Tables, string Original_Assignment_Type, System.DateTime Original_Start_Time, System.DateTime Original_End_Time, int Table_Allocation_ID) {
+        public virtual int Update(global::System.Nullable<int> Booking_ID, global::System.Nullable<int> Restuarant_Table_ID, System.DateTime Start_Time, System.DateTime End_Time, int Original_Table_Allocation_ID, global::System.Nullable<int> Original_Booking_ID, global::System.Nullable<int> Original_Restuarant_Table_ID, System.DateTime Original_Start_Time, System.DateTime Original_End_Time, int Table_Allocation_ID) {
             if ((Booking_ID.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(Booking_ID.Value));
             }
@@ -13078,44 +12178,28 @@ WHERE (Table_Allocation_ID = SCOPE_IDENTITY());";
             else {
                 this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(Number_Of_Tables));
-            if ((Assignment_Type == null)) {
-                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
+            this.Adapter.UpdateCommand.Parameters[2].Value = ((System.DateTime)(Start_Time));
+            this.Adapter.UpdateCommand.Parameters[3].Value = ((System.DateTime)(End_Time));
+            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Original_Table_Allocation_ID));
+            if ((Original_Booking_ID.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Original_Booking_ID.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(Assignment_Type));
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[4].Value = ((System.DateTime)(Start_Time));
-            this.Adapter.UpdateCommand.Parameters[5].Value = ((System.DateTime)(End_Time));
-            this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Original_Table_Allocation_ID));
-            if ((Original_Booking_ID.HasValue == true)) {
+            if ((Original_Restuarant_Table_ID.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(Original_Booking_ID.Value));
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(Original_Restuarant_Table_ID.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
-            if ((Original_Restuarant_Table_ID.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(Original_Restuarant_Table_ID.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
-            }
-            this.Adapter.UpdateCommand.Parameters[11].Value = ((int)(Original_Number_Of_Tables));
-            if ((Original_Assignment_Type == null)) {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(Original_Assignment_Type));
-            }
-            this.Adapter.UpdateCommand.Parameters[14].Value = ((System.DateTime)(Original_Start_Time));
-            this.Adapter.UpdateCommand.Parameters[15].Value = ((System.DateTime)(Original_End_Time));
-            this.Adapter.UpdateCommand.Parameters[16].Value = ((int)(Table_Allocation_ID));
+            this.Adapter.UpdateCommand.Parameters[9].Value = ((System.DateTime)(Original_Start_Time));
+            this.Adapter.UpdateCommand.Parameters[10].Value = ((System.DateTime)(Original_End_Time));
+            this.Adapter.UpdateCommand.Parameters[11].Value = ((int)(Table_Allocation_ID));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -13136,8 +12220,8 @@ WHERE (Table_Allocation_ID = SCOPE_IDENTITY());";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(global::System.Nullable<int> Booking_ID, global::System.Nullable<int> Restuarant_Table_ID, int Number_Of_Tables, string Assignment_Type, System.DateTime Start_Time, System.DateTime End_Time, int Original_Table_Allocation_ID, global::System.Nullable<int> Original_Booking_ID, global::System.Nullable<int> Original_Restuarant_Table_ID, int Original_Number_Of_Tables, string Original_Assignment_Type, System.DateTime Original_Start_Time, System.DateTime Original_End_Time) {
-            return this.Update(Booking_ID, Restuarant_Table_ID, Number_Of_Tables, Assignment_Type, Start_Time, End_Time, Original_Table_Allocation_ID, Original_Booking_ID, Original_Restuarant_Table_ID, Original_Number_Of_Tables, Original_Assignment_Type, Original_Start_Time, Original_End_Time, Original_Table_Allocation_ID);
+        public virtual int Update(global::System.Nullable<int> Booking_ID, global::System.Nullable<int> Restuarant_Table_ID, System.DateTime Start_Time, System.DateTime End_Time, int Original_Table_Allocation_ID, global::System.Nullable<int> Original_Booking_ID, global::System.Nullable<int> Original_Restuarant_Table_ID, System.DateTime Original_Start_Time, System.DateTime Original_End_Time) {
+            return this.Update(Booking_ID, Restuarant_Table_ID, Start_Time, End_Time, Original_Table_Allocation_ID, Original_Booking_ID, Original_Restuarant_Table_ID, Original_Start_Time, Original_End_Time, Original_Table_Allocation_ID);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -13848,266 +12932,6 @@ SELECT RestaurantTableID, Branch_ID, RestuarantTableNum, RestuarantMenuType, Tab
                 command.Parameters[0].Value = ((string)(status));
             }
             command.Parameters[1].Value = ((int)(id));
-            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
-            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                command.Connection.Open();
-            }
-            int returnValue;
-            try {
-                returnValue = command.ExecuteNonQuery();
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    command.Connection.Close();
-                }
-            }
-            return returnValue;
-        }
-    }
-    
-    /// <summary>
-    ///Represents the connection and commands used to retrieve and save data.
-    ///</summary>
-    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
-    [global::System.ComponentModel.ToolboxItem(true)]
-    [global::System.ComponentModel.DataObjectAttribute(true)]
-    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
-        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
-    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class ClientBranchBookingTableAdapter : global::System.ComponentModel.Component {
-        
-        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
-        
-        private global::System.Data.SqlClient.SqlConnection _connection;
-        
-        private global::System.Data.SqlClient.SqlTransaction _transaction;
-        
-        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
-        
-        private bool _clearBeforeFill;
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public ClientBranchBookingTableAdapter() {
-            this.ClearBeforeFill = true;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
-            get {
-                if ((this._adapter == null)) {
-                    this.InitAdapter();
-                }
-                return this._adapter;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        internal global::System.Data.SqlClient.SqlConnection Connection {
-            get {
-                if ((this._connection == null)) {
-                    this.InitConnection();
-                }
-                return this._connection;
-            }
-            set {
-                this._connection = value;
-                if ((this.Adapter.InsertCommand != null)) {
-                    this.Adapter.InsertCommand.Connection = value;
-                }
-                if ((this.Adapter.DeleteCommand != null)) {
-                    this.Adapter.DeleteCommand.Connection = value;
-                }
-                if ((this.Adapter.UpdateCommand != null)) {
-                    this.Adapter.UpdateCommand.Connection = value;
-                }
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    if ((this.CommandCollection[i] != null)) {
-                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
-                    }
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        internal global::System.Data.SqlClient.SqlTransaction Transaction {
-            get {
-                return this._transaction;
-            }
-            set {
-                this._transaction = value;
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    this.CommandCollection[i].Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.DeleteCommand != null))) {
-                    this.Adapter.DeleteCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.InsertCommand != null))) {
-                    this.Adapter.InsertCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.UpdateCommand != null))) {
-                    this.Adapter.UpdateCommand.Transaction = this._transaction;
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
-            get {
-                if ((this._commandCollection == null)) {
-                    this.InitCommandCollection();
-                }
-                return this._commandCollection;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public bool ClearBeforeFill {
-            get {
-                return this._clearBeforeFill;
-            }
-            set {
-                this._clearBeforeFill = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private void InitAdapter() {
-            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
-            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
-            tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "ClientBranchBooking";
-            tableMapping.ColumnMappings.Add("Booking_ID", "Booking_ID");
-            tableMapping.ColumnMappings.Add("Client_ID", "Client_ID");
-            tableMapping.ColumnMappings.Add("Branch_ID", "Branch_ID");
-            tableMapping.ColumnMappings.Add("Booking_Date", "Booking_Date");
-            tableMapping.ColumnMappings.Add("Checkin_Date", "Checkin_Date");
-            tableMapping.ColumnMappings.Add("Checkout_Date", "Checkout_Date");
-            tableMapping.ColumnMappings.Add("Booking_Total_Amount", "Booking_Total_Amount");
-            tableMapping.ColumnMappings.Add("Booking_Status", "Booking_Status");
-            tableMapping.ColumnMappings.Add("First_Name", "First_Name");
-            tableMapping.ColumnMappings.Add("Last_Name", "Last_Name");
-            tableMapping.ColumnMappings.Add("Email_Address", "Email_Address");
-            tableMapping.ColumnMappings.Add("Client_Address", "Client_Address");
-            tableMapping.ColumnMappings.Add("Phone_Number", "Phone_Number");
-            tableMapping.ColumnMappings.Add("Branch_Name", "Branch_Name");
-            tableMapping.ColumnMappings.Add("Branch_Address", "Branch_Address");
-            tableMapping.ColumnMappings.Add("Branch_Phone", "Branch_Phone");
-            tableMapping.ColumnMappings.Add("Branch_Email", "Branch_Email");
-            tableMapping.ColumnMappings.Add("Branch_Status", "Branch_Status");
-            this._adapter.TableMappings.Add(tableMapping);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private void InitConnection() {
-            this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Code_Crafters_Interface_Prototype_1.Properties.Settings.Default.GroupPmb2ConnectionString;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[3];
-            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT        Booking.*, Client.First_Name, Client.Last_Name, Client.Email_Address, Client.Client_Address, Client.Phone_Number, Branch.Branch_Name, Branch.Branch_Address, Branch.Branch_Phone, Branch.Branch_Email, 
-                         Branch.Branch_Status
-FROM            Booking INNER JOIN
-                         Client ON Booking.Client_ID = Client.Client_ID INNER JOIN
-                         Branch ON Booking.Branch_ID = Branch.Branch_ID";
-            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = @"SELECT        Booking.Booking_ID, Booking.Client_ID, Booking.Branch_ID, Booking.Booking_Date, Booking.Checkin_Date, Booking.Checkout_Date, Booking.Booking_Total_Amount, Booking.Booking_Status, Client.First_Name, 
-                         Client.Last_Name, Client.Email_Address, Client.Client_Address, Client.Phone_Number, Branch.Branch_Name, Branch.Branch_Address, Branch.Branch_Phone, Branch.Branch_Email, Branch.Branch_Status
-FROM            Booking INNER JOIN
-                         Client ON Booking.Client_ID = Client.Client_ID INNER JOIN
-                         Branch ON Booking.Branch_ID = Branch.Branch_ID
-WHERE        (Booking.Booking_ID = @bookingID)";
-            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@bookingID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Booking_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = "UPDATE Booking \r\nSET Booking_Status = @Status \r\nWHERE Booking_ID = @BookingID";
-            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Status", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Booking_Status", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BookingID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Booking_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(codeCraftersDS.ClientBranchBookingDataTable dataTable) {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual codeCraftersDS.ClientBranchBookingDataTable GetData() {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            codeCraftersDS.ClientBranchBookingDataTable dataTable = new codeCraftersDS.ClientBranchBookingDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillByBookingID(codeCraftersDS.ClientBranchBookingDataTable dataTable, int bookingID) {
-            this.Adapter.SelectCommand = this.CommandCollection[1];
-            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(bookingID));
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual codeCraftersDS.ClientBranchBookingDataTable GetDataBy(int bookingID) {
-            this.Adapter.SelectCommand = this.CommandCollection[1];
-            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(bookingID));
-            codeCraftersDS.ClientBranchBookingDataTable dataTable = new codeCraftersDS.ClientBranchBookingDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
-        public virtual int UpdateStatusByID(string Status, int BookingID) {
-            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[2];
-            if ((Status == null)) {
-                throw new global::System.ArgumentNullException("Status");
-            }
-            else {
-                command.Parameters[0].Value = ((string)(Status));
-            }
-            command.Parameters[1].Value = ((int)(BookingID));
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {

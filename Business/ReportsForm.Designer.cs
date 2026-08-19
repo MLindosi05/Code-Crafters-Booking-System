@@ -127,7 +127,7 @@
             this.pnlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlTop.Location = new System.Drawing.Point(0, 0);
             this.pnlTop.Name = "pnlTop";
-            this.pnlTop.Size = new System.Drawing.Size(1124, 90);
+            this.pnlTop.Size = new System.Drawing.Size(1252, 90);
             this.pnlTop.TabIndex = 5;
             // 
             // btnTableReport
@@ -159,7 +159,7 @@
             this.crystalReportViewerRegalInn.Dock = System.Windows.Forms.DockStyle.Fill;
             this.crystalReportViewerRegalInn.Location = new System.Drawing.Point(0, 90);
             this.crystalReportViewerRegalInn.Name = "crystalReportViewerRegalInn";
-            this.crystalReportViewerRegalInn.Size = new System.Drawing.Size(1124, 430);
+            this.crystalReportViewerRegalInn.Size = new System.Drawing.Size(1252, 577);
             this.crystalReportViewerRegalInn.TabIndex = 4;
             // 
             // taBookingReport
@@ -205,7 +205,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.SystemColors.Info;
-            this.ClientSize = new System.Drawing.Size(1124, 520);
+            this.ClientSize = new System.Drawing.Size(1252, 667);
             this.Controls.Add(this.crystalReportViewerRegalInn);
             this.Controls.Add(this.pnlTop);
             this.Controls.Add(this.txtTotalEnterpriseRevenue);

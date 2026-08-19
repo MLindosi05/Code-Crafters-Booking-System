@@ -439,7 +439,7 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1314, 1061);
+            this.tabControl1.Size = new System.Drawing.Size(1614, 1061);
             this.tabControl1.TabIndex = 54;
             // 
             // tabPage1
@@ -453,7 +453,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 30);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1306, 1027);
+            this.tabPage1.Size = new System.Drawing.Size(1606, 1027);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "MAKE BOOKING";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -1060,7 +1060,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 30);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1306, 1027);
+            this.tabPage2.Size = new System.Drawing.Size(1606, 1027);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "VIEW BOOKINGS";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -1258,7 +1258,7 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 30);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(1306, 1027);
+            this.tabPage3.Size = new System.Drawing.Size(1606, 1027);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "MANAGE BOOKINGS";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -1640,7 +1640,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1314, 1061);
+            this.ClientSize = new System.Drawing.Size(1614, 1061);
             this.Controls.Add(this.tabControl1);
             this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(5);
