@@ -19,36 +19,82 @@ namespace Code_Crafters_Booking_System
 
         #region Form Load
 
-        private void SignUpForm_Load(object sender, EventArgs e)
+        private void GuestManagementForm_Load(object sender, EventArgs e)
         {
             this.clientTableAdapter.Fill(this.codeCraftersDSTWO1.Client);
             ApplyTheme();
-            // --- ADD THESE LINES TO HOOK UP THE EVENTS PROGRAMMATICALLY ---
-            btnInactive.Click += btnInactive_Click;              // INACTIVE button
-            btnBlacklisted.Click += btnBlacklisted_Click;        // BLACKLISTED button
-            btnArchived.Click += btnArchived_Click;              // ARCHIVED button
-            txtSearchEmail.TextChanged += txtSearchEmail_TextChanged_1; // SEARCH TEXTBOX
-                                                                        // -------------------------------------------------------------
+
+            btnActive.Click += btnActive_Click;
+            btnInactive.Click += btnInactive_Click;
+            btnBlacklisted.Click += btnBlacklisted_Click;
+            btnArchived.Click += btnArchived_Click;
+            txtSearchEmail.TextChanged += txtSearchEmail_TextChanged_1;
+
             LoadGuestsData();
         }
 
         private void ApplyTheme()
         {
-            BackColor = Theme.Background;
-
-            pnlSignUp.BackColor = Theme.Panel;
-            panel2.BackColor = Theme.Panel;
-            groupBox4.BackColor = Theme.Brown;
-
+            BackColor = System.Drawing.Color.FromArgb(242, 244, 247);
+            panel2.BackColor = System.Drawing.Color.White;
+         
             ButtonStyler.Apply(btnSignUp);
             ButtonStyler.Apply(btnInactive);
+            ButtonStyler.Apply(btnActive);
+            ButtonStyler.Apply(btnBlacklisted);
+            ButtonStyler.Apply(btnArchived);
+       
+            ButtonStyler.Apply(btnDeactivate);
+            ButtonStyler.Apply(btnBlackList);
+            ButtonStyler.Apply(btnArchive);
+
+            groupBox4.BackColor = System.Drawing.Color.FromArgb(30, 42, 58);
+            groupBox4.ForeColor = System.Drawing.Color.White;
+
+            ConfigureDataGridViewTheme();
+        }
+
+        private void ConfigureDataGridViewTheme()
+        {
+            dgvBookings.BackgroundColor = System.Drawing.Color.White;
+            dgvBookings.BorderStyle = BorderStyle.None;
+            dgvBookings.EnableHeadersVisualStyles = false;
+
+            dgvBookings.ColumnHeadersDefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(0, 53, 128);
+            dgvBookings.ColumnHeadersDefaultCellStyle.ForeColor = System.Drawing.Color.White;
+            dgvBookings.ColumnHeadersDefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
+            dgvBookings.ColumnHeadersHeight = 35;
+
+            dgvBookings.RowsDefaultCellStyle.BackColor = System.Drawing.Color.White;
+            dgvBookings.AlternatingRowsDefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(248, 249, 250);
+            dgvBookings.RowsDefaultCellStyle.ForeColor = System.Drawing.Color.FromArgb(33, 37, 41);
+
+            dgvBookings.RowsDefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(0, 113, 228);
+            dgvBookings.RowsDefaultCellStyle.SelectionForeColor = System.Drawing.Color.White;
+            dgvBookings.RowTemplate.Height = 28;
+
+            dgvManageClients.BackgroundColor = System.Drawing.Color.White;
+            dgvManageClients.BorderStyle = BorderStyle.None;
+            dgvManageClients.EnableHeadersVisualStyles = false;
+
+            dgvManageClients.ColumnHeadersDefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(0, 53, 128);
+            dgvManageClients.ColumnHeadersDefaultCellStyle.ForeColor = System.Drawing.Color.White;
+            dgvManageClients.ColumnHeadersDefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
+            dgvManageClients.ColumnHeadersHeight = 35;
+
+            dgvManageClients.RowsDefaultCellStyle.BackColor = System.Drawing.Color.White;
+            dgvManageClients.AlternatingRowsDefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(248, 249, 250);
+            dgvManageClients.RowsDefaultCellStyle.ForeColor = System.Drawing.Color.FromArgb(33, 37, 41);
+
+            dgvManageClients.RowsDefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(0, 113, 228);
+            dgvManageClients.RowsDefaultCellStyle.SelectionForeColor = System.Drawing.Color.White;
+            dgvManageClients.RowTemplate.Height = 28;
         }
 
         #endregion
 
         #region Filtering and Grid Loading
 
-        // Universal method to load data based on Status and Email search
         private void LoadGuestsData(string statusFilter = "", string emailSearch = "")
         {
             try
@@ -57,20 +103,18 @@ namespace Code_Crafters_Booking_System
                 {
                     conn.Open();
                     string query = @"
-                        SELECT [Client_ID], [First_Name], [Last_Name], [Email_Address], [Phone_Number], [Client_Status], [Date_Registered] 
-                        FROM [GroupPmb2].[dbo].[Client] 
-                        WHERE 1=1";
+                SELECT [Client_ID], [First_Name], [Last_Name], [Email_Address], [Phone_Number], [Client_Status], [Date_Registered] 
+                FROM [GroupPmb2].[dbo].[Client] 
+                WHERE 1=1";
 
-                    // Append status filter if provided
                     if (!string.IsNullOrEmpty(statusFilter))
                     {
                         query += " AND [Client_Status] = @Status";
                     }
 
-                    // Append email filter if text box contains value
                     if (!string.IsNullOrEmpty(emailSearch))
                     {
-                        query += " AND [Email_Address] LIKE @Email";
+                        query += " AND [Email_Address] LIKE @Email + '%'";
                     }
 
                     using (SqlCommand cmd = new SqlCommand(query, conn))
@@ -82,23 +126,53 @@ namespace Code_Crafters_Booking_System
 
                         if (!string.IsNullOrEmpty(emailSearch))
                         {
-                            cmd.Parameters.AddWithValue("@Email", "%" + emailSearch + "%");
+                            cmd.Parameters.AddWithValue("@Email", emailSearch);
                         }
 
                         using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
                         {
                             DataTable dt = new DataTable();
                             adapter.Fill(dt);
-                            dataGridView1.DataSource = dt; // Ensure your DataGridView control name matches your designer (e.g., dataGridView1 or similar)
+                            dgvBookings.DataSource = dt;
                         }
                     }
                 }
             }
             catch (Exception ex)
             {
-                MessageService.Error(ex.Message);
+                MessageBox.Show("Error: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }     
+        }
+
+        #endregion
+
+        #region Status Button Handlers & Search
+
+        private void btnActive_Click(object sender, EventArgs e)
+        {
+            LoadGuestsData("Active", txtSearchEmail.Text.Trim());
+        }
+
+        private void btnInactive_Click(object sender, EventArgs e)
+        {
+            LoadGuestsData("Inactive", txtSearchEmail.Text.Trim());
+        }
+
+        private void btnBlacklisted_Click(object sender, EventArgs e)
+        {
+            LoadGuestsData("Blacklisted", txtSearchEmail.Text.Trim());
+        }
+
+        private void btnArchived_Click(object sender, EventArgs e)
+        {
+            LoadGuestsData("Archived", txtSearchEmail.Text.Trim());
+        }
+
+        private void txtSearchEmail_TextChanged_1(object sender, EventArgs e)
+        {
+
+            LoadGuestsData("", txtSearchEmail.Text.Trim());
+        }
 
         #endregion
 
@@ -153,7 +227,6 @@ namespace Code_Crafters_Booking_System
                 string address = txtPhysicalAddress.Text.Trim();
                 string phone = txtContactNumber.Text.Trim();
 
-                // Check if phone number already exists using direct SqlCommand
                 using (SqlConnection connCheck = new SqlConnection(connectionString))
                 {
                     connCheck.Open();
@@ -171,7 +244,6 @@ namespace Code_Crafters_Booking_System
                     }
                 }
 
-                // Password rule: Client Firstname @ (First two digits of phone no.)
                 string password = firstName + "@" + phone.Substring(0, 2);
                 string clientStatus = "Active";
 
@@ -203,7 +275,7 @@ namespace Code_Crafters_Booking_System
                 MessageService.Success("Client account created successfully.");
 
                 ClearFields();
-                LoadGuestsData(); // Refresh grid after new registration
+                LoadGuestsData();
                 this.DialogResult = DialogResult.OK;
             }
             catch (Exception ex)
@@ -251,46 +323,108 @@ namespace Code_Crafters_Booking_System
                         && !char.IsControl(e.KeyChar);
         }
 
+
         #endregion
 
         #region Navigation
 
-        private void button1_Click(object sender, EventArgs e)
-        {
 
-        }
 
         #endregion
 
-        private void label2_Click(object sender, EventArgs e)
+        private void UpdateClientStatus(string newStatus)
         {
+            if (dgvManageClients.SelectedRows.Count == 0 && dgvManageClients.CurrentRow == null)
+            {
+                MessageBox.Show("Please select a guest from the grid first.", "Selection Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
+            DataGridViewRow row = dgvManageClients.SelectedRows.Count > 0 ? dgvManageClients.SelectedRows[0] : dgvManageClients.CurrentRow;
+
+            if (row.Cells["Client_ID"].Value == null || row.Cells["Email_Address"].Value == null)
+            {
+                MessageBox.Show("Selected row contains invalid data.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            int clientId = Convert.ToInt32(row.Cells["Client_ID"].Value);
+            string emailAddress = row.Cells["Email_Address"].Value.ToString();
+            DateTime actionTime = DateTime.Now;
+
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    string updateQuery = "UPDATE [GroupPmb2].[dbo].[Client] SET [Client_Status] = @Status WHERE [Client_ID] = @ClientID";
+
+                    using (SqlCommand cmd = new SqlCommand(updateQuery, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@Status", newStatus);
+                        cmd.Parameters.AddWithValue("@ClientID", clientId);
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+
+                MessageBox.Show($"Client Status updated to '{newStatus}'.\n\nEmail Address: {emailAddress}\nDateTime: {actionTime:yyyy-MM-dd HH:mm:ss}",
+                                "REGAL INN HOTEL - STATUS UPDATED SUCCESSFULLY",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Information);
+
+                LoadGuestsData();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Database Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void btnDeactivate_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("This feature is currently under development. Please check back later.", "Feature Under Development", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            LoadGuestsData("Active", txtSearchEmail.Text.Trim());
+            UpdateClientStatus("Inactive");
         }
 
-        private void btnInactive_Click(object sender, EventArgs e)
+        private void btnBlackList_Click(object sender, EventArgs e)
         {
-            LoadGuestsData("Inactive", txtSearchEmail.Text.Trim());
+            UpdateClientStatus("Blacklisted");
         }
 
-        private void btnBlacklisted_Click(object sender, EventArgs e)
+        private void btnArchive_Click(object sender, EventArgs e)
         {
-            LoadGuestsData("Blacklisted", txtSearchEmail.Text.Trim());
+            UpdateClientStatus("Archived");
         }
 
-        private void btnArchived_Click(object sender, EventArgs e)
+        private void txtManageEmailAddress_TextChanged(object sender, EventArgs e)
         {
-            LoadGuestsData("Archived", txtSearchEmail.Text.Trim());
-        }
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    string query = @"
+                        SELECT [Client_ID], [First_Name], [Last_Name], [Email_Address], [Phone_Number], [Client_Status], [Date_Registered] 
+                        FROM [GroupPmb2].[dbo].[Client] 
+                        WHERE [Email_Address] LIKE @Email + '%'";
 
-        private void txtSearchEmail_TextChanged_1(object sender, EventArgs e)
-        {
-            LoadGuestsData("", txtSearchEmail.Text.Trim()); 
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@Email", txtManageEmailAddress.Text.Trim());
+
+                        using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
+                        {
+                            DataTable dt = new DataTable();
+                            adapter.Fill(dt);
+                            dgvManageClients.DataSource = dt;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
+    
     }
 }
