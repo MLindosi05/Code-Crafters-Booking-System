@@ -1004,6 +1004,16 @@ namespace Code_Crafters_Interface_Prototype_1.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Login_icon_img {
+            get {
+                object obj = ResourceManager.GetObject("Login icon img", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap logout_11551049168o9cg0mxxib {
             get {
                 object obj = ResourceManager.GetObject("logout-11551049168o9cg0mxxib", resourceCulture);

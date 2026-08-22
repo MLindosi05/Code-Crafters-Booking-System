@@ -2,6 +2,7 @@
 using Code_Crafters_Interface_Prototype_1.Business;
 using Code_Crafters_Interface_Prototype_1.Common;
 using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace Code_Crafters_Interface_Prototype_1.Interfaces
@@ -22,20 +23,20 @@ namespace Code_Crafters_Interface_Prototype_1.Interfaces
         private void Login_Load(object sender, EventArgs e)
         {
             WindowState = FormWindowState.Maximized;
-
+            groupBox1.ForeColor = Color.White;
             taStaff.Fill(codeCraftersDS.Staff);
 
-            ThemeManager.ApplyLoginTheme(
-                this,
-                panel1,
-                pnlLogin,
-                panel3,
-                panel4,
-                pnlHelpDrawer,
-                groupBox1,
-                button1,
-                button2,
-                button3);
+            //ThemeManager.ApplyLoginTheme(
+            //    this,
+            //    panel1,
+            //    pnlLogin,
+            //    //panel3,
+            //    panel4,
+            //    pnlHelpDrawer,
+            //    groupBox1,
+            //    button1,
+            //    button2,
+            //    button3);
 
             HelpService.LoadTopics(lstHelpTopics);
         }
@@ -154,8 +155,18 @@ namespace Code_Crafters_Interface_Prototype_1.Interfaces
 
         private void label8_Click(object sender, EventArgs e)
         {
-            new GuestSignUpForm().Show();
+            new StaffSignUpForm().Show();
             Hide();
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+            groupBox1.BackColor = Color.FromArgb(28, 37, 46);
         }
     }
 }

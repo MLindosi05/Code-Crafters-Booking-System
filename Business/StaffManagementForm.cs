@@ -22,9 +22,8 @@ namespace Code_Crafters_Interface_Prototype_1.Business
         private void StaffManagementForm_Load(object sender, EventArgs e)
         {
             ApplyTheme();
+            LoadBranchComboBox();
 
-            btnStaffActive.Click += btnStaffActive_Click;
-            btnStaffInactive.Click += btnStaffInactive_Click;
             btnStaffOnleave.Click += btnStaffOnleave_Click;
             btnStaffSuspended.Click += btnStaffSuspended_Click;
             txtSearchStaffEmail.TextChanged += txtSearchStaffEmail_TextChanged;
@@ -35,18 +34,26 @@ namespace Code_Crafters_Interface_Prototype_1.Business
             LoadManageStaffData();
         }
 
+        private void LoadBranchComboBox()
+        {
+            // Assuming your combo box is named cmbBranchID (update if named differently)
+            if (cmbBranchID != null)
+            {
+                cmbBranchID.Items.Clear();
+                cmbBranchID.Items.AddRange(new string[] { "BR01", "BR02", "BR03", "BR04", "BR05" });
+                if (cmbBranchID.Items.Count > 0) cmbBranchID.SelectedIndex = 0;
+            }
+        }
+
         private void ApplyTheme()
         {
             BackColor = System.Drawing.Color.FromArgb(242, 244, 247);
             panel2.BackColor = System.Drawing.Color.White;
 
             ButtonStyler.Apply(btnRegisterStaff);
-            ButtonStyler.Apply(btnStaffActive);
-            ButtonStyler.Apply(btnStaffInactive);
             ButtonStyler.Apply(btnStaffOnleave);
             ButtonStyler.Apply(btnStaffSuspended);
 
-            ButtonStyler.Apply(btnStaffDeactivate);
             ButtonStyler.Apply(btnSuspend);
             ButtonStyler.Apply(btnAuthorize);
 
@@ -227,12 +234,13 @@ namespace Code_Crafters_Interface_Prototype_1.Business
             string email = txtStaffEmailAddress.Text.Trim();
             string phone = txtStaffContactNumber.Text.Trim();
 
-            if (string.IsNullOrWhiteSpace(firstName) ||
+            if (cmbBranchID.SelectedItem == null ||
+                string.IsNullOrWhiteSpace(firstName) ||
                 string.IsNullOrWhiteSpace(surname) ||
                 string.IsNullOrWhiteSpace(email) ||
                 string.IsNullOrWhiteSpace(phone))
             {
-                MessageService.Warning("Please complete all required fields.");
+                MessageService.Warning("Please select a Branch ID and complete all required fields.");
                 return false;
             }
 
@@ -255,6 +263,7 @@ namespace Code_Crafters_Interface_Prototype_1.Business
         {
             try
             {
+                string branchId = cmbBranchID.SelectedItem.ToString();
                 string firstName = txtStaffName.Text.Trim();
                 string surname = txtStaffSurname.Text.Trim();
                 string email = txtStaffEmailAddress.Text.Trim();
@@ -280,28 +289,26 @@ namespace Code_Crafters_Interface_Prototype_1.Business
 
                 string password = firstName + "@" + phone.Substring(0, 2);
                 string staffStatus = "Active";
-                string staffRole = email.EndsWith("@regalinn.co.za", StringComparison.OrdinalIgnoreCase) ? "Administrator" : "Cleaner";
-                int defaultBranchId = 1;
+                string staffRole = email.EndsWith("@regalinn.co.za", StringComparison.OrdinalIgnoreCase) ? "Administrator" : "Manager";
 
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
 
-                    // Begin a local transaction to ensure both inserts succeed or fail together
                     using (SqlTransaction transaction = conn.BeginTransaction())
                     {
                         try
                         {
                             // 1. Insert into Staff Table
                             string insertStaffQuery = @"
-                        INSERT INTO [GroupPmb2].[dbo].[Staff] 
-                        ([Branch_ID], [staff_First_Name], [staff_Surname], [staff_Address], [staff_phone_number], [staff_email], [staff_role], [date_joined], [staff_status], [staff_Password], [Last_Login], [Failed_Login_Count], [Password_Changed_Date])
-                        VALUES 
-                        (@BranchID, @FirstName, @LastName, @Address, @Phone, @Email, @Role, GETDATE(), @Status, @Password, NULL, NULL, NULL);";
+                                INSERT INTO [GroupPmb2].[dbo].[Staff] 
+                                ([Branch_ID], [staff_First_Name], [staff_Surname], [staff_Address], [staff_phone_number], [staff_email], [staff_role], [date_joined], [staff_status], [staff_Password], [Last_Login], [Failed_Login_Count], [Password_Changed_Date])
+                                VALUES 
+                                (@BranchID, @FirstName, @LastName, @Address, @Phone, @Email, @Role, GETDATE(), @Status, @Password, NULL, NULL, NULL);";
 
                             using (SqlCommand cmdStaff = new SqlCommand(insertStaffQuery, conn, transaction))
                             {
-                                cmdStaff.Parameters.AddWithValue("@BranchID", defaultBranchId);
+                                cmdStaff.Parameters.AddWithValue("@BranchID", branchId);
                                 cmdStaff.Parameters.AddWithValue("@FirstName", firstName);
                                 cmdStaff.Parameters.AddWithValue("@LastName", surname);
                                 cmdStaff.Parameters.AddWithValue("@Address", address);
@@ -314,12 +321,12 @@ namespace Code_Crafters_Interface_Prototype_1.Business
                                 cmdStaff.ExecuteNonQuery();
                             }
 
-                            // 2. Insert into Client Table (Since staff is also a client)
+                            // 2. Insert into Client Table
                             string insertClientQuery = @"
-                        INSERT INTO [GroupPmb2].[dbo].[Client] 
-                        ([First_Name], [Last_Name], [Password], [Email_Address], [Client_Address], [Phone_Number], [Client_Status], [Date_Registered], [Last_Login])
-                        VALUES 
-                        (@FirstName, @LastName, @Password, @Email, @Address, @Phone, @Status, GETDATE(), NULL);";
+                                INSERT INTO [GroupPmb2].[dbo].[Client] 
+                                ([First_Name], [Last_Name], [Password], [Email_Address], [Client_Address], [Phone_Number], [Client_Status], [Date_Registered], [Last_Login])
+                                VALUES 
+                                (@FirstName, @LastName, @Password, @Email, @Address, @Phone, @Status, GETDATE(), NULL);";
 
                             using (SqlCommand cmdClient = new SqlCommand(insertClientQuery, conn, transaction))
                             {
@@ -334,12 +341,10 @@ namespace Code_Crafters_Interface_Prototype_1.Business
                                 cmdClient.ExecuteNonQuery();
                             }
 
-                            // Commit transaction if both inserts succeed
                             transaction.Commit();
                         }
                         catch
                         {
-                            // Rollback if any error occurs
                             transaction.Rollback();
                             throw;
                         }
@@ -365,13 +370,14 @@ namespace Code_Crafters_Interface_Prototype_1.Business
 
         private void ClearFields()
         {
+            if (cmbBranchID.Items.Count > 0) cmbBranchID.SelectedIndex = 0;
             txtStaffName.Clear();
             txtStaffSurname.Clear();
             txtStaffEmailAddress.Clear();
             txtStaffAddress.Clear();
             txtStaffContactNumber.Clear();
 
-            txtStaffName.Focus();
+            cmbBranchID.Focus();
         }
 
         #endregion
@@ -414,9 +420,9 @@ namespace Code_Crafters_Interface_Prototype_1.Business
                 }
 
                 MessageBox.Show($"Staff Status updated to '{newStatus}'.\n\nEmail Address: {emailAddress}\nDateTime: {actionTime:yyyy-MM-dd HH:mm:ss}",
-                            "REGAL INN HOTEL - STAFF STATUS UPDATED",
-                            MessageBoxButtons.OK,
-                            MessageBoxIcon.Information);
+                        "REGAL INN HOTEL - STAFF STATUS UPDATED",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
 
                 LoadStaffData();
                 LoadManageStaffData();

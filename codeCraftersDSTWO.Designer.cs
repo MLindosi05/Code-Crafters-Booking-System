@@ -4171,13 +4171,9 @@ namespace Code_Crafters_Interface_Prototype_1 {
             
             private global::System.Data.DataColumn columnBooking_Type;
             
-            private global::System.Data.DataColumn columnSpecial_Request;
-            
             private global::System.Data.DataColumn columnPenalty_Amount;
             
             private global::System.Data.DataColumn columnCredit_Amount;
-            
-            private global::System.Data.DataColumn columnCreated_By;
             
             private global::System.Data.DataColumn columnhotel_room_type;
             
@@ -4388,14 +4384,6 @@ namespace Code_Crafters_Interface_Prototype_1 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn Special_RequestColumn {
-                get {
-                    return this.columnSpecial_Request;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public global::System.Data.DataColumn Penalty_AmountColumn {
                 get {
                     return this.columnPenalty_Amount;
@@ -4407,14 +4395,6 @@ namespace Code_Crafters_Interface_Prototype_1 {
             public global::System.Data.DataColumn Credit_AmountColumn {
                 get {
                     return this.columnCredit_Amount;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn Created_ByColumn {
-                get {
-                    return this.columnCreated_By;
                 }
             }
             
@@ -4500,10 +4480,8 @@ namespace Code_Crafters_Interface_Prototype_1 {
                         int Number_Adults, 
                         int Number_Children, 
                         string Booking_Type, 
-                        string Special_Request, 
                         decimal Penalty_Amount, 
                         decimal Credit_Amount, 
-                        int Created_By, 
                         string hotel_room_type, 
                         string TableFeatures, 
                         string Staff_Created_By) {
@@ -4530,10 +4508,8 @@ namespace Code_Crafters_Interface_Prototype_1 {
                         Number_Adults,
                         Number_Children,
                         Booking_Type,
-                        Special_Request,
                         Penalty_Amount,
                         Credit_Amount,
-                        Created_By,
                         hotel_room_type,
                         TableFeatures,
                         Staff_Created_By};
@@ -4587,10 +4563,8 @@ namespace Code_Crafters_Interface_Prototype_1 {
                 this.columnNumber_Adults = base.Columns["Number_Adults"];
                 this.columnNumber_Children = base.Columns["Number_Children"];
                 this.columnBooking_Type = base.Columns["Booking_Type"];
-                this.columnSpecial_Request = base.Columns["Special_Request"];
                 this.columnPenalty_Amount = base.Columns["Penalty_Amount"];
                 this.columnCredit_Amount = base.Columns["Credit_Amount"];
-                this.columnCreated_By = base.Columns["Created_By"];
                 this.columnhotel_room_type = base.Columns["hotel_room_type"];
                 this.columnTableFeatures = base.Columns["TableFeatures"];
                 this.columnStaff_Created_By = base.Columns["Staff_Created_By"];
@@ -4641,14 +4615,10 @@ namespace Code_Crafters_Interface_Prototype_1 {
                 base.Columns.Add(this.columnNumber_Children);
                 this.columnBooking_Type = new global::System.Data.DataColumn("Booking_Type", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnBooking_Type);
-                this.columnSpecial_Request = new global::System.Data.DataColumn("Special_Request", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnSpecial_Request);
                 this.columnPenalty_Amount = new global::System.Data.DataColumn("Penalty_Amount", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPenalty_Amount);
                 this.columnCredit_Amount = new global::System.Data.DataColumn("Credit_Amount", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCredit_Amount);
-                this.columnCreated_By = new global::System.Data.DataColumn("Created_By", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCreated_By);
                 this.columnhotel_room_type = new global::System.Data.DataColumn("hotel_room_type", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnhotel_room_type);
                 this.columnTableFeatures = new global::System.Data.DataColumn("TableFeatures", typeof(string), null, global::System.Data.MappingType.Element);
@@ -4664,13 +4634,7 @@ namespace Code_Crafters_Interface_Prototype_1 {
                 this.columnBooking_ID.ReadOnly = true;
                 this.columnBooking_ID.Unique = true;
                 this.columnBranch_ID.MaxLength = 10;
-                this.columnBooking_Date.AllowDBNull = false;
-                this.columnCheckin_Date.AllowDBNull = false;
-                this.columnCheckout_Date.AllowDBNull = false;
-                this.columnBooking_Total_Amount.AllowDBNull = false;
-                this.columnBooking_Status.AllowDBNull = false;
                 this.columnBooking_Status.MaxLength = 50;
-                this.columnBranch_Name.AllowDBNull = false;
                 this.columnBranch_Name.MaxLength = 100;
                 this.columnFirst_Name.AllowDBNull = false;
                 this.columnFirst_Name.MaxLength = 50;
@@ -4682,7 +4646,6 @@ namespace Code_Crafters_Interface_Prototype_1 {
                 this.columnCancellation_Reason.MaxLength = 255;
                 this.columnAdmin_Notes.MaxLength = 500;
                 this.columnBooking_Type.MaxLength = 50;
-                this.columnSpecial_Request.MaxLength = 250;
                 this.columnhotel_room_type.MaxLength = 50;
                 this.columnTableFeatures.MaxLength = 100;
                 this.columnStaff_Created_By.MaxLength = 50;
@@ -5195,8 +5158,6 @@ namespace Code_Crafters_Interface_Prototype_1 {
             
             private global::System.Data.DataColumn columnBooking_Type;
             
-            private global::System.Data.DataColumn columnSpecial_Request;
-            
             private global::System.Data.DataColumn columnPenalty_Amount;
             
             private global::System.Data.DataColumn columnCredit_Amount;
@@ -5350,14 +5311,6 @@ namespace Code_Crafters_Interface_Prototype_1 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn Special_RequestColumn {
-                get {
-                    return this.columnSpecial_Request;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public global::System.Data.DataColumn Penalty_AmountColumn {
                 get {
                     return this.columnPenalty_Amount;
@@ -5431,7 +5384,6 @@ namespace Code_Crafters_Interface_Prototype_1 {
                         int Number_Adults, 
                         int Number_Children, 
                         string Booking_Type, 
-                        string Special_Request, 
                         decimal Penalty_Amount, 
                         decimal Credit_Amount, 
                         string Staff_Created_By) {
@@ -5451,7 +5403,6 @@ namespace Code_Crafters_Interface_Prototype_1 {
                         Number_Adults,
                         Number_Children,
                         Booking_Type,
-                        Special_Request,
                         Penalty_Amount,
                         Credit_Amount,
                         Staff_Created_By};
@@ -5498,7 +5449,6 @@ namespace Code_Crafters_Interface_Prototype_1 {
                 this.columnNumber_Adults = base.Columns["Number_Adults"];
                 this.columnNumber_Children = base.Columns["Number_Children"];
                 this.columnBooking_Type = base.Columns["Booking_Type"];
-                this.columnSpecial_Request = base.Columns["Special_Request"];
                 this.columnPenalty_Amount = base.Columns["Penalty_Amount"];
                 this.columnCredit_Amount = base.Columns["Credit_Amount"];
                 this.columnStaff_Created_By = base.Columns["Staff_Created_By"];
@@ -5535,8 +5485,6 @@ namespace Code_Crafters_Interface_Prototype_1 {
                 base.Columns.Add(this.columnNumber_Children);
                 this.columnBooking_Type = new global::System.Data.DataColumn("Booking_Type", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnBooking_Type);
-                this.columnSpecial_Request = new global::System.Data.DataColumn("Special_Request", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnSpecial_Request);
                 this.columnPenalty_Amount = new global::System.Data.DataColumn("Penalty_Amount", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPenalty_Amount);
                 this.columnCredit_Amount = new global::System.Data.DataColumn("Credit_Amount", typeof(decimal), null, global::System.Data.MappingType.Element);
@@ -5561,7 +5509,6 @@ namespace Code_Crafters_Interface_Prototype_1 {
                 this.columnCancellation_Reason.MaxLength = 255;
                 this.columnAdmin_Notes.MaxLength = 500;
                 this.columnBooking_Type.MaxLength = 900;
-                this.columnSpecial_Request.MaxLength = 250;
                 this.columnStaff_Created_By.MaxLength = 50;
             }
             
@@ -8097,7 +8044,13 @@ namespace Code_Crafters_Interface_Prototype_1 {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public System.DateTime Booking_Date {
                 get {
-                    return ((global::System.DateTime)(this[this.tableClientBranchTableBooking.Booking_DateColumn]));
+                    try {
+                        return ((global::System.DateTime)(this[this.tableClientBranchTableBooking.Booking_DateColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Booking_Date\' in table \'ClientBranchTableBooking\' is DBNull" +
+                                ".", e);
+                    }
                 }
                 set {
                     this[this.tableClientBranchTableBooking.Booking_DateColumn] = value;
@@ -8108,7 +8061,13 @@ namespace Code_Crafters_Interface_Prototype_1 {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public System.DateTime Checkin_Date {
                 get {
-                    return ((global::System.DateTime)(this[this.tableClientBranchTableBooking.Checkin_DateColumn]));
+                    try {
+                        return ((global::System.DateTime)(this[this.tableClientBranchTableBooking.Checkin_DateColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Checkin_Date\' in table \'ClientBranchTableBooking\' is DBNull" +
+                                ".", e);
+                    }
                 }
                 set {
                     this[this.tableClientBranchTableBooking.Checkin_DateColumn] = value;
@@ -8119,7 +8078,13 @@ namespace Code_Crafters_Interface_Prototype_1 {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public System.DateTime Checkout_Date {
                 get {
-                    return ((global::System.DateTime)(this[this.tableClientBranchTableBooking.Checkout_DateColumn]));
+                    try {
+                        return ((global::System.DateTime)(this[this.tableClientBranchTableBooking.Checkout_DateColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Checkout_Date\' in table \'ClientBranchTableBooking\' is DBNul" +
+                                "l.", e);
+                    }
                 }
                 set {
                     this[this.tableClientBranchTableBooking.Checkout_DateColumn] = value;
@@ -8130,7 +8095,13 @@ namespace Code_Crafters_Interface_Prototype_1 {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public decimal Booking_Total_Amount {
                 get {
-                    return ((decimal)(this[this.tableClientBranchTableBooking.Booking_Total_AmountColumn]));
+                    try {
+                        return ((decimal)(this[this.tableClientBranchTableBooking.Booking_Total_AmountColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Booking_Total_Amount\' in table \'ClientBranchTableBooking\' i" +
+                                "s DBNull.", e);
+                    }
                 }
                 set {
                     this[this.tableClientBranchTableBooking.Booking_Total_AmountColumn] = value;
@@ -8141,7 +8112,13 @@ namespace Code_Crafters_Interface_Prototype_1 {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public string Booking_Status {
                 get {
-                    return ((string)(this[this.tableClientBranchTableBooking.Booking_StatusColumn]));
+                    try {
+                        return ((string)(this[this.tableClientBranchTableBooking.Booking_StatusColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Booking_Status\' in table \'ClientBranchTableBooking\' is DBNu" +
+                                "ll.", e);
+                    }
                 }
                 set {
                     this[this.tableClientBranchTableBooking.Booking_StatusColumn] = value;
@@ -8152,7 +8129,13 @@ namespace Code_Crafters_Interface_Prototype_1 {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public string Branch_Name {
                 get {
-                    return ((string)(this[this.tableClientBranchTableBooking.Branch_NameColumn]));
+                    try {
+                        return ((string)(this[this.tableClientBranchTableBooking.Branch_NameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Branch_Name\' in table \'ClientBranchTableBooking\' is DBNull." +
+                                "", e);
+                    }
                 }
                 set {
                     this[this.tableClientBranchTableBooking.Branch_NameColumn] = value;
@@ -8352,23 +8335,6 @@ namespace Code_Crafters_Interface_Prototype_1 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string Special_Request {
-                get {
-                    try {
-                        return ((string)(this[this.tableClientBranchTableBooking.Special_RequestColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Special_Request\' in table \'ClientBranchTableBooking\' is DBN" +
-                                "ull.", e);
-                    }
-                }
-                set {
-                    this[this.tableClientBranchTableBooking.Special_RequestColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public decimal Penalty_Amount {
                 get {
                     try {
@@ -8398,22 +8364,6 @@ namespace Code_Crafters_Interface_Prototype_1 {
                 }
                 set {
                     this[this.tableClientBranchTableBooking.Credit_AmountColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int Created_By {
-                get {
-                    try {
-                        return ((int)(this[this.tableClientBranchTableBooking.Created_ByColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Created_By\' in table \'ClientBranchTableBooking\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableClientBranchTableBooking.Created_ByColumn] = value;
                 }
             }
             
@@ -8488,6 +8438,78 @@ namespace Code_Crafters_Interface_Prototype_1 {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetBranch_IDNull() {
                 this[this.tableClientBranchTableBooking.Branch_IDColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsBooking_DateNull() {
+                return this.IsNull(this.tableClientBranchTableBooking.Booking_DateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetBooking_DateNull() {
+                this[this.tableClientBranchTableBooking.Booking_DateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsCheckin_DateNull() {
+                return this.IsNull(this.tableClientBranchTableBooking.Checkin_DateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetCheckin_DateNull() {
+                this[this.tableClientBranchTableBooking.Checkin_DateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsCheckout_DateNull() {
+                return this.IsNull(this.tableClientBranchTableBooking.Checkout_DateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetCheckout_DateNull() {
+                this[this.tableClientBranchTableBooking.Checkout_DateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsBooking_Total_AmountNull() {
+                return this.IsNull(this.tableClientBranchTableBooking.Booking_Total_AmountColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetBooking_Total_AmountNull() {
+                this[this.tableClientBranchTableBooking.Booking_Total_AmountColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsBooking_StatusNull() {
+                return this.IsNull(this.tableClientBranchTableBooking.Booking_StatusColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetBooking_StatusNull() {
+                this[this.tableClientBranchTableBooking.Booking_StatusColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsBranch_NameNull() {
+                return this.IsNull(this.tableClientBranchTableBooking.Branch_NameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetBranch_NameNull() {
+                this[this.tableClientBranchTableBooking.Branch_NameColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -8612,18 +8634,6 @@ namespace Code_Crafters_Interface_Prototype_1 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsSpecial_RequestNull() {
-                return this.IsNull(this.tableClientBranchTableBooking.Special_RequestColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetSpecial_RequestNull() {
-                this[this.tableClientBranchTableBooking.Special_RequestColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsPenalty_AmountNull() {
                 return this.IsNull(this.tableClientBranchTableBooking.Penalty_AmountColumn);
             }
@@ -8644,18 +8654,6 @@ namespace Code_Crafters_Interface_Prototype_1 {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetCredit_AmountNull() {
                 this[this.tableClientBranchTableBooking.Credit_AmountColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsCreated_ByNull() {
-                return this.IsNull(this.tableClientBranchTableBooking.Created_ByColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetCreated_ByNull() {
-                this[this.tableClientBranchTableBooking.Created_ByColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -9110,22 +9108,6 @@ namespace Code_Crafters_Interface_Prototype_1 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string Special_Request {
-                get {
-                    try {
-                        return ((string)(this[this.tableBooking.Special_RequestColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Special_Request\' in table \'Booking\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableBooking.Special_RequestColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public decimal Penalty_Amount {
                 get {
                     try {
@@ -9266,18 +9248,6 @@ namespace Code_Crafters_Interface_Prototype_1 {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetBooking_TypeNull() {
                 this[this.tableBooking.Booking_TypeColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsSpecial_RequestNull() {
-                return this.IsNull(this.tableBooking.Special_RequestColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetSpecial_RequestNull() {
-                this[this.tableBooking.Special_RequestColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -16452,10 +16422,8 @@ WHERE (Table_Allocation_ID = SCOPE_IDENTITY());";
             tableMapping.ColumnMappings.Add("Number_Adults", "Number_Adults");
             tableMapping.ColumnMappings.Add("Number_Children", "Number_Children");
             tableMapping.ColumnMappings.Add("Booking_Type", "Booking_Type");
-            tableMapping.ColumnMappings.Add("Special_Request", "Special_Request");
             tableMapping.ColumnMappings.Add("Penalty_Amount", "Penalty_Amount");
             tableMapping.ColumnMappings.Add("Credit_Amount", "Credit_Amount");
-            tableMapping.ColumnMappings.Add("Created_By", "Created_By");
             tableMapping.ColumnMappings.Add("hotel_room_type", "hotel_room_type");
             tableMapping.ColumnMappings.Add("TableFeatures", "TableFeatures");
             tableMapping.ColumnMappings.Add("Staff_Created_By", "Staff_Created_By");
@@ -16477,7 +16445,7 @@ WHERE (Table_Allocation_ID = SCOPE_IDENTITY());";
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = @"SELECT        Booking.Booking_ID, Booking.Client_ID, Booking.Branch_ID, Booking.Booking_Date, Booking.Checkin_Date, Booking.Checkout_Date, Booking.Booking_Total_Amount, Booking.Booking_Status, Booking.Cancellation_Date, 
 
-                         Booking.Cancellation_Reason, Booking.Admin_Notes, Booking.Number_Adults, Booking.Number_Children, Booking.Booking_Type, Booking.Special_Request, Booking.Penalty_Amount, Booking.Credit_Amount, 
+                         Booking.Cancellation_Reason, Booking.Admin_Notes, Booking.Number_Adults, Booking.Number_Children, Booking.Booking_Type, Booking.Penalty_Amount, Booking.Credit_Amount, 
 
                          Booking.Staff_Created_By, Branch.Branch_Name, Client.First_Name, Client.Last_Name, Client.Email_Address, Client.Phone_Number, Hotel_Room.hotel_room_number, Hotel_Room.hotel_room_type, 
 
@@ -17209,7 +17177,6 @@ SELECT Maintenance_ID, Hotel_Room_ID, Staff_ID, Issue_Description, Date_Reported
             tableMapping.ColumnMappings.Add("Number_Adults", "Number_Adults");
             tableMapping.ColumnMappings.Add("Number_Children", "Number_Children");
             tableMapping.ColumnMappings.Add("Booking_Type", "Booking_Type");
-            tableMapping.ColumnMappings.Add("Special_Request", "Special_Request");
             tableMapping.ColumnMappings.Add("Penalty_Amount", "Penalty_Amount");
             tableMapping.ColumnMappings.Add("Credit_Amount", "Credit_Amount");
             tableMapping.ColumnMappings.Add("Staff_Created_By", "Staff_Created_By");
@@ -17219,34 +17186,40 @@ SELECT Maintenance_ID, Hotel_Room_ID, Staff_ID, Issue_Description, Date_Reported
             this._adapter.DeleteCommand.CommandText = "DELETE FROM [Booking] WHERE (([Booking_ID] = @Original_Booking_ID) AND ((@IsNull_" +
                 "Client_ID = 1 AND [Client_ID] IS NULL) OR ([Client_ID] = @Original_Client_ID)) A" +
                 "ND ((@IsNull_Branch_ID = 1 AND [Branch_ID] IS NULL) OR ([Branch_ID] = @Original_" +
-                "Branch_ID)) AND ([Booking_Date] = @Original_Booking_Date) AND ([Checkin_Date] = " +
-                "@Original_Checkin_Date) AND ([Checkout_Date] = @Original_Checkout_Date) AND ([Bo" +
-                "oking_Total_Amount] = @Original_Booking_Total_Amount) AND ([Booking_Status] = @O" +
-                "riginal_Booking_Status) AND ((@IsNull_Cancellation_Date = 1 AND [Cancellation_Da" +
-                "te] IS NULL) OR ([Cancellation_Date] = @Original_Cancellation_Date)) AND ((@IsNu" +
-                "ll_Cancellation_Reason = 1 AND [Cancellation_Reason] IS NULL) OR ([Cancellation_" +
-                "Reason] = @Original_Cancellation_Reason)) AND ((@IsNull_Admin_Notes = 1 AND [Adm" +
-                "in_Notes] IS NULL) OR ([Admin_Notes] = @Original_Admin_Notes)) AND ((@IsNull_Num" +
-                "ber_Adults = 1 AND [Number_Adults] IS NULL) OR ([Number_Adults] = @Original_Numb" +
-                "er_Adults)) AND ((@IsNull_Number_Children = 1 AND [Number_Children] IS NULL) OR " +
-                "([Number_Children] = @Original_Number_Children)) AND ((@IsNull_Booking_Type = 1 " +
-                "AND [Booking_Type] IS NULL) OR ([Booking_Type] = @Original_Booking_Type)) AND ((" +
-                "@IsNull_Special_Request = 1 AND [Special_Request] IS NULL) OR ([Special_Request]" +
-                " = @Original_Special_Request)) AND ((@IsNull_Penalty_Amount = 1 AND [Penalty_Amo" +
-                "unt] IS NULL) OR ([Penalty_Amount] = @Original_Penalty_Amount)) AND ((@IsNull_Cr" +
-                "edit_Amount = 1 AND [Credit_Amount] IS NULL) OR ([Credit_Amount] = @Original_Cre" +
-                "dit_Amount)) AND ((@IsNull_Staff_Created_By = 1 AND [Staff_Created_By] IS NULL) " +
-                "OR ([Staff_Created_By] = @Original_Staff_Created_By)))";
+                "Branch_ID)) AND ((@IsNull_Booking_Date = 1 AND [Booking_Date] IS NULL) OR ([Book" +
+                "ing_Date] = @Original_Booking_Date)) AND ((@IsNull_Checkin_Date = 1 AND [Checkin" +
+                "_Date] IS NULL) OR ([Checkin_Date] = @Original_Checkin_Date)) AND ((@IsNull_Chec" +
+                "kout_Date = 1 AND [Checkout_Date] IS NULL) OR ([Checkout_Date] = @Original_Check" +
+                "out_Date)) AND ((@IsNull_Booking_Total_Amount = 1 AND [Booking_Total_Amount] IS " +
+                "NULL) OR ([Booking_Total_Amount] = @Original_Booking_Total_Amount)) AND ((@IsNul" +
+                "l_Booking_Status = 1 AND [Booking_Status] IS NULL) OR ([Booking_Status] = @Origi" +
+                "nal_Booking_Status)) AND ((@IsNull_Cancellation_Date = 1 AND [Cancellation_Date]" +
+                " IS NULL) OR ([Cancellation_Date] = @Original_Cancellation_Date)) AND ((@IsNull_" +
+                "Cancellation_Reason = 1 AND [Cancellation_Reason] IS NULL) OR ([Cancellation_Rea" +
+                "son] = @Original_Cancellation_Reason)) AND ((@IsNull_Admin_Notes = 1 AND [Admin_" +
+                "Notes] IS NULL) OR ([Admin_Notes] = @Original_Admin_Notes)) AND ((@IsNull_Number" +
+                "_Adults = 1 AND [Number_Adults] IS NULL) OR ([Number_Adults] = @Original_Number_" +
+                "Adults)) AND ((@IsNull_Number_Children = 1 AND [Number_Children] IS NULL) OR ([N" +
+                "umber_Children] = @Original_Number_Children)) AND ((@IsNull_Penalty_Amount = 1 A" +
+                "ND [Penalty_Amount] IS NULL) OR ([Penalty_Amount] = @Original_Penalty_Amount)) A" +
+                "ND ((@IsNull_Credit_Amount = 1 AND [Credit_Amount] IS NULL) OR ([Credit_Amount] " +
+                "= @Original_Credit_Amount)) AND ((@IsNull_Staff_Created_By = 1 AND [Staff_Create" +
+                "d_By] IS NULL) OR ([Staff_Created_By] = @Original_Staff_Created_By)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Booking_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Booking_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Client_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Client_ID", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Client_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Client_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Branch_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Branch_ID", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Branch_ID", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Branch_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Booking_Date", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Booking_Date", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Booking_Date", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Booking_Date", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Checkin_Date", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Checkin_Date", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Checkin_Date", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Checkin_Date", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Checkout_Date", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Checkout_Date", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Checkout_Date", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Checkout_Date", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Booking_Total_Amount", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Booking_Total_Amount", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Booking_Total_Amount", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "Booking_Total_Amount", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Booking_Status", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Booking_Status", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Booking_Status", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Booking_Status", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Cancellation_Date", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Cancellation_Date", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Cancellation_Date", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Cancellation_Date", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -17258,10 +17231,6 @@ SELECT Maintenance_ID, Hotel_Room_ID, Staff_ID, Issue_Description, Date_Reported
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Number_Adults", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Number_Adults", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Number_Children", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Number_Children", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Number_Children", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Number_Children", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Booking_Type", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Booking_Type", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Booking_Type", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Booking_Type", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Special_Request", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Special_Request", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Special_Request", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Special_Request", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Penalty_Amount", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Penalty_Amount", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Penalty_Amount", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "Penalty_Amount", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Credit_Amount", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Credit_Amount", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -17270,8 +17239,8 @@ SELECT Maintenance_ID, Hotel_Room_ID, Staff_ID, Issue_Description, Date_Reported
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Staff_Created_By", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Staff_Created_By", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [Booking] ([Client_ID], [Branch_ID], [Booking_Date], [Checkin_Date], [Checkout_Date], [Booking_Total_Amount], [Booking_Status], [Cancellation_Date], [Cancellation_Reason], [Admin_Notes], [Number_Adults], [Number_Children], [Booking_Type], [Special_Request], [Penalty_Amount], [Credit_Amount], [Staff_Created_By]) VALUES (@Client_ID, @Branch_ID, @Booking_Date, @Checkin_Date, @Checkout_Date, @Booking_Total_Amount, @Booking_Status, @Cancellation_Date, @Cancellation_Reason, @Admin_Notes, @Number_Adults, @Number_Children, @Booking_Type, @Special_Request, @Penalty_Amount, @Credit_Amount, @Staff_Created_By);
-SELECT Booking_ID, Client_ID, Branch_ID, Booking_Date, Checkin_Date, Checkout_Date, Booking_Total_Amount, Booking_Status, Cancellation_Date, Cancellation_Reason, Admin_Notes, Number_Adults, Number_Children, Booking_Type, Special_Request, Penalty_Amount, Credit_Amount, Staff_Created_By FROM Booking WHERE (Booking_ID = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [Booking] ([Client_ID], [Branch_ID], [Booking_Date], [Checkin_Date], [Checkout_Date], [Booking_Total_Amount], [Booking_Status], [Cancellation_Date], [Cancellation_Reason], [Admin_Notes], [Number_Adults], [Number_Children], [Booking_Type], [Penalty_Amount], [Credit_Amount], [Staff_Created_By]) VALUES (@Client_ID, @Branch_ID, @Booking_Date, @Checkin_Date, @Checkout_Date, @Booking_Total_Amount, @Booking_Status, @Cancellation_Date, @Cancellation_Reason, @Admin_Notes, @Number_Adults, @Number_Children, @Booking_Type, @Penalty_Amount, @Credit_Amount, @Staff_Created_By);
+SELECT Booking_ID, Client_ID, Branch_ID, Booking_Date, Checkin_Date, Checkout_Date, Booking_Total_Amount, Booking_Status, Cancellation_Date, Cancellation_Reason, Admin_Notes, Number_Adults, Number_Children, Booking_Type, Penalty_Amount, Credit_Amount, Staff_Created_By FROM Booking WHERE (Booking_ID = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Client_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Client_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Branch_ID", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Branch_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -17286,7 +17255,6 @@ SELECT Booking_ID, Client_ID, Branch_ID, Booking_Date, Checkin_Date, Checkout_Da
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Number_Adults", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Number_Adults", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Number_Children", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Number_Children", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Booking_Type", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Booking_Type", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Special_Request", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Special_Request", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Penalty_Amount", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "Penalty_Amount", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Credit_Amount", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "Credit_Amount", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Staff_Created_By", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Staff_Created_By", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -17297,34 +17265,34 @@ SELECT Booking_ID, Client_ID, Branch_ID, Booking_Date, Checkin_Date, Checkout_Da
                 "out_Date, [Booking_Total_Amount] = @Booking_Total_Amount, [Booking_Status] = @Bo" +
                 "oking_Status, [Cancellation_Date] = @Cancellation_Date, [Cancellation_Reason] = " +
                 "@Cancellation_Reason, [Admin_Notes] = @Admin_Notes, [Number_Adults] = @Number_Ad" +
-                "ults, [Number_Children] = @Number_Children, [Booking_Type] = @Booking_Type, [Spe" +
-                "cial_Request] = @Special_Request, [Penalty_Amount] = @Penalty_Amount, [Credit_Am" +
-                "ount] = @Credit_Amount, [Staff_Created_By] = @Staff_Created_By WHERE (([Booking_" +
-                "ID] = @Original_Booking_ID) AND ((@IsNull_Client_ID = 1 AND [Client_ID] IS NULL)" +
-                " OR ([Client_ID] = @Original_Client_ID)) AND ((@IsNull_Branch_ID = 1 AND [Branch" +
-                "_ID] IS NULL) OR ([Branch_ID] = @Original_Branch_ID)) AND ([Booking_Date] = @Ori" +
-                "ginal_Booking_Date) AND ([Checkin_Date] = @Original_Checkin_Date) AND ([Checkout" +
-                "_Date] = @Original_Checkout_Date) AND ([Booking_Total_Amount] = @Original_Bookin" +
-                "g_Total_Amount) AND ([Booking_Status] = @Original_Booking_Status) AND ((@IsNull_" +
-                "Cancellation_Date = 1 AND [Cancellation_Date] IS NULL) OR ([Cancellation_Date] =" +
-                " @Original_Cancellation_Date)) AND ((@IsNull_Cancellation_Reason = 1 AND [Cancel" +
-                "lation_Reason] IS NULL) OR ([Cancellation_Reason] = @Original_Cancellation_Reaso" +
-                "n)) AND ((@IsNull_Admin_Notes = 1 AND [Admin_Notes] IS NULL) OR ([Admin_Notes] =" +
-                " @Original_Admin_Notes)) AND ((@IsNull_Number_Adults = 1 AND [Number_Adults] IS " +
-                "NULL) OR ([Number_Adults] = @Original_Number_Adults)) AND ((@IsNull_Number_Child" +
-                "ren = 1 AND [Number_Children] IS NULL) OR ([Number_Children] = @Original_Number_" +
-                "Children)) AND ((@IsNull_Booking_Type = 1 AND [Booking_Type] IS NULL) OR ([Booki" +
-                "ng_Type] = @Original_Booking_Type)) AND ((@IsNull_Special_Request = 1 AND [Speci" +
-                "al_Request] IS NULL) OR ([Special_Request] = @Original_Special_Request)) AND ((@" +
-                "IsNull_Penalty_Amount = 1 AND [Penalty_Amount] IS NULL) OR ([Penalty_Amount] = @" +
-                "Original_Penalty_Amount)) AND ((@IsNull_Credit_Amount = 1 AND [Credit_Amount] IS" +
-                " NULL) OR ([Credit_Amount] = @Original_Credit_Amount)) AND ((@IsNull_Staff_Creat" +
-                "ed_By = 1 AND [Staff_Created_By] IS NULL) OR ([Staff_Created_By] = @Original_Sta" +
-                "ff_Created_By)));\r\nSELECT Booking_ID, Client_ID, Branch_ID, Booking_Date, Checki" +
-                "n_Date, Checkout_Date, Booking_Total_Amount, Booking_Status, Cancellation_Date, " +
-                "Cancellation_Reason, Admin_Notes, Number_Adults, Number_Children, Booking_Type, " +
-                "Special_Request, Penalty_Amount, Credit_Amount, Staff_Created_By FROM Booking WH" +
-                "ERE (Booking_ID = @Booking_ID)";
+                "ults, [Number_Children] = @Number_Children, [Booking_Type] = @Booking_Type, [Pen" +
+                "alty_Amount] = @Penalty_Amount, [Credit_Amount] = @Credit_Amount, [Staff_Created" +
+                "_By] = @Staff_Created_By WHERE (([Booking_ID] = @Original_Booking_ID) AND ((@IsN" +
+                "ull_Client_ID = 1 AND [Client_ID] IS NULL) OR ([Client_ID] = @Original_Client_ID" +
+                ")) AND ((@IsNull_Branch_ID = 1 AND [Branch_ID] IS NULL) OR ([Branch_ID] = @Origi" +
+                "nal_Branch_ID)) AND ((@IsNull_Booking_Date = 1 AND [Booking_Date] IS NULL) OR ([" +
+                "Booking_Date] = @Original_Booking_Date)) AND ((@IsNull_Checkin_Date = 1 AND [Che" +
+                "ckin_Date] IS NULL) OR ([Checkin_Date] = @Original_Checkin_Date)) AND ((@IsNull_" +
+                "Checkout_Date = 1 AND [Checkout_Date] IS NULL) OR ([Checkout_Date] = @Original_C" +
+                "heckout_Date)) AND ((@IsNull_Booking_Total_Amount = 1 AND [Booking_Total_Amount]" +
+                " IS NULL) OR ([Booking_Total_Amount] = @Original_Booking_Total_Amount)) AND ((@I" +
+                "sNull_Booking_Status = 1 AND [Booking_Status] IS NULL) OR ([Booking_Status] = @O" +
+                "riginal_Booking_Status)) AND ((@IsNull_Cancellation_Date = 1 AND [Cancellation_D" +
+                "ate] IS NULL) OR ([Cancellation_Date] = @Original_Cancellation_Date)) AND ((@IsN" +
+                "ull_Cancellation_Reason = 1 AND [Cancellation_Reason] IS NULL) OR ([Cancellation" +
+                "_Reason] = @Original_Cancellation_Reason)) AND ((@IsNull_Admin_Notes = 1 AND [Ad" +
+                "min_Notes] IS NULL) OR ([Admin_Notes] = @Original_Admin_Notes)) AND ((@IsNull_Nu" +
+                "mber_Adults = 1 AND [Number_Adults] IS NULL) OR ([Number_Adults] = @Original_Num" +
+                "ber_Adults)) AND ((@IsNull_Number_Children = 1 AND [Number_Children] IS NULL) OR" +
+                " ([Number_Children] = @Original_Number_Children)) AND ((@IsNull_Penalty_Amount =" +
+                " 1 AND [Penalty_Amount] IS NULL) OR ([Penalty_Amount] = @Original_Penalty_Amount" +
+                ")) AND ((@IsNull_Credit_Amount = 1 AND [Credit_Amount] IS NULL) OR ([Credit_Amou" +
+                "nt] = @Original_Credit_Amount)) AND ((@IsNull_Staff_Created_By = 1 AND [Staff_Cr" +
+                "eated_By] IS NULL) OR ([Staff_Created_By] = @Original_Staff_Created_By)));\r\nSELE" +
+                "CT Booking_ID, Client_ID, Branch_ID, Booking_Date, Checkin_Date, Checkout_Date, " +
+                "Booking_Total_Amount, Booking_Status, Cancellation_Date, Cancellation_Reason, Ad" +
+                "min_Notes, Number_Adults, Number_Children, Booking_Type, Penalty_Amount, Credit_" +
+                "Amount, Staff_Created_By FROM Booking WHERE (Booking_ID = @Booking_ID)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Client_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Client_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Branch_ID", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Branch_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -17339,7 +17307,6 @@ SELECT Booking_ID, Client_ID, Branch_ID, Booking_Date, Checkin_Date, Checkout_Da
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Number_Adults", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Number_Adults", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Number_Children", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Number_Children", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Booking_Type", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Booking_Type", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Special_Request", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Special_Request", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Penalty_Amount", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "Penalty_Amount", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Credit_Amount", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "Credit_Amount", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Staff_Created_By", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Staff_Created_By", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -17348,10 +17315,15 @@ SELECT Booking_ID, Client_ID, Branch_ID, Booking_Date, Checkin_Date, Checkout_Da
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Client_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Client_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Branch_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Branch_ID", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Branch_ID", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Branch_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Booking_Date", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Booking_Date", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Booking_Date", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Booking_Date", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Checkin_Date", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Checkin_Date", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Checkin_Date", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Checkin_Date", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Checkout_Date", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Checkout_Date", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Checkout_Date", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Checkout_Date", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Booking_Total_Amount", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Booking_Total_Amount", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Booking_Total_Amount", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "Booking_Total_Amount", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Booking_Status", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Booking_Status", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Booking_Status", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Booking_Status", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Cancellation_Date", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Cancellation_Date", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Cancellation_Date", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Cancellation_Date", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -17363,10 +17335,6 @@ SELECT Booking_ID, Client_ID, Branch_ID, Booking_Date, Checkin_Date, Checkout_Da
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Number_Adults", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Number_Adults", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Number_Children", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Number_Children", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Number_Children", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Number_Children", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Booking_Type", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Booking_Type", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Booking_Type", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Booking_Type", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Special_Request", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Special_Request", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Special_Request", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Special_Request", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Penalty_Amount", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Penalty_Amount", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Penalty_Amount", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "Penalty_Amount", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Credit_Amount", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Credit_Amount", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -17389,7 +17357,7 @@ SELECT Booking_ID, Client_ID, Branch_ID, Booking_Date, Checkin_Date, Checkout_Da
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT Booking_ID, Client_ID, Branch_ID, Booking_Date, Checkin_Date, Checkout_Date, Booking_Total_Amount, Booking_Status, Cancellation_Date, Cancellation_Reason, Admin_Notes, Number_Adults, Number_Children, Booking_Type, Special_Request, Penalty_Amount, Credit_Amount, Staff_Created_By FROM Booking";
+            this._commandCollection[0].CommandText = @"SELECT Booking_ID, Client_ID, Branch_ID, Booking_Date, Checkin_Date, Checkout_Date, Booking_Total_Amount, Booking_Status, Cancellation_Date, Cancellation_Reason, Admin_Notes, Number_Adults, Number_Children, Booking_Type, Penalty_Amount, Credit_Amount, Staff_Created_By FROM Booking";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -17454,18 +17422,16 @@ SELECT Booking_ID, Client_ID, Branch_ID, Booking_Date, Checkin_Date, Checkout_Da
                     int Original_Booking_ID, 
                     global::System.Nullable<int> Original_Client_ID, 
                     string Original_Branch_ID, 
-                    System.DateTime Original_Booking_Date, 
-                    System.DateTime Original_Checkin_Date, 
-                    System.DateTime Original_Checkout_Date, 
-                    decimal Original_Booking_Total_Amount, 
+                    global::System.Nullable<global::System.DateTime> Original_Booking_Date, 
+                    global::System.Nullable<global::System.DateTime> Original_Checkin_Date, 
+                    global::System.Nullable<global::System.DateTime> Original_Checkout_Date, 
+                    global::System.Nullable<decimal> Original_Booking_Total_Amount, 
                     string Original_Booking_Status, 
                     global::System.Nullable<global::System.DateTime> Original_Cancellation_Date, 
                     string Original_Cancellation_Reason, 
                     string Original_Admin_Notes, 
                     global::System.Nullable<int> Original_Number_Adults, 
                     global::System.Nullable<int> Original_Number_Children, 
-                    string Original_Booking_Type, 
-                    string Original_Special_Request, 
                     global::System.Nullable<decimal> Original_Penalty_Amount, 
                     global::System.Nullable<decimal> Original_Credit_Amount, 
                     string Original_Staff_Created_By) {
@@ -17486,95 +17452,109 @@ SELECT Booking_ID, Client_ID, Branch_ID, Booking_Date, Checkin_Date, Checkout_Da
                 this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
                 this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_Branch_ID));
             }
-            this.Adapter.DeleteCommand.Parameters[5].Value = ((System.DateTime)(Original_Booking_Date));
-            this.Adapter.DeleteCommand.Parameters[6].Value = ((System.DateTime)(Original_Checkin_Date));
-            this.Adapter.DeleteCommand.Parameters[7].Value = ((System.DateTime)(Original_Checkout_Date));
-            this.Adapter.DeleteCommand.Parameters[8].Value = ((decimal)(Original_Booking_Total_Amount));
-            if ((Original_Booking_Status == null)) {
-                throw new global::System.ArgumentNullException("Original_Booking_Status");
+            if ((Original_Booking_Date.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((System.DateTime)(Original_Booking_Date.Value));
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[9].Value = ((string)(Original_Booking_Status));
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Checkin_Date.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[8].Value = ((System.DateTime)(Original_Checkin_Date.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[8].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Checkout_Date.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[10].Value = ((System.DateTime)(Original_Checkout_Date.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[10].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Booking_Total_Amount.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[12].Value = ((decimal)(Original_Booking_Total_Amount.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[12].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Booking_Status == null)) {
+                this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[14].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[14].Value = ((string)(Original_Booking_Status));
             }
             if ((Original_Cancellation_Date.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[10].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[11].Value = ((System.DateTime)(Original_Cancellation_Date.Value));
+                this.Adapter.DeleteCommand.Parameters[15].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[16].Value = ((System.DateTime)(Original_Cancellation_Date.Value));
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[10].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[11].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[15].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[16].Value = global::System.DBNull.Value;
             }
             if ((Original_Cancellation_Reason == null)) {
-                this.Adapter.DeleteCommand.Parameters[12].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[13].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[17].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[18].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[12].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[13].Value = ((string)(Original_Cancellation_Reason));
+                this.Adapter.DeleteCommand.Parameters[17].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[18].Value = ((string)(Original_Cancellation_Reason));
             }
             if ((Original_Admin_Notes == null)) {
-                this.Adapter.DeleteCommand.Parameters[14].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[15].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[19].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[20].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[14].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[15].Value = ((string)(Original_Admin_Notes));
+                this.Adapter.DeleteCommand.Parameters[19].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[20].Value = ((string)(Original_Admin_Notes));
             }
             if ((Original_Number_Adults.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[16].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[17].Value = ((int)(Original_Number_Adults.Value));
+                this.Adapter.DeleteCommand.Parameters[21].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[22].Value = ((int)(Original_Number_Adults.Value));
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[16].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[17].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[21].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[22].Value = global::System.DBNull.Value;
             }
             if ((Original_Number_Children.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[18].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[19].Value = ((int)(Original_Number_Children.Value));
+                this.Adapter.DeleteCommand.Parameters[23].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[24].Value = ((int)(Original_Number_Children.Value));
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[18].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[19].Value = global::System.DBNull.Value;
-            }
-            if ((Original_Booking_Type == null)) {
-                this.Adapter.DeleteCommand.Parameters[20].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[21].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[20].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[21].Value = ((string)(Original_Booking_Type));
-            }
-            if ((Original_Special_Request == null)) {
-                this.Adapter.DeleteCommand.Parameters[22].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[23].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[22].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[23].Value = ((string)(Original_Special_Request));
+                this.Adapter.DeleteCommand.Parameters[23].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[24].Value = global::System.DBNull.Value;
             }
             if ((Original_Penalty_Amount.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[24].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[25].Value = ((decimal)(Original_Penalty_Amount.Value));
+                this.Adapter.DeleteCommand.Parameters[25].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[26].Value = ((decimal)(Original_Penalty_Amount.Value));
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[24].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[25].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[25].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[26].Value = global::System.DBNull.Value;
             }
             if ((Original_Credit_Amount.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[26].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[27].Value = ((decimal)(Original_Credit_Amount.Value));
+                this.Adapter.DeleteCommand.Parameters[27].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[28].Value = ((decimal)(Original_Credit_Amount.Value));
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[26].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[27].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[27].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[28].Value = global::System.DBNull.Value;
             }
             if ((Original_Staff_Created_By == null)) {
-                this.Adapter.DeleteCommand.Parameters[28].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[29].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[29].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[30].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[28].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[29].Value = ((string)(Original_Staff_Created_By));
+                this.Adapter.DeleteCommand.Parameters[29].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[30].Value = ((string)(Original_Staff_Created_By));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -17599,10 +17579,10 @@ SELECT Booking_ID, Client_ID, Branch_ID, Booking_Date, Checkin_Date, Checkout_Da
         public virtual int Insert(
                     global::System.Nullable<int> Client_ID, 
                     string Branch_ID, 
-                    System.DateTime Booking_Date, 
-                    System.DateTime Checkin_Date, 
-                    System.DateTime Checkout_Date, 
-                    decimal Booking_Total_Amount, 
+                    global::System.Nullable<global::System.DateTime> Booking_Date, 
+                    global::System.Nullable<global::System.DateTime> Checkin_Date, 
+                    global::System.Nullable<global::System.DateTime> Checkout_Date, 
+                    global::System.Nullable<decimal> Booking_Total_Amount, 
                     string Booking_Status, 
                     global::System.Nullable<global::System.DateTime> Cancellation_Date, 
                     string Cancellation_Reason, 
@@ -17610,7 +17590,6 @@ SELECT Booking_ID, Client_ID, Branch_ID, Booking_Date, Checkin_Date, Checkout_Da
                     global::System.Nullable<int> Number_Adults, 
                     global::System.Nullable<int> Number_Children, 
                     string Booking_Type, 
-                    string Special_Request, 
                     global::System.Nullable<decimal> Penalty_Amount, 
                     global::System.Nullable<decimal> Credit_Amount, 
                     string Staff_Created_By) {
@@ -17626,12 +17605,32 @@ SELECT Booking_ID, Client_ID, Branch_ID, Booking_Date, Checkin_Date, Checkout_Da
             else {
                 this.Adapter.InsertCommand.Parameters[1].Value = ((string)(Branch_ID));
             }
-            this.Adapter.InsertCommand.Parameters[2].Value = ((System.DateTime)(Booking_Date));
-            this.Adapter.InsertCommand.Parameters[3].Value = ((System.DateTime)(Checkin_Date));
-            this.Adapter.InsertCommand.Parameters[4].Value = ((System.DateTime)(Checkout_Date));
-            this.Adapter.InsertCommand.Parameters[5].Value = ((decimal)(Booking_Total_Amount));
+            if ((Booking_Date.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[2].Value = ((System.DateTime)(Booking_Date.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            if ((Checkin_Date.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[3].Value = ((System.DateTime)(Checkin_Date.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            if ((Checkout_Date.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[4].Value = ((System.DateTime)(Checkout_Date.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            if ((Booking_Total_Amount.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[5].Value = ((decimal)(Booking_Total_Amount.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
             if ((Booking_Status == null)) {
-                throw new global::System.ArgumentNullException("Booking_Status");
+                this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.InsertCommand.Parameters[6].Value = ((string)(Booking_Status));
@@ -17672,29 +17671,23 @@ SELECT Booking_ID, Client_ID, Branch_ID, Booking_Date, Checkin_Date, Checkout_Da
             else {
                 this.Adapter.InsertCommand.Parameters[12].Value = ((string)(Booking_Type));
             }
-            if ((Special_Request == null)) {
-                this.Adapter.InsertCommand.Parameters[13].Value = global::System.DBNull.Value;
+            if ((Penalty_Amount.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[13].Value = ((decimal)(Penalty_Amount.Value));
             }
             else {
-                this.Adapter.InsertCommand.Parameters[13].Value = ((string)(Special_Request));
+                this.Adapter.InsertCommand.Parameters[13].Value = global::System.DBNull.Value;
             }
-            if ((Penalty_Amount.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[14].Value = ((decimal)(Penalty_Amount.Value));
+            if ((Credit_Amount.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[14].Value = ((decimal)(Credit_Amount.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[14].Value = global::System.DBNull.Value;
             }
-            if ((Credit_Amount.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[15].Value = ((decimal)(Credit_Amount.Value));
-            }
-            else {
+            if ((Staff_Created_By == null)) {
                 this.Adapter.InsertCommand.Parameters[15].Value = global::System.DBNull.Value;
             }
-            if ((Staff_Created_By == null)) {
-                this.Adapter.InsertCommand.Parameters[16].Value = global::System.DBNull.Value;
-            }
             else {
-                this.Adapter.InsertCommand.Parameters[16].Value = ((string)(Staff_Created_By));
+                this.Adapter.InsertCommand.Parameters[15].Value = ((string)(Staff_Created_By));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -17719,10 +17712,10 @@ SELECT Booking_ID, Client_ID, Branch_ID, Booking_Date, Checkin_Date, Checkout_Da
         public virtual int Update(
                     global::System.Nullable<int> Client_ID, 
                     string Branch_ID, 
-                    System.DateTime Booking_Date, 
-                    System.DateTime Checkin_Date, 
-                    System.DateTime Checkout_Date, 
-                    decimal Booking_Total_Amount, 
+                    global::System.Nullable<global::System.DateTime> Booking_Date, 
+                    global::System.Nullable<global::System.DateTime> Checkin_Date, 
+                    global::System.Nullable<global::System.DateTime> Checkout_Date, 
+                    global::System.Nullable<decimal> Booking_Total_Amount, 
                     string Booking_Status, 
                     global::System.Nullable<global::System.DateTime> Cancellation_Date, 
                     string Cancellation_Reason, 
@@ -17730,25 +17723,22 @@ SELECT Booking_ID, Client_ID, Branch_ID, Booking_Date, Checkin_Date, Checkout_Da
                     global::System.Nullable<int> Number_Adults, 
                     global::System.Nullable<int> Number_Children, 
                     string Booking_Type, 
-                    string Special_Request, 
                     global::System.Nullable<decimal> Penalty_Amount, 
                     global::System.Nullable<decimal> Credit_Amount, 
                     string Staff_Created_By, 
                     int Original_Booking_ID, 
                     global::System.Nullable<int> Original_Client_ID, 
                     string Original_Branch_ID, 
-                    System.DateTime Original_Booking_Date, 
-                    System.DateTime Original_Checkin_Date, 
-                    System.DateTime Original_Checkout_Date, 
-                    decimal Original_Booking_Total_Amount, 
+                    global::System.Nullable<global::System.DateTime> Original_Booking_Date, 
+                    global::System.Nullable<global::System.DateTime> Original_Checkin_Date, 
+                    global::System.Nullable<global::System.DateTime> Original_Checkout_Date, 
+                    global::System.Nullable<decimal> Original_Booking_Total_Amount, 
                     string Original_Booking_Status, 
                     global::System.Nullable<global::System.DateTime> Original_Cancellation_Date, 
                     string Original_Cancellation_Reason, 
                     string Original_Admin_Notes, 
                     global::System.Nullable<int> Original_Number_Adults, 
                     global::System.Nullable<int> Original_Number_Children, 
-                    string Original_Booking_Type, 
-                    string Original_Special_Request, 
                     global::System.Nullable<decimal> Original_Penalty_Amount, 
                     global::System.Nullable<decimal> Original_Credit_Amount, 
                     string Original_Staff_Created_By, 
@@ -17765,12 +17755,32 @@ SELECT Booking_ID, Client_ID, Branch_ID, Booking_Date, Checkin_Date, Checkout_Da
             else {
                 this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(Branch_ID));
             }
-            this.Adapter.UpdateCommand.Parameters[2].Value = ((System.DateTime)(Booking_Date));
-            this.Adapter.UpdateCommand.Parameters[3].Value = ((System.DateTime)(Checkin_Date));
-            this.Adapter.UpdateCommand.Parameters[4].Value = ((System.DateTime)(Checkout_Date));
-            this.Adapter.UpdateCommand.Parameters[5].Value = ((decimal)(Booking_Total_Amount));
+            if ((Booking_Date.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((System.DateTime)(Booking_Date.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            if ((Checkin_Date.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((System.DateTime)(Checkin_Date.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            if ((Checkout_Date.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((System.DateTime)(Checkout_Date.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            if ((Booking_Total_Amount.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((decimal)(Booking_Total_Amount.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
             if ((Booking_Status == null)) {
-                throw new global::System.ArgumentNullException("Booking_Status");
+                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Booking_Status));
@@ -17811,112 +17821,120 @@ SELECT Booking_ID, Client_ID, Branch_ID, Booking_Date, Checkin_Date, Checkout_Da
             else {
                 this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(Booking_Type));
             }
-            if ((Special_Request == null)) {
-                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
+            if ((Penalty_Amount.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((decimal)(Penalty_Amount.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(Special_Request));
+                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
             }
-            if ((Penalty_Amount.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((decimal)(Penalty_Amount.Value));
+            if ((Credit_Amount.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((decimal)(Credit_Amount.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
             }
-            if ((Credit_Amount.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((decimal)(Credit_Amount.Value));
-            }
-            else {
+            if ((Staff_Created_By == null)) {
                 this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
             }
-            if ((Staff_Created_By == null)) {
-                this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
-            }
             else {
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((string)(Staff_Created_By));
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(Staff_Created_By));
             }
-            this.Adapter.UpdateCommand.Parameters[17].Value = ((int)(Original_Booking_ID));
+            this.Adapter.UpdateCommand.Parameters[16].Value = ((int)(Original_Booking_ID));
             if ((Original_Client_ID.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((int)(Original_Client_ID.Value));
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((int)(Original_Client_ID.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[19].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[18].Value = global::System.DBNull.Value;
             }
             if ((Original_Branch_ID == null)) {
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[21].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[20].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[21].Value = ((string)(Original_Branch_ID));
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((string)(Original_Branch_ID));
             }
-            this.Adapter.UpdateCommand.Parameters[22].Value = ((System.DateTime)(Original_Booking_Date));
-            this.Adapter.UpdateCommand.Parameters[23].Value = ((System.DateTime)(Original_Checkin_Date));
-            this.Adapter.UpdateCommand.Parameters[24].Value = ((System.DateTime)(Original_Checkout_Date));
-            this.Adapter.UpdateCommand.Parameters[25].Value = ((decimal)(Original_Booking_Total_Amount));
-            if ((Original_Booking_Status == null)) {
-                throw new global::System.ArgumentNullException("Original_Booking_Status");
+            if ((Original_Booking_Date.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[21].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[22].Value = ((System.DateTime)(Original_Booking_Date.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[26].Value = ((string)(Original_Booking_Status));
+                this.Adapter.UpdateCommand.Parameters[21].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[22].Value = global::System.DBNull.Value;
             }
-            if ((Original_Cancellation_Date.HasValue == true)) {
+            if ((Original_Checkin_Date.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[23].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[24].Value = ((System.DateTime)(Original_Checkin_Date.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[23].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[24].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Checkout_Date.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[25].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[26].Value = ((System.DateTime)(Original_Checkout_Date.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[25].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[26].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Booking_Total_Amount.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[27].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[28].Value = ((System.DateTime)(Original_Cancellation_Date.Value));
+                this.Adapter.UpdateCommand.Parameters[28].Value = ((decimal)(Original_Booking_Total_Amount.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[27].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[28].Value = global::System.DBNull.Value;
             }
-            if ((Original_Cancellation_Reason == null)) {
+            if ((Original_Booking_Status == null)) {
                 this.Adapter.UpdateCommand.Parameters[29].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[30].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[29].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[30].Value = ((string)(Original_Cancellation_Reason));
+                this.Adapter.UpdateCommand.Parameters[30].Value = ((string)(Original_Booking_Status));
             }
-            if ((Original_Admin_Notes == null)) {
+            if ((Original_Cancellation_Date.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[31].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[32].Value = ((System.DateTime)(Original_Cancellation_Date.Value));
+            }
+            else {
                 this.Adapter.UpdateCommand.Parameters[31].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[32].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.UpdateCommand.Parameters[31].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[32].Value = ((string)(Original_Admin_Notes));
-            }
-            if ((Original_Number_Adults.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[33].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[34].Value = ((int)(Original_Number_Adults.Value));
-            }
-            else {
+            if ((Original_Cancellation_Reason == null)) {
                 this.Adapter.UpdateCommand.Parameters[33].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[34].Value = global::System.DBNull.Value;
             }
-            if ((Original_Number_Children.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[35].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[36].Value = ((int)(Original_Number_Children.Value));
-            }
             else {
+                this.Adapter.UpdateCommand.Parameters[33].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[34].Value = ((string)(Original_Cancellation_Reason));
+            }
+            if ((Original_Admin_Notes == null)) {
                 this.Adapter.UpdateCommand.Parameters[35].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[36].Value = global::System.DBNull.Value;
             }
-            if ((Original_Booking_Type == null)) {
+            else {
+                this.Adapter.UpdateCommand.Parameters[35].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[36].Value = ((string)(Original_Admin_Notes));
+            }
+            if ((Original_Number_Adults.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[37].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[38].Value = ((int)(Original_Number_Adults.Value));
+            }
+            else {
                 this.Adapter.UpdateCommand.Parameters[37].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[38].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.UpdateCommand.Parameters[37].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[38].Value = ((string)(Original_Booking_Type));
+            if ((Original_Number_Children.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[39].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[40].Value = ((int)(Original_Number_Children.Value));
             }
-            if ((Original_Special_Request == null)) {
+            else {
                 this.Adapter.UpdateCommand.Parameters[39].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[40].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[39].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[40].Value = ((string)(Original_Special_Request));
             }
             if ((Original_Penalty_Amount.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[41].Value = ((object)(0));
@@ -17966,10 +17984,10 @@ SELECT Booking_ID, Client_ID, Branch_ID, Booking_Date, Checkin_Date, Checkout_Da
         public virtual int Update(
                     global::System.Nullable<int> Client_ID, 
                     string Branch_ID, 
-                    System.DateTime Booking_Date, 
-                    System.DateTime Checkin_Date, 
-                    System.DateTime Checkout_Date, 
-                    decimal Booking_Total_Amount, 
+                    global::System.Nullable<global::System.DateTime> Booking_Date, 
+                    global::System.Nullable<global::System.DateTime> Checkin_Date, 
+                    global::System.Nullable<global::System.DateTime> Checkout_Date, 
+                    global::System.Nullable<decimal> Booking_Total_Amount, 
                     string Booking_Status, 
                     global::System.Nullable<global::System.DateTime> Cancellation_Date, 
                     string Cancellation_Reason, 
@@ -17977,29 +17995,26 @@ SELECT Booking_ID, Client_ID, Branch_ID, Booking_Date, Checkin_Date, Checkout_Da
                     global::System.Nullable<int> Number_Adults, 
                     global::System.Nullable<int> Number_Children, 
                     string Booking_Type, 
-                    string Special_Request, 
                     global::System.Nullable<decimal> Penalty_Amount, 
                     global::System.Nullable<decimal> Credit_Amount, 
                     string Staff_Created_By, 
                     int Original_Booking_ID, 
                     global::System.Nullable<int> Original_Client_ID, 
                     string Original_Branch_ID, 
-                    System.DateTime Original_Booking_Date, 
-                    System.DateTime Original_Checkin_Date, 
-                    System.DateTime Original_Checkout_Date, 
-                    decimal Original_Booking_Total_Amount, 
+                    global::System.Nullable<global::System.DateTime> Original_Booking_Date, 
+                    global::System.Nullable<global::System.DateTime> Original_Checkin_Date, 
+                    global::System.Nullable<global::System.DateTime> Original_Checkout_Date, 
+                    global::System.Nullable<decimal> Original_Booking_Total_Amount, 
                     string Original_Booking_Status, 
                     global::System.Nullable<global::System.DateTime> Original_Cancellation_Date, 
                     string Original_Cancellation_Reason, 
                     string Original_Admin_Notes, 
                     global::System.Nullable<int> Original_Number_Adults, 
                     global::System.Nullable<int> Original_Number_Children, 
-                    string Original_Booking_Type, 
-                    string Original_Special_Request, 
                     global::System.Nullable<decimal> Original_Penalty_Amount, 
                     global::System.Nullable<decimal> Original_Credit_Amount, 
                     string Original_Staff_Created_By) {
-            return this.Update(Client_ID, Branch_ID, Booking_Date, Checkin_Date, Checkout_Date, Booking_Total_Amount, Booking_Status, Cancellation_Date, Cancellation_Reason, Admin_Notes, Number_Adults, Number_Children, Booking_Type, Special_Request, Penalty_Amount, Credit_Amount, Staff_Created_By, Original_Booking_ID, Original_Client_ID, Original_Branch_ID, Original_Booking_Date, Original_Checkin_Date, Original_Checkout_Date, Original_Booking_Total_Amount, Original_Booking_Status, Original_Cancellation_Date, Original_Cancellation_Reason, Original_Admin_Notes, Original_Number_Adults, Original_Number_Children, Original_Booking_Type, Original_Special_Request, Original_Penalty_Amount, Original_Credit_Amount, Original_Staff_Created_By, Original_Booking_ID);
+            return this.Update(Client_ID, Branch_ID, Booking_Date, Checkin_Date, Checkout_Date, Booking_Total_Amount, Booking_Status, Cancellation_Date, Cancellation_Reason, Admin_Notes, Number_Adults, Number_Children, Booking_Type, Penalty_Amount, Credit_Amount, Staff_Created_By, Original_Booking_ID, Original_Client_ID, Original_Branch_ID, Original_Booking_Date, Original_Checkin_Date, Original_Checkout_Date, Original_Booking_Total_Amount, Original_Booking_Status, Original_Cancellation_Date, Original_Cancellation_Reason, Original_Admin_Notes, Original_Number_Adults, Original_Number_Children, Original_Penalty_Amount, Original_Credit_Amount, Original_Staff_Created_By, Original_Booking_ID);
         }
     }
     

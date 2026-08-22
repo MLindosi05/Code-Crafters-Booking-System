@@ -24,8 +24,6 @@ namespace Code_Crafters_Booking_System
             this.clientTableAdapter.Fill(this.codeCraftersDSTWO1.Client);
             ApplyTheme();
 
-            btnActive.Click += btnActive_Click;
-            btnInactive.Click += btnInactive_Click;
             btnBlacklisted.Click += btnBlacklisted_Click;
             btnArchived.Click += btnArchived_Click;
             txtSearchEmail.TextChanged += txtSearchEmail_TextChanged_1;
@@ -37,14 +35,11 @@ namespace Code_Crafters_Booking_System
         {
             BackColor = System.Drawing.Color.FromArgb(242, 244, 247);
             panel2.BackColor = System.Drawing.Color.White;
-         
+
             ButtonStyler.Apply(btnSignUp);
-            ButtonStyler.Apply(btnInactive);
-            ButtonStyler.Apply(btnActive);
             ButtonStyler.Apply(btnBlacklisted);
             ButtonStyler.Apply(btnArchived);
-       
-            ButtonStyler.Apply(btnDeactivate);
+
             ButtonStyler.Apply(btnBlackList);
             ButtonStyler.Apply(btnArchive);
 
@@ -103,9 +98,9 @@ namespace Code_Crafters_Booking_System
                 {
                     conn.Open();
                     string query = @"
-                SELECT [Client_ID], [First_Name], [Last_Name], [Email_Address], [Phone_Number], [Client_Status], [Date_Registered] 
-                FROM [GroupPmb2].[dbo].[Client] 
-                WHERE 1=1";
+                    SELECT [Client_ID], [First_Name], [Last_Name], [Email_Address], [Phone_Number], [Client_Status], [Date_Registered] 
+                    FROM [GroupPmb2].[dbo].[Client] 
+                    WHERE 1=1";
 
                     if (!string.IsNullOrEmpty(statusFilter))
                     {
@@ -170,25 +165,69 @@ namespace Code_Crafters_Booking_System
 
         private void txtSearchEmail_TextChanged_1(object sender, EventArgs e)
         {
-
             LoadGuestsData("", txtSearchEmail.Text.Trim());
         }
 
         #endregion
 
-        #region Registration
+        #region Registration & Status Validation
 
         private void btnSignUp_Click(object sender, EventArgs e)
         {
             if (!ValidateInput())
                 return;
 
+            string email = txtEmailAddress.Text.Trim();
+            string phone = txtContactNumber.Text.Trim();
+
+            // Check if guest exists under Blacklisted, Archived, or Existing states
+            if (!CheckExistingGuestStatus(email, phone))
+                return;
+
             SaveGuest();
+        }
+
+        private bool CheckExistingGuestStatus(string email, string phone)
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+                string query = "SELECT Client_Status FROM [GroupPmb2].[dbo].[Client] WHERE [Email_Address] = @Email OR [Phone_Number] = @Phone";
+
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@Email", email);
+                    cmd.Parameters.AddWithValue("@Phone", phone);
+
+                    object result = cmd.ExecuteScalar();
+                    if (result != null)
+                    {
+                        string status = result.ToString();
+
+                        if (status.Equals("Blacklisted", StringComparison.OrdinalIgnoreCase))
+                        {
+                            MessageBox.Show("This guest is currently blacklisted and cannot create a new profile.", "Access Denied", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return false;
+                        }
+                        else if (status.Equals("Archived", StringComparison.OrdinalIgnoreCase))
+                        {
+                            MessageBox.Show("This profile is archived. Please contact administration to restore it.", "Profile Archived", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            return false;
+                        }
+                        else
+                        {
+                            MessageBox.Show("An account with this email address or phone number already exists.", "Existing Account", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            return false;
+                        }
+                    }
+                }
+            }
+            return true;
         }
 
         private bool ValidateInput()
         {
-            string firstName = txtName.Text.Trim();
+            string firstName = txtFirstName.Text.Trim();
             string surname = txtSurname.Text.Trim();
             string email = txtEmailAddress.Text.Trim();
             string phone = txtContactNumber.Text.Trim();
@@ -221,28 +260,11 @@ namespace Code_Crafters_Booking_System
         {
             try
             {
-                string firstName = txtName.Text.Trim();
+                string firstName = txtFirstName.Text.Trim();
                 string surname = txtSurname.Text.Trim();
                 string email = txtEmailAddress.Text.Trim();
                 string address = txtPhysicalAddress.Text.Trim();
                 string phone = txtContactNumber.Text.Trim();
-
-                using (SqlConnection connCheck = new SqlConnection(connectionString))
-                {
-                    connCheck.Open();
-                    string checkQuery = "SELECT COUNT(*) FROM [GroupPmb2].[dbo].[Client] WHERE [Phone_Number] = @Phone";
-                    using (SqlCommand cmdCheck = new SqlCommand(checkQuery, connCheck))
-                    {
-                        cmdCheck.Parameters.AddWithValue("@Phone", phone);
-                        int phoneCount = (int)cmdCheck.ExecuteScalar();
-
-                        if (phoneCount > 0)
-                        {
-                            MessageService.Warning("Phone number already exists.");
-                            return;
-                        }
-                    }
-                }
 
                 string password = firstName + "@" + phone.Substring(0, 2);
                 string clientStatus = "Active";
@@ -290,13 +312,13 @@ namespace Code_Crafters_Booking_System
 
         private void ClearFields()
         {
-            txtName.Clear();
+            txtFirstName.Clear();
             txtSurname.Clear();
             txtEmailAddress.Clear();
             txtPhysicalAddress.Clear();
             txtContactNumber.Clear();
 
-            txtName.Focus();
+            txtFirstName.Focus();
         }
 
         #endregion
@@ -323,14 +345,9 @@ namespace Code_Crafters_Booking_System
                         && !char.IsControl(e.KeyChar);
         }
 
-
         #endregion
 
-        #region Navigation
-
-
-
-        #endregion
+        #region Client Status Updates
 
         private void UpdateClientStatus(string newStatus)
         {
@@ -368,9 +385,9 @@ namespace Code_Crafters_Booking_System
                 }
 
                 MessageBox.Show($"Client Status updated to '{newStatus}'.\n\nEmail Address: {emailAddress}\nDateTime: {actionTime:yyyy-MM-dd HH:mm:ss}",
-                                "REGAL INN HOTEL - STATUS UPDATED SUCCESSFULLY",
-                                MessageBoxButtons.OK,
-                                MessageBoxIcon.Information);
+                            "REGAL INN HOTEL - STATUS UPDATED SUCCESSFULLY",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Information);
 
                 LoadGuestsData();
             }
@@ -425,6 +442,7 @@ namespace Code_Crafters_Booking_System
                 MessageBox.Show("Error: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-    
+
+        #endregion
     }
 }
