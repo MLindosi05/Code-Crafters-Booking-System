@@ -208,34 +208,80 @@ namespace Code_Crafters_Interface_Prototype_1.Business
                     taHotelRoom.Fill(codeCraftersDSTWO.Hotel_Room);
                 }
 
-                foreach (var booking in codeCraftersDSTWO.Booking.Rows.Cast<codeCraftersDSTWO.BookingRow>())
+                using (SqlConnection conn = new SqlConnection(connectionString))
                 {
-                    if (booking.RowState == DataRowState.Deleted) continue;
+                    conn.Open();
 
-                    DateTime checkInTime = booking.Checkin_Date;
-                    DateTime checkOutTime = booking.Checkout_Date;
-                    DateTime cleaningEndTime = checkOutTime.AddHours(1);
+                    foreach (var booking in codeCraftersDSTWO.Booking.Rows.Cast<codeCraftersDSTWO.BookingRow>())
+                    {
+                        if (booking.RowState == DataRowState.Deleted) continue;
 
-                    string currentStatus = booking.Booking_Status?.Trim();
-                    int roomNumber = ExtractRoomNumberFromBookingType(booking.Booking_Type);
+                        DateTime checkInTime = booking.Checkin_Date;
+                        DateTime checkOutTime = booking.Checkout_Date;
+                        DateTime cleaningEndTime = checkOutTime.AddHours(1);
 
-                    if (currentDateTime >= checkInTime && currentDateTime < checkOutTime && (currentStatus == "Pending" || currentStatus == "Booked"))
-                    {
-                        booking.Booking_Status = "Checked-In";
-                        UpdateHotelRoomStatus(booking.Branch_ID, roomNumber, "Occupied");
-                    }
-                    else if (currentDateTime >= checkOutTime && currentDateTime < cleaningEndTime && currentStatus == "Checked-In")
-                    {
-                        booking.Booking_Status = "Checked-Out";
-                        UpdateHotelRoomStatus(booking.Branch_ID, roomNumber, "Cleaning");
-                    }
-                    else if (currentDateTime >= cleaningEndTime && (currentStatus == "Checked-Out" || currentStatus == "Checked-In" || currentStatus == "Booked"))
-                    {
-                        booking.Booking_Status = "Completed";
-                        UpdateHotelRoomStatus(booking.Branch_ID, roomNumber, "Available");
+                        string currentStatus = booking.Booking_Status?.Trim();
+                        int roomNumber = ExtractRoomNumberFromBookingType(booking.Booking_Type);
+
+                        string newBookingStatus = currentStatus;
+                        string newRoomStatus = null;
+                        string newTableStatus = null;
+
+                        // 1. Check-In Phase (Time has arrived for check-in)
+                        if (currentDateTime >= checkInTime && currentDateTime < checkOutTime && (currentStatus == "Pending" || currentStatus == "Booked"))
+                        {
+                            newBookingStatus = "Checked-In";
+                            newRoomStatus = "Occupied";
+                            newTableStatus = "Reserved"; // or Occupied based on preference
+                        }
+                        // 2. Check-Out Phase (Time has arrived for check-out)
+                        else if (currentDateTime >= checkOutTime && currentDateTime < cleaningEndTime && currentStatus == "Checked-In")
+                        {
+                            newBookingStatus = "Checked-Out";
+                            newRoomStatus = "Cleaning";
+                            newTableStatus = "Available";
+                        }
+                        // 3. Completed Phase (Cleaning period finished)
+                        else if (currentDateTime >= cleaningEndTime && (currentStatus == "Checked-Out" || currentStatus == "Checked-In" || currentStatus == "Booked"))
+                        {
+                            newBookingStatus = "Completed";
+                            newRoomStatus = "Available";
+                            newTableStatus = "Available";
+                        }
+
+                        // Apply changes to the booking row dataset memory
+                        if (newBookingStatus != currentStatus)
+                        {
+                            booking.Booking_Status = newBookingStatus;
+                        }
+
+                        // Update Hotel Room Status in Dataset
+                        if (roomNumber > 0 && newRoomStatus != null)
+                        {
+                            UpdateHotelRoomStatus(booking.Branch_ID, roomNumber, newRoomStatus);
+                        }
+
+                        // Update Restaurant Table Status via direct SQL query linked to this Booking ID
+                        if (newTableStatus != null)
+                        {
+                            string updateTableQuery = @"
+                        UPDATE rt
+                        SET rt.TableStatus = @TableStatus
+                        FROM Restuarant_Table rt
+                        INNER JOIN Table_Allocation ta ON rt.RestaurantTableID = ta.Restuarant_Table_ID
+                        WHERE ta.Booking_ID = @BookingID;";
+
+                            using (SqlCommand cmdTable = new SqlCommand(updateTableQuery, conn))
+                            {
+                                cmdTable.Parameters.AddWithValue("@TableStatus", newTableStatus);
+                                cmdTable.Parameters.AddWithValue("@BookingID", booking.Booking_ID);
+                                cmdTable.ExecuteNonQuery();
+                            }
+                        }
                     }
                 }
 
+                // Sync updates back to the database tables
                 if (taBooking != null) taBooking.Update(codeCraftersDSTWO.Booking);
                 if (taHotelRoom != null) taHotelRoom.Update(codeCraftersDSTWO.Hotel_Room);
             }
