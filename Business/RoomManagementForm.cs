@@ -14,7 +14,24 @@ namespace Code_Crafters_Interface_Prototype_1.Business
         }
 
         private void RoomManagementForm_Load(object sender, EventArgs e)
-        {
+        {   // Main form background
+            this.BackColor = Color.FromArgb(247, 243, 234);
+
+            // Room information panels
+            panel10.BackColor = Color.White;
+            panel9.BackColor = Color.White;
+
+            // Headings
+            label19.ForeColor = Color.FromArgb(107, 72, 23);
+            label5.ForeColor = Color.FromArgb(107, 72, 23);
+
+            // Add New Room button
+            button3.BackColor = Color.FromArgb(139, 100, 31);
+            button3.ForeColor = Color.White;
+
+            //// Clear button
+            //btnClear.BackColor = Color.FromArgb(232, 223, 207);
+            //btnClear.ForeColor = Color.FromArgb(74, 50, 24);
             taRoomHotel.Fill(codeCraftersDSTWO.Hotel_Room);
             DataTable dtRooms = codeCraftersDSTWO.Hotel_Room;
 
@@ -63,5 +80,36 @@ namespace Code_Crafters_Interface_Prototype_1.Business
         {
 
         }
+
+        private void panel8_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            
+            // Main form background
+            this.BackColor = Color.FromArgb(247, 243, 234);
+
+            // Room information panels
+            panel10.BackColor = Color.White;
+            panel9.BackColor = Color.White;
+
+            // Headings
+            label19.ForeColor = Color.FromArgb(107, 72, 23);
+            label5.ForeColor = Color.FromArgb(107, 72, 23);
+
+            // Add New Room button
+            button3.BackColor = Color.FromArgb(139, 100, 31);
+            button3.ForeColor = Color.White;
+
+            //// Clear button
+            //btnClear.BackColor = Color.FromArgb(232, 223, 207);
+            //btnClear.ForeColor = Color.FromArgb(74, 50, 24);
+        }
+
+        
     }
+    
 }

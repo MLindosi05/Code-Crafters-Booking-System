@@ -1077,8 +1077,6 @@ namespace Code_Crafters_Interface_Prototype_1 {
             
             private global::System.Data.DataColumn columnDate_Registered;
             
-            private global::System.Data.DataColumn columnLast_Login;
-            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public ClientDataTable() {
@@ -1186,14 +1184,6 @@ namespace Code_Crafters_Interface_Prototype_1 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn Last_LoginColumn {
-                get {
-                    return this.columnLast_Login;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1229,7 +1219,7 @@ namespace Code_Crafters_Interface_Prototype_1 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public ClientRow AddClientRow(string First_Name, string Last_Name, string Password, string Email_Address, string Client_Address, string Phone_Number, string Client_Status, System.DateTime Date_Registered, System.DateTime Last_Login) {
+            public ClientRow AddClientRow(string First_Name, string Last_Name, string Password, string Email_Address, string Client_Address, string Phone_Number, string Client_Status, System.DateTime Date_Registered) {
                 ClientRow rowClientRow = ((ClientRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -1240,8 +1230,7 @@ namespace Code_Crafters_Interface_Prototype_1 {
                         Client_Address,
                         Phone_Number,
                         Client_Status,
-                        Date_Registered,
-                        Last_Login};
+                        Date_Registered};
                 rowClientRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowClientRow);
                 return rowClientRow;
@@ -1280,7 +1269,6 @@ namespace Code_Crafters_Interface_Prototype_1 {
                 this.columnPhone_Number = base.Columns["Phone_Number"];
                 this.columnClient_Status = base.Columns["Client_Status"];
                 this.columnDate_Registered = base.Columns["Date_Registered"];
-                this.columnLast_Login = base.Columns["Last_Login"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1304,8 +1292,6 @@ namespace Code_Crafters_Interface_Prototype_1 {
                 base.Columns.Add(this.columnClient_Status);
                 this.columnDate_Registered = new global::System.Data.DataColumn("Date_Registered", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDate_Registered);
-                this.columnLast_Login = new global::System.Data.DataColumn("Last_Login", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnLast_Login);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnClient_ID}, true));
                 this.columnClient_ID.AutoIncrement = true;
@@ -1835,8 +1821,6 @@ namespace Code_Crafters_Interface_Prototype_1 {
             
             private global::System.Data.DataColumn columnMax_Children;
             
-            private global::System.Data.DataColumn columnFloor_Number;
-            
             private global::System.Data.DataColumn columnCleaning_Status;
             
             private global::System.Data.DataColumn columnLast_Cleaned;
@@ -1936,14 +1920,6 @@ namespace Code_Crafters_Interface_Prototype_1 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn Floor_NumberColumn {
-                get {
-                    return this.columnFloor_Number;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public global::System.Data.DataColumn Cleaning_StatusColumn {
                 get {
                     return this.columnCleaning_Status;
@@ -2011,7 +1987,7 @@ namespace Code_Crafters_Interface_Prototype_1 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public Hotel_RoomRow AddHotel_RoomRow(string Branch_ID, int hotel_room_number, string hotel_room_status, decimal Hotel_Room_Price, int Max_Adults, int Max_Children, int Floor_Number, string Cleaning_Status, System.DateTime Last_Cleaned, System.DateTime Last_Occupied, string hotel_room_type) {
+            public Hotel_RoomRow AddHotel_RoomRow(string Branch_ID, int hotel_room_number, string hotel_room_status, decimal Hotel_Room_Price, int Max_Adults, int Max_Children, string Cleaning_Status, System.DateTime Last_Cleaned, System.DateTime Last_Occupied, string hotel_room_type) {
                 Hotel_RoomRow rowHotel_RoomRow = ((Hotel_RoomRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -2021,7 +1997,6 @@ namespace Code_Crafters_Interface_Prototype_1 {
                         Hotel_Room_Price,
                         Max_Adults,
                         Max_Children,
-                        Floor_Number,
                         Cleaning_Status,
                         Last_Cleaned,
                         Last_Occupied,
@@ -2062,7 +2037,6 @@ namespace Code_Crafters_Interface_Prototype_1 {
                 this.columnHotel_Room_Price = base.Columns["Hotel_Room_Price"];
                 this.columnMax_Adults = base.Columns["Max_Adults"];
                 this.columnMax_Children = base.Columns["Max_Children"];
-                this.columnFloor_Number = base.Columns["Floor_Number"];
                 this.columnCleaning_Status = base.Columns["Cleaning_Status"];
                 this.columnLast_Cleaned = base.Columns["Last_Cleaned"];
                 this.columnLast_Occupied = base.Columns["Last_Occupied"];
@@ -2086,8 +2060,6 @@ namespace Code_Crafters_Interface_Prototype_1 {
                 base.Columns.Add(this.columnMax_Adults);
                 this.columnMax_Children = new global::System.Data.DataColumn("Max_Children", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnMax_Children);
-                this.columnFloor_Number = new global::System.Data.DataColumn("Floor_Number", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnFloor_Number);
                 this.columnCleaning_Status = new global::System.Data.DataColumn("Cleaning_Status", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCleaning_Status);
                 this.columnLast_Cleaned = new global::System.Data.DataColumn("Last_Cleaned", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
@@ -3362,8 +3334,6 @@ namespace Code_Crafters_Interface_Prototype_1 {
             
             private global::System.Data.DataColumn columnstaff_Password;
             
-            private global::System.Data.DataColumn columnLast_Login;
-            
             private global::System.Data.DataColumn columnFailed_Login_Count;
             
             private global::System.Data.DataColumn columnPassword_Changed_Date;
@@ -3491,14 +3461,6 @@ namespace Code_Crafters_Interface_Prototype_1 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn Last_LoginColumn {
-                get {
-                    return this.columnLast_Login;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public global::System.Data.DataColumn Failed_Login_CountColumn {
                 get {
                     return this.columnFailed_Login_Count;
@@ -3550,7 +3512,7 @@ namespace Code_Crafters_Interface_Prototype_1 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public StaffRow AddStaffRow(string Branch_ID, string staff_First_Name, string staff_Surname, string staff_Address, string staff_phone_number, string staff_email, string staff_role, System.DateTime date_joined, string staff_status, string staff_Password, System.DateTime Last_Login, int Failed_Login_Count, System.DateTime Password_Changed_Date) {
+            public StaffRow AddStaffRow(string Branch_ID, string staff_First_Name, string staff_Surname, string staff_Address, string staff_phone_number, string staff_email, string staff_role, System.DateTime date_joined, string staff_status, string staff_Password, int Failed_Login_Count, System.DateTime Password_Changed_Date) {
                 StaffRow rowStaffRow = ((StaffRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -3564,7 +3526,6 @@ namespace Code_Crafters_Interface_Prototype_1 {
                         date_joined,
                         staff_status,
                         staff_Password,
-                        Last_Login,
                         Failed_Login_Count,
                         Password_Changed_Date};
                 rowStaffRow.ItemArray = columnValuesArray;
@@ -3607,7 +3568,6 @@ namespace Code_Crafters_Interface_Prototype_1 {
                 this.columndate_joined = base.Columns["date_joined"];
                 this.columnstaff_status = base.Columns["staff_status"];
                 this.columnstaff_Password = base.Columns["staff_Password"];
-                this.columnLast_Login = base.Columns["Last_Login"];
                 this.columnFailed_Login_Count = base.Columns["Failed_Login_Count"];
                 this.columnPassword_Changed_Date = base.Columns["Password_Changed_Date"];
             }
@@ -3637,8 +3597,6 @@ namespace Code_Crafters_Interface_Prototype_1 {
                 base.Columns.Add(this.columnstaff_status);
                 this.columnstaff_Password = new global::System.Data.DataColumn("staff_Password", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnstaff_Password);
-                this.columnLast_Login = new global::System.Data.DataColumn("Last_Login", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnLast_Login);
                 this.columnFailed_Login_Count = new global::System.Data.DataColumn("Failed_Login_Count", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnFailed_Login_Count);
                 this.columnPassword_Changed_Date = new global::System.Data.DataColumn("Password_Changed_Date", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
@@ -6174,22 +6132,6 @@ namespace Code_Crafters_Interface_Prototype_1 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public System.DateTime Last_Login {
-                get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableClient.Last_LoginColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Last_Login\' in table \'Client\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableClient.Last_LoginColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsEmail_AddressNull() {
                 return this.IsNull(this.tableClient.Email_AddressColumn);
             }
@@ -6246,18 +6188,6 @@ namespace Code_Crafters_Interface_Prototype_1 {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetDate_RegisteredNull() {
                 this[this.tableClient.Date_RegisteredColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsLast_LoginNull() {
-                return this.IsNull(this.tableClient.Last_LoginColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetLast_LoginNull() {
-                this[this.tableClient.Last_LoginColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -6606,22 +6536,6 @@ namespace Code_Crafters_Interface_Prototype_1 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int Floor_Number {
-                get {
-                    try {
-                        return ((int)(this[this.tableHotel_Room.Floor_NumberColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Floor_Number\' in table \'Hotel_Room\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableHotel_Room.Floor_NumberColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public string Cleaning_Status {
                 get {
                     try {
@@ -6754,18 +6668,6 @@ namespace Code_Crafters_Interface_Prototype_1 {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetMax_ChildrenNull() {
                 this[this.tableHotel_Room.Max_ChildrenColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsFloor_NumberNull() {
-                return this.IsNull(this.tableHotel_Room.Floor_NumberColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetFloor_NumberNull() {
-                this[this.tableHotel_Room.Floor_NumberColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7659,22 +7561,6 @@ namespace Code_Crafters_Interface_Prototype_1 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public System.DateTime Last_Login {
-                get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableStaff.Last_LoginColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Last_Login\' in table \'Staff\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableStaff.Last_LoginColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public int Failed_Login_Count {
                 get {
                     try {
@@ -7811,18 +7697,6 @@ namespace Code_Crafters_Interface_Prototype_1 {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void Setstaff_statusNull() {
                 this[this.tableStaff.staff_statusColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsLast_LoginNull() {
-                return this.IsNull(this.tableStaff.Last_LoginColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetLast_LoginNull() {
-                this[this.tableStaff.Last_LoginColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -10512,11 +10386,10 @@ SELECT Branch_ID, Branch_Name, Branch_Address, Branch_Phone, Branch_Email, Branc
             tableMapping.ColumnMappings.Add("Phone_Number", "Phone_Number");
             tableMapping.ColumnMappings.Add("Client_Status", "Client_Status");
             tableMapping.ColumnMappings.Add("Date_Registered", "Date_Registered");
-            tableMapping.ColumnMappings.Add("Last_Login", "Last_Login");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [Client] WHERE (([Client_ID] = @Original_Client_ID) AND ([First_Name] = @Original_First_Name) AND ([Last_Name] = @Original_Last_Name) AND ([Password] = @Original_Password) AND ((@IsNull_Email_Address = 1 AND [Email_Address] IS NULL) OR ([Email_Address] = @Original_Email_Address)) AND ((@IsNull_Client_Address = 1 AND [Client_Address] IS NULL) OR ([Client_Address] = @Original_Client_Address)) AND ((@IsNull_Phone_Number = 1 AND [Phone_Number] IS NULL) OR ([Phone_Number] = @Original_Phone_Number)) AND ((@IsNull_Client_Status = 1 AND [Client_Status] IS NULL) OR ([Client_Status] = @Original_Client_Status)) AND ((@IsNull_Date_Registered = 1 AND [Date_Registered] IS NULL) OR ([Date_Registered] = @Original_Date_Registered)) AND ((@IsNull_Last_Login = 1 AND [Last_Login] IS NULL) OR ([Last_Login] = @Original_Last_Login)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [Client] WHERE (([Client_ID] = @Original_Client_ID) AND ([First_Name] = @Original_First_Name) AND ([Last_Name] = @Original_Last_Name) AND ([Password] = @Original_Password) AND ((@IsNull_Email_Address = 1 AND [Email_Address] IS NULL) OR ([Email_Address] = @Original_Email_Address)) AND ((@IsNull_Client_Address = 1 AND [Client_Address] IS NULL) OR ([Client_Address] = @Original_Client_Address)) AND ((@IsNull_Phone_Number = 1 AND [Phone_Number] IS NULL) OR ([Phone_Number] = @Original_Phone_Number)) AND ((@IsNull_Client_Status = 1 AND [Client_Status] IS NULL) OR ([Client_Status] = @Original_Client_Status)) AND ((@IsNull_Date_Registered = 1 AND [Date_Registered] IS NULL) OR ([Date_Registered] = @Original_Date_Registered)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Client_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Client_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_First_Name", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "First_Name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -10531,13 +10404,11 @@ SELECT Branch_ID, Branch_Name, Branch_Address, Branch_Phone, Branch_Email, Branc
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Client_Status", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Client_Status", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Client_Status", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Client_Status", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Date_Registered", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Date_Registered", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Date_Registered", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Date_Registered", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Last_Login", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Last_Login", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Last_Login", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Last_Login", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Date_Registered", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Date_Registered", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [Client] ([First_Name], [Last_Name], [Password], [Email_Address], [Client_Address], [Phone_Number], [Client_Status], [Date_Registered], [Last_Login]) VALUES (@First_Name, @Last_Name, @Password, @Email_Address, @Client_Address, @Phone_Number, @Client_Status, @Date_Registered, @Last_Login);
-SELECT Client_ID, First_Name, Last_Name, Password, Email_Address, Client_Address, Phone_Number, Client_Status, Date_Registered, Last_Login FROM Client WHERE (Client_ID = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [Client] ([First_Name], [Last_Name], [Password], [Email_Address], [Client_Address], [Phone_Number], [Client_Status], [Date_Registered]) VALUES (@First_Name, @Last_Name, @Password, @Email_Address, @Client_Address, @Phone_Number, @Client_Status, @Date_Registered);
+SELECT Client_ID, First_Name, Last_Name, Password, Email_Address, Client_Address, Phone_Number, Client_Status, Date_Registered FROM Client WHERE (Client_ID = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@First_Name", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "First_Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Last_Name", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Last_Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -10546,12 +10417,11 @@ SELECT Client_ID, First_Name, Last_Name, Password, Email_Address, Client_Address
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Client_Address", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Client_Address", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Phone_Number", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Phone_Number", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Client_Status", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Client_Status", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Date_Registered", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Date_Registered", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Last_Login", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Last_Login", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Date_Registered", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Date_Registered", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [Client] SET [First_Name] = @First_Name, [Last_Name] = @Last_Name, [Password] = @Password, [Email_Address] = @Email_Address, [Client_Address] = @Client_Address, [Phone_Number] = @Phone_Number, [Client_Status] = @Client_Status, [Date_Registered] = @Date_Registered, [Last_Login] = @Last_Login WHERE (([Client_ID] = @Original_Client_ID) AND ([First_Name] = @Original_First_Name) AND ([Last_Name] = @Original_Last_Name) AND ([Password] = @Original_Password) AND ((@IsNull_Email_Address = 1 AND [Email_Address] IS NULL) OR ([Email_Address] = @Original_Email_Address)) AND ((@IsNull_Client_Address = 1 AND [Client_Address] IS NULL) OR ([Client_Address] = @Original_Client_Address)) AND ((@IsNull_Phone_Number = 1 AND [Phone_Number] IS NULL) OR ([Phone_Number] = @Original_Phone_Number)) AND ((@IsNull_Client_Status = 1 AND [Client_Status] IS NULL) OR ([Client_Status] = @Original_Client_Status)) AND ((@IsNull_Date_Registered = 1 AND [Date_Registered] IS NULL) OR ([Date_Registered] = @Original_Date_Registered)) AND ((@IsNull_Last_Login = 1 AND [Last_Login] IS NULL) OR ([Last_Login] = @Original_Last_Login)));
-SELECT Client_ID, First_Name, Last_Name, Password, Email_Address, Client_Address, Phone_Number, Client_Status, Date_Registered, Last_Login FROM Client WHERE (Client_ID = @Client_ID)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [Client] SET [First_Name] = @First_Name, [Last_Name] = @Last_Name, [Password] = @Password, [Email_Address] = @Email_Address, [Client_Address] = @Client_Address, [Phone_Number] = @Phone_Number, [Client_Status] = @Client_Status, [Date_Registered] = @Date_Registered WHERE (([Client_ID] = @Original_Client_ID) AND ([First_Name] = @Original_First_Name) AND ([Last_Name] = @Original_Last_Name) AND ([Password] = @Original_Password) AND ((@IsNull_Email_Address = 1 AND [Email_Address] IS NULL) OR ([Email_Address] = @Original_Email_Address)) AND ((@IsNull_Client_Address = 1 AND [Client_Address] IS NULL) OR ([Client_Address] = @Original_Client_Address)) AND ((@IsNull_Phone_Number = 1 AND [Phone_Number] IS NULL) OR ([Phone_Number] = @Original_Phone_Number)) AND ((@IsNull_Client_Status = 1 AND [Client_Status] IS NULL) OR ([Client_Status] = @Original_Client_Status)) AND ((@IsNull_Date_Registered = 1 AND [Date_Registered] IS NULL) OR ([Date_Registered] = @Original_Date_Registered)));
+SELECT Client_ID, First_Name, Last_Name, Password, Email_Address, Client_Address, Phone_Number, Client_Status, Date_Registered FROM Client WHERE (Client_ID = @Client_ID)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@First_Name", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "First_Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Last_Name", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Last_Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -10560,8 +10430,7 @@ SELECT Client_ID, First_Name, Last_Name, Password, Email_Address, Client_Address
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Client_Address", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Client_Address", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Phone_Number", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Phone_Number", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Client_Status", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Client_Status", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Date_Registered", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Date_Registered", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Last_Login", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Last_Login", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Date_Registered", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Date_Registered", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Client_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Client_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_First_Name", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "First_Name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Last_Name", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Last_Name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -10575,9 +10444,7 @@ SELECT Client_ID, First_Name, Last_Name, Password, Email_Address, Client_Address
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Client_Status", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Client_Status", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Client_Status", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Client_Status", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Date_Registered", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Date_Registered", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Date_Registered", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Date_Registered", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Last_Login", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Last_Login", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Last_Login", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Last_Login", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Date_Registered", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Date_Registered", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Client_ID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Client_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
@@ -10595,13 +10462,13 @@ SELECT Client_ID, First_Name, Last_Name, Password, Email_Address, Client_Address
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT Client_ID, First_Name, Last_Name, Password, Email_Address, Client_Address," +
-                " Phone_Number, Client_Status, Date_Registered, Last_Login FROM Client";
+                " Phone_Number, Client_Status, Date_Registered FROM Client";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
             this._commandCollection[1].CommandText = "SELECT Client_ID, First_Name, Last_Name, Password, Email_Address, Client_Address," +
-                " Phone_Number, Client_Status, Date_Registered, Last_Login FROM Client WHERE (Ema" +
-                "il_Address LIKE @email)";
+                " Phone_Number, Client_Status, Date_Registered FROM Client WHERE (Email_Address L" +
+                "IKE @email)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@email", global::System.Data.SqlDbType.VarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "Email_Address", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
@@ -10710,7 +10577,7 @@ SELECT Client_ID, First_Name, Last_Name, Password, Email_Address, Client_Address
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_Client_ID, string Original_First_Name, string Original_Last_Name, string Original_Password, string Original_Email_Address, string Original_Client_Address, string Original_Phone_Number, string Original_Client_Status, global::System.Nullable<global::System.DateTime> Original_Date_Registered, global::System.Nullable<global::System.DateTime> Original_Last_Login) {
+        public virtual int Delete(int Original_Client_ID, string Original_First_Name, string Original_Last_Name, string Original_Password, string Original_Email_Address, string Original_Client_Address, string Original_Phone_Number, string Original_Client_Status, global::System.Nullable<global::System.DateTime> Original_Date_Registered) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_Client_ID));
             if ((Original_First_Name == null)) {
                 throw new global::System.ArgumentNullException("Original_First_Name");
@@ -10770,14 +10637,6 @@ SELECT Client_ID, First_Name, Last_Name, Password, Email_Address, Client_Address
                 this.Adapter.DeleteCommand.Parameters[12].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[13].Value = global::System.DBNull.Value;
             }
-            if ((Original_Last_Login.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[14].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[15].Value = ((System.DateTime)(Original_Last_Login.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[14].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[15].Value = global::System.DBNull.Value;
-            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -10798,7 +10657,7 @@ SELECT Client_ID, First_Name, Last_Name, Password, Email_Address, Client_Address
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string First_Name, string Last_Name, string Password, string Email_Address, string Client_Address, string Phone_Number, string Client_Status, global::System.Nullable<global::System.DateTime> Date_Registered, global::System.Nullable<global::System.DateTime> Last_Login) {
+        public virtual int Insert(string First_Name, string Last_Name, string Password, string Email_Address, string Client_Address, string Phone_Number, string Client_Status, global::System.Nullable<global::System.DateTime> Date_Registered) {
             if ((First_Name == null)) {
                 throw new global::System.ArgumentNullException("First_Name");
             }
@@ -10847,12 +10706,6 @@ SELECT Client_ID, First_Name, Last_Name, Password, Email_Address, Client_Address
             else {
                 this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
-            if ((Last_Login.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[8].Value = ((System.DateTime)(Last_Login.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[8].Value = global::System.DBNull.Value;
-            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -10882,7 +10735,6 @@ SELECT Client_ID, First_Name, Last_Name, Password, Email_Address, Client_Address
                     string Phone_Number, 
                     string Client_Status, 
                     global::System.Nullable<global::System.DateTime> Date_Registered, 
-                    global::System.Nullable<global::System.DateTime> Last_Login, 
                     int Original_Client_ID, 
                     string Original_First_Name, 
                     string Original_Last_Name, 
@@ -10892,7 +10744,6 @@ SELECT Client_ID, First_Name, Last_Name, Password, Email_Address, Client_Address
                     string Original_Phone_Number, 
                     string Original_Client_Status, 
                     global::System.Nullable<global::System.DateTime> Original_Date_Registered, 
-                    global::System.Nullable<global::System.DateTime> Original_Last_Login, 
                     int Client_ID) {
             if ((First_Name == null)) {
                 throw new global::System.ArgumentNullException("First_Name");
@@ -10942,80 +10793,66 @@ SELECT Client_ID, First_Name, Last_Name, Password, Email_Address, Client_Address
             else {
                 this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
-            if ((Last_Login.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((System.DateTime)(Last_Login.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
-            }
-            this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(Original_Client_ID));
+            this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(Original_Client_ID));
             if ((Original_First_Name == null)) {
                 throw new global::System.ArgumentNullException("Original_First_Name");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(Original_First_Name));
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(Original_First_Name));
             }
             if ((Original_Last_Name == null)) {
                 throw new global::System.ArgumentNullException("Original_Last_Name");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(Original_Last_Name));
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(Original_Last_Name));
             }
             if ((Original_Password == null)) {
                 throw new global::System.ArgumentNullException("Original_Password");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(Original_Password));
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(Original_Password));
             }
             if ((Original_Email_Address == null)) {
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((string)(Original_Email_Address));
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(Original_Email_Address));
             }
             if ((Original_Client_Address == null)) {
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((string)(Original_Client_Address));
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(Original_Client_Address));
             }
             if ((Original_Phone_Number == null)) {
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[18].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[17].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((string)(Original_Phone_Number));
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((string)(Original_Phone_Number));
             }
             if ((Original_Client_Status == null)) {
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[20].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[19].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((string)(Original_Client_Status));
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((string)(Original_Client_Status));
             }
             if ((Original_Date_Registered.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[21].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[22].Value = ((System.DateTime)(Original_Date_Registered.Value));
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[21].Value = ((System.DateTime)(Original_Date_Registered.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[21].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[22].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[21].Value = global::System.DBNull.Value;
             }
-            if ((Original_Last_Login.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[23].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[24].Value = ((System.DateTime)(Original_Last_Login.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[23].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[24].Value = global::System.DBNull.Value;
-            }
-            this.Adapter.UpdateCommand.Parameters[25].Value = ((int)(Client_ID));
+            this.Adapter.UpdateCommand.Parameters[22].Value = ((int)(Client_ID));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -11045,7 +10882,6 @@ SELECT Client_ID, First_Name, Last_Name, Password, Email_Address, Client_Address
                     string Phone_Number, 
                     string Client_Status, 
                     global::System.Nullable<global::System.DateTime> Date_Registered, 
-                    global::System.Nullable<global::System.DateTime> Last_Login, 
                     int Original_Client_ID, 
                     string Original_First_Name, 
                     string Original_Last_Name, 
@@ -11054,9 +10890,8 @@ SELECT Client_ID, First_Name, Last_Name, Password, Email_Address, Client_Address
                     string Original_Client_Address, 
                     string Original_Phone_Number, 
                     string Original_Client_Status, 
-                    global::System.Nullable<global::System.DateTime> Original_Date_Registered, 
-                    global::System.Nullable<global::System.DateTime> Original_Last_Login) {
-            return this.Update(First_Name, Last_Name, Password, Email_Address, Client_Address, Phone_Number, Client_Status, Date_Registered, Last_Login, Original_Client_ID, Original_First_Name, Original_Last_Name, Original_Password, Original_Email_Address, Original_Client_Address, Original_Phone_Number, Original_Client_Status, Original_Date_Registered, Original_Last_Login, Original_Client_ID);
+                    global::System.Nullable<global::System.DateTime> Original_Date_Registered) {
+            return this.Update(First_Name, Last_Name, Password, Email_Address, Client_Address, Phone_Number, Client_Status, Date_Registered, Original_Client_ID, Original_First_Name, Original_Last_Name, Original_Password, Original_Email_Address, Original_Client_Address, Original_Phone_Number, Original_Client_Status, Original_Date_Registered, Original_Client_ID);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -11802,7 +11637,6 @@ SELECT Folio_ID, Booking_ID, Payment_Amount, Payment_Date, Payment_Status, Payme
             tableMapping.ColumnMappings.Add("Hotel_Room_Price", "Hotel_Room_Price");
             tableMapping.ColumnMappings.Add("Max_Adults", "Max_Adults");
             tableMapping.ColumnMappings.Add("Max_Children", "Max_Children");
-            tableMapping.ColumnMappings.Add("Floor_Number", "Floor_Number");
             tableMapping.ColumnMappings.Add("Cleaning_Status", "Cleaning_Status");
             tableMapping.ColumnMappings.Add("Last_Cleaned", "Last_Cleaned");
             tableMapping.ColumnMappings.Add("Last_Occupied", "Last_Occupied");
@@ -11810,7 +11644,7 @@ SELECT Folio_ID, Booking_ID, Payment_Amount, Payment_Date, Payment_Status, Payme
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [Hotel_Room] WHERE (([Hotel_Room_ID] = @Original_Hotel_Room_ID) AND ((@IsNull_Branch_ID = 1 AND [Branch_ID] IS NULL) OR ([Branch_ID] = @Original_Branch_ID)) AND ((@IsNull_hotel_room_number = 1 AND [hotel_room_number] IS NULL) OR ([hotel_room_number] = @Original_hotel_room_number)) AND ((@IsNull_hotel_room_type = 1 AND [hotel_room_type] IS NULL) OR ([hotel_room_type] = @Original_hotel_room_type)) AND ((@IsNull_hotel_room_status = 1 AND [hotel_room_status] IS NULL) OR ([hotel_room_status] = @Original_hotel_room_status)) AND ((@IsNull_Hotel_Room_Price = 1 AND [Hotel_Room_Price] IS NULL) OR ([Hotel_Room_Price] = @Original_Hotel_Room_Price)) AND ((@IsNull_Max_Adults = 1 AND [Max_Adults] IS NULL) OR ([Max_Adults] = @Original_Max_Adults)) AND ((@IsNull_Max_Children = 1 AND [Max_Children] IS NULL) OR ([Max_Children] = @Original_Max_Children)) AND ((@IsNull_Floor_Number = 1 AND [Floor_Number] IS NULL) OR ([Floor_Number] = @Original_Floor_Number)) AND ((@IsNull_Cleaning_Status = 1 AND [Cleaning_Status] IS NULL) OR ([Cleaning_Status] = @Original_Cleaning_Status)) AND ((@IsNull_Last_Cleaned = 1 AND [Last_Cleaned] IS NULL) OR ([Last_Cleaned] = @Original_Last_Cleaned)) AND ((@IsNull_Last_Occupied = 1 AND [Last_Occupied] IS NULL) OR ([Last_Occupied] = @Original_Last_Occupied)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [Hotel_Room] WHERE (([Hotel_Room_ID] = @Original_Hotel_Room_ID) AND ((@IsNull_Branch_ID = 1 AND [Branch_ID] IS NULL) OR ([Branch_ID] = @Original_Branch_ID)) AND ((@IsNull_hotel_room_number = 1 AND [hotel_room_number] IS NULL) OR ([hotel_room_number] = @Original_hotel_room_number)) AND ((@IsNull_hotel_room_type = 1 AND [hotel_room_type] IS NULL) OR ([hotel_room_type] = @Original_hotel_room_type)) AND ((@IsNull_hotel_room_status = 1 AND [hotel_room_status] IS NULL) OR ([hotel_room_status] = @Original_hotel_room_status)) AND ((@IsNull_Hotel_Room_Price = 1 AND [Hotel_Room_Price] IS NULL) OR ([Hotel_Room_Price] = @Original_Hotel_Room_Price)) AND ((@IsNull_Max_Adults = 1 AND [Max_Adults] IS NULL) OR ([Max_Adults] = @Original_Max_Adults)) AND ((@IsNull_Max_Children = 1 AND [Max_Children] IS NULL) OR ([Max_Children] = @Original_Max_Children)) AND ((@IsNull_Cleaning_Status = 1 AND [Cleaning_Status] IS NULL) OR ([Cleaning_Status] = @Original_Cleaning_Status)) AND ((@IsNull_Last_Cleaned = 1 AND [Last_Cleaned] IS NULL) OR ([Last_Cleaned] = @Original_Last_Cleaned)) AND ((@IsNull_Last_Occupied = 1 AND [Last_Occupied] IS NULL) OR ([Last_Occupied] = @Original_Last_Occupied)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Hotel_Room_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Hotel_Room_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Branch_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Branch_ID", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -11827,8 +11661,6 @@ SELECT Folio_ID, Booking_ID, Payment_Amount, Payment_Date, Payment_Status, Payme
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Max_Adults", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Max_Adults", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Max_Children", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Max_Children", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Max_Children", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Max_Children", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Floor_Number", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Floor_Number", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Floor_Number", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Floor_Number", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Cleaning_Status", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Cleaning_Status", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Cleaning_Status", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Cleaning_Status", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Last_Cleaned", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Last_Cleaned", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -11837,8 +11669,8 @@ SELECT Folio_ID, Booking_ID, Payment_Amount, Payment_Date, Payment_Status, Payme
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Last_Occupied", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Last_Occupied", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [Hotel_Room] ([Branch_ID], [hotel_room_number], [hotel_room_type], [hotel_room_status], [Hotel_Room_Price], [Max_Adults], [Max_Children], [Floor_Number], [Cleaning_Status], [Last_Cleaned], [Last_Occupied]) VALUES (@Branch_ID, @hotel_room_number, @hotel_room_type, @hotel_room_status, @Hotel_Room_Price, @Max_Adults, @Max_Children, @Floor_Number, @Cleaning_Status, @Last_Cleaned, @Last_Occupied);
-SELECT Hotel_Room_ID, Branch_ID, hotel_room_number, hotel_room_type, hotel_room_status, Hotel_Room_Price, Max_Adults, Max_Children, Floor_Number, Cleaning_Status, Last_Cleaned, Last_Occupied FROM Hotel_Room WHERE (Hotel_Room_ID = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [Hotel_Room] ([Branch_ID], [hotel_room_number], [hotel_room_type], [hotel_room_status], [Hotel_Room_Price], [Max_Adults], [Max_Children], [Cleaning_Status], [Last_Cleaned], [Last_Occupied]) VALUES (@Branch_ID, @hotel_room_number, @hotel_room_type, @hotel_room_status, @Hotel_Room_Price, @Max_Adults, @Max_Children, @Cleaning_Status, @Last_Cleaned, @Last_Occupied);
+SELECT Hotel_Room_ID, Branch_ID, hotel_room_number, hotel_room_type, hotel_room_status, Hotel_Room_Price, Max_Adults, Max_Children, Cleaning_Status, Last_Cleaned, Last_Occupied FROM Hotel_Room WHERE (Hotel_Room_ID = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Branch_ID", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Branch_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@hotel_room_number", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "hotel_room_number", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -11847,7 +11679,6 @@ SELECT Hotel_Room_ID, Branch_ID, hotel_room_number, hotel_room_type, hotel_room_
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Hotel_Room_Price", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "Hotel_Room_Price", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Max_Adults", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Max_Adults", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Max_Children", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Max_Children", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Floor_Number", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Floor_Number", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Cleaning_Status", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Cleaning_Status", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Last_Cleaned", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Last_Cleaned", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Last_Occupied", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Last_Occupied", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -11856,28 +11687,26 @@ SELECT Hotel_Room_ID, Branch_ID, hotel_room_number, hotel_room_type, hotel_room_
             this._adapter.UpdateCommand.CommandText = "UPDATE [Hotel_Room] SET [Branch_ID] = @Branch_ID, [hotel_room_number] = @hotel_ro" +
                 "om_number, [hotel_room_type] = @hotel_room_type, [hotel_room_status] = @hotel_ro" +
                 "om_status, [Hotel_Room_Price] = @Hotel_Room_Price, [Max_Adults] = @Max_Adults, [" +
-                "Max_Children] = @Max_Children, [Floor_Number] = @Floor_Number, [Cleaning_Status]" +
-                " = @Cleaning_Status, [Last_Cleaned] = @Last_Cleaned, [Last_Occupied] = @Last_Occ" +
-                "upied WHERE (([Hotel_Room_ID] = @Original_Hotel_Room_ID) AND ((@IsNull_Branch_ID" +
-                " = 1 AND [Branch_ID] IS NULL) OR ([Branch_ID] = @Original_Branch_ID)) AND ((@IsN" +
-                "ull_hotel_room_number = 1 AND [hotel_room_number] IS NULL) OR ([hotel_room_numbe" +
-                "r] = @Original_hotel_room_number)) AND ((@IsNull_hotel_room_type = 1 AND [hotel_" +
-                "room_type] IS NULL) OR ([hotel_room_type] = @Original_hotel_room_type)) AND ((@I" +
-                "sNull_hotel_room_status = 1 AND [hotel_room_status] IS NULL) OR ([hotel_room_sta" +
-                "tus] = @Original_hotel_room_status)) AND ((@IsNull_Hotel_Room_Price = 1 AND [Hot" +
-                "el_Room_Price] IS NULL) OR ([Hotel_Room_Price] = @Original_Hotel_Room_Price)) AN" +
-                "D ((@IsNull_Max_Adults = 1 AND [Max_Adults] IS NULL) OR ([Max_Adults] = @Origina" +
-                "l_Max_Adults)) AND ((@IsNull_Max_Children = 1 AND [Max_Children] IS NULL) OR ([M" +
-                "ax_Children] = @Original_Max_Children)) AND ((@IsNull_Floor_Number = 1 AND [Floo" +
-                "r_Number] IS NULL) OR ([Floor_Number] = @Original_Floor_Number)) AND ((@IsNull_C" +
-                "leaning_Status = 1 AND [Cleaning_Status] IS NULL) OR ([Cleaning_Status] = @Origi" +
-                "nal_Cleaning_Status)) AND ((@IsNull_Last_Cleaned = 1 AND [Last_Cleaned] IS NULL)" +
-                " OR ([Last_Cleaned] = @Original_Last_Cleaned)) AND ((@IsNull_Last_Occupied = 1 A" +
-                "ND [Last_Occupied] IS NULL) OR ([Last_Occupied] = @Original_Last_Occupied)));\r\nS" +
-                "ELECT Hotel_Room_ID, Branch_ID, hotel_room_number, hotel_room_type, hotel_room_s" +
-                "tatus, Hotel_Room_Price, Max_Adults, Max_Children, Floor_Number, Cleaning_Status" +
-                ", Last_Cleaned, Last_Occupied FROM Hotel_Room WHERE (Hotel_Room_ID = @Hotel_Room" +
-                "_ID)";
+                "Max_Children] = @Max_Children, [Cleaning_Status] = @Cleaning_Status, [Last_Clean" +
+                "ed] = @Last_Cleaned, [Last_Occupied] = @Last_Occupied WHERE (([Hotel_Room_ID] = " +
+                "@Original_Hotel_Room_ID) AND ((@IsNull_Branch_ID = 1 AND [Branch_ID] IS NULL) OR" +
+                " ([Branch_ID] = @Original_Branch_ID)) AND ((@IsNull_hotel_room_number = 1 AND [h" +
+                "otel_room_number] IS NULL) OR ([hotel_room_number] = @Original_hotel_room_number" +
+                ")) AND ((@IsNull_hotel_room_type = 1 AND [hotel_room_type] IS NULL) OR ([hotel_r" +
+                "oom_type] = @Original_hotel_room_type)) AND ((@IsNull_hotel_room_status = 1 AND " +
+                "[hotel_room_status] IS NULL) OR ([hotel_room_status] = @Original_hotel_room_stat" +
+                "us)) AND ((@IsNull_Hotel_Room_Price = 1 AND [Hotel_Room_Price] IS NULL) OR ([Hot" +
+                "el_Room_Price] = @Original_Hotel_Room_Price)) AND ((@IsNull_Max_Adults = 1 AND [" +
+                "Max_Adults] IS NULL) OR ([Max_Adults] = @Original_Max_Adults)) AND ((@IsNull_Max" +
+                "_Children = 1 AND [Max_Children] IS NULL) OR ([Max_Children] = @Original_Max_Chi" +
+                "ldren)) AND ((@IsNull_Cleaning_Status = 1 AND [Cleaning_Status] IS NULL) OR ([Cl" +
+                "eaning_Status] = @Original_Cleaning_Status)) AND ((@IsNull_Last_Cleaned = 1 AND " +
+                "[Last_Cleaned] IS NULL) OR ([Last_Cleaned] = @Original_Last_Cleaned)) AND ((@IsN" +
+                "ull_Last_Occupied = 1 AND [Last_Occupied] IS NULL) OR ([Last_Occupied] = @Origin" +
+                "al_Last_Occupied)));\r\nSELECT Hotel_Room_ID, Branch_ID, hotel_room_number, hotel_" +
+                "room_type, hotel_room_status, Hotel_Room_Price, Max_Adults, Max_Children, Cleani" +
+                "ng_Status, Last_Cleaned, Last_Occupied FROM Hotel_Room WHERE (Hotel_Room_ID = @H" +
+                "otel_Room_ID)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Branch_ID", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Branch_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@hotel_room_number", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "hotel_room_number", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -11886,7 +11715,6 @@ SELECT Hotel_Room_ID, Branch_ID, hotel_room_number, hotel_room_type, hotel_room_
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Hotel_Room_Price", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "Hotel_Room_Price", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Max_Adults", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Max_Adults", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Max_Children", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Max_Children", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Floor_Number", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Floor_Number", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Cleaning_Status", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Cleaning_Status", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Last_Cleaned", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Last_Cleaned", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Last_Occupied", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Last_Occupied", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -11905,8 +11733,6 @@ SELECT Hotel_Room_ID, Branch_ID, hotel_room_number, hotel_room_type, hotel_room_
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Max_Adults", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Max_Adults", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Max_Children", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Max_Children", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Max_Children", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Max_Children", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Floor_Number", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Floor_Number", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Floor_Number", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Floor_Number", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Cleaning_Status", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Cleaning_Status", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Cleaning_Status", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Cleaning_Status", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Last_Cleaned", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Last_Cleaned", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -11929,20 +11755,20 @@ SELECT Hotel_Room_ID, Branch_ID, hotel_room_number, hotel_room_type, hotel_room_
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[7];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT        Hotel_Room_ID, Branch_ID, hotel_room_number, hotel_room_type, hotel" +
-                "_room_status, Hotel_Room_Price, Max_Adults, Max_Children, Floor_Number, Cleaning" +
-                "_Status, Last_Cleaned, Last_Occupied\r\nFROM            Hotel_Room";
+            this._commandCollection[0].CommandText = "SELECT Hotel_Room_ID, Branch_ID, hotel_room_number, hotel_room_type, hotel_room_s" +
+                "tatus, Hotel_Room_Price, Max_Adults, Max_Children, Cleaning_Status, Last_Cleaned" +
+                ", Last_Occupied FROM Hotel_Room";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = @"SELECT Branch_ID, Cleaning_Status, Floor_Number, Hotel_Room_ID, Hotel_Room_Price, Last_Cleaned, Last_Occupied, Max_Adults, Max_Children, hotel_room_number, hotel_room_status, hotel_room_type FROM Hotel_Room WHERE (Branch_ID = @BranchID) AND (hotel_room_status = 'Available') AND (Hotel_Room_ID NOT IN (SELECT Hotel_Room_ID FROM Room_Assignment WHERE (Actual_CheckOut_Time > @CheckIn) AND (Actual_CheckIn_Time < @CheckOut)))";
+            this._commandCollection[1].CommandText = @"SELECT Branch_ID, Cleaning_Status, Hotel_Room_ID, Hotel_Room_Price, Last_Cleaned, Last_Occupied, Max_Adults, Max_Children, hotel_room_number, hotel_room_status, hotel_room_type FROM Hotel_Room WHERE (Branch_ID = @BranchID) AND (hotel_room_status = 'Available') AND (Hotel_Room_ID NOT IN (SELECT Hotel_Room_ID FROM Room_Assignment WHERE (Actual_CheckOut_Time > @CheckIn) AND (Actual_CheckIn_Time < @CheckOut)))";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BranchID", global::System.Data.SqlDbType.VarChar, 10, global::System.Data.ParameterDirection.Input, 0, 0, "Branch_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CheckIn", global::System.Data.SqlDbType.DateTime, 3, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CheckOut", global::System.Data.SqlDbType.DateTime, 3, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = @"SELECT Branch_ID, Cleaning_Status, Floor_Number, Hotel_Room_ID, Hotel_Room_Price, Last_Cleaned, Last_Occupied, Max_Adults, Max_Children, hotel_room_number, hotel_room_status, hotel_room_type FROM Hotel_Room WHERE (Branch_ID = @BranchID) AND (hotel_room_status = 'Available') AND (CAST(hotel_room_number AS VARCHAR) LIKE '%' + @RoomNumberSearch + '%') AND (Hotel_Room_ID NOT IN (SELECT Hotel_Room_ID FROM Room_Assignment WHERE (Actual_CheckOut_Time > @CheckIn) AND (Actual_CheckIn_Time < @CheckOut)))";
+            this._commandCollection[2].CommandText = @"SELECT Branch_ID, Cleaning_Status, Hotel_Room_ID, Hotel_Room_Price, Last_Cleaned, Last_Occupied, Max_Adults, Max_Children, hotel_room_number, hotel_room_status, hotel_room_type FROM Hotel_Room WHERE (Branch_ID = @BranchID) AND (hotel_room_status = 'Available') AND (CAST(hotel_room_number AS VARCHAR) LIKE '%' + @RoomNumberSearch + '%') AND (Hotel_Room_ID NOT IN (SELECT Hotel_Room_ID FROM Room_Assignment WHERE (Actual_CheckOut_Time > @CheckIn) AND (Actual_CheckIn_Time < @CheckOut)))";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BranchID", global::System.Data.SqlDbType.VarChar, 10, global::System.Data.ParameterDirection.Input, 0, 0, "Branch_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RoomNumberSearch", global::System.Data.SqlDbType.VarChar, 1024, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -11950,10 +11776,9 @@ SELECT Hotel_Room_ID, Branch_ID, hotel_room_number, hotel_room_type, hotel_room_
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CheckOut", global::System.Data.SqlDbType.DateTime, 3, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[3].Connection = this.Connection;
-            this._commandCollection[3].CommandText = "SELECT Branch_ID, Cleaning_Status, Floor_Number, Hotel_Room_ID, Hotel_Room_Price," +
-                " Last_Cleaned, Last_Occupied, Max_Adults, Max_Children, hotel_room_number, hotel" +
-                "_room_status, hotel_room_type FROM Hotel_Room WHERE (hotel_room_number = @roomNo" +
-                ")";
+            this._commandCollection[3].CommandText = "SELECT Branch_ID, Cleaning_Status, Hotel_Room_ID, Hotel_Room_Price, Last_Cleaned," +
+                " Last_Occupied, Max_Adults, Max_Children, hotel_room_number, hotel_room_status, " +
+                "hotel_room_type FROM Hotel_Room WHERE (hotel_room_number = @roomNo)";
             this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@roomNo", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "hotel_room_number", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
@@ -12217,7 +12042,7 @@ WHERE
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_Hotel_Room_ID, string Original_Branch_ID, global::System.Nullable<int> Original_hotel_room_number, string Original_hotel_room_type, string Original_hotel_room_status, global::System.Nullable<decimal> Original_Hotel_Room_Price, global::System.Nullable<int> Original_Max_Adults, global::System.Nullable<int> Original_Max_Children, global::System.Nullable<int> Original_Floor_Number, string Original_Cleaning_Status, global::System.Nullable<global::System.DateTime> Original_Last_Cleaned, global::System.Nullable<global::System.DateTime> Original_Last_Occupied) {
+        public virtual int Delete(int Original_Hotel_Room_ID, string Original_Branch_ID, global::System.Nullable<int> Original_hotel_room_number, string Original_hotel_room_type, string Original_hotel_room_status, global::System.Nullable<decimal> Original_Hotel_Room_Price, global::System.Nullable<int> Original_Max_Adults, global::System.Nullable<int> Original_Max_Children, string Original_Cleaning_Status, global::System.Nullable<global::System.DateTime> Original_Last_Cleaned, global::System.Nullable<global::System.DateTime> Original_Last_Occupied) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_Hotel_Room_ID));
             if ((Original_Branch_ID == null)) {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
@@ -12275,37 +12100,29 @@ WHERE
                 this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[14].Value = global::System.DBNull.Value;
             }
-            if ((Original_Floor_Number.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[15].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[16].Value = ((int)(Original_Floor_Number.Value));
-            }
-            else {
+            if ((Original_Cleaning_Status == null)) {
                 this.Adapter.DeleteCommand.Parameters[15].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[16].Value = global::System.DBNull.Value;
             }
-            if ((Original_Cleaning_Status == null)) {
+            else {
+                this.Adapter.DeleteCommand.Parameters[15].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[16].Value = ((string)(Original_Cleaning_Status));
+            }
+            if ((Original_Last_Cleaned.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[17].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[18].Value = ((System.DateTime)(Original_Last_Cleaned.Value));
+            }
+            else {
                 this.Adapter.DeleteCommand.Parameters[17].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[18].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.DeleteCommand.Parameters[17].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[18].Value = ((string)(Original_Cleaning_Status));
-            }
-            if ((Original_Last_Cleaned.HasValue == true)) {
+            if ((Original_Last_Occupied.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[19].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[20].Value = ((System.DateTime)(Original_Last_Cleaned.Value));
+                this.Adapter.DeleteCommand.Parameters[20].Value = ((System.DateTime)(Original_Last_Occupied.Value));
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[19].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[20].Value = global::System.DBNull.Value;
-            }
-            if ((Original_Last_Occupied.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[21].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[22].Value = ((System.DateTime)(Original_Last_Occupied.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[21].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[22].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -12327,7 +12144,7 @@ WHERE
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string Branch_ID, global::System.Nullable<int> hotel_room_number, string hotel_room_type, string hotel_room_status, global::System.Nullable<decimal> Hotel_Room_Price, global::System.Nullable<int> Max_Adults, global::System.Nullable<int> Max_Children, global::System.Nullable<int> Floor_Number, string Cleaning_Status, global::System.Nullable<global::System.DateTime> Last_Cleaned, global::System.Nullable<global::System.DateTime> Last_Occupied) {
+        public virtual int Insert(string Branch_ID, global::System.Nullable<int> hotel_room_number, string hotel_room_type, string hotel_room_status, global::System.Nullable<decimal> Hotel_Room_Price, global::System.Nullable<int> Max_Adults, global::System.Nullable<int> Max_Children, string Cleaning_Status, global::System.Nullable<global::System.DateTime> Last_Cleaned, global::System.Nullable<global::System.DateTime> Last_Occupied) {
             if ((Branch_ID == null)) {
                 this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -12370,29 +12187,23 @@ WHERE
             else {
                 this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
-            if ((Floor_Number.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[7].Value = ((int)(Floor_Number.Value));
-            }
-            else {
+            if ((Cleaning_Status == null)) {
                 this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
-            if ((Cleaning_Status == null)) {
-                this.Adapter.InsertCommand.Parameters[8].Value = global::System.DBNull.Value;
-            }
             else {
-                this.Adapter.InsertCommand.Parameters[8].Value = ((string)(Cleaning_Status));
+                this.Adapter.InsertCommand.Parameters[7].Value = ((string)(Cleaning_Status));
             }
             if ((Last_Cleaned.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[9].Value = ((System.DateTime)(Last_Cleaned.Value));
+                this.Adapter.InsertCommand.Parameters[8].Value = ((System.DateTime)(Last_Cleaned.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[8].Value = global::System.DBNull.Value;
+            }
+            if ((Last_Occupied.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[9].Value = ((System.DateTime)(Last_Occupied.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[9].Value = global::System.DBNull.Value;
-            }
-            if ((Last_Occupied.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[10].Value = ((System.DateTime)(Last_Occupied.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[10].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -12422,7 +12233,6 @@ WHERE
                     global::System.Nullable<decimal> Hotel_Room_Price, 
                     global::System.Nullable<int> Max_Adults, 
                     global::System.Nullable<int> Max_Children, 
-                    global::System.Nullable<int> Floor_Number, 
                     string Cleaning_Status, 
                     global::System.Nullable<global::System.DateTime> Last_Cleaned, 
                     global::System.Nullable<global::System.DateTime> Last_Occupied, 
@@ -12434,7 +12244,6 @@ WHERE
                     global::System.Nullable<decimal> Original_Hotel_Room_Price, 
                     global::System.Nullable<int> Original_Max_Adults, 
                     global::System.Nullable<int> Original_Max_Children, 
-                    global::System.Nullable<int> Original_Floor_Number, 
                     string Original_Cleaning_Status, 
                     global::System.Nullable<global::System.DateTime> Original_Last_Cleaned, 
                     global::System.Nullable<global::System.DateTime> Original_Last_Occupied, 
@@ -12481,120 +12290,106 @@ WHERE
             else {
                 this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
-            if ((Floor_Number.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(Floor_Number.Value));
-            }
-            else {
+            if ((Cleaning_Status == null)) {
                 this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
-            if ((Cleaning_Status == null)) {
-                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
-            }
             else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(Cleaning_Status));
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Cleaning_Status));
             }
             if ((Last_Cleaned.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((System.DateTime)(Last_Cleaned.Value));
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((System.DateTime)(Last_Cleaned.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
+            }
+            if ((Last_Occupied.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((System.DateTime)(Last_Occupied.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
             }
-            if ((Last_Occupied.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((System.DateTime)(Last_Occupied.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
-            }
-            this.Adapter.UpdateCommand.Parameters[11].Value = ((int)(Original_Hotel_Room_ID));
+            this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(Original_Hotel_Room_ID));
             if ((Original_Branch_ID == null)) {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(Original_Branch_ID));
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(Original_Branch_ID));
             }
             if ((Original_hotel_room_number.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((int)(Original_hotel_room_number.Value));
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((int)(Original_hotel_room_number.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
             }
             if ((Original_hotel_room_type == null)) {
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[17].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((string)(Original_hotel_room_type));
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((string)(Original_hotel_room_type));
             }
             if ((Original_hotel_room_status == null)) {
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[19].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[18].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((string)(Original_hotel_room_status));
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((string)(Original_hotel_room_status));
             }
             if ((Original_Hotel_Room_Price.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[21].Value = ((decimal)(Original_Hotel_Room_Price.Value));
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((decimal)(Original_Hotel_Room_Price.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[21].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[20].Value = global::System.DBNull.Value;
             }
             if ((Original_Max_Adults.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[23].Value = ((int)(Original_Max_Adults.Value));
+                this.Adapter.UpdateCommand.Parameters[21].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[22].Value = ((int)(Original_Max_Adults.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[23].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[21].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[22].Value = global::System.DBNull.Value;
             }
             if ((Original_Max_Children.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[25].Value = ((int)(Original_Max_Children.Value));
+                this.Adapter.UpdateCommand.Parameters[23].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[24].Value = ((int)(Original_Max_Children.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[25].Value = global::System.DBNull.Value;
-            }
-            if ((Original_Floor_Number.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[26].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[27].Value = ((int)(Original_Floor_Number.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[26].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[27].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[23].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[24].Value = global::System.DBNull.Value;
             }
             if ((Original_Cleaning_Status == null)) {
-                this.Adapter.UpdateCommand.Parameters[28].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[29].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[25].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[26].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[28].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[29].Value = ((string)(Original_Cleaning_Status));
+                this.Adapter.UpdateCommand.Parameters[25].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[26].Value = ((string)(Original_Cleaning_Status));
             }
             if ((Original_Last_Cleaned.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[30].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[31].Value = ((System.DateTime)(Original_Last_Cleaned.Value));
+                this.Adapter.UpdateCommand.Parameters[27].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[28].Value = ((System.DateTime)(Original_Last_Cleaned.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[30].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[31].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[27].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[28].Value = global::System.DBNull.Value;
             }
             if ((Original_Last_Occupied.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[32].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[33].Value = ((System.DateTime)(Original_Last_Occupied.Value));
+                this.Adapter.UpdateCommand.Parameters[29].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[30].Value = ((System.DateTime)(Original_Last_Occupied.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[32].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[33].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[29].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[30].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[34].Value = ((int)(Hotel_Room_ID));
+            this.Adapter.UpdateCommand.Parameters[31].Value = ((int)(Hotel_Room_ID));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -12623,7 +12418,6 @@ WHERE
                     global::System.Nullable<decimal> Hotel_Room_Price, 
                     global::System.Nullable<int> Max_Adults, 
                     global::System.Nullable<int> Max_Children, 
-                    global::System.Nullable<int> Floor_Number, 
                     string Cleaning_Status, 
                     global::System.Nullable<global::System.DateTime> Last_Cleaned, 
                     global::System.Nullable<global::System.DateTime> Last_Occupied, 
@@ -12635,11 +12429,10 @@ WHERE
                     global::System.Nullable<decimal> Original_Hotel_Room_Price, 
                     global::System.Nullable<int> Original_Max_Adults, 
                     global::System.Nullable<int> Original_Max_Children, 
-                    global::System.Nullable<int> Original_Floor_Number, 
                     string Original_Cleaning_Status, 
                     global::System.Nullable<global::System.DateTime> Original_Last_Cleaned, 
                     global::System.Nullable<global::System.DateTime> Original_Last_Occupied) {
-            return this.Update(Branch_ID, hotel_room_number, hotel_room_type, hotel_room_status, Hotel_Room_Price, Max_Adults, Max_Children, Floor_Number, Cleaning_Status, Last_Cleaned, Last_Occupied, Original_Hotel_Room_ID, Original_Branch_ID, Original_hotel_room_number, Original_hotel_room_type, Original_hotel_room_status, Original_Hotel_Room_Price, Original_Max_Adults, Original_Max_Children, Original_Floor_Number, Original_Cleaning_Status, Original_Last_Cleaned, Original_Last_Occupied, Original_Hotel_Room_ID);
+            return this.Update(Branch_ID, hotel_room_number, hotel_room_type, hotel_room_status, Hotel_Room_Price, Max_Adults, Max_Children, Cleaning_Status, Last_Cleaned, Last_Occupied, Original_Hotel_Room_ID, Original_Branch_ID, Original_hotel_room_number, Original_hotel_room_type, Original_hotel_room_status, Original_Hotel_Room_Price, Original_Max_Adults, Original_Max_Children, Original_Cleaning_Status, Original_Last_Cleaned, Original_Last_Occupied, Original_Hotel_Room_ID);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -14828,13 +14621,12 @@ SELECT Room_Assignment_ID, Booking_ID, Hotel_Room_ID, Actual_CheckIn_Time, Actua
             tableMapping.ColumnMappings.Add("date_joined", "date_joined");
             tableMapping.ColumnMappings.Add("staff_status", "staff_status");
             tableMapping.ColumnMappings.Add("staff_Password", "staff_Password");
-            tableMapping.ColumnMappings.Add("Last_Login", "Last_Login");
             tableMapping.ColumnMappings.Add("Failed_Login_Count", "Failed_Login_Count");
             tableMapping.ColumnMappings.Add("Password_Changed_Date", "Password_Changed_Date");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [Staff] WHERE (([staff_ID] = @Original_staff_ID) AND ((@IsNull_Branch_ID = 1 AND [Branch_ID] IS NULL) OR ([Branch_ID] = @Original_Branch_ID)) AND ((@IsNull_staff_First_Name = 1 AND [staff_First_Name] IS NULL) OR ([staff_First_Name] = @Original_staff_First_Name)) AND ((@IsNull_staff_Surname = 1 AND [staff_Surname] IS NULL) OR ([staff_Surname] = @Original_staff_Surname)) AND ((@IsNull_staff_Address = 1 AND [staff_Address] IS NULL) OR ([staff_Address] = @Original_staff_Address)) AND ((@IsNull_staff_phone_number = 1 AND [staff_phone_number] IS NULL) OR ([staff_phone_number] = @Original_staff_phone_number)) AND ((@IsNull_staff_email = 1 AND [staff_email] IS NULL) OR ([staff_email] = @Original_staff_email)) AND ((@IsNull_staff_role = 1 AND [staff_role] IS NULL) OR ([staff_role] = @Original_staff_role)) AND ((@IsNull_date_joined = 1 AND [date_joined] IS NULL) OR ([date_joined] = @Original_date_joined)) AND ((@IsNull_staff_status = 1 AND [staff_status] IS NULL) OR ([staff_status] = @Original_staff_status)) AND ([staff_Password] = @Original_staff_Password) AND ((@IsNull_Failed_Login_Count = 1 AND [Failed_Login_Count] IS NULL) OR ([Failed_Login_Count] = @Original_Failed_Login_Count)) AND ((@IsNull_Last_Login = 1 AND [Last_Login] IS NULL) OR ([Last_Login] = @Original_Last_Login)) AND ((@IsNull_Password_Changed_Date = 1 AND [Password_Changed_Date] IS NULL) OR ([Password_Changed_Date] = @Original_Password_Changed_Date)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [Staff] WHERE (([staff_ID] = @Original_staff_ID) AND ((@IsNull_Branch_ID = 1 AND [Branch_ID] IS NULL) OR ([Branch_ID] = @Original_Branch_ID)) AND ((@IsNull_staff_First_Name = 1 AND [staff_First_Name] IS NULL) OR ([staff_First_Name] = @Original_staff_First_Name)) AND ((@IsNull_staff_Surname = 1 AND [staff_Surname] IS NULL) OR ([staff_Surname] = @Original_staff_Surname)) AND ((@IsNull_staff_Address = 1 AND [staff_Address] IS NULL) OR ([staff_Address] = @Original_staff_Address)) AND ((@IsNull_staff_phone_number = 1 AND [staff_phone_number] IS NULL) OR ([staff_phone_number] = @Original_staff_phone_number)) AND ((@IsNull_staff_email = 1 AND [staff_email] IS NULL) OR ([staff_email] = @Original_staff_email)) AND ((@IsNull_staff_role = 1 AND [staff_role] IS NULL) OR ([staff_role] = @Original_staff_role)) AND ((@IsNull_date_joined = 1 AND [date_joined] IS NULL) OR ([date_joined] = @Original_date_joined)) AND ((@IsNull_staff_status = 1 AND [staff_status] IS NULL) OR ([staff_status] = @Original_staff_status)) AND ([staff_Password] = @Original_staff_Password) AND ((@IsNull_Failed_Login_Count = 1 AND [Failed_Login_Count] IS NULL) OR ([Failed_Login_Count] = @Original_Failed_Login_Count)) AND ((@IsNull_Password_Changed_Date = 1 AND [Password_Changed_Date] IS NULL) OR ([Password_Changed_Date] = @Original_Password_Changed_Date)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_staff_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "staff_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Branch_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Branch_ID", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -14858,14 +14650,12 @@ SELECT Room_Assignment_ID, Booking_ID, Hotel_Room_ID, Actual_CheckIn_Time, Actua
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_staff_Password", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "staff_Password", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Failed_Login_Count", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Failed_Login_Count", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Failed_Login_Count", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Failed_Login_Count", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Last_Login", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Last_Login", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Last_Login", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Last_Login", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Password_Changed_Date", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Password_Changed_Date", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Password_Changed_Date", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Password_Changed_Date", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [Staff] ([Branch_ID], [staff_First_Name], [staff_Surname], [staff_Address], [staff_phone_number], [staff_email], [staff_role], [date_joined], [staff_status], [staff_Password], [Failed_Login_Count], [Last_Login], [Password_Changed_Date]) VALUES (@Branch_ID, @staff_First_Name, @staff_Surname, @staff_Address, @staff_phone_number, @staff_email, @staff_role, @date_joined, @staff_status, @staff_Password, @Failed_Login_Count, @Last_Login, @Password_Changed_Date);
-SELECT staff_ID, Branch_ID, staff_First_Name, staff_Surname, staff_Address, staff_phone_number, staff_email, staff_role, date_joined, staff_status, staff_Password, Failed_Login_Count, Last_Login, Password_Changed_Date FROM Staff WHERE (staff_ID = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [Staff] ([Branch_ID], [staff_First_Name], [staff_Surname], [staff_Address], [staff_phone_number], [staff_email], [staff_role], [date_joined], [staff_status], [staff_Password], [Failed_Login_Count], [Password_Changed_Date]) VALUES (@Branch_ID, @staff_First_Name, @staff_Surname, @staff_Address, @staff_phone_number, @staff_email, @staff_role, @date_joined, @staff_status, @staff_Password, @Failed_Login_Count, @Password_Changed_Date);
+SELECT staff_ID, Branch_ID, staff_First_Name, staff_Surname, staff_Address, staff_phone_number, staff_email, staff_role, date_joined, staff_status, staff_Password, Failed_Login_Count, Password_Changed_Date FROM Staff WHERE (staff_ID = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Branch_ID", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Branch_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@staff_First_Name", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "staff_First_Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -14878,7 +14668,6 @@ SELECT staff_ID, Branch_ID, staff_First_Name, staff_Surname, staff_Address, staf
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@staff_status", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "staff_status", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@staff_Password", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "staff_Password", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Failed_Login_Count", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Failed_Login_Count", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Last_Login", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Last_Login", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Password_Changed_Date", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Password_Changed_Date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
@@ -14886,29 +14675,28 @@ SELECT staff_ID, Branch_ID, staff_First_Name, staff_Surname, staff_Address, staf
                 "me, [staff_Surname] = @staff_Surname, [staff_Address] = @staff_Address, [staff_p" +
                 "hone_number] = @staff_phone_number, [staff_email] = @staff_email, [staff_role] =" +
                 " @staff_role, [date_joined] = @date_joined, [staff_status] = @staff_status, [sta" +
-                "ff_Password] = @staff_Password, [Failed_Login_Count] = @Failed_Login_Count, [Las" +
-                "t_Login] = @Last_Login, [Password_Changed_Date] = @Password_Changed_Date WHERE (" +
-                "([staff_ID] = @Original_staff_ID) AND ((@IsNull_Branch_ID = 1 AND [Branch_ID] IS" +
-                " NULL) OR ([Branch_ID] = @Original_Branch_ID)) AND ((@IsNull_staff_First_Name = " +
-                "1 AND [staff_First_Name] IS NULL) OR ([staff_First_Name] = @Original_staff_First" +
-                "_Name)) AND ((@IsNull_staff_Surname = 1 AND [staff_Surname] IS NULL) OR ([staff_" +
-                "Surname] = @Original_staff_Surname)) AND ((@IsNull_staff_Address = 1 AND [staff_" +
-                "Address] IS NULL) OR ([staff_Address] = @Original_staff_Address)) AND ((@IsNull_" +
-                "staff_phone_number = 1 AND [staff_phone_number] IS NULL) OR ([staff_phone_number" +
-                "] = @Original_staff_phone_number)) AND ((@IsNull_staff_email = 1 AND [staff_emai" +
-                "l] IS NULL) OR ([staff_email] = @Original_staff_email)) AND ((@IsNull_staff_role" +
-                " = 1 AND [staff_role] IS NULL) OR ([staff_role] = @Original_staff_role)) AND ((@" +
-                "IsNull_date_joined = 1 AND [date_joined] IS NULL) OR ([date_joined] = @Original_" +
-                "date_joined)) AND ((@IsNull_staff_status = 1 AND [staff_status] IS NULL) OR ([st" +
-                "aff_status] = @Original_staff_status)) AND ([staff_Password] = @Original_staff_P" +
-                "assword) AND ((@IsNull_Failed_Login_Count = 1 AND [Failed_Login_Count] IS NULL) " +
-                "OR ([Failed_Login_Count] = @Original_Failed_Login_Count)) AND ((@IsNull_Last_Log" +
-                "in = 1 AND [Last_Login] IS NULL) OR ([Last_Login] = @Original_Last_Login)) AND (" +
-                "(@IsNull_Password_Changed_Date = 1 AND [Password_Changed_Date] IS NULL) OR ([Pas" +
-                "sword_Changed_Date] = @Original_Password_Changed_Date)));\r\nSELECT staff_ID, Bran" +
-                "ch_ID, staff_First_Name, staff_Surname, staff_Address, staff_phone_number, staff" +
-                "_email, staff_role, date_joined, staff_status, staff_Password, Failed_Login_Coun" +
-                "t, Last_Login, Password_Changed_Date FROM Staff WHERE (staff_ID = @staff_ID)";
+                "ff_Password] = @staff_Password, [Failed_Login_Count] = @Failed_Login_Count, [Pas" +
+                "sword_Changed_Date] = @Password_Changed_Date WHERE (([staff_ID] = @Original_staf" +
+                "f_ID) AND ((@IsNull_Branch_ID = 1 AND [Branch_ID] IS NULL) OR ([Branch_ID] = @Or" +
+                "iginal_Branch_ID)) AND ((@IsNull_staff_First_Name = 1 AND [staff_First_Name] IS " +
+                "NULL) OR ([staff_First_Name] = @Original_staff_First_Name)) AND ((@IsNull_staff_" +
+                "Surname = 1 AND [staff_Surname] IS NULL) OR ([staff_Surname] = @Original_staff_S" +
+                "urname)) AND ((@IsNull_staff_Address = 1 AND [staff_Address] IS NULL) OR ([staff" +
+                "_Address] = @Original_staff_Address)) AND ((@IsNull_staff_phone_number = 1 AND [" +
+                "staff_phone_number] IS NULL) OR ([staff_phone_number] = @Original_staff_phone_nu" +
+                "mber)) AND ((@IsNull_staff_email = 1 AND [staff_email] IS NULL) OR ([staff_email" +
+                "] = @Original_staff_email)) AND ((@IsNull_staff_role = 1 AND [staff_role] IS NUL" +
+                "L) OR ([staff_role] = @Original_staff_role)) AND ((@IsNull_date_joined = 1 AND [" +
+                "date_joined] IS NULL) OR ([date_joined] = @Original_date_joined)) AND ((@IsNull_" +
+                "staff_status = 1 AND [staff_status] IS NULL) OR ([staff_status] = @Original_staf" +
+                "f_status)) AND ([staff_Password] = @Original_staff_Password) AND ((@IsNull_Faile" +
+                "d_Login_Count = 1 AND [Failed_Login_Count] IS NULL) OR ([Failed_Login_Count] = @" +
+                "Original_Failed_Login_Count)) AND ((@IsNull_Password_Changed_Date = 1 AND [Passw" +
+                "ord_Changed_Date] IS NULL) OR ([Password_Changed_Date] = @Original_Password_Chan" +
+                "ged_Date)));\r\nSELECT staff_ID, Branch_ID, staff_First_Name, staff_Surname, staff" +
+                "_Address, staff_phone_number, staff_email, staff_role, date_joined, staff_status" +
+                ", staff_Password, Failed_Login_Count, Password_Changed_Date FROM Staff WHERE (st" +
+                "aff_ID = @staff_ID)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Branch_ID", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Branch_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@staff_First_Name", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "staff_First_Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -14921,7 +14709,6 @@ SELECT staff_ID, Branch_ID, staff_First_Name, staff_Surname, staff_Address, staf
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@staff_status", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "staff_status", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@staff_Password", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "staff_Password", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Failed_Login_Count", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Failed_Login_Count", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Last_Login", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Last_Login", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Password_Changed_Date", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Password_Changed_Date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_staff_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "staff_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Branch_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Branch_ID", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -14945,8 +14732,6 @@ SELECT staff_ID, Branch_ID, staff_First_Name, staff_Surname, staff_Address, staf
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_staff_Password", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "staff_Password", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Failed_Login_Count", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Failed_Login_Count", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Failed_Login_Count", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Failed_Login_Count", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Last_Login", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Last_Login", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Last_Login", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Last_Login", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Password_Changed_Date", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Password_Changed_Date", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Password_Changed_Date", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Password_Changed_Date", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@staff_ID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "staff_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -14967,7 +14752,7 @@ SELECT staff_ID, Branch_ID, staff_First_Name, staff_Surname, staff_Address, staf
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT staff_ID, Branch_ID, staff_First_Name, staff_Surname, staff_Address, staff" +
                 "_phone_number, staff_email, staff_role, date_joined, staff_status, staff_Passwor" +
-                "d, Failed_Login_Count, Last_Login, Password_Changed_Date FROM Staff";
+                "d, Failed_Login_Count, Password_Changed_Date FROM Staff";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
@@ -14976,7 +14761,7 @@ SELECT staff_ID, Branch_ID, staff_First_Name, staff_Surname, staff_Address, staf
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@staff_ID", global::System.Data.SqlDbType.VarChar, 10, global::System.Data.ParameterDirection.Input, 0, 0, "staff_phone_number", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = @"SELECT staff_ID, Branch_ID, staff_First_Name, staff_Surname, staff_Address, staff_phone_number, staff_email, staff_role, date_joined, staff_status, staff_Password, Failed_Login_Count, Last_Login, Password_Changed_Date FROM Staff WHERE (staff_phone_number LIKE @phoneNo)";
+            this._commandCollection[2].CommandText = @"SELECT staff_ID, Branch_ID, staff_First_Name, staff_Surname, staff_Address, staff_phone_number, staff_email, staff_role, date_joined, staff_status, staff_Password, Failed_Login_Count, Password_Changed_Date FROM Staff WHERE (staff_phone_number LIKE @phoneNo)";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@phoneNo", global::System.Data.SqlDbType.VarChar, 10, global::System.Data.ParameterDirection.Input, 0, 0, "staff_phone_number", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
@@ -15126,7 +14911,7 @@ WHERE staff_phone_number = @Original_staff_ID";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_staff_ID, string Original_Branch_ID, string Original_staff_First_Name, string Original_staff_Surname, string Original_staff_Address, string Original_staff_phone_number, string Original_staff_email, string Original_staff_role, global::System.Nullable<global::System.DateTime> Original_date_joined, string Original_staff_status, string Original_staff_Password, global::System.Nullable<int> Original_Failed_Login_Count, global::System.Nullable<global::System.DateTime> Original_Last_Login, global::System.Nullable<global::System.DateTime> Original_Password_Changed_Date) {
+        public virtual int Delete(int Original_staff_ID, string Original_Branch_ID, string Original_staff_First_Name, string Original_staff_Surname, string Original_staff_Address, string Original_staff_phone_number, string Original_staff_email, string Original_staff_role, global::System.Nullable<global::System.DateTime> Original_date_joined, string Original_staff_status, string Original_staff_Password, global::System.Nullable<int> Original_Failed_Login_Count, global::System.Nullable<global::System.DateTime> Original_Password_Changed_Date) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_staff_ID));
             if ((Original_Branch_ID == null)) {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
@@ -15214,21 +14999,13 @@ WHERE staff_phone_number = @Original_staff_ID";
                 this.Adapter.DeleteCommand.Parameters[20].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[21].Value = global::System.DBNull.Value;
             }
-            if ((Original_Last_Login.HasValue == true)) {
+            if ((Original_Password_Changed_Date.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[22].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[23].Value = ((System.DateTime)(Original_Last_Login.Value));
+                this.Adapter.DeleteCommand.Parameters[23].Value = ((System.DateTime)(Original_Password_Changed_Date.Value));
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[22].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[23].Value = global::System.DBNull.Value;
-            }
-            if ((Original_Password_Changed_Date.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[24].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[25].Value = ((System.DateTime)(Original_Password_Changed_Date.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[24].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[25].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -15250,7 +15027,7 @@ WHERE staff_phone_number = @Original_staff_ID";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string Branch_ID, string staff_First_Name, string staff_Surname, string staff_Address, string staff_phone_number, string staff_email, string staff_role, global::System.Nullable<global::System.DateTime> date_joined, string staff_status, string staff_Password, global::System.Nullable<int> Failed_Login_Count, global::System.Nullable<global::System.DateTime> Last_Login, global::System.Nullable<global::System.DateTime> Password_Changed_Date) {
+        public virtual int Insert(string Branch_ID, string staff_First_Name, string staff_Surname, string staff_Address, string staff_phone_number, string staff_email, string staff_role, global::System.Nullable<global::System.DateTime> date_joined, string staff_status, string staff_Password, global::System.Nullable<int> Failed_Login_Count, global::System.Nullable<global::System.DateTime> Password_Changed_Date) {
             if ((Branch_ID == null)) {
                 this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -15317,17 +15094,11 @@ WHERE staff_phone_number = @Original_staff_ID";
             else {
                 this.Adapter.InsertCommand.Parameters[10].Value = global::System.DBNull.Value;
             }
-            if ((Last_Login.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[11].Value = ((System.DateTime)(Last_Login.Value));
+            if ((Password_Changed_Date.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[11].Value = ((System.DateTime)(Password_Changed_Date.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[11].Value = global::System.DBNull.Value;
-            }
-            if ((Password_Changed_Date.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[12].Value = ((System.DateTime)(Password_Changed_Date.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[12].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -15361,7 +15132,6 @@ WHERE staff_phone_number = @Original_staff_ID";
                     string staff_status, 
                     string staff_Password, 
                     global::System.Nullable<int> Failed_Login_Count, 
-                    global::System.Nullable<global::System.DateTime> Last_Login, 
                     global::System.Nullable<global::System.DateTime> Password_Changed_Date, 
                     int Original_staff_ID, 
                     string Original_Branch_ID, 
@@ -15375,7 +15145,6 @@ WHERE staff_phone_number = @Original_staff_ID";
                     string Original_staff_status, 
                     string Original_staff_Password, 
                     global::System.Nullable<int> Original_Failed_Login_Count, 
-                    global::System.Nullable<global::System.DateTime> Original_Last_Login, 
                     global::System.Nullable<global::System.DateTime> Original_Password_Changed_Date, 
                     int staff_ID) {
             if ((Branch_ID == null)) {
@@ -15444,122 +15213,108 @@ WHERE staff_phone_number = @Original_staff_ID";
             else {
                 this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
             }
-            if ((Last_Login.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((System.DateTime)(Last_Login.Value));
+            if ((Password_Changed_Date.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((System.DateTime)(Password_Changed_Date.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
             }
-            if ((Password_Changed_Date.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((System.DateTime)(Password_Changed_Date.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
-            }
-            this.Adapter.UpdateCommand.Parameters[13].Value = ((int)(Original_staff_ID));
+            this.Adapter.UpdateCommand.Parameters[12].Value = ((int)(Original_staff_ID));
             if ((Original_Branch_ID == null)) {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(Original_Branch_ID));
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((string)(Original_Branch_ID));
             }
             if ((Original_staff_First_Name == null)) {
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[17].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((string)(Original_staff_First_Name));
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((string)(Original_staff_First_Name));
             }
             if ((Original_staff_Surname == null)) {
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[19].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[18].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((string)(Original_staff_Surname));
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((string)(Original_staff_Surname));
             }
             if ((Original_staff_Address == null)) {
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[21].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[20].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[21].Value = ((string)(Original_staff_Address));
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((string)(Original_staff_Address));
             }
             if ((Original_staff_phone_number == null)) {
-                this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[23].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[21].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[22].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[23].Value = ((string)(Original_staff_phone_number));
+                this.Adapter.UpdateCommand.Parameters[21].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[22].Value = ((string)(Original_staff_phone_number));
             }
             if ((Original_staff_email == null)) {
-                this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[25].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[23].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[24].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[25].Value = ((string)(Original_staff_email));
+                this.Adapter.UpdateCommand.Parameters[23].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[24].Value = ((string)(Original_staff_email));
             }
             if ((Original_staff_role == null)) {
-                this.Adapter.UpdateCommand.Parameters[26].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[27].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[25].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[26].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[26].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[27].Value = ((string)(Original_staff_role));
+                this.Adapter.UpdateCommand.Parameters[25].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[26].Value = ((string)(Original_staff_role));
             }
             if ((Original_date_joined.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[28].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[29].Value = ((System.DateTime)(Original_date_joined.Value));
+                this.Adapter.UpdateCommand.Parameters[27].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[28].Value = ((System.DateTime)(Original_date_joined.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[28].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[29].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[27].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[28].Value = global::System.DBNull.Value;
             }
             if ((Original_staff_status == null)) {
-                this.Adapter.UpdateCommand.Parameters[30].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[31].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[29].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[30].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[30].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[31].Value = ((string)(Original_staff_status));
+                this.Adapter.UpdateCommand.Parameters[29].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[30].Value = ((string)(Original_staff_status));
             }
             if ((Original_staff_Password == null)) {
                 throw new global::System.ArgumentNullException("Original_staff_Password");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[32].Value = ((string)(Original_staff_Password));
+                this.Adapter.UpdateCommand.Parameters[31].Value = ((string)(Original_staff_Password));
             }
             if ((Original_Failed_Login_Count.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[33].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[34].Value = ((int)(Original_Failed_Login_Count.Value));
+                this.Adapter.UpdateCommand.Parameters[32].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[33].Value = ((int)(Original_Failed_Login_Count.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[33].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[34].Value = global::System.DBNull.Value;
-            }
-            if ((Original_Last_Login.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[35].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[36].Value = ((System.DateTime)(Original_Last_Login.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[35].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[36].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[32].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[33].Value = global::System.DBNull.Value;
             }
             if ((Original_Password_Changed_Date.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[37].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[38].Value = ((System.DateTime)(Original_Password_Changed_Date.Value));
+                this.Adapter.UpdateCommand.Parameters[34].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[35].Value = ((System.DateTime)(Original_Password_Changed_Date.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[37].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[38].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[34].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[35].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[39].Value = ((int)(staff_ID));
+            this.Adapter.UpdateCommand.Parameters[36].Value = ((int)(staff_ID));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -15592,7 +15347,6 @@ WHERE staff_phone_number = @Original_staff_ID";
                     string staff_status, 
                     string staff_Password, 
                     global::System.Nullable<int> Failed_Login_Count, 
-                    global::System.Nullable<global::System.DateTime> Last_Login, 
                     global::System.Nullable<global::System.DateTime> Password_Changed_Date, 
                     int Original_staff_ID, 
                     string Original_Branch_ID, 
@@ -15606,9 +15360,8 @@ WHERE staff_phone_number = @Original_staff_ID";
                     string Original_staff_status, 
                     string Original_staff_Password, 
                     global::System.Nullable<int> Original_Failed_Login_Count, 
-                    global::System.Nullable<global::System.DateTime> Original_Last_Login, 
                     global::System.Nullable<global::System.DateTime> Original_Password_Changed_Date) {
-            return this.Update(Branch_ID, staff_First_Name, staff_Surname, staff_Address, staff_phone_number, staff_email, staff_role, date_joined, staff_status, staff_Password, Failed_Login_Count, Last_Login, Password_Changed_Date, Original_staff_ID, Original_Branch_ID, Original_staff_First_Name, Original_staff_Surname, Original_staff_Address, Original_staff_phone_number, Original_staff_email, Original_staff_role, Original_date_joined, Original_staff_status, Original_staff_Password, Original_Failed_Login_Count, Original_Last_Login, Original_Password_Changed_Date, Original_staff_ID);
+            return this.Update(Branch_ID, staff_First_Name, staff_Surname, staff_Address, staff_phone_number, staff_email, staff_role, date_joined, staff_status, staff_Password, Failed_Login_Count, Password_Changed_Date, Original_staff_ID, Original_Branch_ID, Original_staff_First_Name, Original_staff_Surname, Original_staff_Address, Original_staff_phone_number, Original_staff_email, Original_staff_role, Original_date_joined, Original_staff_status, Original_staff_Password, Original_Failed_Login_Count, Original_Password_Changed_Date, Original_staff_ID);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
