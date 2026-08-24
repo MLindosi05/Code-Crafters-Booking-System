@@ -89,6 +89,7 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.lblAvailableRooms = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.hotelRoomBindingSource4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.codeCraftersDSTWO)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.hotelRoomBindingSource3)).BeginInit();
@@ -286,6 +287,7 @@
             // 
             // panel10
             // 
+            this.panel10.Controls.Add(this.button1);
             this.panel10.Controls.Add(this.label14);
             this.panel10.Controls.Add(this.textBox3);
             this.panel10.Controls.Add(this.label16);
@@ -660,6 +662,15 @@
             this.label2.TabIndex = 13;
             this.label2.Text = "AVAILABLE ROOMS";
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(602, 12);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 33);
+            this.button1.TabIndex = 15;
+            this.button1.Text = "Back";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // RoomManagementForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
@@ -773,5 +784,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.PictureBox pictureBox7;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button button1;
     }
 }

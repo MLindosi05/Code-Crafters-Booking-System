@@ -16,6 +16,8 @@ namespace Code_Crafters_Interface_Prototype_1.Business
         private void RoomManagementForm_Load(object sender, EventArgs e)
         {   // Main form background
             this.BackColor = Color.FromArgb(247, 243, 234);
+            button1.BackColor = Color.FromArgb(139, 100, 31);
+            button1.ForeColor = Color.White;
 
             // Room information panels
             panel10.BackColor = Color.White;
