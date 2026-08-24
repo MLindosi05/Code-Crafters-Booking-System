@@ -23,7 +23,6 @@ namespace Code_Crafters_Interface_Prototype_1.Interfaces
         private void Login_Load(object sender, EventArgs e)
         {
             WindowState = FormWindowState.Maximized;
-            groupBox1.ForeColor = Color.White;
             taStaff.Fill(codeCraftersDS.Staff);
 
             //ThemeManager.ApplyLoginTheme(
@@ -38,7 +37,26 @@ namespace Code_Crafters_Interface_Prototype_1.Interfaces
             //    button2,
             //    button3);
 
-            HelpService.LoadTopics(lstHelpTopics);
+
+            button2.BackColor = Color.FromArgb(235, 130, 60);
+            button2.ForeColor = Color.White;
+
+            panel2.BackColor = Color.FromArgb(15, 42, 74);
+            panel1.BackColor = Color.FromArgb(10, 25, 47);
+            panel3.BackColor = Color.FromArgb(15, 42, 74);
+            panel4.BackColor = Color.FromArgb(15, 42, 74);
+
+            Color goldColor = Color.FromArgb(212, 175, 55);
+
+            label1.ForeColor = goldColor; 
+            label2.ForeColor = goldColor; 
+            label3.ForeColor = goldColor; 
+            label7.ForeColor = goldColor;
+
+            label4.Text = "ACCOUNT LOGIN";
+            label4.Font = new Font("Segoe UI", 16, FontStyle.Bold);
+            label4.ForeColor = Color.FromArgb(212, 175, 55);
+            label4.TextAlign = ContentAlignment.MiddleCenter;
         }
 
         #region Login
@@ -109,20 +127,14 @@ namespace Code_Crafters_Interface_Prototype_1.Interfaces
 
         private void btnHelp_Click(object sender, EventArgs e)
         {
-            HelpService.ToggleDrawer(pnlHelpDrawer);
+            //HelpService.ToggleDrawer(pnlHelpDrawer);
+            new HelpForm().Show();
+            Hide();
         }
 
-        private void txtSearchHelp_TextChanged(object sender, EventArgs e)
-        {
-            HelpService.Search(
-                txtSearchHelp.Text,
-                lstHelpTopics);
-        }
+        
 
-        private void lstHelpTopics_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            HelpService.ShowSolution(lstHelpTopics);
-        }
+        
 
         #endregion
 
@@ -155,8 +167,7 @@ namespace Code_Crafters_Interface_Prototype_1.Interfaces
 
         private void label8_Click(object sender, EventArgs e)
         {
-            new StaffSignUpForm().Show();
-            Hide();
+            
         }
 
         private void panel2_Paint(object sender, PaintEventArgs e)
@@ -166,7 +177,19 @@ namespace Code_Crafters_Interface_Prototype_1.Interfaces
 
         private void groupBox1_Enter(object sender, EventArgs e)
         {
-            groupBox1.BackColor = Color.FromArgb(28, 37, 46);
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+            PasswordResetService.ResetPassword(
+               userNameTxt,
+               taStaff,
+               codeCraftersDS);
+        }
+
+        private void pnlHelpDrawer_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

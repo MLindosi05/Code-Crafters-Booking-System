@@ -604,6 +604,26 @@ namespace Code_Crafters_Interface_Prototype_1.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Gemini_Generated_Image_9ylrk29ylrk29ylr {
+            get {
+                object obj = ResourceManager.GetObject("Gemini_Generated_Image_9ylrk29ylrk29ylr", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Gemini_Generated_Image_ts86ldts86ldts86 {
+            get {
+                object obj = ResourceManager.GetObject("Gemini_Generated_Image_ts86ldts86ldts86", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Generate_Reports {
             get {
                 object obj = ResourceManager.GetObject("Generate Reports", resourceCulture);

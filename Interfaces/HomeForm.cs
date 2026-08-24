@@ -1,6 +1,7 @@
 ﻿using Code_Crafters_Booking_System;
 using Code_Crafters_Interface_Prototype_1.Common;
 using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace Code_Crafters_Interface_Prototype_1.Interfaces
@@ -20,6 +21,8 @@ namespace Code_Crafters_Interface_Prototype_1.Interfaces
 
             ApplyTheme();
             InitializeClock();
+
+            
         }
 
         #endregion
@@ -32,21 +35,34 @@ namespace Code_Crafters_Interface_Prototype_1.Interfaces
 
             pnlHomePage.BackColor = Theme.Panel;
 
-            panel3.BackColor = Theme.Brown;
-            panel4.BackColor = Theme.Brown;
-            panel6.BackColor = Theme.Brown;
-            panel7.BackColor = Theme.Brown;
-            panel8.BackColor = Theme.Brown;
+            panel3.BackColor = Color.FromArgb(15, 42, 74);
+            panel6.BackColor = Color.FromArgb(15, 42, 74);
+            panel8.BackColor = Color.FromArgb(10, 25, 47);
+            panel5.BackColor = Color.FromArgb(15, 42, 74);
 
-            panel11.BackColor = Theme.Panel;
-            panel12.BackColor = Theme.Panel;
-            panel13.BackColor = Theme.Panel;
-            panel14.BackColor = Theme.Panel;
-            panel15.BackColor = Theme.Panel;
+            panel11.BackColor = Color.FromArgb(250, 243, 221); //Theme.Panel;
+            panel12.BackColor = Color.FromArgb(250, 243, 221);
+            panel13.BackColor = Color.FromArgb(250, 243, 221);
+            panel14.BackColor = Color.FromArgb(250, 243, 221);
+            panel15.BackColor = Color.FromArgb(250, 243, 221);
+
+            label1.ForeColor = Color.FromArgb(26, 26, 26);
+            label2.ForeColor = Color.FromArgb(26, 26, 26);
+            label3.ForeColor = Color.FromArgb(26, 26, 26);
+            label4.ForeColor = Color.FromArgb(26, 26, 26);
+            label5.ForeColor = Color.FromArgb(26, 26, 26);
 
             ButtonStyler.Apply(btnLogin);
+            btnLogin.BackColor = Color.FromArgb(235, 130, 60); 
+            btnLogin.ForeColor = Color.White;
+
             ButtonStyler.Apply(button1);
+            button1.BackColor = Color.FromArgb(15, 42, 74);
+            button1.ForeColor = Color.White;
+
             ButtonStyler.Apply(button2);
+            button2.BackColor = Color.FromArgb(15, 42, 74);
+            button2.ForeColor = Color.White;
         }
 
         #endregion
@@ -126,5 +142,20 @@ namespace Code_Crafters_Interface_Prototype_1.Interfaces
         }
 
         #endregion
+
+        private void panel6_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void pnlHomePage_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
