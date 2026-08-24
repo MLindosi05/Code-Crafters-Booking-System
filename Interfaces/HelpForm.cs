@@ -20,11 +20,10 @@ namespace Code_Crafters_Interface_Prototype_1.Interfaces
         private void HelpForm_Load(object sender, EventArgs e)
         {
             WindowState = FormWindowState.Maximized;
-
-            // Load help topics transferred from Login
+            panel4.BackColor = Color.FromArgb(15, 42, 74);
+ 
             HelpService.LoadTopics(lstHelpTopics);
 
-            // Apply Regal Inn Dark Theme
             ApplyTheme();
         }
 

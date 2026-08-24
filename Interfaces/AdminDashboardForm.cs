@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.UI.WebControls;
 using System.Windows.Forms;
 
 namespace Code_Crafters_Interface_Prototype_1.Interfaces
@@ -21,6 +22,21 @@ namespace Code_Crafters_Interface_Prototype_1.Interfaces
         {
             LoadLineChartData();
             LoadDonutChartData();
+
+            panel9.BackColor = Color.FromArgb(15, 42, 74);
+            panel3.BackColor = Color.FromArgb(10, 25, 47);
+            panel4.BackColor = Color.FromArgb(250, 243, 221);
+            panel5.BackColor = Color.FromArgb(250, 243, 221);
+            panel6.BackColor = Color.FromArgb(250, 243, 221);
+            panel7.BackColor = Color.FromArgb(250, 243, 221);
+            panel8.BackColor = Color.FromArgb(250, 243, 221);
+
+            Color regalGold = Color.FromArgb(212, 175, 55);
+            label8.ForeColor = regalGold;
+            label9.ForeColor = regalGold;
+            label10.ForeColor = regalGold;
+
+
         }
 
 

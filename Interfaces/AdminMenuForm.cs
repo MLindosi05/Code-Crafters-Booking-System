@@ -2,6 +2,7 @@
 using Code_Crafters_Interface_Prototype_1.Business;
 using Code_Crafters_Interface_Prototype_1.Common;
 using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace Code_Crafters_Interface_Prototype_1.Interfaces
@@ -24,6 +25,15 @@ namespace Code_Crafters_Interface_Prototype_1.Interfaces
             ApplyTheme();
 
             PanelLoader.Load(adminPanel, new AdminDashboardForm());
+
+            panel1.BackColor = Color.FromArgb(10, 25, 47);
+            
+            button1.BackColor = Color.FromArgb(15, 42, 74);
+            button2.BackColor = Color.FromArgb(15, 42, 74);
+            button7.BackColor = Color.FromArgb(15, 42, 74);
+            button3.BackColor = Color.FromArgb(15, 42, 74);
+            button9.BackColor = Color.FromArgb(15, 42, 74);
+
         }
 
         #endregion
