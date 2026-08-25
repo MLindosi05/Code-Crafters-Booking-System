@@ -40,7 +40,7 @@ namespace Code_Crafters_Interface_Prototype_1.Interfaces
             panel8.BackColor = Color.FromArgb(10, 25, 47);
             panel5.BackColor = Color.FromArgb(15, 42, 74);
 
-            panel11.BackColor = Color.FromArgb(250, 243, 221); //Theme.Panel;
+            panel11.BackColor = Color.FromArgb(250, 243, 221); 
             panel12.BackColor = Color.FromArgb(250, 243, 221);
             panel13.BackColor = Color.FromArgb(250, 243, 221);
             panel14.BackColor = Color.FromArgb(250, 243, 221);
