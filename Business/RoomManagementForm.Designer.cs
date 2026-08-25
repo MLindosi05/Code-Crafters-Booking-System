@@ -47,27 +47,6 @@
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.backgroundWorker2 = new System.ComponentModel.BackgroundWorker();
             this.codeCraftersDSTWOBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.tbcViewRooms = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.button3 = new System.Windows.Forms.Button();
-            this.panel9 = new System.Windows.Forms.Panel();
-            this.label5 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.panel10 = new System.Windows.Forms.Panel();
-            this.label14 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.comboBox5 = new System.Windows.Forms.ComboBox();
-            this.panel11 = new System.Windows.Forms.Panel();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.tbpViewRooms = new System.Windows.Forms.TabPage();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
@@ -89,7 +68,7 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.lblAvailableRooms = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.tbcViewRooms = new System.Windows.Forms.TabControl();
             ((System.ComponentModel.ISupportInitialize)(this.hotelRoomBindingSource4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.codeCraftersDSTWO)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.hotelRoomBindingSource3)).BeginInit();
@@ -98,14 +77,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.fKRoomAssiHotel1B5E0D89BindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.hotelRoomBindingSource2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.codeCraftersDSTWOBindingSource)).BeginInit();
-            this.tbcViewRooms.SuspendLayout();
-            this.tabPage1.SuspendLayout();
-            this.panel8.SuspendLayout();
-            this.panel9.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.panel10.SuspendLayout();
-            this.panel11.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             this.tbpViewRooms.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
@@ -119,6 +90,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            this.tbcViewRooms.SuspendLayout();
             this.SuspendLayout();
             // 
             // hotelRoomBindingSource4
@@ -208,236 +180,6 @@
             this.codeCraftersDSTWOBindingSource.DataSource = this.codeCraftersDSTWO;
             this.codeCraftersDSTWOBindingSource.Position = 0;
             // 
-            // tbcViewRooms
-            // 
-            this.tbcViewRooms.Controls.Add(this.tabPage1);
-            this.tbcViewRooms.Controls.Add(this.tbpViewRooms);
-            this.tbcViewRooms.Location = new System.Drawing.Point(3, 2);
-            this.tbcViewRooms.Name = "tbcViewRooms";
-            this.tbcViewRooms.SelectedIndex = 0;
-            this.tbcViewRooms.Size = new System.Drawing.Size(1272, 860);
-            this.tbcViewRooms.TabIndex = 0;
-            // 
-            // tabPage1
-            // 
-            this.tabPage1.Controls.Add(this.panel8);
-            this.tabPage1.Location = new System.Drawing.Point(4, 26);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1264, 830);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "ADD NEW ROOMS";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // panel8
-            // 
-            this.panel8.Controls.Add(this.button3);
-            this.panel8.Controls.Add(this.panel9);
-            this.panel8.Controls.Add(this.panel10);
-            this.panel8.Controls.Add(this.panel11);
-            this.panel8.Location = new System.Drawing.Point(20, 7);
-            this.panel8.Margin = new System.Windows.Forms.Padding(4);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(766, 752);
-            this.panel8.TabIndex = 1;
-            this.panel8.Paint += new System.Windows.Forms.PaintEventHandler(this.panel8_Paint);
-            // 
-            // button3
-            // 
-            this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
-            this.button3.Location = new System.Drawing.Point(376, 634);
-            this.button3.Margin = new System.Windows.Forms.Padding(4);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(134, 41);
-            this.button3.TabIndex = 4;
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // panel9
-            // 
-            this.panel9.Controls.Add(this.label5);
-            this.panel9.Controls.Add(this.pictureBox1);
-            this.panel9.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.panel9.Location = new System.Drawing.Point(37, 395);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(332, 283);
-            this.panel9.TabIndex = 2;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(23, 17);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(125, 16);
-            this.label5.TabIndex = 5;
-            this.label5.Text = "ROOM PREVIEW";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(14, 36);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(315, 244);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
-            // panel10
-            // 
-            this.panel10.Controls.Add(this.button1);
-            this.panel10.Controls.Add(this.label14);
-            this.panel10.Controls.Add(this.textBox3);
-            this.panel10.Controls.Add(this.label16);
-            this.panel10.Controls.Add(this.label17);
-            this.panel10.Controls.Add(this.label18);
-            this.panel10.Controls.Add(this.textBox2);
-            this.panel10.Controls.Add(this.textBox4);
-            this.panel10.Controls.Add(this.label19);
-            this.panel10.Controls.Add(this.label20);
-            this.panel10.Controls.Add(this.comboBox3);
-            this.panel10.Controls.Add(this.comboBox5);
-            this.panel10.Location = new System.Drawing.Point(37, 129);
-            this.panel10.Margin = new System.Windows.Forms.Padding(4);
-            this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(691, 259);
-            this.panel10.TabIndex = 1;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(23, 194);
-            this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(110, 17);
-            this.label14.TabIndex = 14;
-            this.label14.Text = "MAX OF GUESTS";
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(25, 215);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(216, 25);
-            this.textBox3.TabIndex = 13;
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(336, 126);
-            this.label16.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(98, 17);
-            this.label16.TabIndex = 10;
-            this.label16.Text = "ROOM STATUS";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(23, 126);
-            this.label17.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(87, 17);
-            this.label17.TabIndex = 9;
-            this.label17.Text = "ROOM PRICE";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(336, 51);
-            this.label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(83, 17);
-            this.label18.TabIndex = 8;
-            this.label18.Text = "ROOM TYPE";
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(25, 147);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(216, 25);
-            this.textBox2.TabIndex = 6;
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(26, 72);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(215, 25);
-            this.textBox4.TabIndex = 5;
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.BackColor = System.Drawing.Color.Transparent;
-            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.ForeColor = System.Drawing.Color.Black;
-            this.label19.Location = new System.Drawing.Point(23, 21);
-            this.label19.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(160, 16);
-            this.label19.TabIndex = 4;
-            this.label19.Text = "ROOM INFORMATION";
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(23, 54);
-            this.label20.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(79, 17);
-            this.label20.TabIndex = 3;
-            this.label20.Text = "ROOM NO. ";
-            // 
-            // comboBox3
-            // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Items.AddRange(new object[] {
-            "Available",
-            "Occupied",
-            "Maintenance"});
-            this.comboBox3.Location = new System.Drawing.Point(339, 147);
-            this.comboBox3.Margin = new System.Windows.Forms.Padding(4);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(272, 25);
-            this.comboBox3.TabIndex = 2;
-            // 
-            // comboBox5
-            // 
-            this.comboBox5.FormattingEnabled = true;
-            this.comboBox5.Items.AddRange(new object[] {
-            "Standard Room",
-            "Suite Room",
-            "Executive Room",
-            "Deluxe Room"});
-            this.comboBox5.Location = new System.Drawing.Point(339, 72);
-            this.comboBox5.Margin = new System.Windows.Forms.Padding(4);
-            this.comboBox5.Name = "comboBox5";
-            this.comboBox5.Size = new System.Drawing.Size(272, 25);
-            this.comboBox5.TabIndex = 0;
-            // 
-            // panel11
-            // 
-            this.panel11.Controls.Add(this.pictureBox7);
-            this.panel11.Location = new System.Drawing.Point(37, 15);
-            this.panel11.Margin = new System.Windows.Forms.Padding(4);
-            this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(691, 105);
-            this.panel11.TabIndex = 0;
-            // 
-            // pictureBox7
-            // 
-            this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
-            this.pictureBox7.Location = new System.Drawing.Point(3, 3);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(688, 99);
-            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox7.TabIndex = 1;
-            this.pictureBox7.TabStop = false;
-            // 
             // tbpViewRooms
             // 
             this.tbpViewRooms.Controls.Add(this.panel1);
@@ -466,7 +208,7 @@
             this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
             this.pictureBox6.Location = new System.Drawing.Point(25, 170);
             this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(919, 435);
+            this.pictureBox6.Size = new System.Drawing.Size(936, 435);
             this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox6.TabIndex = 7;
             this.pictureBox6.TabStop = false;
@@ -477,7 +219,7 @@
             this.panel3.Controls.Add(this.tableLayoutPanel1);
             this.panel3.Location = new System.Drawing.Point(25, 30);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1085, 134);
+            this.panel3.Size = new System.Drawing.Size(936, 134);
             this.panel3.TabIndex = 6;
             // 
             // tableLayoutPanel1
@@ -662,14 +404,14 @@
             this.label2.TabIndex = 13;
             this.label2.Text = "AVAILABLE ROOMS";
             // 
-            // button1
+            // tbcViewRooms
             // 
-            this.button1.Location = new System.Drawing.Point(602, 12);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 33);
-            this.button1.TabIndex = 15;
-            this.button1.Text = "Back";
-            this.button1.UseVisualStyleBackColor = true;
+            this.tbcViewRooms.Controls.Add(this.tbpViewRooms);
+            this.tbcViewRooms.Location = new System.Drawing.Point(3, 2);
+            this.tbcViewRooms.Name = "tbcViewRooms";
+            this.tbcViewRooms.SelectedIndex = 0;
+            this.tbcViewRooms.Size = new System.Drawing.Size(1272, 860);
+            this.tbcViewRooms.TabIndex = 0;
             // 
             // RoomManagementForm
             // 
@@ -692,16 +434,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.fKRoomAssiHotel1B5E0D89BindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.hotelRoomBindingSource2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.codeCraftersDSTWOBindingSource)).EndInit();
-            this.tbcViewRooms.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            this.panel8.ResumeLayout(false);
-            this.panel9.ResumeLayout(false);
-            this.panel9.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.panel10.ResumeLayout(false);
-            this.panel10.PerformLayout();
-            this.panel11.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             this.tbpViewRooms.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
@@ -719,6 +451,7 @@
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            this.tbcViewRooms.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -742,48 +475,27 @@
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.ComponentModel.BackgroundWorker backgroundWorker2;
         private System.Windows.Forms.BindingSource codeCraftersDSTWOBindingSource;
-        private System.Windows.Forms.TabControl tbcViewRooms;
-        private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tbpViewRooms;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.PictureBox pictureBox5;
+        private System.Windows.Forms.Label lblRoomsUnderMaintenance;
+        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label lblTotalRooms;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Label lblOccupiedRooms;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.Label lblRoomsUnderMaintenance;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Label lblAvailableRooms;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Panel panel9;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Panel panel10;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.ComboBox comboBox5;
-        private System.Windows.Forms.Panel panel11;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.PictureBox pictureBox5;
-        private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.PictureBox pictureBox6;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.PictureBox pictureBox7;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TabControl tbcViewRooms;
     }
 }

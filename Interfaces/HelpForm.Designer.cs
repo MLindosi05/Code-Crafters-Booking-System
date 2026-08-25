@@ -33,14 +33,14 @@
             this.txtSearchHelp = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnContactSupport
@@ -95,6 +95,25 @@
             this.panel1.Size = new System.Drawing.Size(1580, 862);
             this.panel1.TabIndex = 13;
             // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.pictureBox3);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel4.Location = new System.Drawing.Point(0, 0);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(1580, 99);
+            this.panel4.TabIndex = 26;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = global::Code_Crafters_Interface_Prototype_1.Properties.Resources.Gemini_Generated_Image_ts86ldts86ldts86;
+            this.pictureBox3.Location = new System.Drawing.Point(899, 0);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(229, 98);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 11;
+            this.pictureBox3.TabStop = false;
+            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.label1);
@@ -118,25 +137,6 @@
             this.label1.TabIndex = 12;
             this.label1.Text = "How can we help?";
             // 
-            // panel4
-            // 
-            this.panel4.Controls.Add(this.pictureBox3);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel4.Location = new System.Drawing.Point(0, 0);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1580, 99);
-            this.panel4.TabIndex = 26;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = global::Code_Crafters_Interface_Prototype_1.Properties.Resources.Gemini_Generated_Image_ts86ldts86ldts86;
-            this.pictureBox3.Location = new System.Drawing.Point(899, 0);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(229, 98);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 11;
-            this.pictureBox3.TabStop = false;
-            // 
             // HelpForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -144,13 +144,13 @@
             this.ClientSize = new System.Drawing.Size(1580, 862);
             this.Controls.Add(this.panel1);
             this.Name = "HelpForm";
-            this.Text = "HelpForm";
+            this.Text = "REGAL INN HELP ";
             this.Load += new System.EventHandler(this.HelpForm_Load);
             this.panel1.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
             this.panel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
