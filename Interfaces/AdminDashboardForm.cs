@@ -368,5 +368,10 @@ namespace Code_Crafters_Interface_Prototype_1.Interfaces
             chart2.Series["Series1"].Points[p3].Color = Color.FromArgb(100, 180, 100); // Soft Green (distinct from pending/white)
             chart2.Series["Series1"].Points[p4].Color = Color.FromArgb(220, 120, 200); // Distinct Pink/Purple tone for Pending
         }
+
+        private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
