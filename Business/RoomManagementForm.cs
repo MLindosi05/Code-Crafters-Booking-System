@@ -16,6 +16,7 @@ namespace Code_Crafters_Interface_Prototype_1.Business
         private void RoomManagementForm_Load(object sender, EventArgs e)
         {   // Main form background
             this.BackColor = Color.FromArgb(247, 243, 234);
+            panel1.BackColor = Color.FromArgb(15, 42, 74);
 
             //// Clear button
             //btnClear.BackColor = Color.FromArgb(232, 223, 207);
