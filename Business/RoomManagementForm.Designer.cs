@@ -182,6 +182,7 @@
             // 
             // tbpViewRooms
             // 
+            this.tbpViewRooms.BackColor = System.Drawing.Color.LightGray;
             this.tbpViewRooms.Controls.Add(this.panel1);
             this.tbpViewRooms.Location = new System.Drawing.Point(4, 26);
             this.tbpViewRooms.Name = "tbpViewRooms";
@@ -189,7 +190,6 @@
             this.tbpViewRooms.Size = new System.Drawing.Size(1264, 830);
             this.tbpViewRooms.TabIndex = 1;
             this.tbpViewRooms.Text = "VIEW ROOMS";
-            this.tbpViewRooms.UseVisualStyleBackColor = true;
             this.tbpViewRooms.Click += new System.EventHandler(this.tbpViewRooms_Click);
             // 
             // panel1
@@ -197,16 +197,16 @@
             this.panel1.Controls.Add(this.pictureBox6);
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel1.Location = new System.Drawing.Point(84, 34);
+            this.panel1.Location = new System.Drawing.Point(76, 34);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1113, 656);
+            this.panel1.Size = new System.Drawing.Size(1121, 702);
             this.panel1.TabIndex = 2;
             // 
             // pictureBox6
             // 
             this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
-            this.pictureBox6.Location = new System.Drawing.Point(25, 170);
+            this.pictureBox6.Location = new System.Drawing.Point(87, 170);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(936, 435);
             this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -217,7 +217,7 @@
             // 
             this.panel3.BackColor = System.Drawing.Color.White;
             this.panel3.Controls.Add(this.tableLayoutPanel1);
-            this.panel3.Location = new System.Drawing.Point(25, 30);
+            this.panel3.Location = new System.Drawing.Point(87, 30);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(936, 134);
             this.panel3.TabIndex = 6;
