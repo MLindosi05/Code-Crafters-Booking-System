@@ -25,21 +25,56 @@ namespace Code_Crafters_Interface_Prototype_1.Business
 
         private void BookingManagement_Load(object sender, EventArgs e)
         {
+
+            InitializePlaceholder();
+
+            
+            btnRoomOneBook.Click += btnRoomOneBook_Click;
+            btnRoomTwoBook.Click += btnRoomTwoBook_Click;
+            btnRoomThreeBook.Click += btnRoomThreeBook_Click;
+            btnRoomFourBook.Click += btnRoomFourBook_Click;
+            btnRoomFiveBook.Click += btnRoomFiveBook_Click;
+            btnRoomSixBook.Click += btnRoomSixBook_Click;
+
+            btnCheckAvailability.Click += btnCheckAvailability_Click;
+            btnRefresh.Click += btnRefresh_Click;
+
             InitializeDropdowns();
             SetInitialDates();
             RefreshDataSilent();
             UpdateRoomAndBookingStatuses();
             InitializePlaceholder();
 
-            btnCheckAvailability.BackColor = Color.FromArgb(243, 166, 35); // Warm golden-orange tone
-            btnCheckAvailability.ForeColor = Color.White;                    // Bold white text
-            btnCheckAvailability.FlatStyle = FlatStyle.Flat;               // Removes the 3D button bevel
-            btnCheckAvailability.FlatAppearance.BorderSize = 0;             // Removes the border outline                 
+            // Styled to match your signature Gold/Bronze accent color
+            btnCheckAvailability.BackColor = Color.FromArgb(184, 134, 11);
+            btnCheckAvailability.ForeColor = Color.White;
+            btnCheckAvailability.FlatStyle = FlatStyle.Flat;
+            btnCheckAvailability.FlatAppearance.BorderSize = 0;
 
             codeCraftersDSTWO.EnforceConstraints = false;
             taClientBranchTableBooking.Fill(codeCraftersDSTWO.ClientBranchTableBooking);
-      
+
             PerformAvailabilityCheck();
+
+            // Header and Navigation Theme (Deep Navy & Dark Navy)
+            panel1.BackColor = Color.FromArgb(15, 42, 74);
+            tabPage1.BackColor = Color.FromArgb(10, 25, 47);
+            pnlViewBookings.BackColor = Color.FromArgb(15, 42, 74);
+            tabPage2.BackColor = Color.FromArgb(10, 25, 47);
+            tabPage3.BackColor = Color.FromArgb(10, 25, 47);
+
+            pnlBooking.BackColor = Color.FromArgb(15, 42, 74);
+            panel20.BackColor = Color.FromArgb(15, 42, 74);
+
+            // Unified Light Cream Card Containers matching your booking layouts (#FAF3DD)
+            panel5.BackColor = Color.FromArgb(250, 243, 221);
+            panel10.BackColor = Color.FromArgb(250, 243, 221);
+            panel11.BackColor = Color.FromArgb(250, 243, 221);
+            panel18.BackColor = Color.FromArgb(250, 243, 221);
+            panel6.BackColor = Color.FromArgb(250, 243, 221);
+            panel3.BackColor = Color.FromArgb(250, 243, 221);
+            panel16.BackColor = Color.FromArgb(250, 243, 221);
+            panel17.BackColor = Color.FromArgb(250, 243, 221);
         }
 
         private void InitializeDropdowns()
@@ -957,5 +992,14 @@ namespace Code_Crafters_Interface_Prototype_1.Business
                 }
             }
         }
+
+        private void btnRoomTwoBook_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        
+
+        
     }
 }

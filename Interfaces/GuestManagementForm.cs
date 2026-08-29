@@ -3,6 +3,7 @@ using Code_Crafters_Interface_Prototype_1.Interfaces;
 using System;
 using System.Data;
 using System.Data.SqlClient;
+using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -29,6 +30,23 @@ namespace Code_Crafters_Booking_System
             txtSearchEmail.TextChanged += txtSearchEmail_TextChanged_1;
 
             LoadGuestsData();
+
+            panel9.BackColor = Color.FromArgb(15, 42, 74);   // Dark Navy Header/Accent
+            panel7.BackColor = Color.FromArgb(15, 42, 74);
+            panel5.BackColor = Color.FromArgb(15, 42, 74);
+            panel2.BackColor = Color.FromArgb(15, 42, 74);   
+
+            panel3.BackColor = Color.FromArgb(10, 25, 47);   // Deep Navy Background         
+            panel8.BackColor = Color.FromArgb(10, 25, 47);
+            panel10.BackColor = Color.FromArgb(10, 25, 47);
+
+            Color goldColor = Color.FromArgb(212, 175, 55);
+            label1.ForeColor = goldColor;
+            label4.ForeColor = goldColor;
+            label6.ForeColor = goldColor;
+            label7.ForeColor = goldColor;
+            label5.ForeColor = goldColor;
+
         }
 
         private void ApplyTheme()
@@ -42,9 +60,6 @@ namespace Code_Crafters_Booking_System
 
             ButtonStyler.Apply(btnBlackList);
             ButtonStyler.Apply(btnArchive);
-
-            groupBox4.BackColor = System.Drawing.Color.FromArgb(30, 42, 58);
-            groupBox4.ForeColor = System.Drawing.Color.White;
 
             ConfigureDataGridViewTheme();
         }
