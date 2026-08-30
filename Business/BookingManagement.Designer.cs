@@ -27,7 +27,7 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.btnCheckAvailability = new System.Windows.Forms.Button();
             this.panel16 = new System.Windows.Forms.Panel();
-            this.button15 = new System.Windows.Forms.Button();
+            this.btnAmenitiesSix = new System.Windows.Forms.Button();
             this.btnRoomSixBook = new System.Windows.Forms.Button();
             this.label27 = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
@@ -36,7 +36,7 @@
             this.label31 = new System.Windows.Forms.Label();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.panel11 = new System.Windows.Forms.Panel();
-            this.button12 = new System.Windows.Forms.Button();
+            this.btnAmenitiesThree = new System.Windows.Forms.Button();
             this.btnRoomThreeBook = new System.Windows.Forms.Button();
             this.label22 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
@@ -45,7 +45,7 @@
             this.label26 = new System.Windows.Forms.Label();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.panel17 = new System.Windows.Forms.Panel();
-            this.button14 = new System.Windows.Forms.Button();
+            this.btnAmenitiesFive = new System.Windows.Forms.Button();
             this.btnRoomFiveBook = new System.Windows.Forms.Button();
             this.label32 = new System.Windows.Forms.Label();
             this.label33 = new System.Windows.Forms.Label();
@@ -54,7 +54,7 @@
             this.label36 = new System.Windows.Forms.Label();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.panel18 = new System.Windows.Forms.Panel();
-            this.button13 = new System.Windows.Forms.Button();
+            this.btnAmenitiesFour = new System.Windows.Forms.Button();
             this.btnRoomFourBook = new System.Windows.Forms.Button();
             this.label37 = new System.Windows.Forms.Label();
             this.label38 = new System.Windows.Forms.Label();
@@ -63,7 +63,7 @@
             this.label41 = new System.Windows.Forms.Label();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.panel10 = new System.Windows.Forms.Panel();
-            this.button11 = new System.Windows.Forms.Button();
+            this.btnAmenitiesTwo = new System.Windows.Forms.Button();
             this.btnRoomTwoBook = new System.Windows.Forms.Button();
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
@@ -72,7 +72,7 @@
             this.label19 = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.button10 = new System.Windows.Forms.Button();
+            this.btnAmenitiesOne = new System.Windows.Forms.Button();
             this.btnRoomOneBook = new System.Windows.Forms.Button();
             this.label14 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
@@ -284,7 +284,7 @@
             // 
             // panel16
             // 
-            this.panel16.Controls.Add(this.button15);
+            this.panel16.Controls.Add(this.btnAmenitiesSix);
             this.panel16.Controls.Add(this.btnRoomSixBook);
             this.panel16.Controls.Add(this.label27);
             this.panel16.Controls.Add(this.label28);
@@ -297,15 +297,16 @@
             this.panel16.Size = new System.Drawing.Size(282, 379);
             this.panel16.TabIndex = 9;
             // 
-            // button15
+            // btnAmenitiesSix
             // 
-            this.button15.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button15.Location = new System.Drawing.Point(16, 334);
-            this.button15.Name = "button15";
-            this.button15.Size = new System.Drawing.Size(87, 27);
-            this.button15.TabIndex = 10;
-            this.button15.Text = "AMENITIES";
-            this.button15.UseVisualStyleBackColor = true;
+            this.btnAmenitiesSix.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAmenitiesSix.Location = new System.Drawing.Point(16, 334);
+            this.btnAmenitiesSix.Name = "btnAmenitiesSix";
+            this.btnAmenitiesSix.Size = new System.Drawing.Size(87, 27);
+            this.btnAmenitiesSix.TabIndex = 10;
+            this.btnAmenitiesSix.Text = "AMENITIES";
+            this.btnAmenitiesSix.UseVisualStyleBackColor = true;
+            this.btnAmenitiesSix.Click += new System.EventHandler(this.btnAmenitiesSix_Click);
             // 
             // btnRoomSixBook
             // 
@@ -377,7 +378,7 @@
             // 
             // panel11
             // 
-            this.panel11.Controls.Add(this.button12);
+            this.panel11.Controls.Add(this.btnAmenitiesThree);
             this.panel11.Controls.Add(this.btnRoomThreeBook);
             this.panel11.Controls.Add(this.label22);
             this.panel11.Controls.Add(this.label23);
@@ -390,15 +391,16 @@
             this.panel11.Size = new System.Drawing.Size(282, 371);
             this.panel11.TabIndex = 2;
             // 
-            // button12
+            // btnAmenitiesThree
             // 
-            this.button12.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button12.Location = new System.Drawing.Point(16, 332);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(87, 27);
-            this.button12.TabIndex = 8;
-            this.button12.Text = "AMENITIES";
-            this.button12.UseVisualStyleBackColor = true;
+            this.btnAmenitiesThree.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAmenitiesThree.Location = new System.Drawing.Point(16, 332);
+            this.btnAmenitiesThree.Name = "btnAmenitiesThree";
+            this.btnAmenitiesThree.Size = new System.Drawing.Size(87, 27);
+            this.btnAmenitiesThree.TabIndex = 8;
+            this.btnAmenitiesThree.Text = "AMENITIES";
+            this.btnAmenitiesThree.UseVisualStyleBackColor = true;
+            this.btnAmenitiesThree.Click += new System.EventHandler(this.btnAmenitiesThree_Click);
             // 
             // btnRoomThreeBook
             // 
@@ -470,7 +472,7 @@
             // 
             // panel17
             // 
-            this.panel17.Controls.Add(this.button14);
+            this.panel17.Controls.Add(this.btnAmenitiesFive);
             this.panel17.Controls.Add(this.btnRoomFiveBook);
             this.panel17.Controls.Add(this.label32);
             this.panel17.Controls.Add(this.label33);
@@ -483,15 +485,16 @@
             this.panel17.Size = new System.Drawing.Size(238, 379);
             this.panel17.TabIndex = 8;
             // 
-            // button14
+            // btnAmenitiesFive
             // 
-            this.button14.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button14.Location = new System.Drawing.Point(16, 334);
-            this.button14.Name = "button14";
-            this.button14.Size = new System.Drawing.Size(87, 27);
-            this.button14.TabIndex = 10;
-            this.button14.Text = "AMENITIES";
-            this.button14.UseVisualStyleBackColor = true;
+            this.btnAmenitiesFive.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAmenitiesFive.Location = new System.Drawing.Point(16, 334);
+            this.btnAmenitiesFive.Name = "btnAmenitiesFive";
+            this.btnAmenitiesFive.Size = new System.Drawing.Size(87, 27);
+            this.btnAmenitiesFive.TabIndex = 10;
+            this.btnAmenitiesFive.Text = "AMENITIES";
+            this.btnAmenitiesFive.UseVisualStyleBackColor = true;
+            this.btnAmenitiesFive.Click += new System.EventHandler(this.btnAmenitiesFive_Click);
             // 
             // btnRoomFiveBook
             // 
@@ -563,7 +566,7 @@
             // 
             // panel18
             // 
-            this.panel18.Controls.Add(this.button13);
+            this.panel18.Controls.Add(this.btnAmenitiesFour);
             this.panel18.Controls.Add(this.btnRoomFourBook);
             this.panel18.Controls.Add(this.label37);
             this.panel18.Controls.Add(this.label38);
@@ -576,15 +579,16 @@
             this.panel18.Size = new System.Drawing.Size(255, 379);
             this.panel18.TabIndex = 7;
             // 
-            // button13
+            // btnAmenitiesFour
             // 
-            this.button13.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button13.Location = new System.Drawing.Point(19, 334);
-            this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(84, 27);
-            this.button13.TabIndex = 10;
-            this.button13.Text = "AMENITIES";
-            this.button13.UseVisualStyleBackColor = true;
+            this.btnAmenitiesFour.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAmenitiesFour.Location = new System.Drawing.Point(19, 334);
+            this.btnAmenitiesFour.Name = "btnAmenitiesFour";
+            this.btnAmenitiesFour.Size = new System.Drawing.Size(84, 27);
+            this.btnAmenitiesFour.TabIndex = 10;
+            this.btnAmenitiesFour.Text = "AMENITIES";
+            this.btnAmenitiesFour.UseVisualStyleBackColor = true;
+            this.btnAmenitiesFour.Click += new System.EventHandler(this.btnAmenitiesFour_Click);
             // 
             // btnRoomFourBook
             // 
@@ -656,7 +660,7 @@
             // 
             // panel10
             // 
-            this.panel10.Controls.Add(this.button11);
+            this.panel10.Controls.Add(this.btnAmenitiesTwo);
             this.panel10.Controls.Add(this.btnRoomTwoBook);
             this.panel10.Controls.Add(this.label15);
             this.panel10.Controls.Add(this.label16);
@@ -669,15 +673,16 @@
             this.panel10.Size = new System.Drawing.Size(238, 371);
             this.panel10.TabIndex = 1;
             // 
-            // button11
+            // btnAmenitiesTwo
             // 
-            this.button11.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button11.Location = new System.Drawing.Point(16, 332);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(85, 27);
-            this.button11.TabIndex = 8;
-            this.button11.Text = "AMENITIES";
-            this.button11.UseVisualStyleBackColor = true;
+            this.btnAmenitiesTwo.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAmenitiesTwo.Location = new System.Drawing.Point(16, 332);
+            this.btnAmenitiesTwo.Name = "btnAmenitiesTwo";
+            this.btnAmenitiesTwo.Size = new System.Drawing.Size(85, 27);
+            this.btnAmenitiesTwo.TabIndex = 8;
+            this.btnAmenitiesTwo.Text = "AMENITIES";
+            this.btnAmenitiesTwo.UseVisualStyleBackColor = true;
+            this.btnAmenitiesTwo.Click += new System.EventHandler(this.btnAmenitiesTwo_Click);
             // 
             // btnRoomTwoBook
             // 
@@ -687,7 +692,6 @@
             this.btnRoomTwoBook.TabIndex = 6;
             this.btnRoomTwoBook.Text = "BOOK NOW";
             this.btnRoomTwoBook.UseVisualStyleBackColor = true;
-            this.btnRoomTwoBook.Click += new System.EventHandler(this.btnRoomTwoBook_Click_1);
             // 
             // label15
             // 
@@ -750,7 +754,7 @@
             // 
             // panel5
             // 
-            this.panel5.Controls.Add(this.button10);
+            this.panel5.Controls.Add(this.btnAmenitiesOne);
             this.panel5.Controls.Add(this.btnRoomOneBook);
             this.panel5.Controls.Add(this.label14);
             this.panel5.Controls.Add(this.label11);
@@ -763,15 +767,16 @@
             this.panel5.Size = new System.Drawing.Size(255, 371);
             this.panel5.TabIndex = 0;
             // 
-            // button10
+            // btnAmenitiesOne
             // 
-            this.button10.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button10.Location = new System.Drawing.Point(16, 332);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(87, 27);
-            this.button10.TabIndex = 7;
-            this.button10.Text = "AMENITIES";
-            this.button10.UseVisualStyleBackColor = true;
+            this.btnAmenitiesOne.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAmenitiesOne.Location = new System.Drawing.Point(16, 332);
+            this.btnAmenitiesOne.Name = "btnAmenitiesOne";
+            this.btnAmenitiesOne.Size = new System.Drawing.Size(87, 27);
+            this.btnAmenitiesOne.TabIndex = 7;
+            this.btnAmenitiesOne.Text = "AMENITIES";
+            this.btnAmenitiesOne.UseVisualStyleBackColor = true;
+            this.btnAmenitiesOne.Click += new System.EventHandler(this.btnAmenitiesOne_Click);
             // 
             // btnRoomOneBook
             // 
@@ -1687,7 +1692,7 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Button btnCheckAvailability;
         private System.Windows.Forms.Panel panel16;
-        private System.Windows.Forms.Button button15;
+        private System.Windows.Forms.Button btnAmenitiesSix;
         private System.Windows.Forms.Button btnRoomSixBook;
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Label label28;
@@ -1696,7 +1701,7 @@
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.Panel panel11;
-        private System.Windows.Forms.Button button12;
+        private System.Windows.Forms.Button btnAmenitiesThree;
         private System.Windows.Forms.Button btnRoomThreeBook;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label23;
@@ -1705,7 +1710,7 @@
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Panel panel17;
-        private System.Windows.Forms.Button button14;
+        private System.Windows.Forms.Button btnAmenitiesFive;
         private System.Windows.Forms.Button btnRoomFiveBook;
         private System.Windows.Forms.Label label32;
         private System.Windows.Forms.Label label33;
@@ -1714,7 +1719,7 @@
         private System.Windows.Forms.Label label36;
         private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.Panel panel18;
-        private System.Windows.Forms.Button button13;
+        private System.Windows.Forms.Button btnAmenitiesFour;
         private System.Windows.Forms.Button btnRoomFourBook;
         private System.Windows.Forms.Label label37;
         private System.Windows.Forms.Label label38;
@@ -1723,7 +1728,7 @@
         private System.Windows.Forms.Label label41;
         private System.Windows.Forms.PictureBox pictureBox7;
         private System.Windows.Forms.Panel panel10;
-        private System.Windows.Forms.Button button11;
+        private System.Windows.Forms.Button btnAmenitiesTwo;
         private System.Windows.Forms.Button btnRoomTwoBook;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label16;
@@ -1732,7 +1737,7 @@
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.Button btnAmenitiesOne;
         private System.Windows.Forms.Button btnRoomOneBook;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label11;

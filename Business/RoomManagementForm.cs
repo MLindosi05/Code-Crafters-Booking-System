@@ -110,7 +110,10 @@ namespace Code_Crafters_Interface_Prototype_1.Business
 
         }
 
-        
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+
+        }
     }
     
 }

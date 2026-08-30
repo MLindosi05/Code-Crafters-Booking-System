@@ -804,10 +804,39 @@ namespace Code_Crafters_Interface_Prototype_1.Business
             int bookingID = GetSelectedBookingID();
             if (bookingID == -1) return;
 
-            var confirm = MessageBox.Show($"Are you sure you want to cancel Booking ID {bookingID}?", "Confirm Cancellation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (confirm == DialogResult.Yes)
+            // Check current status of the selected booking to prevent canceling completed/already cancelled bookings
+            try
             {
-                try
+                string currentStatus = string.Empty;
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    string statusQuery = "SELECT Booking_Status FROM Booking WHERE Booking_ID = @BookingID";
+                    using (SqlCommand cmdStatus = new SqlCommand(statusQuery, conn))
+                    {
+                        cmdStatus.Parameters.AddWithValue("@BookingID", bookingID);
+                        object result = cmdStatus.ExecuteScalar();
+                        if (result != null && result != DBNull.Value)
+                        {
+                            currentStatus = result.ToString().Trim();
+                        }
+                    }
+                }
+
+                if (string.Equals(currentStatus, "Completed", StringComparison.OrdinalIgnoreCase))
+                {
+                    MessageBox.Show("CANNOT cancel a booking that is 'Completed'", "INVALID ACTIONS", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                if (string.Equals(currentStatus, "Cancelled", StringComparison.OrdinalIgnoreCase))
+                {
+                    MessageBox.Show("This booking has already been cancelled.", "Already Cancelled", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+
+                var confirm = MessageBox.Show($"Are you sure you want to cancel Booking ID {bookingID}?", "Confirm Cancellation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (confirm == DialogResult.Yes)
                 {
                     decimal totalAmount = 0m;
 
@@ -832,14 +861,14 @@ namespace Code_Crafters_Interface_Prototype_1.Business
                         string adminNotes = $"Standard 15% cancellation fee applied. Total: {totalAmount:C}, Penalty: {penaltyAmount:C}, Refund: {refundAmount:C}";
 
                         string updateQuery = @"
-                    UPDATE Booking 
-                    SET Booking_Status = 'Cancelled',
-                        Cancellation_Date = GETDATE(),
-                        Cancellation_Reason = @Reason,
-                        Admin_Notes = @Notes,
-                        Penalty_Amount = @Penalty,
-                        Credit_Amount = @Credit
-                    WHERE Booking_ID = @BookingID";
+                UPDATE Booking 
+                SET Booking_Status = 'Cancelled',
+                    Cancellation_Date = GETDATE(),
+                    Cancellation_Reason = @Reason,
+                    Admin_Notes = @Notes,
+                    Penalty_Amount = @Penalty,
+                    Credit_Amount = @Credit
+                WHERE Booking_ID = @BookingID";
 
                         using (SqlCommand cmdUpdate = new SqlCommand(updateQuery, conn))
                         {
@@ -862,10 +891,10 @@ namespace Code_Crafters_Interface_Prototype_1.Business
                     this.taClientBranchTableBooking.Fill(this.codeCraftersDSTWO.ClientBranchTableBooking);
                     PerformAvailabilityCheck();
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"An error occurred while cancelling the booking: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred while cancelling the booking: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -874,28 +903,194 @@ namespace Code_Crafters_Interface_Prototype_1.Business
             int bookingID = GetSelectedBookingID();
             if (bookingID == -1) return;
 
-            DataRowView selectedRow = dataGridView1.SelectedRows.Count > 0 ?
-                dataGridView1.SelectedRows[0].DataBoundItem as DataRowView :
-                (dataGridView1.SelectedCells.Count > 0 ? dataGridView1.Rows[dataGridView1.SelectedCells[0].RowIndex].DataBoundItem as DataRowView : null);
-
-            if (selectedRow != null)
-            {
-                string status = selectedRow["Booking_Status"]?.ToString();
-                if (status == "Cancelled" || status == "Completed")
-                {
-                    MessageBox.Show($"Cannot reschedule a booking with status '{status}'.", "Invalid Action", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-            }
+            // Retrieve booking details to validate status and fetch current dates/amount
+            string currentStatus = string.Empty;
+            string branchID = string.Empty;
+            string bookingType = string.Empty;
+            DateTime currentCheckIn = DateTime.Today;
+            DateTime currentCheckOut = DateTime.Today.AddDays(1);
+            decimal currentTotalAmount = 0m;
 
             try
             {
-                MessageBox.Show($"Reschedule module invoked for Booking ID: {bookingID}.", "Reschedule", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    string query = "SELECT Booking_Status, Branch_ID, Booking_Type, Checkin_Date, Checkout_Date, Booking_Total_Amount FROM Booking WHERE Booking_ID = @BookingID";
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@BookingID", bookingID);
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                currentStatus = reader["Booking_Status"]?.ToString().Trim();
+                                branchID = reader["Branch_ID"]?.ToString().Trim();
+                                bookingType = reader["Booking_Type"]?.ToString().Trim();
+                                currentCheckIn = Convert.ToDateTime(reader["Checkin_Date"]);
+                                currentCheckOut = Convert.ToDateTime(reader["Checkout_Date"]);
+                                currentTotalAmount = Convert.ToDecimal(reader["Booking_Total_Amount"]);
+                            }
+                        }
+                    }
+                }
+
+                if (string.Equals(currentStatus, "Cancelled", StringComparison.OrdinalIgnoreCase) ||
+                    string.Equals(currentStatus, "Completed", StringComparison.OrdinalIgnoreCase))
+                {
+                    MessageBox.Show($"Cannot reschedule a booking with status '{currentStatus}'.", "Invalid Action", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                // Open the Reschedule Dialog to pick new dates
+                using (RescheduleDialog rescheduleForm = new RescheduleDialog(currentCheckIn, currentCheckOut))
+                {
+                    if (rescheduleForm.ShowDialog() == DialogResult.OK)
+                    {
+                        DateTime newCheckIn = rescheduleForm.NewCheckIn.Date.Add(StandardCheckInTime);
+                        DateTime newCheckOut = rescheduleForm.NewCheckOut.Date.Add(StandardCheckOutTime);
+
+                        if (newCheckOut <= newCheckIn)
+                        {
+                            MessageBox.Show("New check-out date must be after the check-in date.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            return;
+                        }
+
+                        int roomNumber = ExtractRoomNumberFromBookingType(bookingType);
+                        if (roomNumber > 0)
+                        {
+                            // Check if the room is available for the new dates (excluding current booking ID)
+                            if (IsRoomBookedForDatesExcludingCurrent(branchID, roomNumber, newCheckIn, newCheckOut, bookingID))
+                            {
+                                MessageBox.Show("The assigned room is already booked for the newly selected dates. Please choose different dates.", "Room Unavailable", MessageBoxButtons.OK, MessageBoxIcon.Warning); return;
+                            }
+                        }
+
+                        // Calculate nights and nightly rate
+                        int oldNights = (int)(currentCheckOut.Date - currentCheckIn.Date).TotalDays;
+                        if (oldNights <= 0) oldNights = 1;
+                        decimal nightlyRate = currentTotalAmount / oldNights;
+
+                        int newNights = (int)(newCheckOut.Date - newCheckIn.Date).TotalDays;
+                        if (newNights <= 0) newNights = 1;
+                        decimal newTotalAmount = nightlyRate * newNights;
+
+                        decimal difference = newTotalAmount - currentTotalAmount;
+                        string financialSummary = "";
+
+                        using (SqlConnection conn = new SqlConnection(connectionString))
+                        {
+                            conn.Open();
+                            using (SqlTransaction transaction = conn.BeginTransaction())
+                            {
+                                try
+                                {
+                                    if (difference > 0)
+                                    {
+                                        // Extension: Price increases
+                                        financialSummary = $"Booking extended from {oldNights} to {newNights} night(s).\n\n" +
+                                                           $"Previous Total: R {currentTotalAmount:N2}\n" +
+                                                           $"New Total: R {newTotalAmount:N2}\n" +
+                                                           $"Additional Amount Due: R {difference:N2}";
+                                    }
+                                    else if (difference < 0)
+                                    {
+                                        // Reduction: Price decreases, user gets refund with 15% deduction
+                                        decimal decreaseAmount = Math.Abs(difference);
+                                        decimal penaltyFee = decreaseAmount * 0.15m;
+                                        decimal refundAmount = decreaseAmount - penaltyFee;
+
+                                        financialSummary = $"Booking shortened from {oldNights} to {newNights} night(s).\n\n" +
+                                                           $"Previous Total: R {currentTotalAmount:N2}\n" +
+                                                           $"New Total: R {newTotalAmount:N2}\n" +
+                                                           $"Decrease Amount: R {decreaseAmount:N2}\n" +
+                                                           $"15% Deduction Fee: R {penaltyFee:N2}\n" +
+                                                           $"Net Refund / Credit Due: R {refundAmount:N2}";
+                                    }
+                                    else
+                                    {
+                                        financialSummary = $"Dates updated successfully with no change to total duration ({newNights} nights). Total remains R {currentTotalAmount:N2}.";
+                                    }
+
+                                    string updateBookingQuery = @"
+                                UPDATE Booking 
+                                SET Checkin_Date = @CheckIn, 
+                                    Checkout_Date = @CheckOut, 
+                                    Booking_Total_Amount = @NewTotal 
+                                WHERE Booking_ID = @BookingID";
+
+                                    using (SqlCommand cmdUpdate = new SqlCommand(updateBookingQuery, conn, transaction))
+                                    {
+                                        cmdUpdate.Parameters.AddWithValue("@CheckIn", newCheckIn);
+                                        cmdUpdate.Parameters.AddWithValue("@CheckOut", newCheckOut);
+                                        cmdUpdate.Parameters.AddWithValue("@NewTotal", newTotalAmount);
+                                        cmdUpdate.Parameters.AddWithValue("@BookingID", bookingID);
+                                        cmdUpdate.ExecuteNonQuery();
+                                    }
+
+                                    // Also update Room_Assignment dates if applicable
+                                    string updateAssignQuery = @"
+                                UPDATE Room_Assignment 
+                                SET Actual_CheckIn_Time = @CheckIn, 
+                                    Actual_CheckOut_Time = @CheckOut 
+                                WHERE Booking_ID = @BookingID";
+
+                                    using (SqlCommand cmdAssign = new SqlCommand(updateAssignQuery, conn, transaction))
+                                    {
+                                        cmdAssign.Parameters.AddWithValue("@CheckIn", newCheckIn);
+                                        cmdAssign.Parameters.AddWithValue("@CheckOut", newCheckOut);
+                                        cmdAssign.Parameters.AddWithValue("@BookingID", bookingID);
+                                        cmdAssign.ExecuteNonQuery();
+                                    }
+
+                                    transaction.Commit();
+                                }
+                                catch
+                                {
+                                    transaction.Rollback();
+                                    throw;
+                                }
+                            }
+                        }
+
+                        MessageBox.Show(financialSummary, "Reschedule Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        // Refresh dataset bindings & UI
+                        this.taClientBranchTableBooking.Fill(this.codeCraftersDSTWO.ClientBranchTableBooking);
+                        PerformAvailabilityCheck();
+                    }
+                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error processing reschedule request: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Error processing reschedule: {ex.Message}", "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        // Helper method to check availability excluding the current booking being edited
+        private bool IsRoomBookedForDatesExcludingCurrent(string branchID, int roomNumber, DateTime requestedCheckIn, DateTime requestedCheckOut, int excludeBookingID)
+        {
+            if (taBooking != null)
+            {
+                codeCraftersDSTWO.Booking.Clear();
+                taBooking.Fill(codeCraftersDSTWO.Booking);
+            }
+
+            return codeCraftersDSTWO.Booking.AsEnumerable()
+                .Where(b => b.RowState != DataRowState.Deleted &&
+                            b.Booking_ID != excludeBookingID &&
+                            b.Branch_ID?.Trim() == branchID?.Trim() &&
+                            (b.Booking_Status == "Pending" || b.Booking_Status == "Checked-In" || b.Booking_Status == "Booked"))
+                .Any(b =>
+                {
+                    int assignedRoomNo = ExtractRoomNumberFromBookingType(b.Booking_Type);
+                    if (assignedRoomNo != roomNumber) return false;
+
+                    DateTime existingCheckIn = b.Checkin_Date;
+                    DateTime existingCheckOut = b.Checkout_Date;
+
+                    return existingCheckIn < requestedCheckOut && existingCheckOut > requestedCheckIn;
+                });
         }
 
         private void btnViewEdit_Click(object sender, EventArgs e)
@@ -993,13 +1188,82 @@ namespace Code_Crafters_Interface_Prototype_1.Business
             }
         }
 
-        private void btnRoomTwoBook_Click_1(object sender, EventArgs e)
+        private void btnAmenitiesOne_Click(object sender, EventArgs e)
         {
-
+            ShowRoomAmenities("Standard Room 1 King Bed");
         }
 
-        
+        private void btnAmenitiesTwo_Click(object sender, EventArgs e)
+        {
+            ShowRoomAmenities("Suite Room Twin Beds");
+        }
 
-        
+        private void btnAmenitiesThree_Click(object sender, EventArgs e)
+        {
+            ShowRoomAmenities("Suite Room 1 King Bed");
+        }
+
+        private void btnAmenitiesFour_Click(object sender, EventArgs e)
+        {
+            ShowRoomAmenities("Executive Room 1 King Bed");
+        }
+
+        private void btnAmenitiesFive_Click(object sender, EventArgs e)
+        {
+            ShowRoomAmenities("Deluxe Room 1 King Bed");
+        }
+
+        private void btnAmenitiesSix_Click(object sender, EventArgs e)
+        {
+            ShowRoomAmenities("Standard Room 2 Double Beds");
+        }
+
+        private void ShowRoomAmenities(string roomTypeQuery)
+        {
+            string connectionString = "Server=146.230.177.46;Database=GroupPmb2;User Id=GroupPmb2;Password=gg5dc2;TrustServerCertificate=True;";
+
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    string query = @"SELECT TOP 1 hotel_room_type, Hotel_Room_Price, Max_Adults, Max_Children 
+                             FROM dbo.Hotel_Room 
+                             WHERE hotel_room_type LIKE @RoomType";
+
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@RoomType", "%" + roomTypeQuery + "%");
+
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                string type = reader["hotel_room_type"].ToString();
+                                decimal price = reader["Hotel_Room_Price"] != DBNull.Value ? Convert.ToDecimal(reader["Hotel_Room_Price"]) : 0;
+
+                                string message = $"Room Amenities & Details:\n\n" +
+                                                 $"• Type: {type}\n" +
+                                                 $"• Base Price: R{price:N2} per night\n" +
+                                                 $"• High-speed Wi-Fi, Air Conditioning & Flat-Screen TV\n" +
+                                                 $"• Complimentary Mini-Bar & Coffee Station\n" +
+                                                 $"• Access to Optional Dining & Table Allocation Add-ons";
+
+                                MessageBox.Show(message, $"{type} - Amenities", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                            else
+                            {
+                                MessageBox.Show("Standard amenities include: High-speed Wi-Fi, Air Conditioning, 24/7 Room Service, and access to restaurant table reservations.",
+                                                "Room Amenities", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error retrieving amenities: {ex.Message}", "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
     }
 }
