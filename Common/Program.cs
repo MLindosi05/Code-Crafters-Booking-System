@@ -11,16 +11,14 @@ namespace Code_Crafters_Booking_System
 {
     internal static class Program
     {
-        /// <summary>
-        /// The main entry point for the application.
-        /// </summary>
+        
         [STAThread]
         static void Main()
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ManagerDashboardForm());
-            //Application.Run(new Code_Crafters_Interface_Prototype_1.Interfaces.HomeForm());
+            //Application.Run(new RoomManagementForm());
+            Application.Run(new Code_Crafters_Interface_Prototype_1.Interfaces.HomeForm());
 
         }
     }

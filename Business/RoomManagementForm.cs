@@ -15,12 +15,39 @@ namespace Code_Crafters_Interface_Prototype_1.Business
 
         private void RoomManagementForm_Load(object sender, EventArgs e)
         {   // Main form background
+
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.FlatAppearance.BorderSize = 1;
+            button1.FlatAppearance.BorderColor = Color.White;
+            button1.BackColor = Color.FromArgb(235, 130, 43); // Matching orange color
+            button1.ForeColor = Color.White;
+
             this.BackColor = Color.FromArgb(247, 243, 234);
             panel1.BackColor = Color.FromArgb(15, 42, 74);
+            panel2.BackColor = Color.FromArgb(15, 42, 74);
 
-            //// Clear button
-            //btnClear.BackColor = Color.FromArgb(232, 223, 207);
-            //btnClear.ForeColor = Color.FromArgb(74, 50, 24);
+            panel3.BackColor = Color.FromArgb(10, 25, 47);
+            panel8.BackColor = Color.FromArgb(15, 42, 74);
+
+            panel11.BackColor = Color.FromArgb(15, 42, 74);
+            panel12.BackColor = Color.FromArgb(15, 42, 74);
+
+
+
+            tabPage1.BackColor = Color.DarkGray;
+
+            panel5.BackColor = Color.FromArgb(250, 243, 221);
+            panel6.BackColor = Color.FromArgb(250, 243, 221);
+            panel7.BackColor = Color.FromArgb(250, 243, 221);
+            panel4.BackColor = Color.FromArgb(250, 243, 221);
+
+            Color regalGold = Color.FromArgb(212, 175, 55);
+
+            lblOccupiedRooms.ForeColor = regalGold;  
+            lblRoomsUnderMaintenance.ForeColor = regalGold;  
+            lblAvailableRooms.ForeColor = regalGold;
+            lblTotalRooms.ForeColor = regalGold;
+            
             taRoomHotel.Fill(codeCraftersDSTWO.Hotel_Room);
             DataTable dtRooms = codeCraftersDSTWO.Hotel_Room;
 
@@ -79,7 +106,7 @@ namespace Code_Crafters_Interface_Prototype_1.Business
         {
             
             // Main form background
-            this.BackColor = Color.FromArgb(247, 243, 234);
+            //this.BackColor = Color.FromArgb(247, 243, 234);
 
         }
 
