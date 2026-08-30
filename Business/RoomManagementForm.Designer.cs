@@ -60,7 +60,7 @@
             this.panel7 = new System.Windows.Forms.Panel();
             this.lblRoomsUnderMaintenance = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvViewRooms = new System.Windows.Forms.DataGridView();
             this.hotelroomnumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.hotelroomstatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.hotelRoomPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -83,34 +83,31 @@
             this.label11 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel9 = new System.Windows.Forms.Panel();
-            this.comboBox5 = new System.Windows.Forms.ComboBox();
+            this.cmbBranches = new System.Windows.Forms.ComboBox();
             this.label14 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnRoomRefresh = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel10 = new System.Windows.Forms.Panel();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.label17 = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
-            this.comboBox7 = new System.Windows.Forms.ComboBox();
-            this.comboBox6 = new System.Windows.Forms.ComboBox();
+            this.cmbMaxChild = new System.Windows.Forms.ComboBox();
+            this.cmbMaxAdults = new System.Windows.Forms.ComboBox();
             this.label16 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtPricePerNight = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.txtRoomNo = new System.Windows.Forms.TextBox();
+            this.cmbRoomStatus = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.cmbRoomType = new System.Windows.Forms.ComboBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.hotelRoomBindingSource6 = new System.Windows.Forms.BindingSource(this.components);
-            this.fKRoomAssiHotel1B5E0D89BindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.hotelRoomBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+            this.dgvManageRooms = new System.Windows.Forms.DataGridView();
             this.hotelroomnumberDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.hotelroomstatusDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.hotelRoomPriceDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -120,6 +117,9 @@
             this.lastCleanedDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lastOccupiedDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.hotelroomtypeDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.hotelRoomBindingSource6 = new System.Windows.Forms.BindingSource(this.components);
+            this.fKRoomAssiHotel1B5E0D89BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.hotelRoomBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.hotelRoomBindingSource4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.codeCraftersDSTWO)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.hotelRoomBindingSource3)).BeginInit();
@@ -132,7 +132,7 @@
             this.pnlBooking.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvViewRooms)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.hotelRoomBindingSource5)).BeginInit();
             this.panel5.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -144,7 +144,7 @@
             this.panel3.SuspendLayout();
             this.panel10.SuspendLayout();
             this.panel8.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvManageRooms)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.hotelRoomBindingSource6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fKRoomAssiHotel1B5E0D89BindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.hotelRoomBindingSource2)).BeginInit();
@@ -243,7 +243,6 @@
             this.tbpViewRooms.Size = new System.Drawing.Size(1422, 908);
             this.tbpViewRooms.TabIndex = 1;
             this.tbpViewRooms.Text = "VIEW ROOMS";
-            this.tbpViewRooms.Click += new System.EventHandler(this.tbpViewRooms_Click);
             // 
             // panel12
             // 
@@ -273,7 +272,7 @@
             this.panel1.Controls.Add(this.pnlBooking);
             this.panel1.Controls.Add(this.panel4);
             this.panel1.Controls.Add(this.panel7);
-            this.panel1.Controls.Add(this.dataGridView1);
+            this.panel1.Controls.Add(this.dgvViewRooms);
             this.panel1.Controls.Add(this.panel5);
             this.panel1.Controls.Add(this.panel6);
             this.panel1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -353,7 +352,6 @@
             this.btnRefresh.TabIndex = 3;
             this.btnRefresh.Text = "🔄 REFRESH";
             this.btnRefresh.UseVisualStyleBackColor = false;
-            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // panel4
             // 
@@ -415,11 +413,11 @@
             this.label4.TabIndex = 13;
             this.label4.Text = "MAINTENANCE ROOMS";
             // 
-            // dataGridView1
+            // dgvViewRooms
             // 
-            this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvViewRooms.AutoGenerateColumns = false;
+            this.dgvViewRooms.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvViewRooms.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.hotelroomnumberDataGridViewTextBoxColumn,
             this.hotelroomstatusDataGridViewTextBoxColumn,
             this.hotelRoomPriceDataGridViewTextBoxColumn,
@@ -429,11 +427,11 @@
             this.lastCleanedDataGridViewTextBoxColumn,
             this.lastOccupiedDataGridViewTextBoxColumn,
             this.hotelroomtypeDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.hotelRoomBindingSource5;
-            this.dataGridView1.Location = new System.Drawing.Point(87, 318);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(936, 384);
-            this.dataGridView1.TabIndex = 7;
+            this.dgvViewRooms.DataSource = this.hotelRoomBindingSource5;
+            this.dgvViewRooms.Location = new System.Drawing.Point(87, 318);
+            this.dgvViewRooms.Name = "dgvViewRooms";
+            this.dgvViewRooms.Size = new System.Drawing.Size(936, 384);
+            this.dgvViewRooms.TabIndex = 7;
             // 
             // hotelroomnumberDataGridViewTextBoxColumn
             // 
@@ -611,7 +609,7 @@
             // 
             this.panel2.Controls.Add(this.panel9);
             this.panel2.Controls.Add(this.panel3);
-            this.panel2.Controls.Add(this.dataGridView2);
+            this.panel2.Controls.Add(this.dgvManageRooms);
             this.panel2.Location = new System.Drawing.Point(194, 94);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1199, 794);
@@ -620,27 +618,27 @@
             // panel9
             // 
             this.panel9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel9.Controls.Add(this.comboBox5);
+            this.panel9.Controls.Add(this.cmbBranches);
             this.panel9.Controls.Add(this.label14);
-            this.panel9.Controls.Add(this.button2);
+            this.panel9.Controls.Add(this.btnRoomRefresh);
             this.panel9.Location = new System.Drawing.Point(43, 21);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(1129, 70);
             this.panel9.TabIndex = 50;
             // 
-            // comboBox5
+            // cmbBranches
             // 
-            this.comboBox5.FormattingEnabled = true;
-            this.comboBox5.Items.AddRange(new object[] {
+            this.cmbBranches.FormattingEnabled = true;
+            this.cmbBranches.Items.AddRange(new object[] {
             "Pietermaritzburg",
             "Durban Umhlanga",
             "Durban North Beach",
             "Durban Ballito",
             "JHB Midrand"});
-            this.comboBox5.Location = new System.Drawing.Point(160, 24);
-            this.comboBox5.Name = "comboBox5";
-            this.comboBox5.Size = new System.Drawing.Size(160, 25);
-            this.comboBox5.TabIndex = 44;
+            this.cmbBranches.Location = new System.Drawing.Point(160, 24);
+            this.cmbBranches.Name = "cmbBranches";
+            this.cmbBranches.Size = new System.Drawing.Size(160, 25);
+            this.cmbBranches.TabIndex = 44;
             // 
             // label14
             // 
@@ -652,35 +650,36 @@
             this.label14.TabIndex = 4;
             this.label14.Text = "🏨 REGAL INN HOTELS";
             // 
-            // button2
+            // btnRoomRefresh
             // 
-            this.button2.BackColor = System.Drawing.Color.White;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.ForeColor = System.Drawing.Color.Navy;
-            this.button2.Location = new System.Drawing.Point(877, 8);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(216, 45);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "🔄 REFRESH";
-            this.button2.UseVisualStyleBackColor = false;
+            this.btnRoomRefresh.BackColor = System.Drawing.Color.White;
+            this.btnRoomRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRoomRefresh.ForeColor = System.Drawing.Color.Navy;
+            this.btnRoomRefresh.Location = new System.Drawing.Point(877, 8);
+            this.btnRoomRefresh.Name = "btnRoomRefresh";
+            this.btnRoomRefresh.Size = new System.Drawing.Size(216, 45);
+            this.btnRoomRefresh.TabIndex = 3;
+            this.btnRoomRefresh.Text = "🔄 REFRESH";
+            this.btnRoomRefresh.UseVisualStyleBackColor = false;
+            this.btnRoomRefresh.Click += new System.EventHandler(this.btnRoomRefresh_Click);
             // 
             // panel3
             // 
             this.panel3.Controls.Add(this.panel10);
             this.panel3.Controls.Add(this.panel8);
-            this.panel3.Controls.Add(this.comboBox7);
-            this.panel3.Controls.Add(this.comboBox6);
+            this.panel3.Controls.Add(this.cmbMaxChild);
+            this.panel3.Controls.Add(this.cmbMaxAdults);
             this.panel3.Controls.Add(this.label16);
-            this.panel3.Controls.Add(this.textBox2);
+            this.panel3.Controls.Add(this.txtPricePerNight);
             this.panel3.Controls.Add(this.label13);
             this.panel3.Controls.Add(this.label15);
             this.panel3.Controls.Add(this.label10);
-            this.panel3.Controls.Add(this.textBox1);
-            this.panel3.Controls.Add(this.comboBox4);
+            this.panel3.Controls.Add(this.txtRoomNo);
+            this.panel3.Controls.Add(this.cmbRoomStatus);
             this.panel3.Controls.Add(this.label12);
             this.panel3.Controls.Add(this.label8);
             this.panel3.Controls.Add(this.label7);
-            this.panel3.Controls.Add(this.comboBox3);
+            this.panel3.Controls.Add(this.cmbRoomType);
             this.panel3.Controls.Add(this.comboBox2);
             this.panel3.Controls.Add(this.button1);
             this.panel3.Location = new System.Drawing.Point(43, 107);
@@ -748,35 +747,35 @@
             this.label6.TabIndex = 0;
             this.label6.Text = "UPDATE ROOM DETAILS";
             // 
-            // comboBox7
+            // cmbMaxChild
             // 
-            this.comboBox7.FormattingEnabled = true;
-            this.comboBox7.Items.AddRange(new object[] {
+            this.cmbMaxChild.FormattingEnabled = true;
+            this.cmbMaxChild.Items.AddRange(new object[] {
             "1",
             "2",
             "3",
             "4",
             "5",
             "6"});
-            this.comboBox7.Location = new System.Drawing.Point(441, 218);
-            this.comboBox7.Name = "comboBox7";
-            this.comboBox7.Size = new System.Drawing.Size(121, 25);
-            this.comboBox7.TabIndex = 16;
+            this.cmbMaxChild.Location = new System.Drawing.Point(441, 218);
+            this.cmbMaxChild.Name = "cmbMaxChild";
+            this.cmbMaxChild.Size = new System.Drawing.Size(121, 25);
+            this.cmbMaxChild.TabIndex = 16;
             // 
-            // comboBox6
+            // cmbMaxAdults
             // 
-            this.comboBox6.FormattingEnabled = true;
-            this.comboBox6.Items.AddRange(new object[] {
+            this.cmbMaxAdults.FormattingEnabled = true;
+            this.cmbMaxAdults.Items.AddRange(new object[] {
             "1",
             "2",
             "3",
             "4",
             "5",
             "6"});
-            this.comboBox6.Location = new System.Drawing.Point(441, 129);
-            this.comboBox6.Name = "comboBox6";
-            this.comboBox6.Size = new System.Drawing.Size(121, 25);
-            this.comboBox6.TabIndex = 15;
+            this.cmbMaxAdults.Location = new System.Drawing.Point(441, 129);
+            this.cmbMaxAdults.Name = "cmbMaxAdults";
+            this.cmbMaxAdults.Size = new System.Drawing.Size(121, 25);
+            this.cmbMaxAdults.TabIndex = 15;
             // 
             // label16
             // 
@@ -789,12 +788,12 @@
             this.label16.TabIndex = 14;
             this.label16.Text = "MAX CHILD.";
             // 
-            // textBox2
+            // txtPricePerNight
             // 
-            this.textBox2.Location = new System.Drawing.Point(218, 129);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(168, 25);
-            this.textBox2.TabIndex = 9;
+            this.txtPricePerNight.Location = new System.Drawing.Point(218, 129);
+            this.txtPricePerNight.Name = "txtPricePerNight";
+            this.txtPricePerNight.Size = new System.Drawing.Size(168, 25);
+            this.txtPricePerNight.TabIndex = 9;
             // 
             // label13
             // 
@@ -829,24 +828,24 @@
             this.label10.TabIndex = 5;
             this.label10.Text = "PRICE PER NIGHT";
             // 
-            // textBox1
+            // txtRoomNo
             // 
-            this.textBox1.Location = new System.Drawing.Point(16, 129);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(154, 25);
-            this.textBox1.TabIndex = 8;
+            this.txtRoomNo.Location = new System.Drawing.Point(16, 129);
+            this.txtRoomNo.Name = "txtRoomNo";
+            this.txtRoomNo.Size = new System.Drawing.Size(154, 25);
+            this.txtRoomNo.TabIndex = 8;
             // 
-            // comboBox4
+            // cmbRoomStatus
             // 
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Items.AddRange(new object[] {
+            this.cmbRoomStatus.FormattingEnabled = true;
+            this.cmbRoomStatus.Items.AddRange(new object[] {
             "Available",
             "Occupied",
             "Maintenance"});
-            this.comboBox4.Location = new System.Drawing.Point(218, 223);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(168, 25);
-            this.comboBox4.TabIndex = 11;
+            this.cmbRoomStatus.Location = new System.Drawing.Point(218, 223);
+            this.cmbRoomStatus.Name = "cmbRoomStatus";
+            this.cmbRoomStatus.Size = new System.Drawing.Size(168, 25);
+            this.cmbRoomStatus.TabIndex = 11;
             // 
             // label12
             // 
@@ -881,18 +880,18 @@
             this.label7.TabIndex = 3;
             this.label7.Text = "ROOM TYPE";
             // 
-            // comboBox3
+            // cmbRoomType
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Items.AddRange(new object[] {
+            this.cmbRoomType.FormattingEnabled = true;
+            this.cmbRoomType.Items.AddRange(new object[] {
             "Standard",
             "Executive",
             "Suite",
             "Deluxe"});
-            this.comboBox3.Location = new System.Drawing.Point(16, 218);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(154, 25);
-            this.comboBox3.TabIndex = 2;
+            this.cmbRoomType.Location = new System.Drawing.Point(16, 218);
+            this.cmbRoomType.Name = "cmbRoomType";
+            this.cmbRoomType.Size = new System.Drawing.Size(154, 25);
+            this.cmbRoomType.TabIndex = 2;
             // 
             // comboBox2
             // 
@@ -919,11 +918,11 @@
             this.button1.Text = "SAVE CHANGES";
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // dataGridView2
+            // dgvManageRooms
             // 
-            this.dataGridView2.AutoGenerateColumns = false;
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvManageRooms.AutoGenerateColumns = false;
+            this.dgvManageRooms.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvManageRooms.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.hotelroomnumberDataGridViewTextBoxColumn1,
             this.hotelroomstatusDataGridViewTextBoxColumn1,
             this.hotelRoomPriceDataGridViewTextBoxColumn1,
@@ -933,21 +932,11 @@
             this.lastCleanedDataGridViewTextBoxColumn1,
             this.lastOccupiedDataGridViewTextBoxColumn1,
             this.hotelroomtypeDataGridViewTextBoxColumn1});
-            this.dataGridView2.DataSource = this.hotelRoomBindingSource6;
-            this.dataGridView2.Location = new System.Drawing.Point(43, 463);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(1129, 312);
-            this.dataGridView2.TabIndex = 0;
-            // 
-            // hotelRoomBindingSource6
-            // 
-            this.hotelRoomBindingSource6.DataMember = "Hotel_Room";
-            this.hotelRoomBindingSource6.DataSource = this.codeCraftersDSTWOBindingSource;
-            // 
-            // fKRoomAssiHotel1B5E0D89BindingSource
-            // 
-            this.fKRoomAssiHotel1B5E0D89BindingSource.DataMember = "FK__Room_Assi__Hotel__1B5E0D89";
-            this.fKRoomAssiHotel1B5E0D89BindingSource.DataSource = this.hotelRoomBindingSource1;
+            this.dgvManageRooms.DataSource = this.hotelRoomBindingSource6;
+            this.dgvManageRooms.Location = new System.Drawing.Point(43, 463);
+            this.dgvManageRooms.Name = "dgvManageRooms";
+            this.dgvManageRooms.Size = new System.Drawing.Size(1129, 312);
+            this.dgvManageRooms.TabIndex = 0;
             // 
             // hotelroomnumberDataGridViewTextBoxColumn1
             // 
@@ -1011,6 +1000,16 @@
             this.hotelroomtypeDataGridViewTextBoxColumn1.Name = "hotelroomtypeDataGridViewTextBoxColumn1";
             this.hotelroomtypeDataGridViewTextBoxColumn1.Width = 110;
             // 
+            // hotelRoomBindingSource6
+            // 
+            this.hotelRoomBindingSource6.DataMember = "Hotel_Room";
+            this.hotelRoomBindingSource6.DataSource = this.codeCraftersDSTWOBindingSource;
+            // 
+            // fKRoomAssiHotel1B5E0D89BindingSource
+            // 
+            this.fKRoomAssiHotel1B5E0D89BindingSource.DataMember = "FK__Room_Assi__Hotel__1B5E0D89";
+            this.fKRoomAssiHotel1B5E0D89BindingSource.DataSource = this.hotelRoomBindingSource1;
+            // 
             // RoomManagementForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
@@ -1041,7 +1040,7 @@
             this.panel4.PerformLayout();
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvViewRooms)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.hotelRoomBindingSource5)).EndInit();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
@@ -1060,7 +1059,7 @@
             this.panel10.PerformLayout();
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvManageRooms)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.hotelRoomBindingSource6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fKRoomAssiHotel1B5E0D89BindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.hotelRoomBindingSource2)).EndInit();
@@ -1102,7 +1101,7 @@
         private System.Windows.Forms.Label lblAvailableRooms;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TabControl tbcViewRooms;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvViewRooms;
         private System.Windows.Forms.BindingSource hotelRoomBindingSource5;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.ComboBox comboBox1;
@@ -1112,7 +1111,7 @@
         private System.Windows.Forms.Button btnRefresh;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridView dgvManageRooms;
         private System.Windows.Forms.BindingSource hotelRoomBindingSource6;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Label label6;
@@ -1121,20 +1120,20 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox cmbRoomType;
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.ComboBox comboBox4;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.ComboBox cmbRoomStatus;
+        private System.Windows.Forms.TextBox txtPricePerNight;
+        private System.Windows.Forms.TextBox txtRoomNo;
         private System.Windows.Forms.Panel panel9;
-        private System.Windows.Forms.ComboBox comboBox5;
+        private System.Windows.Forms.ComboBox cmbBranches;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnRoomRefresh;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.ComboBox comboBox7;
-        private System.Windows.Forms.ComboBox comboBox6;
+        private System.Windows.Forms.ComboBox cmbMaxChild;
+        private System.Windows.Forms.ComboBox cmbMaxAdults;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Panel panel10;
