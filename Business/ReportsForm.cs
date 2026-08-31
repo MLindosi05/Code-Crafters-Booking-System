@@ -20,22 +20,11 @@ namespace Code_Crafters_Interface_Prototype_1.Business
             InitializeComponent();
         }
 
-        private void ReportsForm_Load(object sender, EventArgs e)
+        private async void ReportsForm_Load(object sender, EventArgs e)
         {
-            taBookingReport.Fill(codeCraftersDS.Booking);
-            taClientReport.Fill(codeCraftersDS.Client);
-            taBranchReport.Fill(codeCraftersDS.Branch);
-            taRoomAssignmentReport.Fill(codeCraftersDS.Room_Assignment);
-            taTable.Fill(codeCraftersDS.Restuarant_Table);
-            btnRevenueReport.BackColor = ColorTranslator.FromHtml("#C99A2E");
-            btnRevenueReport.ForeColor = Color.White;
-            btnRoomReport.BackColor = ColorTranslator.FromHtml("#C99A2E");
-            btnRoomReport.ForeColor = Color.White;
-            btnTableReport.BackColor = ColorTranslator.FromHtml("#C99A2E");
-            btnTableReport.ForeColor = Color.White;
-            this.BackColor = ColorTranslator.FromHtml("#F9EED8");
-
+            await wbReports.EnsureCoreWebView2Async(null);
+            wbReports.CoreWebView2.Navigate("https://app.powerbi.com/view?r=eyJrIjoiYjMxZDExMjctZTk2MC00YjY1LWEwYjEtOGMzYTE4Nzk4MzgwIiwidCI6IjIyNjgyN2Q2LWE5ZDAtNDcwZC04YzE1LWIxNDZiMDE5MmQ1MSIsImMiOjh9");
         }
-        
+
     }
 }

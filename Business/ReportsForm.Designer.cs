@@ -30,14 +30,8 @@
         {
             this.lblTitle = new System.Windows.Forms.Label();
             this.lblReport = new System.Windows.Forms.Label();
-            this.btnRevenueReport = new System.Windows.Forms.Button();
-            this.btnRoomReport = new System.Windows.Forms.Button();
-            this.dgvReportSummary = new System.Windows.Forms.DataGridView();
-            this.txtTotalEnterpriseRevenue = new System.Windows.Forms.TextBox();
             this.pnlTop = new System.Windows.Forms.Panel();
-            this.btnTableReport = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.crystalReportViewerRegalInn = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
             this.taBookingReport = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTableAdapters.BookingTableAdapter();
             this.taClientReport = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTableAdapters.ClientTableAdapter();
             this.taFolioReport = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTableAdapters.FolioTableAdapter();
@@ -47,17 +41,18 @@
             this.taBranchReport = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTableAdapters.BranchTableAdapter();
             this.taTable = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTableAdapters.Restuarant_TableTableAdapter();
             this.taTableAllocation = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTableAdapters.Table_AllocationTableAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvReportSummary)).BeginInit();
+            this.wbReports = new Microsoft.Web.WebView2.WinForms.WebView2();
             this.pnlTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.codeCraftersDS)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.wbReports)).BeginInit();
             this.SuspendLayout();
             // 
             // lblTitle
             // 
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.Location = new System.Drawing.Point(211, 9);
+            this.lblTitle.Location = new System.Drawing.Point(12, 9);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(428, 25);
             this.lblTitle.TabIndex = 0;
@@ -74,93 +69,27 @@
             this.lblReport.TabIndex = 0;
             this.lblReport.Text = "Regal Inn Management Insights Dashboard";
             // 
-            // btnRevenueReport
-            // 
-            this.btnRevenueReport.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRevenueReport.Location = new System.Drawing.Point(210, 46);
-            this.btnRevenueReport.Name = "btnRevenueReport";
-            this.btnRevenueReport.Size = new System.Drawing.Size(186, 36);
-            this.btnRevenueReport.TabIndex = 2;
-            this.btnRevenueReport.Text = "REVENUE REPORTS";
-            this.btnRevenueReport.UseVisualStyleBackColor = true;
-            // 
-            // btnRoomReport
-            // 
-            this.btnRoomReport.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRoomReport.Location = new System.Drawing.Point(426, 46);
-            this.btnRoomReport.Name = "btnRoomReport";
-            this.btnRoomReport.Size = new System.Drawing.Size(179, 36);
-            this.btnRoomReport.TabIndex = 3;
-            this.btnRoomReport.Text = "ROOM OCCUPANCY REPORTS";
-            this.btnRoomReport.UseVisualStyleBackColor = true;
-            // 
-            // dgvReportSummary
-            // 
-            this.dgvReportSummary.BackgroundColor = System.Drawing.Color.LightBlue;
-            this.dgvReportSummary.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvReportSummary.Location = new System.Drawing.Point(56, 94);
-            this.dgvReportSummary.Margin = new System.Windows.Forms.Padding(2);
-            this.dgvReportSummary.Name = "dgvReportSummary";
-            this.dgvReportSummary.RowHeadersWidth = 51;
-            this.dgvReportSummary.RowTemplate.Height = 24;
-            this.dgvReportSummary.Size = new System.Drawing.Size(776, 181);
-            this.dgvReportSummary.TabIndex = 1;
-            // 
-            // txtTotalEnterpriseRevenue
-            // 
-            this.txtTotalEnterpriseRevenue.BackColor = System.Drawing.Color.Gray;
-            this.txtTotalEnterpriseRevenue.Location = new System.Drawing.Point(56, 291);
-            this.txtTotalEnterpriseRevenue.Margin = new System.Windows.Forms.Padding(2);
-            this.txtTotalEnterpriseRevenue.Name = "txtTotalEnterpriseRevenue";
-            this.txtTotalEnterpriseRevenue.ReadOnly = true;
-            this.txtTotalEnterpriseRevenue.Size = new System.Drawing.Size(134, 20);
-            this.txtTotalEnterpriseRevenue.TabIndex = 3;
-            // 
             // pnlTop
             // 
             this.pnlTop.AutoScroll = true;
-            this.pnlTop.Controls.Add(this.btnTableReport);
             this.pnlTop.Controls.Add(this.pictureBox1);
             this.pnlTop.Controls.Add(this.lblTitle);
-            this.pnlTop.Controls.Add(this.btnRoomReport);
-            this.pnlTop.Controls.Add(this.btnRevenueReport);
             this.pnlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlTop.Location = new System.Drawing.Point(0, 0);
             this.pnlTop.Name = "pnlTop";
             this.pnlTop.Size = new System.Drawing.Size(1252, 90);
             this.pnlTop.TabIndex = 5;
             // 
-            // btnTableReport
-            // 
-            this.btnTableReport.BackColor = System.Drawing.Color.Transparent;
-            this.btnTableReport.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTableReport.Location = new System.Drawing.Point(633, 46);
-            this.btnTableReport.Name = "btnTableReport";
-            this.btnTableReport.Size = new System.Drawing.Size(181, 36);
-            this.btnTableReport.TabIndex = 6;
-            this.btnTableReport.Text = "TABLE OCCUPANCY REPORTS";
-            this.btnTableReport.UseVisualStyleBackColor = false;
-            // 
             // pictureBox1
             // 
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox1.Image = global::Code_Crafters_Interface_Prototype_1.Properties.Resources.Generate_Reports;
-            this.pictureBox1.Location = new System.Drawing.Point(885, 9);
+            this.pictureBox1.Location = new System.Drawing.Point(1084, 9);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(168, 73);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
-            // 
-            // crystalReportViewerRegalInn
-            // 
-            this.crystalReportViewerRegalInn.ActiveViewIndex = -1;
-            this.crystalReportViewerRegalInn.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.crystalReportViewerRegalInn.Cursor = System.Windows.Forms.Cursors.Default;
-            this.crystalReportViewerRegalInn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.crystalReportViewerRegalInn.Location = new System.Drawing.Point(0, 90);
-            this.crystalReportViewerRegalInn.Name = "crystalReportViewerRegalInn";
-            this.crystalReportViewerRegalInn.Size = new System.Drawing.Size(1252, 577);
-            this.crystalReportViewerRegalInn.TabIndex = 4;
             // 
             // taBookingReport
             // 
@@ -199,6 +128,18 @@
             // 
             this.taTableAllocation.ClearBeforeFill = true;
             // 
+            // wbReports
+            // 
+            this.wbReports.AllowExternalDrop = true;
+            this.wbReports.CreationProperties = null;
+            this.wbReports.DefaultBackgroundColor = System.Drawing.Color.White;
+            this.wbReports.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.wbReports.Location = new System.Drawing.Point(0, 90);
+            this.wbReports.Name = "wbReports";
+            this.wbReports.Size = new System.Drawing.Size(1252, 577);
+            this.wbReports.TabIndex = 6;
+            this.wbReports.ZoomFactor = 1D;
+            // 
             // ReportsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -206,20 +147,18 @@
             this.AutoScroll = true;
             this.BackColor = System.Drawing.SystemColors.Info;
             this.ClientSize = new System.Drawing.Size(1252, 667);
-            this.Controls.Add(this.crystalReportViewerRegalInn);
+            this.Controls.Add(this.wbReports);
             this.Controls.Add(this.pnlTop);
-            this.Controls.Add(this.txtTotalEnterpriseRevenue);
-            this.Controls.Add(this.dgvReportSummary);
             this.Controls.Add(this.lblReport);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ReportsForm";
             this.Text = "REGAL INN REPORTS";
             this.Load += new System.EventHandler(this.ReportsForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvReportSummary)).EndInit();
             this.pnlTop.ResumeLayout(false);
             this.pnlTop.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.codeCraftersDS)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.wbReports)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -229,22 +168,17 @@
 
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Label lblReport;
-        private System.Windows.Forms.Button btnRevenueReport;
-        private System.Windows.Forms.Button btnRoomReport;
-        private System.Windows.Forms.DataGridView dgvReportSummary;
-        private System.Windows.Forms.TextBox txtTotalEnterpriseRevenue;
         private codeCraftersDSTableAdapters.BookingTableAdapter taBookingReport;
         private codeCraftersDSTableAdapters.ClientTableAdapter taClientReport;
         private codeCraftersDSTableAdapters.FolioTableAdapter taFolioReport;
         private codeCraftersDS codeCraftersDS;
         private System.Windows.Forms.Panel pnlTop;
-        private CrystalDecisions.Windows.Forms.CrystalReportViewer crystalReportViewerRegalInn;
         private codeCraftersDSTableAdapters.Room_AssignmentTableAdapter taRoomAssignmentReport;
         private codeCraftersDSTableAdapters.Hotel_RoomTableAdapter taHotelRoomReport;
         private codeCraftersDSTableAdapters.BranchTableAdapter taBranchReport;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button btnTableReport;
         private codeCraftersDSTableAdapters.Restuarant_TableTableAdapter taTable;
         private codeCraftersDSTableAdapters.Table_AllocationTableAdapter taTableAllocation;
+        private Microsoft.Web.WebView2.WinForms.WebView2 wbReports;
     }
 }
