@@ -20,7 +20,6 @@ namespace Code_Crafters_Interface_Prototype_1.Business
         private void RoomManagementForm_Load(object sender, EventArgs e)
         {
             ApplyStyling();
-            LoadBranches();
             LoadRoomData();
 
             panel5.BackColor = Color.FromArgb(250, 243, 221);
@@ -29,17 +28,16 @@ namespace Code_Crafters_Interface_Prototype_1.Business
             panel4.BackColor = Color.FromArgb(250, 243, 221);
             panel11.BackColor = Color.FromArgb(15, 42, 74);
             panel12.BackColor = Color.FromArgb(15, 42, 74);
-            
 
+            // Hook up cell click events for both grids safely if they exist
+            if (dgvViewRooms != null) dgvViewRooms.CellClick += GridRow_CellClick;
+            if (dgvManageRooms != null) dgvManageRooms.CellClick += GridRow_CellClick;
 
-
+            isLoaded = true; // Enables selections to trigger filtering after load completes
         }
 
         private void ApplyStyling()
         {
-
-            
-
             this.BackColor = Color.FromArgb(247, 243, 234);
 
             Color navyHeader = Color.FromArgb(15, 42, 74);
@@ -76,43 +74,75 @@ namespace Code_Crafters_Interface_Prototype_1.Business
             if (lblTotalRooms != null) lblTotalRooms.ForeColor = regalGold;
         }
 
-        private void cmbBranches_SelectedIndexChanged(object sender, EventArgs e)
+        private void ApplyCombinedFilters()
         {
             if (!isLoaded) return;
-            string selectedBranch = cmbBranches.SelectedItem?.ToString() ?? cmbBranches.Text;
-            LoadRoomData(selectedBranch);
+            string selectedBranch = cmbBranchName.SelectedItem?.ToString() ?? cmbBranchName.Text;
+            string selectedRoomType = cmbHotelRoomType.SelectedItem?.ToString() ?? cmbHotelRoomType.Text;
+            LoadRoomData(selectedBranch, selectedRoomType);
         }
 
-        private void cmbBranches_SelectionChangeCommitted(object sender, EventArgs e)
+        private void cmbBranchName_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (!isLoaded) return;
-            string selectedBranch = cmbBranches.SelectedItem?.ToString() ?? cmbBranches.Text;
-            LoadRoomData(selectedBranch);
+            ApplyCombinedFilters();
         }
 
-        private void LoadRoomData(string branchName = null)
+        private void cmbBranchName_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            ApplyCombinedFilters();
+        }
+
+        private void cmbHotelRoomType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ApplyCombinedFilters();
+        }
+
+        private void cmbHotelRoomType_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            ApplyCombinedFilters();
+        }
+
+        private void LoadRoomData(string branchName = null, string roomType = null)
         {
             try
             {
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
-                    // Join Hotel_Room with Branch table to filter by the hardcoded Branch Name string
                     string query = @"SELECT r.* FROM Hotel_Room r 
-                                     INNER JOIN Branch b ON r.Branch_ID = b.Branch_ID";
+                                     INNER JOIN Branch b ON r.Branch_ID = b.Branch_ID 
+                                     WHERE 1=1";
 
                     bool filterByBranch = !string.IsNullOrEmpty(branchName) &&
                                           !branchName.Equals("All", StringComparison.OrdinalIgnoreCase) &&
+                                          !branchName.Equals("All Hotels", StringComparison.OrdinalIgnoreCase) &&
                                           !branchName.Equals("SELECT BRANCH", StringComparison.OrdinalIgnoreCase);
+
+                    bool filterByType = !string.IsNullOrEmpty(roomType) &&
+                                        !roomType.Equals("All", StringComparison.OrdinalIgnoreCase) &&
+                                        !roomType.Equals("All Rooms", StringComparison.OrdinalIgnoreCase) &&
+                                        !roomType.Equals("SELECT ROOM TYPE", StringComparison.OrdinalIgnoreCase);
 
                     if (filterByBranch)
                     {
-                        query += " WHERE b.Branch_Name = @BranchName";
+                        query += " AND b.Branch_Name = @BranchName";
+                    }
+
+                    if (filterByType)
+                    {
+                        query += " AND r.hotel_room_type LIKE @RoomType";
                     }
 
                     SqlCommand cmd = new SqlCommand(query, conn);
+
                     if (filterByBranch)
                     {
                         cmd.Parameters.AddWithValue("@BranchName", branchName);
+                    }
+
+                    if (filterByType)
+                    {
+                        string cleanRoomType = roomType.Replace("Rooms", "").Replace("rooms", "").Trim();
+                        cmd.Parameters.AddWithValue("@RoomType", "%" + cleanRoomType + "%");
                     }
 
                     SqlDataAdapter da = new SqlDataAdapter(cmd);
@@ -120,10 +150,10 @@ namespace Code_Crafters_Interface_Prototype_1.Business
                     da.Fill(dtRooms);
 
                     dgvViewRooms.DataSource = null;
-                    dgvManageRooms.DataSource = null;
+                    if (dgvManageRooms != null) dgvManageRooms.DataSource = null;
 
                     dgvViewRooms.DataSource = dtRooms;
-                    dgvManageRooms.DataSource = dtRooms;
+                    if (dgvManageRooms != null) dgvManageRooms.DataSource = dtRooms;
 
                     UpdateMetrics(dtRooms);
                 }
@@ -147,24 +177,35 @@ namespace Code_Crafters_Interface_Prototype_1.Business
             if (lblRoomsUnderMaintenance != null) lblRoomsUnderMaintenance.Text = maintenance.ToString();
         }
 
-        private void btnRoomRefresh_Click(object sender, EventArgs e)
+        private void ResetAndReload()
         {
-            string selectedBranch = cmbBranches.SelectedItem?.ToString() ?? cmbBranches.Text;
-            LoadRoomData(selectedBranch);
+            isLoaded = false;
+
+            if (cmbBranchName.Items.Count > 0) cmbBranchName.SelectedIndex = 0;
+            if (cmbHotelRoomType.Items.Count > 0) cmbHotelRoomType.SelectedIndex = 0;
+
+            isLoaded = true;
+
+            LoadRoomData();
         }
 
-        private void dgvRooms_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void btnRoomRefresh_Click(object sender, EventArgs e)
+        {
+            ResetAndReload();
+        }
+
+        private void GridRow_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow row = ((DataGridView)sender).Rows[e.RowIndex];
 
-                txtRoomNo.Text = row.Cells["hotel_room_number"].Value?.ToString() ?? "";
-                txtPricePerNight.Text = row.Cells["Hotel_Room_Price"].Value?.ToString() ?? "";
-                cmbRoomType.Text = row.Cells["hotel_room_type"].Value?.ToString() ?? "";
-                cmbRoomStatus.Text = row.Cells["hotel_room_status"].Value?.ToString() ?? "";
-                cmbMaxAdults.Text = row.Cells["Max_Adults"].Value?.ToString() ?? "";
-                cmbMaxChild.Text = row.Cells["Max_Children"].Value?.ToString() ?? "";
+                if (txtRoomNo != null) txtRoomNo.Text = row.Cells["hotel_room_number"].Value?.ToString() ?? "";
+                if (txtPricePerNight != null) txtPricePerNight.Text = row.Cells["Hotel_Room_Price"].Value?.ToString() ?? "";
+                if (cmbHotelRoomType != null) cmbHotelRoomType.Text = row.Cells["hotel_room_type"].Value?.ToString() ?? "";
+                if (cmbRoomStatus != null) cmbRoomStatus.Text = row.Cells["hotel_room_status"].Value?.ToString() ?? "";
+                if (cmbMaxAdults != null) cmbMaxAdults.Text = row.Cells["Max_Adults"].Value?.ToString() ?? "";
+                if (cmbMaxChild != null) cmbMaxChild.Text = row.Cells["Max_Children"].Value?.ToString() ?? "";
             }
         }
 
@@ -186,7 +227,7 @@ namespace Code_Crafters_Interface_Prototype_1.Business
                     using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
                         cmd.Parameters.AddWithValue("@Price", decimal.Parse(txtPricePerNight.Text));
-                        cmd.Parameters.AddWithValue("@Type", cmbRoomType.Text);
+                        cmd.Parameters.AddWithValue("@Type", cmbHotelRoomType.Text);
                         cmd.Parameters.AddWithValue("@Status", cmbRoomStatus.Text);
                         cmd.Parameters.AddWithValue("@MaxAdults", int.Parse(cmbMaxAdults.Text));
                         cmd.Parameters.AddWithValue("@MaxChildren", int.Parse(cmbMaxChild.Text));
@@ -198,13 +239,17 @@ namespace Code_Crafters_Interface_Prototype_1.Business
 
                 MessageBox.Show("Room details updated successfully in the database.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                string selectedBranch = cmbBranches.SelectedItem?.ToString() ?? cmbBranches.Text;
-                LoadRoomData(selectedBranch);
+                ApplyCombinedFilters();
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Failed to update room details: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            ResetAndReload();
         }
     }
 }

@@ -153,7 +153,7 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ReportsForm";
             this.Text = "REGAL INN REPORTS";
-            this.Load += new System.EventHandler(this.ReportsForm_Load);
+            //this.Load += new System.EventHandler(this.ReportsForm_Load);
             this.pnlTop.ResumeLayout(false);
             this.pnlTop.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
