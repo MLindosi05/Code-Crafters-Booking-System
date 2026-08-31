@@ -21,10 +21,24 @@ namespace Code_Crafters_Interface_Prototype_1.Business
             ApplyStyling();
             LoadBranches();
             LoadRoomData();
+
+            panel5.BackColor = Color.FromArgb(250, 243, 221);
+            panel6.BackColor = Color.FromArgb(250, 243, 221);
+            panel7.BackColor = Color.FromArgb(250, 243, 221);
+            panel4.BackColor = Color.FromArgb(250, 243, 221);
+            panel11.BackColor = Color.FromArgb(15, 42, 74);
+            panel12.BackColor = Color.FromArgb(15, 42, 74);
+            
+
+
+
         }
 
         private void ApplyStyling()
         {
+
+            
+
             this.BackColor = Color.FromArgb(247, 243, 234);
 
             Color navyHeader = Color.FromArgb(15, 42, 74);
@@ -44,6 +58,15 @@ namespace Code_Crafters_Interface_Prototype_1.Business
                 btnRoomRefresh.FlatAppearance.BorderColor = Color.White;
                 btnRoomRefresh.BackColor = accentOrange;
                 btnRoomRefresh.ForeColor = Color.White;
+            }
+
+            if (btnRefresh != null)
+            {
+                btnRefresh.FlatStyle = FlatStyle.Flat;
+                btnRefresh.FlatAppearance.BorderSize = 1;
+                btnRefresh.FlatAppearance.BorderColor = Color.White;
+                btnRefresh.BackColor = accentOrange;
+                btnRefresh.ForeColor = Color.White;
             }
 
             if (lblOccupiedRooms != null) lblOccupiedRooms.ForeColor = regalGold;

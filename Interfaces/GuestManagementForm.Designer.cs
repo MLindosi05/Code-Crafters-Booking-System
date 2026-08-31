@@ -34,9 +34,27 @@
             this.taStaff = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTableAdapters.StaffTableAdapter();
             this.taBranch = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTableAdapters.BranchTableAdapter();
             this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtContactNumber = new System.Windows.Forms.TextBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.btnSignUp = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtPhysicalAddress = new System.Windows.Forms.TextBox();
+            this.txtEmailAddress = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtFirstName = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtSurname = new System.Windows.Forms.TextBox();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.btnArchived = new System.Windows.Forms.Button();
-            this.btnBlacklisted = new System.Windows.Forms.Button();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.label8 = new System.Windows.Forms.Label();
+            this.panel8 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.dgvBookings = new System.Windows.Forms.DataGridView();
@@ -49,12 +67,16 @@
             this.dateRegisteredDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clientBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.codeCraftersDSTWO1 = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTWO();
+            this.btnArchived = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblBookingID = new System.Windows.Forms.Label();
             this.txtSearchEmail = new System.Windows.Forms.TextBox();
+            this.btnBlacklisted = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.btnBlackList = new System.Windows.Forms.Button();
-            this.btnArchive = new System.Windows.Forms.Button();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtManageEmailAddress = new System.Windows.Forms.TextBox();
             this.dgvManageClients = new System.Windows.Forms.DataGridView();
             this.Client_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -63,37 +85,22 @@
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtManageEmailAddress = new System.Windows.Forms.TextBox();
+            this.btnBlackList = new System.Windows.Forms.Button();
+            this.btnArchive = new System.Windows.Forms.Button();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.label9 = new System.Windows.Forms.Label();
             this.clientTableAdapter1 = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTableAdapters.ClientTableAdapter();
             this.clientTableAdapter = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTWOTableAdapters.ClientTableAdapter();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.txtSurname = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.txtFirstName = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtEmailAddress = new System.Windows.Forms.TextBox();
-            this.txtPhysicalAddress = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.btnSignUp = new System.Windows.Forms.Button();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.txtContactNumber = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.panel9 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.panel10 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.codeCraftersDS)).BeginInit();
             this.tabControl1.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.panel9.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            this.panel5.SuspendLayout();
+            this.panel8.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBookings)).BeginInit();
@@ -101,17 +108,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.codeCraftersDSTWO1)).BeginInit();
             this.panel1.SuspendLayout();
             this.tabPage3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvManageClients)).BeginInit();
-            this.panel6.SuspendLayout();
-            this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            this.tabPage1.SuspendLayout();
-            this.panel9.SuspendLayout();
-            this.panel3.SuspendLayout();
-            this.panel8.SuspendLayout();
-            this.panel5.SuspendLayout();
-            this.panel7.SuspendLayout();
             this.panel10.SuspendLayout();
+            this.panel6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvManageClients)).BeginInit();
+            this.panel7.SuspendLayout();
             this.SuspendLayout();
             // 
             // codeCraftersDS
@@ -144,6 +144,187 @@
             this.tabControl1.Size = new System.Drawing.Size(1359, 835);
             this.tabControl1.TabIndex = 13;
             // 
+            // tabPage1
+            // 
+            this.tabPage1.BackColor = System.Drawing.Color.LightGray;
+            this.tabPage1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.tabPage1.Controls.Add(this.panel3);
+            this.tabPage1.Controls.Add(this.panel9);
+            this.tabPage1.ForeColor = System.Drawing.Color.Black;
+            this.tabPage1.Location = new System.Drawing.Point(4, 25);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(1351, 806);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "GUEST REGISTRATION";
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.panel2);
+            this.panel3.Location = new System.Drawing.Point(180, 137);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(790, 499);
+            this.panel3.TabIndex = 5;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.Controls.Add(this.label1);
+            this.panel2.Controls.Add(this.txtContactNumber);
+            this.panel2.Controls.Add(this.pictureBox2);
+            this.panel2.Controls.Add(this.btnSignUp);
+            this.panel2.Controls.Add(this.label5);
+            this.panel2.Controls.Add(this.txtPhysicalAddress);
+            this.panel2.Controls.Add(this.txtEmailAddress);
+            this.panel2.Controls.Add(this.label4);
+            this.panel2.Controls.Add(this.label7);
+            this.panel2.Controls.Add(this.txtFirstName);
+            this.panel2.Controls.Add(this.label6);
+            this.panel2.Controls.Add(this.txtSurname);
+            this.panel2.ForeColor = System.Drawing.Color.Black;
+            this.panel2.Location = new System.Drawing.Point(78, 43);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(641, 400);
+            this.panel2.TabIndex = 0;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(28, 292);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(81, 17);
+            this.label1.TabIndex = 32;
+            this.label1.Text = "PHONE NO:";
+            // 
+            // txtContactNumber
+            // 
+            this.txtContactNumber.Location = new System.Drawing.Point(186, 290);
+            this.txtContactNumber.Margin = new System.Windows.Forms.Padding(2);
+            this.txtContactNumber.Name = "txtContactNumber";
+            this.txtContactNumber.Size = new System.Drawing.Size(165, 22);
+            this.txtContactNumber.TabIndex = 30;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::Code_Crafters_Interface_Prototype_1.Properties.Resources._6478_200;
+            this.pictureBox2.Location = new System.Drawing.Point(447, 143);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(145, 105);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 29;
+            this.pictureBox2.TabStop = false;
+            // 
+            // btnSignUp
+            // 
+            this.btnSignUp.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSignUp.Location = new System.Drawing.Point(447, 285);
+            this.btnSignUp.Margin = new System.Windows.Forms.Padding(2);
+            this.btnSignUp.Name = "btnSignUp";
+            this.btnSignUp.Size = new System.Drawing.Size(145, 32);
+            this.btnSignUp.TabIndex = 26;
+            this.btnSignUp.Text = "Register";
+            this.btnSignUp.UseVisualStyleBackColor = true;
+            this.btnSignUp.Click += new System.EventHandler(this.btnSignUp_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(25, 47);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(88, 17);
+            this.label5.TabIndex = 6;
+            this.label5.Text = "FIRST NAME:";
+            // 
+            // txtPhysicalAddress
+            // 
+            this.txtPhysicalAddress.Location = new System.Drawing.Point(186, 226);
+            this.txtPhysicalAddress.Margin = new System.Windows.Forms.Padding(2);
+            this.txtPhysicalAddress.Name = "txtPhysicalAddress";
+            this.txtPhysicalAddress.Size = new System.Drawing.Size(166, 22);
+            this.txtPhysicalAddress.TabIndex = 28;
+            // 
+            // txtEmailAddress
+            // 
+            this.txtEmailAddress.Location = new System.Drawing.Point(186, 164);
+            this.txtEmailAddress.Margin = new System.Windows.Forms.Padding(2);
+            this.txtEmailAddress.Name = "txtEmailAddress";
+            this.txtEmailAddress.Size = new System.Drawing.Size(166, 22);
+            this.txtEmailAddress.TabIndex = 12;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(28, 228);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(135, 17);
+            this.label4.TabIndex = 27;
+            this.label4.Text = "PHYSICAL ADDRESS:";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(28, 166);
+            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(113, 17);
+            this.label7.TabIndex = 8;
+            this.label7.Text = "EMAIL ADDRESS:";
+            // 
+            // txtFirstName
+            // 
+            this.txtFirstName.Location = new System.Drawing.Point(186, 45);
+            this.txtFirstName.Margin = new System.Windows.Forms.Padding(2);
+            this.txtFirstName.Name = "txtFirstName";
+            this.txtFirstName.Size = new System.Drawing.Size(165, 22);
+            this.txtFirstName.TabIndex = 0;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(28, 107);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(85, 17);
+            this.label6.TabIndex = 7;
+            this.label6.Text = "LAST NAME:";
+            // 
+            // txtSurname
+            // 
+            this.txtSurname.Location = new System.Drawing.Point(186, 105);
+            this.txtSurname.Margin = new System.Windows.Forms.Padding(2);
+            this.txtSurname.Name = "txtSurname";
+            this.txtSurname.Size = new System.Drawing.Size(166, 22);
+            this.txtSurname.TabIndex = 1;
+            // 
+            // panel9
+            // 
+            this.panel9.BackColor = System.Drawing.Color.LightGray;
+            this.panel9.Controls.Add(this.label2);
+            this.panel9.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel9.Location = new System.Drawing.Point(3, 3);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(1345, 61);
+            this.panel9.TabIndex = 4;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label2.Location = new System.Drawing.Point(415, 14);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(339, 31);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "GUEST REGISTRATION";
+            // 
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.Color.LightGray;
@@ -157,24 +338,38 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "VIEW GUESTS";
             // 
-            // btnArchived
+            // panel5
             // 
-            this.btnArchived.Location = new System.Drawing.Point(596, 200);
-            this.btnArchived.Name = "btnArchived";
-            this.btnArchived.Size = new System.Drawing.Size(120, 30);
-            this.btnArchived.TabIndex = 19;
-            this.btnArchived.Text = "ARCHIVED";
-            this.btnArchived.UseVisualStyleBackColor = true;
-            this.btnArchived.Click += new System.EventHandler(this.btnArchived_Click);
+            this.panel5.BackColor = System.Drawing.Color.LightGray;
+            this.panel5.Controls.Add(this.label8);
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel5.Location = new System.Drawing.Point(3, 3);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(1345, 61);
+            this.panel5.TabIndex = 22;
             // 
-            // btnBlacklisted
+            // label8
             // 
-            this.btnBlacklisted.Location = new System.Drawing.Point(398, 200);
-            this.btnBlacklisted.Name = "btnBlacklisted";
-            this.btnBlacklisted.Size = new System.Drawing.Size(129, 30);
-            this.btnBlacklisted.TabIndex = 17;
-            this.btnBlacklisted.Text = "BLACKLISTED";
-            this.btnBlacklisted.UseVisualStyleBackColor = true;
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label8.Location = new System.Drawing.Point(454, 14);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(213, 31);
+            this.label8.TabIndex = 1;
+            this.label8.Text = "VIEW GUESTS";
+            // 
+            // panel8
+            // 
+            this.panel8.Controls.Add(this.panel4);
+            this.panel8.Controls.Add(this.dgvBookings);
+            this.panel8.Controls.Add(this.btnArchived);
+            this.panel8.Controls.Add(this.panel1);
+            this.panel8.Controls.Add(this.btnBlacklisted);
+            this.panel8.Location = new System.Drawing.Point(142, 70);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(895, 632);
+            this.panel8.TabIndex = 21;
             // 
             // panel4
             // 
@@ -273,21 +468,31 @@
             this.codeCraftersDSTWO1.DataSetName = "codeCraftersDSTWO";
             this.codeCraftersDSTWO1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
+            // btnArchived
+            // 
+            this.btnArchived.Location = new System.Drawing.Point(596, 200);
+            this.btnArchived.Name = "btnArchived";
+            this.btnArchived.Size = new System.Drawing.Size(120, 30);
+            this.btnArchived.TabIndex = 19;
+            this.btnArchived.Text = "ARCHIVED";
+            this.btnArchived.UseVisualStyleBackColor = true;
+            this.btnArchived.Click += new System.EventHandler(this.btnArchived_Click);
+            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.WhiteSmoke;
             this.panel1.Controls.Add(this.lblBookingID);
             this.panel1.Controls.Add(this.txtSearchEmail);
-            this.panel1.Location = new System.Drawing.Point(398, 42);
+            this.panel1.Location = new System.Drawing.Point(368, 42);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(318, 72);
+            this.panel1.Size = new System.Drawing.Size(358, 72);
             this.panel1.TabIndex = 14;
             // 
             // lblBookingID
             // 
             this.lblBookingID.AutoSize = true;
             this.lblBookingID.Font = new System.Drawing.Font("Segoe UI", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBookingID.Location = new System.Drawing.Point(20, 23);
+            this.lblBookingID.Location = new System.Drawing.Point(3, 21);
             this.lblBookingID.Name = "lblBookingID";
             this.lblBookingID.Size = new System.Drawing.Size(200, 17);
             this.lblBookingID.TabIndex = 2;
@@ -295,10 +500,19 @@
             // 
             // txtSearchEmail
             // 
-            this.txtSearchEmail.Location = new System.Drawing.Point(161, 21);
+            this.txtSearchEmail.Location = new System.Drawing.Point(204, 19);
             this.txtSearchEmail.Name = "txtSearchEmail";
             this.txtSearchEmail.Size = new System.Drawing.Size(144, 22);
             this.txtSearchEmail.TabIndex = 1;
+            // 
+            // btnBlacklisted
+            // 
+            this.btnBlacklisted.Location = new System.Drawing.Point(374, 200);
+            this.btnBlacklisted.Name = "btnBlacklisted";
+            this.btnBlacklisted.Size = new System.Drawing.Size(129, 30);
+            this.btnBlacklisted.TabIndex = 17;
+            this.btnBlacklisted.Text = "BLACKLISTED";
+            this.btnBlacklisted.UseVisualStyleBackColor = true;
             // 
             // tabPage3
             // 
@@ -312,25 +526,44 @@
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "MANAGE GUESTS";
             // 
-            // btnBlackList
+            // panel10
             // 
-            this.btnBlackList.Location = new System.Drawing.Point(79, 166);
-            this.btnBlackList.Name = "btnBlackList";
-            this.btnBlackList.Size = new System.Drawing.Size(158, 30);
-            this.btnBlackList.TabIndex = 18;
-            this.btnBlackList.Text = "BLACKLIST GUEST";
-            this.btnBlackList.UseVisualStyleBackColor = true;
-            this.btnBlackList.Click += new System.EventHandler(this.btnBlackList_Click);
+            this.panel10.Controls.Add(this.panel6);
+            this.panel10.Controls.Add(this.dgvManageClients);
+            this.panel10.Controls.Add(this.btnBlackList);
+            this.panel10.Controls.Add(this.btnArchive);
+            this.panel10.Location = new System.Drawing.Point(150, 70);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(787, 648);
+            this.panel10.TabIndex = 20;
             // 
-            // btnArchive
+            // panel6
             // 
-            this.btnArchive.Location = new System.Drawing.Point(278, 166);
-            this.btnArchive.Name = "btnArchive";
-            this.btnArchive.Size = new System.Drawing.Size(170, 30);
-            this.btnArchive.TabIndex = 17;
-            this.btnArchive.Text = "ARCHIVE GUEST";
-            this.btnArchive.UseVisualStyleBackColor = true;
-            this.btnArchive.Click += new System.EventHandler(this.btnArchive_Click);
+            this.panel6.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel6.Controls.Add(this.label3);
+            this.panel6.Controls.Add(this.txtManageEmailAddress);
+            this.panel6.Location = new System.Drawing.Point(79, 56);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(369, 64);
+            this.panel6.TabIndex = 15;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(12, 21);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(200, 17);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "ENTER GUEST EMAIL ADDRESS:";
+            // 
+            // txtManageEmailAddress
+            // 
+            this.txtManageEmailAddress.Location = new System.Drawing.Point(168, 19);
+            this.txtManageEmailAddress.Name = "txtManageEmailAddress";
+            this.txtManageEmailAddress.Size = new System.Drawing.Size(175, 22);
+            this.txtManageEmailAddress.TabIndex = 1;
+            this.txtManageEmailAddress.TextChanged += new System.EventHandler(this.txtManageEmailAddress_TextChanged);
             // 
             // dgvManageClients
             // 
@@ -400,233 +633,35 @@
             this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
             this.dataGridViewTextBoxColumn9.Width = 150;
             // 
-            // panel6
+            // btnBlackList
             // 
-            this.panel6.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.panel6.Controls.Add(this.label3);
-            this.panel6.Controls.Add(this.txtManageEmailAddress);
-            this.panel6.Location = new System.Drawing.Point(79, 56);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(369, 64);
-            this.panel6.TabIndex = 15;
+            this.btnBlackList.Location = new System.Drawing.Point(79, 166);
+            this.btnBlackList.Name = "btnBlackList";
+            this.btnBlackList.Size = new System.Drawing.Size(158, 30);
+            this.btnBlackList.TabIndex = 18;
+            this.btnBlackList.Text = "BLACKLIST GUEST";
+            this.btnBlackList.UseVisualStyleBackColor = true;
+            this.btnBlackList.Click += new System.EventHandler(this.btnBlackList_Click);
             // 
-            // label3
+            // btnArchive
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(12, 21);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(200, 17);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "ENTER GUEST EMAIL ADDRESS:";
+            this.btnArchive.Location = new System.Drawing.Point(278, 166);
+            this.btnArchive.Name = "btnArchive";
+            this.btnArchive.Size = new System.Drawing.Size(170, 30);
+            this.btnArchive.TabIndex = 17;
+            this.btnArchive.Text = "ARCHIVE GUEST";
+            this.btnArchive.UseVisualStyleBackColor = true;
+            this.btnArchive.Click += new System.EventHandler(this.btnArchive_Click);
             // 
-            // txtManageEmailAddress
+            // panel7
             // 
-            this.txtManageEmailAddress.Location = new System.Drawing.Point(168, 19);
-            this.txtManageEmailAddress.Name = "txtManageEmailAddress";
-            this.txtManageEmailAddress.Size = new System.Drawing.Size(175, 22);
-            this.txtManageEmailAddress.TabIndex = 1;
-            this.txtManageEmailAddress.TextChanged += new System.EventHandler(this.txtManageEmailAddress_TextChanged);
-            // 
-            // clientTableAdapter1
-            // 
-            this.clientTableAdapter1.ClearBeforeFill = true;
-            // 
-            // clientTableAdapter
-            // 
-            this.clientTableAdapter.ClearBeforeFill = true;
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.White;
-            this.panel2.Controls.Add(this.label1);
-            this.panel2.Controls.Add(this.txtContactNumber);
-            this.panel2.Controls.Add(this.pictureBox2);
-            this.panel2.Controls.Add(this.btnSignUp);
-            this.panel2.Controls.Add(this.label5);
-            this.panel2.Controls.Add(this.txtPhysicalAddress);
-            this.panel2.Controls.Add(this.txtEmailAddress);
-            this.panel2.Controls.Add(this.label4);
-            this.panel2.Controls.Add(this.label7);
-            this.panel2.Controls.Add(this.txtFirstName);
-            this.panel2.Controls.Add(this.label6);
-            this.panel2.Controls.Add(this.txtSurname);
-            this.panel2.ForeColor = System.Drawing.Color.Black;
-            this.panel2.Location = new System.Drawing.Point(78, 43);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(641, 400);
-            this.panel2.TabIndex = 0;
-            // 
-            // txtSurname
-            // 
-            this.txtSurname.Location = new System.Drawing.Point(186, 105);
-            this.txtSurname.Margin = new System.Windows.Forms.Padding(2);
-            this.txtSurname.Name = "txtSurname";
-            this.txtSurname.Size = new System.Drawing.Size(166, 22);
-            this.txtSurname.TabIndex = 1;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(28, 107);
-            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(85, 17);
-            this.label6.TabIndex = 7;
-            this.label6.Text = "LAST NAME:";
-            // 
-            // txtFirstName
-            // 
-            this.txtFirstName.Location = new System.Drawing.Point(186, 45);
-            this.txtFirstName.Margin = new System.Windows.Forms.Padding(2);
-            this.txtFirstName.Name = "txtFirstName";
-            this.txtFirstName.Size = new System.Drawing.Size(165, 22);
-            this.txtFirstName.TabIndex = 0;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(28, 166);
-            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(113, 17);
-            this.label7.TabIndex = 8;
-            this.label7.Text = "EMAIL ADDRESS:";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(28, 228);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(135, 17);
-            this.label4.TabIndex = 27;
-            this.label4.Text = "PHYSICAL ADDRESS:";
-            // 
-            // txtEmailAddress
-            // 
-            this.txtEmailAddress.Location = new System.Drawing.Point(186, 164);
-            this.txtEmailAddress.Margin = new System.Windows.Forms.Padding(2);
-            this.txtEmailAddress.Name = "txtEmailAddress";
-            this.txtEmailAddress.Size = new System.Drawing.Size(166, 22);
-            this.txtEmailAddress.TabIndex = 12;
-            // 
-            // txtPhysicalAddress
-            // 
-            this.txtPhysicalAddress.Location = new System.Drawing.Point(186, 226);
-            this.txtPhysicalAddress.Margin = new System.Windows.Forms.Padding(2);
-            this.txtPhysicalAddress.Name = "txtPhysicalAddress";
-            this.txtPhysicalAddress.Size = new System.Drawing.Size(166, 22);
-            this.txtPhysicalAddress.TabIndex = 28;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(25, 47);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(88, 17);
-            this.label5.TabIndex = 6;
-            this.label5.Text = "FIRST NAME:";
-            // 
-            // btnSignUp
-            // 
-            this.btnSignUp.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSignUp.Location = new System.Drawing.Point(447, 285);
-            this.btnSignUp.Margin = new System.Windows.Forms.Padding(2);
-            this.btnSignUp.Name = "btnSignUp";
-            this.btnSignUp.Size = new System.Drawing.Size(145, 32);
-            this.btnSignUp.TabIndex = 26;
-            this.btnSignUp.Text = "Register";
-            this.btnSignUp.UseVisualStyleBackColor = true;
-            this.btnSignUp.Click += new System.EventHandler(this.btnSignUp_Click);
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::Code_Crafters_Interface_Prototype_1.Properties.Resources._6478_200;
-            this.pictureBox2.Location = new System.Drawing.Point(447, 143);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(145, 105);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 29;
-            this.pictureBox2.TabStop = false;
-            // 
-            // txtContactNumber
-            // 
-            this.txtContactNumber.Location = new System.Drawing.Point(186, 290);
-            this.txtContactNumber.Margin = new System.Windows.Forms.Padding(2);
-            this.txtContactNumber.Name = "txtContactNumber";
-            this.txtContactNumber.Size = new System.Drawing.Size(165, 22);
-            this.txtContactNumber.TabIndex = 30;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(28, 292);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(81, 17);
-            this.label1.TabIndex = 32;
-            this.label1.Text = "PHONE NO:";
-            // 
-            // tabPage1
-            // 
-            this.tabPage1.BackColor = System.Drawing.Color.LightGray;
-            this.tabPage1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.tabPage1.Controls.Add(this.panel3);
-            this.tabPage1.Controls.Add(this.panel9);
-            this.tabPage1.ForeColor = System.Drawing.Color.Black;
-            this.tabPage1.Location = new System.Drawing.Point(4, 25);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1351, 806);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "GUEST REGISTRATION";
-            // 
-            // panel9
-            // 
-            this.panel9.BackColor = System.Drawing.Color.LightGray;
-            this.panel9.Controls.Add(this.label2);
-            this.panel9.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel9.Location = new System.Drawing.Point(3, 3);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(1345, 61);
-            this.panel9.TabIndex = 4;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2.Location = new System.Drawing.Point(415, 14);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(339, 31);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "GUEST REGISTRATION";
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.panel2);
-            this.panel3.Location = new System.Drawing.Point(180, 137);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(790, 499);
-            this.panel3.TabIndex = 5;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label8.Location = new System.Drawing.Point(454, 14);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(213, 31);
-            this.label8.TabIndex = 1;
-            this.label8.Text = "VIEW GUESTS";
+            this.panel7.BackColor = System.Drawing.Color.LightGray;
+            this.panel7.Controls.Add(this.label9);
+            this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel7.Location = new System.Drawing.Point(3, 3);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(1345, 61);
+            this.panel7.TabIndex = 19;
             // 
             // label9
             // 
@@ -639,48 +674,13 @@
             this.label9.TabIndex = 1;
             this.label9.Text = "MANAGE GUESTS";
             // 
-            // panel8
+            // clientTableAdapter1
             // 
-            this.panel8.Controls.Add(this.panel4);
-            this.panel8.Controls.Add(this.dgvBookings);
-            this.panel8.Controls.Add(this.btnArchived);
-            this.panel8.Controls.Add(this.panel1);
-            this.panel8.Controls.Add(this.btnBlacklisted);
-            this.panel8.Location = new System.Drawing.Point(142, 70);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(895, 632);
-            this.panel8.TabIndex = 21;
+            this.clientTableAdapter1.ClearBeforeFill = true;
             // 
-            // panel5
+            // clientTableAdapter
             // 
-            this.panel5.BackColor = System.Drawing.Color.LightGray;
-            this.panel5.Controls.Add(this.label8);
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel5.Location = new System.Drawing.Point(3, 3);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1345, 61);
-            this.panel5.TabIndex = 22;
-            // 
-            // panel7
-            // 
-            this.panel7.BackColor = System.Drawing.Color.LightGray;
-            this.panel7.Controls.Add(this.label9);
-            this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel7.Location = new System.Drawing.Point(3, 3);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(1345, 61);
-            this.panel7.TabIndex = 19;
-            // 
-            // panel10
-            // 
-            this.panel10.Controls.Add(this.panel6);
-            this.panel10.Controls.Add(this.dgvManageClients);
-            this.panel10.Controls.Add(this.btnBlackList);
-            this.panel10.Controls.Add(this.btnArchive);
-            this.panel10.Location = new System.Drawing.Point(150, 70);
-            this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(787, 648);
-            this.panel10.TabIndex = 20;
+            this.clientTableAdapter.ClearBeforeFill = true;
             // 
             // GuestManagementForm
             // 
@@ -698,7 +698,17 @@
             this.Load += new System.EventHandler(this.GuestManagementForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.codeCraftersDS)).EndInit();
             this.tabControl1.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.panel9.ResumeLayout(false);
+            this.panel9.PerformLayout();
             this.tabPage2.ResumeLayout(false);
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
+            this.panel8.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBookings)).EndInit();
@@ -707,22 +717,12 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.tabPage3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvManageClients)).EndInit();
+            this.panel10.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            this.tabPage1.ResumeLayout(false);
-            this.panel9.ResumeLayout(false);
-            this.panel9.PerformLayout();
-            this.panel3.ResumeLayout(false);
-            this.panel8.ResumeLayout(false);
-            this.panel5.ResumeLayout(false);
-            this.panel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvManageClients)).EndInit();
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
-            this.panel10.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

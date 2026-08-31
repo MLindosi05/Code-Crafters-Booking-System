@@ -32,6 +32,43 @@ namespace Code_Crafters_Interface_Prototype_1.Business
         private void BookingSummaryForm_Load(object sender, EventArgs e)
         {
             LoadBookingDetails();
+
+            panel12.BackColor = Color.FromArgb(15, 42, 74);
+            panel1.BackColor = Color.FromArgb(10, 25, 47);
+
+            Color goldColor = Color.FromArgb(212, 175, 55);
+            label2.ForeColor = goldColor;
+            label5.ForeColor = goldColor;
+            label6.ForeColor = goldColor;
+            label4.ForeColor = goldColor;
+            label7.ForeColor = goldColor;
+            label9.ForeColor = goldColor;
+            lblBookingRefValue.ForeColor = goldColor;
+            lblCheckInValue.ForeColor = goldColor;
+            lblCheckOutValue.ForeColor = goldColor;
+            lblGuestEmailValue.ForeColor = goldColor;
+            lblGuestNameValue.ForeColor = goldColor;
+            lblNumOfGuestsValue.ForeColor = goldColor;
+            lblRoomNoValue.ForeColor = goldColor;
+            lblRoomTypeValue.ForeColor = goldColor;
+            lblTableAreaValue.ForeColor = goldColor;
+            lblTotalAmountValue.ForeColor = goldColor;
+            label13.ForeColor = goldColor;
+            label14.ForeColor = goldColor;
+            label3.ForeColor = goldColor;
+
+            Color whiteColor = Color.FromArgb(255, 255, 255);
+            label20.ForeColor = goldColor;
+
+            Color accentOrange = Color.FromArgb(235, 130, 43);
+            btnBackToBooking.BackColor = accentOrange;
+            btnBackToBooking.ForeColor = whiteColor;
+            btnModifyBooking.BackColor = accentOrange;
+            btnModifyBooking.ForeColor = whiteColor;
+            btnPrintSummary.BackColor = accentOrange;
+            btnPrintSummary.ForeColor = whiteColor;
+
+
         }
 
         private void LoadBookingDetails()

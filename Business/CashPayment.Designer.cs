@@ -36,8 +36,8 @@
             this.btnProcessPayment = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
             this.lblTotalDue = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel6.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -96,6 +96,7 @@
             // btnProcessPayment
             // 
             this.btnProcessPayment.BackColor = System.Drawing.Color.Navy;
+            this.btnProcessPayment.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnProcessPayment.ForeColor = System.Drawing.Color.White;
             this.btnProcessPayment.Location = new System.Drawing.Point(551, 217);
             this.btnProcessPayment.Name = "btnProcessPayment";
@@ -107,13 +108,15 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.ForeColor = System.Drawing.Color.Navy;
+            this.btnCancel.BackColor = System.Drawing.Color.Red;
+            this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancel.ForeColor = System.Drawing.Color.White;
             this.btnCancel.Location = new System.Drawing.Point(12, 217);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(131, 41);
             this.btnCancel.TabIndex = 61;
             this.btnCancel.Text = "❌ CANCEL";
-            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // panel1
@@ -127,15 +130,6 @@
             this.panel1.Size = new System.Drawing.Size(690, 56);
             this.panel1.TabIndex = 62;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(17, 21);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(93, 21);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "TOTAL DUE";
-            // 
             // lblTotalDue
             // 
             this.lblTotalDue.AutoSize = true;
@@ -144,6 +138,15 @@
             this.lblTotalDue.Size = new System.Drawing.Size(55, 21);
             this.lblTotalDue.TabIndex = 1;
             this.lblTotalDue.Text = "R 0.00";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(17, 21);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(93, 21);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "TOTAL DUE";
             // 
             // CashPayment
             // 

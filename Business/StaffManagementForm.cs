@@ -3,7 +3,9 @@ using Code_Crafters_Interface_Prototype_1.Interfaces;
 using System;
 using System.Data;
 using System.Data.SqlClient;
+using System.Drawing;
 using System.Linq;
+using System.Web.UI.WebControls;
 using System.Windows.Forms;
 
 namespace Code_Crafters_Interface_Prototype_1.Business
@@ -32,6 +34,27 @@ namespace Code_Crafters_Interface_Prototype_1.Business
             // Load data into both grids on startup
             LoadStaffData();
             LoadManageStaffData();
+
+            panel7.BackColor = Color.FromArgb(15, 42, 74);
+            panel3.BackColor = Color.FromArgb(10, 25, 47);
+            panel9.BackColor = Color.FromArgb(15, 42, 74);
+            panel4.BackColor = Color.FromArgb(10, 25, 47);
+            panel2.BackColor = Color.FromArgb(15, 42, 74);
+
+            Color goldColor = Color.FromArgb(212, 175, 55);
+            label2.ForeColor = goldColor;
+            label5.ForeColor = goldColor;
+            label6.ForeColor = goldColor;
+            label4.ForeColor = goldColor;
+            label1.ForeColor = goldColor;
+            lblStaffEmailAddress.ForeColor = goldColor;
+
+            panel8.BackColor = Color.FromArgb(15, 42, 74);
+            panel5.BackColor = Color.FromArgb(10, 25, 47);
+
+
+
+
         }
 
         private void LoadBranchComboBox()
@@ -57,8 +80,7 @@ namespace Code_Crafters_Interface_Prototype_1.Business
             ButtonStyler.Apply(btnSuspend);
             ButtonStyler.Apply(btnAuthorize);
 
-            groupBox4.BackColor = System.Drawing.Color.FromArgb(30, 42, 58);
-            groupBox4.ForeColor = System.Drawing.Color.White;
+            
 
             ConfigureDataGridViewTheme();
         }
@@ -72,7 +94,7 @@ namespace Code_Crafters_Interface_Prototype_1.Business
         private void ConfigureSingleGridTheme(DataGridView grid)
         {
             grid.BackgroundColor = System.Drawing.Color.White;
-            grid.BorderStyle = BorderStyle.None;
+            grid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             grid.EnableHeadersVisualStyles = false;
 
             grid.ColumnHeadersDefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(0, 53, 128);
