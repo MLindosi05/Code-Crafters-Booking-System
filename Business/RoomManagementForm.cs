@@ -10,6 +10,7 @@ namespace Code_Crafters_Interface_Prototype_1.Business
     public partial class RoomManagementForm : Form
     {
         private string connectionString = "Server=146.230.177.46;Database=GroupPmb2;User Id=GroupPmb2;Password=gg5dc2;TrustServerCertificate=True;";
+        private bool isLoaded = false;
 
         public RoomManagementForm()
         {
@@ -75,49 +76,51 @@ namespace Code_Crafters_Interface_Prototype_1.Business
             if (lblTotalRooms != null) lblTotalRooms.ForeColor = regalGold;
         }
 
-        private void LoadBranches()
+        private void cmbBranches_SelectedIndexChanged(object sender, EventArgs e)
         {
-            try
-            {
-                using (SqlConnection conn = new SqlConnection(connectionString))
-                {
-                    string query = "SELECT Branch_ID, Branch_Name FROM Branch WHERE Branch_Status = 'Active'";
-                    SqlDataAdapter da = new SqlDataAdapter(query, conn);
-                    DataTable dt = new DataTable();
-                    da.Fill(dt);
-
-                    cmbBranches.DataSource = dt;
-                    cmbBranches.DisplayMember = "Branch_Name";
-                    cmbBranches.ValueMember = "Branch_ID";
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error loading branches: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            if (!isLoaded) return;
+            string selectedBranch = cmbBranches.SelectedItem?.ToString() ?? cmbBranches.Text;
+            LoadRoomData(selectedBranch);
         }
 
-        private void LoadRoomData(int? branchId = null)
+        private void cmbBranches_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            if (!isLoaded) return;
+            string selectedBranch = cmbBranches.SelectedItem?.ToString() ?? cmbBranches.Text;
+            LoadRoomData(selectedBranch);
+        }
+
+        private void LoadRoomData(string branchName = null)
         {
             try
             {
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
-                    string query = "SELECT * FROM Hotel_Room";
-                    if (branchId.HasValue)
+                    // Join Hotel_Room with Branch table to filter by the hardcoded Branch Name string
+                    string query = @"SELECT r.* FROM Hotel_Room r 
+                                     INNER JOIN Branch b ON r.Branch_ID = b.Branch_ID";
+
+                    bool filterByBranch = !string.IsNullOrEmpty(branchName) &&
+                                          !branchName.Equals("All", StringComparison.OrdinalIgnoreCase) &&
+                                          !branchName.Equals("SELECT BRANCH", StringComparison.OrdinalIgnoreCase);
+
+                    if (filterByBranch)
                     {
-                        query += " WHERE Branch_ID = @BranchID";
+                        query += " WHERE b.Branch_Name = @BranchName";
                     }
 
                     SqlCommand cmd = new SqlCommand(query, conn);
-                    if (branchId.HasValue)
+                    if (filterByBranch)
                     {
-                        cmd.Parameters.AddWithValue("@BranchID", branchId.Value);
+                        cmd.Parameters.AddWithValue("@BranchName", branchName);
                     }
 
                     SqlDataAdapter da = new SqlDataAdapter(cmd);
                     DataTable dtRooms = new DataTable();
                     da.Fill(dtRooms);
+
+                    dgvViewRooms.DataSource = null;
+                    dgvManageRooms.DataSource = null;
 
                     dgvViewRooms.DataSource = dtRooms;
                     dgvManageRooms.DataSource = dtRooms;
@@ -146,7 +149,8 @@ namespace Code_Crafters_Interface_Prototype_1.Business
 
         private void btnRoomRefresh_Click(object sender, EventArgs e)
         {
-            LoadRoomData();
+            string selectedBranch = cmbBranches.SelectedItem?.ToString() ?? cmbBranches.Text;
+            LoadRoomData(selectedBranch);
         }
 
         private void dgvRooms_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -155,12 +159,12 @@ namespace Code_Crafters_Interface_Prototype_1.Business
             {
                 DataGridViewRow row = ((DataGridView)sender).Rows[e.RowIndex];
 
-                txtRoomNo.Text = row.Cells["hotel_room_number"].Value.ToString();
-                txtPricePerNight.Text = row.Cells["Hotel_Room_Price"].Value.ToString();
-                cmbRoomType.Text = row.Cells["hotel_room_type"].Value.ToString();
-                cmbRoomStatus.Text = row.Cells["hotel_room_status"].Value.ToString();
-                cmbMaxAdults.Text = row.Cells["Max_Adults"].Value.ToString();
-                cmbMaxChild.Text = row.Cells["Max_Children"].Value.ToString();
+                txtRoomNo.Text = row.Cells["hotel_room_number"].Value?.ToString() ?? "";
+                txtPricePerNight.Text = row.Cells["Hotel_Room_Price"].Value?.ToString() ?? "";
+                cmbRoomType.Text = row.Cells["hotel_room_type"].Value?.ToString() ?? "";
+                cmbRoomStatus.Text = row.Cells["hotel_room_status"].Value?.ToString() ?? "";
+                cmbMaxAdults.Text = row.Cells["Max_Adults"].Value?.ToString() ?? "";
+                cmbMaxChild.Text = row.Cells["Max_Children"].Value?.ToString() ?? "";
             }
         }
 
@@ -193,7 +197,9 @@ namespace Code_Crafters_Interface_Prototype_1.Business
                 }
 
                 MessageBox.Show("Room details updated successfully in the database.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                LoadRoomData();
+
+                string selectedBranch = cmbBranches.SelectedItem?.ToString() ?? cmbBranches.Text;
+                LoadRoomData(selectedBranch);
             }
             catch (Exception ex)
             {
