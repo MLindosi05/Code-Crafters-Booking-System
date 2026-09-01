@@ -20,20 +20,16 @@ namespace Code_Crafters_Interface_Prototype_1.Business
         private void RoomManagementForm_Load(object sender, EventArgs e)
         {
             ApplyStyling();
-            LoadRoomData();
 
             panel5.BackColor = Color.FromArgb(250, 243, 221);
             panel6.BackColor = Color.FromArgb(250, 243, 221);
             panel7.BackColor = Color.FromArgb(250, 243, 221);
             panel4.BackColor = Color.FromArgb(250, 243, 221);
-            panel11.BackColor = Color.FromArgb(15, 42, 74);
             panel12.BackColor = Color.FromArgb(15, 42, 74);
 
-            // Hook up cell click events for both grids safely if they exist
             if (dgvViewRooms != null) dgvViewRooms.CellClick += GridRow_CellClick;
-            if (dgvManageRooms != null) dgvManageRooms.CellClick += GridRow_CellClick;
 
-            isLoaded = true; // Enables selections to trigger filtering after load completes
+            ResetAndReload();
         }
 
         private void ApplyStyling()
@@ -46,18 +42,6 @@ namespace Code_Crafters_Interface_Prototype_1.Business
             Color accentOrange = Color.FromArgb(235, 130, 43);
 
             if (panel1 != null) panel1.BackColor = navyHeader;
-            if (panel2 != null) panel2.BackColor = navyHeader;
-            if (panel3 != null) panel3.BackColor = darkNavy;
-            if (panel8 != null) panel8.BackColor = navyHeader;
-
-            if (btnRoomRefresh != null)
-            {
-                btnRoomRefresh.FlatStyle = FlatStyle.Flat;
-                btnRoomRefresh.FlatAppearance.BorderSize = 1;
-                btnRoomRefresh.FlatAppearance.BorderColor = Color.White;
-                btnRoomRefresh.BackColor = accentOrange;
-                btnRoomRefresh.ForeColor = Color.White;
-            }
 
             if (btnRefresh != null)
             {
@@ -113,9 +97,9 @@ namespace Code_Crafters_Interface_Prototype_1.Business
                                      WHERE 1=1";
 
                     bool filterByBranch = !string.IsNullOrEmpty(branchName) &&
-                                          !branchName.Equals("All", StringComparison.OrdinalIgnoreCase) &&
-                                          !branchName.Equals("All Hotels", StringComparison.OrdinalIgnoreCase) &&
-                                          !branchName.Equals("SELECT BRANCH", StringComparison.OrdinalIgnoreCase);
+                      !branchName.Equals("All", StringComparison.OrdinalIgnoreCase) &&
+                      !branchName.Equals("All Branches", StringComparison.OrdinalIgnoreCase) &&
+                      !branchName.Equals("SELECT BRANCH", StringComparison.OrdinalIgnoreCase);
 
                     bool filterByType = !string.IsNullOrEmpty(roomType) &&
                                         !roomType.Equals("All", StringComparison.OrdinalIgnoreCase) &&
@@ -150,10 +134,9 @@ namespace Code_Crafters_Interface_Prototype_1.Business
                     da.Fill(dtRooms);
 
                     dgvViewRooms.DataSource = null;
-                    if (dgvManageRooms != null) dgvManageRooms.DataSource = null;
-
-                    dgvViewRooms.DataSource = dtRooms;
-                    if (dgvManageRooms != null) dgvManageRooms.DataSource = dtRooms;
+                    BindingSource bsView = new BindingSource();
+                    bsView.DataSource = dtRooms;
+                    dgvViewRooms.DataSource = bsView;
 
                     UpdateMetrics(dtRooms);
                 }
@@ -168,7 +151,7 @@ namespace Code_Crafters_Interface_Prototype_1.Business
         {
             int total = dtRooms.Rows.Count;
             int available = dtRooms.AsEnumerable().Count(r => r.Field<string>("hotel_room_status")?.Trim().Equals("Available", StringComparison.OrdinalIgnoreCase) == true);
-            int occupied = dtRooms.AsEnumerable().Count(r => r.Field<string>("hotel_room_status")?.Trim().Equals("Occupied", StringComparison.OrdinalIgnoreCase) == true);
+            int occupied = dtRooms.AsEnumerable().Count(r => r.Field<string>("hotel_room_status")?.Trim().Equals("Booked", StringComparison.OrdinalIgnoreCase) == true);
             int maintenance = dtRooms.AsEnumerable().Count(r => r.Field<string>("hotel_room_status")?.Trim().Equals("Maintenance", StringComparison.OrdinalIgnoreCase) == true);
 
             if (lblTotalRooms != null) lblTotalRooms.Text = total.ToString();
@@ -200,50 +183,7 @@ namespace Code_Crafters_Interface_Prototype_1.Business
             {
                 DataGridViewRow row = ((DataGridView)sender).Rows[e.RowIndex];
 
-                if (txtRoomNo != null) txtRoomNo.Text = row.Cells["hotel_room_number"].Value?.ToString() ?? "";
-                if (txtPricePerNight != null) txtPricePerNight.Text = row.Cells["Hotel_Room_Price"].Value?.ToString() ?? "";
-                if (cmbHotelRoomType != null) cmbHotelRoomType.Text = row.Cells["hotel_room_manage_type"].Value?.ToString() ?? "";
-                if (cmbRoomStatus != null) cmbRoomStatus.Text = row.Cells["hotel_room_status"].Value?.ToString() ?? "";
-                if (cmbMaxAdults != null) cmbMaxAdults.Text = row.Cells["Max_Adults"].Value?.ToString() ?? "";
-                if (cmbMaxChild != null) cmbMaxChild.Text = row.Cells["Max_Children"].Value?.ToString() ?? "";
-            }
-        }
-
-        private void btnSaveChanges_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                using (SqlConnection conn = new SqlConnection(connectionString))
-                {
-                    conn.Open();
-                    string query = @"UPDATE Hotel_Room 
-                                     SET Hotel_Room_Price = @Price, 
-                                         hotel_room_type = @Type, 
-                                         hotel_room_status = @Status, 
-                                         Max_Adults = @MaxAdults, 
-                                         Max_Children = @MaxChildren 
-                                     WHERE hotel_room_number = @RoomNo";
-
-                    using (SqlCommand cmd = new SqlCommand(query, conn))
-                    {
-                        cmd.Parameters.AddWithValue("@Price", decimal.Parse(txtPricePerNight.Text));
-                        cmd.Parameters.AddWithValue("@Type", cmbHotelRoomType.Text);
-                        cmd.Parameters.AddWithValue("@Status", cmbRoomStatus.Text);
-                        cmd.Parameters.AddWithValue("@MaxAdults", int.Parse(cmbMaxAdults.Text));
-                        cmd.Parameters.AddWithValue("@MaxChildren", int.Parse(cmbMaxChild.Text));
-                        cmd.Parameters.AddWithValue("@RoomNo", txtRoomNo.Text);
-
-                        cmd.ExecuteNonQuery();
-                    }
-                }
-
-                MessageBox.Show("Room details updated successfully in the database.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                ApplyCombinedFilters();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Failed to update room details: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                if (cmbHotelRoomType != null) cmbHotelRoomType.Text = row.Cells["hotel_room_type"].Value?.ToString() ?? "";
             }
         }
 
