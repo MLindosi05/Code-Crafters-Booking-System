@@ -61,6 +61,15 @@
             this.lblRoomsUnderMaintenance = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.dgvViewRooms = new System.Windows.Forms.DataGridView();
+            this.hotelroomnumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.hotelroomstatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.hotelRoomPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.maxAdultsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.maxChildrenDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cleaningStatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lastCleanedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lastOccupiedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.hotel_room_type = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.hotelRoomBindingSource5 = new System.Windows.Forms.BindingSource(this.components);
             this.panel5 = new System.Windows.Forms.Panel();
             this.lblAvailableRooms = new System.Windows.Forms.Label();
@@ -99,27 +108,18 @@
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
             this.dgvManageRooms = new System.Windows.Forms.DataGridView();
-            this.hotelroomnumberDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.hotelroomstatusDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.hotelRoomPriceDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.maxAdultsDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.maxChildrenDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cleaningStatusDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lastCleanedDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lastOccupiedDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.hotelroomtypeDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.hotelRoomBindingSource6 = new System.Windows.Forms.BindingSource(this.components);
             this.fKRoomAssiHotel1B5E0D89BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.hotelRoomBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
-            this.hotelroomnumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.hotelroomstatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.hotelRoomPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.maxAdultsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.maxChildrenDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cleaningStatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lastCleanedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lastOccupiedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.hotel_room_type = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.hotel_room_number = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.hotel_room_status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Hotel_Room_Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Max_Adults = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Max_Children = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cleaningStatusDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lastCleanedDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lastOccupiedDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.hotel_room_manage_type = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.hotelRoomBindingSource4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.codeCraftersDSTWO)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.hotelRoomBindingSource3)).BeginInit();
@@ -237,10 +237,10 @@
             this.tbpViewRooms.BackColor = System.Drawing.Color.DarkGray;
             this.tbpViewRooms.Controls.Add(this.panel12);
             this.tbpViewRooms.Controls.Add(this.panel1);
-            this.tbpViewRooms.Location = new System.Drawing.Point(4, 30);
+            this.tbpViewRooms.Location = new System.Drawing.Point(4, 26);
             this.tbpViewRooms.Name = "tbpViewRooms";
             this.tbpViewRooms.Padding = new System.Windows.Forms.Padding(3);
-            this.tbpViewRooms.Size = new System.Drawing.Size(1422, 904);
+            this.tbpViewRooms.Size = new System.Drawing.Size(1422, 908);
             this.tbpViewRooms.TabIndex = 1;
             this.tbpViewRooms.Text = "VIEW ROOMS";
             // 
@@ -261,7 +261,7 @@
             this.label18.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label18.Location = new System.Drawing.Point(638, 20);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(252, 39);
+            this.label18.Size = new System.Drawing.Size(202, 31);
             this.label18.TabIndex = 1;
             this.label18.Text = "VIEW ROOMS";
             // 
@@ -288,7 +288,7 @@
             this.label5.ForeColor = System.Drawing.Color.White;
             this.label5.Location = new System.Drawing.Point(84, 273);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(112, 23);
+            this.label5.Size = new System.Drawing.Size(87, 17);
             this.label5.TabIndex = 51;
             this.label5.Text = "ROOM TYPE:";
             // 
@@ -303,7 +303,7 @@
             "Suite Rooms"});
             this.cmbHotelRoomType.Location = new System.Drawing.Point(185, 270);
             this.cmbHotelRoomType.Name = "cmbHotelRoomType";
-            this.cmbHotelRoomType.Size = new System.Drawing.Size(223, 29);
+            this.cmbHotelRoomType.Size = new System.Drawing.Size(223, 25);
             this.cmbHotelRoomType.TabIndex = 50;
             this.cmbHotelRoomType.SelectedIndexChanged += new System.EventHandler(this.cmbHotelRoomType_SelectedIndexChanged);
             // 
@@ -329,7 +329,7 @@
             "JHB Midrand"});
             this.cmbBranchName.Location = new System.Drawing.Point(160, 24);
             this.cmbBranchName.Name = "cmbBranchName";
-            this.cmbBranchName.Size = new System.Drawing.Size(160, 29);
+            this.cmbBranchName.Size = new System.Drawing.Size(160, 25);
             this.cmbBranchName.TabIndex = 44;
             this.cmbBranchName.SelectedIndexChanged += new System.EventHandler(this.cmbBranchName_SelectedIndexChanged);
             // 
@@ -339,7 +339,7 @@
             this.label9.ForeColor = System.Drawing.Color.DarkGoldenrod;
             this.label9.Location = new System.Drawing.Point(3, 27);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(196, 23);
+            this.label9.Size = new System.Drawing.Size(151, 17);
             this.label9.TabIndex = 4;
             this.label9.Text = "🏨 REGAL INN HOTELS";
             // 
@@ -372,7 +372,7 @@
             this.lblTotalRooms.ForeColor = System.Drawing.Color.Black;
             this.lblTotalRooms.Location = new System.Drawing.Point(71, 40);
             this.lblTotalRooms.Name = "lblTotalRooms";
-            this.lblTotalRooms.Size = new System.Drawing.Size(105, 81);
+            this.lblTotalRooms.Size = new System.Drawing.Size(84, 65);
             this.lblTotalRooms.TabIndex = 15;
             this.lblTotalRooms.Text = "25";
             // 
@@ -382,7 +382,7 @@
             this.label1.ForeColor = System.Drawing.Color.Black;
             this.label1.Location = new System.Drawing.Point(56, 11);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(129, 23);
+            this.label1.Size = new System.Drawing.Size(99, 17);
             this.label1.TabIndex = 13;
             this.label1.Text = "TOTAL ROOMS";
             // 
@@ -402,7 +402,7 @@
             this.lblRoomsUnderMaintenance.ForeColor = System.Drawing.Color.Black;
             this.lblRoomsUnderMaintenance.Location = new System.Drawing.Point(97, 40);
             this.lblRoomsUnderMaintenance.Name = "lblRoomsUnderMaintenance";
-            this.lblRoomsUnderMaintenance.Size = new System.Drawing.Size(70, 81);
+            this.lblRoomsUnderMaintenance.Size = new System.Drawing.Size(56, 65);
             this.lblRoomsUnderMaintenance.TabIndex = 14;
             this.lblRoomsUnderMaintenance.Text = "4";
             // 
@@ -412,7 +412,7 @@
             this.label4.ForeColor = System.Drawing.Color.Black;
             this.label4.Location = new System.Drawing.Point(46, 11);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(201, 23);
+            this.label4.Size = new System.Drawing.Size(153, 17);
             this.label4.TabIndex = 13;
             this.label4.Text = "MAINTENANCE ROOMS";
             // 
@@ -436,532 +436,6 @@
             this.dgvViewRooms.RowHeadersWidth = 51;
             this.dgvViewRooms.Size = new System.Drawing.Size(936, 384);
             this.dgvViewRooms.TabIndex = 7;
-            // 
-            // hotelRoomBindingSource5
-            // 
-            this.hotelRoomBindingSource5.DataMember = "Hotel_Room";
-            this.hotelRoomBindingSource5.DataSource = this.codeCraftersDSTWOBindingSource;
-            // 
-            // panel5
-            // 
-            this.panel5.Controls.Add(this.lblAvailableRooms);
-            this.panel5.Controls.Add(this.label2);
-            this.panel5.Location = new System.Drawing.Point(315, 113);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(228, 122);
-            this.panel5.TabIndex = 3;
-            // 
-            // lblAvailableRooms
-            // 
-            this.lblAvailableRooms.AutoSize = true;
-            this.lblAvailableRooms.Font = new System.Drawing.Font("Segoe UI", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAvailableRooms.ForeColor = System.Drawing.Color.Black;
-            this.lblAvailableRooms.Location = new System.Drawing.Point(71, 40);
-            this.lblAvailableRooms.Name = "lblAvailableRooms";
-            this.lblAvailableRooms.Size = new System.Drawing.Size(105, 81);
-            this.lblAvailableRooms.TabIndex = 15;
-            this.lblAvailableRooms.Text = "14";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(46, 11);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(166, 23);
-            this.label2.TabIndex = 13;
-            this.label2.Text = "AVAILABLE ROOMS";
-            // 
-            // panel6
-            // 
-            this.panel6.Controls.Add(this.lblOccupiedRooms);
-            this.panel6.Controls.Add(this.label3);
-            this.panel6.Location = new System.Drawing.Point(549, 113);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(223, 122);
-            this.panel6.TabIndex = 4;
-            // 
-            // lblOccupiedRooms
-            // 
-            this.lblOccupiedRooms.AutoSize = true;
-            this.lblOccupiedRooms.Font = new System.Drawing.Font("Segoe UI", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblOccupiedRooms.ForeColor = System.Drawing.Color.Black;
-            this.lblOccupiedRooms.Location = new System.Drawing.Point(88, 40);
-            this.lblOccupiedRooms.Name = "lblOccupiedRooms";
-            this.lblOccupiedRooms.Size = new System.Drawing.Size(70, 81);
-            this.lblOccupiedRooms.TabIndex = 15;
-            this.lblOccupiedRooms.Text = "7";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(52, 11);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(161, 23);
-            this.label3.TabIndex = 13;
-            this.label3.Text = "OCCUPIED ROOMS";
-            // 
-            // tbcViewRooms
-            // 
-            this.tbcViewRooms.Controls.Add(this.tbpViewRooms);
-            this.tbcViewRooms.Controls.Add(this.tabPage1);
-            this.tbcViewRooms.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbcViewRooms.Location = new System.Drawing.Point(0, 0);
-            this.tbcViewRooms.Name = "tbcViewRooms";
-            this.tbcViewRooms.SelectedIndex = 0;
-            this.tbcViewRooms.Size = new System.Drawing.Size(1430, 938);
-            this.tbcViewRooms.TabIndex = 0;
-            // 
-            // tabPage1
-            // 
-            this.tabPage1.Controls.Add(this.panel11);
-            this.tabPage1.Controls.Add(this.panel2);
-            this.tabPage1.ForeColor = System.Drawing.Color.DarkGray;
-            this.tabPage1.Location = new System.Drawing.Point(4, 30);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1422, 904);
-            this.tabPage1.TabIndex = 2;
-            this.tabPage1.Text = "MANAGE ROOMS";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // panel11
-            // 
-            this.panel11.BackColor = System.Drawing.Color.LightGray;
-            this.panel11.Controls.Add(this.label11);
-            this.panel11.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel11.Location = new System.Drawing.Point(3, 3);
-            this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(1416, 74);
-            this.panel11.TabIndex = 6;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label11.Location = new System.Drawing.Point(604, 25);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(314, 39);
-            this.label11.TabIndex = 1;
-            this.label11.Text = "MANAGE ROOMS";
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.panel9);
-            this.panel2.Controls.Add(this.panel3);
-            this.panel2.Controls.Add(this.dgvManageRooms);
-            this.panel2.Location = new System.Drawing.Point(194, 94);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1199, 794);
-            this.panel2.TabIndex = 0;
-            // 
-            // panel9
-            // 
-            this.panel9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel9.Controls.Add(this.cmbBranches);
-            this.panel9.Controls.Add(this.label14);
-            this.panel9.Controls.Add(this.btnRoomRefresh);
-            this.panel9.Location = new System.Drawing.Point(43, 21);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(1129, 70);
-            this.panel9.TabIndex = 50;
-            // 
-            // cmbBranches
-            // 
-            this.cmbBranches.FormattingEnabled = true;
-            this.cmbBranches.Items.AddRange(new object[] {
-            "Pietermaritzburg",
-            "Durban Umhlanga",
-            "Durban North Beach",
-            "Durban Ballito",
-            "JHB Midrand"});
-            this.cmbBranches.Location = new System.Drawing.Point(160, 24);
-            this.cmbBranches.Name = "cmbBranches";
-            this.cmbBranches.Size = new System.Drawing.Size(160, 29);
-            this.cmbBranches.TabIndex = 44;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.ForeColor = System.Drawing.Color.DarkGoldenrod;
-            this.label14.Location = new System.Drawing.Point(3, 27);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(196, 23);
-            this.label14.TabIndex = 4;
-            this.label14.Text = "🏨 REGAL INN HOTELS";
-            // 
-            // btnRoomRefresh
-            // 
-            this.btnRoomRefresh.BackColor = System.Drawing.Color.White;
-            this.btnRoomRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRoomRefresh.ForeColor = System.Drawing.Color.Navy;
-            this.btnRoomRefresh.Location = new System.Drawing.Point(877, 8);
-            this.btnRoomRefresh.Name = "btnRoomRefresh";
-            this.btnRoomRefresh.Size = new System.Drawing.Size(216, 45);
-            this.btnRoomRefresh.TabIndex = 3;
-            this.btnRoomRefresh.Text = "🔄 REFRESH";
-            this.btnRoomRefresh.UseVisualStyleBackColor = false;
-            this.btnRoomRefresh.Click += new System.EventHandler(this.btnRoomRefresh_Click);
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.panel10);
-            this.panel3.Controls.Add(this.panel8);
-            this.panel3.Controls.Add(this.cmbMaxChild);
-            this.panel3.Controls.Add(this.cmbMaxAdults);
-            this.panel3.Controls.Add(this.label16);
-            this.panel3.Controls.Add(this.txtPricePerNight);
-            this.panel3.Controls.Add(this.label13);
-            this.panel3.Controls.Add(this.label15);
-            this.panel3.Controls.Add(this.label10);
-            this.panel3.Controls.Add(this.txtRoomNo);
-            this.panel3.Controls.Add(this.cmbRoomStatus);
-            this.panel3.Controls.Add(this.label12);
-            this.panel3.Controls.Add(this.label8);
-            this.panel3.Controls.Add(this.label7);
-            this.panel3.Controls.Add(this.cmbRoomType);
-            this.panel3.Controls.Add(this.comboBox2);
-            this.panel3.Controls.Add(this.button1);
-            this.panel3.Location = new System.Drawing.Point(43, 107);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1129, 341);
-            this.panel3.TabIndex = 1;
-            // 
-            // panel10
-            // 
-            this.panel10.Controls.Add(this.listBox1);
-            this.panel10.Controls.Add(this.label17);
-            this.panel10.Location = new System.Drawing.Point(638, 81);
-            this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(456, 242);
-            this.panel10.TabIndex = 18;
-            // 
-            // listBox1
-            // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 21;
-            this.listBox1.Items.AddRange(new object[] {
-            "Wi-Fi",
-            "Coffee and Tea Maker",
-            "Mini Fridge",
-            "Air Conditioning and Heating",
-            "Flat-Screen Television",
-            "Toiletries",
-            "Work Desk and Chair",
-            "Daily Housekeeping",
-            "Closet and Hangers",
-            "Iron and Ironing Board",
-            "Telephone"});
-            this.listBox1.Location = new System.Drawing.Point(45, 48);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(374, 172);
-            this.listBox1.TabIndex = 18;
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.ForeColor = System.Drawing.Color.White;
-            this.label17.Location = new System.Drawing.Point(41, 14);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(118, 28);
-            this.label17.TabIndex = 17;
-            this.label17.Text = "AMENITIES";
-            // 
-            // panel8
-            // 
-            this.panel8.Controls.Add(this.label6);
-            this.panel8.Location = new System.Drawing.Point(16, 13);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(1078, 51);
-            this.panel8.TabIndex = 0;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(389, 14);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(241, 28);
-            this.label6.TabIndex = 0;
-            this.label6.Text = "UPDATE ROOM DETAILS";
-            // 
-            // cmbMaxChild
-            // 
-            this.cmbMaxChild.FormattingEnabled = true;
-            this.cmbMaxChild.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6"});
-            this.cmbMaxChild.Location = new System.Drawing.Point(441, 218);
-            this.cmbMaxChild.Name = "cmbMaxChild";
-            this.cmbMaxChild.Size = new System.Drawing.Size(121, 29);
-            this.cmbMaxChild.TabIndex = 16;
-            // 
-            // cmbMaxAdults
-            // 
-            this.cmbMaxAdults.FormattingEnabled = true;
-            this.cmbMaxAdults.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6"});
-            this.cmbMaxAdults.Location = new System.Drawing.Point(441, 129);
-            this.cmbMaxAdults.Name = "cmbMaxAdults";
-            this.cmbMaxAdults.Size = new System.Drawing.Size(121, 29);
-            this.cmbMaxAdults.TabIndex = 15;
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.ForeColor = System.Drawing.Color.White;
-            this.label16.Location = new System.Drawing.Point(437, 183);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(126, 28);
-            this.label16.TabIndex = 14;
-            this.label16.Text = "MAX CHILD.";
-            // 
-            // txtPricePerNight
-            // 
-            this.txtPricePerNight.Location = new System.Drawing.Point(218, 129);
-            this.txtPricePerNight.Name = "txtPricePerNight";
-            this.txtPricePerNight.Size = new System.Drawing.Size(168, 29);
-            this.txtPricePerNight.TabIndex = 9;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.ForeColor = System.Drawing.Color.White;
-            this.label13.Location = new System.Drawing.Point(214, 190);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(152, 28);
-            this.label13.TabIndex = 12;
-            this.label13.Text = "ROOM STATUS";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.ForeColor = System.Drawing.Color.White;
-            this.label15.Location = new System.Drawing.Point(437, 95);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(139, 28);
-            this.label15.TabIndex = 13;
-            this.label15.Text = "MAX ADULTS";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(214, 95);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(177, 28);
-            this.label10.TabIndex = 5;
-            this.label10.Text = "PRICE PER NIGHT";
-            // 
-            // txtRoomNo
-            // 
-            this.txtRoomNo.Location = new System.Drawing.Point(16, 129);
-            this.txtRoomNo.Name = "txtRoomNo";
-            this.txtRoomNo.Size = new System.Drawing.Size(154, 29);
-            this.txtRoomNo.TabIndex = 8;
-            // 
-            // cmbRoomStatus
-            // 
-            this.cmbRoomStatus.FormattingEnabled = true;
-            this.cmbRoomStatus.Items.AddRange(new object[] {
-            "Available",
-            "Occupied",
-            "Maintenance"});
-            this.cmbRoomStatus.Location = new System.Drawing.Point(218, 223);
-            this.cmbRoomStatus.Name = "cmbRoomStatus";
-            this.cmbRoomStatus.Size = new System.Drawing.Size(168, 29);
-            this.cmbRoomStatus.TabIndex = 11;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.Color.White;
-            this.label12.Location = new System.Drawing.Point(12, 266);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(104, 28);
-            this.label12.TabIndex = 7;
-            this.label12.Text = "BED TYPE";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(12, 95);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(115, 28);
-            this.label8.TabIndex = 4;
-            this.label8.Text = "ROOM NO.";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(12, 183);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(127, 28);
-            this.label7.TabIndex = 3;
-            this.label7.Text = "ROOM TYPE";
-            // 
-            // cmbRoomType
-            // 
-            this.cmbRoomType.FormattingEnabled = true;
-            this.cmbRoomType.Items.AddRange(new object[] {
-            "Standard",
-            "Executive",
-            "Suite",
-            "Deluxe"});
-            this.cmbRoomType.Location = new System.Drawing.Point(16, 218);
-            this.cmbRoomType.Name = "cmbRoomType";
-            this.cmbRoomType.Size = new System.Drawing.Size(154, 29);
-            this.cmbRoomType.TabIndex = 2;
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
-            "King Bed ",
-            "Queen Bed",
-            "Twin Beds",
-            "Double Bed",
-            "2 Double Beds",
-            "Single Bed"});
-            this.comboBox2.Location = new System.Drawing.Point(16, 299);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(154, 29);
-            this.comboBox2.TabIndex = 1;
-            // 
-            // button1
-            // 
-            this.button1.ForeColor = System.Drawing.Color.Black;
-            this.button1.Location = new System.Drawing.Point(218, 294);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(344, 33);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "SAVE CHANGES";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // dgvManageRooms
-            // 
-            this.dgvManageRooms.AutoGenerateColumns = false;
-            this.dgvManageRooms.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvManageRooms.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.hotelroomnumberDataGridViewTextBoxColumn1,
-            this.hotelroomstatusDataGridViewTextBoxColumn1,
-            this.hotelRoomPriceDataGridViewTextBoxColumn1,
-            this.maxAdultsDataGridViewTextBoxColumn1,
-            this.maxChildrenDataGridViewTextBoxColumn1,
-            this.cleaningStatusDataGridViewTextBoxColumn1,
-            this.lastCleanedDataGridViewTextBoxColumn1,
-            this.lastOccupiedDataGridViewTextBoxColumn1,
-            this.hotelroomtypeDataGridViewTextBoxColumn1});
-            this.dgvManageRooms.DataSource = this.hotelRoomBindingSource6;
-            this.dgvManageRooms.Location = new System.Drawing.Point(43, 463);
-            this.dgvManageRooms.Name = "dgvManageRooms";
-            this.dgvManageRooms.RowHeadersWidth = 51;
-            this.dgvManageRooms.Size = new System.Drawing.Size(1129, 312);
-            this.dgvManageRooms.TabIndex = 0;
-            // 
-            // hotelroomnumberDataGridViewTextBoxColumn1
-            // 
-            this.hotelroomnumberDataGridViewTextBoxColumn1.DataPropertyName = "hotel_room_number";
-            this.hotelroomnumberDataGridViewTextBoxColumn1.HeaderText = "ROOM NO.";
-            this.hotelroomnumberDataGridViewTextBoxColumn1.MinimumWidth = 6;
-            this.hotelroomnumberDataGridViewTextBoxColumn1.Name = "hotelroomnumberDataGridViewTextBoxColumn1";
-            this.hotelroomnumberDataGridViewTextBoxColumn1.Width = 125;
-            // 
-            // hotelroomstatusDataGridViewTextBoxColumn1
-            // 
-            this.hotelroomstatusDataGridViewTextBoxColumn1.DataPropertyName = "hotel_room_status";
-            this.hotelroomstatusDataGridViewTextBoxColumn1.HeaderText = "STATUS";
-            this.hotelroomstatusDataGridViewTextBoxColumn1.MinimumWidth = 6;
-            this.hotelroomstatusDataGridViewTextBoxColumn1.Name = "hotelroomstatusDataGridViewTextBoxColumn1";
-            this.hotelroomstatusDataGridViewTextBoxColumn1.Width = 90;
-            // 
-            // hotelRoomPriceDataGridViewTextBoxColumn1
-            // 
-            this.hotelRoomPriceDataGridViewTextBoxColumn1.DataPropertyName = "Hotel_Room_Price";
-            this.hotelRoomPriceDataGridViewTextBoxColumn1.HeaderText = "PRICE";
-            this.hotelRoomPriceDataGridViewTextBoxColumn1.MinimumWidth = 6;
-            this.hotelRoomPriceDataGridViewTextBoxColumn1.Name = "hotelRoomPriceDataGridViewTextBoxColumn1";
-            this.hotelRoomPriceDataGridViewTextBoxColumn1.Width = 80;
-            // 
-            // maxAdultsDataGridViewTextBoxColumn1
-            // 
-            this.maxAdultsDataGridViewTextBoxColumn1.DataPropertyName = "Max_Adults";
-            this.maxAdultsDataGridViewTextBoxColumn1.HeaderText = "NO. OF ADULTS";
-            this.maxAdultsDataGridViewTextBoxColumn1.MinimumWidth = 6;
-            this.maxAdultsDataGridViewTextBoxColumn1.Name = "maxAdultsDataGridViewTextBoxColumn1";
-            this.maxAdultsDataGridViewTextBoxColumn1.Width = 130;
-            // 
-            // maxChildrenDataGridViewTextBoxColumn1
-            // 
-            this.maxChildrenDataGridViewTextBoxColumn1.DataPropertyName = "Max_Children";
-            this.maxChildrenDataGridViewTextBoxColumn1.HeaderText = "NO OF CHILD.";
-            this.maxChildrenDataGridViewTextBoxColumn1.MinimumWidth = 6;
-            this.maxChildrenDataGridViewTextBoxColumn1.Name = "maxChildrenDataGridViewTextBoxColumn1";
-            this.maxChildrenDataGridViewTextBoxColumn1.Width = 120;
-            // 
-            // cleaningStatusDataGridViewTextBoxColumn1
-            // 
-            this.cleaningStatusDataGridViewTextBoxColumn1.DataPropertyName = "Cleaning_Status";
-            this.cleaningStatusDataGridViewTextBoxColumn1.HeaderText = "CLEANING STATUS";
-            this.cleaningStatusDataGridViewTextBoxColumn1.MinimumWidth = 6;
-            this.cleaningStatusDataGridViewTextBoxColumn1.Name = "cleaningStatusDataGridViewTextBoxColumn1";
-            this.cleaningStatusDataGridViewTextBoxColumn1.Width = 160;
-            // 
-            // lastCleanedDataGridViewTextBoxColumn1
-            // 
-            this.lastCleanedDataGridViewTextBoxColumn1.DataPropertyName = "Last_Cleaned";
-            this.lastCleanedDataGridViewTextBoxColumn1.HeaderText = "LAST CLEANED";
-            this.lastCleanedDataGridViewTextBoxColumn1.MinimumWidth = 6;
-            this.lastCleanedDataGridViewTextBoxColumn1.Name = "lastCleanedDataGridViewTextBoxColumn1";
-            this.lastCleanedDataGridViewTextBoxColumn1.Width = 130;
-            // 
-            // lastOccupiedDataGridViewTextBoxColumn1
-            // 
-            this.lastOccupiedDataGridViewTextBoxColumn1.DataPropertyName = "Last_Occupied";
-            this.lastOccupiedDataGridViewTextBoxColumn1.HeaderText = "LAST OCCUPIED";
-            this.lastOccupiedDataGridViewTextBoxColumn1.MinimumWidth = 6;
-            this.lastOccupiedDataGridViewTextBoxColumn1.Name = "lastOccupiedDataGridViewTextBoxColumn1";
-            this.lastOccupiedDataGridViewTextBoxColumn1.Width = 140;
-            // 
-            // hotelroomtypeDataGridViewTextBoxColumn1
-            // 
-            this.hotelroomtypeDataGridViewTextBoxColumn1.DataPropertyName = "hotel_room_type";
-            this.hotelroomtypeDataGridViewTextBoxColumn1.HeaderText = "ROOM TYPE";
-            this.hotelroomtypeDataGridViewTextBoxColumn1.MinimumWidth = 6;
-            this.hotelroomtypeDataGridViewTextBoxColumn1.Name = "hotelroomtypeDataGridViewTextBoxColumn1";
-            this.hotelroomtypeDataGridViewTextBoxColumn1.Width = 110;
-            // 
-            // hotelRoomBindingSource6
-            // 
-            this.hotelRoomBindingSource6.DataMember = "Hotel_Room";
-            this.hotelRoomBindingSource6.DataSource = this.codeCraftersDSTWOBindingSource;
-            // 
-            // fKRoomAssiHotel1B5E0D89BindingSource
-            // 
-            this.fKRoomAssiHotel1B5E0D89BindingSource.DataMember = "FK__Room_Assi__Hotel__1B5E0D89";
-            this.fKRoomAssiHotel1B5E0D89BindingSource.DataSource = this.hotelRoomBindingSource1;
             // 
             // hotelroomnumberDataGridViewTextBoxColumn
             // 
@@ -1035,9 +509,535 @@
             this.hotel_room_type.Name = "hotel_room_type";
             this.hotel_room_type.Width = 110;
             // 
+            // hotelRoomBindingSource5
+            // 
+            this.hotelRoomBindingSource5.DataMember = "Hotel_Room";
+            this.hotelRoomBindingSource5.DataSource = this.codeCraftersDSTWOBindingSource;
+            // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.lblAvailableRooms);
+            this.panel5.Controls.Add(this.label2);
+            this.panel5.Location = new System.Drawing.Point(315, 113);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(228, 122);
+            this.panel5.TabIndex = 3;
+            // 
+            // lblAvailableRooms
+            // 
+            this.lblAvailableRooms.AutoSize = true;
+            this.lblAvailableRooms.Font = new System.Drawing.Font("Segoe UI", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAvailableRooms.ForeColor = System.Drawing.Color.Black;
+            this.lblAvailableRooms.Location = new System.Drawing.Point(71, 40);
+            this.lblAvailableRooms.Name = "lblAvailableRooms";
+            this.lblAvailableRooms.Size = new System.Drawing.Size(84, 65);
+            this.lblAvailableRooms.TabIndex = 15;
+            this.lblAvailableRooms.Text = "14";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.Location = new System.Drawing.Point(46, 11);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(126, 17);
+            this.label2.TabIndex = 13;
+            this.label2.Text = "AVAILABLE ROOMS";
+            // 
+            // panel6
+            // 
+            this.panel6.Controls.Add(this.lblOccupiedRooms);
+            this.panel6.Controls.Add(this.label3);
+            this.panel6.Location = new System.Drawing.Point(549, 113);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(223, 122);
+            this.panel6.TabIndex = 4;
+            // 
+            // lblOccupiedRooms
+            // 
+            this.lblOccupiedRooms.AutoSize = true;
+            this.lblOccupiedRooms.Font = new System.Drawing.Font("Segoe UI", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblOccupiedRooms.ForeColor = System.Drawing.Color.Black;
+            this.lblOccupiedRooms.Location = new System.Drawing.Point(88, 40);
+            this.lblOccupiedRooms.Name = "lblOccupiedRooms";
+            this.lblOccupiedRooms.Size = new System.Drawing.Size(56, 65);
+            this.lblOccupiedRooms.TabIndex = 15;
+            this.lblOccupiedRooms.Text = "7";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.Color.Black;
+            this.label3.Location = new System.Drawing.Point(52, 11);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(123, 17);
+            this.label3.TabIndex = 13;
+            this.label3.Text = "OCCUPIED ROOMS";
+            // 
+            // tbcViewRooms
+            // 
+            this.tbcViewRooms.Controls.Add(this.tbpViewRooms);
+            this.tbcViewRooms.Controls.Add(this.tabPage1);
+            this.tbcViewRooms.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tbcViewRooms.Location = new System.Drawing.Point(0, 0);
+            this.tbcViewRooms.Name = "tbcViewRooms";
+            this.tbcViewRooms.SelectedIndex = 0;
+            this.tbcViewRooms.Size = new System.Drawing.Size(1430, 938);
+            this.tbcViewRooms.TabIndex = 0;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.panel11);
+            this.tabPage1.Controls.Add(this.panel2);
+            this.tabPage1.ForeColor = System.Drawing.Color.DarkGray;
+            this.tabPage1.Location = new System.Drawing.Point(4, 26);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(1422, 908);
+            this.tabPage1.TabIndex = 2;
+            this.tabPage1.Text = "MANAGE ROOMS";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // panel11
+            // 
+            this.panel11.BackColor = System.Drawing.Color.LightGray;
+            this.panel11.Controls.Add(this.label11);
+            this.panel11.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel11.Location = new System.Drawing.Point(3, 3);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(1416, 74);
+            this.panel11.TabIndex = 6;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label11.Location = new System.Drawing.Point(604, 25);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(252, 31);
+            this.label11.TabIndex = 1;
+            this.label11.Text = "MANAGE ROOMS";
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.panel9);
+            this.panel2.Controls.Add(this.panel3);
+            this.panel2.Controls.Add(this.dgvManageRooms);
+            this.panel2.Location = new System.Drawing.Point(194, 94);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1199, 794);
+            this.panel2.TabIndex = 0;
+            // 
+            // panel9
+            // 
+            this.panel9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel9.Controls.Add(this.cmbBranches);
+            this.panel9.Controls.Add(this.label14);
+            this.panel9.Controls.Add(this.btnRoomRefresh);
+            this.panel9.Location = new System.Drawing.Point(43, 21);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(1129, 70);
+            this.panel9.TabIndex = 50;
+            // 
+            // cmbBranches
+            // 
+            this.cmbBranches.FormattingEnabled = true;
+            this.cmbBranches.Items.AddRange(new object[] {
+            "Pietermaritzburg",
+            "Durban Umhlanga",
+            "Durban North Beach",
+            "Durban Ballito",
+            "JHB Midrand"});
+            this.cmbBranches.Location = new System.Drawing.Point(160, 24);
+            this.cmbBranches.Name = "cmbBranches";
+            this.cmbBranches.Size = new System.Drawing.Size(160, 25);
+            this.cmbBranches.TabIndex = 44;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.ForeColor = System.Drawing.Color.DarkGoldenrod;
+            this.label14.Location = new System.Drawing.Point(3, 27);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(151, 17);
+            this.label14.TabIndex = 4;
+            this.label14.Text = "🏨 REGAL INN HOTELS";
+            // 
+            // btnRoomRefresh
+            // 
+            this.btnRoomRefresh.BackColor = System.Drawing.Color.White;
+            this.btnRoomRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRoomRefresh.ForeColor = System.Drawing.Color.Navy;
+            this.btnRoomRefresh.Location = new System.Drawing.Point(877, 8);
+            this.btnRoomRefresh.Name = "btnRoomRefresh";
+            this.btnRoomRefresh.Size = new System.Drawing.Size(216, 45);
+            this.btnRoomRefresh.TabIndex = 3;
+            this.btnRoomRefresh.Text = "🔄 REFRESH";
+            this.btnRoomRefresh.UseVisualStyleBackColor = false;
+            this.btnRoomRefresh.Click += new System.EventHandler(this.btnRoomRefresh_Click);
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.panel10);
+            this.panel3.Controls.Add(this.panel8);
+            this.panel3.Controls.Add(this.cmbMaxChild);
+            this.panel3.Controls.Add(this.cmbMaxAdults);
+            this.panel3.Controls.Add(this.label16);
+            this.panel3.Controls.Add(this.txtPricePerNight);
+            this.panel3.Controls.Add(this.label13);
+            this.panel3.Controls.Add(this.label15);
+            this.panel3.Controls.Add(this.label10);
+            this.panel3.Controls.Add(this.txtRoomNo);
+            this.panel3.Controls.Add(this.cmbRoomStatus);
+            this.panel3.Controls.Add(this.label12);
+            this.panel3.Controls.Add(this.label8);
+            this.panel3.Controls.Add(this.label7);
+            this.panel3.Controls.Add(this.cmbRoomType);
+            this.panel3.Controls.Add(this.comboBox2);
+            this.panel3.Controls.Add(this.button1);
+            this.panel3.Location = new System.Drawing.Point(43, 107);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(1129, 341);
+            this.panel3.TabIndex = 1;
+            // 
+            // panel10
+            // 
+            this.panel10.Controls.Add(this.listBox1);
+            this.panel10.Controls.Add(this.label17);
+            this.panel10.Location = new System.Drawing.Point(638, 81);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(456, 242);
+            this.panel10.TabIndex = 18;
+            // 
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.ItemHeight = 17;
+            this.listBox1.Items.AddRange(new object[] {
+            "Wi-Fi",
+            "Coffee and Tea Maker",
+            "Mini Fridge",
+            "Air Conditioning and Heating",
+            "Flat-Screen Television",
+            "Toiletries",
+            "Work Desk and Chair",
+            "Daily Housekeeping",
+            "Closet and Hangers",
+            "Iron and Ironing Board",
+            "Telephone"});
+            this.listBox1.Location = new System.Drawing.Point(45, 48);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(374, 157);
+            this.listBox1.TabIndex = 18;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.ForeColor = System.Drawing.Color.White;
+            this.label17.Location = new System.Drawing.Point(41, 14);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(95, 21);
+            this.label17.TabIndex = 17;
+            this.label17.Text = "AMENITIES";
+            // 
+            // panel8
+            // 
+            this.panel8.Controls.Add(this.label6);
+            this.panel8.Location = new System.Drawing.Point(16, 13);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(1078, 51);
+            this.panel8.TabIndex = 0;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(389, 14);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(191, 21);
+            this.label6.TabIndex = 0;
+            this.label6.Text = "UPDATE ROOM DETAILS";
+            // 
+            // cmbMaxChild
+            // 
+            this.cmbMaxChild.FormattingEnabled = true;
+            this.cmbMaxChild.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6"});
+            this.cmbMaxChild.Location = new System.Drawing.Point(441, 218);
+            this.cmbMaxChild.Name = "cmbMaxChild";
+            this.cmbMaxChild.Size = new System.Drawing.Size(121, 25);
+            this.cmbMaxChild.TabIndex = 16;
+            // 
+            // cmbMaxAdults
+            // 
+            this.cmbMaxAdults.FormattingEnabled = true;
+            this.cmbMaxAdults.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6"});
+            this.cmbMaxAdults.Location = new System.Drawing.Point(441, 129);
+            this.cmbMaxAdults.Name = "cmbMaxAdults";
+            this.cmbMaxAdults.Size = new System.Drawing.Size(121, 25);
+            this.cmbMaxAdults.TabIndex = 15;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.ForeColor = System.Drawing.Color.White;
+            this.label16.Location = new System.Drawing.Point(437, 183);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(100, 21);
+            this.label16.TabIndex = 14;
+            this.label16.Text = "MAX CHILD.";
+            // 
+            // txtPricePerNight
+            // 
+            this.txtPricePerNight.Location = new System.Drawing.Point(218, 129);
+            this.txtPricePerNight.Name = "txtPricePerNight";
+            this.txtPricePerNight.Size = new System.Drawing.Size(168, 25);
+            this.txtPricePerNight.TabIndex = 9;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.Color.White;
+            this.label13.Location = new System.Drawing.Point(214, 190);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(120, 21);
+            this.label13.TabIndex = 12;
+            this.label13.Text = "ROOM STATUS";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.ForeColor = System.Drawing.Color.White;
+            this.label15.Location = new System.Drawing.Point(437, 95);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(110, 21);
+            this.label15.TabIndex = 13;
+            this.label15.Text = "MAX ADULTS";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.White;
+            this.label10.Location = new System.Drawing.Point(214, 95);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(141, 21);
+            this.label10.TabIndex = 5;
+            this.label10.Text = "PRICE PER NIGHT";
+            // 
+            // txtRoomNo
+            // 
+            this.txtRoomNo.Location = new System.Drawing.Point(16, 129);
+            this.txtRoomNo.Name = "txtRoomNo";
+            this.txtRoomNo.Size = new System.Drawing.Size(154, 25);
+            this.txtRoomNo.TabIndex = 8;
+            // 
+            // cmbRoomStatus
+            // 
+            this.cmbRoomStatus.FormattingEnabled = true;
+            this.cmbRoomStatus.Items.AddRange(new object[] {
+            "Available",
+            "Occupied",
+            "Maintenance"});
+            this.cmbRoomStatus.Location = new System.Drawing.Point(218, 223);
+            this.cmbRoomStatus.Name = "cmbRoomStatus";
+            this.cmbRoomStatus.Size = new System.Drawing.Size(168, 25);
+            this.cmbRoomStatus.TabIndex = 11;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.Color.White;
+            this.label12.Location = new System.Drawing.Point(12, 266);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(83, 21);
+            this.label12.TabIndex = 7;
+            this.label12.Text = "BED TYPE";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.White;
+            this.label8.Location = new System.Drawing.Point(12, 95);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(91, 21);
+            this.label8.TabIndex = 4;
+            this.label8.Text = "ROOM NO.";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.White;
+            this.label7.Location = new System.Drawing.Point(12, 183);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(101, 21);
+            this.label7.TabIndex = 3;
+            this.label7.Text = "ROOM TYPE";
+            // 
+            // cmbRoomType
+            // 
+            this.cmbRoomType.FormattingEnabled = true;
+            this.cmbRoomType.Items.AddRange(new object[] {
+            "Standard",
+            "Executive",
+            "Suite",
+            "Deluxe"});
+            this.cmbRoomType.Location = new System.Drawing.Point(16, 218);
+            this.cmbRoomType.Name = "cmbRoomType";
+            this.cmbRoomType.Size = new System.Drawing.Size(154, 25);
+            this.cmbRoomType.TabIndex = 2;
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Items.AddRange(new object[] {
+            "King Bed ",
+            "Queen Bed",
+            "Twin Beds",
+            "Double Bed",
+            "2 Double Beds",
+            "Single Bed"});
+            this.comboBox2.Location = new System.Drawing.Point(16, 299);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(154, 25);
+            this.comboBox2.TabIndex = 1;
+            // 
+            // button1
+            // 
+            this.button1.ForeColor = System.Drawing.Color.Black;
+            this.button1.Location = new System.Drawing.Point(218, 294);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(344, 33);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "SAVE CHANGES";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // dgvManageRooms
+            // 
+            this.dgvManageRooms.AutoGenerateColumns = false;
+            this.dgvManageRooms.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvManageRooms.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.hotel_room_number,
+            this.hotel_room_status,
+            this.Hotel_Room_Price,
+            this.Max_Adults,
+            this.Max_Children,
+            this.cleaningStatusDataGridViewTextBoxColumn1,
+            this.lastCleanedDataGridViewTextBoxColumn1,
+            this.lastOccupiedDataGridViewTextBoxColumn1,
+            this.hotel_room_manage_type});
+            this.dgvManageRooms.DataSource = this.hotelRoomBindingSource6;
+            this.dgvManageRooms.Location = new System.Drawing.Point(43, 463);
+            this.dgvManageRooms.Name = "dgvManageRooms";
+            this.dgvManageRooms.RowHeadersWidth = 51;
+            this.dgvManageRooms.Size = new System.Drawing.Size(1129, 312);
+            this.dgvManageRooms.TabIndex = 0;
+            // 
+            // hotelRoomBindingSource6
+            // 
+            this.hotelRoomBindingSource6.DataMember = "Hotel_Room";
+            this.hotelRoomBindingSource6.DataSource = this.codeCraftersDSTWOBindingSource;
+            // 
+            // fKRoomAssiHotel1B5E0D89BindingSource
+            // 
+            this.fKRoomAssiHotel1B5E0D89BindingSource.DataMember = "FK__Room_Assi__Hotel__1B5E0D89";
+            this.fKRoomAssiHotel1B5E0D89BindingSource.DataSource = this.hotelRoomBindingSource1;
+            // 
+            // hotel_room_number
+            // 
+            this.hotel_room_number.DataPropertyName = "hotel_room_number";
+            this.hotel_room_number.HeaderText = "ROOM NO.";
+            this.hotel_room_number.MinimumWidth = 6;
+            this.hotel_room_number.Name = "hotel_room_number";
+            this.hotel_room_number.Width = 125;
+            // 
+            // hotel_room_status
+            // 
+            this.hotel_room_status.DataPropertyName = "hotel_room_status";
+            this.hotel_room_status.HeaderText = "STATUS";
+            this.hotel_room_status.MinimumWidth = 6;
+            this.hotel_room_status.Name = "hotel_room_status";
+            this.hotel_room_status.Width = 90;
+            // 
+            // Hotel_Room_Price
+            // 
+            this.Hotel_Room_Price.DataPropertyName = "Hotel_Room_Price";
+            this.Hotel_Room_Price.HeaderText = "PRICE";
+            this.Hotel_Room_Price.MinimumWidth = 6;
+            this.Hotel_Room_Price.Name = "Hotel_Room_Price";
+            this.Hotel_Room_Price.Width = 80;
+            // 
+            // Max_Adults
+            // 
+            this.Max_Adults.DataPropertyName = "Max_Adults";
+            this.Max_Adults.HeaderText = "NO. OF ADULTS";
+            this.Max_Adults.MinimumWidth = 6;
+            this.Max_Adults.Name = "Max_Adults";
+            this.Max_Adults.Width = 130;
+            // 
+            // Max_Children
+            // 
+            this.Max_Children.DataPropertyName = "Max_Children";
+            this.Max_Children.HeaderText = "NO OF CHILD.";
+            this.Max_Children.MinimumWidth = 6;
+            this.Max_Children.Name = "Max_Children";
+            this.Max_Children.Width = 120;
+            // 
+            // cleaningStatusDataGridViewTextBoxColumn1
+            // 
+            this.cleaningStatusDataGridViewTextBoxColumn1.DataPropertyName = "Cleaning_Status";
+            this.cleaningStatusDataGridViewTextBoxColumn1.HeaderText = "CLEANING STATUS";
+            this.cleaningStatusDataGridViewTextBoxColumn1.MinimumWidth = 6;
+            this.cleaningStatusDataGridViewTextBoxColumn1.Name = "cleaningStatusDataGridViewTextBoxColumn1";
+            this.cleaningStatusDataGridViewTextBoxColumn1.Width = 160;
+            // 
+            // lastCleanedDataGridViewTextBoxColumn1
+            // 
+            this.lastCleanedDataGridViewTextBoxColumn1.DataPropertyName = "Last_Cleaned";
+            this.lastCleanedDataGridViewTextBoxColumn1.HeaderText = "LAST CLEANED";
+            this.lastCleanedDataGridViewTextBoxColumn1.MinimumWidth = 6;
+            this.lastCleanedDataGridViewTextBoxColumn1.Name = "lastCleanedDataGridViewTextBoxColumn1";
+            this.lastCleanedDataGridViewTextBoxColumn1.Width = 130;
+            // 
+            // lastOccupiedDataGridViewTextBoxColumn1
+            // 
+            this.lastOccupiedDataGridViewTextBoxColumn1.DataPropertyName = "Last_Occupied";
+            this.lastOccupiedDataGridViewTextBoxColumn1.HeaderText = "LAST OCCUPIED";
+            this.lastOccupiedDataGridViewTextBoxColumn1.MinimumWidth = 6;
+            this.lastOccupiedDataGridViewTextBoxColumn1.Name = "lastOccupiedDataGridViewTextBoxColumn1";
+            this.lastOccupiedDataGridViewTextBoxColumn1.Width = 140;
+            // 
+            // hotel_room_manage_type
+            // 
+            this.hotel_room_manage_type.DataPropertyName = "hotel_room_type";
+            this.hotel_room_manage_type.HeaderText = "ROOM TYPE";
+            this.hotel_room_manage_type.MinimumWidth = 6;
+            this.hotel_room_manage_type.Name = "hotel_room_manage_type";
+            this.hotel_room_manage_type.Width = 110;
+            // 
             // RoomManagementForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkGray;
             this.ClientSize = new System.Drawing.Size(1430, 938);
@@ -1167,15 +1167,6 @@
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Panel panel11;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.DataGridViewTextBoxColumn hotelroomnumberDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn hotelroomstatusDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn hotelRoomPriceDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn maxAdultsDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn maxChildrenDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cleaningStatusDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn lastCleanedDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn lastOccupiedDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn hotelroomtypeDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn hotelroomnumberDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn hotelroomstatusDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn hotelRoomPriceDataGridViewTextBoxColumn;
@@ -1185,5 +1176,14 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn lastCleanedDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn lastOccupiedDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn hotel_room_type;
+        private System.Windows.Forms.DataGridViewTextBoxColumn hotel_room_number;
+        private System.Windows.Forms.DataGridViewTextBoxColumn hotel_room_status;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Hotel_Room_Price;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Max_Adults;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Max_Children;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cleaningStatusDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lastCleanedDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lastOccupiedDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn hotel_room_manage_type;
     }
 }

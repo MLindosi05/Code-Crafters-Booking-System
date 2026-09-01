@@ -202,7 +202,7 @@ namespace Code_Crafters_Interface_Prototype_1.Business
 
                 if (txtRoomNo != null) txtRoomNo.Text = row.Cells["hotel_room_number"].Value?.ToString() ?? "";
                 if (txtPricePerNight != null) txtPricePerNight.Text = row.Cells["Hotel_Room_Price"].Value?.ToString() ?? "";
-                if (cmbHotelRoomType != null) cmbHotelRoomType.Text = row.Cells["hotel_room_type"].Value?.ToString() ?? "";
+                if (cmbHotelRoomType != null) cmbHotelRoomType.Text = row.Cells["hotel_room_manage_type"].Value?.ToString() ?? "";
                 if (cmbRoomStatus != null) cmbRoomStatus.Text = row.Cells["hotel_room_status"].Value?.ToString() ?? "";
                 if (cmbMaxAdults != null) cmbMaxAdults.Text = row.Cells["Max_Adults"].Value?.ToString() ?? "";
                 if (cmbMaxChild != null) cmbMaxChild.Text = row.Cells["Max_Children"].Value?.ToString() ?? "";
