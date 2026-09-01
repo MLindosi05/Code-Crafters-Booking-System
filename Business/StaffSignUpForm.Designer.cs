@@ -53,17 +53,22 @@
             this.txtFirstName = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.txtLastName = new System.Windows.Forms.TextBox();
+            this.panel12 = new System.Windows.Forms.Panel();
+            this.label18 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.panel12.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.Color.LightGray;
+            this.panel1.Controls.Add(this.panel12);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(872, 528);
+            this.panel1.Size = new System.Drawing.Size(1132, 528);
             this.panel1.TabIndex = 0;
             // 
             // panel2
@@ -93,9 +98,9 @@
             this.panel2.Controls.Add(this.label6);
             this.panel2.Controls.Add(this.txtLastName);
             this.panel2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel2.Location = new System.Drawing.Point(40, 48);
+            this.panel2.Location = new System.Drawing.Point(172, 80);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(760, 346);
+            this.panel2.Size = new System.Drawing.Size(741, 346);
             this.panel2.TabIndex = 1;
             // 
             // cmbStaffRole
@@ -326,17 +331,41 @@
             this.txtLastName.Size = new System.Drawing.Size(122, 25);
             this.txtLastName.TabIndex = 1;
             // 
+            // panel12
+            // 
+            this.panel12.BackColor = System.Drawing.Color.LightGray;
+            this.panel12.Controls.Add(this.label18);
+            this.panel12.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel12.Location = new System.Drawing.Point(0, 0);
+            this.panel12.Name = "panel12";
+            this.panel12.Size = new System.Drawing.Size(1132, 74);
+            this.panel12.TabIndex = 6;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label18.Location = new System.Drawing.Point(420, 25);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(233, 31);
+            this.label18.TabIndex = 1;
+            this.label18.Text = "STAFF SIGN UP";
+            // 
             // StaffSignUpForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(872, 528);
+            this.ClientSize = new System.Drawing.Size(1132, 528);
             this.Controls.Add(this.panel1);
             this.Name = "StaffSignUpForm";
             this.Text = "REGAL INN STAFF SIGN UP";
+            this.Load += new System.EventHandler(this.StaffSignUpForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.panel12.ResumeLayout(false);
+            this.panel12.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -368,5 +397,7 @@
         private System.Windows.Forms.ComboBox cmbStaffRole;
         private System.Windows.Forms.ComboBox cmbBranchID;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel panel12;
+        private System.Windows.Forms.Label label18;
     }
 }

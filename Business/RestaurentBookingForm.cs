@@ -1,8 +1,10 @@
-﻿using System;
-using Code_Crafters_Booking_System;
+﻿using Code_Crafters_Booking_System;
+using System;
 using System.Data;
 using System.Data.SqlClient;
+using System.Drawing;
 using System.Linq;
+using System.Web.UI.WebControls;
 using System.Windows.Forms;
 
 
@@ -29,8 +31,19 @@ namespace Code_Crafters_Interface_Prototype_1.Business
             _existingBookingID = existingBookingID;
         }
 
+        public RestaurentBookingForm()
+        {
+        }
+
         private void RestaurentBookingForm_Load(object sender, EventArgs e)
         {
+            panel1.BackColor = Color.FromArgb(15, 42, 74);
+            label1.ForeColor = Color.FromArgb(190, 145, 55);
+            label2.ForeColor = Color.White;
+            panel4.BackColor = Color.FromArgb(248, 244, 236);
+            btnContinueToPayment.ForeColor = Color.White;
+            btnContinueToPayment.BackColor = Color.FromArgb(20, 35, 55);
+
             try
             {
                 if (taRestuarant_Table != null)

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data.SqlClient;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace Code_Crafters_Interface_Prototype_1.Business
@@ -23,6 +24,18 @@ namespace Code_Crafters_Interface_Prototype_1.Business
         private void CashPayment_Load(object sender, EventArgs e)
         {
             LoadTotalAmount();
+            panel12.BackColor = Color.FromArgb(15, 42, 74);
+
+            btnCancel.BackColor = Color.FromArgb(211, 47, 47);
+            btnCancel.ForeColor = Color.White;
+            btnCancel.FlatStyle = FlatStyle.Flat;
+            btnCancel.FlatAppearance.BorderSize = 0;
+
+            btnProcessPayment.BackColor = Color.FromArgb(0, 48, 135);
+            btnProcessPayment.ForeColor = Color.White;
+            btnProcessPayment.FlatStyle = FlatStyle.Flat;
+            btnProcessPayment.FlatAppearance.BorderSize = 0;
+
         }
 
         private void LoadTotalAmount()

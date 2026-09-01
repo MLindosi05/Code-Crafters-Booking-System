@@ -74,9 +74,9 @@
             this.panel1.Controls.Add(this.btnBackToBooking);
             this.panel1.Controls.Add(this.btnModifyBooking);
             this.panel1.Controls.Add(this.btnProceedToPayment);
-            this.panel1.Location = new System.Drawing.Point(234, 105);
+            this.panel1.Location = new System.Drawing.Point(234, 80);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(955, 546);
+            this.panel1.Size = new System.Drawing.Size(955, 571);
             this.panel1.TabIndex = 0;
             // 
             // panel2
@@ -102,7 +102,7 @@
             this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.label2);
-            this.panel2.Location = new System.Drawing.Point(99, 29);
+            this.panel2.Location = new System.Drawing.Point(99, 47);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(769, 436);
             this.panel2.TabIndex = 5;
@@ -151,7 +151,7 @@
             // 
             this.lblTotalAmountValue.AutoSize = true;
             this.lblTotalAmountValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalAmountValue.ForeColor = System.Drawing.Color.Navy;
+            this.lblTotalAmountValue.ForeColor = System.Drawing.SystemColors.ControlText;
             this.lblTotalAmountValue.Location = new System.Drawing.Point(522, 350);
             this.lblTotalAmountValue.Name = "lblTotalAmountValue";
             this.lblTotalAmountValue.Size = new System.Drawing.Size(52, 20);
@@ -331,7 +331,7 @@
             // btnBackToBooking
             // 
             this.btnBackToBooking.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBackToBooking.Location = new System.Drawing.Point(117, 490);
+            this.btnBackToBooking.Location = new System.Drawing.Point(99, 487);
             this.btnBackToBooking.Name = "btnBackToBooking";
             this.btnBackToBooking.Size = new System.Drawing.Size(152, 47);
             this.btnBackToBooking.TabIndex = 2;
@@ -355,7 +355,7 @@
             this.btnProceedToPayment.BackColor = System.Drawing.Color.Navy;
             this.btnProceedToPayment.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnProceedToPayment.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnProceedToPayment.Location = new System.Drawing.Point(704, 489);
+            this.btnProceedToPayment.Location = new System.Drawing.Point(704, 488);
             this.btnProceedToPayment.Name = "btnProceedToPayment";
             this.btnProceedToPayment.Size = new System.Drawing.Size(164, 47);
             this.btnProceedToPayment.TabIndex = 0;

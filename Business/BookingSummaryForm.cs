@@ -32,41 +32,45 @@ namespace Code_Crafters_Interface_Prototype_1.Business
         private void BookingSummaryForm_Load(object sender, EventArgs e)
         {
             LoadBookingDetails();
+            this.BackColor = Color.FromArgb(233, 236, 239);
 
             panel12.BackColor = Color.FromArgb(15, 42, 74);
             panel1.BackColor = Color.FromArgb(10, 25, 47);
+            panel2.BackColor = Color.FromArgb(248, 244, 236);
 
-            Color goldColor = Color.FromArgb(212, 175, 55);
-            label2.ForeColor = goldColor;
-            label5.ForeColor = goldColor;
-            label6.ForeColor = goldColor;
-            label4.ForeColor = goldColor;
-            label7.ForeColor = goldColor;
-            label9.ForeColor = goldColor;
-            lblBookingRefValue.ForeColor = goldColor;
-            lblCheckInValue.ForeColor = goldColor;
-            lblCheckOutValue.ForeColor = goldColor;
-            lblGuestEmailValue.ForeColor = goldColor;
-            lblGuestNameValue.ForeColor = goldColor;
-            lblNumOfGuestsValue.ForeColor = goldColor;
-            lblRoomNoValue.ForeColor = goldColor;
-            lblRoomTypeValue.ForeColor = goldColor;
-            lblTableAreaValue.ForeColor = goldColor;
-            lblTotalAmountValue.ForeColor = goldColor;
-            label13.ForeColor = goldColor;
-            label14.ForeColor = goldColor;
-            label3.ForeColor = goldColor;
+
+
+
 
             Color whiteColor = Color.FromArgb(255, 255, 255);
-            label20.ForeColor = goldColor;
 
-            Color accentOrange = Color.FromArgb(235, 130, 43);
-            btnBackToBooking.BackColor = accentOrange;
-            btnBackToBooking.ForeColor = whiteColor;
-            btnModifyBooking.BackColor = accentOrange;
-            btnModifyBooking.ForeColor = whiteColor;
-            btnPrintSummary.BackColor = accentOrange;
-            btnPrintSummary.ForeColor = whiteColor;
+
+            btnPrintSummary.FlatStyle = FlatStyle.Flat;
+            btnPrintSummary.FlatAppearance.BorderSize = 0;
+            btnPrintSummary.BackColor = ColorTranslator.FromHtml("#E2E8F0"); 
+            btnPrintSummary.ForeColor = ColorTranslator.FromHtml("#1E293B"); 
+            btnPrintSummary.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+
+            btnBackToBooking.FlatStyle = FlatStyle.Flat;
+            btnBackToBooking.FlatAppearance.BorderSize = 0;
+            btnBackToBooking.BackColor = ColorTranslator.FromHtml("#E2E8F0"); 
+            btnBackToBooking.ForeColor = ColorTranslator.FromHtml("#1E293B"); 
+            btnBackToBooking.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+
+            btnModifyBooking.FlatStyle = FlatStyle.Flat;
+            btnModifyBooking.FlatAppearance.BorderSize = 0;
+            btnModifyBooking.BackColor = ColorTranslator.FromHtml("#E2E8F0"); 
+            btnModifyBooking.ForeColor = ColorTranslator.FromHtml("#1E293B"); 
+            btnModifyBooking.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+
+
+
+            btnProceedToPayment.Text = "PROCEED TO PAYMENT"; 
+            btnProceedToPayment.FlatStyle = FlatStyle.Flat;
+            btnProceedToPayment.FlatAppearance.BorderSize = 0;
+            btnProceedToPayment.BackColor = ColorTranslator.FromHtml("#D97706"); 
+            btnProceedToPayment.ForeColor = Color.White;
+            btnProceedToPayment.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
 
 
         }

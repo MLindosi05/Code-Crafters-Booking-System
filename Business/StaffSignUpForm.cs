@@ -1,6 +1,7 @@
 ﻿using Code_Crafters_Interface_Prototype_1.Interfaces;
 using System;
 using System.Data.SqlClient;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace Code_Crafters_Interface_Prototype_1.Business
@@ -114,6 +115,36 @@ namespace Code_Crafters_Interface_Prototype_1.Business
             Login loginForm = new Login();
             loginForm.Show();
             this.Close();
+        }
+
+        private void StaffSignUpForm_Load(object sender, EventArgs e)
+        {
+            panel12.BackColor = Color.FromArgb(15, 42, 74);
+            panel2.BackColor = Color.FromArgb(248, 244, 236);
+
+            btnSignUp.BackColor = Color.FromArgb(190, 145, 55);
+            btnSignUp.ForeColor = Color.White;
+            btnSignUp.FlatStyle = FlatStyle.Flat;
+            btnSignUp.FlatAppearance.BorderSize = 0;
+
+            btnBackToLogin.BackColor = Color.FromArgb(8, 35, 65);
+            btnBackToLogin.ForeColor = Color.White;
+            btnBackToLogin.FlatStyle = FlatStyle.Flat;
+            btnBackToLogin.FlatAppearance.BorderSize = 0;
+
+            label1.ForeColor = Color.FromArgb(8, 35, 65);
+            label2.ForeColor = Color.FromArgb(8, 35, 65);
+            label3.ForeColor = Color.FromArgb(8, 35, 65);
+            label4.ForeColor = Color.FromArgb(8, 35, 65);
+            label5.ForeColor = Color.FromArgb(8, 35, 65);
+            label6.ForeColor = Color.FromArgb(8, 35, 65);
+            label7.ForeColor = Color.FromArgb(8, 35, 65);
+            label8.ForeColor = Color.FromArgb(8, 35, 65);
+            label9.ForeColor = Color.FromArgb(8, 35, 65);
+            label10.ForeColor = Color.FromArgb(190, 145, 55);
+            label11.ForeColor = Color.FromArgb(190, 145, 55);
+            label12.ForeColor = Color.FromArgb(190, 145, 55);
+
         }
     }
 }
