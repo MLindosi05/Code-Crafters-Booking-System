@@ -561,12 +561,6 @@ namespace Code_Crafters_Interface_Prototype_1.Business
                     .Where(r => r.Field<string>("Branch_ID") == branchID && r.Field<string>("hotel_room_type") == roomType)
                     .ToList();
 
-                if (!roomsOfType.Any(r => totalGuests <= GetRoomCapacity(roomType, r)))
-                {
-                    MessageBox.Show("The number of guests exceeds the maximum capacity allowed for this room type.", "Capacity Exceeded", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-
                 var capacityValidRooms = roomsOfType
                     .Where(r => totalGuests <= GetRoomCapacity(roomType, r))
                     .ToList();
@@ -577,6 +571,7 @@ namespace Code_Crafters_Interface_Prototype_1.Business
                     return;
                 }
 
+                // Checks active date overlapping against existing bookings
                 var availableRoom = capacityValidRooms
                     .FirstOrDefault(r => !IsRoomBookedForDates(branchID, r.hotel_room_number, checkIn, checkOut));
 
@@ -598,11 +593,11 @@ namespace Code_Crafters_Interface_Prototype_1.Business
                     conn.Open();
 
                     string insertBookingQuery = @"
-                        INSERT INTO Booking 
-                        (Client_ID, Branch_ID, Booking_Date, Checkin_Date, Checkout_Date, Booking_Total_Amount, Booking_Status, Number_Adults, Number_Children, Booking_Type, Staff_Created_By)
-                        VALUES 
-                        (@ClientID, @BranchID, GETDATE(), @CheckIn, @CheckOut, @TotalAmount, 'Pending', @Adults, @Children, @BookingType, @StaffCreatedBy);
-                        SELECT CAST(SCOPE_IDENTITY() AS INT);";
+                INSERT INTO Booking 
+                (Client_ID, Branch_ID, Booking_Date, Checkin_Date, Checkout_Date, Booking_Total_Amount, Booking_Status, Number_Adults, Number_Children, Booking_Type, Staff_Created_By)
+                VALUES 
+                (@ClientID, @BranchID, GETDATE(), @CheckIn, @CheckOut, @TotalAmount, 'Pending', @Adults, @Children, @BookingType, @StaffCreatedBy);
+                SELECT CAST(SCOPE_IDENTITY() AS INT);";
 
                     using (SqlCommand cmdBooking = new SqlCommand(insertBookingQuery, conn))
                     {
@@ -620,8 +615,8 @@ namespace Code_Crafters_Interface_Prototype_1.Business
                     }
 
                     string roomAssignQuery = @"
-                        INSERT INTO Room_Assignment (Booking_ID, Hotel_Room_ID, Actual_CheckIn_Time, Actual_CheckOut_Time, Assignment_Status, Room_Notes, Assigned_By, Assigned_Date)
-                        VALUES (@BookingID, @HotelRoomID, @CheckIn, @CheckOut, 'Assigned', @RoomNotes, 'Administrator', GETDATE())";
+                INSERT INTO Room_Assignment (Booking_ID, Hotel_Room_ID, Actual_CheckIn_Time, Actual_CheckOut_Time, Assignment_Status, Room_Notes, Assigned_By, Assigned_Date)
+                VALUES (@BookingID, @HotelRoomID, @CheckIn, @CheckOut, 'Assigned', @RoomNotes, 'Administrator', GETDATE())";
 
                     string generatedRoomNotes = "Standard room assignment completed successfully.";
 
@@ -634,7 +629,19 @@ namespace Code_Crafters_Interface_Prototype_1.Business
                         cmdAssign.Parameters.AddWithValue("@RoomNotes", generatedRoomNotes);
                         cmdAssign.ExecuteNonQuery();
                     }
-                }
+
+                    // Room status update placed safely inside the open 'conn' scope
+                    string updateRoomStatusQuery = @"
+                UPDATE Hotel_Room 
+                SET hotel_room_status = 'Booked' 
+                WHERE Hotel_Room_ID = @HotelRoomID;";
+
+                    using (SqlCommand cmdRoomStatus = new SqlCommand(updateRoomStatusQuery, conn))
+                    {
+                        cmdRoomStatus.Parameters.AddWithValue("@HotelRoomID", assignedRoomID);
+                        cmdRoomStatus.ExecuteNonQuery();
+                    }
+                } // Connection closes automatically here
 
                 DialogResult dialogResult = MessageBox.Show(
                     "Would you like to include an optional restaurant table reservation with your room booking?",

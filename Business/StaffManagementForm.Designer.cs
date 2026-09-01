@@ -32,11 +32,28 @@
             this.staffBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tbcStaffTwo = new System.Windows.Forms.TabControl();
             this.tbpStaffOne = new System.Windows.Forms.TabPage();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.cmbBranchID = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btnRegisterStaff = new System.Windows.Forms.Button();
+            this.lblStaffEmailAddress = new System.Windows.Forms.Label();
+            this.txtStaffContactNumber = new System.Windows.Forms.TextBox();
+            this.txtStaffEmailAddress = new System.Windows.Forms.TextBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtStaffAddress = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtStaffName = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtStaffSurname = new System.Windows.Forms.TextBox();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.label7 = new System.Windows.Forms.Label();
             this.tbpStaffTwo = new System.Windows.Forms.TabPage();
-            this.btnStaffOnleave = new System.Windows.Forms.Button();
-            this.btnStaffSuspended = new System.Windows.Forms.Button();
-            this.pnlStaffs = new System.Windows.Forms.Panel();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.label8 = new System.Windows.Forms.Label();
+            this.panel5 = new System.Windows.Forms.Panel();
             this.dgvStaffs = new System.Windows.Forms.DataGridView();
             this.staffIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.staffFirstNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -48,12 +65,21 @@
             this.staffstatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.staffBindingSourceOne = new System.Windows.Forms.BindingSource(this.components);
             this.codeCraftersDSTWO = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTWO();
+            this.btnStaffOnleave = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblStaffs = new System.Windows.Forms.Label();
             this.txtSearchStaffEmail = new System.Windows.Forms.TextBox();
+            this.btnStaffSuspended = new System.Windows.Forms.Button();
+            this.pnlStaffs = new System.Windows.Forms.Panel();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.tbpStaffThree = new System.Windows.Forms.TabPage();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.label9 = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.btnAuthorize = new System.Windows.Forms.Button();
-            this.btnSuspend = new System.Windows.Forms.Button();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtManageStaffEmailAddress = new System.Windows.Forms.TextBox();
             this.dgvManageStaff = new System.Windows.Forms.DataGridView();
             this.staff_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.staffFirstNameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -64,57 +90,31 @@
             this.datejoinedDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.staffstatusDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.staffBindingSourceTwo = new System.Windows.Forms.BindingSource(this.components);
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtManageStaffEmailAddress = new System.Windows.Forms.TextBox();
+            this.btnSuspend = new System.Windows.Forms.Button();
             this.taSfaffs = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTWOTableAdapters.StaffTableAdapter();
             this.taClients = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTWOTableAdapters.ClientTableAdapter();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.label9 = new System.Windows.Forms.Label();
-            this.panel9 = new System.Windows.Forms.Panel();
-            this.label7 = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.txtStaffSurname = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.txtStaffName = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtStaffAddress = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.txtStaffEmailAddress = new System.Windows.Forms.TextBox();
-            this.txtStaffContactNumber = new System.Windows.Forms.TextBox();
-            this.lblStaffEmailAddress = new System.Windows.Forms.Label();
-            this.btnRegisterStaff = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.cmbBranchID = new System.Windows.Forms.ComboBox();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.label8 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.staffBindingSource)).BeginInit();
             this.tbcStaffTwo.SuspendLayout();
             this.tbpStaffOne.SuspendLayout();
+            this.panel4.SuspendLayout();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.panel9.SuspendLayout();
             this.tbpStaffTwo.SuspendLayout();
-            this.pnlStaffs.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            this.panel8.SuspendLayout();
+            this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStaffs)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.staffBindingSourceOne)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.codeCraftersDSTWO)).BeginInit();
             this.panel1.SuspendLayout();
+            this.pnlStaffs.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.tbpStaffThree.SuspendLayout();
+            this.panel7.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvManageStaff)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.staffBindingSourceTwo)).BeginInit();
-            this.panel6.SuspendLayout();
-            this.panel3.SuspendLayout();
-            this.panel7.SuspendLayout();
-            this.panel9.SuspendLayout();
-            this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            this.panel4.SuspendLayout();
-            this.panel5.SuspendLayout();
-            this.panel8.SuspendLayout();
             this.SuspendLayout();
             // 
             // tbcStaffTwo
@@ -141,6 +141,205 @@
             this.tbpStaffOne.TabIndex = 0;
             this.tbpStaffOne.Text = "STAFF REGISTRATION";
             // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.panel2);
+            this.panel4.Location = new System.Drawing.Point(138, 103);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(876, 455);
+            this.panel4.TabIndex = 6;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.Controls.Add(this.cmbBranchID);
+            this.panel2.Controls.Add(this.label2);
+            this.panel2.Controls.Add(this.label1);
+            this.panel2.Controls.Add(this.btnRegisterStaff);
+            this.panel2.Controls.Add(this.lblStaffEmailAddress);
+            this.panel2.Controls.Add(this.txtStaffContactNumber);
+            this.panel2.Controls.Add(this.txtStaffEmailAddress);
+            this.panel2.Controls.Add(this.pictureBox2);
+            this.panel2.Controls.Add(this.label5);
+            this.panel2.Controls.Add(this.txtStaffAddress);
+            this.panel2.Controls.Add(this.label4);
+            this.panel2.Controls.Add(this.txtStaffName);
+            this.panel2.Controls.Add(this.label6);
+            this.panel2.Controls.Add(this.txtStaffSurname);
+            this.panel2.ForeColor = System.Drawing.Color.Black;
+            this.panel2.Location = new System.Drawing.Point(103, 53);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(689, 334);
+            this.panel2.TabIndex = 0;
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
+            // 
+            // cmbBranchID
+            // 
+            this.cmbBranchID.FormattingEnabled = true;
+            this.cmbBranchID.Items.AddRange(new object[] {
+            "BR01",
+            "BR02",
+            "BR03",
+            "BR04",
+            "BR05"});
+            this.cmbBranchID.Location = new System.Drawing.Point(180, 10);
+            this.cmbBranchID.Name = "cmbBranchID";
+            this.cmbBranchID.Size = new System.Drawing.Size(166, 24);
+            this.cmbBranchID.TabIndex = 46;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(26, 17);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(83, 17);
+            this.label2.TabIndex = 45;
+            this.label2.Text = "BRANCH ID:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(25, 173);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(81, 17);
+            this.label1.TabIndex = 32;
+            this.label1.Text = "PHONE NO:";
+            // 
+            // btnRegisterStaff
+            // 
+            this.btnRegisterStaff.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRegisterStaff.Location = new System.Drawing.Point(443, 193);
+            this.btnRegisterStaff.Margin = new System.Windows.Forms.Padding(2);
+            this.btnRegisterStaff.Name = "btnRegisterStaff";
+            this.btnRegisterStaff.Size = new System.Drawing.Size(144, 41);
+            this.btnRegisterStaff.TabIndex = 26;
+            this.btnRegisterStaff.Text = "CREATE PROFILE";
+            this.btnRegisterStaff.UseVisualStyleBackColor = true;
+            this.btnRegisterStaff.Click += new System.EventHandler(this.btnRegisterStaff_Click);
+            // 
+            // lblStaffEmailAddress
+            // 
+            this.lblStaffEmailAddress.AutoSize = true;
+            this.lblStaffEmailAddress.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStaffEmailAddress.Location = new System.Drawing.Point(25, 217);
+            this.lblStaffEmailAddress.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblStaffEmailAddress.Name = "lblStaffEmailAddress";
+            this.lblStaffEmailAddress.Size = new System.Drawing.Size(113, 17);
+            this.lblStaffEmailAddress.TabIndex = 8;
+            this.lblStaffEmailAddress.Text = "EMAIL ADDRESS:";
+            // 
+            // txtStaffContactNumber
+            // 
+            this.txtStaffContactNumber.Location = new System.Drawing.Point(181, 168);
+            this.txtStaffContactNumber.Margin = new System.Windows.Forms.Padding(2);
+            this.txtStaffContactNumber.Name = "txtStaffContactNumber";
+            this.txtStaffContactNumber.Size = new System.Drawing.Size(165, 22);
+            this.txtStaffContactNumber.TabIndex = 30;
+            this.txtStaffContactNumber.TextChanged += new System.EventHandler(this.txtStaffContactNumber_TextChanged);
+            // 
+            // txtStaffEmailAddress
+            // 
+            this.txtStaffEmailAddress.Location = new System.Drawing.Point(180, 212);
+            this.txtStaffEmailAddress.Margin = new System.Windows.Forms.Padding(2);
+            this.txtStaffEmailAddress.Name = "txtStaffEmailAddress";
+            this.txtStaffEmailAddress.Size = new System.Drawing.Size(166, 22);
+            this.txtStaffEmailAddress.TabIndex = 12;
+            this.txtStaffEmailAddress.TextChanged += new System.EventHandler(this.txtStaffEmailAddress_TextChanged);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::Code_Crafters_Interface_Prototype_1.Properties.Resources._6478_200;
+            this.pictureBox2.Location = new System.Drawing.Point(443, 71);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(144, 107);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 29;
+            this.pictureBox2.TabStop = false;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(26, 57);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(88, 17);
+            this.label5.TabIndex = 6;
+            this.label5.Text = "FIRST NAME:";
+            // 
+            // txtStaffAddress
+            // 
+            this.txtStaffAddress.Location = new System.Drawing.Point(181, 130);
+            this.txtStaffAddress.Margin = new System.Windows.Forms.Padding(2);
+            this.txtStaffAddress.Name = "txtStaffAddress";
+            this.txtStaffAddress.Size = new System.Drawing.Size(166, 22);
+            this.txtStaffAddress.TabIndex = 28;
+            this.txtStaffAddress.TextChanged += new System.EventHandler(this.txtStaffAddress_TextChanged);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(25, 132);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(135, 17);
+            this.label4.TabIndex = 27;
+            this.label4.Text = "PHYSICAL ADDRESS:";
+            // 
+            // txtStaffName
+            // 
+            this.txtStaffName.Location = new System.Drawing.Point(182, 52);
+            this.txtStaffName.Margin = new System.Windows.Forms.Padding(2);
+            this.txtStaffName.Name = "txtStaffName";
+            this.txtStaffName.Size = new System.Drawing.Size(165, 22);
+            this.txtStaffName.TabIndex = 0;
+            this.txtStaffName.TextChanged += new System.EventHandler(this.txtStaffName_TextChanged);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(25, 91);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(85, 17);
+            this.label6.TabIndex = 7;
+            this.label6.Text = "LAST NAME:";
+            // 
+            // txtStaffSurname
+            // 
+            this.txtStaffSurname.Location = new System.Drawing.Point(181, 91);
+            this.txtStaffSurname.Margin = new System.Windows.Forms.Padding(2);
+            this.txtStaffSurname.Name = "txtStaffSurname";
+            this.txtStaffSurname.Size = new System.Drawing.Size(166, 22);
+            this.txtStaffSurname.TabIndex = 1;
+            this.txtStaffSurname.TextChanged += new System.EventHandler(this.txtStaffSurname_TextChanged);
+            // 
+            // panel9
+            // 
+            this.panel9.BackColor = System.Drawing.Color.LightGray;
+            this.panel9.Controls.Add(this.label7);
+            this.panel9.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel9.Location = new System.Drawing.Point(3, 3);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(1291, 61);
+            this.panel9.TabIndex = 5;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label7.Location = new System.Drawing.Point(415, 14);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(332, 31);
+            this.label7.TabIndex = 1;
+            this.label7.Text = "STAFF REGISTRATION";
+            // 
             // tbpStaffTwo
             // 
             this.tbpStaffTwo.Controls.Add(this.panel8);
@@ -153,44 +352,38 @@
             this.tbpStaffTwo.Text = "VIEW STAFFS";
             this.tbpStaffTwo.UseVisualStyleBackColor = true;
             // 
-            // btnStaffOnleave
+            // panel8
             // 
-            this.btnStaffOnleave.Location = new System.Drawing.Point(542, 195);
-            this.btnStaffOnleave.Name = "btnStaffOnleave";
-            this.btnStaffOnleave.Size = new System.Drawing.Size(120, 30);
-            this.btnStaffOnleave.TabIndex = 26;
-            this.btnStaffOnleave.Text = "ON LEAVE";
-            this.btnStaffOnleave.UseVisualStyleBackColor = true;
-            this.btnStaffOnleave.Click += new System.EventHandler(this.btnStaffOnleave_Click);
+            this.panel8.BackColor = System.Drawing.Color.LightGray;
+            this.panel8.Controls.Add(this.label8);
+            this.panel8.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel8.Location = new System.Drawing.Point(3, 3);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(1291, 61);
+            this.panel8.TabIndex = 28;
             // 
-            // btnStaffSuspended
+            // label8
             // 
-            this.btnStaffSuspended.Location = new System.Drawing.Point(317, 195);
-            this.btnStaffSuspended.Name = "btnStaffSuspended";
-            this.btnStaffSuspended.Size = new System.Drawing.Size(115, 30);
-            this.btnStaffSuspended.TabIndex = 24;
-            this.btnStaffSuspended.Text = "SUSPENDED";
-            this.btnStaffSuspended.UseVisualStyleBackColor = true;
-            this.btnStaffSuspended.Click += new System.EventHandler(this.btnStaffSuspended_Click);
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label8.Location = new System.Drawing.Point(454, 14);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(206, 31);
+            this.label8.TabIndex = 1;
+            this.label8.Text = "VIEW STAFFS";
             // 
-            // pnlStaffs
+            // panel5
             // 
-            this.pnlStaffs.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.pnlStaffs.Controls.Add(this.pictureBox3);
-            this.pnlStaffs.Location = new System.Drawing.Point(39, 32);
-            this.pnlStaffs.Name = "pnlStaffs";
-            this.pnlStaffs.Size = new System.Drawing.Size(241, 193);
-            this.pnlStaffs.TabIndex = 22;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = global::Code_Crafters_Interface_Prototype_1.Properties.Resources.booking_hotel;
-            this.pictureBox3.Location = new System.Drawing.Point(18, 12);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(205, 168);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 6;
-            this.pictureBox3.TabStop = false;
+            this.panel5.Controls.Add(this.dgvStaffs);
+            this.panel5.Controls.Add(this.btnStaffOnleave);
+            this.panel5.Controls.Add(this.panel1);
+            this.panel5.Controls.Add(this.btnStaffSuspended);
+            this.panel5.Controls.Add(this.pnlStaffs);
+            this.panel5.Location = new System.Drawing.Point(146, 70);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(822, 575);
+            this.panel5.TabIndex = 27;
             // 
             // dgvStaffs
             // 
@@ -280,6 +473,16 @@
             this.codeCraftersDSTWO.DataSetName = "codeCraftersDSTWO";
             this.codeCraftersDSTWO.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
+            // btnStaffOnleave
+            // 
+            this.btnStaffOnleave.Location = new System.Drawing.Point(542, 195);
+            this.btnStaffOnleave.Name = "btnStaffOnleave";
+            this.btnStaffOnleave.Size = new System.Drawing.Size(120, 30);
+            this.btnStaffOnleave.TabIndex = 26;
+            this.btnStaffOnleave.Text = "ON LEAVE";
+            this.btnStaffOnleave.UseVisualStyleBackColor = true;
+            this.btnStaffOnleave.Click += new System.EventHandler(this.btnStaffOnleave_Click);
+            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.WhiteSmoke;
@@ -309,6 +512,35 @@
             this.txtSearchStaffEmail.TabIndex = 1;
             this.txtSearchStaffEmail.TextChanged += new System.EventHandler(this.txtSearchStaffEmail_TextChanged);
             // 
+            // btnStaffSuspended
+            // 
+            this.btnStaffSuspended.Location = new System.Drawing.Point(317, 195);
+            this.btnStaffSuspended.Name = "btnStaffSuspended";
+            this.btnStaffSuspended.Size = new System.Drawing.Size(115, 30);
+            this.btnStaffSuspended.TabIndex = 24;
+            this.btnStaffSuspended.Text = "SUSPENDED";
+            this.btnStaffSuspended.UseVisualStyleBackColor = true;
+            this.btnStaffSuspended.Click += new System.EventHandler(this.btnStaffSuspended_Click);
+            // 
+            // pnlStaffs
+            // 
+            this.pnlStaffs.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.pnlStaffs.Controls.Add(this.pictureBox3);
+            this.pnlStaffs.Location = new System.Drawing.Point(39, 32);
+            this.pnlStaffs.Name = "pnlStaffs";
+            this.pnlStaffs.Size = new System.Drawing.Size(241, 193);
+            this.pnlStaffs.TabIndex = 22;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = global::Code_Crafters_Interface_Prototype_1.Properties.Resources.booking_hotel;
+            this.pictureBox3.Location = new System.Drawing.Point(18, 12);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(205, 168);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 6;
+            this.pictureBox3.TabStop = false;
+            // 
             // tbpStaffThree
             // 
             this.tbpStaffThree.BackColor = System.Drawing.Color.LightGray;
@@ -321,6 +553,38 @@
             this.tbpStaffThree.TabIndex = 2;
             this.tbpStaffThree.Text = "MANAGE STAFFS";
             // 
+            // panel7
+            // 
+            this.panel7.BackColor = System.Drawing.Color.LightGray;
+            this.panel7.Controls.Add(this.label9);
+            this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel7.Location = new System.Drawing.Point(3, 3);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(1291, 61);
+            this.panel7.TabIndex = 25;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label9.Location = new System.Drawing.Point(419, 17);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(256, 31);
+            this.label9.TabIndex = 1;
+            this.label9.Text = "MANAGE STAFFS";
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.btnAuthorize);
+            this.panel3.Controls.Add(this.panel6);
+            this.panel3.Controls.Add(this.dgvManageStaff);
+            this.panel3.Controls.Add(this.btnSuspend);
+            this.panel3.Location = new System.Drawing.Point(168, 70);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(863, 574);
+            this.panel3.TabIndex = 24;
+            // 
             // btnAuthorize
             // 
             this.btnAuthorize.Location = new System.Drawing.Point(54, 130);
@@ -331,15 +595,34 @@
             this.btnAuthorize.UseVisualStyleBackColor = true;
             this.btnAuthorize.Click += new System.EventHandler(this.btnAuthorize_Click);
             // 
-            // btnSuspend
+            // panel6
             // 
-            this.btnSuspend.Location = new System.Drawing.Point(243, 130);
-            this.btnSuspend.Name = "btnSuspend";
-            this.btnSuspend.Size = new System.Drawing.Size(177, 30);
-            this.btnSuspend.TabIndex = 22;
-            this.btnSuspend.Text = "SUSPEND GUEST";
-            this.btnSuspend.UseVisualStyleBackColor = true;
-            this.btnSuspend.Click += new System.EventHandler(this.btnSuspend_Click);
+            this.panel6.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel6.Controls.Add(this.label3);
+            this.panel6.Controls.Add(this.txtManageStaffEmailAddress);
+            this.panel6.Location = new System.Drawing.Point(54, 35);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(471, 64);
+            this.panel6.TabIndex = 20;
+            this.panel6.Paint += new System.Windows.Forms.PaintEventHandler(this.panel6_Paint);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(12, 21);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(198, 17);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "ENTER STAFF EMAIL ADDRESS:";
+            // 
+            // txtManageStaffEmailAddress
+            // 
+            this.txtManageStaffEmailAddress.Location = new System.Drawing.Point(206, 19);
+            this.txtManageStaffEmailAddress.Name = "txtManageStaffEmailAddress";
+            this.txtManageStaffEmailAddress.Size = new System.Drawing.Size(175, 22);
+            this.txtManageStaffEmailAddress.TabIndex = 1;
+            this.txtManageStaffEmailAddress.TextChanged += new System.EventHandler(this.txtManageStaffEmailAddress_TextChanged);
             // 
             // dgvManageStaff
             // 
@@ -423,34 +706,15 @@
             this.staffBindingSourceTwo.DataMember = "Staff";
             this.staffBindingSourceTwo.DataSource = this.codeCraftersDSTWO;
             // 
-            // panel6
+            // btnSuspend
             // 
-            this.panel6.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.panel6.Controls.Add(this.label3);
-            this.panel6.Controls.Add(this.txtManageStaffEmailAddress);
-            this.panel6.Location = new System.Drawing.Point(54, 35);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(471, 64);
-            this.panel6.TabIndex = 20;
-            this.panel6.Paint += new System.Windows.Forms.PaintEventHandler(this.panel6_Paint);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(12, 21);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(198, 17);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "ENTER STAFF EMAIL ADDRESS:";
-            // 
-            // txtManageStaffEmailAddress
-            // 
-            this.txtManageStaffEmailAddress.Location = new System.Drawing.Point(206, 19);
-            this.txtManageStaffEmailAddress.Name = "txtManageStaffEmailAddress";
-            this.txtManageStaffEmailAddress.Size = new System.Drawing.Size(175, 22);
-            this.txtManageStaffEmailAddress.TabIndex = 1;
-            this.txtManageStaffEmailAddress.TextChanged += new System.EventHandler(this.txtManageStaffEmailAddress_TextChanged);
+            this.btnSuspend.Location = new System.Drawing.Point(243, 130);
+            this.btnSuspend.Name = "btnSuspend";
+            this.btnSuspend.Size = new System.Drawing.Size(177, 30);
+            this.btnSuspend.TabIndex = 22;
+            this.btnSuspend.Text = "SUSPEND GUEST";
+            this.btnSuspend.UseVisualStyleBackColor = true;
+            this.btnSuspend.Click += new System.EventHandler(this.btnSuspend_Click);
             // 
             // taSfaffs
             // 
@@ -459,270 +723,6 @@
             // taClients
             // 
             this.taClients.ClearBeforeFill = true;
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.btnAuthorize);
-            this.panel3.Controls.Add(this.panel6);
-            this.panel3.Controls.Add(this.dgvManageStaff);
-            this.panel3.Controls.Add(this.btnSuspend);
-            this.panel3.Location = new System.Drawing.Point(168, 70);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(863, 574);
-            this.panel3.TabIndex = 24;
-            // 
-            // panel7
-            // 
-            this.panel7.BackColor = System.Drawing.Color.LightGray;
-            this.panel7.Controls.Add(this.label9);
-            this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel7.Location = new System.Drawing.Point(3, 3);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(1291, 61);
-            this.panel7.TabIndex = 25;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label9.Location = new System.Drawing.Point(419, 17);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(256, 31);
-            this.label9.TabIndex = 1;
-            this.label9.Text = "MANAGE STAFFS";
-            // 
-            // panel9
-            // 
-            this.panel9.BackColor = System.Drawing.Color.LightGray;
-            this.panel9.Controls.Add(this.label7);
-            this.panel9.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel9.Location = new System.Drawing.Point(3, 3);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(1291, 61);
-            this.panel9.TabIndex = 5;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label7.Location = new System.Drawing.Point(415, 14);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(332, 31);
-            this.label7.TabIndex = 1;
-            this.label7.Text = "STAFF REGISTRATION";
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.White;
-            this.panel2.Controls.Add(this.cmbBranchID);
-            this.panel2.Controls.Add(this.label2);
-            this.panel2.Controls.Add(this.label1);
-            this.panel2.Controls.Add(this.btnRegisterStaff);
-            this.panel2.Controls.Add(this.lblStaffEmailAddress);
-            this.panel2.Controls.Add(this.txtStaffContactNumber);
-            this.panel2.Controls.Add(this.txtStaffEmailAddress);
-            this.panel2.Controls.Add(this.pictureBox2);
-            this.panel2.Controls.Add(this.label5);
-            this.panel2.Controls.Add(this.txtStaffAddress);
-            this.panel2.Controls.Add(this.label4);
-            this.panel2.Controls.Add(this.txtStaffName);
-            this.panel2.Controls.Add(this.label6);
-            this.panel2.Controls.Add(this.txtStaffSurname);
-            this.panel2.ForeColor = System.Drawing.Color.Black;
-            this.panel2.Location = new System.Drawing.Point(103, 53);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(689, 334);
-            this.panel2.TabIndex = 0;
-            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
-            // 
-            // txtStaffSurname
-            // 
-            this.txtStaffSurname.Location = new System.Drawing.Point(181, 91);
-            this.txtStaffSurname.Margin = new System.Windows.Forms.Padding(2);
-            this.txtStaffSurname.Name = "txtStaffSurname";
-            this.txtStaffSurname.Size = new System.Drawing.Size(166, 22);
-            this.txtStaffSurname.TabIndex = 1;
-            this.txtStaffSurname.TextChanged += new System.EventHandler(this.txtStaffSurname_TextChanged);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(25, 91);
-            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(85, 17);
-            this.label6.TabIndex = 7;
-            this.label6.Text = "LAST NAME:";
-            // 
-            // txtStaffName
-            // 
-            this.txtStaffName.Location = new System.Drawing.Point(182, 52);
-            this.txtStaffName.Margin = new System.Windows.Forms.Padding(2);
-            this.txtStaffName.Name = "txtStaffName";
-            this.txtStaffName.Size = new System.Drawing.Size(165, 22);
-            this.txtStaffName.TabIndex = 0;
-            this.txtStaffName.TextChanged += new System.EventHandler(this.txtStaffName_TextChanged);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(25, 132);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(135, 17);
-            this.label4.TabIndex = 27;
-            this.label4.Text = "PHYSICAL ADDRESS:";
-            // 
-            // txtStaffAddress
-            // 
-            this.txtStaffAddress.Location = new System.Drawing.Point(181, 130);
-            this.txtStaffAddress.Margin = new System.Windows.Forms.Padding(2);
-            this.txtStaffAddress.Name = "txtStaffAddress";
-            this.txtStaffAddress.Size = new System.Drawing.Size(166, 22);
-            this.txtStaffAddress.TabIndex = 28;
-            this.txtStaffAddress.TextChanged += new System.EventHandler(this.txtStaffAddress_TextChanged);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(26, 57);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(88, 17);
-            this.label5.TabIndex = 6;
-            this.label5.Text = "FIRST NAME:";
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::Code_Crafters_Interface_Prototype_1.Properties.Resources._6478_200;
-            this.pictureBox2.Location = new System.Drawing.Point(443, 71);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(144, 107);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 29;
-            this.pictureBox2.TabStop = false;
-            // 
-            // txtStaffEmailAddress
-            // 
-            this.txtStaffEmailAddress.Location = new System.Drawing.Point(180, 212);
-            this.txtStaffEmailAddress.Margin = new System.Windows.Forms.Padding(2);
-            this.txtStaffEmailAddress.Name = "txtStaffEmailAddress";
-            this.txtStaffEmailAddress.Size = new System.Drawing.Size(166, 22);
-            this.txtStaffEmailAddress.TabIndex = 12;
-            this.txtStaffEmailAddress.TextChanged += new System.EventHandler(this.txtStaffEmailAddress_TextChanged);
-            // 
-            // txtStaffContactNumber
-            // 
-            this.txtStaffContactNumber.Location = new System.Drawing.Point(181, 168);
-            this.txtStaffContactNumber.Margin = new System.Windows.Forms.Padding(2);
-            this.txtStaffContactNumber.Name = "txtStaffContactNumber";
-            this.txtStaffContactNumber.Size = new System.Drawing.Size(165, 22);
-            this.txtStaffContactNumber.TabIndex = 30;
-            this.txtStaffContactNumber.TextChanged += new System.EventHandler(this.txtStaffContactNumber_TextChanged);
-            // 
-            // lblStaffEmailAddress
-            // 
-            this.lblStaffEmailAddress.AutoSize = true;
-            this.lblStaffEmailAddress.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStaffEmailAddress.Location = new System.Drawing.Point(25, 217);
-            this.lblStaffEmailAddress.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblStaffEmailAddress.Name = "lblStaffEmailAddress";
-            this.lblStaffEmailAddress.Size = new System.Drawing.Size(113, 17);
-            this.lblStaffEmailAddress.TabIndex = 8;
-            this.lblStaffEmailAddress.Text = "EMAIL ADDRESS:";
-            // 
-            // btnRegisterStaff
-            // 
-            this.btnRegisterStaff.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegisterStaff.Location = new System.Drawing.Point(443, 193);
-            this.btnRegisterStaff.Margin = new System.Windows.Forms.Padding(2);
-            this.btnRegisterStaff.Name = "btnRegisterStaff";
-            this.btnRegisterStaff.Size = new System.Drawing.Size(144, 41);
-            this.btnRegisterStaff.TabIndex = 26;
-            this.btnRegisterStaff.Text = "CREATE PROFILE";
-            this.btnRegisterStaff.UseVisualStyleBackColor = true;
-            this.btnRegisterStaff.Click += new System.EventHandler(this.btnRegisterStaff_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(25, 173);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(81, 17);
-            this.label1.TabIndex = 32;
-            this.label1.Text = "PHONE NO:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(26, 17);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(83, 17);
-            this.label2.TabIndex = 45;
-            this.label2.Text = "BRANCH ID:";
-            // 
-            // cmbBranchID
-            // 
-            this.cmbBranchID.FormattingEnabled = true;
-            this.cmbBranchID.Items.AddRange(new object[] {
-            "BR01",
-            "BR02",
-            "BR03",
-            "BR04",
-            "BR05"});
-            this.cmbBranchID.Location = new System.Drawing.Point(180, 10);
-            this.cmbBranchID.Name = "cmbBranchID";
-            this.cmbBranchID.Size = new System.Drawing.Size(166, 24);
-            this.cmbBranchID.TabIndex = 46;
-            // 
-            // panel4
-            // 
-            this.panel4.Controls.Add(this.panel2);
-            this.panel4.Location = new System.Drawing.Point(271, 99);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(876, 455);
-            this.panel4.TabIndex = 6;
-            // 
-            // panel5
-            // 
-            this.panel5.Controls.Add(this.dgvStaffs);
-            this.panel5.Controls.Add(this.btnStaffOnleave);
-            this.panel5.Controls.Add(this.panel1);
-            this.panel5.Controls.Add(this.btnStaffSuspended);
-            this.panel5.Controls.Add(this.pnlStaffs);
-            this.panel5.Location = new System.Drawing.Point(146, 70);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(822, 575);
-            this.panel5.TabIndex = 27;
-            // 
-            // panel8
-            // 
-            this.panel8.BackColor = System.Drawing.Color.LightGray;
-            this.panel8.Controls.Add(this.label8);
-            this.panel8.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel8.Location = new System.Drawing.Point(3, 3);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(1291, 61);
-            this.panel8.TabIndex = 28;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label8.Location = new System.Drawing.Point(454, 14);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(206, 31);
-            this.label8.TabIndex = 1;
-            this.label8.Text = "VIEW STAFFS";
             // 
             // StaffManagementForm
             // 
@@ -736,31 +736,31 @@
             ((System.ComponentModel.ISupportInitialize)(this.staffBindingSource)).EndInit();
             this.tbcStaffTwo.ResumeLayout(false);
             this.tbpStaffOne.ResumeLayout(false);
+            this.panel4.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.panel9.ResumeLayout(false);
+            this.panel9.PerformLayout();
             this.tbpStaffTwo.ResumeLayout(false);
-            this.pnlStaffs.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            this.panel8.ResumeLayout(false);
+            this.panel8.PerformLayout();
+            this.panel5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvStaffs)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.staffBindingSourceOne)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.codeCraftersDSTWO)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.pnlStaffs.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.tbpStaffThree.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvManageStaff)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.staffBindingSourceTwo)).EndInit();
-            this.panel6.ResumeLayout(false);
-            this.panel6.PerformLayout();
-            this.panel3.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
-            this.panel9.ResumeLayout(false);
-            this.panel9.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            this.panel4.ResumeLayout(false);
-            this.panel5.ResumeLayout(false);
-            this.panel8.ResumeLayout(false);
-            this.panel8.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel6.ResumeLayout(false);
+            this.panel6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvManageStaff)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.staffBindingSourceTwo)).EndInit();
             this.ResumeLayout(false);
 
         }

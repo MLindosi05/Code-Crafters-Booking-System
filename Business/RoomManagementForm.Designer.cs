@@ -61,15 +61,6 @@
             this.lblRoomsUnderMaintenance = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.dgvViewRooms = new System.Windows.Forms.DataGridView();
-            this.hotelroomnumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.hotelroomstatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.hotelRoomPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.maxAdultsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.maxChildrenDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cleaningStatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lastCleanedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lastOccupiedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.hotel_room_type = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.hotelRoomBindingSource5 = new System.Windows.Forms.BindingSource(this.components);
             this.panel5 = new System.Windows.Forms.Panel();
             this.lblAvailableRooms = new System.Windows.Forms.Label();
@@ -78,48 +69,16 @@
             this.lblOccupiedRooms = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.tbcViewRooms = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.panel11 = new System.Windows.Forms.Panel();
-            this.label11 = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel9 = new System.Windows.Forms.Panel();
-            this.cmbBranches = new System.Windows.Forms.ComboBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.btnRoomRefresh = new System.Windows.Forms.Button();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.panel10 = new System.Windows.Forms.Panel();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.label17 = new System.Windows.Forms.Label();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.label6 = new System.Windows.Forms.Label();
-            this.cmbMaxChild = new System.Windows.Forms.ComboBox();
-            this.cmbMaxAdults = new System.Windows.Forms.ComboBox();
-            this.label16 = new System.Windows.Forms.Label();
-            this.txtPricePerNight = new System.Windows.Forms.TextBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.txtRoomNo = new System.Windows.Forms.TextBox();
-            this.cmbRoomStatus = new System.Windows.Forms.ComboBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.cmbRoomType = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.dgvManageRooms = new System.Windows.Forms.DataGridView();
             this.hotelRoomBindingSource6 = new System.Windows.Forms.BindingSource(this.components);
             this.fKRoomAssiHotel1B5E0D89BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.hotelRoomBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
-            this.hotel_room_number = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.hotel_room_status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Hotel_Room_Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Max_Adults = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Max_Children = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cleaningStatusDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lastCleanedDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lastOccupiedDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.hotel_room_manage_type = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.hotel_view_room_number = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.hotelroomstatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.hotelRoomPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cleaningStatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lastCleanedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lastOccupiedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.hotel_room_type = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.hotelRoomBindingSource4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.codeCraftersDSTWO)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.hotelRoomBindingSource3)).BeginInit();
@@ -137,14 +96,6 @@
             this.panel5.SuspendLayout();
             this.panel6.SuspendLayout();
             this.tbcViewRooms.SuspendLayout();
-            this.tabPage1.SuspendLayout();
-            this.panel11.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.panel9.SuspendLayout();
-            this.panel3.SuspendLayout();
-            this.panel10.SuspendLayout();
-            this.panel8.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvManageRooms)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.hotelRoomBindingSource6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fKRoomAssiHotel1B5E0D89BindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.hotelRoomBindingSource2)).BeginInit();
@@ -242,7 +193,7 @@
             this.tbpViewRooms.Padding = new System.Windows.Forms.Padding(3);
             this.tbpViewRooms.Size = new System.Drawing.Size(1422, 908);
             this.tbpViewRooms.TabIndex = 1;
-            this.tbpViewRooms.Text = "VIEW ROOMS";
+            this.tbpViewRooms.Text = "REGAL INN VIEW ROOMS";
             // 
             // panel12
             // 
@@ -259,11 +210,11 @@
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label18.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label18.Location = new System.Drawing.Point(638, 20);
+            this.label18.Location = new System.Drawing.Point(204, 17);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(202, 31);
+            this.label18.Size = new System.Drawing.Size(1078, 31);
             this.label18.TabIndex = 1;
-            this.label18.Text = "VIEW ROOMS";
+            this.label18.Text = "MONITOR REGAL INN HOTEL LIVE BRANCHES METRICS && ROOM STATUSES";
             // 
             // panel1
             // 
@@ -297,10 +248,12 @@
             this.cmbHotelRoomType.FormattingEnabled = true;
             this.cmbHotelRoomType.Items.AddRange(new object[] {
             "All Rooms",
-            "Standard Rooms",
-            "Deluxe Rooms",
-            "Executive Rooms",
-            "Suite Rooms"});
+            "Standard Room 1 King Bed",
+            "Suite Room Twin Beds",
+            "Suite Room 1 King Bed",
+            "Executive Room 1 King Bed",
+            "Deluxe Room 1 King Bed",
+            "Standard Room 2 Double Beds"});
             this.cmbHotelRoomType.Location = new System.Drawing.Point(185, 270);
             this.cmbHotelRoomType.Name = "cmbHotelRoomType";
             this.cmbHotelRoomType.Size = new System.Drawing.Size(223, 25);
@@ -322,6 +275,7 @@
             // 
             this.cmbBranchName.FormattingEnabled = true;
             this.cmbBranchName.Items.AddRange(new object[] {
+            "All Branches",
             "Pietermaritzburg",
             "Durban Umhlanga",
             "Durban North Beach",
@@ -421,11 +375,9 @@
             this.dgvViewRooms.AutoGenerateColumns = false;
             this.dgvViewRooms.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvViewRooms.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.hotelroomnumberDataGridViewTextBoxColumn,
+            this.hotel_view_room_number,
             this.hotelroomstatusDataGridViewTextBoxColumn,
             this.hotelRoomPriceDataGridViewTextBoxColumn,
-            this.maxAdultsDataGridViewTextBoxColumn,
-            this.maxChildrenDataGridViewTextBoxColumn,
             this.cleaningStatusDataGridViewTextBoxColumn,
             this.lastCleanedDataGridViewTextBoxColumn,
             this.lastOccupiedDataGridViewTextBoxColumn,
@@ -436,78 +388,6 @@
             this.dgvViewRooms.RowHeadersWidth = 51;
             this.dgvViewRooms.Size = new System.Drawing.Size(936, 384);
             this.dgvViewRooms.TabIndex = 7;
-            // 
-            // hotelroomnumberDataGridViewTextBoxColumn
-            // 
-            this.hotelroomnumberDataGridViewTextBoxColumn.DataPropertyName = "hotel_room_number";
-            this.hotelroomnumberDataGridViewTextBoxColumn.HeaderText = "ROOM NO.";
-            this.hotelroomnumberDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.hotelroomnumberDataGridViewTextBoxColumn.Name = "hotelroomnumberDataGridViewTextBoxColumn";
-            this.hotelroomnumberDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // hotelroomstatusDataGridViewTextBoxColumn
-            // 
-            this.hotelroomstatusDataGridViewTextBoxColumn.DataPropertyName = "hotel_room_status";
-            this.hotelroomstatusDataGridViewTextBoxColumn.HeaderText = "STATUS";
-            this.hotelroomstatusDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.hotelroomstatusDataGridViewTextBoxColumn.Name = "hotelroomstatusDataGridViewTextBoxColumn";
-            this.hotelroomstatusDataGridViewTextBoxColumn.Width = 90;
-            // 
-            // hotelRoomPriceDataGridViewTextBoxColumn
-            // 
-            this.hotelRoomPriceDataGridViewTextBoxColumn.DataPropertyName = "Hotel_Room_Price";
-            this.hotelRoomPriceDataGridViewTextBoxColumn.HeaderText = "PRICE";
-            this.hotelRoomPriceDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.hotelRoomPriceDataGridViewTextBoxColumn.Name = "hotelRoomPriceDataGridViewTextBoxColumn";
-            this.hotelRoomPriceDataGridViewTextBoxColumn.Width = 80;
-            // 
-            // maxAdultsDataGridViewTextBoxColumn
-            // 
-            this.maxAdultsDataGridViewTextBoxColumn.DataPropertyName = "Max_Adults";
-            this.maxAdultsDataGridViewTextBoxColumn.HeaderText = "NO. OF ADULTS";
-            this.maxAdultsDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.maxAdultsDataGridViewTextBoxColumn.Name = "maxAdultsDataGridViewTextBoxColumn";
-            this.maxAdultsDataGridViewTextBoxColumn.Width = 120;
-            // 
-            // maxChildrenDataGridViewTextBoxColumn
-            // 
-            this.maxChildrenDataGridViewTextBoxColumn.DataPropertyName = "Max_Children";
-            this.maxChildrenDataGridViewTextBoxColumn.HeaderText = "NO. OF CHILD.";
-            this.maxChildrenDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.maxChildrenDataGridViewTextBoxColumn.Name = "maxChildrenDataGridViewTextBoxColumn";
-            this.maxChildrenDataGridViewTextBoxColumn.Width = 120;
-            // 
-            // cleaningStatusDataGridViewTextBoxColumn
-            // 
-            this.cleaningStatusDataGridViewTextBoxColumn.DataPropertyName = "Cleaning_Status";
-            this.cleaningStatusDataGridViewTextBoxColumn.HeaderText = "CLEANING STATUS";
-            this.cleaningStatusDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.cleaningStatusDataGridViewTextBoxColumn.Name = "cleaningStatusDataGridViewTextBoxColumn";
-            this.cleaningStatusDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // lastCleanedDataGridViewTextBoxColumn
-            // 
-            this.lastCleanedDataGridViewTextBoxColumn.DataPropertyName = "Last_Cleaned";
-            this.lastCleanedDataGridViewTextBoxColumn.HeaderText = "LAST CLEANED";
-            this.lastCleanedDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.lastCleanedDataGridViewTextBoxColumn.Name = "lastCleanedDataGridViewTextBoxColumn";
-            this.lastCleanedDataGridViewTextBoxColumn.Width = 120;
-            // 
-            // lastOccupiedDataGridViewTextBoxColumn
-            // 
-            this.lastOccupiedDataGridViewTextBoxColumn.DataPropertyName = "Last_Occupied";
-            this.lastOccupiedDataGridViewTextBoxColumn.HeaderText = "LAST OCCUPIED";
-            this.lastOccupiedDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.lastOccupiedDataGridViewTextBoxColumn.Name = "lastOccupiedDataGridViewTextBoxColumn";
-            this.lastOccupiedDataGridViewTextBoxColumn.Width = 130;
-            // 
-            // hotel_room_type
-            // 
-            this.hotel_room_type.DataPropertyName = "hotel_room_type";
-            this.hotel_room_type.HeaderText = "ROOM TYPE";
-            this.hotel_room_type.MinimumWidth = 6;
-            this.hotel_room_type.Name = "hotel_room_type";
-            this.hotel_room_type.Width = 110;
             // 
             // hotelRoomBindingSource5
             // 
@@ -577,381 +457,12 @@
             // tbcViewRooms
             // 
             this.tbcViewRooms.Controls.Add(this.tbpViewRooms);
-            this.tbcViewRooms.Controls.Add(this.tabPage1);
             this.tbcViewRooms.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbcViewRooms.Location = new System.Drawing.Point(0, 0);
             this.tbcViewRooms.Name = "tbcViewRooms";
             this.tbcViewRooms.SelectedIndex = 0;
             this.tbcViewRooms.Size = new System.Drawing.Size(1430, 938);
             this.tbcViewRooms.TabIndex = 0;
-            // 
-            // tabPage1
-            // 
-            this.tabPage1.Controls.Add(this.panel11);
-            this.tabPage1.Controls.Add(this.panel2);
-            this.tabPage1.ForeColor = System.Drawing.Color.DarkGray;
-            this.tabPage1.Location = new System.Drawing.Point(4, 26);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1422, 908);
-            this.tabPage1.TabIndex = 2;
-            this.tabPage1.Text = "MANAGE ROOMS";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // panel11
-            // 
-            this.panel11.BackColor = System.Drawing.Color.LightGray;
-            this.panel11.Controls.Add(this.label11);
-            this.panel11.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel11.Location = new System.Drawing.Point(3, 3);
-            this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(1416, 74);
-            this.panel11.TabIndex = 6;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label11.Location = new System.Drawing.Point(604, 25);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(252, 31);
-            this.label11.TabIndex = 1;
-            this.label11.Text = "MANAGE ROOMS";
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.panel9);
-            this.panel2.Controls.Add(this.panel3);
-            this.panel2.Controls.Add(this.dgvManageRooms);
-            this.panel2.Location = new System.Drawing.Point(194, 94);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1199, 794);
-            this.panel2.TabIndex = 0;
-            // 
-            // panel9
-            // 
-            this.panel9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel9.Controls.Add(this.cmbBranches);
-            this.panel9.Controls.Add(this.label14);
-            this.panel9.Controls.Add(this.btnRoomRefresh);
-            this.panel9.Location = new System.Drawing.Point(43, 21);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(1129, 70);
-            this.panel9.TabIndex = 50;
-            // 
-            // cmbBranches
-            // 
-            this.cmbBranches.FormattingEnabled = true;
-            this.cmbBranches.Items.AddRange(new object[] {
-            "Pietermaritzburg",
-            "Durban Umhlanga",
-            "Durban North Beach",
-            "Durban Ballito",
-            "JHB Midrand"});
-            this.cmbBranches.Location = new System.Drawing.Point(160, 24);
-            this.cmbBranches.Name = "cmbBranches";
-            this.cmbBranches.Size = new System.Drawing.Size(160, 25);
-            this.cmbBranches.TabIndex = 44;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.ForeColor = System.Drawing.Color.DarkGoldenrod;
-            this.label14.Location = new System.Drawing.Point(3, 27);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(151, 17);
-            this.label14.TabIndex = 4;
-            this.label14.Text = "🏨 REGAL INN HOTELS";
-            // 
-            // btnRoomRefresh
-            // 
-            this.btnRoomRefresh.BackColor = System.Drawing.Color.White;
-            this.btnRoomRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRoomRefresh.ForeColor = System.Drawing.Color.Navy;
-            this.btnRoomRefresh.Location = new System.Drawing.Point(877, 8);
-            this.btnRoomRefresh.Name = "btnRoomRefresh";
-            this.btnRoomRefresh.Size = new System.Drawing.Size(216, 45);
-            this.btnRoomRefresh.TabIndex = 3;
-            this.btnRoomRefresh.Text = "🔄 REFRESH";
-            this.btnRoomRefresh.UseVisualStyleBackColor = false;
-            this.btnRoomRefresh.Click += new System.EventHandler(this.btnRoomRefresh_Click);
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.panel10);
-            this.panel3.Controls.Add(this.panel8);
-            this.panel3.Controls.Add(this.cmbMaxChild);
-            this.panel3.Controls.Add(this.cmbMaxAdults);
-            this.panel3.Controls.Add(this.label16);
-            this.panel3.Controls.Add(this.txtPricePerNight);
-            this.panel3.Controls.Add(this.label13);
-            this.panel3.Controls.Add(this.label15);
-            this.panel3.Controls.Add(this.label10);
-            this.panel3.Controls.Add(this.txtRoomNo);
-            this.panel3.Controls.Add(this.cmbRoomStatus);
-            this.panel3.Controls.Add(this.label12);
-            this.panel3.Controls.Add(this.label8);
-            this.panel3.Controls.Add(this.label7);
-            this.panel3.Controls.Add(this.cmbRoomType);
-            this.panel3.Controls.Add(this.comboBox2);
-            this.panel3.Controls.Add(this.button1);
-            this.panel3.Location = new System.Drawing.Point(43, 107);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1129, 341);
-            this.panel3.TabIndex = 1;
-            // 
-            // panel10
-            // 
-            this.panel10.Controls.Add(this.listBox1);
-            this.panel10.Controls.Add(this.label17);
-            this.panel10.Location = new System.Drawing.Point(638, 81);
-            this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(456, 242);
-            this.panel10.TabIndex = 18;
-            // 
-            // listBox1
-            // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 17;
-            this.listBox1.Items.AddRange(new object[] {
-            "Wi-Fi",
-            "Coffee and Tea Maker",
-            "Mini Fridge",
-            "Air Conditioning and Heating",
-            "Flat-Screen Television",
-            "Toiletries",
-            "Work Desk and Chair",
-            "Daily Housekeeping",
-            "Closet and Hangers",
-            "Iron and Ironing Board",
-            "Telephone"});
-            this.listBox1.Location = new System.Drawing.Point(45, 48);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(374, 157);
-            this.listBox1.TabIndex = 18;
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.ForeColor = System.Drawing.Color.White;
-            this.label17.Location = new System.Drawing.Point(41, 14);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(95, 21);
-            this.label17.TabIndex = 17;
-            this.label17.Text = "AMENITIES";
-            // 
-            // panel8
-            // 
-            this.panel8.Controls.Add(this.label6);
-            this.panel8.Location = new System.Drawing.Point(16, 13);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(1078, 51);
-            this.panel8.TabIndex = 0;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(389, 14);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(191, 21);
-            this.label6.TabIndex = 0;
-            this.label6.Text = "UPDATE ROOM DETAILS";
-            // 
-            // cmbMaxChild
-            // 
-            this.cmbMaxChild.FormattingEnabled = true;
-            this.cmbMaxChild.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6"});
-            this.cmbMaxChild.Location = new System.Drawing.Point(441, 218);
-            this.cmbMaxChild.Name = "cmbMaxChild";
-            this.cmbMaxChild.Size = new System.Drawing.Size(121, 25);
-            this.cmbMaxChild.TabIndex = 16;
-            // 
-            // cmbMaxAdults
-            // 
-            this.cmbMaxAdults.FormattingEnabled = true;
-            this.cmbMaxAdults.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6"});
-            this.cmbMaxAdults.Location = new System.Drawing.Point(441, 129);
-            this.cmbMaxAdults.Name = "cmbMaxAdults";
-            this.cmbMaxAdults.Size = new System.Drawing.Size(121, 25);
-            this.cmbMaxAdults.TabIndex = 15;
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.ForeColor = System.Drawing.Color.White;
-            this.label16.Location = new System.Drawing.Point(437, 183);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(100, 21);
-            this.label16.TabIndex = 14;
-            this.label16.Text = "MAX CHILD.";
-            // 
-            // txtPricePerNight
-            // 
-            this.txtPricePerNight.Location = new System.Drawing.Point(218, 129);
-            this.txtPricePerNight.Name = "txtPricePerNight";
-            this.txtPricePerNight.Size = new System.Drawing.Size(168, 25);
-            this.txtPricePerNight.TabIndex = 9;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.ForeColor = System.Drawing.Color.White;
-            this.label13.Location = new System.Drawing.Point(214, 190);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(120, 21);
-            this.label13.TabIndex = 12;
-            this.label13.Text = "ROOM STATUS";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.ForeColor = System.Drawing.Color.White;
-            this.label15.Location = new System.Drawing.Point(437, 95);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(110, 21);
-            this.label15.TabIndex = 13;
-            this.label15.Text = "MAX ADULTS";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(214, 95);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(141, 21);
-            this.label10.TabIndex = 5;
-            this.label10.Text = "PRICE PER NIGHT";
-            // 
-            // txtRoomNo
-            // 
-            this.txtRoomNo.Location = new System.Drawing.Point(16, 129);
-            this.txtRoomNo.Name = "txtRoomNo";
-            this.txtRoomNo.Size = new System.Drawing.Size(154, 25);
-            this.txtRoomNo.TabIndex = 8;
-            // 
-            // cmbRoomStatus
-            // 
-            this.cmbRoomStatus.FormattingEnabled = true;
-            this.cmbRoomStatus.Items.AddRange(new object[] {
-            "Available",
-            "Occupied",
-            "Maintenance"});
-            this.cmbRoomStatus.Location = new System.Drawing.Point(218, 223);
-            this.cmbRoomStatus.Name = "cmbRoomStatus";
-            this.cmbRoomStatus.Size = new System.Drawing.Size(168, 25);
-            this.cmbRoomStatus.TabIndex = 11;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.Color.White;
-            this.label12.Location = new System.Drawing.Point(12, 266);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(83, 21);
-            this.label12.TabIndex = 7;
-            this.label12.Text = "BED TYPE";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(12, 95);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(91, 21);
-            this.label8.TabIndex = 4;
-            this.label8.Text = "ROOM NO.";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(12, 183);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(101, 21);
-            this.label7.TabIndex = 3;
-            this.label7.Text = "ROOM TYPE";
-            // 
-            // cmbRoomType
-            // 
-            this.cmbRoomType.FormattingEnabled = true;
-            this.cmbRoomType.Items.AddRange(new object[] {
-            "Standard",
-            "Executive",
-            "Suite",
-            "Deluxe"});
-            this.cmbRoomType.Location = new System.Drawing.Point(16, 218);
-            this.cmbRoomType.Name = "cmbRoomType";
-            this.cmbRoomType.Size = new System.Drawing.Size(154, 25);
-            this.cmbRoomType.TabIndex = 2;
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
-            "King Bed ",
-            "Queen Bed",
-            "Twin Beds",
-            "Double Bed",
-            "2 Double Beds",
-            "Single Bed"});
-            this.comboBox2.Location = new System.Drawing.Point(16, 299);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(154, 25);
-            this.comboBox2.TabIndex = 1;
-            // 
-            // button1
-            // 
-            this.button1.ForeColor = System.Drawing.Color.Black;
-            this.button1.Location = new System.Drawing.Point(218, 294);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(344, 33);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "SAVE CHANGES";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // dgvManageRooms
-            // 
-            this.dgvManageRooms.AutoGenerateColumns = false;
-            this.dgvManageRooms.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvManageRooms.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.hotel_room_number,
-            this.hotel_room_status,
-            this.Hotel_Room_Price,
-            this.Max_Adults,
-            this.Max_Children,
-            this.cleaningStatusDataGridViewTextBoxColumn1,
-            this.lastCleanedDataGridViewTextBoxColumn1,
-            this.lastOccupiedDataGridViewTextBoxColumn1,
-            this.hotel_room_manage_type});
-            this.dgvManageRooms.DataSource = this.hotelRoomBindingSource6;
-            this.dgvManageRooms.Location = new System.Drawing.Point(43, 463);
-            this.dgvManageRooms.Name = "dgvManageRooms";
-            this.dgvManageRooms.RowHeadersWidth = 51;
-            this.dgvManageRooms.Size = new System.Drawing.Size(1129, 312);
-            this.dgvManageRooms.TabIndex = 0;
             // 
             // hotelRoomBindingSource6
             // 
@@ -963,77 +474,61 @@
             this.fKRoomAssiHotel1B5E0D89BindingSource.DataMember = "FK__Room_Assi__Hotel__1B5E0D89";
             this.fKRoomAssiHotel1B5E0D89BindingSource.DataSource = this.hotelRoomBindingSource1;
             // 
-            // hotel_room_number
+            // hotel_view_room_number
             // 
-            this.hotel_room_number.DataPropertyName = "hotel_room_number";
-            this.hotel_room_number.HeaderText = "ROOM NO.";
-            this.hotel_room_number.MinimumWidth = 6;
-            this.hotel_room_number.Name = "hotel_room_number";
-            this.hotel_room_number.Width = 125;
+            this.hotel_view_room_number.DataPropertyName = "hotel_room_number";
+            this.hotel_view_room_number.HeaderText = "ROOM NO.";
+            this.hotel_view_room_number.MinimumWidth = 6;
+            this.hotel_view_room_number.Name = "hotel_view_room_number";
+            this.hotel_view_room_number.Width = 125;
             // 
-            // hotel_room_status
+            // hotelroomstatusDataGridViewTextBoxColumn
             // 
-            this.hotel_room_status.DataPropertyName = "hotel_room_status";
-            this.hotel_room_status.HeaderText = "STATUS";
-            this.hotel_room_status.MinimumWidth = 6;
-            this.hotel_room_status.Name = "hotel_room_status";
-            this.hotel_room_status.Width = 90;
+            this.hotelroomstatusDataGridViewTextBoxColumn.DataPropertyName = "hotel_room_status";
+            this.hotelroomstatusDataGridViewTextBoxColumn.HeaderText = "STATUS";
+            this.hotelroomstatusDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.hotelroomstatusDataGridViewTextBoxColumn.Name = "hotelroomstatusDataGridViewTextBoxColumn";
+            this.hotelroomstatusDataGridViewTextBoxColumn.Width = 90;
             // 
-            // Hotel_Room_Price
+            // hotelRoomPriceDataGridViewTextBoxColumn
             // 
-            this.Hotel_Room_Price.DataPropertyName = "Hotel_Room_Price";
-            this.Hotel_Room_Price.HeaderText = "PRICE";
-            this.Hotel_Room_Price.MinimumWidth = 6;
-            this.Hotel_Room_Price.Name = "Hotel_Room_Price";
-            this.Hotel_Room_Price.Width = 80;
+            this.hotelRoomPriceDataGridViewTextBoxColumn.DataPropertyName = "Hotel_Room_Price";
+            this.hotelRoomPriceDataGridViewTextBoxColumn.HeaderText = "PRICE";
+            this.hotelRoomPriceDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.hotelRoomPriceDataGridViewTextBoxColumn.Name = "hotelRoomPriceDataGridViewTextBoxColumn";
+            this.hotelRoomPriceDataGridViewTextBoxColumn.Width = 80;
             // 
-            // Max_Adults
+            // cleaningStatusDataGridViewTextBoxColumn
             // 
-            this.Max_Adults.DataPropertyName = "Max_Adults";
-            this.Max_Adults.HeaderText = "NO. OF ADULTS";
-            this.Max_Adults.MinimumWidth = 6;
-            this.Max_Adults.Name = "Max_Adults";
-            this.Max_Adults.Width = 130;
+            this.cleaningStatusDataGridViewTextBoxColumn.DataPropertyName = "Cleaning_Status";
+            this.cleaningStatusDataGridViewTextBoxColumn.HeaderText = "CLEANING STATUS";
+            this.cleaningStatusDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.cleaningStatusDataGridViewTextBoxColumn.Name = "cleaningStatusDataGridViewTextBoxColumn";
+            this.cleaningStatusDataGridViewTextBoxColumn.Width = 150;
             // 
-            // Max_Children
+            // lastCleanedDataGridViewTextBoxColumn
             // 
-            this.Max_Children.DataPropertyName = "Max_Children";
-            this.Max_Children.HeaderText = "NO OF CHILD.";
-            this.Max_Children.MinimumWidth = 6;
-            this.Max_Children.Name = "Max_Children";
-            this.Max_Children.Width = 120;
+            this.lastCleanedDataGridViewTextBoxColumn.DataPropertyName = "Last_Cleaned";
+            this.lastCleanedDataGridViewTextBoxColumn.HeaderText = "LAST CLEANED";
+            this.lastCleanedDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.lastCleanedDataGridViewTextBoxColumn.Name = "lastCleanedDataGridViewTextBoxColumn";
+            this.lastCleanedDataGridViewTextBoxColumn.Width = 120;
             // 
-            // cleaningStatusDataGridViewTextBoxColumn1
+            // lastOccupiedDataGridViewTextBoxColumn
             // 
-            this.cleaningStatusDataGridViewTextBoxColumn1.DataPropertyName = "Cleaning_Status";
-            this.cleaningStatusDataGridViewTextBoxColumn1.HeaderText = "CLEANING STATUS";
-            this.cleaningStatusDataGridViewTextBoxColumn1.MinimumWidth = 6;
-            this.cleaningStatusDataGridViewTextBoxColumn1.Name = "cleaningStatusDataGridViewTextBoxColumn1";
-            this.cleaningStatusDataGridViewTextBoxColumn1.Width = 160;
+            this.lastOccupiedDataGridViewTextBoxColumn.DataPropertyName = "Last_Occupied";
+            this.lastOccupiedDataGridViewTextBoxColumn.HeaderText = "LAST OCCUPIED";
+            this.lastOccupiedDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.lastOccupiedDataGridViewTextBoxColumn.Name = "lastOccupiedDataGridViewTextBoxColumn";
+            this.lastOccupiedDataGridViewTextBoxColumn.Width = 130;
             // 
-            // lastCleanedDataGridViewTextBoxColumn1
+            // hotel_room_type
             // 
-            this.lastCleanedDataGridViewTextBoxColumn1.DataPropertyName = "Last_Cleaned";
-            this.lastCleanedDataGridViewTextBoxColumn1.HeaderText = "LAST CLEANED";
-            this.lastCleanedDataGridViewTextBoxColumn1.MinimumWidth = 6;
-            this.lastCleanedDataGridViewTextBoxColumn1.Name = "lastCleanedDataGridViewTextBoxColumn1";
-            this.lastCleanedDataGridViewTextBoxColumn1.Width = 130;
-            // 
-            // lastOccupiedDataGridViewTextBoxColumn1
-            // 
-            this.lastOccupiedDataGridViewTextBoxColumn1.DataPropertyName = "Last_Occupied";
-            this.lastOccupiedDataGridViewTextBoxColumn1.HeaderText = "LAST OCCUPIED";
-            this.lastOccupiedDataGridViewTextBoxColumn1.MinimumWidth = 6;
-            this.lastOccupiedDataGridViewTextBoxColumn1.Name = "lastOccupiedDataGridViewTextBoxColumn1";
-            this.lastOccupiedDataGridViewTextBoxColumn1.Width = 140;
-            // 
-            // hotel_room_manage_type
-            // 
-            this.hotel_room_manage_type.DataPropertyName = "hotel_room_type";
-            this.hotel_room_manage_type.HeaderText = "ROOM TYPE";
-            this.hotel_room_manage_type.MinimumWidth = 6;
-            this.hotel_room_manage_type.Name = "hotel_room_manage_type";
-            this.hotel_room_manage_type.Width = 110;
+            this.hotel_room_type.DataPropertyName = "hotel_room_type";
+            this.hotel_room_type.HeaderText = "ROOM TYPE";
+            this.hotel_room_type.MinimumWidth = 6;
+            this.hotel_room_type.Name = "hotel_room_type";
+            this.hotel_room_type.Width = 180;
             // 
             // RoomManagementForm
             // 
@@ -1072,19 +567,6 @@
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             this.tbcViewRooms.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            this.panel11.ResumeLayout(false);
-            this.panel11.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel9.ResumeLayout(false);
-            this.panel9.PerformLayout();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
-            this.panel10.ResumeLayout(false);
-            this.panel10.PerformLayout();
-            this.panel8.ResumeLayout(false);
-            this.panel8.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvManageRooms)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.hotelRoomBindingSource6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fKRoomAssiHotel1B5E0D89BindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.hotelRoomBindingSource2)).EndInit();
@@ -1128,62 +610,21 @@
         private System.Windows.Forms.TabControl tbcViewRooms;
         private System.Windows.Forms.DataGridView dgvViewRooms;
         private System.Windows.Forms.BindingSource hotelRoomBindingSource5;
-        private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.ComboBox cmbHotelRoomType;
         private System.Windows.Forms.Panel pnlBooking;
         private System.Windows.Forms.ComboBox cmbBranchName;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button btnRefresh;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.DataGridView dgvManageRooms;
         private System.Windows.Forms.BindingSource hotelRoomBindingSource6;
-        private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ComboBox cmbRoomType;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.ComboBox cmbRoomStatus;
-        private System.Windows.Forms.TextBox txtPricePerNight;
-        private System.Windows.Forms.TextBox txtRoomNo;
-        private System.Windows.Forms.Panel panel9;
-        private System.Windows.Forms.ComboBox cmbBranches;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Button btnRoomRefresh;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.ComboBox cmbMaxChild;
-        private System.Windows.Forms.ComboBox cmbMaxAdults;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Panel panel10;
-        private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Panel panel12;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Panel panel11;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.DataGridViewTextBoxColumn hotelroomnumberDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn hotel_view_room_number;
         private System.Windows.Forms.DataGridViewTextBoxColumn hotelroomstatusDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn hotelRoomPriceDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn maxAdultsDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn maxChildrenDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn cleaningStatusDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn lastCleanedDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn lastOccupiedDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn hotel_room_type;
-        private System.Windows.Forms.DataGridViewTextBoxColumn hotel_room_number;
-        private System.Windows.Forms.DataGridViewTextBoxColumn hotel_room_status;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Hotel_Room_Price;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Max_Adults;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Max_Children;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cleaningStatusDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn lastCleanedDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn lastOccupiedDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn hotel_room_manage_type;
     }
 }
