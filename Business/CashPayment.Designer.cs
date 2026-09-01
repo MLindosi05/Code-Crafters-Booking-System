@@ -40,10 +40,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel12 = new System.Windows.Forms.Panel();
             this.label18 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.panel6.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel12.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel6
@@ -52,9 +54,9 @@
             this.panel6.Controls.Add(this.label12);
             this.panel6.Controls.Add(this.label9);
             this.panel6.Controls.Add(this.panel7);
-            this.panel6.Location = new System.Drawing.Point(31, 101);
+            this.panel6.Location = new System.Drawing.Point(38, 33);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(776, 136);
+            this.panel6.Size = new System.Drawing.Size(700, 136);
             this.panel6.TabIndex = 5;
             // 
             // label12
@@ -101,7 +103,7 @@
             this.btnProcessPayment.BackColor = System.Drawing.Color.Navy;
             this.btnProcessPayment.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnProcessPayment.ForeColor = System.Drawing.Color.White;
-            this.btnProcessPayment.Location = new System.Drawing.Point(656, 314);
+            this.btnProcessPayment.Location = new System.Drawing.Point(587, 256);
             this.btnProcessPayment.Name = "btnProcessPayment";
             this.btnProcessPayment.Size = new System.Drawing.Size(151, 42);
             this.btnProcessPayment.TabIndex = 60;
@@ -114,7 +116,7 @@
             this.btnCancel.BackColor = System.Drawing.Color.Red;
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.ForeColor = System.Drawing.Color.White;
-            this.btnCancel.Location = new System.Drawing.Point(31, 316);
+            this.btnCancel.Location = new System.Drawing.Point(38, 256);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(131, 41);
             this.btnCancel.TabIndex = 61;
@@ -128,9 +130,9 @@
             this.panel1.Controls.Add(this.lblTotalDue);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel1.Location = new System.Drawing.Point(33, 243);
+            this.panel1.Location = new System.Drawing.Point(38, 185);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(774, 56);
+            this.panel1.Size = new System.Drawing.Size(700, 56);
             this.panel1.TabIndex = 62;
             // 
             // lblTotalDue
@@ -158,7 +160,7 @@
             this.panel12.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel12.Location = new System.Drawing.Point(0, 0);
             this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(927, 82);
+            this.panel12.Size = new System.Drawing.Size(1586, 82);
             this.panel12.TabIndex = 64;
             // 
             // label18
@@ -166,23 +168,32 @@
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label18.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label18.Location = new System.Drawing.Point(354, 22);
+            this.label18.Location = new System.Drawing.Point(765, 28);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(240, 31);
             this.label18.TabIndex = 2;
             this.label18.Text = "CASH PAYMENT";
+            this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.panel6);
+            this.panel2.Controls.Add(this.btnCancel);
+            this.panel2.Controls.Add(this.btnProcessPayment);
+            this.panel2.Controls.Add(this.panel1);
+            this.panel2.Location = new System.Drawing.Point(535, 113);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(781, 340);
+            this.panel2.TabIndex = 65;
             // 
             // CashPayment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightGray;
-            this.ClientSize = new System.Drawing.Size(927, 484);
+            this.ClientSize = new System.Drawing.Size(1586, 779);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel12);
-            this.Controls.Add(this.panel6);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.btnCancel);
-            this.Controls.Add(this.btnProcessPayment);
             this.Name = "CashPayment";
             this.Text = "REGAL INN PAY WITH CASH";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -195,6 +206,7 @@
             this.panel1.PerformLayout();
             this.panel12.ResumeLayout(false);
             this.panel12.PerformLayout();
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -213,5 +225,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel12;
         private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Panel panel2;
     }
 }
