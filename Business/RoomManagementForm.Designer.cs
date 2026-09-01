@@ -61,6 +61,13 @@
             this.lblRoomsUnderMaintenance = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.dgvViewRooms = new System.Windows.Forms.DataGridView();
+            this.hotel_view_room_number = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.hotelroomstatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.hotelRoomPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cleaningStatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lastCleanedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lastOccupiedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.hotel_room_type = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.hotelRoomBindingSource5 = new System.Windows.Forms.BindingSource(this.components);
             this.panel5 = new System.Windows.Forms.Panel();
             this.lblAvailableRooms = new System.Windows.Forms.Label();
@@ -72,13 +79,6 @@
             this.hotelRoomBindingSource6 = new System.Windows.Forms.BindingSource(this.components);
             this.fKRoomAssiHotel1B5E0D89BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.hotelRoomBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
-            this.hotel_view_room_number = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.hotelroomstatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.hotelRoomPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cleaningStatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lastCleanedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lastOccupiedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.hotel_room_type = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.hotelRoomBindingSource4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.codeCraftersDSTWO)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.hotelRoomBindingSource3)).BeginInit();
@@ -389,6 +389,62 @@
             this.dgvViewRooms.Size = new System.Drawing.Size(936, 384);
             this.dgvViewRooms.TabIndex = 7;
             // 
+            // hotel_view_room_number
+            // 
+            this.hotel_view_room_number.DataPropertyName = "hotel_room_number";
+            this.hotel_view_room_number.HeaderText = "ROOM NO.";
+            this.hotel_view_room_number.MinimumWidth = 6;
+            this.hotel_view_room_number.Name = "hotel_view_room_number";
+            this.hotel_view_room_number.Width = 125;
+            // 
+            // hotelroomstatusDataGridViewTextBoxColumn
+            // 
+            this.hotelroomstatusDataGridViewTextBoxColumn.DataPropertyName = "hotel_room_status";
+            this.hotelroomstatusDataGridViewTextBoxColumn.HeaderText = "STATUS";
+            this.hotelroomstatusDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.hotelroomstatusDataGridViewTextBoxColumn.Name = "hotelroomstatusDataGridViewTextBoxColumn";
+            this.hotelroomstatusDataGridViewTextBoxColumn.Width = 90;
+            // 
+            // hotelRoomPriceDataGridViewTextBoxColumn
+            // 
+            this.hotelRoomPriceDataGridViewTextBoxColumn.DataPropertyName = "Hotel_Room_Price";
+            this.hotelRoomPriceDataGridViewTextBoxColumn.HeaderText = "PRICE";
+            this.hotelRoomPriceDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.hotelRoomPriceDataGridViewTextBoxColumn.Name = "hotelRoomPriceDataGridViewTextBoxColumn";
+            this.hotelRoomPriceDataGridViewTextBoxColumn.Width = 80;
+            // 
+            // cleaningStatusDataGridViewTextBoxColumn
+            // 
+            this.cleaningStatusDataGridViewTextBoxColumn.DataPropertyName = "Cleaning_Status";
+            this.cleaningStatusDataGridViewTextBoxColumn.HeaderText = "CLEANING STATUS";
+            this.cleaningStatusDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.cleaningStatusDataGridViewTextBoxColumn.Name = "cleaningStatusDataGridViewTextBoxColumn";
+            this.cleaningStatusDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // lastCleanedDataGridViewTextBoxColumn
+            // 
+            this.lastCleanedDataGridViewTextBoxColumn.DataPropertyName = "Last_Cleaned";
+            this.lastCleanedDataGridViewTextBoxColumn.HeaderText = "LAST CLEANED";
+            this.lastCleanedDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.lastCleanedDataGridViewTextBoxColumn.Name = "lastCleanedDataGridViewTextBoxColumn";
+            this.lastCleanedDataGridViewTextBoxColumn.Width = 120;
+            // 
+            // lastOccupiedDataGridViewTextBoxColumn
+            // 
+            this.lastOccupiedDataGridViewTextBoxColumn.DataPropertyName = "Last_Occupied";
+            this.lastOccupiedDataGridViewTextBoxColumn.HeaderText = "LAST OCCUPIED";
+            this.lastOccupiedDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.lastOccupiedDataGridViewTextBoxColumn.Name = "lastOccupiedDataGridViewTextBoxColumn";
+            this.lastOccupiedDataGridViewTextBoxColumn.Width = 130;
+            // 
+            // hotel_room_type
+            // 
+            this.hotel_room_type.DataPropertyName = "hotel_room_type";
+            this.hotel_room_type.HeaderText = "ROOM TYPE";
+            this.hotel_room_type.MinimumWidth = 6;
+            this.hotel_room_type.Name = "hotel_room_type";
+            this.hotel_room_type.Width = 180;
+            // 
             // hotelRoomBindingSource5
             // 
             this.hotelRoomBindingSource5.DataMember = "Hotel_Room";
@@ -474,62 +530,6 @@
             this.fKRoomAssiHotel1B5E0D89BindingSource.DataMember = "FK__Room_Assi__Hotel__1B5E0D89";
             this.fKRoomAssiHotel1B5E0D89BindingSource.DataSource = this.hotelRoomBindingSource1;
             // 
-            // hotel_view_room_number
-            // 
-            this.hotel_view_room_number.DataPropertyName = "hotel_room_number";
-            this.hotel_view_room_number.HeaderText = "ROOM NO.";
-            this.hotel_view_room_number.MinimumWidth = 6;
-            this.hotel_view_room_number.Name = "hotel_view_room_number";
-            this.hotel_view_room_number.Width = 125;
-            // 
-            // hotelroomstatusDataGridViewTextBoxColumn
-            // 
-            this.hotelroomstatusDataGridViewTextBoxColumn.DataPropertyName = "hotel_room_status";
-            this.hotelroomstatusDataGridViewTextBoxColumn.HeaderText = "STATUS";
-            this.hotelroomstatusDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.hotelroomstatusDataGridViewTextBoxColumn.Name = "hotelroomstatusDataGridViewTextBoxColumn";
-            this.hotelroomstatusDataGridViewTextBoxColumn.Width = 90;
-            // 
-            // hotelRoomPriceDataGridViewTextBoxColumn
-            // 
-            this.hotelRoomPriceDataGridViewTextBoxColumn.DataPropertyName = "Hotel_Room_Price";
-            this.hotelRoomPriceDataGridViewTextBoxColumn.HeaderText = "PRICE";
-            this.hotelRoomPriceDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.hotelRoomPriceDataGridViewTextBoxColumn.Name = "hotelRoomPriceDataGridViewTextBoxColumn";
-            this.hotelRoomPriceDataGridViewTextBoxColumn.Width = 80;
-            // 
-            // cleaningStatusDataGridViewTextBoxColumn
-            // 
-            this.cleaningStatusDataGridViewTextBoxColumn.DataPropertyName = "Cleaning_Status";
-            this.cleaningStatusDataGridViewTextBoxColumn.HeaderText = "CLEANING STATUS";
-            this.cleaningStatusDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.cleaningStatusDataGridViewTextBoxColumn.Name = "cleaningStatusDataGridViewTextBoxColumn";
-            this.cleaningStatusDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // lastCleanedDataGridViewTextBoxColumn
-            // 
-            this.lastCleanedDataGridViewTextBoxColumn.DataPropertyName = "Last_Cleaned";
-            this.lastCleanedDataGridViewTextBoxColumn.HeaderText = "LAST CLEANED";
-            this.lastCleanedDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.lastCleanedDataGridViewTextBoxColumn.Name = "lastCleanedDataGridViewTextBoxColumn";
-            this.lastCleanedDataGridViewTextBoxColumn.Width = 120;
-            // 
-            // lastOccupiedDataGridViewTextBoxColumn
-            // 
-            this.lastOccupiedDataGridViewTextBoxColumn.DataPropertyName = "Last_Occupied";
-            this.lastOccupiedDataGridViewTextBoxColumn.HeaderText = "LAST OCCUPIED";
-            this.lastOccupiedDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.lastOccupiedDataGridViewTextBoxColumn.Name = "lastOccupiedDataGridViewTextBoxColumn";
-            this.lastOccupiedDataGridViewTextBoxColumn.Width = 130;
-            // 
-            // hotel_room_type
-            // 
-            this.hotel_room_type.DataPropertyName = "hotel_room_type";
-            this.hotel_room_type.HeaderText = "ROOM TYPE";
-            this.hotel_room_type.MinimumWidth = 6;
-            this.hotel_room_type.Name = "hotel_room_type";
-            this.hotel_room_type.Width = 180;
-            // 
             // RoomManagementForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
@@ -540,7 +540,7 @@
             this.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "RoomManagementForm";
-            this.Text = "REGAL INN ROOM MANAGEMENT";
+            this.Text = "  ";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.RoomManagementForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.hotelRoomBindingSource4)).EndInit();

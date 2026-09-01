@@ -251,33 +251,41 @@ namespace Code_Crafters_Interface_Prototype_1.Business
                     {
                         if (booking.RowState == DataRowState.Deleted) continue;
 
+                        string currentStatus = booking.Booking_Status?.Trim();
+
+                        // Cancelled or already completed bookings should not override ongoing room operations
+                        if (string.Equals(currentStatus, "Cancelled", StringComparison.OrdinalIgnoreCase) ||
+                            string.Equals(currentStatus, "Completed", StringComparison.OrdinalIgnoreCase))
+                        {
+                            continue;
+                        }
+
                         DateTime checkInTime = booking.Checkin_Date;
                         DateTime checkOutTime = booking.Checkout_Date;
-                        DateTime cleaningEndTime = checkOutTime.AddHours(1);
+                        DateTime maintenanceEndTime = checkOutTime.AddHours(1); // Exactly 1-hour maintenance window after check-out
 
-                        string currentStatus = booking.Booking_Status?.Trim();
                         int roomNumber = ExtractRoomNumberFromBookingType(booking.Booking_Type);
 
                         string newBookingStatus = currentStatus;
                         string newRoomStatus = null;
                         string newTableStatus = null;
 
-                        // 1. Check-In Phase (Time has arrived for check-in)
+                        // 1. Check-In Phase: Check-in time has arrived -> Occupied
                         if (currentDateTime >= checkInTime && currentDateTime < checkOutTime && (currentStatus == "Pending" || currentStatus == "Booked"))
                         {
                             newBookingStatus = "Checked-In";
                             newRoomStatus = "Occupied";
-                            newTableStatus = "Reserved"; // or Occupied based on preference
+                            newTableStatus = "Reserved";
                         }
-                        // 2. Check-Out Phase (Time has arrived for check-out)
-                        else if (currentDateTime >= checkOutTime && currentDateTime < cleaningEndTime && currentStatus == "Checked-In")
+                        // 2. Maintenance Phase: Check-out time has arrived -> Maintenance for 1 hour
+                        else if (currentDateTime >= checkOutTime && currentDateTime < maintenanceEndTime && (currentStatus == "Checked-In" || currentStatus == "Booked"))
                         {
                             newBookingStatus = "Checked-Out";
-                            newRoomStatus = "Cleaning";
+                            newRoomStatus = "Maintenance";
                             newTableStatus = "Available";
                         }
-                        // 3. Completed Phase (Cleaning period finished)
-                        else if (currentDateTime >= cleaningEndTime && (currentStatus == "Checked-Out" || currentStatus == "Checked-In" || currentStatus == "Booked"))
+                        // 3. Available Phase: 1-hour maintenance window has finished -> Available
+                        else if (currentDateTime >= maintenanceEndTime && (currentStatus == "Checked-Out" || currentStatus == "Checked-In" || currentStatus == "Booked"))
                         {
                             newBookingStatus = "Completed";
                             newRoomStatus = "Available";
@@ -300,11 +308,11 @@ namespace Code_Crafters_Interface_Prototype_1.Business
                         if (newTableStatus != null)
                         {
                             string updateTableQuery = @"
-                        UPDATE rt
-                        SET rt.TableStatus = @TableStatus
-                        FROM Restuarant_Table rt
-                        INNER JOIN Table_Allocation ta ON rt.RestaurantTableID = ta.Restuarant_Table_ID
-                        WHERE ta.Booking_ID = @BookingID;";
+                                UPDATE rt
+                                SET rt.TableStatus = @TableStatus
+                                FROM Restuarant_Table rt
+                                INNER JOIN Table_Allocation ta ON rt.RestaurantTableID = ta.Restuarant_Table_ID
+                                WHERE ta.Booking_ID = @BookingID;";
 
                             using (SqlCommand cmdTable = new SqlCommand(updateTableQuery, conn))
                             {
@@ -323,6 +331,33 @@ namespace Code_Crafters_Interface_Prototype_1.Business
             catch (Exception ex)
             {
                 Console.WriteLine("Error updating room and booking statuses: " + ex.Message);
+            }
+        }
+
+        private void UpdateHotelRoomStatus(string branchID, int roomNumber, string newStatus)
+        {
+            if (roomNumber <= 0) return;
+
+            var roomRow = codeCraftersDSTWO.Hotel_Room.AsEnumerable()
+                .FirstOrDefault(r => r.Field<string>("Branch_ID") == branchID && r.hotel_room_number == roomNumber);
+
+            if (roomRow != null)
+            {
+                roomRow.hotel_room_status = newStatus;
+
+                if (newStatus == "Maintenance")
+                {
+                    roomRow.Cleaning_Status = "Pending Maintenance";
+                }
+                else if (newStatus == "Available")
+                {
+                    roomRow.Cleaning_Status = "Cleaned";
+                    roomRow.Last_Cleaned = DateTime.Now;
+                }
+                else if (newStatus == "Occupied")
+                {
+                    roomRow.Last_Occupied = DateTime.Now;
+                }
             }
         }
 
@@ -368,28 +403,6 @@ namespace Code_Crafters_Interface_Prototype_1.Business
 
                     return existingCheckIn < requestedCheckOut && existingCheckOut > requestedCheckIn;
                 });
-        }
-
-        private void UpdateHotelRoomStatus(string branchID, int roomNumber, string newStatus)
-        {
-            if (roomNumber <= 0) return;
-
-            var roomRow = codeCraftersDSTWO.Hotel_Room.AsEnumerable()
-                .FirstOrDefault(r => r.Field<string>("Branch_ID") == branchID && r.hotel_room_number == roomNumber);
-
-            if (roomRow != null)
-            {
-                roomRow.hotel_room_status = newStatus;
-                if (newStatus == "Cleaning")
-                {
-                    roomRow.Cleaning_Status = "Pending Cleaning";
-                }
-                else if (newStatus == "Available")
-                {
-                    roomRow.Cleaning_Status = "Cleaned";
-                    roomRow.Last_Cleaned = DateTime.Now;
-                }
-            }
         }
 
         private int GetRoomCapacity(string roomType, DataRow r)
