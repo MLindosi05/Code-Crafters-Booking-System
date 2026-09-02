@@ -7,6 +7,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Code_Crafters_Interface_Prototype_1.Business
@@ -1236,6 +1237,59 @@ namespace Code_Crafters_Interface_Prototype_1.Business
         private void btnAmenitiesSix_Click(object sender, EventArgs e)
         {
             ShowRoomAmenities("Standard Room 2 Double Beds");
+        }
+
+        public async Task RunStatusAutomationAsync()
+        {
+            using (var connection = new SqlConnection(connectionString))
+            {
+                await connection.OpenAsync();
+                using (var command = new SqlCommand("UpdateRoomAndTableStatuses", connection))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+                    await command.ExecuteNonQueryAsync();
+                }
+            }
+        }
+
+        public async Task CheckInGuestAsync(int bookingId, int roomId, int tableId)
+        {
+            using (var connection = new SqlConnection(connectionString))
+            {
+                await connection.OpenAsync();
+                string query = @"
+            UPDATE Booking SET BookingStatus = 'Checked-In', CheckIn_ActualTime = GETDATE() WHERE Booking_ID = @BookingID;
+            UPDATE Hotel_Room SET RoomStatus = 'Occupied' WHERE RoomID = @RoomID;
+            UPDATE Restuarant_Table SET TableStatus = 'Reserved' WHERE RestaurantTableID = @TableID;";
+
+                using (var cmd = new SqlCommand(query, connection))
+                {
+                    cmd.Parameters.AddWithValue("@BookingID", bookingId);
+                    cmd.Parameters.AddWithValue("@RoomID", roomId);
+                    cmd.Parameters.AddWithValue("@TableID", tableId);
+                    await cmd.ExecuteNonQueryAsync();
+                }
+            }
+        }
+
+        public async Task CheckOutGuestAsync(int bookingId, int roomId, int tableId)
+        {
+            using (var connection = new SqlConnection(connectionString))
+            {
+                await connection.OpenAsync();
+                string query = @"
+            UPDATE Booking SET BookingStatus = 'Checked-Out', CheckOut_ActualTime = GETDATE() WHERE Booking_ID = @BookingID;
+            UPDATE Hotel_Room SET RoomStatus = 'Maintenance' WHERE RoomID = @RoomID;
+            UPDATE Restuarant_Table SET TableStatus = 'Available' WHERE RestaurantTableID = @TableID;";
+
+                using (var cmd = new SqlCommand(query, connection))
+                {
+                    cmd.Parameters.AddWithValue("@BookingID", bookingId);
+                    cmd.Parameters.AddWithValue("@RoomID", roomId);
+                    cmd.Parameters.AddWithValue("@TableID", tableId);
+                    await cmd.ExecuteNonQueryAsync();
+                }
+            }
         }
 
         private void ShowRoomAmenities(string roomTypeQuery)
