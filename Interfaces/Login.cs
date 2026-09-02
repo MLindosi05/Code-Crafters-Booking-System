@@ -167,13 +167,7 @@ namespace Code_Crafters_Interface_Prototype_1.Interfaces
 
         #region Forgot Password
 
-        private void button3_Click(object sender, EventArgs e)
-        {
-            PasswordResetService.ResetPassword(
-                userNameTxt,
-                taStaff,
-                codeCraftersDS);
-        }
+        
 
         #endregion
 
@@ -209,9 +203,9 @@ namespace Code_Crafters_Interface_Prototype_1.Interfaces
         private void label7_Click(object sender, EventArgs e)
         {
             PasswordResetService.ResetPassword(
-               userNameTxt,
-               taStaff,
-               codeCraftersDS);
+                this,
+                taStaff,
+                codeCraftersDS);
         }
 
         private void pnlHelpDrawer_Paint(object sender, PaintEventArgs e)
@@ -223,5 +217,6 @@ namespace Code_Crafters_Interface_Prototype_1.Interfaces
         {
 
         }
+
     }
 }
