@@ -12,11 +12,15 @@ namespace Code_Crafters_Interface_Prototype_1.Common
         private static readonly Dictionary<string, string> HelpDatabase =
             new Dictionary<string, string>()
         {
-            { "How to make a booking?", "Navigate to Booking -> Make Booking to create a reservation." },
-            { "Staff access to view bookings", "Only authorised staff can view hotel bookings." },
-            { "Generating hotel reports", "Managers and Admins can generate reports." },
-            { "How do users change accounts?", "Logout then login using another account." }
-        };
+    { "Forgotten your password?", "Click the 'Forgot password?' link on the Account login page." +
+                    " Enter your username (email), and follow the instructions to reset your credentials." },
+
+    { "Invalid Credentials?", "Ensure you are entering the correct username (email) and password." +
+                    " If errors persist, contact your system administrator or manager." },
+
+    { "Role selection guide.", "Select your assigned role (e.g., Administrator, Manager) " +
+                    "from the dropdown list on the Account login page before submitting your credentials." }
+            };
 
         public static void LoadTopics(ListBox listBox)
         {

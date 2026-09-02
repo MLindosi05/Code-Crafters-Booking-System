@@ -56,13 +56,13 @@ namespace Code_Crafters_Interface_Prototype_1.Business
             }
         }
 
-        public static void Login(
-        Form loginForm,
-        TextBox usernameTxt,
-        TextBox passwordTxt,
-        ComboBox roleComboBox,
-        StaffTableAdapter taStaff,
-        codeCraftersDS dataSet)
+        public static bool Login(
+            Form loginForm,
+            TextBox usernameTxt,
+            TextBox passwordTxt,
+            ComboBox roleComboBox,
+            StaffTableAdapter taStaff,
+            codeCraftersDS dataSet)
         {
             string username = usernameTxt.Text.Trim();
             string password = passwordTxt.Text.Trim();
@@ -73,7 +73,7 @@ namespace Code_Crafters_Interface_Prototype_1.Business
             {
                 MessageBox.Show("Please fill in all fields (Username, Password, and Role).",
                                 "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
+                return false;
             }
 
             try
@@ -109,17 +109,21 @@ namespace Code_Crafters_Interface_Prototype_1.Business
                         // Default fallback for general staff / receptionist
                         NavigationManager.OpenForm(loginForm, new HomeForm());
                     }
+
+                    return true;
                 }
                 else
                 {
                     MessageBox.Show("Invalid Username, Password, or Role combination. Please try again.",
                                     "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show("An error occurred during authentication: " + ex.Message,
                                 "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
             }
         }
     }

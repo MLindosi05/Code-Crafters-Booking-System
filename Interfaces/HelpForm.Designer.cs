@@ -33,11 +33,11 @@
             this.txtSearchHelp = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.panel5 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -97,6 +97,14 @@
             this.panel1.Size = new System.Drawing.Size(1580, 862);
             this.panel1.TabIndex = 13;
             // 
+            // panel5
+            // 
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel5.Location = new System.Drawing.Point(0, 802);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(1580, 60);
+            this.panel5.TabIndex = 27;
+            // 
             // panel4
             // 
             this.panel4.Controls.Add(this.pictureBox3);
@@ -139,14 +147,6 @@
             this.label1.TabIndex = 12;
             this.label1.Text = "How can we help?";
             // 
-            // panel5
-            // 
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel5.Location = new System.Drawing.Point(0, 802);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1580, 60);
-            this.panel5.TabIndex = 27;
-            // 
             // HelpForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -154,7 +154,7 @@
             this.ClientSize = new System.Drawing.Size(1580, 862);
             this.Controls.Add(this.panel1);
             this.Name = "HelpForm";
-            this.Text = "REGAL INN HELP ";
+            this.Text = " ";
             this.Load += new System.EventHandler(this.HelpForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel4.ResumeLayout(false);

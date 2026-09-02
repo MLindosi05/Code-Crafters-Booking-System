@@ -56,71 +56,26 @@ namespace Code_Crafters_Interface_Prototype_1.Interfaces
 
         }
 
-
-        public void ResetLoginForm()
-        {
-            // Clear text and restore placeholders
-            userNameTxt.Text = "Username";
-            userNameTxt.ForeColor = Color.Gray; // Adjust based on your PlaceholderHelper style
-
-            passwordTxt.Text = "Password";
-            passwordTxt.PasswordChar = '*';
-            passwordTxt.Enabled = false; // Disable password until username is re-entered
-
-            // Reset eye icons to default hidden state
-            pictureBox2.Visible = true;
-            pictureBox9.Visible = false;
-
-            // Reset role selection if needed
-            if (roleComboBox.Items.Count > 0)
-            {
-                roleComboBox.SelectedIndex = -1;
-            }
-
-            userNameTxt.Focus();
-        }
-
         #region Login
 
 
         private void login_Click(object sender, EventArgs e)
         {
-            bool loginSuccess = ValidateLogin();
+            bool loginSuccess = LoginService.Login(
+                this,
+                userNameTxt,
+                passwordTxt,
+                roleComboBox,
+                taStaff,
+                codeCraftersDS);
 
             if (!loginSuccess)
             {
                 ResetLoginForm();
             }
-            else
-            {
-                // Handle successful login navigation here
-            }
         }
 
-        private bool ValidateLogin()
-        {
-            string username = userNameTxt.Text.Trim();
-            string password = passwordTxt.Text.Trim();
-            string selectedRole = roleComboBox.SelectedItem?.ToString();
 
-            // Refreshes data and queries using the form's existing taStaff and codeCraftersDS
-            taStaff.Fill(codeCraftersDS.Staff);
-
-            var staffRow = codeCraftersDS.Staff.AsEnumerable().FirstOrDefault(row =>
-                row.Field<string>("staff_email") == username &&
-                row.Field<string>("staff_Password") == password &&
-                row.Field<string>("staff_role") == selectedRole);
-
-            if (staffRow != null)
-            {
-                return true;
-            }
-            else
-            {
-                MessageBox.Show("Invalid login details, email, or role.", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-        }
 
         #endregion
 
@@ -183,9 +138,30 @@ namespace Code_Crafters_Interface_Prototype_1.Interfaces
             Hide();
         }
 
-        
+        public void ResetLoginForm()
+        {
+            // Clear text and restore placeholders
+            userNameTxt.Text = "Username";
+            userNameTxt.ForeColor = Color.Gray;
 
-        
+            passwordTxt.Text = "Password";
+            passwordTxt.PasswordChar = '*';
+            passwordTxt.Enabled = false; // Disable password until username is re-entered
+
+            // Reset eye icons to default hidden state
+            pictureBox2.Visible = true;
+            pictureBox9.Visible = false;
+
+            // Reset role selection
+            if (roleComboBox.Items.Count > 0)
+            {
+                roleComboBox.SelectedIndex = -1;
+            }
+
+            userNameTxt.Focus();
+        }
+
+
 
         #endregion
 

@@ -191,6 +191,12 @@
     <Compile Include="Interfaces\AdminMenuForm.Designer.cs">
       <DependentUpon>AdminMenuForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Interfaces\ForgotPasswordForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interfaces\ForgotPasswordForm.Designer.cs">
+      <DependentUpon>ForgotPasswordForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Interfaces\HelpForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -272,6 +278,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Interfaces\AdminMenuForm.resx">
       <DependentUpon>AdminMenuForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Interfaces\ForgotPasswordForm.resx">
+      <DependentUpon>ForgotPasswordForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Interfaces\HelpForm.resx">
       <DependentUpon>HelpForm.cs</DependentUpon>
