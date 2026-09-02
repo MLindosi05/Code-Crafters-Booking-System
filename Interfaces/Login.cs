@@ -5,6 +5,9 @@ using System;
 using System.Drawing;
 using System.Windows.Forms;
 
+using System.Data;
+using System.Linq;
+
 namespace Code_Crafters_Interface_Prototype_1.Interfaces
 {
     public partial class Login : Form
@@ -14,39 +17,31 @@ namespace Code_Crafters_Interface_Prototype_1.Interfaces
             InitializeComponent();
 
             passwordTxt.Enabled = false;
-            passwordTxt.UseSystemPasswordChar = true;
+            passwordTxt.PasswordChar = '*';
+            passwordTxt.UseSystemPasswordChar = false;
 
-            pictureBox2.Visible = true;
-            pictureBox9.Visible = false;
+            pictureBox2.Visible = true; // Show Password Picture
+            pictureBox9.Visible = false; // Hidden Password Picture
         }
 
         private void Login_Load(object sender, EventArgs e)
         {
-            WindowState = FormWindowState.Maximized;
+            WindowState = FormWindowState.Maximized; //Load full screen/form
+
             taStaff.Fill(codeCraftersDS.Staff);
-
-            //ThemeManager.ApplyLoginTheme(
-            //    this,
-            //    panel1,
-            //    pnlLogin,
-            //    //panel3,
-            //    panel4,
-            //    pnlHelpDrawer,
-            //    groupBox1,
-            //    button1,
-            //    button2,
-            //    button3);
-
 
             button2.BackColor = Color.FromArgb(235, 130, 60);
             button2.ForeColor = Color.White;
 
-            panel2.BackColor = Color.FromArgb(15, 42, 74);
-            panel1.BackColor = Color.FromArgb(10, 25, 47);
+            panel2.BackColor = Color.FromArgb(15, 42, 74); //Dark Navy
+            panel5.BackColor = Color.FromArgb(15, 42, 74);
             panel3.BackColor = Color.FromArgb(15, 42, 74);
             panel4.BackColor = Color.FromArgb(15, 42, 74);
 
-            Color goldColor = Color.FromArgb(212, 175, 55);
+            panel1.BackColor = Color.FromArgb(10, 25, 47); //Navy
+
+
+            Color goldColor = Color.FromArgb(212, 175, 55); // Gold (Text)
 
             label1.ForeColor = goldColor; 
             label2.ForeColor = goldColor; 
@@ -57,6 +52,32 @@ namespace Code_Crafters_Interface_Prototype_1.Interfaces
             label4.Font = new Font("Segoe UI", 16, FontStyle.Bold);
             label4.ForeColor = Color.FromArgb(212, 175, 55);
             label4.TextAlign = ContentAlignment.MiddleCenter;
+
+
+        }
+
+
+        public void ResetLoginForm()
+        {
+            // Clear text and restore placeholders
+            userNameTxt.Text = "Username";
+            userNameTxt.ForeColor = Color.Gray; // Adjust based on your PlaceholderHelper style
+
+            passwordTxt.Text = "Password";
+            passwordTxt.PasswordChar = '*';
+            passwordTxt.Enabled = false; // Disable password until username is re-entered
+
+            // Reset eye icons to default hidden state
+            pictureBox2.Visible = true;
+            pictureBox9.Visible = false;
+
+            // Reset role selection if needed
+            if (roleComboBox.Items.Count > 0)
+            {
+                roleComboBox.SelectedIndex = -1;
+            }
+
+            userNameTxt.Focus();
         }
 
         #region Login
@@ -64,13 +85,41 @@ namespace Code_Crafters_Interface_Prototype_1.Interfaces
 
         private void login_Click(object sender, EventArgs e)
         {
-            LoginService.Login(
-                this,
-                userNameTxt,
-                passwordTxt,
-                roleComboBox,
-                taStaff,
-                codeCraftersDS);
+            bool loginSuccess = ValidateLogin();
+
+            if (!loginSuccess)
+            {
+                ResetLoginForm();
+            }
+            else
+            {
+                // Handle successful login navigation here
+            }
+        }
+
+        private bool ValidateLogin()
+        {
+            string username = userNameTxt.Text.Trim();
+            string password = passwordTxt.Text.Trim();
+            string selectedRole = roleComboBox.SelectedItem?.ToString();
+
+            // Refreshes data and queries using the form's existing taStaff and codeCraftersDS
+            taStaff.Fill(codeCraftersDS.Staff);
+
+            var staffRow = codeCraftersDS.Staff.AsEnumerable().FirstOrDefault(row =>
+                row.Field<string>("staff_email") == username &&
+                row.Field<string>("staff_Password") == password &&
+                row.Field<string>("staff_role") == selectedRole);
+
+            if (staffRow != null)
+            {
+                return true;
+            }
+            else
+            {
+                MessageBox.Show("Invalid login details, email, or role.", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
         }
 
         #endregion
@@ -79,14 +128,16 @@ namespace Code_Crafters_Interface_Prototype_1.Interfaces
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            passwordTxt.UseSystemPasswordChar = false;
+            // Show password text in plain view
+            passwordTxt.PasswordChar = '\0';
             pictureBox2.Visible = false;
             pictureBox9.Visible = true;
         }
 
         private void pictureBox9_Click(object sender, EventArgs e)
         {
-            passwordTxt.UseSystemPasswordChar = true;
+            // Hide password and mask with stars
+            passwordTxt.PasswordChar = '*';
             pictureBox2.Visible = true;
             pictureBox9.Visible = false;
         }
@@ -188,6 +239,11 @@ namespace Code_Crafters_Interface_Prototype_1.Interfaces
         }
 
         private void pnlHelpDrawer_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void passwordTxt_TextChanged(object sender, EventArgs e)
         {
 
         }

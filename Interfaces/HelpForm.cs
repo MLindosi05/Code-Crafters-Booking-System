@@ -32,6 +32,8 @@ namespace Code_Crafters_Interface_Prototype_1.Interfaces
             BackColor = Color.FromArgb(10, 25, 47);
 
             panel2.BackColor = Color.FromArgb(15, 42, 74);
+            panel5.BackColor = Color.FromArgb(15, 42, 74);
+
 
             //lstHelpTopics.BackColor = Color.FromArgb(20, 50, 85);
             //lstHelpTopics.ForeColor = Color.FromArgb(212, 175, 55); 

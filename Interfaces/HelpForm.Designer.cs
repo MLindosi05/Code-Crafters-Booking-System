@@ -37,6 +37,7 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.panel5 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -45,10 +46,10 @@
             // 
             // btnContactSupport
             // 
-            this.btnContactSupport.Location = new System.Drawing.Point(287, 481);
+            this.btnContactSupport.Location = new System.Drawing.Point(332, 481);
             this.btnContactSupport.Margin = new System.Windows.Forms.Padding(2);
             this.btnContactSupport.Name = "btnContactSupport";
-            this.btnContactSupport.Size = new System.Drawing.Size(246, 27);
+            this.btnContactSupport.Size = new System.Drawing.Size(280, 27);
             this.btnContactSupport.TabIndex = 3;
             this.btnContactSupport.Text = "Chat with Support";
             this.btnContactSupport.UseVisualStyleBackColor = true;
@@ -61,7 +62,7 @@
             this.lstHelpTopics.Location = new System.Drawing.Point(49, 121);
             this.lstHelpTopics.Margin = new System.Windows.Forms.Padding(2);
             this.lstHelpTopics.Name = "lstHelpTopics";
-            this.lstHelpTopics.Size = new System.Drawing.Size(484, 328);
+            this.lstHelpTopics.Size = new System.Drawing.Size(563, 328);
             this.lstHelpTopics.TabIndex = 2;
             this.lstHelpTopics.SelectedIndexChanged += new System.EventHandler(this.lstHelpTopics_SelectedIndexChanged);
             // 
@@ -70,7 +71,7 @@
             this.txtSearchHelp.Location = new System.Drawing.Point(49, 70);
             this.txtSearchHelp.Margin = new System.Windows.Forms.Padding(2);
             this.txtSearchHelp.Name = "txtSearchHelp";
-            this.txtSearchHelp.Size = new System.Drawing.Size(345, 24);
+            this.txtSearchHelp.Size = new System.Drawing.Size(500, 24);
             this.txtSearchHelp.TabIndex = 1;
             this.txtSearchHelp.TextChanged += new System.EventHandler(this.txtSearchHelp_TextChanged);
             // 
@@ -78,7 +79,7 @@
             // 
             this.button1.Location = new System.Drawing.Point(49, 481);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(171, 27);
+            this.button1.Size = new System.Drawing.Size(232, 27);
             this.button1.TabIndex = 11;
             this.button1.Text = "Back";
             this.button1.UseVisualStyleBackColor = true;
@@ -87,6 +88,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.LightGray;
+            this.panel1.Controls.Add(this.panel5);
             this.panel1.Controls.Add(this.panel4);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -122,7 +124,7 @@
             this.panel2.Controls.Add(this.txtSearchHelp);
             this.panel2.Controls.Add(this.btnContactSupport);
             this.panel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel2.Location = new System.Drawing.Point(685, 156);
+            this.panel2.Location = new System.Drawing.Point(684, 154);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(661, 564);
             this.panel2.TabIndex = 13;
@@ -136,6 +138,14 @@
             this.label1.Size = new System.Drawing.Size(145, 18);
             this.label1.TabIndex = 12;
             this.label1.Text = "How can we help?";
+            // 
+            // panel5
+            // 
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel5.Location = new System.Drawing.Point(0, 802);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(1580, 60);
+            this.panel5.TabIndex = 27;
             // 
             // HelpForm
             // 
@@ -165,5 +175,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.Panel panel5;
     }
 }
