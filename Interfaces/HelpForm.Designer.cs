@@ -154,7 +154,7 @@
             this.ClientSize = new System.Drawing.Size(1580, 862);
             this.Controls.Add(this.panel1);
             this.Name = "HelpForm";
-            this.Text = " ";
+            this.Text = " REGAL INN HELP ";
             this.Load += new System.EventHandler(this.HelpForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
