@@ -95,12 +95,15 @@ namespace Code_Crafters_Interface_Prototype_1.Interfaces
             if (string.IsNullOrWhiteSpace(newPassword) || string.IsNullOrWhiteSpace(confirmPassword))
             {
                 MessageBox.Show("Please fill in both password fields.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+               
                 return;
             }
 
             if (newPassword != confirmPassword)
             {
                 MessageBox.Show("Passwords do not match.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                //textBox1.Clear();
+                textBox2.Clear();
                 return;
             }
 
@@ -108,6 +111,8 @@ namespace Code_Crafters_Interface_Prototype_1.Interfaces
                 !Regex.IsMatch(newPassword, "[0-9]") || !Regex.IsMatch(newPassword, @"[!@#$%^&*(),.?\-_+=~`""'{}|<>[\]/:]"))
             {
                 MessageBox.Show("Password does not meet all complexity requirements.", "Weak Password", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                //textBox1.Clear();
+                textBox2.Clear();
                 return;
             }
 

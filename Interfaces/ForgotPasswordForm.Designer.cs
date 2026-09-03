@@ -114,7 +114,7 @@
             // pictureHide1
             // 
             this.pictureHide1.Image = global::Code_Crafters_Interface_Prototype_1.Properties.Resources.Gemini_Generated_Image_joyb9hjoyb9hjoyb;
-            this.pictureHide1.Location = new System.Drawing.Point(599, 401);
+            this.pictureHide1.Location = new System.Drawing.Point(599, 429);
             this.pictureHide1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureHide1.Name = "pictureHide1";
             this.pictureHide1.Size = new System.Drawing.Size(24, 24);
