@@ -79,8 +79,10 @@ namespace Code_Crafters_Interface_Prototype_1.Business
 
             ButtonStyler.Apply(btnSuspend);
             ButtonStyler.Apply(btnAuthorize);
+            ButtonStyler.Apply(btnActivateStaff);
+            ButtonStyler.Apply(btnUpdateStaffPersonalDetails);
 
-            
+
 
             ConfigureDataGridViewTheme();
         }
@@ -453,12 +455,7 @@ namespace Code_Crafters_Interface_Prototype_1.Business
             {
                 MessageBox.Show("Database Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
-
-        private void btnStaffDeactivate_Click(object sender, EventArgs e)
-        {
-            UpdateStaffStatus("Inactive");
-        }
+        }     
 
         private void btnSuspend_Click(object sender, EventArgs e)
         {
@@ -487,5 +484,67 @@ namespace Code_Crafters_Interface_Prototype_1.Business
         private void dgvManageStaff_CellContentClick(object sender, DataGridViewCellEventArgs e) { }
 
         #endregion
+
+        private void btnActivateStaff_Click(object sender, EventArgs e)
+        {
+            UpdateStaffStatus("Active");
+        }
+
+        private void btnUpdateStaffPersonalDetails_Click(object sender, EventArgs e)
+        {
+            if (dgvManageStaff.SelectedRows.Count == 0 && dgvManageStaff.CurrentRow == null)
+            {
+                MessageBox.Show("Please select a staff member from the grid first.", "Selection Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            DataGridViewRow row = dgvManageStaff.SelectedRows.Count > 0 ? dgvManageStaff.SelectedRows[0] : dgvManageStaff.CurrentRow;
+
+            if (row.Cells["staff_ID"].Value == null)
+            {
+                MessageBox.Show("Selected row contains invalid data.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            int staffId = Convert.ToInt32(row.Cells["staff_ID"].Value);
+            string firstName = row.Cells["staff_First_Name"]?.Value?.ToString() ?? "";
+            string lastName = row.Cells["staff_Surname"]?.Value?.ToString() ?? "";
+            string email = row.Cells["staff_Email"]?.Value?.ToString() ?? "";
+            string phone = row.Cells["staff_phone_number"]?.Value?.ToString() ?? "";
+
+            // Fetch address directly from DB since it isn't bound in the default grid load query
+            string address = "";
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    string query = "SELECT [staff_Address] FROM [GroupPmb2].[dbo].[Staff] WHERE [staff_ID] = @StaffID";
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@StaffID", staffId);
+                        object result = cmd.ExecuteScalar();
+                        if (result != null && result != DBNull.Value)
+                        {
+                            address = result.ToString();
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error fetching staff address: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            using (UpdateStaffDetailsForm updateForm = new UpdateStaffDetailsForm(staffId, firstName, lastName, email, phone, address))
+            {
+                if (updateForm.ShowDialog() == DialogResult.OK)
+                {
+                    LoadStaffData();
+                    LoadManageStaffData();
+                }
+            }
+        }
     }
 }

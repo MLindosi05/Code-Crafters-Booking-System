@@ -206,7 +206,9 @@ namespace Code_Crafters_Interface_Prototype_1.Business
 
                 if (dialogResult == DialogResult.Yes)
                 {
-                    MessageBox.Show("Please register the guest via Guest Management --- Guest Registration before proceeding with this booking.", "REGAL INN REGISTRATION REQUIRED", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    // Opens the Guest Registration form directly
+                    GuestManagementForm guestForm = new GuestManagementForm();
+                    guestForm.ShowDialog();
 
                     if (taClient != null)
                     {
@@ -744,7 +746,8 @@ namespace Code_Crafters_Interface_Prototype_1.Business
             string searchName = txtClientName.Text.Trim();
             string todayDate = DateTime.Today.ToString("yyyy-MM-dd");
 
-            string filterExpression = $"Checkin_Date <= #{todayDate}# AND Checkout_Date >= #{todayDate}# AND Booking_Status <> 'Cancelled'";
+            // Filter for current active stays (today falls between check-in and check-out) with status 'Checked-In'
+            string filterExpression = $"Checkin_Date <= #{todayDate}# AND Checkout_Date >= #{todayDate}# AND Booking_Status = 'Checked-In'";
 
             if (!string.IsNullOrEmpty(searchName))
             {
@@ -759,7 +762,8 @@ namespace Code_Crafters_Interface_Prototype_1.Business
             string searchName = txtClientName.Text.Trim();
             string todayDate = DateTime.Today.ToString("yyyy-MM-dd");
 
-            string filterExpression = $"Checkin_Date > #{todayDate}# AND Booking_Status <> 'Cancelled'";
+            // Filter for future upcoming stays with status 'Booked'
+            string filterExpression = $"Checkin_Date > #{todayDate}# AND Booking_Status = 'Booked'";
 
             if (!string.IsNullOrEmpty(searchName))
             {

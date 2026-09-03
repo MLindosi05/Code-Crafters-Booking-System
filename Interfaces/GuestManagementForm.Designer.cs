@@ -39,7 +39,6 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.txtContactNumber = new System.Windows.Forms.TextBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.btnSignUp = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.txtPhysicalAddress = new System.Windows.Forms.TextBox();
@@ -56,7 +55,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.dgvBookings = new System.Windows.Forms.DataGridView();
             this.clientIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.firstNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -78,31 +76,33 @@
             this.label3 = new System.Windows.Forms.Label();
             this.txtManageEmailAddress = new System.Windows.Forms.TextBox();
             this.dgvManageClients = new System.Windows.Forms.DataGridView();
-            this.Client_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Email_Address = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnBlackList = new System.Windows.Forms.Button();
             this.btnArchive = new System.Windows.Forms.Button();
             this.panel7 = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
             this.clientTableAdapter1 = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTableAdapters.ClientTableAdapter();
             this.clientTableAdapter = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTWOTableAdapters.ClientTableAdapter();
+            this.btnActivateGuest = new System.Windows.Forms.Button();
+            this.btnUpdateGuestPersonalDetails = new System.Windows.Forms.Button();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.Client_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.First_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Last_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Email_Address = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Phone_Number = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.codeCraftersDS)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel9.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBookings)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.codeCraftersDSTWO1)).BeginInit();
@@ -112,6 +112,8 @@
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvManageClients)).BeginInit();
             this.panel7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // codeCraftersDS
@@ -206,16 +208,6 @@
             this.txtContactNumber.Size = new System.Drawing.Size(165, 22);
             this.txtContactNumber.TabIndex = 30;
             // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::Code_Crafters_Interface_Prototype_1.Properties.Resources._6478_200;
-            this.pictureBox2.Location = new System.Drawing.Point(447, 143);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(145, 105);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 29;
-            this.pictureBox2.TabStop = false;
-            // 
             // btnSignUp
             // 
             this.btnSignUp.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -224,7 +216,7 @@
             this.btnSignUp.Name = "btnSignUp";
             this.btnSignUp.Size = new System.Drawing.Size(145, 32);
             this.btnSignUp.TabIndex = 26;
-            this.btnSignUp.Text = "Register";
+            this.btnSignUp.Text = "CREATE PROFILE";
             this.btnSignUp.UseVisualStyleBackColor = true;
             this.btnSignUp.Click += new System.EventHandler(this.btnSignUp_Click);
             // 
@@ -380,16 +372,6 @@
             this.panel4.Size = new System.Drawing.Size(241, 193);
             this.panel4.TabIndex = 15;
             // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = global::Code_Crafters_Interface_Prototype_1.Properties.Resources.booking_hotel;
-            this.pictureBox3.Location = new System.Drawing.Point(18, 12);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(205, 168);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 6;
-            this.pictureBox3.TabStop = false;
-            // 
             // dgvBookings
             // 
             this.dgvBookings.AutoGenerateColumns = false;
@@ -528,13 +510,15 @@
             // 
             // panel10
             // 
+            this.panel10.Controls.Add(this.btnUpdateGuestPersonalDetails);
+            this.panel10.Controls.Add(this.btnActivateGuest);
             this.panel10.Controls.Add(this.panel6);
             this.panel10.Controls.Add(this.dgvManageClients);
             this.panel10.Controls.Add(this.btnBlackList);
             this.panel10.Controls.Add(this.btnArchive);
             this.panel10.Location = new System.Drawing.Point(150, 70);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(787, 648);
+            this.panel10.Size = new System.Drawing.Size(787, 689);
             this.panel10.TabIndex = 20;
             // 
             // panel6
@@ -544,7 +528,7 @@
             this.panel6.Controls.Add(this.txtManageEmailAddress);
             this.panel6.Location = new System.Drawing.Point(79, 56);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(369, 64);
+            this.panel6.Size = new System.Drawing.Size(413, 64);
             this.panel6.TabIndex = 15;
             // 
             // label3
@@ -559,7 +543,7 @@
             // 
             // txtManageEmailAddress
             // 
-            this.txtManageEmailAddress.Location = new System.Drawing.Point(168, 19);
+            this.txtManageEmailAddress.Location = new System.Drawing.Point(218, 19);
             this.txtManageEmailAddress.Name = "txtManageEmailAddress";
             this.txtManageEmailAddress.Size = new System.Drawing.Size(175, 22);
             this.txtManageEmailAddress.TabIndex = 1;
@@ -572,10 +556,10 @@
             this.dgvManageClients.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvManageClients.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Client_ID,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
+            this.First_Name,
+            this.Last_Name,
             this.Email_Address,
-            this.dataGridViewTextBoxColumn7,
+            this.Phone_Number,
             this.dataGridViewTextBoxColumn8,
             this.dataGridViewTextBoxColumn9});
             this.dgvManageClients.DataSource = this.clientBindingSource;
@@ -584,54 +568,6 @@
             this.dgvManageClients.RowHeadersWidth = 51;
             this.dgvManageClients.Size = new System.Drawing.Size(622, 396);
             this.dgvManageClients.TabIndex = 14;
-            // 
-            // Client_ID
-            // 
-            this.Client_ID.DataPropertyName = "Client_ID";
-            this.Client_ID.HeaderText = "CLIENT ID";
-            this.Client_ID.Name = "Client_ID";
-            this.Client_ID.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "First_Name";
-            this.dataGridViewTextBoxColumn2.HeaderText = "FIRST NAME";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.Width = 110;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "Last_Name";
-            this.dataGridViewTextBoxColumn3.HeaderText = "LAST NAME";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.Width = 110;
-            // 
-            // Email_Address
-            // 
-            this.Email_Address.DataPropertyName = "Email_Address";
-            this.Email_Address.HeaderText = "EMAIL ADDRESS";
-            this.Email_Address.Name = "Email_Address";
-            this.Email_Address.Width = 140;
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            this.dataGridViewTextBoxColumn7.DataPropertyName = "Phone_Number";
-            this.dataGridViewTextBoxColumn7.HeaderText = "PHONE NO.";
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            this.dataGridViewTextBoxColumn7.Width = 110;
-            // 
-            // dataGridViewTextBoxColumn8
-            // 
-            this.dataGridViewTextBoxColumn8.DataPropertyName = "Client_Status";
-            this.dataGridViewTextBoxColumn8.HeaderText = "STATUS";
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            // 
-            // dataGridViewTextBoxColumn9
-            // 
-            this.dataGridViewTextBoxColumn9.DataPropertyName = "Date_Registered";
-            this.dataGridViewTextBoxColumn9.HeaderText = "DATE REGISTERED";
-            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-            this.dataGridViewTextBoxColumn9.Width = 150;
             // 
             // btnBlackList
             // 
@@ -645,7 +581,7 @@
             // 
             // btnArchive
             // 
-            this.btnArchive.Location = new System.Drawing.Point(278, 166);
+            this.btnArchive.Location = new System.Drawing.Point(302, 166);
             this.btnArchive.Name = "btnArchive";
             this.btnArchive.Size = new System.Drawing.Size(170, 30);
             this.btnArchive.TabIndex = 17;
@@ -682,6 +618,94 @@
             // 
             this.clientTableAdapter.ClearBeforeFill = true;
             // 
+            // btnActivateGuest
+            // 
+            this.btnActivateGuest.Location = new System.Drawing.Point(536, 166);
+            this.btnActivateGuest.Name = "btnActivateGuest";
+            this.btnActivateGuest.Size = new System.Drawing.Size(165, 30);
+            this.btnActivateGuest.TabIndex = 25;
+            this.btnActivateGuest.Text = "ACTIVATE GUEST";
+            this.btnActivateGuest.UseVisualStyleBackColor = true;
+            this.btnActivateGuest.Click += new System.EventHandler(this.btnActivateGuest_Click);
+            // 
+            // btnUpdateGuestPersonalDetails
+            // 
+            this.btnUpdateGuestPersonalDetails.Location = new System.Drawing.Point(499, 636);
+            this.btnUpdateGuestPersonalDetails.Name = "btnUpdateGuestPersonalDetails";
+            this.btnUpdateGuestPersonalDetails.Size = new System.Drawing.Size(202, 30);
+            this.btnUpdateGuestPersonalDetails.TabIndex = 26;
+            this.btnUpdateGuestPersonalDetails.Text = "UPDATE GUEST DETAILS";
+            this.btnUpdateGuestPersonalDetails.UseVisualStyleBackColor = true;
+            this.btnUpdateGuestPersonalDetails.Click += new System.EventHandler(this.btnUpdateGuestPersonalDetails_Click);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::Code_Crafters_Interface_Prototype_1.Properties.Resources._6478_200;
+            this.pictureBox2.Location = new System.Drawing.Point(447, 143);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(145, 105);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 29;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = global::Code_Crafters_Interface_Prototype_1.Properties.Resources.booking_hotel;
+            this.pictureBox3.Location = new System.Drawing.Point(18, 12);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(205, 168);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 6;
+            this.pictureBox3.TabStop = false;
+            // 
+            // Client_ID
+            // 
+            this.Client_ID.DataPropertyName = "Client_ID";
+            this.Client_ID.HeaderText = "CLIENT ID";
+            this.Client_ID.Name = "Client_ID";
+            this.Client_ID.ReadOnly = true;
+            // 
+            // First_Name
+            // 
+            this.First_Name.DataPropertyName = "First_Name";
+            this.First_Name.HeaderText = "FIRST NAME";
+            this.First_Name.Name = "First_Name";
+            this.First_Name.Width = 110;
+            // 
+            // Last_Name
+            // 
+            this.Last_Name.DataPropertyName = "Last_Name";
+            this.Last_Name.HeaderText = "LAST NAME";
+            this.Last_Name.Name = "Last_Name";
+            this.Last_Name.Width = 110;
+            // 
+            // Email_Address
+            // 
+            this.Email_Address.DataPropertyName = "Email_Address";
+            this.Email_Address.HeaderText = "EMAIL ADDRESS";
+            this.Email_Address.Name = "Email_Address";
+            this.Email_Address.Width = 140;
+            // 
+            // Phone_Number
+            // 
+            this.Phone_Number.DataPropertyName = "Phone_Number";
+            this.Phone_Number.HeaderText = "PHONE NO.";
+            this.Phone_Number.Name = "Phone_Number";
+            this.Phone_Number.Width = 110;
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            this.dataGridViewTextBoxColumn8.DataPropertyName = "Client_Status";
+            this.dataGridViewTextBoxColumn8.HeaderText = "STATUS";
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            this.dataGridViewTextBoxColumn9.DataPropertyName = "Date_Registered";
+            this.dataGridViewTextBoxColumn9.HeaderText = "DATE REGISTERED";
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            this.dataGridViewTextBoxColumn9.Width = 150;
+            // 
             // GuestManagementForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -702,7 +726,6 @@
             this.panel3.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
             this.tabPage2.ResumeLayout(false);
@@ -710,7 +733,6 @@
             this.panel5.PerformLayout();
             this.panel8.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBookings)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.codeCraftersDSTWO1)).EndInit();
@@ -723,6 +745,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvManageClients)).EndInit();
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -757,13 +781,6 @@
         private System.Windows.Forms.Button btnBlackList;
         private System.Windows.Forms.Button btnArchive;
         private System.Windows.Forms.DataGridView dgvManageClients;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Client_ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Email_Address;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtManageEmailAddress;
@@ -790,5 +807,14 @@
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel10;
         private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Button btnActivateGuest;
+        private System.Windows.Forms.Button btnUpdateGuestPersonalDetails;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Client_ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn First_Name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Last_Name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Email_Address;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Phone_Number;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
     }
 }

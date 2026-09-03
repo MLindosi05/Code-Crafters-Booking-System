@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.staffBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tbcStaffTwo = new System.Windows.Forms.TabControl();
             this.tbpStaffOne = new System.Windows.Forms.TabPage();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -41,7 +40,6 @@
             this.lblStaffEmailAddress = new System.Windows.Forms.Label();
             this.txtStaffContactNumber = new System.Windows.Forms.TextBox();
             this.txtStaffEmailAddress = new System.Windows.Forms.TextBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txtStaffAddress = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -71,34 +69,36 @@
             this.txtSearchStaffEmail = new System.Windows.Forms.TextBox();
             this.btnStaffSuspended = new System.Windows.Forms.Button();
             this.pnlStaffs = new System.Windows.Forms.Panel();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.tbpStaffThree = new System.Windows.Forms.TabPage();
             this.panel7 = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.btnUpdateStaffPersonalDetails = new System.Windows.Forms.Button();
+            this.btnActivateStaff = new System.Windows.Forms.Button();
             this.btnAuthorize = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.txtManageStaffEmailAddress = new System.Windows.Forms.TextBox();
             this.dgvManageStaff = new System.Windows.Forms.DataGridView();
-            this.staff_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.staffFirstNameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.staffSurnameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.staffphonenumberDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.staff_Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.staffroleDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.datejoinedDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.staffstatusDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.staffBindingSourceTwo = new System.Windows.Forms.BindingSource(this.components);
             this.btnSuspend = new System.Windows.Forms.Button();
             this.taSfaffs = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTWOTableAdapters.StaffTableAdapter();
             this.taClients = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTWOTableAdapters.ClientTableAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.staffBindingSource)).BeginInit();
+            this.staff_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.staff_First_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.staff_Surname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.staff_phone_number = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.staff_Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.staffroleDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.datejoinedDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.staffstatusDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.staffBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tbcStaffTwo.SuspendLayout();
             this.tbpStaffOne.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel9.SuspendLayout();
             this.tbpStaffTwo.SuspendLayout();
             this.panel8.SuspendLayout();
@@ -108,13 +108,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.codeCraftersDSTWO)).BeginInit();
             this.panel1.SuspendLayout();
             this.pnlStaffs.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.tbpStaffThree.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvManageStaff)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.staffBindingSourceTwo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.staffBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tbcStaffTwo
@@ -248,16 +250,6 @@
             this.txtStaffEmailAddress.Size = new System.Drawing.Size(166, 22);
             this.txtStaffEmailAddress.TabIndex = 12;
             this.txtStaffEmailAddress.TextChanged += new System.EventHandler(this.txtStaffEmailAddress_TextChanged);
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::Code_Crafters_Interface_Prototype_1.Properties.Resources._6478_200;
-            this.pictureBox2.Location = new System.Drawing.Point(443, 71);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(144, 107);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 29;
-            this.pictureBox2.TabStop = false;
             // 
             // label5
             // 
@@ -531,16 +523,6 @@
             this.pnlStaffs.Size = new System.Drawing.Size(241, 193);
             this.pnlStaffs.TabIndex = 22;
             // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = global::Code_Crafters_Interface_Prototype_1.Properties.Resources.booking_hotel;
-            this.pictureBox3.Location = new System.Drawing.Point(18, 12);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(205, 168);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 6;
-            this.pictureBox3.TabStop = false;
-            // 
             // tbpStaffThree
             // 
             this.tbpStaffThree.BackColor = System.Drawing.Color.LightGray;
@@ -576,6 +558,8 @@
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.btnUpdateStaffPersonalDetails);
+            this.panel3.Controls.Add(this.btnActivateStaff);
             this.panel3.Controls.Add(this.btnAuthorize);
             this.panel3.Controls.Add(this.panel6);
             this.panel3.Controls.Add(this.dgvManageStaff);
@@ -585,9 +569,29 @@
             this.panel3.Size = new System.Drawing.Size(863, 574);
             this.panel3.TabIndex = 24;
             // 
+            // btnUpdateStaffPersonalDetails
+            // 
+            this.btnUpdateStaffPersonalDetails.Location = new System.Drawing.Point(476, 485);
+            this.btnUpdateStaffPersonalDetails.Name = "btnUpdateStaffPersonalDetails";
+            this.btnUpdateStaffPersonalDetails.Size = new System.Drawing.Size(197, 30);
+            this.btnUpdateStaffPersonalDetails.TabIndex = 25;
+            this.btnUpdateStaffPersonalDetails.Text = "UPDATE STAFF DETAILS";
+            this.btnUpdateStaffPersonalDetails.UseVisualStyleBackColor = true;
+            this.btnUpdateStaffPersonalDetails.Click += new System.EventHandler(this.btnUpdateStaffPersonalDetails_Click);
+            // 
+            // btnActivateStaff
+            // 
+            this.btnActivateStaff.Location = new System.Drawing.Point(508, 117);
+            this.btnActivateStaff.Name = "btnActivateStaff";
+            this.btnActivateStaff.Size = new System.Drawing.Size(165, 30);
+            this.btnActivateStaff.TabIndex = 24;
+            this.btnActivateStaff.Text = "ACTIVATE STAFF";
+            this.btnActivateStaff.UseVisualStyleBackColor = true;
+            this.btnActivateStaff.Click += new System.EventHandler(this.btnActivateStaff_Click);
+            // 
             // btnAuthorize
             // 
-            this.btnAuthorize.Location = new System.Drawing.Point(54, 130);
+            this.btnAuthorize.Location = new System.Drawing.Point(54, 117);
             this.btnAuthorize.Name = "btnAuthorize";
             this.btnAuthorize.Size = new System.Drawing.Size(165, 30);
             this.btnAuthorize.TabIndex = 23;
@@ -618,7 +622,7 @@
             // 
             // txtManageStaffEmailAddress
             // 
-            this.txtManageStaffEmailAddress.Location = new System.Drawing.Point(206, 19);
+            this.txtManageStaffEmailAddress.Location = new System.Drawing.Point(225, 19);
             this.txtManageStaffEmailAddress.Name = "txtManageStaffEmailAddress";
             this.txtManageStaffEmailAddress.Size = new System.Drawing.Size(175, 22);
             this.txtManageStaffEmailAddress.TabIndex = 1;
@@ -631,9 +635,9 @@
             this.dgvManageStaff.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvManageStaff.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.staff_ID,
-            this.staffFirstNameDataGridViewTextBoxColumn1,
-            this.staffSurnameDataGridViewTextBoxColumn1,
-            this.staffphonenumberDataGridViewTextBoxColumn1,
+            this.staff_First_Name,
+            this.staff_Surname,
+            this.staff_phone_number,
             this.staff_Email,
             this.staffroleDataGridViewTextBoxColumn1,
             this.datejoinedDataGridViewTextBoxColumn1,
@@ -646,6 +650,29 @@
             this.dgvManageStaff.TabIndex = 19;
             this.dgvManageStaff.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvManageStaff_CellContentClick);
             // 
+            // staffBindingSourceTwo
+            // 
+            this.staffBindingSourceTwo.DataMember = "Staff";
+            this.staffBindingSourceTwo.DataSource = this.codeCraftersDSTWO;
+            // 
+            // btnSuspend
+            // 
+            this.btnSuspend.Location = new System.Drawing.Point(270, 117);
+            this.btnSuspend.Name = "btnSuspend";
+            this.btnSuspend.Size = new System.Drawing.Size(165, 30);
+            this.btnSuspend.TabIndex = 22;
+            this.btnSuspend.Text = "SUSPEND STAFF";
+            this.btnSuspend.UseVisualStyleBackColor = true;
+            this.btnSuspend.Click += new System.EventHandler(this.btnSuspend_Click);
+            // 
+            // taSfaffs
+            // 
+            this.taSfaffs.ClearBeforeFill = true;
+            // 
+            // taClients
+            // 
+            this.taClients.ClearBeforeFill = true;
+            // 
             // staff_ID
             // 
             this.staff_ID.DataPropertyName = "staff_ID";
@@ -653,26 +680,26 @@
             this.staff_ID.Name = "staff_ID";
             this.staff_ID.ReadOnly = true;
             // 
-            // staffFirstNameDataGridViewTextBoxColumn1
+            // staff_First_Name
             // 
-            this.staffFirstNameDataGridViewTextBoxColumn1.DataPropertyName = "staff_First_Name";
-            this.staffFirstNameDataGridViewTextBoxColumn1.HeaderText = "FIRST NAME";
-            this.staffFirstNameDataGridViewTextBoxColumn1.Name = "staffFirstNameDataGridViewTextBoxColumn1";
-            this.staffFirstNameDataGridViewTextBoxColumn1.Width = 110;
+            this.staff_First_Name.DataPropertyName = "staff_First_Name";
+            this.staff_First_Name.HeaderText = "FIRST NAME";
+            this.staff_First_Name.Name = "staff_First_Name";
+            this.staff_First_Name.Width = 110;
             // 
-            // staffSurnameDataGridViewTextBoxColumn1
+            // staff_Surname
             // 
-            this.staffSurnameDataGridViewTextBoxColumn1.DataPropertyName = "staff_Surname";
-            this.staffSurnameDataGridViewTextBoxColumn1.HeaderText = "LAST NAME";
-            this.staffSurnameDataGridViewTextBoxColumn1.Name = "staffSurnameDataGridViewTextBoxColumn1";
-            this.staffSurnameDataGridViewTextBoxColumn1.Width = 110;
+            this.staff_Surname.DataPropertyName = "staff_Surname";
+            this.staff_Surname.HeaderText = "LAST NAME";
+            this.staff_Surname.Name = "staff_Surname";
+            this.staff_Surname.Width = 110;
             // 
-            // staffphonenumberDataGridViewTextBoxColumn1
+            // staff_phone_number
             // 
-            this.staffphonenumberDataGridViewTextBoxColumn1.DataPropertyName = "staff_phone_number";
-            this.staffphonenumberDataGridViewTextBoxColumn1.HeaderText = "PHONE NO.";
-            this.staffphonenumberDataGridViewTextBoxColumn1.Name = "staffphonenumberDataGridViewTextBoxColumn1";
-            this.staffphonenumberDataGridViewTextBoxColumn1.Width = 110;
+            this.staff_phone_number.DataPropertyName = "staff_phone_number";
+            this.staff_phone_number.HeaderText = "PHONE NO.";
+            this.staff_phone_number.Name = "staff_phone_number";
+            this.staff_phone_number.Width = 110;
             // 
             // staff_Email
             // 
@@ -701,28 +728,25 @@
             this.staffstatusDataGridViewTextBoxColumn1.HeaderText = "STATUS";
             this.staffstatusDataGridViewTextBoxColumn1.Name = "staffstatusDataGridViewTextBoxColumn1";
             // 
-            // staffBindingSourceTwo
+            // pictureBox2
             // 
-            this.staffBindingSourceTwo.DataMember = "Staff";
-            this.staffBindingSourceTwo.DataSource = this.codeCraftersDSTWO;
+            this.pictureBox2.Image = global::Code_Crafters_Interface_Prototype_1.Properties.Resources._6478_200;
+            this.pictureBox2.Location = new System.Drawing.Point(443, 71);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(144, 107);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 29;
+            this.pictureBox2.TabStop = false;
             // 
-            // btnSuspend
+            // pictureBox3
             // 
-            this.btnSuspend.Location = new System.Drawing.Point(243, 130);
-            this.btnSuspend.Name = "btnSuspend";
-            this.btnSuspend.Size = new System.Drawing.Size(177, 30);
-            this.btnSuspend.TabIndex = 22;
-            this.btnSuspend.Text = "SUSPEND GUEST";
-            this.btnSuspend.UseVisualStyleBackColor = true;
-            this.btnSuspend.Click += new System.EventHandler(this.btnSuspend_Click);
-            // 
-            // taSfaffs
-            // 
-            this.taSfaffs.ClearBeforeFill = true;
-            // 
-            // taClients
-            // 
-            this.taClients.ClearBeforeFill = true;
+            this.pictureBox3.Image = global::Code_Crafters_Interface_Prototype_1.Properties.Resources.booking_hotel;
+            this.pictureBox3.Location = new System.Drawing.Point(18, 12);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(205, 168);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 6;
+            this.pictureBox3.TabStop = false;
             // 
             // StaffManagementForm
             // 
@@ -733,13 +757,11 @@
             this.Name = "StaffManagementForm";
             this.Text = "REGAL INN STAFF MANAGEMENT";
             this.Load += new System.EventHandler(this.StaffManagementForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.staffBindingSource)).EndInit();
             this.tbcStaffTwo.ResumeLayout(false);
             this.tbpStaffOne.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
             this.tbpStaffTwo.ResumeLayout(false);
@@ -752,7 +774,6 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.pnlStaffs.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.tbpStaffThree.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
@@ -761,6 +782,9 @@
             this.panel6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvManageStaff)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.staffBindingSourceTwo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.staffBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -800,14 +824,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn datejoinedDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn staffstatusDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource staffBindingSourceTwo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn staff_ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn staffFirstNameDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn staffSurnameDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn staffphonenumberDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn staff_Email;
-        private System.Windows.Forms.DataGridViewTextBoxColumn staffroleDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn datejoinedDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn staffstatusDataGridViewTextBoxColumn1;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Label label9;
@@ -832,5 +848,15 @@
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Button btnActivateStaff;
+        private System.Windows.Forms.Button btnUpdateStaffPersonalDetails;
+        private System.Windows.Forms.DataGridViewTextBoxColumn staff_ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn staff_First_Name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn staff_Surname;
+        private System.Windows.Forms.DataGridViewTextBoxColumn staff_phone_number;
+        private System.Windows.Forms.DataGridViewTextBoxColumn staff_Email;
+        private System.Windows.Forms.DataGridViewTextBoxColumn staffroleDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn datejoinedDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn staffstatusDataGridViewTextBoxColumn1;
     }
 }

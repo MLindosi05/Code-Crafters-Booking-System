@@ -60,6 +60,8 @@ namespace Code_Crafters_Booking_System
 
             ButtonStyler.Apply(btnBlackList);
             ButtonStyler.Apply(btnArchive);
+            ButtonStyler.Apply(btnActivateGuest);
+            ButtonStyler.Apply(btnUpdateGuestPersonalDetails);
 
             ConfigureDataGridViewTheme();
         }
@@ -289,9 +291,9 @@ namespace Code_Crafters_Booking_System
                     conn.Open();
                     string insertQuery = @"
                         INSERT INTO [GroupPmb2].[dbo].[Client] 
-                        ([First_Name], [Last_Name], [Password], [Email_Address], [Client_Address], [Phone_Number], [Client_Status], [Date_Registered], [Last_Login])
+                        ([First_Name], [Last_Name], [Password], [Email_Address], [Client_Address], [Phone_Number], [Client_Status], [Date_Registered]) 
                         VALUES 
-                        (@FirstName, @LastName, @Password, @Email, @Address, @Phone, @Status, GETDATE(), NULL);
+                        (@FirstName, @LastName, @Password, @Email, @Address, @Phone, @Status, GETDATE());
                         SELECT CAST(SCOPE_IDENTITY() AS INT);";
 
                     using (SqlCommand cmd = new SqlCommand(insertQuery, conn))
@@ -459,5 +461,66 @@ namespace Code_Crafters_Booking_System
         }
 
         #endregion
+
+        private void btnActivateGuest_Click(object sender, EventArgs e)
+        {
+            UpdateClientStatus("Active");
+        }
+
+        private void btnUpdateGuestPersonalDetails_Click(object sender, EventArgs e)
+        {
+            if (dgvManageClients.SelectedRows.Count == 0 && dgvManageClients.CurrentRow == null)
+            {
+                MessageBox.Show("Please select a guest from the grid first.", "Selection Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            DataGridViewRow row = dgvManageClients.SelectedRows.Count > 0 ? dgvManageClients.SelectedRows[0] : dgvManageClients.CurrentRow;
+
+            if (row.Cells["Client_ID"].Value == null)
+            {
+                MessageBox.Show("Selected row contains invalid data.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            int clientId = Convert.ToInt32(row.Cells["Client_ID"].Value);
+            string firstName = row.Cells["First_Name"]?.Value?.ToString() ?? "";
+            string lastName = row.Cells["Last_Name"]?.Value?.ToString() ?? "";
+            string email = row.Cells["Email_Address"]?.Value?.ToString() ?? "";
+            string phone = row.Cells["Phone_Number"]?.Value?.ToString() ?? "";
+
+            // Fetch Client_Address directly from DB since it is missing from the default DataGridView columns
+            string address = "";
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    string query = "SELECT [Client_Address] FROM [GroupPmb2].[dbo].[Client] WHERE [Client_ID] = @ClientID";
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@ClientID", clientId);
+                        object result = cmd.ExecuteScalar();
+                        if (result != null && result != DBNull.Value)
+                        {
+                            address = result.ToString();
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error fetching client address: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            using (UpdateGuestDetailsForm updateForm = new UpdateGuestDetailsForm(clientId, firstName, lastName, email, phone, address))
+            {
+                if (updateForm.ShowDialog() == DialogResult.OK)
+                {
+                    LoadGuestsData();
+                }
+            }
+        }
     }
 }
