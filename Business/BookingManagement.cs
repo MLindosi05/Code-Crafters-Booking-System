@@ -393,7 +393,7 @@ namespace Code_Crafters_Interface_Prototype_1.Business
             return codeCraftersDSTWO.Booking.AsEnumerable()
                 .Where(b => b.RowState != DataRowState.Deleted &&
                             b.Branch_ID?.Trim() == branchID?.Trim() &&
-                            (b.Booking_Status == "Pending" || b.Booking_Status == "Checked-In" || b.Booking_Status == "Booked"))
+                            (b.Booking_Status == "Checked-In" || b.Booking_Status == "Booked"))
                 .Any(b =>
                 {
                     int assignedRoomNo = ExtractRoomNumberFromBookingType(b.Booking_Type);
@@ -983,7 +983,8 @@ namespace Code_Crafters_Interface_Prototype_1.Business
                             // Check if the room is available for the new dates (excluding current booking ID)
                             if (IsRoomBookedForDatesExcludingCurrent(branchID, roomNumber, newCheckIn, newCheckOut, bookingID))
                             {
-                                MessageBox.Show("The assigned room is already booked for the newly selected dates. Please choose different dates.", "Room Unavailable", MessageBoxButtons.OK, MessageBoxIcon.Warning); return;
+                                MessageBox.Show("The assigned room is already booked for the newly selected dates. Please choose different dates.", "Room Unavailable", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                return;
                             }
                         }
 
@@ -997,6 +998,20 @@ namespace Code_Crafters_Interface_Prototype_1.Business
                         decimal newTotalAmount = nightlyRate * newNights;
 
                         decimal difference = newTotalAmount - currentTotalAmount;
+
+                        // If the stay is extended (price increases), open the Payment Form first
+                        if (difference > 0)
+                        {
+                            using (PaymentForm paymentForm = new PaymentForm(bookingID, difference))
+                            {
+                                if (paymentForm.ShowDialog() != DialogResult.OK)
+                                {
+                                    MessageBox.Show("Reschedule cancelled because payment was not completed.", "Payment Cancelled", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                    return;
+                                }
+                            }
+                        }
+
                         string financialSummary = "";
 
                         using (SqlConnection conn = new SqlConnection(connectionString))
@@ -1008,15 +1023,13 @@ namespace Code_Crafters_Interface_Prototype_1.Business
                                 {
                                     if (difference > 0)
                                     {
-                                        // Extension: Price increases
                                         financialSummary = $"Booking extended from {oldNights} to {newNights} night(s).\n\n" +
                                                            $"Previous Total: R {currentTotalAmount:N2}\n" +
                                                            $"New Total: R {newTotalAmount:N2}\n" +
-                                                           $"Additional Amount Due: R {difference:N2}";
+                                                           $"Additional Amount Paid: R {difference:N2}";
                                     }
                                     else if (difference < 0)
                                     {
-                                        // Reduction: Price decreases, user gets refund with 15% deduction
                                         decimal decreaseAmount = Math.Abs(difference);
                                         decimal penaltyFee = decreaseAmount * 0.15m;
                                         decimal refundAmount = decreaseAmount - penaltyFee;
@@ -1049,7 +1062,6 @@ namespace Code_Crafters_Interface_Prototype_1.Business
                                         cmdUpdate.ExecuteNonQuery();
                                     }
 
-                                    // Also update Room_Assignment dates if applicable
                                     string updateAssignQuery = @"
                                 UPDATE Room_Assignment 
                                 SET Actual_CheckIn_Time = @CheckIn, 

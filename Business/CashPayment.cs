@@ -81,6 +81,8 @@ namespace Code_Crafters_Interface_Prototype_1.Business
 
                 this.DialogResult = DialogResult.OK;
                 this.Close();
+                PaymentForm form = new PaymentForm();
+                form.Close();
             }
             catch (Exception ex)
             {

@@ -191,5 +191,11 @@ namespace Code_Crafters_Interface_Prototype_1.Business
                 MessageBox.Show("Error completing restaurant reservation: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void btnBackToBooking_Click(object sender, EventArgs e)
+        {
+            new BookingManagement().Show();
+            this.Hide();
+        }
     }
 }

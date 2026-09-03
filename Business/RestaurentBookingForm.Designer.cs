@@ -41,6 +41,7 @@
             this.taTableAllocation = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTWOTableAdapters.Table_AllocationTableAdapter();
             this.taBooking = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTWOTableAdapters.BookingTableAdapter();
             this.taRestuarant_Table = new Code_Crafters_Interface_Prototype_1.codeCraftersDSTWOTableAdapters.Restuarant_TableTableAdapter();
+            this.btnBackToBooking = new System.Windows.Forms.Button();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             this.panel1.SuspendLayout();
@@ -160,12 +161,24 @@
             // 
             this.taRestuarant_Table.ClearBeforeFill = true;
             // 
+            // btnBackToBooking
+            // 
+            this.btnBackToBooking.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBackToBooking.Location = new System.Drawing.Point(81, 277);
+            this.btnBackToBooking.Name = "btnBackToBooking";
+            this.btnBackToBooking.Size = new System.Drawing.Size(156, 39);
+            this.btnBackToBooking.TabIndex = 17;
+            this.btnBackToBooking.Text = "BACK TO BOOKING";
+            this.btnBackToBooking.UseVisualStyleBackColor = true;
+            this.btnBackToBooking.Click += new System.EventHandler(this.btnBackToBooking_Click);
+            // 
             // RestaurentBookingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightGray;
             this.ClientSize = new System.Drawing.Size(867, 398);
+            this.Controls.Add(this.btnBackToBooking);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnContinueToPayment);
             this.Controls.Add(this.panel4);
@@ -197,5 +210,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnBackToBooking;
     }
 }

@@ -1,7 +1,6 @@
 ﻿using Code_Crafters_Interface_Prototype_1;
 using System;
 using System.Drawing;
-using System.Web.UI.WebControls;
 using System.Windows.Forms;
 
 namespace Code_Crafters_Interface_Prototype_1.Business
@@ -9,6 +8,7 @@ namespace Code_Crafters_Interface_Prototype_1.Business
     public partial class PaymentForm : Form
     {
         private int _bookingID;
+        private decimal _amountDue;
         private bool _allowPaymentSelection = false;
 
         public PaymentForm()
@@ -25,6 +25,11 @@ namespace Code_Crafters_Interface_Prototype_1.Business
         public PaymentForm(int bookingID) : this()
         {
             _bookingID = bookingID;
+        }
+
+        public PaymentForm(int bookingID, decimal amountDue) : this(bookingID)
+        {
+            _amountDue = amountDue;
         }
 
         private void PaymentForm_Shown(object sender, EventArgs e)
@@ -44,7 +49,14 @@ namespace Code_Crafters_Interface_Prototype_1.Business
             radCash.Checked = false;
 
             CashPayment cashForm = new CashPayment(_bookingID);
-            cashForm.Show();
+            // If your CashPayment form can accept the amount due, you can pass it here if needed:
+            // CashPayment cashForm = new CashPayment(_bookingID, _amountDue);
+
+            if (cashForm.ShowDialog() == DialogResult.OK)
+            {
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
         }
 
         private void radCard_Click(object sender, EventArgs e)
@@ -55,7 +67,11 @@ namespace Code_Crafters_Interface_Prototype_1.Business
             radCard.Checked = false;
 
             CardPayment cardForm = new CardPayment(_bookingID);
-            cardForm.Show();
+            if (cardForm.ShowDialog() == DialogResult.OK)
+            {
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
         }
 
         private void radPayPal_Click(object sender, EventArgs e)
@@ -66,7 +82,11 @@ namespace Code_Crafters_Interface_Prototype_1.Business
             radPayPal.Checked = false;
 
             PayPalPayment paypalForm = new PayPalPayment(_bookingID);
-            paypalForm.Show();
+            if (paypalForm.ShowDialog() == DialogResult.OK)
+            {
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
         }
 
         private void radCash_CheckedChanged(object sender, EventArgs e)
@@ -84,7 +104,6 @@ namespace Code_Crafters_Interface_Prototype_1.Business
 
             Color goldColor = Color.FromArgb(212, 175, 55);
             label1.ForeColor = goldColor;
-            
         }
     }
 }
