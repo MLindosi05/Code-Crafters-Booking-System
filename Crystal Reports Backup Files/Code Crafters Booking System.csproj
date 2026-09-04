@@ -127,6 +127,12 @@
     <Compile Include="Business\RestaurentBookingForm.Designer.cs">
       <DependentUpon>RestaurentBookingForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Business\UpdateStaffDetailsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Business\UpdateStaffDetailsForm.Designer.cs">
+      <DependentUpon>UpdateStaffDetailsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="codeCraftersDS1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -235,6 +241,12 @@
       <DependentUpon>GuestManagementForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Common\Program.cs" />
+    <Compile Include="Interfaces\UpdateGuestDetailsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interfaces\UpdateGuestDetailsForm.Designer.cs">
+      <DependentUpon>UpdateGuestDetailsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Common\UserSession.cs" />
     <EmbeddedResource Include="Business\BookingManagement.resx">
@@ -273,6 +285,9 @@
     <EmbeddedResource Include="Business\StaffManagementForm.resx">
       <DependentUpon>StaffManagementForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Business\UpdateStaffDetailsForm.resx">
+      <DependentUpon>UpdateStaffDetailsForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Interfaces\AdminDashboardForm.resx">
       <DependentUpon>AdminDashboardForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -300,6 +315,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Interfaces\GuestManagementForm.resx">
       <DependentUpon>GuestManagementForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Interfaces\UpdateGuestDetailsForm.resx">
+      <DependentUpon>UpdateGuestDetailsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

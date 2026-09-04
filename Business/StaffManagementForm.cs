@@ -326,9 +326,9 @@ namespace Code_Crafters_Interface_Prototype_1.Business
                             // 1. Insert into Staff Table
                             string insertStaffQuery = @"
                                 INSERT INTO [GroupPmb2].[dbo].[Staff] 
-                                ([Branch_ID], [staff_First_Name], [staff_Surname], [staff_Address], [staff_phone_number], [staff_email], [staff_role], [date_joined], [staff_status], [staff_Password], [Last_Login], [Failed_Login_Count], [Password_Changed_Date])
+                                ([Branch_ID], [staff_First_Name], [staff_Surname], [staff_Address], [staff_phone_number], [staff_email], [staff_role], [date_joined], [staff_status], [staff_Password], [Failed_Login_Count], [Password_Changed_Date])
                                 VALUES 
-                                (@BranchID, @FirstName, @LastName, @Address, @Phone, @Email, @Role, GETDATE(), @Status, @Password, NULL, NULL, NULL);";
+                                (@BranchID, @FirstName, @LastName, @Address, @Phone, @Email, @Role, GETDATE(), @Status, @Password, NULL, NULL);";
 
                             using (SqlCommand cmdStaff = new SqlCommand(insertStaffQuery, conn, transaction))
                             {
@@ -345,12 +345,12 @@ namespace Code_Crafters_Interface_Prototype_1.Business
                                 cmdStaff.ExecuteNonQuery();
                             }
 
-                            // 2. Insert into Client Table
+                            // 2. Insert into Client Table (removed [Last_Login] column since it doesn't exist on the Client table)
                             string insertClientQuery = @"
                                 INSERT INTO [GroupPmb2].[dbo].[Client] 
-                                ([First_Name], [Last_Name], [Password], [Email_Address], [Client_Address], [Phone_Number], [Client_Status], [Date_Registered], [Last_Login])
+                                ([First_Name], [Last_Name], [Password], [Email_Address], [Client_Address], [Phone_Number], [Client_Status], [Date_Registered])
                                 VALUES 
-                                (@FirstName, @LastName, @Password, @Email, @Address, @Phone, @Status, GETDATE(), NULL);";
+                                (@FirstName, @LastName, @Password, @Email, @Address, @Phone, @Status, GETDATE());";
 
                             using (SqlCommand cmdClient = new SqlCommand(insertClientQuery, conn, transaction))
                             {
